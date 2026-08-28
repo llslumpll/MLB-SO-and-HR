@@ -180,6 +180,100 @@ def today_iso():
     return datetime.utcnow().strftime("%Y-%m-%d")
 
 
+_arsenal_cache = {}
+
+
+def fetch_pitch_arsenal(pitcher_id, year):
+    """Full-season pitch mix (type/usage/velocity) and zone-attack breakdown,
+    aggregated from raw Statcast pitch-by-pitch data."""
+    if pitcher_id in _arsenal_cache:
+        return _arsenal_cache[pitcher_id]
+    try:
+        start = f"{year}-01-01"
+        end = today_iso()
+        text = get_text(f"{SAVANT}/statcast_search/csv", params={
+            "all": "true", "hfGT": "R", "player_type": "pitcher",
+            "game_date_gt": start, "game_date_lt": end,
+            "pitchers_lookup[]": pitcher_id, "type": "details",
+        })
+        reader = csv.DictReader(io.StringIO(text))
+        rows = list(reader)
+        if not rows:
+            _arsenal_cache[pitcher_id] = None
+            return None
+        groups = {}
+        zone_counts = {}
+        in_zone, zone_known = 0, 0
+        for r in rows:
+            name = (r.get("pitch_name") or "").strip() or r.get("pitch_type") or "Unknown"
+            g = groups.setdefault(name, {"count": 0, "speed_sum": 0.0, "speed_n": 0})
+            g["count"] += 1
+            spd = to_num(r.get("release_speed"))
+            if spd is not None:
+                g["speed_sum"] += spd
+                g["speed_n"] += 1
+            z = r.get("zone")
+            try:
+                z = int(float(z))
+            except (TypeError, ValueError):
+                z = None
+            if z is not None:
+                zone_known += 1
+                if 1 <= z <= 9:
+                    in_zone += 1
+                    zone_counts[z] = zone_counts.get(z, 0) + 1
+        total = len(rows)
+        arsenal = sorted(
+            [{"name": n, "count": g["count"], "usage": g["count"] / total,
+              "avgVelo": (g["speed_sum"] / g["speed_n"]) if g["speed_n"] else None}
+             for n, g in groups.items()],
+            key=lambda a: -a["count"],
+        )
+        result = {
+            "arsenal": arsenal,
+            "zonePct": (in_zone / zone_known) if zone_known else None,
+            "zoneCounts": zone_counts,
+            "totalPitches": total,
+        }
+        _arsenal_cache[pitcher_id] = result
+        return result
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] pitch arsenal fetch failed for {pitcher_id}: {e}")
+        _arsenal_cache[pitcher_id] = None
+        return None
+
+
+def fetch_team_last_n_record(team_id, n=5, lookback_days=20):
+    """Record over the team's last N completed games."""
+    try:
+        end = datetime.utcnow()
+        start = end - timedelta(days=lookback_days)
+        data = get(f"{API}/schedule", params={
+            "teamId": team_id, "sportId": 1, "gameType": "R",
+            "startDate": start.strftime("%Y-%m-%d"), "endDate": end.strftime("%Y-%m-%d"),
+        })
+        games = []
+        for d in data.get("dates") or []:
+            games.extend(d.get("games") or [])
+        finals = [g for g in games if g.get("status", {}).get("abstractGameState") == "Final"]
+        finals.sort(key=lambda g: g.get("gameDate", ""))
+        last_n = finals[-n:]
+        wins, losses = 0, 0
+        for g in last_n:
+            home = g["teams"]["home"]
+            away = g["teams"]["away"]
+            is_home = home["team"]["id"] == team_id
+            me, opp = (home, away) if is_home else (away, home)
+            if me.get("isWinner"):
+                wins += 1
+            elif opp.get("isWinner"):
+                losses += 1
+        return {"wins": wins, "losses": losses, "games": len(last_n)}
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] last-N record fetch failed for team {team_id}: {e}")
+        return None
+
+
 def prob_to_american_odds(prob):
     prob = clip(prob, 0.01, 0.99)
     if prob >= 0.5:
