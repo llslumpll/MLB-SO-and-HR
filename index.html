@@ -682,14 +682,57 @@ function matchupCard(m){
   `;
 }
 
+let CURRENT_MATCHUP_GAME = null;
+let MATCHUP_GAMES = [];
+
+function groupMatchupsByGame(matchups){
+  const games = {};
+  matchups.forEach(m=>{
+    const key = [m.team, m.opp].sort().join('_');
+    if(!games[key]) games[key] = { key, label: [m.team, m.opp].sort().join(' vs '), pitchers: [] };
+    games[key].pitchers.push(m);
+  });
+  return Object.values(games).sort((a,b)=>a.label.localeCompare(b.label));
+}
+
 function renderMatchupsBubble(matchups){
+  MATCHUP_GAMES = groupMatchupsByGame(matchups);
+  if(!MATCHUP_GAMES.length){
+    return `
+      <div class="bubble">
+        <div class="bubble-title">Today's Pitcher Matchups</div>
+        <div class="placeholder">No probable pitchers found for this date.</div>
+      </div>
+    `;
+  }
+  if(!CURRENT_MATCHUP_GAME || !MATCHUP_GAMES.find(g=>g.key===CURRENT_MATCHUP_GAME)){
+    CURRENT_MATCHUP_GAME = MATCHUP_GAMES[0].key;
+  }
   return `
     <div class="bubble">
       <div class="bubble-title">Today's Pitcher Matchups</div>
-      <div class="bubble-sub">Every probable starter today: pitch mix, zone tendencies, recent Statcast quality, and how the opposing lineup has actually hit against them historically.</div>
-      ${matchups.length ? matchups.map(matchupCard).join('') : '<div class="placeholder">No probable pitchers found for this date.</div>'}
+      <div class="bubble-sub">Pick a game to see its probable starters: pitch mix, zone tendencies, and how the opposing lineup has hit against them historically.</div>
+      <div class="hr-subnav" id="matchupPicker" style="margin-top:0;margin-bottom:16px;">
+        ${MATCHUP_GAMES.map(g=>`<button class="hr-subtab${g.key===CURRENT_MATCHUP_GAME?' active':''}" onclick="selectMatchupGame('${g.key}')">${g.label}</button>`).join('')}
+      </div>
+      <div id="matchupDetailWrap"></div>
     </div>
   `;
+}
+
+function renderMatchupDetail(){
+  const el = document.getElementById('matchupDetailWrap');
+  if(!el) return;
+  const active = MATCHUP_GAMES.find(g=>g.key===CURRENT_MATCHUP_GAME);
+  el.innerHTML = active ? active.pitchers.map(matchupCard).join('') : '<div class="placeholder">Select a game above.</div>';
+}
+
+function selectMatchupGame(key){
+  CURRENT_MATCHUP_GAME = key;
+  document.querySelectorAll('#matchupPicker .hr-subtab').forEach(b=>{
+    b.classList.toggle('active', b.textContent === MATCHUP_GAMES.find(g=>g.key===key).label);
+  });
+  renderMatchupDetail();
 }
 
 function renderTeams(){
@@ -699,6 +742,7 @@ function renderTeams(){
     return;
   }
   wrap.innerHTML = renderLeagueBubble(TEAMS_DATA.teams) + renderStatsBubble(TEAMS_DATA.teams) + renderMatchupsBubble(TEAMS_DATA.matchups || []);
+  renderMatchupDetail();
 }
 
 // ---------- History ----------
