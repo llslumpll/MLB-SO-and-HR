@@ -1,0 +1,152 @@
+"""
+Pull live Kalshi HR/strikeout market prices and merge them into today's
+saved board JSON (marketProb/edge fields), matching by normalized name.
+No API key needed -- this runs server-side (GitHub Actions), so it isn't
+subject to the browser CORS restriction the live site hits.
+"""
+
+import json
+import re
+import sys
+import time
+
+from common import KALSHI, get, norm_name, to_num, clip
+
+
+def fetch_events(series_ticker):
+    events, cursor = [], None
+    while True:
+        params = {"series_ticker": series_ticker, "status": "open", "limit": 200}
+        if cursor:
+            params["cursor"] = cursor
+        data = get(f"{KALSHI}/events", params=params)
+        batch = data.get("events") or []
+        events.extend(batch)
+        cursor = data.get("cursor")
+        if not cursor or not batch:
+            break
+    return events
+
+
+def fetch_markets_for_event(event_ticker):
+    data = get(f"{KALSHI}/markets", params={"event_ticker": event_ticker, "status": "open"})
+    return data.get("markets") or []
+
+
+def ticker_threshold(ticker):
+    m = re.search(r"-(\d+)$", ticker or "")
+    return int(m.group(1)) if m else None
+
+
+def strip_display_name(sub):
+    m = re.match(r"^(.*?):\s*\d+\+\s*$", sub or "")
+    return m.group(1).strip() if m else (sub or "").strip()
+
+
+def pull_series(series_ticker, label):
+    print(f"Fetching {series_ticker} ({label})...")
+    try:
+        events = fetch_events(series_ticker)
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] couldn't reach Kalshi: {e}")
+        return []
+    if not events:
+        print("  no open events right now")
+        return []
+    print(f"  {len(events)} game(s)")
+
+    records = []
+    for ev in events:
+        ticker = ev.get("event_ticker")
+        if not ticker:
+            continue
+        try:
+            markets = fetch_markets_for_event(ticker)
+        except Exception:  # noqa: BLE001
+            continue
+        for m in markets:
+            sub = (m.get("yes_sub_title") or m.get("title") or "").strip()
+            mkt_ticker = m.get("ticker", "")
+            threshold = ticker_threshold(mkt_ticker)
+            if threshold is None or not sub:
+                continue
+            name = strip_display_name(sub)
+            price_raw = m.get("yes_ask_dollars") or m.get("yes_bid_dollars")
+            price = to_num(price_raw)
+            if not name or price is None or price <= 0:
+                continue
+            records.append({"name": name, "threshold": threshold, "price": price})
+        time.sleep(0.1)
+    return records
+
+
+def merge_hr(hr_data, records):
+    by_name = {}
+    for r in records:
+        if r["threshold"] == 1:
+            by_name[norm_name(r["name"])] = r
+    matched = 0
+    for e in hr_data["entries"]:
+        hit = by_name.get(norm_name(e["name"]))
+        if hit:
+            e["marketProb"] = hit["price"]
+            e["edge"] = e["heuristicProb"] - hit["price"]
+            matched += 1
+    print(f"  HR: matched {matched}/{len(hr_data['entries'])} entries to Kalshi prices")
+    return hr_data
+
+
+def poisson_prob_at_least(threshold, lam):
+    import math
+    if lam <= 0:
+        return 0.0 if threshold > 0 else 1.0
+    cum = 0.0
+    for k in range(threshold):
+        cum += math.exp(-lam + k * math.log(lam) - sum(math.log(i) for i in range(2, k + 1)))
+    return clip(1 - cum, 0.001, 0.999)
+
+
+def merge_ko(ko_data, records):
+    by_name = {}
+    for r in records:
+        key = norm_name(r["name"])
+        prev = by_name.get(key)
+        if prev is None or abs(r["price"] - 0.5) < abs(prev["price"] - 0.5):
+            by_name[key] = r
+    matched = 0
+    for e in ko_data["entries"]:
+        hit = by_name.get(norm_name(e["name"]))
+        if hit:
+            e["marketThreshold"] = hit["threshold"]
+            e["marketProb"] = hit["price"]
+            e["modelProb"] = poisson_prob_at_least(hit["threshold"], e["projectedK"])
+            e["edge"] = e["modelProb"] - hit["price"]
+            matched += 1
+    print(f"  K: matched {matched}/{len(ko_data['entries'])} entries to Kalshi prices")
+    return ko_data
+
+
+if __name__ == "__main__":
+    date = sys.argv[1]
+    hr_records = pull_series("KXMLBHR", "home runs")
+    ko_records = pull_series("KXMLBKS", "strikeouts")
+
+    try:
+        with open(f"data/hr/{date}.json") as f:
+            hr_data = json.load(f)
+        hr_data = merge_hr(hr_data, hr_records)
+        hr_data["entries"].sort(key=lambda e: -e["heuristicProb"])
+        with open(f"data/hr/{date}.json", "w") as f:
+            json.dump(hr_data, f, indent=2, default=str)
+    except FileNotFoundError:
+        print(f"  [warn] no data/hr/{date}.json to merge into")
+
+    try:
+        with open(f"data/ko/{date}.json") as f:
+            ko_data = json.load(f)
+        ko_data = merge_ko(ko_data, ko_records)
+        ko_data["entries"].sort(key=lambda e: -e["projectedK"])
+        with open(f"data/ko/{date}.json", "w") as f:
+            json.dump(ko_data, f, indent=2, default=str)
+    except FileNotFoundError:
+        print(f"  [warn] no data/ko/{date}.json to merge into")

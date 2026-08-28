@@ -1,0 +1,93 @@
+"""
+Full daily pipeline, run on a schedule by GitHub Actions:
+  1. Build today's HR board
+  2. Build today's Strikeouts board
+  3. Fetch live Kalshi odds and merge into both
+  4. Grade any past days whose games have finished
+  5. Update data/index.json (list of dates with saved boards, for History)
+"""
+
+import glob
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+
+from common import today_iso
+import build_hr
+import build_ko
+import fetch_kalshi
+import grade
+
+
+def main():
+    date = sys.argv[1] if len(sys.argv) > 1 else today_iso()
+    year = int(date[:4])
+
+    os.makedirs("data/hr", exist_ok=True)
+    os.makedirs("data/ko", exist_ok=True)
+
+    print("=" * 60)
+    print(f"STEP 1: Build HR board for {date}")
+    print("=" * 60)
+    hr_result = build_hr.build(date, year)
+    with open(f"data/hr/{date}.json", "w") as f:
+        json.dump(hr_result, f, indent=2, default=str)
+    print(f"Wrote data/hr/{date}.json with {len(hr_result['entries'])} entries")
+
+    print("=" * 60)
+    print(f"STEP 2: Build Strikeouts board for {date}")
+    print("=" * 60)
+    ko_result = build_ko.build(date, year)
+    with open(f"data/ko/{date}.json", "w") as f:
+        json.dump(ko_result, f, indent=2, default=str)
+    print(f"Wrote data/ko/{date}.json with {len(ko_result['entries'])} entries")
+
+    print("=" * 60)
+    print("STEP 3: Fetch and merge Kalshi odds")
+    print("=" * 60)
+    try:
+        hr_records = fetch_kalshi.pull_series("KXMLBHR", "home runs")
+        ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
+
+        with open(f"data/hr/{date}.json") as f:
+            hr_data = json.load(f)
+        hr_data = fetch_kalshi.merge_hr(hr_data, hr_records)
+        hr_data["entries"].sort(key=lambda e: -e["heuristicProb"])
+        with open(f"data/hr/{date}.json", "w") as f:
+            json.dump(hr_data, f, indent=2, default=str)
+
+        with open(f"data/ko/{date}.json") as f:
+            ko_data = json.load(f)
+        ko_data = fetch_kalshi.merge_ko(ko_data, ko_records)
+        ko_data["entries"].sort(key=lambda e: -e["projectedK"])
+        with open(f"data/ko/{date}.json", "w") as f:
+            json.dump(ko_data, f, indent=2, default=str)
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Kalshi step failed, continuing without odds: {e}")
+
+    print("=" * 60)
+    print("STEP 4: Grade past days")
+    print("=" * 60)
+    total_graded = 0
+    for path in sorted(glob.glob("data/hr/*.json")):
+        total_graded += grade.grade_hr_file(path)
+    for path in sorted(glob.glob("data/ko/*.json")):
+        total_graded += grade.grade_ko_file(path)
+    print(f"Graded {total_graded} entries total")
+
+    print("=" * 60)
+    print("STEP 5: Update date index")
+    print("=" * 60)
+    hr_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/hr/*.json"))
+    ko_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/ko/*.json"))
+    with open("data/index.json", "w") as f:
+        json.dump({"hrDates": hr_dates, "koDates": ko_dates, "updatedAt": today_iso()}, f, indent=2)
+    print(f"data/index.json: {len(hr_dates)} HR days, {len(ko_dates)} K days")
+
+    print("Done.")
+
+
+if __name__ == "__main__":
+    main()

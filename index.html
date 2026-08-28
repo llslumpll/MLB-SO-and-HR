@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLB Edge Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1420; --panel:#101f30; --panel-2:#152a40; --line:#223b52;
+    --chalk:#eef1f4; --slate:#7c93ab;
+    --amber:#f5a623; --amber-dim:#8a611f;
+    --green:#3ddc84; --green-dim:#1f5c3f;
+    --red:#ff5c5c; --red-dim:#6e2a2a;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--navy);color:var(--chalk);font-family:'Inter',sans-serif;}
+  body{background:radial-gradient(ellipse at 50% -10%, #123048 0%, var(--navy) 55%);min-height:100vh;}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 80px;}
+  header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:2px solid var(--line);padding-bottom:14px;margin-bottom:18px;}
+  h1{font-family:'Teko',sans-serif;font-weight:700;font-size:46px;letter-spacing:0.3px;margin:0;line-height:0.85;}
+  h1 span{color:var(--green);}
+  .sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--slate);letter-spacing:0.4px;}
+  nav.tabs2{display:flex;gap:6px;flex-wrap:wrap;}
+  .navbtn{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.4px;text-transform:uppercase;color:var(--slate);background:var(--panel);border:1px solid var(--line);padding:8px 14px;border-radius:4px;cursor:pointer;}
+  .navbtn.active{color:var(--navy);background:var(--green);border-color:var(--green);font-weight:600;}
+
+  .disclaimer{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:10px 14px;margin-bottom:16px;line-height:1.5;}
+  .disclaimer b{color:var(--amber);}
+  .status{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--slate);}
+
+  .date-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+  select{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--panel);color:var(--chalk);border:1px solid var(--line);border-radius:4px;padding:8px 12px;}
+
+  .hr-subnav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 16px;}
+  .hr-subtab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.3px;text-transform:uppercase;color:var(--slate);background:var(--panel);border:1px solid var(--line);padding:9px 16px;border-radius:6px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease;}
+  .hr-subtab:hover{border-color:var(--amber-dim);color:var(--chalk);transform:translateY(-1px);}
+  .hr-subtab.active{color:var(--navy);background:var(--amber);border-color:var(--amber);font-weight:600;box-shadow:0 2px 14px rgba(245,166,35,0.25);}
+  .hr-section{animation:hrFadeIn .4s ease;}
+  @keyframes hrFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .hr-section-title{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
+  .hr-section-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-bottom:16px;line-height:1.5;}
+
+  .card-grid{display:grid;gap:12px;}
+  .card-grid.cols-5{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+  .card-grid.cols-list{grid-template-columns:1fr;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:15px 17px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;position:relative;overflow:hidden;}
+  .card:hover{transform:translateY(-3px);border-color:var(--amber-dim);box-shadow:0 8px 22px rgba(0,0,0,0.35);}
+  .card.expanded{border-color:var(--amber);}
+  .card-rank{position:absolute;top:8px;right:14px;font-family:'Teko',sans-serif;font-size:30px;color:var(--line);line-height:1;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card-name{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--chalk);}
+  .card-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-top:2px;}
+  .card-stat{font-family:'Teko',sans-serif;font-size:32px;font-weight:600;color:var(--amber);line-height:1;text-align:right;}
+  .card-stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--slate);text-transform:uppercase;text-align:right;margin-top:2px;}
+  .card-reason{font-family:'Inter',sans-serif;font-size:12px;color:var(--chalk);margin-top:10px;line-height:1.5;opacity:.92;}
+  .card-details{max-height:0;overflow:hidden;transition:max-height .35s ease,margin-top .35s ease;margin-top:0;}
+  .card.expanded .card-details{max-height:520px;margin-top:12px;overflow-y:auto;}
+
+  .conf-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+  .conf-dot.conf-high{background:var(--green);}
+  .conf-dot.conf-medium{background:var(--amber);}
+  .conf-dot.conf-low{background:var(--red);}
+  .conf-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.3px;padding:2px 7px;border-radius:3px;border:1px solid var(--line);margin-left:8px;}
+  .conf-badge.conf-high{color:var(--green);border-color:var(--green-dim);}
+  .conf-badge.conf-medium{color:var(--amber);border-color:var(--amber-dim);}
+  .conf-badge.conf-low{color:var(--red);border-color:var(--red-dim);}
+
+  .stat-good{color:var(--green)!important;}
+  .stat-bad{color:var(--red)!important;}
+  .edge-pos{color:var(--green);font-weight:700;}
+  .edge-neg{color:var(--red);}
+  .edge-flat{color:var(--slate);}
+
+  .factor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;font-size:10.5px;margin-top:8px;}
+  .factor-item{background:var(--navy);border:1px solid var(--line);border-radius:3px;padding:6px 9px;}
+  .factor-item .fv{font-size:13px;font-weight:700;color:var(--chalk);}
+  .factor-item .fl{color:var(--slate);font-size:9px;text-transform:uppercase;}
+  .bx-line{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+  .bx-chip{background:var(--navy);border:1px solid var(--line);border-radius:3px;padding:3px 7px;color:var(--slate);}
+  .bx-chip b{color:var(--chalk);}
+
+  table.board{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+  table.board th{text-align:right;color:var(--slate);font-size:9.5px;letter-spacing:.4px;text-transform:uppercase;padding:9px 8px;border-bottom:1px solid var(--line);}
+  table.board th:nth-child(-n+2){text-align:left;}
+  table.board td{text-align:right;padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.05);}
+  table.board td:nth-child(-n+2){text-align:left;}
+  table.board tr:hover{background:var(--panel-2);}
+  .pname2{font-weight:600;color:var(--chalk);font-family:'Inter',sans-serif;font-size:13px;}
+  .pteam{color:var(--slate);font-size:10px;}
+  .whybtn{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--slate);background:transparent;border:1px solid var(--line);border-radius:3px;padding:2px 7px;cursor:pointer;}
+  .why-row td{background:var(--navy);text-align:left;padding:10px 16px;}
+
+  .placeholder{padding:50px 20px;text-align:center;color:var(--slate);font-family:'JetBrains Mono',monospace;font-size:13px;}
+
+  .month-group{margin-bottom:18px;}
+  .month-head{font-family:'Teko',sans-serif;font-size:24px;color:var(--chalk);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:8px;}
+  .day-card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:10px 14px;margin-bottom:8px;}
+  .day-head{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;}
+  .day-stats{color:var(--slate);font-size:10.5px;}
+  .day-body{display:none;margin-top:10px;}
+  .day-body.open{display:block;}
+  .day-sub-head{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--slate);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--line);}
+  .day-sub-head:first-child{border-top:none;padding-top:0;margin-top:0;}
+
+  footer{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--slate);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>MLB EDGE <span>BOARD</span></h1>
+      <div class="sub" id="genLabel">—</div>
+    </div>
+    <nav class="tabs2">
+      <button class="navbtn active" data-view="hr">HomeRuns</button>
+      <button class="navbtn" data-view="ko">Strikeouts</button>
+      <button class="navbtn" data-view="history">History</button>
+    </nav>
+  </header>
+
+  <div class="disclaimer">
+    <b>Read this:</b> this site updates itself automatically — a scheduled job pulls MLB data, Statcast metrics, and live Kalshi prices, computes projections, and grades yesterday's results, all without anyone opening a browser. Everything here is the same heuristic (not a trained model) described throughout the build: shrinkage toward league averages, matchup/park/weather/platoon factors for HR, and a Poisson-based line probability for strikeouts. See the date picker below to browse any past day.
+  </div>
+
+  <div class="date-row">
+    <span class="status">Viewing:</span>
+    <select id="dateSelect"></select>
+    <span class="status" id="loadStatus"></span>
+  </div>
+
+  <div id="hrView">
+    <div class="hr-subnav" id="hrSubnav">
+      <button class="hr-subtab active" data-section="trending">🔥 Trending Up</button>
+      <button class="hr-subtab" data-section="top5">⭐ Top 5</button>
+      <button class="hr-subtab" data-section="best15">🎯 Best 15</button>
+      <button class="hr-subtab" data-section="all">📋 All Projections</button>
+    </div>
+    <div id="hrSectionWrap">
+      <div class="hr-section" id="hrSection_trending"></div>
+      <div class="hr-section" id="hrSection_top5" style="display:none;"></div>
+      <div class="hr-section" id="hrSection_best15" style="display:none;"></div>
+      <div class="hr-section" id="hrSection_all" style="display:none;"></div>
+    </div>
+  </div>
+
+  <div id="koView" style="display:none;">
+    <div class="hr-subnav" id="koSubnav">
+      <button class="hr-subtab active" data-section="top5">⭐ Top 5</button>
+      <button class="hr-subtab" data-section="all">📋 All Projections</button>
+    </div>
+    <div id="koSectionWrap">
+      <div class="hr-section" id="koSection_top5"></div>
+      <div class="hr-section" id="koSection_all" style="display:none;"></div>
+    </div>
+  </div>
+
+  <div id="historyView" style="display:none;">
+    <div id="historyWrap"><div class="placeholder">Loading…</div></div>
+  </div>
+
+  <footer>Auto-updated daily via GitHub Actions · MLB Stats API · Baseball Savant · Kalshi public markets · thecapper.io park factors. All unofficial.</footer>
+</div>
+
+<script>
+let INDEX = { hrDates: [], koDates: [] };
+let HR_DATA = null, KO_DATA = null;
+let CURRENT_DATE = null;
+
+function pct(v){ return v===null||v===undefined ? '—' : (v*100).toFixed(1)+'%'; }
+function fmt3(v){
+  if(v===null||v===undefined) return '—';
+  const n = typeof v==='string' ? parseFloat(v) : v;
+  return isNaN(n) ? '—' : n.toFixed(3).replace(/^(-?)0\./,'$1.');
+}
+function statClass(val, goodMin, badMax, direction){
+  if(val===null||val===undefined||isNaN(val)) return '';
+  if(direction==='hi') return val>=goodMin ? 'stat-good' : val<=badMax ? 'stat-bad' : '';
+  return val<=goodMin ? 'stat-good' : val>=badMax ? 'stat-bad' : '';
+}
+
+async function fetchJSONLocal(path){
+  const res = await fetch(path);
+  if(!res.ok) throw new Error('HTTP '+res.status);
+  return res.json();
+}
+
+async function init(){
+  try{
+    INDEX = await fetchJSONLocal('data/index.json');
+  }catch(e){
+    document.getElementById('loadStatus').textContent = "couldn't load data/index.json — has the daily workflow run yet?";
+    return;
+  }
+  document.getElementById('genLabel').textContent = `data last updated ${INDEX.updatedAt||'—'}`;
+
+  const allDates = [...new Set([...(INDEX.hrDates||[]), ...(INDEX.koDates||[])])].sort().reverse();
+  const sel = document.getElementById('dateSelect');
+  sel.innerHTML = allDates.map(d => `<option value="${d}">${d}</option>`).join('');
+  if(allDates.length){
+    CURRENT_DATE = allDates[0];
+    sel.value = CURRENT_DATE;
+    await loadDate(CURRENT_DATE);
+  } else {
+    document.getElementById('loadStatus').textContent = 'no boards saved yet';
+  }
+  sel.addEventListener('change', () => loadDate(sel.value));
+}
+
+async function loadDate(date){
+  CURRENT_DATE = date;
+  document.getElementById('loadStatus').textContent = 'loading…';
+  try{
+    HR_DATA = await fetchJSONLocal(`data/hr/${date}.json`).catch(()=>({entries:[]}));
+    KO_DATA = await fetchJSONLocal(`data/ko/${date}.json`).catch(()=>({entries:[]}));
+    document.getElementById('loadStatus').textContent = `${HR_DATA.entries.length} HR entries, ${KO_DATA.entries.length} K entries`;
+    renderHR();
+    renderKO();
+  }catch(e){
+    document.getElementById('loadStatus').textContent = `failed to load ${date}: ${e.message}`;
+  }
+}
+
+// ---------- HomeRuns ----------
+function joinList(arr){
+  if(!arr.length) return '';
+  if(arr.length===1) return arr[0];
+  if(arr.length===2) return arr[0]+' and '+arr[1];
+  return arr.slice(0,-1).join(', ')+', and '+arr[arr.length-1];
+}
+
+function savantChipsColored(sv){
+  if(!sv) return `<div class="bx-line"><span class="bx-chip">advanced metrics unavailable</span></div>`;
+  const k=parseFloat(sv.k_percent), bb=parseFloat(sv.bb_percent), whiff=parseFloat(sv.whiff_percent),
+        chase=parseFloat(sv.chase_percent), hardHit=parseFloat(sv.hard_hit_percent),
+        ev=parseFloat(sv.exit_velocity), xwoba=parseFloat(sv.xwoba);
+  const chip=(l,v,c,s)=>`<span class="bx-chip">${l} <b class="${c}">${isNaN(v)?'—':v}${s||''}</b></span>`;
+  return `<div class="bx-line">
+    ${chip('K%', Math.round(k), statClass(k,20,27,'lo'), '%')}
+    ${chip('BB%', Math.round(bb), statClass(bb,10,6,'hi'), '%')}
+    ${chip('Whiff%', Math.round(whiff), statClass(whiff,22,30,'lo'), '%')}
+    ${chip('Chase%', Math.round(chase), statClass(chase,25,32,'lo'), '%')}
+    ${chip('Hard-Hit%', Math.round(hardHit), statClass(hardHit,40,30,'hi'), '%')}
+    ${chip('Avg EV', isNaN(ev)?'—':ev.toFixed(1), statClass(ev,90,87,'hi'), '')}
+    ${chip('xwOBA', fmt3(xwoba), statClass(xwoba,0.350,0.310,'hi'), '')}
+  </div>`;
+}
+
+function extraIntel(e){
+  const chips = [];
+  if(e.order) chips.push(`<span class="bx-chip"><b class="stat-good">Confirmed starter</b></span>`);
+  else chips.push(`<span class="bx-chip"><b class="stat-bad">Projected (lineup not posted)</b></span>`);
+  const streak = e.streak || {};
+  if(streak.type && streak.games >= 2){
+    const cls = streak.type==='hot' ? 'stat-good' : 'stat-bad';
+    const word = streak.type==='hot' ? 'HR in' : "Hasn't homered in";
+    chips.push(`<span class="bx-chip">${word} <b class="${cls}">${streak.games}</b> straight games</span>`);
+  }
+  if(e.vsPitcher){
+    const v = e.vsPitcher;
+    const cls = v.homeRuns>0 ? 'stat-good' : '';
+    chips.push(`<span class="bx-chip">vs this pitcher: <b class="${cls}">${v.hits}-${v.atBats}</b>, ${v.homeRuns} HR (${fmt3(v.ops)} OPS)</span>`);
+  }
+  if(e.veloTrend && e.veloTrend.delta !== undefined){
+    const d = e.veloTrend.delta;
+    const cls = d < -1.0 ? 'stat-good' : d > 1.0 ? 'stat-bad' : '';
+    const label = d < -1.0 ? 'declining velo' : d > 1.0 ? 'velo up' : 'steady velo';
+    chips.push(`<span class="bx-chip">Opp. SP FB: <b class="${cls}">${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season (${label})</span>`);
+  }
+  if(e.marketProb!==null && e.marketProb!==undefined){
+    chips.push(`<span class="bx-chip">FanDuel/Kalshi: <b>${pct(e.marketProb)}</b></span>`);
+  }
+  return `<div class="bx-line">${chips.join('')}</div>`;
+}
+
+function renderFactorsOnly(e){
+  const f = e.factors || {};
+  const item=(l,v,m)=>{ const c = m===undefined?'':m>1.05?'stat-good':m<0.95?'stat-bad':''; return `<div class="factor-item"><div class="fv ${c}">${v}</div><div class="fl">${l}</div></div>`; };
+  return `
+    <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
+    ${extraIntel(e)}
+    <div class="factor-grid">
+    ${item('Base (shrunk HR/PA)', f.base?(f.base*100).toFixed(1)+'%':'—')}
+    ${item('Recent form ×', f.form?f.form.toFixed(2):'1.00', f.form)}
+    ${item('Opp. pitcher HR9 ×', f.pitcherVuln?f.pitcherVuln.toFixed(2):'1.00', f.pitcherVuln)}
+    ${item('Power quality ×', f.powerQuality?f.powerQuality.toFixed(2):'1.00', f.powerQuality)}
+    ${item('Park factor ×', f.park?f.park.toFixed(2):'1.00', f.park)}
+    ${item('Weather ×', f.weather?f.weather.toFixed(2):'1.00', f.weather)}
+    ${item('Platoon split ×', f.handedness?f.handedness.toFixed(2):'1.00', f.handedness)}
+    </div>
+    ${savantChipsColored(e.savant)}
+  `;
+}
+
+function hrCard(e, rank){
+  const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.02 ? 'stat-good' : e.edge<-0.02 ? 'stat-bad' : '';
+  const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}pp edge</span>` : '';
+  const cardId = `hrc_${e.playerId}_${e.gamePk}`;
+  return `
+    <div class="card" id="${cardId}" onclick="document.getElementById('${cardId}').classList.toggle('expanded')">
+      <div class="card-rank">#${rank}</div>
+      <div class="card-top">
+        <div>
+          <div class="card-name"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}</div>
+          <div class="card-sub">${e.team} vs ${e.opp}${e.order?` · #${e.order} in order`:''}</div>
+        </div>
+        <div>
+          <div class="card-stat">${pct(e.heuristicProb)}</div>
+          <div class="card-stat-label">HR chance${edgeHtml}</div>
+        </div>
+      </div>
+      <div class="card-reason">${e.reason||''}</div>
+      <div class="card-details">${renderFactorsOnly(e)}</div>
+    </div>
+  `;
+}
+
+function trendCard(e, rank){
+  const wOps = e.trendWeekOPS, mOps = e.trendMonthOPS, sOps = e.seasonOPS;
+  const delta = (wOps!==null && wOps!==undefined && sOps!==null) ? wOps-sOps :
+                (mOps!==null && mOps!==undefined && sOps!==null) ? mOps-sOps : null;
+  const basis = (wOps!==null && wOps!==undefined) ? 'Last 7 days' : 'Last 30 days';
+  const useOps = (wOps!==null && wOps!==undefined) ? wOps : mOps;
+  return `
+    <div class="card">
+      <div class="card-rank">#${rank}</div>
+      <div class="card-top"><div><div class="card-name">${e.name}</div><div class="card-sub">${e.team} vs ${e.opp}</div></div></div>
+      <div class="bx-line" style="margin-top:9px;"><span class="bx-chip" style="background:rgba(61,220,132,.1);border-color:var(--green-dim);color:var(--green);">↑ ${basis} OPS ${delta!==null?(delta>0?'+':'')+delta.toFixed(3):'—'} vs season</span></div>
+      <div class="card-reason">${basis}: ${fmt3(useOps)} OPS<br>Season: ${fmt3(sOps)} OPS</div>
+    </div>
+  `;
+}
+
+function renderHR(){
+  const entries = (HR_DATA && HR_DATA.entries) || [];
+  if(!entries.length){
+    ['trending','top5','best15','all'].forEach(s=>{ document.getElementById(`hrSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    return;
+  }
+  const trending = entries.filter(e=>{
+    const d = (e.trendWeekOPS!==null&&e.trendWeekOPS!==undefined&&e.seasonOPS!==null) ? e.trendWeekOPS-e.seasonOPS :
+              (e.trendMonthOPS!==null&&e.trendMonthOPS!==undefined&&e.seasonOPS!==null) ? e.trendMonthOPS-e.seasonOPS : null;
+    return d!==null;
+  }).sort((a,b)=>{
+    const da = (a.trendWeekOPS??a.trendMonthOPS??0)-(a.seasonOPS??0);
+    const db = (b.trendWeekOPS??b.trendMonthOPS??0)-(b.seasonOPS??0);
+    return db-da;
+  }).slice(0,5);
+  document.getElementById('hrSection_trending').innerHTML = `
+    <div class="hr-section-title">🔥 Trending Up</div>
+    <div class="hr-section-sub">Batters whose recent OPS is running hottest vs their season average.</div>
+    <div class="card-grid cols-5">${trending.length?trending.map((e,i)=>trendCard(e,i+1)).join(''):'<div class="placeholder">No trend data available.</div>'}</div>
+  `;
+
+  const top5 = entries.slice(0,5);
+  const best15 = entries.slice(0,15);
+  document.getElementById('hrSection_top5').innerHTML = `
+    <div class="hr-section-title">⭐ Top 5 to Track</div>
+    <div class="hr-section-sub">The headline picks — click a card for the full reasoning.</div>
+    <div class="card-grid cols-5">${top5.map((e,i)=>hrCard(e,i+1)).join('')}</div>
+  `;
+  document.getElementById('hrSection_best15').innerHTML = `
+    <div class="hr-section-title">🎯 Best 15 — Edge &amp; Matchup</div>
+    <div class="hr-section-sub">Ranked by projected HR chance. Click a card for the full breakdown.</div>
+    <div class="card-grid cols-list">${best15.map((e,i)=>hrCard(e,i+1)).join('')}</div>
+  `;
+
+  const rows = entries.slice(0,80).map((e,i)=>{
+    const edgeClass = e.edge===null||e.edge===undefined ? 'edge-flat' : e.edge>0.02 ? 'edge-pos' : e.edge<-0.02 ? 'edge-neg' : 'edge-flat';
+    const rowId = `why_${e.playerId}_${e.gamePk}`;
+    return `
+      <tr>
+        <td>${i+1}</td>
+        <td><div class="pname2"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}</div><div class="pteam">${e.team} vs ${e.opp}${e.order?` · #${e.order}`:''}</div></td>
+        <td>${pct(e.heuristicProb)}</td>
+        <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td>
+        <td class="${edgeClass}">${e.edge===null||e.edge===undefined?'—':(e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'pp'}</td>
+        <td>${e.graded?(e.hr?'✅ HR':'—'):'—'}</td>
+        <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
+      </tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}</td></tr>
+    `;
+  }).join('');
+  document.getElementById('hrSection_all').innerHTML = `
+    <div class="hr-section-title">📋 All Projections</div>
+    <table class="board"><thead><tr><th>#</th><th>Batter</th><th>HR%</th><th>Market</th><th>Edge</th><th>Result</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>
+  `;
+}
+
+// ---------- Strikeouts ----------
+function koCard(e, rank){
+  const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.03 ? 'stat-good' : e.edge<-0.03 ? 'stat-bad' : '';
+  const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}pp edge</span>` : '';
+  return `
+    <div class="card">
+      <div class="card-rank">#${rank}</div>
+      <div class="card-top">
+        <div>
+          <div class="card-name"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}${e.hand?` (${e.hand}HP)`:''}</div>
+          <div class="card-sub">${e.team} vs ${e.opp} · ${e.seasonRecord||''}, ${e.era||'—'} ERA</div>
+        </div>
+        <div>
+          <div class="card-stat">${e.projectedK.toFixed(1)}</div>
+          <div class="card-stat-label">Proj K${e.marketThreshold?` · ${e.marketThreshold}+ line`:''}${edgeHtml}</div>
+        </div>
+      </div>
+      <div class="card-reason">${e.reason||''}</div>
+    </div>
+  `;
+}
+
+function renderKO(){
+  const entries = (KO_DATA && KO_DATA.entries) || [];
+  if(!entries.length){
+    ['top5','all'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    return;
+  }
+  const top5 = entries.slice(0,5);
+  document.getElementById('koSection_top5').innerHTML = `
+    <div class="hr-section-title">⭐ Top 5 Projections</div>
+    <div class="hr-section-sub">Highest projected strikeout totals, with reasoning.</div>
+    <div class="card-grid cols-5">${top5.map((e,i)=>koCard(e,i+1)).join('')}</div>
+  `;
+
+  const rows = entries.map((e,i)=>{
+    const edgeClass = e.edge===null||e.edge===undefined ? 'edge-flat' : e.edge>0.03 ? 'edge-pos' : e.edge<-0.03 ? 'edge-neg' : 'edge-flat';
+    const rowId = `kowhy_${e.playerId}`;
+    const startsLog = (e.recentStartsLog||[]).map(g=>`${g.k}K/${g.ip.toFixed(1)}IP`).join(', ');
+    return `
+      <tr>
+        <td><div class="pname2"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}${e.hand?` (${e.hand}HP)`:''}</div><div class="pteam">${e.team} vs ${e.opp} · ${e.seasonRecord||''}, ${e.era||'—'} ERA</div></td>
+        <td class="${statClass(e.seasonK9,8.5,7,'hi')}">${e.seasonK9.toFixed(1)}</td>
+        <td class="${e.recentK9!==null?statClass(e.recentK9,8.5,7,'hi'):''}">${e.recentK9!==null&&e.recentK9!==undefined?e.recentK9.toFixed(1):'—'}</td>
+        <td class="${e.oppK!==null?statClass(e.oppK,24,19,'hi'):''}">${e.oppK!==null&&e.oppK!==undefined?e.oppK.toFixed(1)+'%':'—'}</td>
+        <td>${e.expectedIP.toFixed(1)}</td>
+        <td style="color:var(--amber);font-weight:700;">${e.projectedK.toFixed(1)}</td>
+        <td>${e.marketThreshold?`${e.marketThreshold}+`:'—'}</td>
+        <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td>
+        <td>${e.modelProb!==null&&e.modelProb!==undefined?pct(e.modelProb):'—'}</td>
+        <td class="${edgeClass}">${e.edge===null||e.edge===undefined?'—':(e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'pp'}</td>
+        <td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'—'}</td>
+        <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
+      </tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="12">
+        <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
+        <div class="bx-line" style="margin-top:8px;">
+          ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
+          ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
+        </div>
+        <div class="factor-grid">
+          <div class="factor-item"><div class="fv">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
+          <div class="factor-item"><div class="fv">${e.matchupFactor.toFixed(2)}×</div><div class="fl">Matchup Factor</div></div>
+        </div>
+      </td></tr>
+    `;
+  }).join('');
+  document.getElementById('koSection_all').innerHTML = `
+    <div class="hr-section-title">📋 All Projections</div>
+    <table class="board"><thead><tr>
+      <th>Pitcher</th><th>Season K/9</th><th>L3 K/9</th><th>Opp K%</th><th>Exp IP</th>
+      <th>Proj K</th><th>Line</th><th>Market %</th><th>Model %</th><th>Edge</th><th>Result</th><th></th>
+    </tr></thead><tbody>${rows}</tbody></table>
+  `;
+}
+
+// ---------- History ----------
+async function loadHistory(){
+  const wrap = document.getElementById('historyWrap');
+  wrap.innerHTML = '<div class="placeholder">Loading…</div>';
+  const allDates = [...new Set([...(INDEX.hrDates||[]), ...(INDEX.koDates||[])])].sort().reverse();
+  if(!allDates.length){ wrap.innerHTML = '<div class="placeholder">No saved boards yet.</div>'; return; }
+
+  const dayData = {};
+  await Promise.all(allDates.map(async day=>{
+    const [hr, ko] = await Promise.all([
+      INDEX.hrDates.includes(day) ? fetchJSONLocal(`data/hr/${day}.json`).catch(()=>null) : null,
+      INDEX.koDates.includes(day) ? fetchJSONLocal(`data/ko/${day}.json`).catch(()=>null) : null,
+    ]);
+    dayData[day] = { hr, ko };
+  }));
+
+  const tiers = { High:{hrHit:0,hrTot:0,koHit:0,koTot:0}, Medium:{hrHit:0,hrTot:0,koHit:0,koTot:0}, Low:{hrHit:0,hrTot:0,koHit:0,koTot:0} };
+  Object.values(dayData).forEach(dd=>{
+    if(dd.hr) dd.hr.entries.forEach(e=>{
+      if(e.graded && e.confidence && tiers[e.confidence]){ tiers[e.confidence].hrTot++; if(e.hr) tiers[e.confidence].hrHit++; }
+    });
+    if(dd.ko) dd.ko.entries.forEach(e=>{
+      if(e.graded && e.confidence && e.marketThreshold!==null && tiers[e.confidence]){ tiers[e.confidence].koTot++; if(e.hit) tiers[e.confidence].koHit++; }
+    });
+  });
+  const tierRows = ['High','Medium','Low'].map(t=>{
+    const x = tiers[t];
+    return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
+  }).join('');
+
+  let html = `
+    <div class="day-card" style="margin-bottom:16px;">
+      <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Confidence Tier</div>
+      <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K line hit rate</th></tr></thead><tbody>${tierRows}</tbody></table>
+      <div class="status" style="margin-top:6px;">Only counts graded entries. Needs at least a couple weeks of data to mean much.</div>
+    </div>
+  `;
+  const byMonth = {};
+  allDates.forEach(d=>{ const m=d.slice(0,7); (byMonth[m]=byMonth[m]||[]).push(d); });
+  for(const month of Object.keys(byMonth).sort().reverse()){
+    html += `<div class="month-group"><div class="month-head">${month}</div>`;
+    for(const day of byMonth[month]){
+      const dd = dayData[day];
+      let hrSection='', koSection='';
+      if(dd.hr){
+        const graded = dd.hr.entries.filter(e=>e.graded);
+        const hits = graded.filter(e=>e.hr).length;
+        hrSection = `<div class="day-sub-head">Home Runs — ${dd.hr.entries.length} tracked, ${graded.length?`${hits}/${graded.length} hit (${(hits/graded.length*100).toFixed(1)}%)`:'ungraded'}</div>
+          <table class="board"><thead><tr><th>Batter</th><th>HR%</th><th>Market</th><th>Edge</th><th>Result</th></tr></thead>
+          <tbody>${dd.hr.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${pct(e.heuristicProb)}</td><td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td><td class="${e.edge>0?'edge-pos':e.edge<0?'edge-neg':'edge-flat'}">${e.edge===null||e.edge===undefined?'—':(e.edge*100).toFixed(1)+'pp'}</td><td>${e.graded?(e.hr?'✅ HR':'—'):'pending'}</td></tr>`).join('')}</tbody></table>`;
+      }
+      if(dd.ko){
+        const graded = dd.ko.entries.filter(e=>e.graded);
+        const gwl = graded.filter(e=>e.marketThreshold!==null);
+        const hits = gwl.filter(e=>e.hit).length;
+        koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} line hit (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+          <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Actual K</th><th>Result</th></tr></thead>
+          <tbody>${dd.ko.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${e.marketThreshold?e.marketThreshold+'+':'—'}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?'recorded':'—')):'pending'}</td></tr>`).join('')}</tbody></table>`;
+      }
+      html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}</div></div>`;
+    }
+    html += `</div>`;
+  }
+  wrap.innerHTML = html;
+}
+
+document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click', ()=>{
+  document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  const view = b.dataset.view;
+  document.getElementById('hrView').style.display = view==='hr' ? '' : 'none';
+  document.getElementById('koView').style.display = view==='ko' ? '' : 'none';
+  document.getElementById('historyView').style.display = view==='history' ? '' : 'none';
+  if(view==='history') loadHistory();
+}));
+
+['hrSubnav','koSubnav'].forEach(navId=>{
+  document.getElementById(navId).querySelectorAll('.hr-subtab').forEach(t=>t.addEventListener('click', ()=>{
+    const scope = navId==='hrSubnav' ? 'hrSection_' : 'koSection_';
+    document.getElementById(navId).querySelectorAll('.hr-subtab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    const section = t.dataset.section;
+    document.querySelectorAll(`[id^="${scope}"]`).forEach(s=>{ s.style.display='none'; });
+    const target = document.getElementById(`${scope}${section}`);
+    target.style.display = '';
+    target.classList.remove('hr-section'); void target.offsetWidth; target.classList.add('hr-section');
+  }));
+});
+
+init();
+</script>
+</body>
+</html>
