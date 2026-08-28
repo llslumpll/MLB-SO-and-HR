@@ -21,14 +21,34 @@ from common import (
 from build_hr import fetch_pitcher_hand, fetch_vs_pitcher
 
 
+# League affiliation is stable, well-known public information -- deriving it
+# this way sidesteps any mismatch in exactly how the API formats the league
+# field (e.g. "AL" vs "American League" vs missing entirely).
+AL_ABBRS = {"NYY", "BOS", "TB", "TOR", "BAL", "CWS", "CHW", "CLE", "DET", "KC",
+            "MIN", "HOU", "LAA", "OAK", "ATH", "SEA", "TEX"}
+NL_ABBRS = {"ATL", "MIA", "NYM", "PHI", "WSH", "CHC", "CIN", "MIL", "PIT",
+            "STL", "ARI", "COL", "LAD", "SD", "SF"}
+
+
+def classify_league(abbr, api_league_abbr):
+    if abbr in AL_ABBRS:
+        return "AL"
+    if abbr in NL_ABBRS:
+        return "NL"
+    # fall back to whatever the API said, in case of an unexpected team code
+    return api_league_abbr
+
+
 def fetch_team_list(year):
     data = get(f"{API}/teams", params={"sportId": 1, "season": year, "activeStatus": "Yes"})
     out = []
     for t in data.get("teams") or []:
+        abbr = t.get("abbreviation")
+        api_league = (t.get("league") or {}).get("abbreviation")
         out.append({
             "id": t["id"], "name": t.get("teamName") or t.get("name"),
-            "abbr": t.get("abbreviation"),
-            "league": (t.get("league") or {}).get("abbreviation"),
+            "abbr": abbr,
+            "league": classify_league(abbr, api_league),
             "division": (t.get("division") or {}).get("nameShort") or (t.get("division") or {}).get("name") or "",
         })
     return out
