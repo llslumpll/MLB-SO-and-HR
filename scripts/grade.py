@@ -3,13 +3,41 @@ Walk every saved day's HR/K board and grade any ungraded entries against
 real box scores. Safe to run repeatedly -- already-graded entries are
 left alone, and games that haven't finished yet are simply skipped
 (they'll get picked up on a future run).
+
+Important: MLB's boxscore endpoint pre-populates a player's stats object
+(with zeros) as soon as a lineup is set, even before the game starts --
+so we can't infer "game is over" from whether the stats object exists.
+We check the actual game status instead.
 """
 
 import glob
 import json
-import os
 
 from common import API, get
+
+
+_status_cache = {}
+
+
+def is_game_final(game_pk):
+    """True only if the game has actually completed."""
+    if game_pk in _status_cache:
+        return _status_cache[game_pk]
+    try:
+        data = get(f"{API}/schedule", params={"gamePk": game_pk})
+        dates = data.get("dates") or []
+        games = dates[0]["games"] if dates else []
+        if not games:
+            _status_cache[game_pk] = False
+            return False
+        status = games[0].get("status", {})
+        final = status.get("abstractGameState") == "Final"
+        _status_cache[game_pk] = final
+        return final
+    except Exception as e:  # noqa: BLE001
+        print(f"    [warn] status check failed for game {game_pk}: {e}")
+        _status_cache[game_pk] = False
+        return False
 
 
 def fetch_boxscore(game_pk):
@@ -19,21 +47,46 @@ def fetch_boxscore(game_pk):
 def grade_hr_file(path):
     with open(path) as f:
         data = json.load(f)
+
+    # Self-heal: entries marked graded=True whose game isn't actually Final
+    # are artifacts of a prior bug (grading before the game finished). Reset
+    # them so they get correctly re-graded once the game genuinely ends.
+    wrongly_graded_pks = {e["gamePk"] for e in data["entries"] if e.get("graded")}
+    repaired = 0
+    for pk in wrongly_graded_pks:
+        if not is_game_final(pk):
+            for e in data["entries"]:
+                if e["gamePk"] == pk and e.get("graded"):
+                    e["graded"] = False
+                    e["hr"] = None
+                    repaired += 1
+    if repaired:
+        print(f"    repaired {repaired} entries incorrectly graded before their game finished")
+
     pending = [e for e in data["entries"] if not e.get("graded")]
     if not pending:
+        if repaired:
+            with open(path, "w") as f:
+                json.dump(data, f, indent=2, default=str)
         return 0
-    game_pks = sorted(set(e["gamePk"] for e in pending))
+
+    final_game_pks = {pk for pk in {e["gamePk"] for e in pending} if is_game_final(pk)}
+    if not final_game_pks:
+        if repaired:
+            with open(path, "w") as f:
+                json.dump(data, f, indent=2, default=str)
+        return 0
+
     boxscores = {}
-    for pk in game_pks:
+    for pk in final_game_pks:
         try:
             boxscores[pk] = fetch_boxscore(pk)
         except Exception as e:  # noqa: BLE001
             print(f"    [warn] boxscore fetch failed for game {pk}: {e}")
-            boxscores[pk] = None
 
     graded_count = 0
     for e in data["entries"]:
-        if e.get("graded"):
+        if e.get("graded") or e["gamePk"] not in final_game_pks:
             continue
         box = boxscores.get(e["gamePk"])
         if not box:
@@ -41,13 +94,11 @@ def grade_hr_file(path):
         all_players = {**(box["teams"]["away"].get("players") or {}), **(box["teams"]["home"].get("players") or {})}
         p = all_players.get(f"ID{e['playerId']}")
         if p and p.get("stats", {}).get("batting") is not None:
-            # game is final if the boxscore has a batting line recorded with atBats present
-            if "atBats" in p["stats"]["batting"] or box.get("teams", {}).get("away", {}).get("teamStats"):
-                e["graded"] = True
-                e["hr"] = (p["stats"]["batting"].get("homeRuns") or 0) > 0
-                graded_count += 1
+            e["graded"] = True
+            e["hr"] = (p["stats"]["batting"].get("homeRuns") or 0) > 0
+            graded_count += 1
 
-    if graded_count:
+    if graded_count or repaired:
         with open(path, "w") as f:
             json.dump(data, f, indent=2, default=str)
     return graded_count
@@ -56,37 +107,59 @@ def grade_hr_file(path):
 def grade_ko_file(path):
     with open(path) as f:
         data = json.load(f)
+
+    wrongly_graded_pks = {e["gamePk"] for e in data["entries"] if e.get("graded") and e.get("gamePk")}
+    repaired = 0
+    for pk in wrongly_graded_pks:
+        if not is_game_final(pk):
+            for e in data["entries"]:
+                if e.get("gamePk") == pk and e.get("graded"):
+                    e["graded"] = False
+                    e["actualK"] = None
+                    e["hit"] = None
+                    repaired += 1
+    if repaired:
+        print(f"    repaired {repaired} entries incorrectly graded before their game finished")
+
     pending = [e for e in data["entries"] if not e.get("graded")]
     if not pending:
+        if repaired:
+            with open(path, "w") as f:
+                json.dump(data, f, indent=2, default=str)
         return 0
-    game_pks = sorted(set(e["gamePk"] for e in pending if e.get("gamePk")))
+
+    final_game_pks = {pk for pk in {e.get("gamePk") for e in pending if e.get("gamePk")} if is_game_final(pk)}
+    if not final_game_pks:
+        if repaired:
+            with open(path, "w") as f:
+                json.dump(data, f, indent=2, default=str)
+        return 0
+
     boxscores = {}
-    for pk in game_pks:
+    for pk in final_game_pks:
         try:
             boxscores[pk] = fetch_boxscore(pk)
         except Exception as e:  # noqa: BLE001
             print(f"    [warn] boxscore fetch failed for game {pk}: {e}")
-            boxscores[pk] = None
 
     graded_count = 0
     for e in data["entries"]:
-        if e.get("graded"):
+        if e.get("graded") or e.get("gamePk") not in final_game_pks:
             continue
-        box = boxscores.get(e.get("gamePk"))
+        box = boxscores.get(e["gamePk"])
         if not box:
             continue
         all_players = {**(box["teams"]["away"].get("players") or {}), **(box["teams"]["home"].get("players") or {})}
         p = all_players.get(f"ID{e['playerId']}")
         if p and p.get("stats", {}).get("pitching") is not None:
             pitching = p["stats"]["pitching"]
-            if "strikeOuts" in pitching:
-                e["graded"] = True
-                e["actualK"] = pitching.get("strikeOuts")
-                if e.get("marketThreshold") is not None and e["actualK"] is not None:
-                    e["hit"] = e["actualK"] >= e["marketThreshold"]
-                graded_count += 1
+            e["graded"] = True
+            e["actualK"] = pitching.get("strikeOuts")
+            if e.get("marketThreshold") is not None and e["actualK"] is not None:
+                e["hit"] = e["actualK"] >= e["marketThreshold"]
+            graded_count += 1
 
-    if graded_count:
+    if graded_count or repaired:
         with open(path, "w") as f:
             json.dump(data, f, indent=2, default=str)
     return graded_count
