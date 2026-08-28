@@ -41,6 +41,10 @@
   .hr-subtab.active{color:var(--navy);background:var(--amber);border-color:var(--amber);font-weight:600;box-shadow:0 2px 14px rgba(245,166,35,0.25);}
   .hr-section{animation:hrFadeIn .4s ease;}
   @keyframes hrFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes camExit{from{opacity:1;transform:perspective(900px) rotateX(0deg) scale(1) translateY(0);filter:blur(0px);}to{opacity:0;transform:perspective(900px) rotateX(9deg) scale(.94) translateY(-14px);filter:blur(7px);}}
+  @keyframes camEnter{from{opacity:0;transform:perspective(900px) rotateX(-9deg) scale(.94) translateY(14px);filter:blur(7px);}to{opacity:1;transform:perspective(900px) rotateX(0deg) scale(1) translateY(0);filter:blur(0px);}}
+  .cam-exit{animation:camExit .22s ease forwards;}
+  .cam-enter{animation:camEnter .4s cubic-bezier(.22,.9,.24,1) forwards;}
   .glitch-active{animation:glitchflicker .15s steps(2) 2;position:relative;}
   @keyframes glitchflicker{0%{clip-path:inset(0 0 0 0);transform:translate(0);}20%{clip-path:inset(20% 0 60% 0);transform:translate(-2px,0);text-shadow:2px 0 var(--red),-2px 0 var(--amber);}40%{clip-path:inset(60% 0 10% 0);transform:translate(2px,0);}60%{clip-path:inset(10% 0 70% 0);transform:translate(-1px,0);}100%{clip-path:inset(0 0 0 0);transform:translate(0);text-shadow:0 0 10px rgba(255,46,136,.7);}}
   .hr-section-title{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
@@ -736,7 +740,19 @@ function selectMatchupGame(key){
   document.querySelectorAll('#matchupPicker .hr-subtab').forEach(b=>{
     b.classList.toggle('active', b.textContent === MATCHUP_GAMES.find(g=>g.key===key).label);
   });
-  renderMatchupDetail();
+  const el = document.getElementById('matchupDetailWrap');
+  if(el){
+    el.classList.remove('cam-enter');
+    el.classList.add('cam-exit');
+    setTimeout(()=>{
+      renderMatchupDetail();
+      el.classList.remove('cam-exit');
+      void el.offsetWidth;
+      el.classList.add('cam-enter');
+    }, 220);
+  } else {
+    renderMatchupDetail();
+  }
 }
 
 function renderTeams(){
@@ -815,14 +831,33 @@ async function loadHistory(){
   wrap.innerHTML = html;
 }
 
+function cameraSwap(hideEl, showEl){
+  if(hideEl && hideEl !== showEl){
+    hideEl.classList.remove('cam-enter');
+    hideEl.classList.add('cam-exit');
+  }
+  setTimeout(()=>{
+    if(hideEl && hideEl !== showEl){
+      hideEl.style.display = 'none';
+      hideEl.classList.remove('cam-exit');
+    }
+    if(showEl){
+      showEl.style.display = '';
+      showEl.classList.remove('cam-exit','cam-enter');
+      void showEl.offsetWidth;
+      showEl.classList.add('cam-enter');
+    }
+  }, hideEl && hideEl !== showEl ? 220 : 0);
+}
+
 document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click', ()=>{
   document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));
   b.classList.add('active');
   const view = b.dataset.view;
-  document.getElementById('hrView').style.display = view==='hr' ? '' : 'none';
-  document.getElementById('koView').style.display = view==='ko' ? '' : 'none';
-  document.getElementById('teamsView').style.display = view==='teams' ? '' : 'none';
-  document.getElementById('historyView').style.display = view==='history' ? '' : 'none';
+  const views = { hr:'hrView', ko:'koView', teams:'teamsView', history:'historyView' };
+  const currentlyVisible = Object.values(views).map(id=>document.getElementById(id)).find(el=>el.style.display!=='none');
+  const target = document.getElementById(views[view]);
+  cameraSwap(currentlyVisible, target);
   if(view==='history') loadHistory();
 }));
 
@@ -832,10 +867,9 @@ document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click', ()=>
     document.getElementById(navId).querySelectorAll('.hr-subtab').forEach(x=>x.classList.remove('active'));
     t.classList.add('active');
     const section = t.dataset.section;
-    document.querySelectorAll(`[id^="${scope}"]`).forEach(s=>{ s.style.display='none'; });
+    const currentlyVisible = Array.from(document.querySelectorAll(`[id^="${scope}"]`)).find(s=>s.style.display!=='none');
     const target = document.getElementById(`${scope}${section}`);
-    target.style.display = '';
-    target.classList.remove('hr-section'); void target.offsetWidth; target.classList.add('hr-section');
+    cameraSwap(currentlyVisible, target);
   }));
 });
 
