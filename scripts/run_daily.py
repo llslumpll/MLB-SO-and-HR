@@ -17,6 +17,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from common import today_iso
 import build_hr
 import build_ko
+import build_teams
 import fetch_kalshi
 import grade
 
@@ -27,6 +28,7 @@ def main():
 
     os.makedirs("data/hr", exist_ok=True)
     os.makedirs("data/ko", exist_ok=True)
+    os.makedirs("data/teams", exist_ok=True)
 
     print("=" * 60)
     print(f"STEP 1: Build HR board for {date}")
@@ -43,6 +45,18 @@ def main():
     with open(f"data/ko/{date}.json", "w") as f:
         json.dump(ko_result, f, indent=2, default=str)
     print(f"Wrote data/ko/{date}.json with {len(ko_result['entries'])} entries")
+
+    print("=" * 60)
+    print(f"STEP 2b: Build Teams/Matchups board for {date}")
+    print("=" * 60)
+    try:
+        games_today = build_hr.fetch_schedule(date)
+        teams_result = build_teams.build(date, year, games_today)
+        with open(f"data/teams/{date}.json", "w") as f:
+            json.dump(teams_result, f, indent=2, default=str)
+        print(f"Wrote data/teams/{date}.json with {len(teams_result['teams'])} teams, {len(teams_result['matchups'])} matchups")
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Teams/Matchups build failed, continuing without it: {e}")
 
     print("=" * 60)
     print("STEP 3: Fetch and merge Kalshi odds")
@@ -82,9 +96,10 @@ def main():
     print("=" * 60)
     hr_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/hr/*.json"))
     ko_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/ko/*.json"))
+    teams_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/teams/*.json"))
     with open("data/index.json", "w") as f:
-        json.dump({"hrDates": hr_dates, "koDates": ko_dates, "updatedAt": today_iso()}, f, indent=2)
-    print(f"data/index.json: {len(hr_dates)} HR days, {len(ko_dates)} K days")
+        json.dump({"hrDates": hr_dates, "koDates": ko_dates, "teamsDates": teams_dates, "updatedAt": today_iso()}, f, indent=2)
+    print(f"data/index.json: {len(hr_dates)} HR days, {len(ko_dates)} K days, {len(teams_dates)} team-board days")
 
     print("Done.")
 
