@@ -10,9 +10,9 @@
   :root{
     --navy:#000000; --panel:#0a0a0a; --panel-2:#151515; --line:#232323;
     --chalk:#eeeeee; --slate:#5c5c5c;
-    --amber:#00FFD1; --amber-dim:#0d4a42;
+    --amber:#A6FF00; --amber-dim:#2d4a0d;
     --green:#39FF14; --green-dim:#1a4d0f;
-    --red:#FF2E88; --red-dim:#4d0f2e;
+    --red:#FFD400; --red-dim:#4d4400;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--navy);color:var(--chalk);font-family:'JetBrains Mono',monospace;}
@@ -21,9 +21,10 @@
   ::selection{background:var(--red);color:#000;}
   .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 80px;}
   header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px;}
-  h1{font-family:'Teko',sans-serif;font-weight:700;font-size:46px;letter-spacing:0.3px;margin:0;line-height:0.85;}
-  h1 span{color:var(--red);text-shadow:0 0 10px rgba(255,46,136,.7);}
+  h1{font-family:'Teko',sans-serif;font-weight:700;font-size:68px;letter-spacing:-1px;margin:0;line-height:0.85;}
+  h1 span{color:var(--red);text-shadow:0 0 10px rgba(255,212,0,.7);}
   .sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--slate);letter-spacing:0.4px;}
+  .sys-tag{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--amber-dim);letter-spacing:1px;text-transform:uppercase;margin-top:6px;opacity:.7;}
   nav.tabs2{display:flex;gap:6px;flex-wrap:wrap;}
   .navbtn{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.4px;text-transform:uppercase;color:var(--slate);background:var(--panel);border:1px solid var(--line);padding:8px 14px;border-radius:0;cursor:pointer;}
   .navbtn.active{color:#000;background:var(--amber);border-color:var(--amber);font-weight:600;text-shadow:none;}
@@ -43,24 +44,24 @@
   @keyframes hrFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
   @keyframes camExit{from{opacity:1;transform:perspective(900px) rotateX(0deg) scale(1) translateY(0);filter:blur(0px);}to{opacity:0;transform:perspective(900px) rotateX(9deg) scale(.94) translateY(-14px);filter:blur(7px);}}
   @keyframes camEnter{from{opacity:0;transform:perspective(900px) rotateX(-9deg) scale(.94) translateY(14px);filter:blur(7px);}to{opacity:1;transform:perspective(900px) rotateX(0deg) scale(1) translateY(0);filter:blur(0px);}}
-  .cam-exit{animation:camExit .22s ease forwards;}
-  .cam-enter{animation:camEnter .4s cubic-bezier(.22,.9,.24,1) forwards;}
+  .cam-exit{animation:camExit .42s ease forwards;}
+  .cam-enter{animation:camEnter .75s cubic-bezier(.22,.9,.24,1) forwards;}
   .glitch-active{animation:glitchflicker .15s steps(2) 2;position:relative;}
-  @keyframes glitchflicker{0%{clip-path:inset(0 0 0 0);transform:translate(0);}20%{clip-path:inset(20% 0 60% 0);transform:translate(-2px,0);text-shadow:2px 0 var(--red),-2px 0 var(--amber);}40%{clip-path:inset(60% 0 10% 0);transform:translate(2px,0);}60%{clip-path:inset(10% 0 70% 0);transform:translate(-1px,0);}100%{clip-path:inset(0 0 0 0);transform:translate(0);text-shadow:0 0 10px rgba(255,46,136,.7);}}
-  .hr-section-title{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
+  @keyframes glitchflicker{0%{clip-path:inset(0 0 0 0);transform:translate(0);}20%{clip-path:inset(20% 0 60% 0);transform:translate(-2px,0);text-shadow:2px 0 var(--red),-2px 0 var(--amber);}40%{clip-path:inset(60% 0 10% 0);transform:translate(2px,0);}60%{clip-path:inset(10% 0 70% 0);transform:translate(-1px,0);}100%{clip-path:inset(0 0 0 0);transform:translate(0);text-shadow:0 0 10px rgba(255,212,0,.7);}}
+  .hr-section-title{font-family:'Teko',sans-serif;font-size:32px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
   .hr-section-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-bottom:16px;line-height:1.5;}
 
   .card-grid{display:grid;gap:12px;}
   .card-grid.cols-5{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
   .card-grid.cols-list{grid-template-columns:1fr;}
   .card{background:var(--panel);border:none;border-left:3px solid var(--amber);border-radius:0;padding:15px 17px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;position:relative;overflow:hidden;}
-  .card:hover{transform:translateX(2px);box-shadow:-3px 0 16px rgba(0,255,209,.25);}
-  .card.expanded{border-left-color:var(--red);box-shadow:-3px 0 16px rgba(255,46,136,.3);}
+  .card:hover{transform:translateX(2px);box-shadow:-3px 0 16px rgba(166,255,0,.25);}
+  .card.expanded{border-left-color:var(--red);box-shadow:-3px 0 16px rgba(255,212,0,.3);}
   .card-rank{position:absolute;top:8px;right:14px;font-family:'Teko',sans-serif;font-size:30px;color:var(--line);line-height:1;}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
   .card-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--chalk);}
   .card-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-top:2px;}
-  .card-stat{font-family:'Teko',sans-serif;font-size:32px;font-weight:600;color:var(--amber);line-height:1;text-align:right;text-shadow:0 0 12px rgba(0,255,209,.6);}
+  .card-stat{font-family:'Teko',sans-serif;font-size:32px;font-weight:600;color:var(--amber);line-height:1;text-align:right;text-shadow:0 0 12px rgba(166,255,0,.6);}
   .card-stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--slate);text-transform:uppercase;text-align:right;margin-top:2px;}
   .card-reason{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--chalk);margin-top:10px;line-height:1.6;opacity:.85;}
   .card-details{max-height:0;overflow:hidden;transition:max-height .35s ease,margin-top .35s ease;margin-top:0;}
@@ -112,10 +113,13 @@
   .day-sub-head{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--slate);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--line);}
   .day-sub-head:first-child{border-top:none;padding-top:0;margin-top:0;}
 
-  footer{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--slate);}
+  footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);text-align:left;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--slate);letter-spacing:.5px;line-height:2;}
+  footer b{color:var(--amber-dim);}
+  footer .warn{color:var(--red-dim);text-transform:uppercase;}
+  footer .credit{display:block;margin-top:8px;opacity:.6;}
 
   .bubble{background:var(--panel);border:1px solid var(--line);border-radius:0;padding:18px 20px;margin-bottom:20px;}
-  .bubble-title{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
+  .bubble-title{font-family:'Teko',sans-serif;font-size:32px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
   .bubble-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-bottom:14px;line-height:1.5;}
 
   .league-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
@@ -171,12 +175,13 @@
     <div>
       <h1>MLB EDGE <span id="glitchLogo">BOARD</span></h1>
       <div class="sub" id="genLabel">—</div>
+      <div class="sys-tag">SYS.MLB-EDGE // AUTO-BUILD // NO HUMAN IN THE LOOP</div>
     </div>
     <nav class="tabs2">
-      <button class="navbtn active" data-view="hr">HomeRuns</button>
-      <button class="navbtn" data-view="ko">Strikeouts</button>
-      <button class="navbtn" data-view="teams">Teams/Matchups</button>
-      <button class="navbtn" data-view="history">History</button>
+      <button class="navbtn active" data-view="hr">[01] HomeRuns</button>
+      <button class="navbtn" data-view="ko">[02] Strikeouts</button>
+      <button class="navbtn" data-view="teams">[03] Teams/Matchups</button>
+      <button class="navbtn" data-view="history">[04] History</button>
     </nav>
   </header>
 
@@ -224,7 +229,11 @@
     <div id="historyWrap"><div class="placeholder">Loading…</div></div>
   </div>
 
-  <footer>Auto-updated daily via GitHub Actions · MLB Stats API · Baseball Savant · Kalshi public markets · thecapper.io park factors. All unofficial.</footer>
+  <footer>
+    <div><b>PN:</b> MLB-EDGE-BOARD-2026 &nbsp; <b>BATCH:</b> DAILY-AUTO &nbsp; <b>TOL:</b> ±0.1PP</div>
+    <div class="warn">Do not remove during live at-bat</div>
+    <span class="credit">Auto-updated daily via GitHub Actions · MLB Stats API · Baseball Savant · Kalshi public markets · thecapper.io park factors. All unofficial.</span>
+  </footer>
 </div>
 
 <script>
@@ -749,7 +758,7 @@ function selectMatchupGame(key){
       el.classList.remove('cam-exit');
       void el.offsetWidth;
       el.classList.add('cam-enter');
-    }, 220);
+    }, 420);
   } else {
     renderMatchupDetail();
   }
@@ -847,7 +856,7 @@ function cameraSwap(hideEl, showEl){
       void showEl.offsetWidth;
       showEl.classList.add('cam-enter');
     }
-  }, hideEl && hideEl !== showEl ? 220 : 0);
+  }, hideEl && hideEl !== showEl ? 420 : 0);
 }
 
 document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click', ()=>{
