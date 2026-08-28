@@ -126,6 +126,8 @@
   @media(max-width:760px){.league-cols{grid-template-columns:1fr;}}
   .league-col-head{font-family:'Teko',sans-serif;font-size:20px;color:var(--amber);margin-bottom:8px;}
   .league-scroll{max-height:270px;overflow-y:auto;border:1px solid var(--line);border-radius:0;}
+  .long-scroll{max-height:560px;overflow-y:auto;border:1px solid var(--line);border-radius:0;}
+  .long-scroll table.board th{position:sticky;top:0;background:var(--panel);z-index:1;}
   .team-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:12px;}
   .team-row:last-child{border-bottom:none;}
   .team-row-name{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--chalk);font-size:13px;}
@@ -199,7 +201,7 @@
     <div class="hr-subnav" id="hrSubnav">
       <button class="hr-subtab active" data-section="trending">🔥 Trending Up</button>
       <button class="hr-subtab" data-section="top5">⭐ Top 5</button>
-      <button class="hr-subtab" data-section="best15">🎯 Best 15</button>
+      <button class="hr-subtab" data-section="best15">🎯 Best 5</button>
       <button class="hr-subtab" data-section="all">📋 All Projections</button>
     </div>
     <div id="hrSectionWrap">
@@ -213,10 +215,12 @@
   <div id="koView" style="display:none;">
     <div class="hr-subnav" id="koSubnav">
       <button class="hr-subtab active" data-section="top5">⭐ Top 5</button>
+      <button class="hr-subtab" data-section="best5">🎯 Best 5</button>
       <button class="hr-subtab" data-section="all">📋 All Projections</button>
     </div>
     <div id="koSectionWrap">
       <div class="hr-section" id="koSection_top5"></div>
+      <div class="hr-section" id="koSection_best5" style="display:none;"></div>
       <div class="hr-section" id="koSection_all" style="display:none;"></div>
     </div>
   </div>
@@ -429,16 +433,16 @@ function renderHR(){
   `;
 
   const top5 = entries.slice(0,5);
-  const best15 = entries.slice(0,15);
+  const best5 = entries.slice(0,5);
   document.getElementById('hrSection_top5').innerHTML = `
     <div class="hr-section-title">⭐ Top 5 to Track</div>
     <div class="hr-section-sub">The headline picks — click a card for the full reasoning.</div>
     <div class="card-grid cols-5">${top5.map((e,i)=>hrCard(e,i+1)).join('')}</div>
   `;
   document.getElementById('hrSection_best15').innerHTML = `
-    <div class="hr-section-title">🎯 Best 15 — Edge &amp; Matchup</div>
-    <div class="hr-section-sub">Ranked by projected HR chance. Click a card for the full breakdown.</div>
-    <div class="card-grid cols-list">${best15.map((e,i)=>hrCard(e,i+1)).join('')}</div>
+    <div class="hr-section-title">🎯 Best 5 — Suggested Picks</div>
+    <div class="hr-section-sub">The 5 best home runs to take today, out of every player loaded, ranked by projected chance. Click a card for the full breakdown.</div>
+    <div class="card-grid cols-list">${best5.map((e,i)=>hrCard(e,i+1)).join('')}</div>
   `;
 
   const rows = entries.slice(0,80).map((e,i)=>{
@@ -459,8 +463,11 @@ function renderHR(){
   }).join('');
   document.getElementById('hrSection_all').innerHTML = `
     <div class="hr-section-title">📋 All Projections</div>
-    <table class="board"><thead><tr><th>#</th><th>Batter</th><th>HR%</th><th>Market</th><th>Edge</th><th>Result</th><th></th></tr></thead>
-    <tbody>${rows}</tbody></table>
+    <div class="hr-section-sub">Scroll within the box below to see everyone — the page itself stays put.</div>
+    <div class="long-scroll">
+      <table class="board"><thead><tr><th>#</th><th>Batter</th><th>HR%</th><th>Market</th><th>Edge</th><th>Result</th><th></th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    </div>
   `;
 }
 
@@ -489,7 +496,7 @@ function koCard(e, rank){
 function renderKO(){
   const entries = (KO_DATA && KO_DATA.entries) || [];
   if(!entries.length){
-    ['top5','all'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    ['top5','best5','all'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
     return;
   }
   const top5 = entries.slice(0,5);
@@ -497,6 +504,13 @@ function renderKO(){
     <div class="hr-section-title">⭐ Top 5 Projections</div>
     <div class="hr-section-sub">Highest projected strikeout totals, with reasoning.</div>
     <div class="card-grid cols-5">${top5.map((e,i)=>koCard(e,i+1)).join('')}</div>
+  `;
+
+  const best5 = entries.slice(0,5);
+  document.getElementById('koSection_best5').innerHTML = `
+    <div class="hr-section-title">🎯 Best 5 — Suggested Picks</div>
+    <div class="hr-section-sub">The 5 best strikeout props to take today, out of every starter loaded, ranked by projected K total.</div>
+    <div class="card-grid cols-list">${best5.map((e,i)=>koCard(e,i+1)).join('')}</div>
   `;
 
   const rows = entries.map((e,i)=>{
@@ -533,10 +547,13 @@ function renderKO(){
   }).join('');
   document.getElementById('koSection_all').innerHTML = `
     <div class="hr-section-title">📋 All Projections</div>
-    <table class="board"><thead><tr>
-      <th>Pitcher</th><th>Season K/9</th><th>L3 K/9</th><th>Opp K%</th><th>Exp IP</th>
-      <th>Proj K</th><th>Line</th><th>Market %</th><th>Model %</th><th>Edge</th><th>Result</th><th></th>
-    </tr></thead><tbody>${rows}</tbody></table>
+    <div class="hr-section-sub">Scroll within the box below to see everyone — the page itself stays put.</div>
+    <div class="long-scroll">
+      <table class="board"><thead><tr>
+        <th>Pitcher</th><th>Season K/9</th><th>L3 K/9</th><th>Opp K%</th><th>Exp IP</th>
+        <th>Proj K</th><th>Line</th><th>Market %</th><th>Model %</th><th>Edge</th><th>Result</th><th></th>
+      </tr></thead><tbody>${rows}</tbody></table>
+    </div>
   `;
 }
 
