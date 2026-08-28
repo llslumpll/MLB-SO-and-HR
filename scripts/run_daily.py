@@ -1,39 +1,108 @@
-"on":
-  schedule:
-    # Runs at 16:00 UTC (~noon ET) and 22:00 UTC (~6pm ET) daily.
-    # GitHub may delay scheduled runs by a few minutes during high load --
-    # that's normal and not something to worry about.
-    - cron: '0 16 * * *'
-    - cron: '0 22 * * *'
-  workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
+"""
+Full daily pipeline, run on a schedule by GitHub Actions:
+  1. Build today's HR board
+  2. Build today's Strikeouts board
+  3. Fetch live Kalshi odds and merge into both
+  4. Grade any past days whose games have finished
+  5. Update data/index.json (list of dates with saved boards, for History)
+"""
 
-permissions:
-  contents: write
+import glob
+import json
+import os
+import sys
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
+sys.path.insert(0, os.path.dirname(__file__))
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+from common import today_iso
+import build_hr
+import build_ko
+import build_teams
+import fetch_kalshi
+import grade
 
-      - name: Install dependencies
-        run: pip install requests
 
-      - name: Run daily pipeline
-        working-directory: .
-        run: python scripts/run_daily.py
+def main():
+    date = sys.argv[1] if len(sys.argv) > 1 else today_iso()
+    year = int(date[:4])
 
-      - name: Commit and push updated data
-        run: |
-          git config user.name "mlb-board-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data/
-          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Daily board update $(date -u +%Y-%m-%d)"
-          git pull --rebase origin main
-          git push
+    os.makedirs("data/hr", exist_ok=True)
+    os.makedirs("data/ko", exist_ok=True)
+    os.makedirs("data/teams", exist_ok=True)
+
+    print("=" * 60)
+    print(f"STEP 1: Build HR board for {date}")
+    print("=" * 60)
+    hr_result = build_hr.build(date, year)
+    with open(f"data/hr/{date}.json", "w") as f:
+        json.dump(hr_result, f, indent=2, default=str)
+    print(f"Wrote data/hr/{date}.json with {len(hr_result['entries'])} entries")
+
+    print("=" * 60)
+    print(f"STEP 2: Build Strikeouts board for {date}")
+    print("=" * 60)
+    ko_result = build_ko.build(date, year)
+    with open(f"data/ko/{date}.json", "w") as f:
+        json.dump(ko_result, f, indent=2, default=str)
+    print(f"Wrote data/ko/{date}.json with {len(ko_result['entries'])} entries")
+
+    print("=" * 60)
+    print(f"STEP 2b: Build Teams/Matchups board for {date}")
+    print("=" * 60)
+    try:
+        games_today = build_hr.fetch_schedule(date)
+        teams_result = build_teams.build(date, year, games_today)
+        with open(f"data/teams/{date}.json", "w") as f:
+            json.dump(teams_result, f, indent=2, default=str)
+        print(f"Wrote data/teams/{date}.json with {len(teams_result['teams'])} teams, {len(teams_result['matchups'])} matchups")
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Teams/Matchups build failed, continuing without it: {e}")
+
+    print("=" * 60)
+    print("STEP 3: Fetch and merge Kalshi odds")
+    print("=" * 60)
+    try:
+        hr_records = fetch_kalshi.pull_series("KXMLBHR", "home runs")
+        ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
+
+        with open(f"data/hr/{date}.json") as f:
+            hr_data = json.load(f)
+        hr_data = fetch_kalshi.merge_hr(hr_data, hr_records)
+        hr_data["entries"].sort(key=lambda e: -e["heuristicProb"])
+        with open(f"data/hr/{date}.json", "w") as f:
+            json.dump(hr_data, f, indent=2, default=str)
+
+        with open(f"data/ko/{date}.json") as f:
+            ko_data = json.load(f)
+        ko_data = fetch_kalshi.merge_ko(ko_data, ko_records)
+        ko_data["entries"].sort(key=lambda e: -e["projectedK"])
+        with open(f"data/ko/{date}.json", "w") as f:
+            json.dump(ko_data, f, indent=2, default=str)
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Kalshi step failed, continuing without odds: {e}")
+
+    print("=" * 60)
+    print("STEP 4: Grade past days")
+    print("=" * 60)
+    total_graded = 0
+    for path in sorted(glob.glob("data/hr/*.json")):
+        total_graded += grade.grade_hr_file(path)
+    for path in sorted(glob.glob("data/ko/*.json")):
+        total_graded += grade.grade_ko_file(path)
+    print(f"Graded {total_graded} entries total")
+
+    print("=" * 60)
+    print("STEP 5: Update date index")
+    print("=" * 60)
+    hr_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/hr/*.json"))
+    ko_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/ko/*.json"))
+    teams_dates = sorted(os.path.splitext(os.path.basename(p))[0] for p in glob.glob("data/teams/*.json"))
+    with open("data/index.json", "w") as f:
+        json.dump({"hrDates": hr_dates, "koDates": ko_dates, "teamsDates": teams_dates, "updatedAt": today_iso()}, f, indent=2)
+    print(f"data/index.json: {len(hr_dates)} HR days, {len(ko_dates)} K days, {len(teams_dates)} team-board days")
+
+    print("Done.")
+
+
+if __name__ == "__main__":
+    main()
