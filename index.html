@@ -105,6 +105,56 @@
   .day-sub-head:first-child{border-top:none;padding-top:0;margin-top:0;}
 
   footer{margin-top:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--slate);}
+
+  .bubble{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:20px;}
+  .bubble-title{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;color:var(--chalk);margin-bottom:4px;}
+  .bubble-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-bottom:14px;line-height:1.5;}
+
+  .league-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:760px){.league-cols{grid-template-columns:1fr;}}
+  .league-col-head{font-family:'Teko',sans-serif;font-size:20px;color:var(--amber);margin-bottom:8px;}
+  .league-scroll{max-height:270px;overflow-y:auto;border:1px solid var(--line);border-radius:6px;}
+  .team-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:12px;}
+  .team-row:last-child{border-bottom:none;}
+  .team-row-name{font-family:'Inter',sans-serif;font-weight:600;color:var(--chalk);font-size:13px;}
+  .team-row-sub{color:var(--slate);font-size:10px;margin-top:1px;}
+  .trend-up{color:var(--green);}
+  .trend-down{color:var(--red);}
+  .trend-flat{color:var(--slate);}
+
+  table.teamstat{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:11px;white-space:nowrap;}
+  table.teamstat th{text-align:right;color:var(--slate);font-size:9px;letter-spacing:.3px;text-transform:uppercase;padding:7px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);}
+  table.teamstat th:nth-child(-n+2){text-align:left;}
+  table.teamstat td{text-align:right;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.05);}
+  table.teamstat td:nth-child(-n+2){text-align:left;}
+  table.teamstat tr:hover{background:var(--panel-2);}
+  .teamstat-scroll{overflow-x:auto;}
+
+  .matchup-card{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:14px;}
+  .matchup-head{font-family:'Teko',sans-serif;font-size:24px;color:var(--chalk);}
+  .matchup-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);margin-bottom:10px;}
+  .matchup-section-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.7px;text-transform:uppercase;color:var(--slate);margin:12px 0 6px;border-top:1px solid var(--line);padding-top:8px;}
+  .matchup-section-label:first-of-type{border-top:none;padding-top:0;}
+
+  table.arsenal-t{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:11px;}
+  table.arsenal-t th{color:var(--slate);text-align:right;font-weight:500;font-size:9.5px;padding:3px 6px;}
+  table.arsenal-t th:first-child{text-align:left;}
+  table.arsenal-t td{text-align:right;padding:3px 6px;color:var(--chalk);}
+  table.arsenal-t td:first-child{text-align:left;}
+  .usage-bar-t{display:inline-block;height:6px;background:var(--amber);border-radius:2px;vertical-align:middle;margin-right:6px;}
+
+  .zone-wrap-t{display:flex;align-items:center;gap:14px;}
+  .zone-grid-t{display:grid;grid-template-columns:repeat(3,22px);grid-template-rows:repeat(3,22px);gap:2px;border:1px solid var(--line);padding:2px;border-radius:3px;background:var(--navy);}
+  .zone-cell-t{border-radius:2px;}
+  .zone-stats-t{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--slate);}
+  .zone-stats-t b{color:var(--amber);font-size:15px;}
+
+  table.matchup-t{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:11px;}
+  table.matchup-t th{color:var(--slate);text-align:right;font-weight:500;font-size:9px;padding:4px 6px;}
+  table.matchup-t th:first-child{text-align:left;}
+  table.matchup-t td{text-align:right;padding:4px 6px;color:var(--chalk);}
+  table.matchup-t td:first-child{text-align:left;color:var(--chalk);font-weight:600;}
+  table.matchup-t tr:hover{background:var(--panel);}
 </style>
 </head>
 <body>
@@ -117,6 +167,7 @@
     <nav class="tabs2">
       <button class="navbtn active" data-view="hr">HomeRuns</button>
       <button class="navbtn" data-view="ko">Strikeouts</button>
+      <button class="navbtn" data-view="teams">Teams/Matchups</button>
       <button class="navbtn" data-view="history">History</button>
     </nav>
   </header>
@@ -157,6 +208,10 @@
     </div>
   </div>
 
+  <div id="teamsView" style="display:none;">
+    <div id="teamsWrap"><div class="placeholder">Loading…</div></div>
+  </div>
+
   <div id="historyView" style="display:none;">
     <div id="historyWrap"><div class="placeholder">Loading…</div></div>
   </div>
@@ -165,8 +220,8 @@
 </div>
 
 <script>
-let INDEX = { hrDates: [], koDates: [] };
-let HR_DATA = null, KO_DATA = null;
+let INDEX = { hrDates: [], koDates: [], teamsDates: [] };
+let HR_DATA = null, KO_DATA = null, TEAMS_DATA = null;
 let CURRENT_DATE = null;
 
 function pct(v){ return v===null||v===undefined ? '—' : (v*100).toFixed(1)+'%'; }
@@ -215,9 +270,11 @@ async function loadDate(date){
   try{
     HR_DATA = await fetchJSONLocal(`data/hr/${date}.json`).catch(()=>({entries:[]}));
     KO_DATA = await fetchJSONLocal(`data/ko/${date}.json`).catch(()=>({entries:[]}));
+    TEAMS_DATA = await fetchJSONLocal(`data/teams/${date}.json`).catch(()=>null);
     document.getElementById('loadStatus').textContent = `${HR_DATA.entries.length} HR entries, ${KO_DATA.entries.length} K entries`;
     renderHR();
     renderKO();
+    renderTeams();
   }catch(e){
     document.getElementById('loadStatus').textContent = `failed to load ${date}: ${e.message}`;
   }
@@ -466,6 +523,184 @@ function renderKO(){
   `;
 }
 
+// ---------- Teams/Matchups ----------
+function teamRow(t){
+  const pctStr = fmt3(t.pct);
+  const w = t.wins!==null&&t.wins!==undefined ? t.wins : '—';
+  const l = t.losses!==null&&t.losses!==undefined ? t.losses : '—';
+  const l5 = t.last5 ? `${t.last5.wins}-${t.last5.losses}` : '—';
+  const trendCls = t.trend==='up' ? 'trend-up' : t.trend==='down' ? 'trend-down' : 'trend-flat';
+  const trendArrow = t.trend==='up' ? '▲' : t.trend==='down' ? '▼' : '—';
+  return `
+    <div class="team-row">
+      <div>
+        <div class="team-row-name">${t.abbr} <span style="color:var(--slate);font-weight:400;">${t.name}</span></div>
+        <div class="team-row-sub">${t.division||''}${t.streak?` · ${t.streak}`:''}</div>
+      </div>
+      <div style="text-align:right;">
+        <div>${w}-${l} (${pctStr})</div>
+        <div class="team-row-sub">L5: ${l5} <span class="${trendCls}">${trendArrow}</span></div>
+      </div>
+    </div>
+  `;
+}
+
+function renderLeagueBubble(teams){
+  const al = teams.filter(t=>t.league==='AL').sort((a,b)=>(b.pct||0)-(a.pct||0));
+  const nl = teams.filter(t=>t.league==='NL').sort((a,b)=>(b.pct||0)-(a.pct||0));
+  return `
+    <div class="bubble">
+      <div class="bubble-title">Standings &amp; Recent Trend</div>
+      <div class="bubble-sub">Record, last-5 games, and whether each team is trending up (green) or down (red) vs their season pace. Scroll within each list to see every team.</div>
+      <div class="league-cols">
+        <div>
+          <div class="league-col-head">American League</div>
+          <div class="league-scroll">${al.map(teamRow).join('') || '<div class="placeholder" style="padding:20px;">No AL data.</div>'}</div>
+        </div>
+        <div>
+          <div class="league-col-head">National League</div>
+          <div class="league-scroll">${nl.map(teamRow).join('') || '<div class="placeholder" style="padding:20px;">No NL data.</div>'}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderStatsBubble(teams){
+  const sorted = [...teams].sort((a,b)=>(b.pct||0)-(a.pct||0));
+  const rows = sorted.map(t=>{
+    const h = t.hitting||{}, p = t.pitching||{}, sv = t.savant||{};
+    return `
+      <tr>
+        <td><b>${t.abbr}</b></td><td>${t.wins!==null&&t.wins!==undefined?`${t.wins}-${t.losses}`:'—'}</td>
+        <td>${fmt3(h.avg)}</td><td>${fmt3(h.obp)}</td><td>${fmt3(h.slg)}</td><td>${fmt3(h.ops)}</td>
+        <td>${h.homeRuns!==undefined?h.homeRuns:'—'}</td><td>${h.stolenBases!==undefined?h.stolenBases:'—'}</td>
+        <td>${p.era!==undefined?p.era:'—'}</td><td>${p.whip!==undefined?p.whip:'—'}</td>
+        <td>${p.strikeOuts!==undefined?p.strikeOuts:'—'}</td><td>${p.baseOnBalls!==undefined?p.baseOnBalls:'—'}</td>
+        <td>${sv.whiffPct!==undefined&&sv.whiffPct!==null?Math.round(sv.whiffPct)+'%':'—'}</td>
+        <td>${sv.chasePct!==undefined&&sv.chasePct!==null?Math.round(sv.chasePct)+'%':'—'}</td>
+        <td>${sv.barrelPct!==undefined&&sv.barrelPct!==null?sv.barrelPct.toFixed(1)+'%':'—'}</td>
+        <td>${sv.hardHitPct!==undefined&&sv.hardHitPct!==null?Math.round(sv.hardHitPct)+'%':'—'}</td>
+        <td>${sv.exitVelo!==undefined&&sv.exitVelo!==null?sv.exitVelo.toFixed(1):'—'}</td>
+      </tr>
+    `;
+  }).join('');
+  return `
+    <div class="bubble">
+      <div class="bubble-title">Full Team Stats</div>
+      <div class="bubble-sub">Batting, pitching, and roster-average Statcast quality metrics for every team, sorted by win%. Whiff%/Chase% reflect the pitching staff; Barrel%/Hard-Hit%/EV reflect the offense.</div>
+      <div class="teamstat-scroll">
+        <table class="teamstat">
+          <thead><tr>
+            <th>Team</th><th>Record</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>SB</th>
+            <th>ERA</th><th>WHIP</th><th>K</th><th>BB</th><th>Whiff%</th><th>Chase%</th><th>Barrel%</th><th>Hard-Hit%</th><th>EV</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function matchupCard(m){
+  const sv = m.savant;
+  const s = m.season || {};
+  const metricsHtml = sv ? `
+    <div class="factor-grid">
+      <div class="factor-item"><div class="fv">${sv.fb_velocity?parseFloat(sv.fb_velocity).toFixed(1):'—'}</div><div class="fl">FB Velo</div></div>
+      <div class="factor-item"><div class="fv">${sv.k_percent?Math.round(sv.k_percent)+'%':'—'}</div><div class="fl">K%</div></div>
+      <div class="factor-item"><div class="fv">${sv.whiff_percent?Math.round(sv.whiff_percent)+'%':'—'}</div><div class="fl">Whiff%</div></div>
+      <div class="factor-item"><div class="fv">${sv.chase_percent?Math.round(sv.chase_percent)+'%':'—'}</div><div class="fl">Chase%</div></div>
+      <div class="factor-item"><div class="fv">${sv.hard_hit_percent?Math.round(sv.hard_hit_percent)+'%':'—'}</div><div class="fl">Hard-Hit%</div></div>
+      <div class="factor-item"><div class="fv">${sv.xera?parseFloat(sv.xera).toFixed(2):'—'}</div><div class="fl">xERA</div></div>
+    </div>
+  ` : '<div class="placeholder" style="padding:8px 0;">Statcast percentile metrics unavailable.</div>';
+
+  let arsenalHtml;
+  const ars = m.arsenal;
+  if(ars && ars.arsenal && ars.arsenal.length){
+    const maxUsage = Math.max(...ars.arsenal.map(a=>a.usage));
+    arsenalHtml = `
+      <table class="arsenal-t">
+        <thead><tr><th>Pitch</th><th>Usage</th><th>Avg Velo</th><th>Count</th></tr></thead>
+        <tbody>${ars.arsenal.slice(0,7).map(a=>`
+          <tr>
+            <td><span class="usage-bar-t" style="width:${Math.max(4,(a.usage/maxUsage)*40)}px;"></span>${a.name}</td>
+            <td>${(a.usage*100).toFixed(1)}%</td>
+            <td>${a.avgVelo!==null?a.avgVelo.toFixed(1):'—'}</td>
+            <td>${a.count}</td>
+          </tr>
+        `).join('')}</tbody>
+      </table>
+    `;
+  } else {
+    arsenalHtml = '<div class="placeholder" style="padding:8px 0;">Pitch-by-pitch data unavailable for this pitcher.</div>';
+  }
+
+  let zoneHtml = '';
+  if(ars && ars.zoneCounts && Object.keys(ars.zoneCounts).length){
+    const maxZ = Math.max(...Object.values(ars.zoneCounts));
+    const cells = [];
+    for(let z=1; z<=9; z++){
+      const c = ars.zoneCounts[z] || 0;
+      const alpha = maxZ ? (c/maxZ) : 0;
+      cells.push(`<div class="zone-cell-t" style="background:rgba(245,166,35,${(0.12+alpha*0.75).toFixed(2)});" title="Zone ${z}: ${c} pitches"></div>`);
+    }
+    zoneHtml = `
+      <div class="zone-wrap-t">
+        <div class="zone-grid-t">${cells.join('')}</div>
+        <div class="zone-stats-t">In-zone rate<br><b>${ars.zonePct!==null?Math.round(ars.zonePct*100)+'%':'—'}</b><br>of ${ars.totalPitches} pitches</div>
+      </div>
+    `;
+  }
+
+  let matchupHtml;
+  const mt = m.matchupTable;
+  if(mt && mt.length){
+    matchupHtml = `
+      <table class="matchup-t">
+        <thead><tr><th>Batter</th><th>AB</th><th>H</th><th>HR</th><th>AVG</th><th>OPS</th></tr></thead>
+        <tbody>${mt.map(b=>`<tr><td>${b.name}</td><td>${b.atBats}</td><td>${b.hits}</td><td>${b.homeRuns}</td><td>${fmt3(b.avg)}</td><td>${fmt3(b.ops)}</td></tr>`).join('')}</tbody>
+      </table>
+    `;
+  } else {
+    matchupHtml = '<div class="placeholder" style="padding:8px 0;">No opposing batter has faced this pitcher enough (3+ AB) to show history yet.</div>';
+  }
+
+  return `
+    <div class="matchup-card">
+      <div class="matchup-head">${m.name}${m.hand?` (${m.hand}HP)`:''}</div>
+      <div class="matchup-sub">${m.team} vs ${m.opp} · ${s.wins!==undefined?s.wins:'—'}-${s.losses!==undefined?s.losses:'—'}, ${s.era||'—'} ERA</div>
+      <div class="matchup-section-label">Statcast — season</div>
+      ${metricsHtml}
+      <div class="matchup-section-label">Pitch arsenal (season)</div>
+      ${arsenalHtml}
+      ${zoneHtml ? `<div class="matchup-section-label">Zone attack</div>${zoneHtml}` : ''}
+      <div class="matchup-section-label">Opposing batters — career vs this pitcher (3+ AB)</div>
+      ${matchupHtml}
+    </div>
+  `;
+}
+
+function renderMatchupsBubble(matchups){
+  return `
+    <div class="bubble">
+      <div class="bubble-title">Today's Pitcher Matchups</div>
+      <div class="bubble-sub">Every probable starter today: pitch mix, zone tendencies, recent Statcast quality, and how the opposing lineup has actually hit against them historically.</div>
+      ${matchups.length ? matchups.map(matchupCard).join('') : '<div class="placeholder">No probable pitchers found for this date.</div>'}
+    </div>
+  `;
+}
+
+function renderTeams(){
+  const wrap = document.getElementById('teamsWrap');
+  if(!TEAMS_DATA || !TEAMS_DATA.teams){
+    wrap.innerHTML = '<div class="placeholder">No team data for this date yet.</div>';
+    return;
+  }
+  wrap.innerHTML = renderLeagueBubble(TEAMS_DATA.teams) + renderStatsBubble(TEAMS_DATA.teams) + renderMatchupsBubble(TEAMS_DATA.matchups || []);
+}
+
 // ---------- History ----------
 async function loadHistory(){
   const wrap = document.getElementById('historyWrap');
@@ -538,6 +773,7 @@ document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click', ()=>
   const view = b.dataset.view;
   document.getElementById('hrView').style.display = view==='hr' ? '' : 'none';
   document.getElementById('koView').style.display = view==='ko' ? '' : 'none';
+  document.getElementById('teamsView').style.display = view==='teams' ? '' : 'none';
   document.getElementById('historyView').style.display = view==='history' ? '' : 'none';
   if(view==='history') loadHistory();
 }));
