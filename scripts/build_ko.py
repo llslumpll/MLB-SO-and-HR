@@ -17,6 +17,17 @@ from common import (
 from build_hr import fetch_schedule, fetch_pitcher_hand, fetch_pitcher_velo_trend
 
 
+def load_ko_calibration():
+    """Reads data/calibration.json's 'ko' section if it exists. Returns {}
+    if missing/unreadable -- calibration is purely additive and should
+    never break a build."""
+    try:
+        with open("data/calibration.json") as f:
+            return (json.load(f) or {}).get("ko", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def fetch_roster_k_percent(team_id, batter_pct_map):
     try:
         data = get(f"{API}/teams/{team_id}/roster", params={"rosterType": "active"})
@@ -34,7 +45,7 @@ def fetch_roster_k_percent(team_id, batter_pct_map):
         return None
 
 
-def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year):
+def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None):
     try:
         data = get(f"{API}/people/{pitcher_id}/stats", params={
             "stats": "season,gameLog", "group": "pitching", "season": year,
@@ -114,11 +125,20 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         conf_score += 1
     confidence = "High" if conf_score >= 4 else "Medium" if conf_score >= 2 else "Low"
 
+    calibration_applied = None
+    if calibration:
+        tier_cal = calibration.get(confidence, {})
+        bias = tier_cal.get("bias", 0.0)
+        if tier_cal.get("status") == "active" and bias != 0.0:
+            projected_k = max(0.5, projected_k + bias)
+            calibration_applied = bias
+
     return {
         "hand": fetch_pitcher_hand(pitcher_id),
         "seasonK9": season_k9, "recentK9": recent_k9, "oppK": opp_k,
         "matchupFactor": matchup_factor, "stuffFactor": stuff_factor,
         "expectedIP": expected_ip, "projectedK": projected_k, "confidence": confidence,
+        "calibrationApplied": calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
         "seasonRecord": f"{int(to_num(season_stat.get('wins')) or 0)}-{int(to_num(season_stat.get('losses')) or 0)}",
         "era": season_stat.get("era"),
@@ -180,6 +200,8 @@ def build(date, year):
         print("No games today.")
         return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": []}
 
+    calibration = load_ko_calibration()
+
     batter_pct_map = fetch_savant_percentiles("batter", year)
     pitcher_pct_map = fetch_savant_percentiles("pitcher", year)
 
@@ -194,7 +216,7 @@ def build(date, year):
 
     entries = []
     for job in jobs:
-        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year)
+        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration)
         if not proj:
             continue
         p = {
@@ -211,6 +233,7 @@ def build(date, year):
             "matchupFactor": p["matchupFactor"], "stuffFactor": p["stuffFactor"],
             "expectedIP": p["expectedIP"], "projectedK": p["projectedK"],
             "confidence": p["confidence"], "reason": p["reason"],
+            "calibrationApplied": p.get("calibrationApplied"),
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
             "graded": False, "actualK": None, "hit": None,
