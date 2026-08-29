@@ -18,6 +18,7 @@ from common import today_iso
 import build_hr
 import build_ko
 import build_teams
+import calibrate
 import fetch_kalshi
 import grade
 
@@ -90,6 +91,14 @@ def main():
     for path in sorted(glob.glob("data/ko/*.json")):
         total_graded += grade.grade_ko_file(path)
     print(f"Graded {total_graded} entries total")
+
+    print("=" * 60)
+    print("STEP 4b: Recalibrate from graded history")
+    print("=" * 60)
+    try:
+        calibrate.run()
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Calibration step failed, next build will use last known calibration: {e}")
 
     print("=" * 60)
     print("STEP 5: Update date index")
