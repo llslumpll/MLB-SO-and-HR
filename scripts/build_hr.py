@@ -477,6 +477,17 @@ def build(date, year):
             })
         print(f"  {away_abbr} @ {home_abbr}: {len(batters)} batters" + ("" if lineup_posted else " (roster fallback, lineup not posted)"))
 
+    seen = set()
+    deduped = []
+    for e in entries:
+        key = (e["playerId"], e["gamePk"])
+        if key in seen:
+            print(f"  [dedup] dropped duplicate entry for {e['name']} in the same game")
+            continue
+        seen.add(key)
+        deduped.append(e)
+    entries = deduped
+
     entries.sort(key=lambda e: -e["heuristicProb"])
     return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": entries}
 
