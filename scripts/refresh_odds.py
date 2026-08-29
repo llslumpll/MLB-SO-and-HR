@@ -30,6 +30,17 @@ def refresh(date):
     hr_records = fetch_kalshi.pull_series("KXMLBHR", "home runs")
     ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
 
+    print("DEBUG: sample raw K records from Kalshi:")
+    for r in ko_records[:8]:
+        print(f"  name={r['name']!r} threshold={r['threshold']} price={r['price']}")
+
+    if ko_exists:
+        with open(ko_path) as f:
+            ko_data_preview = json.load(f)
+        print("DEBUG: sample pitcher names in today's K board:")
+        for e in ko_data_preview["entries"][:8]:
+            print(f"  name={e['name']!r}")
+
     if hr_exists:
         with open(hr_path) as f:
             hr_data = json.load(f)
