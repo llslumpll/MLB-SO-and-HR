@@ -114,6 +114,18 @@ def poisson_prob_at_least(threshold, lam):
     return clip(1 - cum, 0.001, 0.999)
 
 
+def k_threshold_map(records):
+    """Raw {norm_name: {threshold: price}} -- every threshold Kalshi has a
+    market for, unfiltered, so a specific threshold can be looked up on
+    demand (e.g. to match a PrizePicks line) rather than only Kalshi's own
+    'closest to 50%' pick."""
+    out = {}
+    for r in records:
+        key = norm_name(r["name"])
+        out.setdefault(key, {})[r["threshold"]] = r["price"]
+    return out
+
+
 def merge_ko(ko_data, records):
     by_name = {}
     for r in records:
