@@ -189,4 +189,12 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
 
     print(f"  PrizePicks/Kalshi threshold match: refined {refined} entries "
           f"({no_kalshi_at_that_line} had no Kalshi price at PrizePicks' exact line)")
+    if refined:
+        print("  DEBUG: sample refined K entries (name, projectedK, PP line, implied threshold, modelProb, call):")
+        shown = 0
+        for e in ko_data["entries"]:
+            if e.get("prizePicksKLine") is not None and shown < 15:
+                print(f"    {e['name']!r}: projectedK={e['projectedK']:.2f}, ppLine={e['prizePicksKLine']}, "
+                      f"threshold={e['marketThreshold']}, modelProb={e['modelProb']:.3f}, call={e.get('prizePicksCall')}")
+                shown += 1
     return ko_data
