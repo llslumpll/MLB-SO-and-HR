@@ -217,6 +217,16 @@ def build(date, year):
         })
         print(f"  {p['name']} ({p['team']} vs {p['opp']}): {p['projectedK']:.1f} proj K")
 
+    seen_ids = set()
+    deduped = []
+    for e in entries:
+        if e["playerId"] in seen_ids:
+            print(f"  [dedup] dropped duplicate entry for {e['name']} (likely a doubleheader or schedule quirk)")
+            continue
+        seen_ids.add(e["playerId"])
+        deduped.append(e)
+    entries = deduped
+
     entries.sort(key=lambda e: -e["projectedK"])
     return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": entries}
 
