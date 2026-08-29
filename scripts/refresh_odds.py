@@ -30,16 +30,20 @@ def refresh(date):
     hr_records = fetch_kalshi.pull_series("KXMLBHR", "home runs")
     ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
 
-    print("DEBUG: sample raw K records from Kalshi:")
-    for r in ko_records[:8]:
-        print(f"  name={r['name']!r} threshold={r['threshold']} price={r['price']}")
+    kalshi_k_names = sorted(set(r["name"] for r in ko_records))
+    print(f"DEBUG: {len(kalshi_k_names)} unique pitcher name(s) in today's live Kalshi K markets:")
+    for n in kalshi_k_names:
+        print(f"  {n!r}  (normalized: {fetch_kalshi.norm_name(n)!r})")
 
     if ko_exists:
         with open(ko_path) as f:
             ko_data_preview = json.load(f)
-        print("DEBUG: sample pitcher names in today's K board:")
-        for e in ko_data_preview["entries"][:8]:
-            print(f"  name={e['name']!r}")
+        board_names = sorted(set(e["name"] for e in ko_data_preview["entries"]))
+        print(f"DEBUG: {len(board_names)} pitcher(s) in today's saved K board:")
+        for n in board_names:
+            print(f"  {n!r}  (normalized: {fetch_kalshi.norm_name(n)!r})")
+        overlap = set(fetch_kalshi.norm_name(n) for n in kalshi_k_names) & set(fetch_kalshi.norm_name(n) for n in board_names)
+        print(f"DEBUG: {len(overlap)} name(s) overlap after normalization: {sorted(overlap)}")
 
     if hr_exists:
         with open(hr_path) as f:
