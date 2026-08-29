@@ -167,6 +167,7 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedK"])
         e["marketThreshold"] = implied_threshold
         e["modelProb"] = model_prob
+        e["prizePicksCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
 
         kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
         if kalshi_price is not None:
