@@ -9,6 +9,7 @@ import json
 import re
 import sys
 import time
+from datetime import datetime
 
 from common import KALSHI, get, norm_name, to_num, clip
 
@@ -86,12 +87,19 @@ def merge_hr(hr_data, records):
         if r["threshold"] == 1:
             by_name[norm_name(r["name"])] = r
     matched = 0
+    now = datetime.utcnow().isoformat()
     for e in hr_data["entries"]:
         hit = by_name.get(norm_name(e["name"]))
         if hit:
-            e["marketProb"] = hit["price"]
-            e["edge"] = e["heuristicProb"] - hit["price"]
+            price = hit["price"]
+            if e.get("openingProb") is None:
+                e["openingProb"] = price
+            e["priceDelta"] = price - e["openingProb"]
+            e["marketProb"] = price
+            e["edge"] = e["heuristicProb"] - price
+            e["oddsUpdatedAt"] = now
             matched += 1
+    hr_data["oddsRefreshedAt"] = now
     print(f"  HR: matched {matched}/{len(hr_data['entries'])} entries to Kalshi prices")
     return hr_data
 
@@ -114,14 +122,21 @@ def merge_ko(ko_data, records):
         if prev is None or abs(r["price"] - 0.5) < abs(prev["price"] - 0.5):
             by_name[key] = r
     matched = 0
+    now = datetime.utcnow().isoformat()
     for e in ko_data["entries"]:
         hit = by_name.get(norm_name(e["name"]))
         if hit:
+            price = hit["price"]
+            if e.get("openingProb") is None:
+                e["openingProb"] = price
+            e["priceDelta"] = price - e["openingProb"]
             e["marketThreshold"] = hit["threshold"]
-            e["marketProb"] = hit["price"]
+            e["marketProb"] = price
             e["modelProb"] = poisson_prob_at_least(hit["threshold"], e["projectedK"])
-            e["edge"] = e["modelProb"] - hit["price"]
+            e["edge"] = e["modelProb"] - price
+            e["oddsUpdatedAt"] = now
             matched += 1
+    ko_data["oddsRefreshedAt"] = now
     print(f"  K: matched {matched}/{len(ko_data['entries'])} entries to Kalshi prices")
     return ko_data
 
