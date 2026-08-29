@@ -1,0 +1,47 @@
+name: Odds refresh (frequent)
+
+"on":
+  schedule:
+    # Every 15 minutes -- lightweight, only re-pulls live Kalshi prices for
+    # today's already-built board and tracks price movement. Does NOT
+    # rebuild projections/stats/matchups -- that's the heavier daily.yml job.
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mlb-board-data-write
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Refresh odds
+        run: python scripts/refresh_odds.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "mlb-board-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No price changes to commit"
+          else
+            git commit -m "Odds refresh $(date -u +%Y-%m-%dT%H:%M)"
+            git pull --rebase origin main
+            git push
+          fi
