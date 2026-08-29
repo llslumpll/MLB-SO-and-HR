@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-08-29T12:36:10.733376",
+  "totalHRGraded": 328,
+  "totalKGraded": 30,
+  "minSampleRequired": 100,
+  "dampenFactor": 0.3,
+  "hr": {
+    "High": {
+      "multiplier": 0.9241,
+      "sampleSize": 309,
+      "avgPredicted": 0.1299,
+      "actualRate": 0.0971,
+      "rawRatio": 0.7471,
+      "status": "active"
+    },
+    "Medium": {
+      "multiplier": 1.0,
+      "sampleSize": 19,
+      "status": "insufficient data"
+    },
+    "Low": {
+      "multiplier": 1.0,
+      "sampleSize": 0,
+      "status": "insufficient data"
+    }
+  },
+  "ko": {
+    "High": {
+      "bias": 0.0,
+      "sampleSize": 30,
+      "status": "insufficient data"
+    },
+    "Medium": {
+      "bias": 0.0,
+      "sampleSize": 0,
+      "status": "insufficient data"
+    },
+    "Low": {
+      "bias": 0.0,
+      "sampleSize": 0,
+      "status": "insufficient data"
+    }
+  }
+}
