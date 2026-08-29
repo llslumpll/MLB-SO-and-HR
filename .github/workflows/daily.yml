@@ -1,14 +1,23 @@
+name: Daily MLB board update
+
 "on":
   schedule:
-    # Runs at 16:00 UTC (~noon ET) and 22:00 UTC (~6pm ET) daily.
+    # Runs at 16:00 and 22:00 UTC (~noon and ~6pm ET) to refresh projections/odds,
+    # plus 03:00 UTC (~10-11pm ET) after most games have finished, so grading
+    # happens the same night instead of waiting for the next day's first run.
     # GitHub may delay scheduled runs by a few minutes during high load --
     # that's normal and not something to worry about.
     - cron: '0 16 * * *'
     - cron: '0 22 * * *'
+    - cron: '0 3 * * *'
   workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
 
 permissions:
   contents: write
+
+concurrency:
+  group: mlb-board-data-write
+  cancel-in-progress: false
 
 jobs:
   update:
