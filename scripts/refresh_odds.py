@@ -58,6 +58,8 @@ def refresh(date):
         ko_data = fetch_kalshi.merge_ko(ko_data, ko_records)
         if pp_k_records:
             ko_data = fetch_prizepicks.merge_ko(ko_data, pp_k_records)
+            kalshi_thresholds = fetch_kalshi.k_threshold_map(ko_records)
+            ko_data = fetch_prizepicks.refine_ko_with_prizepicks(ko_data, kalshi_thresholds)
         ko_data["entries"].sort(key=lambda e: -e["projectedK"])
         with open(ko_path, "w") as f:
             json.dump(ko_data, f, indent=2, default=str)
