@@ -18,6 +18,17 @@ import csv
 import io
 
 
+def load_hr_calibration():
+    """Reads data/calibration.json (written by calibrate.py based on graded
+    history) if it exists. Returns {} if missing/unreadable -- calibration
+    is purely additive; its absence should never break a build."""
+    try:
+        with open("data/calibration.json") as f:
+            return (json.load(f) or {}).get("hr", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def fetch_schedule(date):
     data = get(f"{API}/schedule", params={
         "sportId": 1, "date": date, "hydrate": "team,probablePitcher,venue",
@@ -239,7 +250,7 @@ def fetch_pitcher_velo_trend(pitcher_id, year, savant_pitcher_map):
         return None
 
 
-def compute_heuristic(b, savant_batter_map):
+def compute_heuristic(b, savant_batter_map, calibration=None):
     factors = {}
     s = (b.get("batterStats") or {}).get("season")
     season_pa = to_num(s.get("plateAppearances")) if s else None
@@ -331,7 +342,18 @@ def compute_heuristic(b, savant_batter_map):
         conf_score += 1
     confidence = "High" if conf_score >= 4 else "Medium" if conf_score >= 2 else "Low"
 
-    return {"heuristicProb": prob, "factors": factors, "seasonRate": season_rate, "confidence": confidence}
+    calibration_applied = None
+    if calibration:
+        tier_cal = calibration.get(confidence, {})
+        mult = tier_cal.get("multiplier", 1.0)
+        if tier_cal.get("status") == "active" and mult != 1.0:
+            prob = clip(prob * mult, 0.01, 0.45)
+            calibration_applied = mult
+
+    return {
+        "heuristicProb": prob, "factors": factors, "seasonRate": season_rate,
+        "confidence": confidence, "calibrationApplied": calibration_applied,
+    }
 
 
 def join_list(arr):
@@ -407,6 +429,8 @@ def build(date, year):
         print("No games today.")
         return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": []}
 
+    calibration = load_hr_calibration()
+
     savant_batter_map = fetch_savant_percentiles("batter", year)
     entries = []
 
@@ -455,7 +479,7 @@ def build(date, year):
             b["platoon"] = fetch_platoon_hr(b["id"], year)
             b["vsPitcher"] = fetch_vs_pitcher(b["id"], opp_pitcher["id"]) if opp_pitcher else None
 
-            h = compute_heuristic(b, savant_batter_map)
+            h = compute_heuristic(b, savant_batter_map, calibration)
             b.update(h)
             b["reason"] = reason_text(b)
 
@@ -463,6 +487,7 @@ def build(date, year):
                 "gamePk": b["gamePk"], "playerId": b["id"], "name": b["name"],
                 "team": b["team"], "opp": b["opp"], "order": b["order"],
                 "heuristicProb": b["heuristicProb"], "confidence": b["confidence"],
+                "calibrationApplied": b.get("calibrationApplied"),
                 "reason": b["reason"], "factors": b["factors"],
                 "savant": b.get("savant"), "vsPitcher": b.get("vsPitcher"),
                 "veloTrend": b.get("veloTrend"), "streak": {
