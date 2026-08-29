@@ -76,6 +76,10 @@
   .conf-badge.conf-medium{color:var(--amber);border-color:var(--amber-dim);}
   .conf-badge.conf-low{color:var(--red);border-color:var(--red-dim);}
 
+  .pp-call{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.5px;padding:2px 6px;border-radius:0;margin-left:4px;}
+  .pp-call-over{color:var(--navy);background:var(--amber);}
+  .pp-call-under{color:var(--chalk);background:var(--panel-2);border:1px solid var(--line);}
+
   .stat-good{color:var(--green)!important;}
   .stat-bad{color:var(--red)!important;}
   .edge-pos{color:var(--green);font-weight:700;}
@@ -486,6 +490,7 @@ function renderHR(){
 function koCard(e, rank){
   const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.03 ? 'stat-good' : e.edge<-0.03 ? 'stat-bad' : '';
   const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}pp edge</span>` : '';
+  const callHtml = e.prizePicksCall ? ` <span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>` : '';
   return `
     <div class="card">
       <div class="card-rank">#${rank}</div>
@@ -496,7 +501,7 @@ function koCard(e, rank){
         </div>
         <div>
           <div class="card-stat">${e.projectedK.toFixed(1)}</div>
-          <div class="card-stat-label">Proj K${e.marketThreshold?` · ${e.marketThreshold}+ line`:''}${edgeHtml}</div>
+          <div class="card-stat-label">Proj K${e.marketThreshold?` · ${e.marketThreshold}+ line`:''}${edgeHtml}${callHtml}</div>
         </div>
       </div>
       <div class="card-reason">${e.reason||''}</div>
@@ -548,7 +553,7 @@ function renderKO(){
         <div class="bx-line" style="margin-top:8px;">
           ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
           ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
-          ${e.prizePicksKLine!==null&&e.prizePicksKLine!==undefined?`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksKLine} Strikeouts</b></span>`:''}
+          ${e.prizePicksKLine!==null&&e.prizePicksKLine!==undefined?`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksKLine} Strikeouts</b>${e.prizePicksCall?` <span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>`:''}</span>`:''}
         </div>
         <div class="factor-grid">
           <div class="factor-item"><div class="fv">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
