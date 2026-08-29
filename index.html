@@ -246,6 +246,13 @@ let HR_DATA = null, KO_DATA = null, TEAMS_DATA = null;
 let CURRENT_DATE = null;
 
 function pct(v){ return v===null||v===undefined ? '—' : (v*100).toFixed(1)+'%'; }
+function priceMoveTag(e){
+  if(e.priceDelta===undefined || e.priceDelta===null || Math.abs(e.priceDelta) < 0.005) return '';
+  const up = e.priceDelta > 0;
+  const cls = up ? 'stat-bad' : 'stat-good';
+  const arrow = up ? '▲' : '▼';
+  return ` <span class="${cls}" style="font-size:9.5px;">${arrow}${Math.abs(e.priceDelta*100).toFixed(1)}pp</span>`;
+}
 function fmt3(v){
   if(v===null||v===undefined) return '—';
   const n = typeof v==='string' ? parseFloat(v) : v;
@@ -292,7 +299,8 @@ async function loadDate(date){
     HR_DATA = await fetchJSONLocal(`data/hr/${date}.json`).catch(()=>({entries:[]}));
     KO_DATA = await fetchJSONLocal(`data/ko/${date}.json`).catch(()=>({entries:[]}));
     TEAMS_DATA = await fetchJSONLocal(`data/teams/${date}.json`).catch(()=>null);
-    document.getElementById('loadStatus').textContent = `${HR_DATA.entries.length} HR entries, ${KO_DATA.entries.length} K entries`;
+    const oddsTime = HR_DATA.oddsRefreshedAt ? HR_DATA.oddsRefreshedAt.slice(11,16)+' UTC' : null;
+    document.getElementById('loadStatus').textContent = `${HR_DATA.entries.length} HR entries, ${KO_DATA.entries.length} K entries${oddsTime ? ' · odds refreshed '+oddsTime : ''}`;
     renderHR();
     renderKO();
     renderTeams();
@@ -348,7 +356,7 @@ function extraIntel(e){
     chips.push(`<span class="bx-chip">Opp. SP FB: <b class="${cls}">${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season (${label})</span>`);
   }
   if(e.marketProb!==null && e.marketProb!==undefined){
-    chips.push(`<span class="bx-chip">FanDuel/Kalshi: <b>${pct(e.marketProb)}</b></span>`);
+    chips.push(`<span class="bx-chip">FanDuel/Kalshi: <b>${pct(e.marketProb)}</b>${priceMoveTag(e)}</span>`);
   }
   return `<div class="bx-line">${chips.join('')}</div>`;
 }
@@ -453,7 +461,7 @@ function renderHR(){
         <td>${i+1}</td>
         <td><div class="pname2"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}</div><div class="pteam">${e.team} vs ${e.opp}${e.order?` · #${e.order}`:''}</div></td>
         <td>${pct(e.heuristicProb)}</td>
-        <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td>
+        <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb)+priceMoveTag(e):'—'}</td>
         <td class="${edgeClass}">${e.edge===null||e.edge===undefined?'—':(e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'pp'}</td>
         <td>${e.graded?(e.hr?'✅ HR':'—'):'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
@@ -526,7 +534,7 @@ function renderKO(){
         <td>${e.expectedIP.toFixed(1)}</td>
         <td style="color:var(--amber);font-weight:700;">${e.projectedK.toFixed(1)}</td>
         <td>${e.marketThreshold?`${e.marketThreshold}+`:'—'}</td>
-        <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td>
+        <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb)+priceMoveTag(e):'—'}</td>
         <td>${e.modelProb!==null&&e.modelProb!==undefined?pct(e.modelProb):'—'}</td>
         <td class="${edgeClass}">${e.edge===null||e.edge===undefined?'—':(e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'pp'}</td>
         <td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'—'}</td>
