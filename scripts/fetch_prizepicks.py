@@ -22,7 +22,11 @@ PP_BASE = "https://partner-api.prizepicks.com"
 # Substrings we look for in PrizePicks' stat_type field (case-insensitive).
 # Update these if the debug log shows PrizePicks phrasing it differently.
 HR_STAT_MATCHES = ["home run"]
-K_STAT_MATCHES = ["strikeout"]
+# Must specifically say "pitcher" -- PrizePicks also offers "Hitter Strikeouts"
+# (how often a batter strikes out, an unrelated stat), and a bare "strikeout"
+# substring match was catching both and letting whichever loaded second
+# silently overwrite the correct pitcher line.
+K_STAT_MATCHES = ["pitcher strikeout"]
 
 
 def fetch_leagues():
