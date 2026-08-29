@@ -1,6 +1,6 @@
 {
   "date": "2026-08-28",
-  "generatedAt": "2026-08-29T03:05:04.807642",
+  "generatedAt": "2026-08-29T03:37:04.758318",
   "entries": [
     {
       "gamePk": 822769,
@@ -179,14 +179,14 @@
       "oppTeamId": 143,
       "hand": "L",
       "seasonRecord": "4-8",
-      "era": "3.56",
-      "seasonK9": 9.847826086956522,
-      "recentK9": 8.483478260869564,
+      "era": "3.54",
+      "seasonK9": 9.843243243243245,
+      "recentK9": 8.502286902286903,
       "oppK": 55.333333333333336,
       "matchupFactor": 1.3,
       "stuffFactor": 1.35,
-      "expectedIP": 5.703703703703703,
-      "projectedK": 10.345987826086956,
+      "expectedIP": 5.7407407407407405,
+      "projectedK": 10.418513513513517,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and facing a strikeout-prone lineup; tempered by trending down in recent starts.",
       "recentStartsLog": [
@@ -199,21 +199,21 @@
           "ip": 6
         },
         {
-          "k": 1,
-          "ip": 5
+          "k": 2,
+          "ip": 6
         }
       ],
       "veloTrend": null,
       "marketThreshold": 9,
       "marketProb": 0.01,
-      "modelProb": 0.7047629167806466,
-      "edge": 0.6947629167806466,
+      "modelProb": 0.712285156755964,
+      "edge": 0.702285156755964,
       "graded": false,
       "actualK": null,
       "hit": null,
-      "openingProb": 0.34,
-      "priceDelta": -0.33,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
+      "openingProb": 0.01,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-08-29T03:37:50.059118"
     },
     {
       "gamePk": 822691,
@@ -475,7 +475,7 @@
       "opp": "CWS",
       "oppTeamId": 145,
       "hand": "R",
-      "seasonRecord": "2-4",
+      "seasonRecord": "2-5",
       "era": "5.60",
       "seasonK9": 8.676258992805755,
       "recentK9": 8.615688094685543,
@@ -501,16 +501,13 @@
         }
       ],
       "veloTrend": null,
-      "marketThreshold": 9,
-      "marketProb": 0.01,
-      "modelProb": 0.5191504466603247,
-      "edge": 0.5091504466603247,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
-      "openingProb": 0.01,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "graded": true,
+      "actualK": 3,
+      "hit": null
     },
     {
       "gamePk": 822769,
@@ -597,7 +594,7 @@
       "hit": null,
       "openingProb": 0.01,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
+      "oddsUpdatedAt": "2026-08-29T03:37:50.059118"
     },
     {
       "gamePk": 824396,
@@ -640,51 +637,6 @@
       "graded": true,
       "actualK": 5,
       "hit": null
-    },
-    {
-      "gamePk": 823985,
-      "playerId": 691725,
-      "name": "Andrew Painter",
-      "team": "PHI",
-      "opp": "LAA",
-      "oppTeamId": 108,
-      "hand": "R",
-      "seasonRecord": "3-8",
-      "era": "6.01",
-      "seasonK9": 8.010471204188482,
-      "recentK9": 8.350557705440474,
-      "oppK": 26.5,
-      "matchupFactor": 1.2045454545454546,
-      "stuffFactor": 1.3339960474249744,
-      "expectedIP": 5.407407407407407,
-      "projectedK": 7.864944990251634,
-      "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and facing a strikeout-prone lineup.",
-      "recentStartsLog": [
-        {
-          "k": 2,
-          "ip": 5
-        },
-        {
-          "k": 8,
-          "ip": 7
-        },
-        {
-          "k": 6,
-          "ip": 5
-        }
-      ],
-      "veloTrend": null,
-      "marketThreshold": 8,
-      "marketProb": 0.41,
-      "modelProb": 0.528033703781434,
-      "edge": 0.11803370378143402,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
-      "openingProb": 0.49,
-      "priceDelta": -0.08000000000000002,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
     },
     {
       "gamePk": 824638,
@@ -771,6 +723,51 @@
       "hit": null
     },
     {
+      "gamePk": 823985,
+      "playerId": 691725,
+      "name": "Andrew Painter",
+      "team": "PHI",
+      "opp": "LAA",
+      "oppTeamId": 108,
+      "hand": "R",
+      "seasonRecord": "3-8",
+      "era": "5.95",
+      "seasonK9": 7.9480519480519485,
+      "recentK9": 7.987012987012987,
+      "oppK": 26.5,
+      "matchupFactor": 1.2045454545454546,
+      "stuffFactor": 1.3339960474249744,
+      "expectedIP": 5.462962962962963,
+      "projectedK": 7.767386280526129,
+      "confidence": "High",
+      "reason": "Average strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and facing a strikeout-prone lineup.",
+      "recentStartsLog": [
+        {
+          "k": 2,
+          "ip": 5
+        },
+        {
+          "k": 8,
+          "ip": 7
+        },
+        {
+          "k": 6,
+          "ip": 6
+        }
+      ],
+      "veloTrend": null,
+      "marketThreshold": 9,
+      "marketProb": 0.01,
+      "modelProb": 0.3750200217352585,
+      "edge": 0.3650200217352585,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "openingProb": 0.01,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-08-29T03:37:50.059118"
+    },
+    {
       "gamePk": 823178,
       "playerId": 694918,
       "name": "Blade Tidwell",
@@ -779,14 +776,14 @@
       "oppTeamId": 109,
       "hand": "R",
       "seasonRecord": "0-0",
-      "era": "4.79",
-      "seasonK9": 7.994923857868021,
-      "recentK9": 7.735239113010954,
+      "era": "4.58",
+      "seasonK9": 7.930693069306929,
+      "recentK9": 7.528265729798786,
       "oppK": 73.6,
       "matchupFactor": 1.3,
       "stuffFactor": 1.0,
       "expectedIP": 6.7,
-      "projectedK": 7.636782794549827,
+      "projectedK": 7.519364420312998,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup and a long-innings workload expectation.",
       "recentStartsLog": [
@@ -799,21 +796,21 @@
           "ip": 5.666666666666667
         },
         {
-          "k": 3,
-          "ip": 3
+          "k": 4,
+          "ip": 4.666666666666667
         }
       ],
       "veloTrend": null,
-      "marketThreshold": 8,
-      "marketProb": 0.4,
-      "modelProb": 0.49529921378535424,
-      "edge": 0.09529921378535422,
+      "marketThreshold": 5,
+      "marketProb": 0.72,
+      "modelProb": 0.8693437605529757,
+      "edge": 0.1493437605529757,
       "graded": false,
       "actualK": null,
       "hit": null,
-      "openingProb": 0.47,
-      "priceDelta": -0.06999999999999995,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
+      "openingProb": 0.72,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-08-29T03:37:50.059118"
     },
     {
       "gamePk": 823666,
@@ -849,16 +846,13 @@
         }
       ],
       "veloTrend": null,
-      "marketThreshold": 8,
-      "marketProb": 0.01,
-      "modelProb": 0.4716293278659721,
-      "edge": 0.4616293278659721,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
-      "openingProb": 0.01,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "graded": true,
+      "actualK": 1,
+      "hit": null
     },
     {
       "gamePk": 824960,
@@ -869,16 +863,16 @@
       "oppTeamId": 133,
       "hand": "R",
       "seasonRecord": "9-3",
-      "era": "3.38",
-      "seasonK9": 7.496828752642706,
-      "recentK9": 6.7490486257928115,
+      "era": "3.32",
+      "seasonK9": 7.4437500000000005,
+      "recentK9": 6.432649253731342,
       "oppK": 48.5,
       "matchupFactor": 1.3,
       "stuffFactor": 1.2385842357671557,
-      "expectedIP": 5.550724637681159,
-      "projectedK": 7.147774179585048,
+      "expectedIP": 5.6521739130434785,
+      "projectedK": 7.118229403646361,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and facing a strikeout-prone lineup.",
+      "reason": "Average strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and facing a strikeout-prone lineup; tempered by trending down in recent starts.",
       "recentStartsLog": [
         {
           "k": 3,
@@ -889,21 +883,21 @@
           "ip": 5.666666666666667
         },
         {
-          "k": 4,
-          "ip": 4.333333333333333
+          "k": 5,
+          "ip": 6.666666666666667
         }
       ],
       "veloTrend": null,
-      "marketThreshold": 6,
-      "marketProb": 0.46,
-      "modelProb": 0.71776535520393,
-      "edge": 0.25776535520393,
+      "marketThreshold": 7,
+      "marketProb": 0.47,
+      "modelProb": 0.5677525977918935,
+      "edge": 0.09775259779189349,
       "graded": false,
       "actualK": null,
       "hit": null,
-      "openingProb": 0.49,
-      "priceDelta": -0.02999999999999997,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
+      "openingProb": 0.47,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-08-29T03:37:50.059118"
     },
     {
       "gamePk": 824396,
@@ -1116,6 +1110,51 @@
       "hit": null
     },
     {
+      "gamePk": 823178,
+      "playerId": 684442,
+      "name": "Kohl Drake",
+      "team": "AZ",
+      "opp": "SF",
+      "oppTeamId": 137,
+      "hand": "L",
+      "seasonRecord": "0-1",
+      "era": "6.53",
+      "seasonK9": 8.052631578947366,
+      "recentK9": 8.338629592850051,
+      "oppK": 51.0,
+      "matchupFactor": 1.3,
+      "stuffFactor": 1.0,
+      "expectedIP": 4.133333333333334,
+      "projectedK": 4.876019860973189,
+      "confidence": "High",
+      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by a short-outing workload expectation.",
+      "recentStartsLog": [
+        {
+          "k": 6,
+          "ip": 4
+        },
+        {
+          "k": 1,
+          "ip": 3.6666666666666665
+        },
+        {
+          "k": 4,
+          "ip": 4
+        }
+      ],
+      "veloTrend": null,
+      "marketThreshold": 5,
+      "marketProb": 0.7,
+      "modelProb": 0.5374894862436925,
+      "edge": -0.16251051375630743,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "openingProb": 0.7,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-08-29T03:37:50.059118"
+    },
+    {
       "gamePk": 823744,
       "playerId": 674003,
       "name": "Cody Bradford",
@@ -1156,51 +1195,6 @@
       "graded": true,
       "actualK": 0,
       "hit": null
-    },
-    {
-      "gamePk": 823178,
-      "playerId": 684442,
-      "name": "Kohl Drake",
-      "team": "AZ",
-      "opp": "SF",
-      "oppTeamId": 137,
-      "hand": "L",
-      "seasonRecord": "0-1",
-      "era": "5.79",
-      "seasonK9": 7.82876712328767,
-      "recentK9": 7.59399591955698,
-      "oppK": 51.0,
-      "matchupFactor": 1.3,
-      "stuffFactor": 1.0,
-      "expectedIP": 3.7333333333333334,
-      "projectedK": 4.1710941416496645,
-      "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by a short-outing workload expectation.",
-      "recentStartsLog": [
-        {
-          "k": 6,
-          "ip": 4
-        },
-        {
-          "k": 1,
-          "ip": 3.6666666666666665
-        },
-        {
-          "k": 1,
-          "ip": 2
-        }
-      ],
-      "veloTrend": null,
-      "marketThreshold": 5,
-      "marketProb": 0.5,
-      "modelProb": 0.4045493047696106,
-      "edge": -0.0954506952303894,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
-      "openingProb": 0.43,
-      "priceDelta": 0.07,
-      "oddsUpdatedAt": "2026-08-29T03:13:49.987029"
     },
     {
       "gamePk": 824638,
@@ -1287,5 +1281,5 @@
       "hit": null
     }
   ],
-  "oddsRefreshedAt": "2026-08-29T03:13:49.987029"
+  "oddsRefreshedAt": "2026-08-29T03:37:50.059118"
 }
