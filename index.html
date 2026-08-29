@@ -358,6 +358,9 @@ function extraIntel(e){
   if(e.marketProb!==null && e.marketProb!==undefined){
     chips.push(`<span class="bx-chip">FanDuel/Kalshi: <b>${pct(e.marketProb)}</b>${priceMoveTag(e)}</span>`);
   }
+  if(e.prizePicksHRLine!==null && e.prizePicksHRLine!==undefined){
+    chips.push(`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksHRLine}+ HR</b></span>`);
+  }
   return `<div class="bx-line">${chips.join('')}</div>`;
 }
 
@@ -545,6 +548,7 @@ function renderKO(){
         <div class="bx-line" style="margin-top:8px;">
           ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
           ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
+          ${e.prizePicksKLine!==null&&e.prizePicksKLine!==undefined?`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksKLine} Strikeouts</b></span>`:''}
         </div>
         <div class="factor-grid">
           <div class="factor-item"><div class="fv">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
