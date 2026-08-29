@@ -138,3 +138,54 @@ def merge_ko(ko_data, records):
             matched += 1
     print(f"  PrizePicks K: matched {matched}/{len(ko_data['entries'])} entries")
     return ko_data
+
+
+def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
+    """For any entry with a PrizePicks line, make marketThreshold/modelProb/
+    marketProb/edge all correctly correspond to PrizePicks' actual line --
+    not whatever threshold Kalshi's own 'closest to 50%' pick happened to
+    land on, which could be a different number entirely and would make the
+    displayed edge silently answer the wrong question.
+
+    Entries with no PrizePicks line are left exactly as Kalshi's own merge
+    already set them.
+    """
+    import fetch_kalshi
+
+    refined = 0
+    no_kalshi_at_that_line = 0
+    for e in ko_data["entries"]:
+        pp_line = e.get("prizePicksKLine")
+        if pp_line is None:
+            continue
+
+        # PrizePicks lines are "over X.5" style -> clearing them means
+        # actual_K >= floor(X.5) + 1. Handles integer lines the same way
+        # (strictly more than the line).
+        implied_threshold = int(pp_line // 1) + 1
+
+        model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedK"])
+        e["marketThreshold"] = implied_threshold
+        e["modelProb"] = model_prob
+
+        kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
+        if kalshi_price is not None:
+            if e.get("openingProb") is None:
+                e["openingProb"] = kalshi_price
+            e["priceDelta"] = kalshi_price - e["openingProb"]
+            e["marketProb"] = kalshi_price
+            e["edge"] = model_prob - kalshi_price
+        else:
+            # Kalshi doesn't have a market at this exact threshold -- showing
+            # no edge is more honest than showing one computed against a
+            # different number.
+            e["marketProb"] = None
+            e["edge"] = None
+            e["openingProb"] = None
+            e["priceDelta"] = None
+            no_kalshi_at_that_line += 1
+        refined += 1
+
+    print(f"  PrizePicks/Kalshi threshold match: refined {refined} entries "
+          f"({no_kalshi_at_that_line} had no Kalshi price at PrizePicks' exact line)")
+    return ko_data
