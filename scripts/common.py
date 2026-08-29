@@ -8,6 +8,7 @@ import csv
 import io
 import time
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -177,7 +178,10 @@ def fetch_weather(lat, lon, game_date_iso):
 
 
 def today_iso():
-    return datetime.utcnow().strftime("%Y-%m-%d")
+    # MLB's "today" follows US local time, not UTC -- during US evening hours,
+    # UTC has already rolled over to the next calendar day, which was causing
+    # every script to silently build/look up the wrong date's board.
+    return datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
 
 
 _arsenal_cache = {}
