@@ -809,6 +809,40 @@ function renderTeams(){
 }
 
 // ---------- History ----------
+function renderCalibrationCard(cal){
+  if(!cal){
+    return `
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Model Calibration</div>
+        <div class="status">No calibration data yet — needs at least one graded day before this kicks in.</div>
+      </div>
+    `;
+  }
+  const row = (tier, hr, ko) => {
+    const hrTxt = hr.status==='active'
+      ? `${hr.multiplier>1?'+':''}${((hr.multiplier-1)*100).toFixed(1)}% <span class="status">(n=${hr.sampleSize}, actual ${(hr.actualRate*100).toFixed(1)}% vs predicted ${(hr.avgPredicted*100).toFixed(1)}%)</span>`
+      : `<span class="status">not enough data yet (${hr.sampleSize}/${cal.minSampleRequired})</span>`;
+    const koTxt = ko.status==='active'
+      ? `${ko.bias>0?'+':''}${ko.bias.toFixed(2)} K <span class="status">(n=${ko.sampleSize}, avg raw bias ${ko.avgRawBias.toFixed(2)} K)</span>`
+      : `<span class="status">not enough data yet (${ko.sampleSize}/${cal.minSampleRequired})</span>`;
+    return `<tr><td>${tier}</td><td>${hrTxt}</td><td>${koTxt}</td></tr>`;
+  };
+  const rows = ['High','Medium','Low'].map(t=>row(t, cal.hr[t], cal.ko[t])).join('');
+  return `
+    <div class="day-card" style="margin-bottom:16px;">
+      <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Model Calibration</div>
+      <div class="status" style="margin-bottom:10px;line-height:1.6;">
+        This isn't AI or machine learning — it's a straightforward check: does each confidence tier's actual hit rate
+        match what the model predicted? If a tier has been running hot or cold, future projections get nudged
+        gently in that direction — only after ${cal.minSampleRequired}+ graded entries, and even then only by
+        30% of the measured gap (never a full overcorrection off one hot or cold stretch).
+      </div>
+      <table class="board"><thead><tr><th>Confidence</th><th>HR adjustment</th><th>K adjustment</th></tr></thead><tbody>${rows}</tbody></table>
+      <div class="status" style="margin-top:6px;">Recalculated after every grading run · ${cal.totalHRGraded} HR entries and ${cal.totalKGraded} K entries graded so far</div>
+    </div>
+  `;
+}
+
 async function loadHistory(){
   const wrap = document.getElementById('historyWrap');
   wrap.innerHTML = '<div class="placeholder">Loading…</div>';
@@ -838,12 +872,15 @@ async function loadHistory(){
     return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
   }).join('');
 
+  const calibration = await fetchJSONLocal('data/calibration.json').catch(()=>null);
+
   let html = `
     <div class="day-card" style="margin-bottom:16px;">
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Confidence Tier</div>
       <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K line hit rate</th></tr></thead><tbody>${tierRows}</tbody></table>
       <div class="status" style="margin-top:6px;">Only counts graded entries. Needs at least a couple weeks of data to mean much.</div>
     </div>
+    ${renderCalibrationCard(calibration)}
   `;
   const byMonth = {};
   allDates.forEach(d=>{ const m=d.slice(0,7); (byMonth[m]=byMonth[m]||[]).push(d); });
