@@ -7,9 +7,15 @@ name: Daily MLB board update
     # happens the same night instead of waiting for the next day's first run.
     # GitHub may delay scheduled runs by a few minutes during high load --
     # that's normal and not something to worry about.
-    - cron: '0 16 * * *'
-    - cron: '0 22 * * *'
-    - cron: '0 3 * * *'
+    # 10am/1pm/5pm Central (CDT = UTC-5) -- timed around when MLB lineups
+    # actually get posted (2-4hr before first pitch), not game end times.
+    # Grading itself now happens on the frequent job, so this schedule's
+    # only job is catching fresh confirmed lineups before people look.
+    # Note: these are fixed UTC times, so they'll drift an hour relative to
+    # Central time when clocks change for DST (worth revisiting in Nov/Mar).
+    - cron: '7 15 * * *'
+    - cron: '7 18 * * *'
+    - cron: '7 22 * * *'
   workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
 
 permissions:
