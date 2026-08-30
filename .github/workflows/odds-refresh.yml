@@ -2,10 +2,16 @@ name: Odds refresh (frequent)
 
 "on":
   schedule:
-    # Every 15 minutes -- lightweight, only re-pulls live Kalshi prices for
-    # today's already-built board and tracks price movement. Does NOT
-    # rebuild projections/stats/matchups -- that's the heavier daily.yml job.
-    - cron: '*/15 * * * *'
+    # Every 10 minutes, offset 3 minutes past each mark (:03, :13, :23...)
+    # to avoid the :00/:15/:30/:45 marks where everyone else's scheduled
+    # workflows fire at once -- GitHub's scheduler gets most congested
+    # right at those exact times, which is also roughly when this job's
+    # delivery reliability matters most (evening game hours). This is
+    # lightweight: re-pulls live Kalshi/PrizePicks prices for today's
+    # already-built board, tracks price movement, and grades any games
+    # that have finished. Does NOT rebuild projections/stats/matchups --
+    # that's the heavier daily.yml job.
+    - cron: '3,13,23,33,43,53 * * * *'
   workflow_dispatch: {}
 
 permissions:
