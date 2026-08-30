@@ -175,8 +175,9 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
 
         kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
         if kalshi_price is not None:
-            if e.get("openingProb") is None:
+            if e.get("openingProb") is None or e.get("openingThreshold") != implied_threshold:
                 e["openingProb"] = kalshi_price
+                e["openingThreshold"] = implied_threshold
             e["priceDelta"] = kalshi_price - e["openingProb"]
             e["marketProb"] = kalshi_price
             e["edge"] = model_prob - kalshi_price
@@ -187,6 +188,7 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             e["marketProb"] = None
             e["edge"] = None
             e["openingProb"] = None
+            e["openingThreshold"] = None
             e["priceDelta"] = None
             no_kalshi_at_that_line += 1
         refined += 1
