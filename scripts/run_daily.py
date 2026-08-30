@@ -26,10 +26,10 @@ import grade
 def preserve_opening_prices(new_entries, old_path):
     """Heavy rebuilds regenerate every entry from scratch, which would
     otherwise silently reset each player's 'opening price' (used for
-    price-movement tracking) on every single run. Carries the real
-    first-seen-today price forward from the previous file, matched by
-    (playerId, gamePk) so a doubleheader doesn't cross-contaminate two
-    different games for the same player."""
+    price-movement tracking) and 'opening line' (PrizePicks' own line
+    movement tracking) on every single run. Carries both forward from the
+    previous file, matched by (playerId, gamePk) so a doubleheader doesn't
+    cross-contaminate two different games for the same player."""
     if not os.path.exists(old_path):
         return new_entries
     try:
@@ -38,19 +38,30 @@ def preserve_opening_prices(new_entries, old_path):
     except Exception:  # noqa: BLE001
         return new_entries
 
-    opening_by_key = {
+    opening_prob_by_key = {
         (e.get("playerId"), e.get("gamePk")): e["openingProb"]
         for e in old_data.get("entries", [])
         if e.get("openingProb") is not None
     }
+    opening_line_by_key = {
+        (e.get("playerId"), e.get("gamePk")): e["prizePicksOpeningLine"]
+        for e in old_data.get("entries", [])
+        if e.get("prizePicksOpeningLine") is not None
+    }
     preserved = 0
     for e in new_entries:
         key = (e.get("playerId"), e.get("gamePk"))
-        if key in opening_by_key:
-            e["openingProb"] = opening_by_key[key]
+        touched = False
+        if key in opening_prob_by_key:
+            e["openingProb"] = opening_prob_by_key[key]
+            touched = True
+        if key in opening_line_by_key:
+            e["prizePicksOpeningLine"] = opening_line_by_key[key]
+            touched = True
+        if touched:
             preserved += 1
     if preserved:
-        print(f"  Preserved opening prices for {preserved} entries from the previous build")
+        print(f"  Preserved opening prices/lines for {preserved} entries from the previous build")
     return new_entries
 
 
