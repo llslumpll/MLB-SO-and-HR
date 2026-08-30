@@ -902,7 +902,7 @@ async function loadHistory(){
         const hits = gwl.filter(e=>e.hit).length;
         koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} line hit (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
           <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Actual K</th><th>Result</th></tr></thead>
-          <tbody>${dd.ko.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${e.marketThreshold?e.marketThreshold+'+':'—'}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?'recorded':'—')):'pending'}</td></tr>`).join('')}</tbody></table>`;
+          <tbody>${dd.ko.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${e.marketThreshold?e.marketThreshold+'+':'—'}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'pending'}</td></tr>`).join('')}</tbody></table>`;
       }
       html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}</div></div>`;
     }
