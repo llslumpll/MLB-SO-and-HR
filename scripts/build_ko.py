@@ -102,19 +102,28 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
             stuff_factor = clip(prod ** (1 / len(parts)), 0.75, 1.35)
 
     base_k9 = (0.6 * season_k9 + 0.4 * recent_k9) if recent_k9 is not None else season_k9
-    final_k9 = base_k9 * stuff_factor
 
     opp_k = fetch_roster_k_percent(opp_team_id, batter_pct_map)
     matchup_factor = clip(opp_k / LEAGUE_AVG_K_PCT, 0.75, 1.3) if opp_k is not None else 1.0
 
-    expected_ip = clip((season_ip / games_started) if (season_ip and games_started) else 5.2, 3.5, 6.7)
-    projected_k = final_k9 * matchup_factor * expected_ip / 9
     # stuff_factor and matchup_factor are each individually bounded, but
-    # nothing stopped them from compounding together when a pitcher has
-    # strong recent form + strong Savant numbers + a favorable matchup all
-    # at once -- this mirrors the hard ceiling the HR formula already has
-    # (clip(prob, 0.01, 0.45)), which this projection was missing entirely.
-    projected_k = clip(projected_k, 1.0, 12.0)
+    # straight-multiplying them let a pitcher with strong Savant numbers AND
+    # a favorable matchup compound to as much as ~1.75x combined -- well
+    # beyond what either factor was designed to represent alone. Blending
+    # them as a geometric mean (the same technique stuff_factor already
+    # uses internally on its own sub-parts) keeps each factor's real signal
+    # without letting them stack multiplicatively.
+    combined_factor = (stuff_factor * matchup_factor) ** 0.5
+    final_k9 = base_k9 * combined_factor
+
+    expected_ip = clip((season_ip / games_started) if (season_ip and games_started) else 5.2, 3.5, 6.7)
+    projected_k = final_k9 * expected_ip / 9
+    # Absolute safety ceiling on the PROJECTED MEAN specifically -- not a
+    # best-case outcome; the Poisson math used downstream already accounts
+    # for a great day happening above the mean. A real elite ace at ~11-12
+    # K/9 with a strong 6.5 IP start averages around 8 strikeouts, not 12,
+    # so this is still generous headroom rather than a tight leash.
+    projected_k = clip(projected_k, 1.0, 9.5)
 
     velo_trend = fetch_pitcher_velo_trend(pitcher_id, year, pitcher_pct_map)
 
