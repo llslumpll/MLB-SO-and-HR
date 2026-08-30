@@ -109,6 +109,12 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
 
     expected_ip = clip((season_ip / games_started) if (season_ip and games_started) else 5.2, 3.5, 6.7)
     projected_k = final_k9 * matchup_factor * expected_ip / 9
+    # stuff_factor and matchup_factor are each individually bounded, but
+    # nothing stopped them from compounding together when a pitcher has
+    # strong recent form + strong Savant numbers + a favorable matchup all
+    # at once -- this mirrors the hard ceiling the HR formula already has
+    # (clip(prob, 0.01, 0.45)), which this projection was missing entirely.
+    projected_k = clip(projected_k, 1.0, 12.0)
 
     velo_trend = fetch_pitcher_velo_trend(pitcher_id, year, pitcher_pct_map)
 
