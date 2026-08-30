@@ -23,6 +23,37 @@ import fetch_kalshi
 import grade
 
 
+def preserve_opening_prices(new_entries, old_path):
+    """Heavy rebuilds regenerate every entry from scratch, which would
+    otherwise silently reset each player's 'opening price' (used for
+    price-movement tracking) on every single run. Carries the real
+    first-seen-today price forward from the previous file, matched by
+    (playerId, gamePk) so a doubleheader doesn't cross-contaminate two
+    different games for the same player."""
+    if not os.path.exists(old_path):
+        return new_entries
+    try:
+        with open(old_path) as f:
+            old_data = json.load(f)
+    except Exception:  # noqa: BLE001
+        return new_entries
+
+    opening_by_key = {
+        (e.get("playerId"), e.get("gamePk")): e["openingProb"]
+        for e in old_data.get("entries", [])
+        if e.get("openingProb") is not None
+    }
+    preserved = 0
+    for e in new_entries:
+        key = (e.get("playerId"), e.get("gamePk"))
+        if key in opening_by_key:
+            e["openingProb"] = opening_by_key[key]
+            preserved += 1
+    if preserved:
+        print(f"  Preserved opening prices for {preserved} entries from the previous build")
+    return new_entries
+
+
 def main():
     date = sys.argv[1] if len(sys.argv) > 1 else today_iso()
     year = int(date[:4])
@@ -35,6 +66,7 @@ def main():
     print(f"STEP 1: Build HR board for {date}")
     print("=" * 60)
     hr_result = build_hr.build(date, year)
+    hr_result["entries"] = preserve_opening_prices(hr_result["entries"], f"data/hr/{date}.json")
     with open(f"data/hr/{date}.json", "w") as f:
         json.dump(hr_result, f, indent=2, default=str)
     print(f"Wrote data/hr/{date}.json with {len(hr_result['entries'])} entries")
@@ -43,6 +75,7 @@ def main():
     print(f"STEP 2: Build Strikeouts board for {date}")
     print("=" * 60)
     ko_result = build_ko.build(date, year)
+    ko_result["entries"] = preserve_opening_prices(ko_result["entries"], f"data/ko/{date}.json")
     with open(f"data/ko/{date}.json", "w") as f:
         json.dump(ko_result, f, indent=2, default=str)
     print(f"Wrote data/ko/{date}.json with {len(ko_result['entries'])} entries")
