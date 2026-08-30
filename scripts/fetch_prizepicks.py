@@ -73,6 +73,7 @@ def fetch_projections(league_id):
 
     records = []
     stat_types_seen = set()
+    odds_types_seen = set()
     for p in projections:
         attrs = p.get("attributes") or {}
         stat_type = attrs.get("stat_type") or ""
@@ -89,23 +90,37 @@ def fetch_projections(league_id):
         if line is None:
             continue
 
+        # PrizePicks posts alternate "Goblin" (easier) and "Demon" (harder)
+        # lines alongside the standard one for the same stat -- without
+        # filtering these out, picking "whichever projection came last in
+        # the response" could silently grab a goblin/demon line instead of
+        # the real one. Field name guessed defensively since it can't be
+        # verified against live data from here; odds_types_seen below will
+        # immediately reveal the real values if this guess is wrong.
+        odds_type = (attrs.get("odds_type") or attrs.get("type") or "standard")
+        odds_type = str(odds_type).strip().lower()
+        odds_types_seen.add(odds_type)
+
         records.append({
             "name": player["name"],
             "team": player.get("team"),
             "statType": stat_type,
             "line": line,
+            "oddsType": odds_type,
             "startTime": attrs.get("start_time"),
             "status": attrs.get("status"),
         })
 
     print(f"  PrizePicks: {len(projections)} raw projection(s), {len(records)} matched to a player")
     print(f"  PrizePicks: stat types seen: {sorted(stat_types_seen)}")
+    print(f"  PrizePicks: odds types seen: {sorted(odds_types_seen)}")
     return records
 
 
 def fetch_mlb_props():
     """Returns (hr_records, k_records) -- each a list of
-    {name, team, line, startTime, status}."""
+    {name, team, line, startTime, status}. Standard lines only -- Goblin
+    and Demon alternate lines are excluded."""
     leagues = fetch_leagues()
     if not leagues:
         return [], []
@@ -115,6 +130,15 @@ def fetch_mlb_props():
         return [], []
 
     all_records = fetch_projections(league_id)
+    before = len(all_records)
+    # "standard" here also covers the case where odds_type couldn't be
+    # determined at all -- better to keep an unlabeled line than silently
+    # drop everything if the field name guess above turns out wrong.
+    all_records = [r for r in all_records if r["oddsType"] in ("standard", "")]
+    dropped = before - len(all_records)
+    if dropped:
+        print(f"  PrizePicks: excluded {dropped} goblin/demon alternate line(s), kept standard only")
+
     hr_records = [r for r in all_records if any(m in r["statType"].lower() for m in HR_STAT_MATCHES)]
     k_records = [r for r in all_records if any(m in r["statType"].lower() for m in K_STAT_MATCHES)]
     return hr_records, k_records
