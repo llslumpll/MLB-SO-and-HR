@@ -2,18 +2,26 @@
 Lightweight, frequent-refresh script: re-pulls live Kalshi prices and
 PrizePicks prop lines, merging them into TODAY's already-built HR/K boards,
 tracking price movement over the course of the day (openingProb / priceDelta
-on each entry).
+on each entry). Also grades any games that have finished since the last run.
 
 Does NOT rebuild projections, team stats, or matchup scouting reports --
 that's the heavier job in run_daily.py, which runs a few times a day.
-This script is meant to run frequently (every ~15 min) since it's cheap:
-a handful of API calls plus a JSON read/merge/write, nothing else.
+This script is meant to run frequently (every ~15 min) since everything in
+it is cheap: a handful of API calls plus a JSON read/merge/write.
+
+Grading lives here (not just in the heavy job) because MLB games finish at
+wildly different times depending on time zone -- a West Coast night game can
+easily still be in progress during the heavy pipeline's last run of the day,
+leaving it ungraded for many hours otherwise. Running grading every 15
+minutes means results show up shortly after a game actually ends, regardless
+of when in the day that happens.
 
 PrizePicks is an unofficial, undocumented endpoint (see fetch_prizepicks.py
 for the caveats) -- if it ever breaks, that's wrapped so it can't take down
 the Kalshi refresh alongside it.
 """
 
+import glob
 import json
 import os
 import sys
@@ -21,6 +29,24 @@ import sys
 from common import today_iso
 import fetch_kalshi
 import fetch_prizepicks
+import grade
+
+
+def grade_all():
+    total = 0
+    for path in sorted(glob.glob("data/hr/*.json")):
+        try:
+            total += grade.grade_hr_file(path)
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] grading failed for {path}: {e}")
+    for path in sorted(glob.glob("data/ko/*.json")):
+        try:
+            total += grade.grade_ko_file(path)
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] grading failed for {path}: {e}")
+    if total:
+        print(f"  Graded {total} newly-finished entries")
+    return total
 
 
 def refresh(date):
@@ -31,7 +57,8 @@ def refresh(date):
 
     if not hr_exists and not ko_exists:
         print(f"No board saved yet for {date} -- nothing to refresh.")
-        return False
+        graded = grade_all()
+        return graded > 0
 
     hr_records = fetch_kalshi.pull_series("KXMLBHR", "home runs")
     ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
@@ -64,6 +91,7 @@ def refresh(date):
         with open(ko_path, "w") as f:
             json.dump(ko_data, f, indent=2, default=str)
 
+    grade_all()
     return True
 
 
