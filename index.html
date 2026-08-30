@@ -257,6 +257,12 @@ function priceMoveTag(e){
   const arrow = up ? '▲' : '▼';
   return ` <span class="${cls}" style="font-size:9.5px;">${arrow}${Math.abs(e.priceDelta*100).toFixed(1)}pp</span>`;
 }
+function lineMoveTag(e){
+  if(e.prizePicksLineDelta===undefined || e.prizePicksLineDelta===null || Math.abs(e.prizePicksLineDelta) < 0.05) return '';
+  const up = e.prizePicksLineDelta > 0;
+  const arrow = up ? '▲' : '▼';
+  return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(e.prizePicksLineDelta).toFixed(1)}</span>`;
+}
 function fmt3(v){
   if(v===null||v===undefined) return '—';
   const n = typeof v==='string' ? parseFloat(v) : v;
@@ -501,7 +507,7 @@ function koCard(e, rank){
         </div>
         <div>
           <div class="card-stat">${e.projectedK.toFixed(1)}</div>
-          <div class="card-stat-label">Proj K${e.marketThreshold?` · ${e.marketThreshold}+ line`:''}${edgeHtml}${callHtml}</div>
+          <div class="card-stat-label">Proj K${e.prizePicksKLine!=null?` · ${e.prizePicksKLine} line${lineMoveTag(e)}`:''}${edgeHtml}${callHtml}</div>
         </div>
       </div>
       <div class="card-reason">${e.reason||''}</div>
@@ -541,11 +547,11 @@ function renderKO(){
         <td class="${e.oppK!==null?statClass(e.oppK,24,19,'hi'):''}">${e.oppK!==null&&e.oppK!==undefined?e.oppK.toFixed(1)+'%':'—'}</td>
         <td>${e.expectedIP.toFixed(1)}</td>
         <td style="color:var(--amber);font-weight:700;">${e.projectedK.toFixed(1)}</td>
-        <td>${e.marketThreshold?`${e.marketThreshold}+`:'—'}</td>
+        <td>${e.prizePicksKLine!=null?e.prizePicksKLine+lineMoveTag(e):'—'}</td>
         <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb)+priceMoveTag(e):'—'}</td>
         <td>${e.modelProb!==null&&e.modelProb!==undefined?pct(e.modelProb):'—'}</td>
         <td class="${edgeClass}">${e.edge===null||e.edge===undefined?'—':(e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'%'}</td>
-        <td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'—'}</td>
+        <td>${e.graded?(e.prizePicksKLine!=null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
       <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="12">
@@ -864,7 +870,7 @@ async function loadHistory(){
       if(e.graded && e.confidence && tiers[e.confidence]){ tiers[e.confidence].hrTot++; if(e.hr) tiers[e.confidence].hrHit++; }
     });
     if(dd.ko) dd.ko.entries.forEach(e=>{
-      if(e.graded && e.confidence && e.marketThreshold!==null && tiers[e.confidence]){ tiers[e.confidence].koTot++; if(e.hit) tiers[e.confidence].koHit++; }
+      if(e.graded && e.confidence && e.prizePicksKLine!=null && tiers[e.confidence]){ tiers[e.confidence].koTot++; if(e.hit) tiers[e.confidence].koHit++; }
     });
   });
   const tierRows = ['High','Medium','Low'].map(t=>{
@@ -898,11 +904,11 @@ async function loadHistory(){
       }
       if(dd.ko){
         const graded = dd.ko.entries.filter(e=>e.graded);
-        const gwl = graded.filter(e=>e.marketThreshold!==null);
+        const gwl = graded.filter(e=>e.prizePicksKLine!=null);
         const hits = gwl.filter(e=>e.hit).length;
         koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} line hit (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
           <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Actual K</th><th>Result</th></tr></thead>
-          <tbody>${dd.ko.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${e.marketThreshold?e.marketThreshold+'+':'—'}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${e.graded?(e.marketThreshold!==null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'pending'}</td></tr>`).join('')}</tbody></table>`;
+          <tbody>${dd.ko.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${e.prizePicksKLine!=null?e.prizePicksKLine:'—'}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${e.graded?(e.prizePicksKLine!=null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'pending'}</td></tr>`).join('')}</tbody></table>`;
       }
       html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}</div></div>`;
     }
