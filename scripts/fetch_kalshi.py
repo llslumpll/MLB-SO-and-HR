@@ -139,12 +139,19 @@ def merge_ko(ko_data, records):
         hit = by_name.get(norm_name(e["name"]))
         if hit:
             price = hit["price"]
-            if e.get("openingProb") is None:
+            threshold = hit["threshold"]
+            # If we're now tracking a DIFFERENT threshold than whatever
+            # openingProb was recorded under, that old opening price
+            # belongs to a different question entirely -- treat this as a
+            # fresh first sighting rather than comparing prices from two
+            # different thresholds as if they were the same market moving.
+            if e.get("openingProb") is None or e.get("openingThreshold") != threshold:
                 e["openingProb"] = price
+                e["openingThreshold"] = threshold
             e["priceDelta"] = price - e["openingProb"]
-            e["marketThreshold"] = hit["threshold"]
+            e["marketThreshold"] = threshold
             e["marketProb"] = price
-            e["modelProb"] = poisson_prob_at_least(hit["threshold"], e["projectedK"])
+            e["modelProb"] = poisson_prob_at_least(threshold, e["projectedK"])
             e["edge"] = e["modelProb"] - price
             e["oddsUpdatedAt"] = now
             matched += 1
