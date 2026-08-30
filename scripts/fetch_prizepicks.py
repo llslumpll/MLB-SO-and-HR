@@ -138,7 +138,11 @@ def merge_ko(ko_data, records):
     for e in ko_data["entries"]:
         hit = by_name.get(norm_name(e["name"]))
         if hit:
-            e["prizePicksKLine"] = hit["line"]
+            line = hit["line"]
+            if e.get("prizePicksOpeningLine") is None:
+                e["prizePicksOpeningLine"] = line
+            e["prizePicksLineDelta"] = line - e["prizePicksOpeningLine"]
+            e["prizePicksKLine"] = line
             matched += 1
     print(f"  PrizePicks K: matched {matched}/{len(ko_data['entries'])} entries")
     return ko_data
