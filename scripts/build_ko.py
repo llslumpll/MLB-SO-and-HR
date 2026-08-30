@@ -28,20 +28,27 @@ def load_ko_calibration():
         return {}
 
 
-def fetch_roster_k_percent(team_id, batter_pct_map):
+def fetch_roster_k_percent(team_id, year):
+    """Real team strikeout rate from season hitting stats (K / plate
+    appearances), NOT an average of Savant percentile ranks. That earlier
+    approach was averaging 0-100 percentile-rank numbers (Savant's
+    percentile-rankings endpoint returns rank, not the raw stat) and
+    displaying/using the result as if it were a real K% -- percentile
+    ranks scatter widely around 50 by construction, which is exactly the
+    implausibly wide, too-high pattern that was showing up on the site."""
     try:
-        data = get(f"{API}/teams/{team_id}/roster", params={"rosterType": "active"})
-        roster = data.get("roster") or []
-        batters = [r for r in roster if (r.get("position") or {}).get("abbreviation") != "P"]
-        vals = []
-        for b in batters:
-            row = batter_pct_map.get(str(b["person"]["id"]))
-            if row:
-                k = to_num(row.get("k_percent"))
-                if k is not None:
-                    vals.append(k)
-        return sum(vals) / len(vals) if vals else None
-    except Exception:  # noqa: BLE001
+        data = get(f"{API}/teams/{team_id}/stats", params={"stats": "season", "group": "hitting", "season": year})
+        splits = ((data.get("stats") or [{}])[0]).get("splits") or []
+        if not splits:
+            return None
+        stat = splits[0].get("stat") or {}
+        so = to_num(stat.get("strikeOuts"))
+        pa = to_num(stat.get("plateAppearances"))
+        if so is None or not pa:
+            return None
+        return (so / pa) * 100
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] team K%% fetch failed for team {team_id}: {e}")
         return None
 
 
@@ -103,7 +110,7 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
 
     base_k9 = (0.6 * season_k9 + 0.4 * recent_k9) if recent_k9 is not None else season_k9
 
-    opp_k = fetch_roster_k_percent(opp_team_id, batter_pct_map)
+    opp_k = fetch_roster_k_percent(opp_team_id, year)
     matchup_factor = clip(opp_k / LEAGUE_AVG_K_PCT, 0.75, 1.3) if opp_k is not None else 1.0
 
     # stuff_factor and matchup_factor are each individually bounded, but
