@@ -77,8 +77,8 @@
   .conf-badge.conf-low{color:var(--red);border-color:var(--red-dim);}
 
   .pp-call{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.5px;padding:2px 6px;border-radius:0;margin-left:4px;}
-  .pp-call-over{color:var(--navy);background:var(--amber);}
-  .pp-call-under{color:var(--chalk);background:var(--panel-2);border:1px solid var(--line);}
+  .pp-call-over{color:var(--navy);background:var(--green);}
+  .pp-call-under{color:#fff;background:#e8384f;}
 
   .stat-good{color:var(--green)!important;}
   .stat-bad{color:var(--red)!important;}
@@ -551,7 +551,7 @@ function renderKO(){
         <td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb)+priceMoveTag(e):'—'}</td>
         <td>${e.modelProb!==null&&e.modelProb!==undefined?pct(e.modelProb):'—'}</td>
         <td class="${edgeClass}">${e.edge===null||e.edge===undefined?'—':(e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'%'}</td>
-        <td>${e.graded?(e.prizePicksKLine!=null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'—'}</td>
+        <td>${e.prizePicksCall?`<span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>`:'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
       <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="12">
@@ -574,7 +574,7 @@ function renderKO(){
     <div class="long-scroll">
       <table class="board"><thead><tr>
         <th>Pitcher</th><th>Season K/9</th><th>L3 K/9</th><th>Opp K%</th><th>Exp IP</th>
-        <th>Proj K</th><th>Line</th><th>Market %</th><th>Model %</th><th>Edge</th><th>Result</th><th></th>
+        <th>Proj K</th><th>Line</th><th>Market %</th><th>Model %</th><th>Edge</th><th>Prediction</th><th></th>
       </tr></thead><tbody>${rows}</tbody></table>
     </div>
   `;
