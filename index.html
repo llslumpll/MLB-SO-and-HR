@@ -907,8 +907,16 @@ async function loadHistory(){
         const gwl = graded.filter(e=>e.prizePicksKLine!=null);
         const hits = gwl.filter(e=>e.hit).length;
         koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} line hit (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
-          <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Actual K</th><th>Result</th></tr></thead>
-          <tbody>${dd.ko.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${e.prizePicksKLine!=null?e.prizePicksKLine:'—'}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${e.graded?(e.prizePicksKLine!=null?(e.hit?'✅ Over':'❌ Under'):(e.actualK!==null?e.actualK+' K':'—')):'pending'}</td></tr>`).join('')}</tbody></table>`;
+          <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Edge</th><th>Actual K</th><th>Result</th></tr></thead>
+          <tbody>${dd.ko.entries.slice(0,40).map(e=>{
+            const edgeClass = e.edge===null||e.edge===undefined ? 'edge-flat' : e.edge>0.03 ? 'edge-pos' : e.edge<-0.03 ? 'edge-neg' : 'edge-flat';
+            const edgeTxt = e.edge===null||e.edge===undefined ? '—' : (e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'%';
+            const hasLine = e.prizePicksKLine!=null;
+            const result = !e.graded ? 'pending'
+              : hasLine ? (e.hit?'✅ Over':'❌ Under')
+              : '<span class="status">no line to grade</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${hasLine?e.prizePicksKLine:'—'}</td><td class="${edgeClass}">${edgeTxt}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
+          }).join('')}</tbody></table>`;
       }
       html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}</div></div>`;
     }
