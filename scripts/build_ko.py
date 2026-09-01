@@ -84,6 +84,17 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     season_ip = parse_ip(season_stat.get("inningsPitched"))
     season_k = to_num(season_stat.get("strikeOuts"))
 
+    # Pitch-count/control profile for the outs "long leash" reasoning --
+    # all pulled from the SAME season stats call above, no new API fetch.
+    # numberOfPitches and battersFaced are standard MLB Stats API fields.
+    num_pitches = to_num(season_stat.get("numberOfPitches"))
+    batters_faced = to_num(season_stat.get("battersFaced"))
+    season_bb = to_num(season_stat.get("baseOnBalls"))
+    bb_pct = (season_bb / batters_faced * 100) if (season_bb is not None and batters_faced) else None
+    k_pct_of_pa = (season_k / batters_faced * 100) if (season_k is not None and batters_faced) else None
+    k_bb_pct = (k_pct_of_pa - bb_pct) if (k_pct_of_pa is not None and bb_pct is not None) else None
+    p_per_ip = (num_pitches / season_ip) if (num_pitches and season_ip and season_ip > 0) else None
+
     PRIOR_IP = 30
     if season_ip is not None:
         season_k9 = (((season_k or 0) + PRIOR_IP * (LEAGUE_AVG_K9 / 9)) / (season_ip + PRIOR_IP)) * 9
@@ -91,6 +102,7 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         season_k9 = LEAGUE_AVG_K9
 
     games_started = to_num(season_stat.get("gamesStarted")) or to_num(season_stat.get("gamesPlayed")) or 1
+    np_per_game = (num_pitches / games_started) if (num_pitches and games_started) else None
 
     starts = [g for g in log if (parse_ip(g.get("inningsPitched")) or 0) > 0][-3:]
     recent_k9 = None
@@ -158,7 +170,20 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     else:
         base_ip = 5.2
     dampened_matchup = 1 + (matchup_factor - 1) * 0.4
-    projected_ip_outs = clip(base_ip * dampened_matchup, 3.0, 7.0)
+    # "Long leash" efficiency profile: a pitcher who works quick, efficient
+    # innings (low pitches/inning) and pounds the zone (high K-BB%) tends to
+    # stay in games longer before a manager pulls them, independent of the
+    # day's specific matchup. Each piece is individually bounded, then
+    # blended via geometric mean (not multiplied straight through) and
+    # dampened AGAIN on top of that -- two layers of caution, learned
+    # directly from the earlier K-projection compounding bug. Missing data
+    # (rookies, incomplete season logs) falls back to a neutral 1.0 rather
+    # than skewing the projection off partial information.
+    p_per_ip_factor = clip(16.5 / p_per_ip, 0.85, 1.15) if p_per_ip else 1.0
+    k_bb_factor = clip(1.0 + (k_bb_pct - 15.0) / 100.0, 0.85, 1.15) if k_bb_pct is not None else 1.0
+    raw_efficiency = (p_per_ip_factor * k_bb_factor) ** 0.5
+    dampened_efficiency = 1 + (raw_efficiency - 1) * 0.5
+    projected_ip_outs = clip(base_ip * dampened_matchup * dampened_efficiency, 3.0, 7.0)
     projected_outs = round(projected_ip_outs * 3, 1)
 
     velo_trend = fetch_pitcher_velo_trend(pitcher_id, year, pitcher_pct_map)
@@ -198,6 +223,8 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         "matchupFactor": matchup_factor, "stuffFactor": stuff_factor,
         "expectedIP": expected_ip, "projectedK": projected_k, "confidence": confidence,
         "projectedOuts": projected_outs,
+        "npPerGame": np_per_game, "pitchesPerIP": p_per_ip,
+        "bbPct": bb_pct, "kBBPct": k_bb_pct,
         "calibrationApplied": calibration_applied,
         "outsCalibrationApplied": outs_calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
@@ -254,6 +281,50 @@ def reason_text(p):
     return sentence + "."
 
 
+def outs_reason_text(p):
+    """Reasoning specifically for the pitching-outs 'long leash' projection.
+    Every factor referenced here is something that actually feeds the
+    projection math above -- pitches/game, pitches/inning, BB%, K-BB%, and
+    workload (IP/GS). First-pitch strike % and 3rd-time-through-the-order
+    splits aren't included because this site doesn't currently have a
+    verified data source for either; bullpen fatigue isn't included since
+    it's a team-level signal, not something tracked per pitcher here."""
+    positives, negatives = [], []
+
+    if p.get("npPerGame") is not None:
+        if p["npPerGame"] >= 95:
+            positives.append(f"a track record of a long leash ({p['npPerGame']:.0f} pitches/game this season)")
+        elif p["npPerGame"] <= 80:
+            negatives.append(f"a shorter historical leash ({p['npPerGame']:.0f} pitches/game this season)")
+
+    if p["expectedIP"] >= 6.0:
+        positives.append(f"getting deep into games ({p['expectedIP']:.1f} IP/start)")
+    elif p["expectedIP"] < 4.5:
+        negatives.append(f"a short-outing workload pattern ({p['expectedIP']:.1f} IP/start)")
+
+    if p.get("pitchesPerIP") is not None:
+        if p["pitchesPerIP"] <= 15.0:
+            positives.append(f"efficient innings ({p['pitchesPerIP']:.1f} pitches/inning)")
+        elif p["pitchesPerIP"] >= 18.0:
+            negatives.append(f"laboring through innings ({p['pitchesPerIP']:.1f} pitches/inning)")
+
+    if p.get("kBBPct") is not None:
+        if p["kBBPct"] >= 20.0:
+            positives.append(f"elite command (K-BB% of {p['kBBPct']:.1f}%)")
+        elif p["kBBPct"] < 8.0:
+            negatives.append(f"shaky command (K-BB% of only {p['kBBPct']:.1f}%)")
+    if p.get("bbPct") is not None and p["bbPct"] >= 9.0:
+        negatives.append(f"a walk rate that tends to spike pitch counts ({p['bbPct']:.1f}% BB)")
+
+    base = (f"Projected for {p['projectedOuts']:.1f} outs ({p['expectedIP']:.1f} innings)")
+    sentence = base
+    if positives:
+        sentence += f", supported by {join_list(positives)}"
+    if negatives:
+        sentence += ("; " if positives else ", ") + f"tempered by {join_list(negatives)}"
+    return sentence + "."
+
+
 def build(date, year):
     print(f"Building Strikeouts board for {date}...")
     games = fetch_schedule(date)
@@ -287,6 +358,7 @@ def build(date, year):
             **proj,
         }
         p["reason"] = reason_text(p)
+        p["outsReason"] = outs_reason_text(p)
         entries.append({
             "gamePk": p["gamePk"], "playerId": p["id"], "name": p["name"],
             "team": p["team"], "opp": p["opp"], "oppTeamId": p["oppTeamId"],
@@ -299,7 +371,9 @@ def build(date, year):
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
             "graded": False, "actualK": None, "hit": None,
-            "projectedOuts": p["projectedOuts"],
+            "projectedOuts": p["projectedOuts"], "outsReason": p["outsReason"],
+            "npPerGame": p.get("npPerGame"), "pitchesPerIP": p.get("pitchesPerIP"),
+            "bbPct": p.get("bbPct"), "kBBPct": p.get("kBBPct"),
             "outsCalibrationApplied": p.get("outsCalibrationApplied"),
             "outsMarketThreshold": None, "outsMarketProb": None, "outsModelProb": None, "outsEdge": None,
             "actualOuts": None, "outsHit": None,
