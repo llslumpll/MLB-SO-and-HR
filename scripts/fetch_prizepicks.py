@@ -27,6 +27,13 @@ HR_STAT_MATCHES = ["home run"]
 # substring match was catching both and letting whichever loaded second
 # silently overwrite the correct pitcher line.
 K_STAT_MATCHES = ["pitcher strikeout"]
+# Best-guess matches for a "Pitching Outs" prop -- worth flagging honestly:
+# every stat_types_seen log from today's earlier debugging never showed
+# anything outs-related, only the list below. This may mean PrizePicks
+# doesn't currently offer this specific prop. The odds_types_seen /
+# stat_types_seen diagnostic already prints every real stat type on each
+# run, so the very next run will confirm one way or the other.
+OUTS_STAT_MATCHES = ["pitching outs", "pitcher outs", "outs recorded"]
 
 
 def fetch_leagues():
@@ -118,16 +125,16 @@ def fetch_projections(league_id):
 
 
 def fetch_mlb_props():
-    """Returns (hr_records, k_records) -- each a list of
+    """Returns (hr_records, k_records, outs_records) -- each a list of
     {name, team, line, startTime, status}. Standard lines only -- Goblin
     and Demon alternate lines are excluded."""
     leagues = fetch_leagues()
     if not leagues:
-        return [], []
+        return [], [], []
     league_id = find_mlb_league_id(leagues)
     if league_id is None:
         print("  [warn] Could not find an MLB league in PrizePicks' /leagues response")
-        return [], []
+        return [], [], []
 
     all_records = fetch_projections(league_id)
     before = len(all_records)
@@ -141,7 +148,10 @@ def fetch_mlb_props():
 
     hr_records = [r for r in all_records if any(m in r["statType"].lower() for m in HR_STAT_MATCHES)]
     k_records = [r for r in all_records if any(m in r["statType"].lower() for m in K_STAT_MATCHES)]
-    return hr_records, k_records
+    outs_records = [r for r in all_records if any(m in r["statType"].lower() for m in OUTS_STAT_MATCHES)]
+    if not outs_records:
+        print("  PrizePicks: no Pitching Outs stat type matched -- check odds types seen above for the real name")
+    return hr_records, k_records, outs_records
 
 
 def merge_hr(hr_data, records):
@@ -154,6 +164,46 @@ def merge_hr(hr_data, records):
             matched += 1
     print(f"  PrizePicks HR: matched {matched}/{len(hr_data['entries'])} entries")
     return hr_data
+
+
+def merge_outs(ko_data, records):
+    by_name = {norm_name(r["name"]): r for r in records}
+    matched = 0
+    for e in ko_data["entries"]:
+        hit = by_name.get(norm_name(e["name"]))
+        if hit:
+            line = hit["line"]
+            if e.get("prizePicksOutsOpeningLine") is None:
+                e["prizePicksOutsOpeningLine"] = line
+            e["prizePicksOutsLineDelta"] = line - e["prizePicksOutsOpeningLine"]
+            e["prizePicksOutsLine"] = line
+            matched += 1
+    print(f"  PrizePicks Outs: matched {matched}/{len(ko_data['entries'])} entries")
+    return ko_data
+
+
+def refine_outs_with_prizepicks(ko_data):
+    """Computes the model's own OVER/UNDER call for pitching outs against
+    PrizePicks' line. No Kalshi comparison here -- there's no confirmed
+    Kalshi market for this specific stat, so outsEdge/outsMarketProb stay
+    None (honest absence) rather than comparing against nothing."""
+    import fetch_kalshi
+
+    refined = 0
+    for e in ko_data["entries"]:
+        pp_line = e.get("prizePicksOutsLine")
+        if pp_line is None:
+            continue
+        implied_threshold = int(pp_line // 1) + 1
+        model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedOuts"])
+        e["outsMarketThreshold"] = implied_threshold
+        e["outsModelProb"] = model_prob
+        e["outsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        refined += 1
+
+    if refined:
+        print(f"  PrizePicks Outs: computed model call for {refined} entries")
+    return ko_data
 
 
 def merge_ko(ko_data, records):
