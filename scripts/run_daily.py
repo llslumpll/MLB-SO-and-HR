@@ -48,6 +48,11 @@ def preserve_opening_prices(new_entries, old_path):
         for e in old_data.get("entries", [])
         if e.get("prizePicksOpeningLine") is not None
     }
+    opening_outs_line_by_key = {
+        (e.get("playerId"), e.get("gamePk")): e["prizePicksOutsOpeningLine"]
+        for e in old_data.get("entries", [])
+        if e.get("prizePicksOutsOpeningLine") is not None
+    }
     preserved = 0
     for e in new_entries:
         key = (e.get("playerId"), e.get("gamePk"))
@@ -57,6 +62,9 @@ def preserve_opening_prices(new_entries, old_path):
             touched = True
         if key in opening_line_by_key:
             e["prizePicksOpeningLine"] = opening_line_by_key[key]
+            touched = True
+        if key in opening_outs_line_by_key:
+            e["prizePicksOutsOpeningLine"] = opening_outs_line_by_key[key]
             touched = True
         if touched:
             preserved += 1
