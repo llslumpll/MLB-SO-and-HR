@@ -218,14 +218,16 @@
 
   <div id="koView" style="display:none;">
     <div class="hr-subnav" id="koSubnav">
-      <button class="hr-subtab active" data-section="top5">⭐ Top 5</button>
-      <button class="hr-subtab" data-section="best5">🎯 Best 5</button>
-      <button class="hr-subtab" data-section="all">📋 All Projections</button>
+      <button class="hr-subtab active" data-section="best5">🎯 Strikeouts Best 5</button>
+      <button class="hr-subtab" data-section="outsbest5">🎯 Pitching Outs Best 5</button>
+      <button class="hr-subtab" data-section="all">📋 Strikeouts Projections</button>
+      <button class="hr-subtab" data-section="outsall">📋 Pitching Outs Projections</button>
     </div>
     <div id="koSectionWrap">
-      <div class="hr-section" id="koSection_top5"></div>
-      <div class="hr-section" id="koSection_best5" style="display:none;"></div>
+      <div class="hr-section" id="koSection_best5"></div>
+      <div class="hr-section" id="koSection_outsbest5" style="display:none;"></div>
       <div class="hr-section" id="koSection_all" style="display:none;"></div>
+      <div class="hr-section" id="koSection_outsall" style="display:none;"></div>
     </div>
   </div>
 
@@ -262,6 +264,12 @@ function lineMoveTag(e){
   const up = e.prizePicksLineDelta > 0;
   const arrow = up ? '▲' : '▼';
   return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(e.prizePicksLineDelta).toFixed(1)}</span>`;
+}
+function outsLineMoveTag(e){
+  if(e.prizePicksOutsLineDelta===undefined || e.prizePicksOutsLineDelta===null || Math.abs(e.prizePicksOutsLineDelta) < 0.05) return '';
+  const up = e.prizePicksOutsLineDelta > 0;
+  const arrow = up ? '▲' : '▼';
+  return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(e.prizePicksOutsLineDelta).toFixed(1)}</span>`;
 }
 function fmt3(v){
   if(v===null||v===undefined) return '—';
@@ -515,24 +523,45 @@ function koCard(e, rank){
   `;
 }
 
+function outsCard(e, rank){
+  const callHtml = e.outsCall ? ` <span class="pp-call pp-call-${e.outsCall.toLowerCase()}">${e.outsCall}</span>` : '';
+  return `
+    <div class="card">
+      <div class="card-rank">#${rank}</div>
+      <div class="card-top">
+        <div>
+          <div class="card-name"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}${e.hand?` (${e.hand}HP)`:''}</div>
+          <div class="card-sub">${e.team} vs ${e.opp} · ${e.seasonRecord||''}, ${e.era||'—'} ERA</div>
+        </div>
+        <div>
+          <div class="card-stat">${e.projectedOuts.toFixed(1)}</div>
+          <div class="card-stat-label">Proj Outs${e.prizePicksOutsLine!=null?` · ${e.prizePicksOutsLine} line${outsLineMoveTag(e)}`:''}${callHtml}</div>
+        </div>
+      </div>
+      <div class="card-reason">${e.reason||''}</div>
+    </div>
+  `;
+}
+
 function renderKO(){
   const entries = (KO_DATA && KO_DATA.entries) || [];
   if(!entries.length){
-    ['top5','best5','all'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    ['best5','outsbest5','all','outsall'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
     return;
   }
-  const top5 = entries.slice(0,5);
-  document.getElementById('koSection_top5').innerHTML = `
-    <div class="hr-section-title">⭐ Top 5 Projections</div>
-    <div class="hr-section-sub">Highest projected strikeout totals, with reasoning.</div>
-    <div class="card-grid cols-5">${top5.map((e,i)=>koCard(e,i+1)).join('')}</div>
-  `;
 
   const best5 = entries.slice(0,5);
   document.getElementById('koSection_best5').innerHTML = `
-    <div class="hr-section-title">🎯 Best 5 — Suggested Picks</div>
+    <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">The 5 best strikeout props to take today, out of every starter loaded, ranked by projected K total.</div>
     <div class="card-grid cols-list">${best5.map((e,i)=>koCard(e,i+1)).join('')}</div>
+  `;
+
+  const outsBest5 = [...entries].sort((a,b)=>-a.projectedOuts).slice(0,5);
+  document.getElementById('koSection_outsbest5').innerHTML = `
+    <div class="hr-section-title">🎯 Pitching Outs Best 5 — Suggested Picks</div>
+    <div class="hr-section-sub">The 5 best pitching outs props to take today, ranked by projected outs recorded.</div>
+    <div class="card-grid cols-list">${outsBest5.map((e,i)=>outsCard(e,i+1)).join('')}</div>
   `;
 
   const rows = entries.map((e,i)=>{
@@ -569,13 +598,43 @@ function renderKO(){
     `;
   }).join('');
   document.getElementById('koSection_all').innerHTML = `
-    <div class="hr-section-title">📋 All Projections</div>
+    <div class="hr-section-title">📋 Strikeouts Projections</div>
     <div class="hr-section-sub">Scroll within the box below to see everyone — the page itself stays put.</div>
     <div class="long-scroll">
       <table class="board"><thead><tr>
         <th>Pitcher</th><th>Season K/9</th><th>L3 K/9</th><th>Opp K%</th><th>Exp IP</th>
         <th>Proj K</th><th>Line</th><th>Market %</th><th>Model %</th><th>Edge</th><th>Prediction</th><th></th>
       </tr></thead><tbody>${rows}</tbody></table>
+    </div>
+  `;
+
+  const outsRows = entries.map((e,i)=>{
+    const outsRowId = `outswhy_${e.playerId}`;
+    return `
+      <tr>
+        <td><div class="pname2"><span class="conf-dot conf-${(e.confidence||'').toLowerCase()}"></span>${e.name}${e.hand?` (${e.hand}HP)`:''}</div><div class="pteam">${e.team} vs ${e.opp} · ${e.seasonRecord||''}, ${e.era||'—'} ERA</div></td>
+        <td>${e.expectedIP.toFixed(1)}</td>
+        <td style="color:var(--amber);font-weight:700;">${e.projectedOuts.toFixed(1)}</td>
+        <td>${e.prizePicksOutsLine!=null?e.prizePicksOutsLine+outsLineMoveTag(e):'—'}</td>
+        <td>${e.outsModelProb!==null&&e.outsModelProb!==undefined?pct(e.outsModelProb):'—'}</td>
+        <td>${e.outsCall?`<span class="pp-call pp-call-${e.outsCall.toLowerCase()}">${e.outsCall}</span>`:'—'}</td>
+        <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${outsRowId}').style.display=document.getElementById('${outsRowId}').style.display==='none'?'table-row':'none';">why</button></td>
+      </tr>
+      <tr class="why-row" id="${outsRowId}" style="display:none;"><td colspan="7">
+        <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
+        <div class="bx-line" style="margin-top:8px;">
+          <span class="bx-chip">Season K/9: <b>${e.seasonK9.toFixed(1)}</b> (used as a proxy for pitcher quality/efficiency — no separate outs-specific market to compare against)</span>
+        </div>
+      </td></tr>
+    `;
+  }).join('');
+  document.getElementById('koSection_outsall').innerHTML = `
+    <div class="hr-section-title">📋 Pitching Outs Projections</div>
+    <div class="hr-section-sub">Scroll within the box below to see everyone — the page itself stays put. No Kalshi market exists for this stat, so Edge isn't shown — only the model's own projection and prediction.</div>
+    <div class="long-scroll">
+      <table class="board"><thead><tr>
+        <th>Pitcher</th><th>Exp IP</th><th>Proj Outs</th><th>Line</th><th>Model %</th><th>Prediction</th><th></th>
+      </tr></thead><tbody>${outsRows}</tbody></table>
     </div>
   `;
 }
