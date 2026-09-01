@@ -538,7 +538,7 @@ function outsCard(e, rank){
           <div class="card-stat-label">Proj Outs${e.prizePicksOutsLine!=null?` · ${e.prizePicksOutsLine} line${outsLineMoveTag(e)}`:''}${callHtml}</div>
         </div>
       </div>
-      <div class="card-reason">${e.reason||''}</div>
+      <div class="card-reason">${e.outsReason||''}</div>
     </div>
   `;
 }
@@ -622,8 +622,12 @@ function renderKO(){
       </tr>
       <tr class="why-row" id="${outsRowId}" style="display:none;"><td colspan="7">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
-        <div class="bx-line" style="margin-top:8px;">
-          <span class="bx-chip">Season K/9: <b>${e.seasonK9.toFixed(1)}</b> (used as a proxy for pitcher quality/efficiency — no separate outs-specific market to compare against)</span>
+        <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
+        <div class="factor-grid" style="margin-top:8px;">
+          <div class="factor-item"><div class="fv">${e.npPerGame!=null?e.npPerGame.toFixed(0):'—'}</div><div class="fl">Pitches/Game</div></div>
+          <div class="factor-item"><div class="fv">${e.pitchesPerIP!=null?e.pitchesPerIP.toFixed(1):'—'}</div><div class="fl">Pitches/Inning</div></div>
+          <div class="factor-item"><div class="fv">${e.bbPct!=null?e.bbPct.toFixed(1)+'%':'—'}</div><div class="fl">Walk Rate</div></div>
+          <div class="factor-item"><div class="fv">${e.kBBPct!=null?e.kBBPct.toFixed(1)+'%':'—'}</div><div class="fl">K-BB%</div></div>
         </div>
       </td></tr>
     `;
