@@ -26,10 +26,17 @@ import grade
 def preserve_opening_prices(new_entries, old_path):
     """Heavy rebuilds regenerate every entry from scratch, which would
     otherwise silently reset each player's 'opening price' (used for
-    price-movement tracking) and 'opening line' (PrizePicks' own line
-    movement tracking) on every single run. Carries both forward from the
-    previous file, matched by (playerId, gamePk) so a doubleheader doesn't
-    cross-contaminate two different games for the same player."""
+    price-movement tracking), 'opening line' (PrizePicks' own line
+    movement tracking), AND -- this is the important one -- the actual
+    prediction itself (projectedK/projectedOuts and the resulting
+    OVER/UNDER call). Without preserving the prediction specifically, a
+    game graded at the end of the day would be checked against whatever
+    the *last* rebuild happened to compute, not what was actually
+    predicted that morning -- which defeats the entire purpose of tracking
+    predictions and calibrating against them. Carries all of it forward
+    from the previous file, matched by (playerId, gamePk) so a
+    doubleheader doesn't cross-contaminate two different games for the
+    same player."""
     if not os.path.exists(old_path):
         return new_entries
     try:
@@ -38,21 +45,27 @@ def preserve_opening_prices(new_entries, old_path):
     except Exception:  # noqa: BLE001
         return new_entries
 
-    opening_prob_by_key = {
-        (e.get("playerId"), e.get("gamePk")): e["openingProb"]
-        for e in old_data.get("entries", [])
-        if e.get("openingProb") is not None
-    }
-    opening_line_by_key = {
-        (e.get("playerId"), e.get("gamePk")): e["prizePicksOpeningLine"]
-        for e in old_data.get("entries", [])
-        if e.get("prizePicksOpeningLine") is not None
-    }
-    opening_outs_line_by_key = {
-        (e.get("playerId"), e.get("gamePk")): e["prizePicksOutsOpeningLine"]
-        for e in old_data.get("entries", [])
-        if e.get("prizePicksOutsOpeningLine") is not None
-    }
+    def index_by(field):
+        return {
+            (e.get("playerId"), e.get("gamePk")): e[field]
+            for e in old_data.get("entries", [])
+            if e.get(field) is not None
+        }
+
+    opening_prob_by_key = index_by("openingProb")
+    opening_line_by_key = index_by("prizePicksOpeningLine")
+    opening_outs_line_by_key = index_by("prizePicksOutsOpeningLine")
+    # The frozen prediction package: the projection AS IT WAS the first
+    # time it was computed today, plus everything derived from it.
+    projected_k_by_key = index_by("projectedK")
+    projected_outs_by_key = index_by("projectedOuts")
+    prize_picks_call_by_key = index_by("prizePicksCall")
+    model_prob_by_key = index_by("modelProb")
+    market_threshold_by_key = index_by("marketThreshold")
+    outs_call_by_key = index_by("outsCall")
+    outs_model_prob_by_key = index_by("outsModelProb")
+    outs_market_threshold_by_key = index_by("outsMarketThreshold")
+
     preserved = 0
     for e in new_entries:
         key = (e.get("playerId"), e.get("gamePk"))
@@ -66,10 +79,34 @@ def preserve_opening_prices(new_entries, old_path):
         if key in opening_outs_line_by_key:
             e["prizePicksOutsOpeningLine"] = opening_outs_line_by_key[key]
             touched = True
+        if key in projected_k_by_key:
+            e["projectedK"] = projected_k_by_key[key]
+            touched = True
+        if key in projected_outs_by_key:
+            e["projectedOuts"] = projected_outs_by_key[key]
+            touched = True
+        if key in prize_picks_call_by_key:
+            e["prizePicksCall"] = prize_picks_call_by_key[key]
+            touched = True
+        if key in model_prob_by_key:
+            e["modelProb"] = model_prob_by_key[key]
+            touched = True
+        if key in market_threshold_by_key:
+            e["marketThreshold"] = market_threshold_by_key[key]
+            touched = True
+        if key in outs_call_by_key:
+            e["outsCall"] = outs_call_by_key[key]
+            touched = True
+        if key in outs_model_prob_by_key:
+            e["outsModelProb"] = outs_model_prob_by_key[key]
+            touched = True
+        if key in outs_market_threshold_by_key:
+            e["outsMarketThreshold"] = outs_market_threshold_by_key[key]
+            touched = True
         if touched:
             preserved += 1
     if preserved:
-        print(f"  Preserved opening prices/lines for {preserved} entries from the previous build")
+        print(f"  Preserved opening prices/lines and frozen predictions for {preserved} entries from the previous build")
     return new_entries
 
 
