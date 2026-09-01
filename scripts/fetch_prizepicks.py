@@ -225,6 +225,18 @@ def merge_ko(ko_data, records):
             e["prizePicksKLine"] = line
             matched += 1
     print(f"  PrizePicks K: matched {matched}/{len(ko_data['entries'])} entries")
+
+    if matched == 0 and records and ko_data["entries"]:
+        # Zero matches despite real PrizePicks K records existing is
+        # suspicious -- same diagnostic pattern that caught the earlier
+        # Kalshi date-boundary bug (two legitimate-looking lists with zero
+        # real overlap usually means they're actually about different
+        # games/days, not a broken matcher).
+        pp_names = sorted(set(r["name"] for r in records))
+        board_names = sorted(set(e["name"] for e in ko_data["entries"]))
+        print(f"  DEBUG: 0 matches -- PrizePicks has {len(pp_names)} pitcher(s) with a K line: {pp_names[:20]}")
+        print(f"  DEBUG: today's board has {len(board_names)} pitcher(s): {board_names[:20]}")
+
     return ko_data
 
 
