@@ -1,6 +1,6 @@
 {
   "date": "2026-09-01",
-  "generatedAt": "2026-09-01T15:44:45.918213",
+  "generatedAt": "2026-09-01T16:20:05.352312",
   "entries": [
     {
       "gamePk": 824391,
@@ -20,20 +20,26 @@
       "expectedIP": 5.777777777777778,
       "projectedK": 7.906238358178738,
       "confidence": "High",
-      "reason": "Elite strikeout stuff this season, boosted by trending up in recent starts and elite swing-and-miss stuff (K%/whiff%); tempered by facing a contact-oriented lineup.",
+      "reason": "Elite strikeout stuff this season, boosted by trending up in recent starts and elite swing-and-miss stuff (K%/whiff%); tempered by facing a contact-oriented lineup and warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 4,
+          "battersFaced": 24.0
         },
         {
           "k": 11,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 3,
+          "battersFaced": 24.0
         },
         {
           "k": 3,
-          "ip": 1.3333333333333333
+          "ip": 1.3333333333333333,
+          "bb": 1,
+          "battersFaced": 11.0
         }
       ],
       "veloTrend": null,
@@ -64,11 +70,7 @@
       "outsCall": "UNDER",
       "openingThreshold": 7,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 6.0,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 17.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 825038,
@@ -88,20 +90,26 @@
       "expectedIP": 6.037037037037037,
       "projectedK": 7.610896499057015,
       "confidence": "High",
-      "reason": "Elite strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), and a long-innings workload expectation; tempered by facing a contact-oriented lineup.",
+      "reason": "Elite strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 27.3%); tempered by facing a contact-oriented lineup.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 9,
-          "ip": 6.666666666666667
+          "ip": 6.666666666666667,
+          "bb": 2,
+          "battersFaced": 28.0
         },
         {
           "k": 9,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 1,
+          "battersFaced": 24.0
         },
         {
           "k": 9,
-          "ip": 7
+          "ip": 7,
+          "bb": 3,
+          "battersFaced": 25.0
         }
       ],
       "veloTrend": null,
@@ -130,9 +138,7 @@
       "prizePicksCall": "OVER",
       "openingThreshold": 6,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 6.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824070,
@@ -152,20 +158,26 @@
       "expectedIP": 6.7,
       "projectedK": 6.523650538381008,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), and a long-innings workload expectation.",
+      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), and a long-innings workload expectation; tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 6,
-          "ip": 5.333333333333333
+          "ip": 5.333333333333333,
+          "bb": 1,
+          "battersFaced": 23.0
         },
         {
           "k": 3,
-          "ip": 2
+          "ip": 2,
+          "bb": 2,
+          "battersFaced": 10.0
         },
         {
           "k": 7,
-          "ip": 4.666666666666667
+          "ip": 4.666666666666667,
+          "bb": 3,
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
@@ -194,7 +206,7 @@
       "prizePicksCall": "OVER",
       "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647"
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824148,
@@ -214,20 +226,26 @@
       "expectedIP": 6.478260869565218,
       "projectedK": 6.471189325643115,
       "confidence": "High",
-      "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and a long-innings workload expectation; tempered by trending down in recent starts.",
+      "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and a long-innings workload expectation; tempered by trending down in recent starts and shaky recent command (K-BB% of only -3.2%).",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 2,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 3,
+          "battersFaced": 21.0
         },
         {
           "k": 4,
-          "ip": 6
+          "ip": 6,
+          "bb": 0,
+          "battersFaced": 25.0
         },
         {
           "k": 3,
-          "ip": 3
+          "ip": 3,
+          "bb": 8,
+          "battersFaced": 17.0
         }
       ],
       "veloTrend": null,
@@ -251,18 +269,14 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.49,
+      "openingProb": 0.48,
       "prizePicksOpeningLine": 5.5,
       "prizePicksOutsOpeningLine": 16.5,
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "openingThreshold": 6,
-      "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 5.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 16.5
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 823661,
@@ -287,15 +301,21 @@
       "recentStartsLog": [
         {
           "k": 0,
-          "ip": 0.3333333333333333
+          "ip": 0.3333333333333333,
+          "bb": 0,
+          "battersFaced": 1.0
         },
         {
           "k": 1,
-          "ip": 1
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 7.0
         },
         {
           "k": 2,
-          "ip": 2
+          "ip": 2,
+          "bb": 0,
+          "battersFaced": 7.0
         }
       ],
       "veloTrend": null,
@@ -343,15 +363,21 @@
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 6
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 24.0
         },
         {
           "k": 8,
-          "ip": 6
+          "ip": 6,
+          "bb": 1,
+          "battersFaced": 23.0
         },
         {
           "k": 5,
-          "ip": 6
+          "ip": 6,
+          "bb": 1,
+          "battersFaced": 26.0
         }
       ],
       "veloTrend": null,
@@ -380,9 +406,7 @@
       "prizePicksCall": "UNDER",
       "openingThreshold": 7,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 6.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 822854,
@@ -407,15 +431,21 @@
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 2,
+          "battersFaced": 27.0
         },
         {
           "k": 7,
-          "ip": 6
+          "ip": 6,
+          "bb": 1,
+          "battersFaced": 22.0
         },
         {
           "k": 4,
-          "ip": 3.6666666666666665
+          "ip": 3.6666666666666665,
+          "bb": 4,
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
@@ -446,11 +476,7 @@
       "outsCall": "UNDER",
       "openingThreshold": 7,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 6.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 17.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 823340,
@@ -470,27 +496,33 @@
       "expectedIP": 5.37037037037037,
       "projectedK": 5.948717376317628,
       "confidence": "High",
-      "reason": "Elite strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%); tempered by trending down in recent starts.",
+      "reason": "Elite strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%); tempered by trending down in recent starts and warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 4,
-          "ip": 5
+          "ip": 5,
+          "bb": 1,
+          "battersFaced": 21.0
         },
         {
           "k": 5,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 4,
+          "battersFaced": 20.0
         },
         {
           "k": 4,
-          "ip": 6
+          "ip": 6,
+          "bb": 0,
+          "battersFaced": 21.0
         }
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.58,
+      "marketProb": 0.59,
       "modelProb": 0.5460483868568258,
-      "edge": -0.033951613143174186,
+      "edge": -0.043951613143174195,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -507,18 +539,14 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.58,
+      "openingProb": 0.59,
       "prizePicksOpeningLine": 6.0,
       "prizePicksOutsOpeningLine": 16.5,
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "openingThreshold": 6,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 6.0,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 16.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824716,
@@ -543,15 +571,21 @@
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 5
+          "ip": 5,
+          "bb": 1,
+          "battersFaced": 18.0
         },
         {
           "k": 5,
-          "ip": 6
+          "ip": 6,
+          "bb": 1,
+          "battersFaced": 22.0
         },
         {
           "k": 5,
-          "ip": 4
+          "ip": 4,
+          "bb": 1,
+          "battersFaced": 18.0
         }
       ],
       "veloTrend": null,
@@ -575,18 +609,14 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.53,
+      "openingProb": 0.51,
       "prizePicksOpeningLine": 5.0,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "OVER",
       "outsCall": "UNDER",
       "openingThreshold": 5,
-      "priceDelta": -0.020000000000000018,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": -0.5,
-      "prizePicksKLine": 4.5,
-      "prizePicksOutsLineDelta": -1.0,
-      "prizePicksOutsLine": 16.5
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824391,
@@ -606,20 +636,26 @@
       "expectedIP": 6.7,
       "projectedK": 5.797524323490069,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts and a long-innings workload expectation.",
+      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts and a long-innings workload expectation; tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 0,
-          "ip": 0.3333333333333333
+          "ip": 0.3333333333333333,
+          "bb": 0,
+          "battersFaced": 2.0
         },
         {
           "k": 1,
-          "ip": 2
+          "ip": 2,
+          "bb": 0,
+          "battersFaced": 8.0
         },
         {
           "k": 3,
-          "ip": 1
+          "ip": 1,
+          "bb": 1,
+          "battersFaced": 4.0
         }
       ],
       "veloTrend": null,
@@ -667,15 +703,21 @@
       "recentStartsLog": [
         {
           "k": 7,
-          "ip": 6.333333333333333
+          "ip": 6.333333333333333,
+          "bb": 2,
+          "battersFaced": 27.0
         },
         {
           "k": 4,
-          "ip": 6
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 25.0
         },
         {
           "k": 3,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 1,
+          "battersFaced": 27.0
         }
       ],
       "veloTrend": null,
@@ -704,9 +746,7 @@
       "prizePicksCall": "OVER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824633,
@@ -726,20 +766,26 @@
       "expectedIP": 5.488888888888889,
       "projectedK": 5.326532460145483,
       "confidence": "High",
-      "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts and elite swing-and-miss stuff (K%/whiff%).",
+      "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts and elite swing-and-miss stuff (K%/whiff%); tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 7,
-          "ip": 6.333333333333333
+          "ip": 6.333333333333333,
+          "bb": 1,
+          "battersFaced": 28.0
         },
         {
           "k": 4,
-          "ip": 3.6666666666666665
+          "ip": 3.6666666666666665,
+          "bb": 4,
+          "battersFaced": 20.0
         },
         {
           "k": 6,
-          "ip": 5.333333333333333
+          "ip": 5.333333333333333,
+          "bb": 2,
+          "battersFaced": 24.0
         }
       ],
       "veloTrend": null,
@@ -768,9 +814,7 @@
       "prizePicksCall": "OVER",
       "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 822854,
@@ -795,15 +839,21 @@
       "recentStartsLog": [
         {
           "k": 0,
-          "ip": 2
+          "ip": 2,
+          "bb": 0,
+          "battersFaced": 7.0
         },
         {
           "k": 2,
-          "ip": 1
+          "ip": 1,
+          "bb": 1,
+          "battersFaced": 6.0
         },
         {
           "k": 1,
-          "ip": 1
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 3.0
         }
       ],
       "veloTrend": null,
@@ -846,20 +896,26 @@
       "expectedIP": 6.152777777777778,
       "projectedK": 5.10362066931822,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts, facing a strikeout-prone lineup, and a long-innings workload expectation.",
+      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts, facing a strikeout-prone lineup, and a long-innings workload expectation; tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 7,
-          "ip": 6
+          "ip": 6,
+          "bb": 0,
+          "battersFaced": 22.0
         },
         {
           "k": 2,
-          "ip": 2.6666666666666665
+          "ip": 2.6666666666666665,
+          "bb": 3,
+          "battersFaced": 18.0
         },
         {
           "k": 6,
-          "ip": 6
+          "ip": 6,
+          "bb": 1,
+          "battersFaced": 25.0
         }
       ],
       "veloTrend": null,
@@ -883,14 +939,12 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.4,
+      "openingProb": 0.42,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
       "openingThreshold": 6,
-      "priceDelta": 0.019999999999999962,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 5.0
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824313,
@@ -915,15 +969,21 @@
       "recentStartsLog": [
         {
           "k": 3,
-          "ip": 6
+          "ip": 6,
+          "bb": 4,
+          "battersFaced": 27.0
         },
         {
           "k": 5,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 2,
+          "battersFaced": 25.0
         },
         {
           "k": 4,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 2,
+          "battersFaced": 23.0
         }
       ],
       "veloTrend": null,
@@ -954,9 +1014,7 @@
       "outsCall": "UNDER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 16.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 822687,
@@ -976,20 +1034,26 @@
       "expectedIP": 4.803921568627452,
       "projectedK": 4.820798506693902,
       "confidence": "High",
-      "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%).",
+      "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%); tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 6,
-          "ip": 6
+          "ip": 6,
+          "bb": 3,
+          "battersFaced": 27.0
         },
         {
           "k": 4,
-          "ip": 6
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 26.0
         },
         {
           "k": 6,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 6,
+          "battersFaced": 23.0
         }
       ],
       "veloTrend": null,
@@ -1018,9 +1082,7 @@
       "prizePicksCall": "OVER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 823661,
@@ -1045,15 +1107,21 @@
       "recentStartsLog": [
         {
           "k": 4,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 1,
+          "battersFaced": 22.0
         },
         {
           "k": 3,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 3,
+          "battersFaced": 26.0
         },
         {
           "k": 4,
-          "ip": 7
+          "ip": 7,
+          "bb": 0,
+          "battersFaced": 27.0
         }
       ],
       "veloTrend": null,
@@ -1084,11 +1152,7 @@
       "outsCall": "UNDER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": -0.5,
-      "prizePicksKLine": 4.0,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 17.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 823984,
@@ -1113,15 +1177,21 @@
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 4
+          "ip": 4,
+          "bb": 2,
+          "battersFaced": 17.0
         },
         {
           "k": 6,
-          "ip": 7
+          "ip": 7,
+          "bb": 2,
+          "battersFaced": 27.0
         },
         {
           "k": 4,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 1,
+          "battersFaced": 24.0
         }
       ],
       "veloTrend": null,
@@ -1152,11 +1222,7 @@
       "outsCall": "OVER",
       "openingThreshold": 6,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.5,
-      "prizePicksKLine": 5.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 15.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 822929,
@@ -1181,15 +1247,21 @@
       "recentStartsLog": [
         {
           "k": 2,
-          "ip": 4.666666666666667
+          "ip": 4.666666666666667,
+          "bb": 3,
+          "battersFaced": 18.0
         },
         {
           "k": 6,
-          "ip": 7
+          "ip": 7,
+          "bb": 1,
+          "battersFaced": 28.0
         },
         {
           "k": 4,
-          "ip": 6
+          "ip": 6,
+          "bb": 0,
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
@@ -1220,11 +1292,7 @@
       "outsCall": "OVER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.5,
-      "prizePicksKLine": 5.0,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 15.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824148,
@@ -1244,20 +1312,26 @@
       "expectedIP": 5.833333333333333,
       "projectedK": 4.349584304573431,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by trending down in recent starts.",
+      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by trending down in recent starts and shaky recent command (K-BB% of only 3.3%).",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 4,
-          "ip": 4.666666666666667
+          "ip": 4.666666666666667,
+          "bb": 2,
+          "battersFaced": 21.0
         },
         {
           "k": 1,
-          "ip": 4.666666666666667
+          "ip": 4.666666666666667,
+          "bb": 3,
+          "battersFaced": 19.0
         },
         {
           "k": 3,
-          "ip": 4
+          "ip": 4,
+          "bb": 1,
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
@@ -1286,9 +1360,7 @@
       "prizePicksCall": "UNDER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824633,
@@ -1308,27 +1380,33 @@
       "expectedIP": 5.705882352941177,
       "projectedK": 4.0151575064200005,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%); tempered by trending down in recent starts.",
+      "reason": "Average strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%); tempered by trending down in recent starts, shaky recent command (K-BB% of only 4.2%), and warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 2,
-          "ip": 5.333333333333333
+          "ip": 5.333333333333333,
+          "bb": 3,
+          "battersFaced": 25.0
         },
         {
           "k": 3,
-          "ip": 6
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 27.0
         },
         {
           "k": 5,
-          "ip": 6
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.44,
+      "marketProb": 0.43,
       "modelProb": 0.37412431027571713,
-      "edge": -0.06587568972428287,
+      "edge": -0.05587568972428286,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1345,18 +1423,14 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.42,
+      "openingProb": 0.43,
       "prizePicksOpeningLine": 4.5,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "openingThreshold": 5,
-      "priceDelta": 0.020000000000000018,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": -0.5,
-      "prizePicksKLine": 4.0,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 17.5
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824070,
@@ -1376,20 +1450,26 @@
       "expectedIP": 6.458333333333333,
       "projectedK": 3.918930333113204,
       "confidence": "High",
-      "reason": "Below-average strikeout stuff this season, boosted by trending up in recent starts and a long-innings workload expectation; tempered by below-average swing-and-miss stuff.",
+      "reason": "Below-average strikeout stuff this season, boosted by trending up in recent starts and a long-innings workload expectation; tempered by below-average swing-and-miss stuff and warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 6,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 2,
+          "battersFaced": 23.0
         },
         {
           "k": 4,
-          "ip": 4
+          "ip": 4,
+          "bb": 4,
+          "battersFaced": 20.0
         },
         {
           "k": 5,
-          "ip": 6
+          "ip": 6,
+          "bb": 1,
+          "battersFaced": 25.0
         }
       ],
       "veloTrend": null,
@@ -1418,9 +1498,7 @@
       "prizePicksCall": "OVER",
       "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 3.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 822687,
@@ -1440,20 +1518,26 @@
       "expectedIP": 4.555555555555555,
       "projectedK": 3.774107273481568,
       "confidence": "Medium",
-      "reason": "Average strikeout stuff this season, tempered by trending down in recent starts.",
+      "reason": "Average strikeout stuff this season, tempered by trending down in recent starts, shaky recent command (K-BB% of only 3.2%), and warm weather that can favor the hitter.",
       "calibrationApplied": null,
       "recentStartsLog": [
         {
           "k": 4,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 2,
+          "battersFaced": 19.0
         },
         {
           "k": 3,
-          "ip": 4.333333333333333
+          "ip": 4.333333333333333,
+          "bb": 3,
+          "battersFaced": 21.0
         },
         {
           "k": 3,
-          "ip": 5
+          "ip": 5,
+          "bb": 3,
+          "battersFaced": 23.0
         }
       ],
       "veloTrend": null,
@@ -1482,9 +1566,7 @@
       "prizePicksCall": "UNDER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 825038,
@@ -1509,15 +1591,21 @@
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 6
+          "ip": 6,
+          "bb": 0,
+          "battersFaced": 23.0
         },
         {
           "k": 4,
-          "ip": 5.666666666666667
+          "ip": 5.666666666666667,
+          "bb": 2,
+          "battersFaced": 22.0
         },
         {
           "k": 9,
-          "ip": 7
+          "ip": 7,
+          "bb": 3,
+          "battersFaced": 26.0
         }
       ],
       "veloTrend": null,
@@ -1541,14 +1629,12 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.45,
+      "openingProb": 0.44,
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
       "openingThreshold": 5,
-      "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": -0.5,
-      "prizePicksKLine": 4.0
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 823908,
@@ -1573,15 +1659,21 @@
       "recentStartsLog": [
         {
           "k": 6,
-          "ip": 6.333333333333333
+          "ip": 6.333333333333333,
+          "bb": 2,
+          "battersFaced": 27.0
         },
         {
           "k": 6,
-          "ip": 5
+          "ip": 5,
+          "bb": 1,
+          "battersFaced": 22.0
         },
         {
           "k": 1,
-          "ip": 2
+          "ip": 2,
+          "bb": 2,
+          "battersFaced": 10.0
         }
       ],
       "veloTrend": null,
@@ -1612,9 +1704,7 @@
       "outsCall": "UNDER",
       "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824313,
@@ -1634,20 +1724,26 @@
       "expectedIP": 5.296296296296296,
       "projectedK": 3.0867902276742694,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by trending down in recent starts and below-average swing-and-miss stuff.",
+      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by trending down in recent starts, below-average swing-and-miss stuff, and shaky recent command (K-BB% of only 0.0%).",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 2,
-          "ip": 4
+          "ip": 4,
+          "bb": 1,
+          "battersFaced": 21.0
         },
         {
           "k": 2,
-          "ip": 5
+          "ip": 5,
+          "bb": 2,
+          "battersFaced": 21.0
         },
         {
           "k": 3,
-          "ip": 5
+          "ip": 5,
+          "bb": 4,
+          "battersFaced": 26.0
         }
       ],
       "veloTrend": null,
@@ -1676,9 +1772,7 @@
       "prizePicksCall": "UNDER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824472,
@@ -1698,27 +1792,33 @@
       "expectedIP": 4.9375,
       "projectedK": 3.0768743476189853,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, tempered by below-average swing-and-miss stuff.",
+      "reason": "Average strikeout stuff this season, tempered by below-average swing-and-miss stuff, shaky recent command (K-BB% of only 4.8%), and warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 2,
-          "ip": 5
+          "ip": 5,
+          "bb": 2,
+          "battersFaced": 19.0
         },
         {
           "k": 2,
-          "ip": 3.3333333333333335
+          "ip": 3.3333333333333335,
+          "bb": 2,
+          "battersFaced": 22.0
         },
         {
           "k": 5,
-          "ip": 4
+          "ip": 4,
+          "bb": 2,
+          "battersFaced": 21.0
         }
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.47,
+      "marketProb": 0.48,
       "modelProb": 0.19781529125143638,
-      "edge": -0.2721847087485636,
+      "edge": -0.2821847087485636,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1735,14 +1835,12 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.47,
+      "openingProb": 0.48,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
       "openingThreshold": 5,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824472,
@@ -1762,20 +1860,26 @@
       "expectedIP": 5.857142857142857,
       "projectedK": 2.923956473048035,
       "confidence": "High",
-      "reason": "Below-average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by below-average swing-and-miss stuff.",
+      "reason": "Below-average strikeout stuff this season, boosted by facing a strikeout-prone lineup; tempered by below-average swing-and-miss stuff and warm weather that can favor the hitter.",
       "calibrationApplied": -0.6222,
       "recentStartsLog": [
         {
           "k": 5,
-          "ip": 5
+          "ip": 5,
+          "bb": 1,
+          "battersFaced": 23.0
         },
         {
           "k": 3,
-          "ip": 7
+          "ip": 7,
+          "bb": 0,
+          "battersFaced": 24.0
         },
         {
           "k": 2,
-          "ip": 5
+          "ip": 5,
+          "bb": 2,
+          "battersFaced": 18.0
         }
       ],
       "veloTrend": null,
@@ -1804,9 +1908,7 @@
       "outsCall": "OVER",
       "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 14.5
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 823908,
@@ -1831,15 +1933,21 @@
       "recentStartsLog": [
         {
           "k": 6,
-          "ip": 6
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 25.0
         },
         {
           "k": 4,
-          "ip": 5.333333333333333
+          "ip": 5.333333333333333,
+          "bb": 2,
+          "battersFaced": 20.0
         },
         {
           "k": 3,
-          "ip": 5
+          "ip": 5,
+          "bb": 2,
+          "battersFaced": 28.0
         }
       ],
       "veloTrend": null,
@@ -1868,9 +1976,7 @@
       "prizePicksCall": "UNDER",
       "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-01T16:10:22.644647",
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 3.0
+      "oddsUpdatedAt": "2026-09-01T16:20:38.536463"
     },
     {
       "gamePk": 824716,
@@ -1890,20 +1996,26 @@
       "expectedIP": 3.5,
       "projectedK": 2.686043750527507,
       "confidence": "Medium",
-      "reason": "Average strikeout stuff this season, tempered by trending down in recent starts and a short-outing workload expectation.",
+      "reason": "Average strikeout stuff this season, tempered by trending down in recent starts, a short-outing workload expectation, and shaky recent command (K-BB% of only -18.8%).",
       "calibrationApplied": null,
       "recentStartsLog": [
         {
           "k": 0,
-          "ip": 1.3333333333333333
+          "ip": 1.3333333333333333,
+          "bb": 2,
+          "battersFaced": 8.0
         },
         {
           "k": 0,
-          "ip": 0.3333333333333333
+          "ip": 0.3333333333333333,
+          "bb": 0,
+          "battersFaced": 1.0
         },
         {
           "k": 0,
-          "ip": 1.3333333333333333
+          "ip": 1.3333333333333333,
+          "bb": 1,
+          "battersFaced": 7.0
         }
       ],
       "veloTrend": null,
@@ -1929,5 +2041,5 @@
       "outsHit": null
     }
   ],
-  "oddsRefreshedAt": "2026-09-01T16:10:22.644647"
+  "oddsRefreshedAt": "2026-09-01T16:20:38.536463"
 }
