@@ -13,7 +13,7 @@ We check the actual game status instead.
 import glob
 import json
 
-from common import API, get
+from common import API, get, parse_ip
 
 
 _status_cache = {}
@@ -157,6 +157,15 @@ def grade_ko_file(path):
             e["actualK"] = pitching.get("strikeOuts")
             if e.get("marketThreshold") is not None and e["actualK"] is not None:
                 e["hit"] = e["actualK"] >= e["marketThreshold"]
+
+            # Outs: MLB's "inningsPitched" is thirds-based ("5.2" means 5 and
+            # 2/3 innings = 17 outs), not a literal decimal -- parse_ip
+            # already handles that conversion correctly.
+            ip = parse_ip(pitching.get("inningsPitched"))
+            if ip is not None:
+                e["actualOuts"] = round(ip * 3)
+                if e.get("outsMarketThreshold") is not None:
+                    e["outsHit"] = e["actualOuts"] >= e["outsMarketThreshold"]
             graded_count += 1
 
     if graded_count or repaired:
