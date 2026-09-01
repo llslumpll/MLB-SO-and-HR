@@ -585,14 +585,18 @@ function renderKO(){
       </tr>
       <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="12">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
+        <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
         <div class="bx-line" style="margin-top:8px;">
           ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
           ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
           ${e.prizePicksKLine!==null&&e.prizePicksKLine!==undefined?`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksKLine} Strikeouts</b>${e.prizePicksCall?` <span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>`:''}</span>`:''}
         </div>
-        <div class="factor-grid">
+        <div class="factor-grid" style="margin-top:8px;">
           <div class="factor-item"><div class="fv">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
           <div class="factor-item"><div class="fv">${e.matchupFactor.toFixed(2)}×</div><div class="fl">Matchup Factor</div></div>
+          <div class="factor-item"><div class="fv">${e.rollingKBBPct!=null?e.rollingKBBPct.toFixed(1)+'%':'—'}</div><div class="fl">Rolling K-BB% (L3)</div></div>
+          <div class="factor-item"><div class="fv">${e.parkFactor!=null?e.parkFactor.toFixed(2):'—'}</div><div class="fl">Park HR Factor</div></div>
+          <div class="factor-item"><div class="fv">${e.weatherFactor!=null?e.weatherFactor.toFixed(2)+'×':'—'}</div><div class="fl">Weather Factor</div></div>
         </div>
       </td></tr>
     `;
