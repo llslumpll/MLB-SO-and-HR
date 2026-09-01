@@ -64,10 +64,10 @@ def refresh(date):
     ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
 
     try:
-        pp_hr_records, pp_k_records = fetch_prizepicks.fetch_mlb_props()
+        pp_hr_records, pp_k_records, pp_outs_records = fetch_prizepicks.fetch_mlb_props()
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] PrizePicks fetch failed entirely, continuing without it: {e}")
-        pp_hr_records, pp_k_records = [], []
+        pp_hr_records, pp_k_records, pp_outs_records = [], [], []
 
     if hr_exists:
         with open(hr_path) as f:
@@ -87,6 +87,9 @@ def refresh(date):
             ko_data = fetch_prizepicks.merge_ko(ko_data, pp_k_records)
             kalshi_thresholds = fetch_kalshi.k_threshold_map(ko_records)
             ko_data = fetch_prizepicks.refine_ko_with_prizepicks(ko_data, kalshi_thresholds)
+        if pp_outs_records:
+            ko_data = fetch_prizepicks.merge_outs(ko_data, pp_outs_records)
+            ko_data = fetch_prizepicks.refine_outs_with_prizepicks(ko_data)
         ko_data["entries"].sort(key=lambda e: -e["projectedK"])
         with open(ko_path, "w") as f:
             json.dump(ko_data, f, indent=2, default=str)
