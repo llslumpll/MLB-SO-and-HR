@@ -10,9 +10,9 @@ import sys
 from datetime import datetime
 
 from common import (
-    API, LEAGUE_AVG_K9, LEAGUE_AVG_K_PCT,
+    API, LEAGUE_AVG_K9, LEAGUE_AVG_K_PCT, PARKS,
     clip, to_num, get, parse_ip,
-    fetch_savant_percentiles, today_iso,
+    fetch_savant_percentiles, fetch_weather, today_iso,
 )
 from build_hr import fetch_schedule, fetch_pitcher_hand, fetch_pitcher_velo_trend
 
@@ -63,7 +63,7 @@ def fetch_roster_k_percent(team_id, year):
         return None
 
 
-def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None):
+def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None, park=None, weather=None):
     try:
         data = get(f"{API}/people/{pitcher_id}/stats", params={
             "stats": "season,gameLog", "group": "pitching", "season": year,
@@ -107,13 +107,28 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     starts = [g for g in log if (parse_ip(g.get("inningsPitched")) or 0) > 0][-3:]
     recent_k9 = None
     recent_starts_log = []
+    rolling_k_bb_pct = None
     if starts:
         ip_sum = sum(parse_ip(g.get("inningsPitched")) or 0 for g in starts)
         k_sum = sum(to_num(g.get("strikeOuts")) or 0 for g in starts)
         RECENT_PRIOR_IP = 6
         if ip_sum > 0:
             recent_k9 = (((k_sum or 0) + RECENT_PRIOR_IP * (season_k9 / 9)) / (ip_sum + RECENT_PRIOR_IP)) * 9
-        recent_starts_log = [{"k": int(to_num(g.get("strikeOuts")) or 0), "ip": parse_ip(g.get("inningsPitched"))} for g in starts]
+        recent_starts_log = [{
+            "k": int(to_num(g.get("strikeOuts")) or 0), "ip": parse_ip(g.get("inningsPitched")),
+            "bb": int(to_num(g.get("baseOnBalls")) or 0), "battersFaced": to_num(g.get("battersFaced")),
+        } for g in starts]
+
+        # Rolling K-BB% over just these last (up to 3) starts -- a distinct,
+        # more volatile signal from the season-long K-BB% already used for
+        # the outs projection. Tells us if command is locked in RIGHT NOW,
+        # not across the whole season.
+        rolling_bf = sum(g["battersFaced"] or 0 for g in recent_starts_log)
+        rolling_bb = sum(g["bb"] for g in recent_starts_log)
+        if rolling_bf and rolling_bf > 0:
+            rolling_k_pct = (k_sum / rolling_bf) * 100
+            rolling_bb_pct = (rolling_bb / rolling_bf) * 100
+            rolling_k_bb_pct = rolling_k_pct - rolling_bb_pct
 
     stuff_factor = 1.0
     p_row = pitcher_pct_map.get(str(pitcher_id))
@@ -146,8 +161,24 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     combined_factor = (stuff_factor * matchup_factor) ** 0.5
     final_k9 = base_k9 * combined_factor
 
+    # Environment factor: reuses the exact same park/weather data HR
+    # already fetches, but applied far more conservatively here. A
+    # pitcher-friendly park may embolden a pitcher to attack the zone, and
+    # cold/dense air can suppress hard, clean contact -- both real,
+    # discussed effects, but neither has anywhere near as direct a
+    # physical relationship to strikeouts as weather does to a batted
+    # ball's flight (that's HR's domain). Bounds here are half of HR's.
+    park_hr_factor = (park or {}).get("hr", 1.0)
+    park_k_factor = clip(1.0 + (1.0 - park_hr_factor) * 0.1, 0.96, 1.04)
+    weather_k_factor = 1.0
+    if weather and not weather.get("climateControlled") and weather.get("tempF") is not None:
+        t = weather["tempF"]
+        # Colder/denser air modestly favors the pitcher; hot/thin air modestly favors the batter.
+        weather_k_factor = clip(1.0 + (65 - t) * 0.0015, 0.94, 1.06)
+    environment_factor = clip((park_k_factor * weather_k_factor) ** 0.5, 0.95, 1.05)
+
     expected_ip = clip((season_ip / games_started) if (season_ip and games_started) else 5.2, 3.5, 6.7)
-    projected_k = final_k9 * expected_ip / 9
+    projected_k = final_k9 * environment_factor * expected_ip / 9
     # Absolute safety ceiling on the PROJECTED MEAN specifically -- not a
     # best-case outcome; the Poisson math used downstream already accounts
     # for a great day happening above the mean. A real elite ace at ~11-12
@@ -224,7 +255,8 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         "expectedIP": expected_ip, "projectedK": projected_k, "confidence": confidence,
         "projectedOuts": projected_outs,
         "npPerGame": np_per_game, "pitchesPerIP": p_per_ip,
-        "bbPct": bb_pct, "kBBPct": k_bb_pct,
+        "bbPct": bb_pct, "kBBPct": k_bb_pct, "rollingKBBPct": rolling_k_bb_pct,
+        "parkFactor": park_hr_factor, "weatherFactor": weather_k_factor,
         "calibrationApplied": calibration_applied,
         "outsCalibrationApplied": outs_calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
@@ -268,6 +300,18 @@ def reason_text(p):
         negatives.append("declining fastball velocity")
     elif vt and vt.get("delta", 0) > 1.2:
         positives.append("fastball velocity trending up")
+    if p.get("rollingKBBPct") is not None:
+        if p["rollingKBBPct"] >= 22.0:
+            positives.append(f"locked-in command over their last starts (K-BB% of {p['rollingKBBPct']:.1f}%)")
+        elif p["rollingKBBPct"] < 5.0:
+            negatives.append(f"shaky recent command (K-BB% of only {p['rollingKBBPct']:.1f}%)")
+    if p.get("parkFactor") is not None and p["parkFactor"] < 0.92:
+        positives.append("pitching in a park that favors attacking the zone")
+    if p.get("weatherFactor") is not None:
+        if p["weatherFactor"] > 1.02:
+            positives.append("cold weather likely suppressing hard contact")
+        elif p["weatherFactor"] < 0.98:
+            negatives.append("warm weather that can favor the hitter")
 
     base = ("Elite strikeout stuff this season" if p["seasonK9"] > 10 else
             "Strong strikeout stuff this season" if p["seasonK9"] > 8.5 else
@@ -340,16 +384,24 @@ def build(date, year):
 
     jobs = []
     for g in games:
+        home_abbr = g["teams"]["home"]["team"]["abbreviation"]
+        park = PARKS.get(home_abbr)
+        weather = None
+        if park and park["roof"] == "open":
+            try:
+                weather = fetch_weather(park["lat"], park["lon"], g["gameDate"])
+            except Exception:  # noqa: BLE001
+                weather = None
         away_p = g["teams"]["away"].get("probablePitcher")
         home_p = g["teams"]["home"].get("probablePitcher")
         if away_p:
-            jobs.append({"pitcher": away_p, "team": g["teams"]["away"]["team"], "opp": g["teams"]["home"]["team"], "gamePk": g["gamePk"]})
+            jobs.append({"pitcher": away_p, "team": g["teams"]["away"]["team"], "opp": g["teams"]["home"]["team"], "gamePk": g["gamePk"], "park": park, "weather": weather})
         if home_p:
-            jobs.append({"pitcher": home_p, "team": g["teams"]["home"]["team"], "opp": g["teams"]["away"]["team"], "gamePk": g["gamePk"]})
+            jobs.append({"pitcher": home_p, "team": g["teams"]["home"]["team"], "opp": g["teams"]["away"]["team"], "gamePk": g["gamePk"], "park": park, "weather": weather})
 
     entries = []
     for job in jobs:
-        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration)
+        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration, job.get("park"), job.get("weather"))
         if not proj:
             continue
         p = {
