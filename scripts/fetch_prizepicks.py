@@ -186,13 +186,19 @@ def refine_outs_with_prizepicks(ko_data):
     """Computes the model's own OVER/UNDER call for pitching outs against
     PrizePicks' line. No Kalshi comparison here -- there's no confirmed
     Kalshi market for this specific stat, so outsEdge/outsMarketProb stay
-    None (honest absence) rather than comparing against nothing."""
+    None (honest absence) rather than comparing against nothing.
+
+    Frozen the first time it's computed, same reasoning as the K version --
+    otherwise the OVER/UNDER call would silently drift every 10 minutes as
+    the line moved, instead of representing one stable prediction."""
     import fetch_kalshi
 
     refined = 0
     for e in ko_data["entries"]:
         pp_line = e.get("prizePicksOutsLine")
         if pp_line is None:
+            continue
+        if e.get("outsCall") is not None:
             continue
         implied_threshold = int(pp_line // 1) + 1
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedOuts"])
@@ -229,6 +235,15 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
     land on, which could be a different number entirely and would make the
     displayed edge silently answer the wrong question.
 
+    The prediction itself (prizePicksCall/modelProb/marketThreshold) is
+    frozen the first time it's computed and never recalculated again --
+    without that, this function running every 10 minutes would silently
+    flip the OVER/UNDER call back and forth as the line moved throughout
+    the day, defeating the entire point of tracking a prediction. Kalshi's
+    price comparison at that now-fixed threshold can still move live --
+    that's real new information about the market's view, not a change to
+    our own prediction.
+
     Entries with no PrizePicks line are left exactly as Kalshi's own merge
     already set them.
     """
@@ -241,16 +256,17 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
         if pp_line is None:
             continue
 
-        # PrizePicks lines are "over X.5" style -> clearing them means
-        # actual_K >= floor(X.5) + 1. Handles integer lines the same way
-        # (strictly more than the line).
-        implied_threshold = int(pp_line // 1) + 1
+        if e.get("prizePicksCall") is None:
+            # PrizePicks lines are "over X.5" style -> clearing them means
+            # actual_K >= floor(X.5) + 1. Handles integer lines the same way
+            # (strictly more than the line).
+            implied_threshold = int(pp_line // 1) + 1
+            model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedK"])
+            e["marketThreshold"] = implied_threshold
+            e["modelProb"] = model_prob
+            e["prizePicksCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
 
-        model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedK"])
-        e["marketThreshold"] = implied_threshold
-        e["modelProb"] = model_prob
-        e["prizePicksCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
-
+        implied_threshold = e["marketThreshold"]
         kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
         if kalshi_price is not None:
             if e.get("openingProb") is None or e.get("openingThreshold") != implied_threshold:
@@ -258,7 +274,7 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
                 e["openingThreshold"] = implied_threshold
             e["priceDelta"] = kalshi_price - e["openingProb"]
             e["marketProb"] = kalshi_price
-            e["edge"] = model_prob - kalshi_price
+            e["edge"] = e["modelProb"] - kalshi_price
         else:
             # Kalshi doesn't have a market at this exact threshold -- showing
             # no edge is more honest than showing one computed against a
