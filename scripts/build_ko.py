@@ -28,6 +28,17 @@ def load_ko_calibration():
         return {}
 
 
+def load_outs_calibration():
+    """Same as load_ko_calibration but for the 'outs' section -- this
+    correction only ever affects the projection math, never the site's
+    visible History tab."""
+    try:
+        with open("data/calibration.json") as f:
+            return (json.load(f) or {}).get("outs", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def fetch_roster_k_percent(team_id, year):
     """Real team strikeout rate from season hitting stats (K / plate
     appearances), NOT an average of Savant percentile ranks. That earlier
@@ -52,7 +63,7 @@ def fetch_roster_k_percent(team_id, year):
         return None
 
 
-def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None):
+def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None):
     try:
         data = get(f"{API}/people/{pitcher_id}/stats", params={
             "stats": "season,gameLog", "group": "pitching", "season": year,
@@ -132,6 +143,24 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     # so this is still generous headroom rather than a tight leash.
     projected_k = clip(projected_k, 1.0, 9.5)
 
+    # Pitching outs: reuses the same season/recent IP data already fetched
+    # above for expected_ip, rather than a separate model. A favorable
+    # matchup (fewer baserunners, cleaner innings) plausibly correlates
+    # with a deeper outing too, but applied at only 40% strength -- full
+    # strength here would repeat the exact compounding mistake found and
+    # fixed in the strikeout projection above.
+    season_ip_per_start = (season_ip / games_started) if (season_ip and games_started) else None
+    recent_ip_avg = (ip_sum / len(starts)) if starts and ip_sum > 0 else None
+    if season_ip_per_start is not None and recent_ip_avg is not None:
+        base_ip = 0.6 * season_ip_per_start + 0.4 * recent_ip_avg
+    elif season_ip_per_start is not None:
+        base_ip = season_ip_per_start
+    else:
+        base_ip = 5.2
+    dampened_matchup = 1 + (matchup_factor - 1) * 0.4
+    projected_ip_outs = clip(base_ip * dampened_matchup, 3.0, 7.0)
+    projected_outs = round(projected_ip_outs * 3, 1)
+
     velo_trend = fetch_pitcher_velo_trend(pitcher_id, year, pitcher_pct_map)
 
     conf_score = 0
@@ -155,12 +184,22 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
             projected_k = max(0.5, projected_k + bias)
             calibration_applied = bias
 
+    outs_calibration_applied = None
+    if outs_calibration:
+        outs_tier_cal = outs_calibration.get(confidence, {})
+        outs_bias = outs_tier_cal.get("bias", 0.0)
+        if outs_tier_cal.get("status") == "active" and outs_bias != 0.0:
+            projected_outs = max(3.0, round(projected_outs + outs_bias, 1))
+            outs_calibration_applied = outs_bias
+
     return {
         "hand": fetch_pitcher_hand(pitcher_id),
         "seasonK9": season_k9, "recentK9": recent_k9, "oppK": opp_k,
         "matchupFactor": matchup_factor, "stuffFactor": stuff_factor,
         "expectedIP": expected_ip, "projectedK": projected_k, "confidence": confidence,
+        "projectedOuts": projected_outs,
         "calibrationApplied": calibration_applied,
+        "outsCalibrationApplied": outs_calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
         "seasonRecord": f"{int(to_num(season_stat.get('wins')) or 0)}-{int(to_num(season_stat.get('losses')) or 0)}",
         "era": season_stat.get("era"),
@@ -223,6 +262,7 @@ def build(date, year):
         return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": []}
 
     calibration = load_ko_calibration()
+    outs_calibration = load_outs_calibration()
 
     batter_pct_map = fetch_savant_percentiles("batter", year)
     pitcher_pct_map = fetch_savant_percentiles("pitcher", year)
@@ -238,7 +278,7 @@ def build(date, year):
 
     entries = []
     for job in jobs:
-        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration)
+        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration)
         if not proj:
             continue
         p = {
@@ -259,8 +299,12 @@ def build(date, year):
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
             "graded": False, "actualK": None, "hit": None,
+            "projectedOuts": p["projectedOuts"],
+            "outsCalibrationApplied": p.get("outsCalibrationApplied"),
+            "outsMarketThreshold": None, "outsMarketProb": None, "outsModelProb": None, "outsEdge": None,
+            "actualOuts": None, "outsHit": None,
         })
-        print(f"  {p['name']} ({p['team']} vs {p['opp']}): {p['projectedK']:.1f} proj K")
+        print(f"  {p['name']} ({p['team']} vs {p['opp']}): {p['projectedK']:.1f} proj K, {p['projectedOuts']:.1f} proj outs")
 
     seen_ids = set()
     deduped = []
