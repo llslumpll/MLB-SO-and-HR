@@ -65,6 +65,16 @@ def preserve_opening_prices(new_entries, old_path):
     outs_call_by_key = index_by("outsCall")
     outs_model_prob_by_key = index_by("outsModelProb")
     outs_market_threshold_by_key = index_by("outsMarketThreshold")
+    # The DISPLAY fields that go alongside the frozen prediction above --
+    # without these, a heavy rebuild would correctly restore the frozen
+    # OVER/UNDER call and edge, but the line/market% shown right next to
+    # them would blank out until the next successful PrizePicks match,
+    # making the display briefly self-contradictory (a real prediction and
+    # edge shown with no line to explain where they came from).
+    k_line_by_key = index_by("prizePicksKLine")
+    outs_line_by_key = index_by("prizePicksOutsLine")
+    market_prob_by_key = index_by("marketProb")
+    edge_by_key = index_by("edge")
 
     preserved = 0
     for e in new_entries:
@@ -102,6 +112,18 @@ def preserve_opening_prices(new_entries, old_path):
             touched = True
         if key in outs_market_threshold_by_key:
             e["outsMarketThreshold"] = outs_market_threshold_by_key[key]
+            touched = True
+        if key in k_line_by_key:
+            e["prizePicksKLine"] = k_line_by_key[key]
+            touched = True
+        if key in outs_line_by_key:
+            e["prizePicksOutsLine"] = outs_line_by_key[key]
+            touched = True
+        if key in market_prob_by_key:
+            e["marketProb"] = market_prob_by_key[key]
+            touched = True
+        if key in edge_by_key:
+            e["edge"] = edge_by_key[key]
             touched = True
         if touched:
             preserved += 1
