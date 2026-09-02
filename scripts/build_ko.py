@@ -426,6 +426,8 @@ def build(date, year):
             "projectedOuts": p["projectedOuts"], "outsReason": p["outsReason"],
             "npPerGame": p.get("npPerGame"), "pitchesPerIP": p.get("pitchesPerIP"),
             "bbPct": p.get("bbPct"), "kBBPct": p.get("kBBPct"),
+            "rollingKBBPct": p.get("rollingKBBPct"), "parkFactor": p.get("parkFactor"),
+            "weatherFactor": p.get("weatherFactor"),
             "outsCalibrationApplied": p.get("outsCalibrationApplied"),
             "outsMarketThreshold": None, "outsMarketProb": None, "outsModelProb": None, "outsEdge": None,
             "actualOuts": None, "outsHit": None,
