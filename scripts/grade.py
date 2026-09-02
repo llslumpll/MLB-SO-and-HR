@@ -121,16 +121,35 @@ def grade_ko_file(path):
     if repaired:
         print(f"    repaired {repaired} entries incorrectly graded before their game finished")
 
+    # Backfill predictionLine/predictionOutsLine for ANY already-graded
+    # entry missing it. This must run unconditionally, independent of
+    # whether there's anything left to grade this run -- a day where
+    # every entry is already graded would otherwise return early below
+    # and never reach this repair at all, which is exactly how already-
+    # graded entries kept showing an inconsistent Line/Result even after
+    # the backfill logic existed.
+    backfilled = 0
+    for e in data["entries"]:
+        if e.get("graded"):
+            if e.get("predictionLine") is None and e.get("marketThreshold") is not None:
+                e["predictionLine"] = e["marketThreshold"] - 0.5
+                backfilled += 1
+            if e.get("predictionOutsLine") is None and e.get("outsMarketThreshold") is not None:
+                e["predictionOutsLine"] = e["outsMarketThreshold"] - 0.5
+                backfilled += 1
+    if backfilled:
+        print(f"    backfilled predictionLine for {backfilled} already-graded entries")
+
     pending = [e for e in data["entries"] if not e.get("graded")]
     if not pending:
-        if repaired:
+        if repaired or backfilled:
             with open(path, "w") as f:
                 json.dump(data, f, indent=2, default=str)
         return 0
 
     final_game_pks = {pk for pk in {e.get("gamePk") for e in pending if e.get("gamePk")} if is_game_final(pk)}
     if not final_game_pks:
-        if repaired:
+        if repaired or backfilled:
             with open(path, "w") as f:
                 json.dump(data, f, indent=2, default=str)
         return 0
@@ -184,7 +203,7 @@ def grade_ko_file(path):
                     e["predictionOutsLine"] = e["outsMarketThreshold"] - 0.5
             graded_count += 1
 
-    if graded_count or repaired:
+    if graded_count or repaired or backfilled:
         with open(path, "w") as f:
             json.dump(data, f, indent=2, default=str)
     return graded_count
