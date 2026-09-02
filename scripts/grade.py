@@ -157,6 +157,20 @@ def grade_ko_file(path):
             e["actualK"] = pitching.get("strikeOuts")
             if e.get("marketThreshold") is not None and e["actualK"] is not None:
                 e["hit"] = e["actualK"] >= e["marketThreshold"]
+            # Backfill for predictions that were frozen before predictionLine
+            # existed as a field -- without this, an old entry's displayed
+            # line would keep showing whatever prizePicksKLine has since
+            # drifted to, while hit/Result above is correctly graded against
+            # the OLDER, frozen marketThreshold, producing exactly the same
+            # inconsistent-looking Result this fix is meant to close.
+            # PrizePicks lines are virtually always half-point (X.5) to
+            # avoid ties, so threshold-0.5 recovers the original line for
+            # the vast majority of real cases; this is an approximation
+            # only for this backward-compatibility path, not for any
+            # prediction frozen going forward (those capture the real,
+            # exact line directly).
+            if e.get("predictionLine") is None and e.get("marketThreshold") is not None:
+                e["predictionLine"] = e["marketThreshold"] - 0.5
 
             # Outs: MLB's "inningsPitched" is thirds-based ("5.2" means 5 and
             # 2/3 innings = 17 outs), not a literal decimal -- parse_ip
@@ -166,6 +180,8 @@ def grade_ko_file(path):
                 e["actualOuts"] = round(ip * 3)
                 if e.get("outsMarketThreshold") is not None:
                     e["outsHit"] = e["actualOuts"] >= e["outsMarketThreshold"]
+                if e.get("predictionOutsLine") is None and e.get("outsMarketThreshold") is not None:
+                    e["predictionOutsLine"] = e["outsMarketThreshold"] - 0.5
             graded_count += 1
 
     if graded_count or repaired:
