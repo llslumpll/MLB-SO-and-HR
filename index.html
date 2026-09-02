@@ -971,19 +971,29 @@ async function loadHistory(){
       }
       if(dd.ko){
         const graded = dd.ko.entries.filter(e=>e.graded);
-        const gwl = graded.filter(e=>e.prizePicksKLine!=null);
-        const hits = gwl.filter(e=>e.hit).length;
-        koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} line hit (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+        // predictionLine is the line actually used to make and grade this
+        // call -- prizePicksKLine keeps live-updating throughout the day
+        // and can drift away from it. Falls back to prizePicksKLine for
+        // older saved days from before this distinction existed.
+        const gwl = graded.filter(e=>(e.predictionLine??e.prizePicksKLine)!=null);
+        const hits = gwl.filter(e=>{
+          if(e.hit==null||!e.prizePicksCall) return false;
+          return (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER');
+        }).length;
+        koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} predictions correct (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
           <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Edge</th><th>Prediction</th><th>Actual K</th><th>Result</th></tr></thead>
           <tbody>${dd.ko.entries.slice(0,40).map(e=>{
             const edgeClass = e.edge===null||e.edge===undefined ? 'edge-flat' : e.edge>0.03 ? 'edge-pos' : e.edge<-0.03 ? 'edge-neg' : 'edge-flat';
             const edgeTxt = e.edge===null||e.edge===undefined ? '—' : (e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'%';
-            const hasLine = e.prizePicksKLine!=null;
+            const lineForDisplay = e.predictionLine ?? e.prizePicksKLine;
+            const hasLine = lineForDisplay!=null;
             const prediction = e.prizePicksCall ? `<span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>` : '—';
+            const actualDirection = e.hit ? 'Over' : 'Under';
+            const predictionCorrect = e.prizePicksCall && ((e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER'));
             const result = !e.graded ? 'pending'
-              : hasLine ? (e.hit?'✅ Over':'❌ Under')
+              : hasLine && e.hit!=null ? (predictionCorrect ? `✅ ${actualDirection}` : `❌ ${actualDirection}`)
               : '<span class="status">no line to grade</span>';
-            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${hasLine?e.prizePicksKLine:'—'}</td><td class="${edgeClass}">${edgeTxt}</td><td>${prediction}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${hasLine?lineForDisplay:'—'}</td><td class="${edgeClass}">${edgeTxt}</td><td>${prediction}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
           }).join('')}</tbody></table>`;
       }
       html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}</div></div>`;
