@@ -205,6 +205,7 @@ def refine_outs_with_prizepicks(ko_data):
         e["outsMarketThreshold"] = implied_threshold
         e["outsModelProb"] = model_prob
         e["outsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        e["predictionOutsLine"] = pp_line
         refined += 1
 
     if refined:
@@ -277,6 +278,13 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             e["marketThreshold"] = implied_threshold
             e["modelProb"] = model_prob
             e["prizePicksCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+            # The exact line this call was made against, frozen forever --
+            # prizePicksKLine keeps tracking PrizePicks' current live line
+            # (useful for its own movement-tracking purpose), but that can
+            # drift away from the number this specific prediction/threshold
+            # actually corresponds to. History and grading should always
+            # reference THIS frozen value, not the live-drifting one.
+            e["predictionLine"] = pp_line
 
         implied_threshold = e["marketThreshold"]
         kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
