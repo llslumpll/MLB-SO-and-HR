@@ -75,6 +75,8 @@ def preserve_opening_prices(new_entries, old_path):
     outs_line_by_key = index_by("prizePicksOutsLine")
     market_prob_by_key = index_by("marketProb")
     edge_by_key = index_by("edge")
+    prediction_line_by_key = index_by("predictionLine")
+    prediction_outs_line_by_key = index_by("predictionOutsLine")
 
     preserved = 0
     for e in new_entries:
@@ -124,6 +126,12 @@ def preserve_opening_prices(new_entries, old_path):
             touched = True
         if key in edge_by_key:
             e["edge"] = edge_by_key[key]
+            touched = True
+        if key in prediction_line_by_key:
+            e["predictionLine"] = prediction_line_by_key[key]
+            touched = True
+        if key in prediction_outs_line_by_key:
+            e["predictionOutsLine"] = prediction_outs_line_by_key[key]
             touched = True
         if touched:
             preserved += 1
