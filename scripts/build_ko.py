@@ -422,6 +422,7 @@ def build(date, year):
             "calibrationApplied": p.get("calibrationApplied"),
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
+            "predictionLine": None, "predictionOutsLine": None,
             "graded": False, "actualK": None, "hit": None,
             "projectedOuts": p["projectedOuts"], "outsReason": p["outsReason"],
             "npPerGame": p.get("npPerGame"), "pitchesPerIP": p.get("pitchesPerIP"),
