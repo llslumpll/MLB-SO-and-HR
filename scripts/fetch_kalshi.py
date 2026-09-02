@@ -138,6 +138,20 @@ def merge_ko(ko_data, records):
     for e in ko_data["entries"]:
         hit = by_name.get(norm_name(e["name"]))
         if hit:
+            # Once a PrizePicks-based prediction has frozen a threshold,
+            # THAT threshold is the real one -- this function must not
+            # keep overwriting it with whatever Kalshi's own unrelated
+            # "closest to 50%" market happens to be. refine_ko_with_
+            # prizepicks already does its own Kalshi price lookup AT the
+            # frozen threshold, so these fields are correctly maintained
+            # without this function's help once a PrizePicks call exists.
+            # Without this guard, every 10-minute cycle would silently
+            # replace the real predicted line with Kalshi's own number,
+            # which is how multiple unrelated pitchers ended up sharing
+            # an identical, wrong displayed line.
+            if e.get("prizePicksCall") is not None:
+                matched += 1
+                continue
             price = hit["price"]
             threshold = hit["threshold"]
             # If we're now tracking a DIFFERENT threshold than whatever
