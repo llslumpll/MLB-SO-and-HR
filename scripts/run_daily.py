@@ -23,7 +23,7 @@ import fetch_kalshi
 import grade
 
 
-def preserve_opening_prices(new_entries, old_path):
+def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=True):
     """Heavy rebuilds regenerate every entry from scratch, which would
     otherwise silently reset each player's 'opening price' (used for
     price-movement tracking), 'opening line' (PrizePicks' own line
@@ -36,7 +36,15 @@ def preserve_opening_prices(new_entries, old_path):
     predictions and calibrating against them. Carries all of it forward
     from the previous file, matched by (playerId, gamePk) so a
     doubleheader doesn't cross-contaminate two different games for the
-    same player."""
+    same player.
+
+    preserve_market_comparison controls edge/marketProb specifically.
+    K/Outs deliberately freeze the whole projection, so edge/marketProb
+    staying frozen alongside it is consistent. HR's heuristicProb is
+    NOT frozen -- it's meant to keep updating with fresh matchup data on
+    every rebuild -- so preserving a stale edge next to a fresh
+    heuristicProb would silently show a market comparison against a
+    probability that no longer exists. Pass False for HR."""
     if not os.path.exists(old_path):
         return new_entries
     try:
@@ -73,8 +81,8 @@ def preserve_opening_prices(new_entries, old_path):
     # edge shown with no line to explain where they came from).
     k_line_by_key = index_by("prizePicksKLine")
     outs_line_by_key = index_by("prizePicksOutsLine")
-    market_prob_by_key = index_by("marketProb")
-    edge_by_key = index_by("edge")
+    market_prob_by_key = index_by("marketProb") if preserve_market_comparison else {}
+    edge_by_key = index_by("edge") if preserve_market_comparison else {}
     prediction_line_by_key = index_by("predictionLine")
     prediction_outs_line_by_key = index_by("predictionOutsLine")
 
@@ -152,7 +160,7 @@ def main():
     print(f"STEP 1: Build HR board for {date}")
     print("=" * 60)
     hr_result = build_hr.build(date, year)
-    hr_result["entries"] = preserve_opening_prices(hr_result["entries"], f"data/hr/{date}.json")
+    hr_result["entries"] = preserve_opening_prices(hr_result["entries"], f"data/hr/{date}.json", preserve_market_comparison=False)
     with open(f"data/hr/{date}.json", "w") as f:
         json.dump(hr_result, f, indent=2, default=str)
     print(f"Wrote data/hr/{date}.json with {len(hr_result['entries'])} entries")
