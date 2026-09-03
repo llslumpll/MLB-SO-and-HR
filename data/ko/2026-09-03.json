@@ -71,7 +71,10 @@
       "openingProb": 0.45,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "OVER",
-      "prizePicksKLine": 5.0
+      "prizePicksKLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 823907,
@@ -142,7 +145,10 @@
       "openingProb": 0.39,
       "prizePicksOpeningLine": 8.5,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 8.0
+      "prizePicksKLine": 8.0,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 9,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 823337,
@@ -213,7 +219,7 @@
       "openingProb": 0.4,
       "openingThreshold": 3,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:48:20.771751"
+      "oddsUpdatedAt": "2026-09-03T15:50:19.688567"
     },
     {
       "gamePk": 824144,
@@ -281,13 +287,16 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.46,
+      "openingProb": 0.45,
       "prizePicksOpeningLine": 6.5,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 6.5,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.0,
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": -0.5
     },
     {
       "gamePk": 824632,
@@ -331,9 +340,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.49,
+      "marketProb": 0.48,
       "modelProb": 0.5489165536427107,
-      "edge": 0.058916553642710756,
+      "edge": 0.06891655364271077,
       "predictionLine": 5.5,
       "predictionOutsLine": 17.0,
       "graded": false,
@@ -355,13 +364,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.49,
+      "openingProb": 0.48,
       "prizePicksOpeningLine": 5.5,
       "prizePicksOutsOpeningLine": 17.0,
       "prizePicksCall": "OVER",
       "outsCall": "UNDER",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 17.0
+      "prizePicksOutsLine": 17.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824796,
@@ -435,7 +448,11 @@
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "prizePicksKLine": 5.0,
-      "prizePicksOutsLine": 16.5
+      "prizePicksOutsLine": 16.5,
+      "prizePicksLineDelta": 0.5,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824632,
@@ -509,7 +526,11 @@
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824388,
@@ -583,7 +604,11 @@
       "prizePicksCall": "OVER",
       "outsCall": "UNDER",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 17.0
+      "prizePicksOutsLine": 17.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823337,
@@ -654,7 +679,10 @@
       "openingProb": 0.45,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "OVER",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 824069,
@@ -725,7 +753,10 @@
       "openingProb": 0.36,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 5.0
+      "prizePicksKLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 822853,
@@ -796,7 +827,10 @@
       "openingProb": 0.35,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 4.5
+      "prizePicksKLine": 4.5,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 6,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 823095,
@@ -863,7 +897,12 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "prizePicksLineDelta": 0.0,
+      "openingProb": null,
+      "openingThreshold": null,
+      "priceDelta": null,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 822853,
@@ -937,7 +976,10 @@
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824388,
@@ -1005,10 +1047,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.42,
+      "openingProb": 0.43,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 823907,
@@ -1079,7 +1124,10 @@
       "openingProb": 0.52,
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 4.5
+      "prizePicksKLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 824144,
@@ -1153,7 +1201,11 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 4.5,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "prizePicksLineDelta": 0.5,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824796,
@@ -1227,7 +1279,11 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824069,
@@ -1301,10 +1357,11 @@
       "prizePicksCall": "UNDER",
       "outsCall": "OVER",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 18.5
+      "prizePicksOutsLine": 18.5,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 5,
+      "priceDelta": 0.0
     }
   ],
-  "oddsRefreshedAt": "2026-09-03T15:48:20.771751",
-  "_kalshiMatched": 17,
-  "_kalshiTotal": 18
+  "oddsRefreshedAt": "2026-09-03T15:50:19.688567"
 }
