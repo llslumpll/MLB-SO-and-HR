@@ -129,6 +129,7 @@ def grade_ko_file(path):
     # graded entries kept showing an inconsistent Line/Result even after
     # the backfill logic existed.
     backfilled = 0
+    threshold_fixed = 0
     for e in data["entries"]:
         if e.get("graded"):
             if e.get("predictionLine") is None and e.get("marketThreshold") is not None:
@@ -137,19 +138,44 @@ def grade_ko_file(path):
             if e.get("predictionOutsLine") is None and e.get("outsMarketThreshold") is not None:
                 e["predictionOutsLine"] = e["outsMarketThreshold"] - 0.5
                 backfilled += 1
+
+            # predictionLine is the literal PrizePicks number that was
+            # actually captured -- if the stored marketThreshold doesn't
+            # match what that line should produce, marketThreshold was
+            # corrupted after the fact (the Kalshi-overwrite bug found and
+            # fixed earlier). predictionLine is trusted as ground truth
+            # since it's a direct capture, not a derived value; recompute
+            # the threshold and hit from it rather than the other way
+            # around.
+            if e.get("predictionLine") is not None:
+                correct_threshold = int(e["predictionLine"] // 1) + 1
+                if e.get("marketThreshold") != correct_threshold:
+                    e["marketThreshold"] = correct_threshold
+                    if e.get("actualK") is not None:
+                        e["hit"] = e["actualK"] >= correct_threshold
+                    threshold_fixed += 1
+            if e.get("predictionOutsLine") is not None:
+                correct_outs_threshold = int(e["predictionOutsLine"] // 1) + 1
+                if e.get("outsMarketThreshold") != correct_outs_threshold:
+                    e["outsMarketThreshold"] = correct_outs_threshold
+                    if e.get("actualOuts") is not None:
+                        e["outsHit"] = e["actualOuts"] >= correct_outs_threshold
+                    threshold_fixed += 1
+    if threshold_fixed:
+        print(f"    fixed {threshold_fixed} entries where marketThreshold had been corrupted after the real prediction line was frozen")
     if backfilled:
         print(f"    backfilled predictionLine for {backfilled} already-graded entries")
 
     pending = [e for e in data["entries"] if not e.get("graded")]
     if not pending:
-        if repaired or backfilled:
+        if repaired or backfilled or threshold_fixed:
             with open(path, "w") as f:
                 json.dump(data, f, indent=2, default=str)
         return 0
 
     final_game_pks = {pk for pk in {e.get("gamePk") for e in pending if e.get("gamePk")} if is_game_final(pk)}
     if not final_game_pks:
-        if repaired or backfilled:
+        if repaired or backfilled or threshold_fixed:
             with open(path, "w") as f:
                 json.dump(data, f, indent=2, default=str)
         return 0
@@ -203,7 +229,7 @@ def grade_ko_file(path):
                     e["predictionOutsLine"] = e["outsMarketThreshold"] - 0.5
             graded_count += 1
 
-    if graded_count or repaired or backfilled:
+    if graded_count or repaired or backfilled or threshold_fixed:
         with open(path, "w") as f:
             json.dump(data, f, indent=2, default=str)
     return graded_count
