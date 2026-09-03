@@ -941,8 +941,20 @@ async function loadHistory(){
   Object.keys(dayData).sort().forEach(day=>{
     const dd = dayData[day];
     let kHit=0, kTot=0, outsHit=0, outsTot=0;
+    let hrHighHit=0, hrHighTot=0, hrHighProbSum=0;
     if(dd.hr) dd.hr.entries.forEach(e=>{
       if(e.graded && e.confidence && tiers[e.confidence]){ tiers[e.confidence].hrTot++; if(e.hr) tiers[e.confidence].hrHit++; }
+      // HR doesn't have a directional call to grade right/wrong -- it
+      // predicts a probability, so the only meaningful "is it improving"
+      // question is whether the actual hit rate matches the predicted
+      // one. Tracked for High confidence specifically since that's the
+      // only tier with enough daily volume for a single day's rate to
+      // mean anything at all.
+      if(e.graded && e.confidence==='High' && e.heuristicProb!=null){
+        hrHighTot++;
+        hrHighProbSum += e.heuristicProb;
+        if(e.hr) hrHighHit++;
+      }
     });
     if(dd.ko) dd.ko.entries.forEach(e=>{
       if(e.graded && e.confidence && e.prizePicksCall && e.hit!=null && tiers[e.confidence]){
@@ -964,8 +976,39 @@ async function loadHistory(){
         if((e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER')) outsHit++;
       }
     });
-    if(kTot>0 || outsTot>0) dailyStats.push({day, kHit, kTot, outsHit, outsTot});
+    if(kTot>0 || outsTot>0 || hrHighTot>0) dailyStats.push({day, kHit, kTot, outsHit, outsTot, hrHighHit, hrHighTot, hrHighProbSum});
   });
+
+  function calibrationTrendChart(title, series, actualColor, predictedColor){
+    const points = series.filter(d=>d.tot>0);
+    if(points.length < 2) return `<div class="status" style="margin:8px 0;">${title}: not enough graded days yet to show a trend.</div>`;
+    const W=680, H=180, padL=36, padR=14, padT=14, padB=26;
+    const plotW=W-padL-padR, plotH=H-padT-padB;
+    const n=points.length;
+    const maxPct = Math.max(20, ...points.map(d=>Math.max(d.actualPct, d.predictedPct))) * 1.15;
+    const xFor=i=> n>1 ? padL + (i*(plotW/(n-1))) : padL+plotW/2;
+    const yFor=pct=> padT + plotH - (pct/maxPct)*plotH;
+    const lineFor=(key,color)=>{
+      const pts = points.map((d,i)=>`${xFor(i).toFixed(1)},${yFor(d[key]).toFixed(1)}`).join(' ');
+      const dots = points.map((d,i)=>`<circle cx="${xFor(i).toFixed(1)}" cy="${yFor(d[key]).toFixed(1)}" r="3" fill="${color}"><title>${d.day}: ${d[key].toFixed(1)}%</title></circle>`).join('');
+      return `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2"/>${dots}`;
+    };
+    const gridSteps = [0, maxPct*0.25, maxPct*0.5, maxPct*0.75, maxPct];
+    const gridLines = gridSteps.map(pct=>`<line x1="${padL}" y1="${yFor(pct)}" x2="${W-padR}" y2="${yFor(pct)}" stroke="var(--line)" stroke-width="1" opacity="0.4"/><text x="${padL-6}" y="${yFor(pct)+3}" text-anchor="end" font-size="9" fill="var(--slate)">${pct.toFixed(0)}%</text>`).join('');
+    const firstLabel = points[0].day.slice(5);
+    const lastLabel = points[n-1].day.slice(5);
+    return `
+      <div style="margin:8px 0;">
+        <div style="font-size:12px;color:var(--slate);margin-bottom:4px;">${title} — <span style="color:${actualColor};">actual rate</span> vs <span style="color:${predictedColor};">predicted rate</span>. Closer together = better calibrated.</div>
+        <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;">
+          ${gridLines}
+          ${lineFor('predictedPct', predictedColor)}
+          ${lineFor('actualPct', actualColor)}
+          <text x="${padL}" y="${H-6}" font-size="9" fill="var(--slate)">${firstLabel}</text>
+          <text x="${W-padR}" y="${H-6}" text-anchor="end" font-size="9" fill="var(--slate)">${lastLabel}</text>
+        </svg>
+      </div>`;
+  }
 
   function trendChart(title, series, color){
     const points = series.filter(d=>d.tot>0);
@@ -997,6 +1040,11 @@ async function loadHistory(){
 
   const kTrendChart = trendChart('Strikeouts', dailyStats.map(d=>({day:d.day, hit:d.kHit, tot:d.kTot, pct: d.kTot?d.kHit/d.kTot*100:0})), 'var(--amber)');
   const outsTrendChart = trendChart('Pitching Outs', dailyStats.map(d=>({day:d.day, hit:d.outsHit, tot:d.outsTot, pct: d.outsTot?d.outsHit/d.outsTot*100:0})), '#5eb1ff');
+  const hrCalibrationChart = calibrationTrendChart('Home Runs (High confidence)', dailyStats.map(d=>({
+    day:d.day, tot:d.hrHighTot,
+    actualPct: d.hrHighTot?d.hrHighHit/d.hrHighTot*100:0,
+    predictedPct: d.hrHighTot?d.hrHighProbSum/d.hrHighTot*100:0,
+  })), 'var(--amber)', '#5eb1ff');
 
   const tierRows = ['High','Medium','Low'].map(t=>{
     const x = tiers[t];
@@ -1011,6 +1059,11 @@ async function loadHistory(){
       <div class="status" style="margin-bottom:4px;">The dashed line marks 50% -- a coin flip. If the model is genuinely learning, dots should trend up and away from it as more days accumulate, not stay flat around it.</div>
       ${kTrendChart}
       ${outsTrendChart}
+    </div>
+    <div class="day-card" style="margin-bottom:16px;">
+      <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Home Run Calibration Over Time</div>
+      <div class="status" style="margin-bottom:4px;">HR predicts a probability, not a direction -- there's no "correct/incorrect" call to grade the way Strikeouts and Outs have. The right question here is whether the actual hit rate matches what was predicted, not whether any single pick "won."</div>
+      ${hrCalibrationChart}
     </div>
     <div class="day-card" style="margin-bottom:16px;">
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Confidence Tier</div>
