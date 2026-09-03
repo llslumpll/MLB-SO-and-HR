@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "generatedAt": "2026-09-03T15:08:31.550216",
+  "generatedAt": "2026-09-03T15:27:42.350349",
   "entries": [
     {
       "gamePk": 823337,
@@ -62,7 +62,77 @@
       "hr": null,
       "openingProb": 0.16,
       "priceDelta": 0.04000000000000001,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 665161,
+      "name": "Jeremy Pe\u00f1a",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 1,
+      "heuristicProb": 0.4248,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "Strong power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and elite quality of contact (barrel/hard-hit/exit velo).",
+      "factors": {
+        "base": 0.16169288660685022,
+        "form": 1.532079646017699,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.200767053446021,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.1258697027197977
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Pe\u00f1a, Jeremy",
+        "player_id": "665161",
+        "year": "2026",
+        "xwoba": "66",
+        "xba": "85",
+        "xslg": "66",
+        "xiso": "48",
+        "xobp": "60",
+        "brl": "31",
+        "brl_percent": "39",
+        "exit_velocity": "37",
+        "max_ev": "61",
+        "hard_hit_percent": "43",
+        "k_percent": "42",
+        "bb_percent": "11",
+        "whiff_percent": "11",
+        "chase_percent": "10",
+        "arm_strength": "36",
+        "sprint_speed": "93",
+        "oaa": "36",
+        "bat_speed": "50",
+        "squared_up_rate": "35",
+        "swing_length": "60"
+      },
+      "vsPitcher": {
+        "atBats": 23,
+        "hits": 7,
+        "homeRuns": 0,
+        "avg": ".304",
+        "obp": ".304",
+        "slg": ".304",
+        "ops": ".608"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 3
+      },
+      "trendWeekOPS": 0.8518518518518519,
+      "trendMonthOPS": 0.5635071564407967,
+      "seasonOPS": 0.81,
+      "marketProb": 0.13,
+      "edge": 0.2948,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.12,
+      "priceDelta": 0.010000000000000009,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -124,77 +194,7 @@
       "hr": null,
       "openingProb": 0.23,
       "priceDelta": 0.03,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 665161,
-      "name": "Jeremy Pe\u00f1a",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.405502435101846,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "Strong power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and elite quality of contact (barrel/hard-hit/exit velo); tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.13837514841696086,
-        "form": 1.532079646017699,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.200767053446021,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.1258697027197977
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Pe\u00f1a, Jeremy",
-        "player_id": "665161",
-        "year": "2026",
-        "xwoba": "66",
-        "xba": "85",
-        "xslg": "66",
-        "xiso": "48",
-        "xobp": "60",
-        "brl": "31",
-        "brl_percent": "39",
-        "exit_velocity": "37",
-        "max_ev": "61",
-        "hard_hit_percent": "43",
-        "k_percent": "42",
-        "bb_percent": "11",
-        "whiff_percent": "11",
-        "chase_percent": "10",
-        "arm_strength": "36",
-        "sprint_speed": "93",
-        "oaa": "36",
-        "bat_speed": "50",
-        "squared_up_rate": "35",
-        "swing_length": "60"
-      },
-      "vsPitcher": {
-        "atBats": 23,
-        "hits": 7,
-        "homeRuns": 0,
-        "avg": ".304",
-        "obp": ".304",
-        "slg": ".304",
-        "ops": ".608"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 3
-      },
-      "trendWeekOPS": 0.8518518518518519,
-      "trendMonthOPS": 0.5635071564407967,
-      "seasonOPS": 0.81,
-      "marketProb": 0.13,
-      "edge": 0.275502435101846,
-      "graded": false,
-      "hr": null,
-      "openingProb": 0.12,
-      "priceDelta": 0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -264,7 +264,7 @@
       "hr": null,
       "openingProb": 0.19,
       "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823095,
@@ -326,7 +326,7 @@
       "hr": null,
       "openingProb": 0.17,
       "priceDelta": -0.03,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823095,
@@ -382,6 +382,73 @@
       "trendWeekOPS": 0.9372294372294372,
       "trendMonthOPS": 0.5309148682642658,
       "seasonOPS": 0.67,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 673237,
+      "name": "Yainer Diaz",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 8,
+      "heuristicProb": 0.30813994171565995,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "Strong power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a favorable platoon matchup; tempered by a history of struggling vs this pitcher.",
+      "factors": {
+        "base": 0.11259117426839471,
+        "form": 1.5631163708086784,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.2375
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Diaz, Yainer",
+        "player_id": "673237",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "65",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "",
+        "sprint_speed": "21",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": {
+        "atBats": 17,
+        "hits": 3,
+        "homeRuns": 0,
+        "avg": ".176",
+        "obp": ".222",
+        "slg": ".176",
+        "ops": ".398"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 4
+      },
+      "trendWeekOPS": 0.5166666666666666,
+      "trendMonthOPS": 0.6810468794938165,
+      "seasonOPS": 0.701,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -447,7 +514,7 @@
       "hr": null,
       "openingProb": 0.17,
       "priceDelta": 0.03,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -509,7 +576,214 @@
       "hr": null,
       "openingProb": 0.15,
       "priceDelta": 0.03,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 662139,
+      "name": "Daulton Varsho",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 5,
+      "heuristicProb": 0.3020527063975245,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a favorable platoon matchup; tempered by a history of struggling vs this pitcher.",
+      "factors": {
+        "base": 0.09420973362483576,
+        "form": 1.6809116809116809,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.1103560171805082,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.2141509433962263
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Varsho, Daulton",
+        "player_id": "662139",
+        "year": "2026",
+        "xwoba": "13",
+        "xba": "22",
+        "xslg": "19",
+        "xiso": "25",
+        "xobp": "12",
+        "brl": "41",
+        "brl_percent": "34",
+        "exit_velocity": "14",
+        "max_ev": "67",
+        "hard_hit_percent": "34",
+        "k_percent": "55",
+        "bb_percent": "34",
+        "whiff_percent": "65",
+        "chase_percent": "16",
+        "arm_strength": "12",
+        "sprint_speed": "50",
+        "oaa": "91",
+        "bat_speed": "58",
+        "squared_up_rate": "16",
+        "swing_length": "79"
+      },
+      "vsPitcher": {
+        "atBats": 15,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".067",
+        "obp": ".125",
+        "slg": ".133",
+        "ops": ".258"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 6
+      },
+      "trendWeekOPS": 0.2909090909090909,
+      "trendMonthOPS": 0.5443478260869565,
+      "seasonOPS": 0.653,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 670623,
+      "name": "Isaac Paredes",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 3,
+      "heuristicProb": 0.296518998560268,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a favorable platoon matchup.",
+      "factors": {
+        "base": 0.12331653499696404,
+        "form": 1.325476694915254,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.0231276546839951,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.2532051282051282
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Paredes, Isaac",
+        "player_id": "670623",
+        "year": "2026",
+        "xwoba": "50",
+        "xba": "41",
+        "xslg": "24",
+        "xiso": "24",
+        "xobp": "76",
+        "brl": "38",
+        "brl_percent": "22",
+        "exit_velocity": "9",
+        "max_ev": "54",
+        "hard_hit_percent": "9",
+        "k_percent": "92",
+        "bb_percent": "68",
+        "whiff_percent": "94",
+        "chase_percent": "63",
+        "arm_strength": "12",
+        "sprint_speed": "7",
+        "oaa": "40",
+        "bat_speed": "3",
+        "squared_up_rate": "73",
+        "swing_length": "86"
+      },
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 1
+      },
+      "trendWeekOPS": 0.7,
+      "trendMonthOPS": 0.820125786163522,
+      "seasonOPS": 0.776,
+      "marketProb": 0.13,
+      "edge": 0.16651899856026797,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.13,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 670541,
+      "name": "Yordan Alvarez",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 2,
+      "heuristicProb": 0.29539095671464866,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "Elite home run power this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), and a track record vs this pitcher (4 HR in 21 AB); tempered by cold recent form.",
+      "factors": {
+        "base": 0.21703647118271252,
+        "form": 0.6077611502347418,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.5,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.0551960411115342
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Alvarez, Yordan",
+        "player_id": "670541",
+        "year": "2026",
+        "xwoba": "100",
+        "xba": "100",
+        "xslg": "100",
+        "xiso": "100",
+        "xobp": "100",
+        "brl": "100",
+        "brl_percent": "98",
+        "exit_velocity": "99",
+        "max_ev": "100",
+        "hard_hit_percent": "97",
+        "k_percent": "73",
+        "bb_percent": "97",
+        "whiff_percent": "78",
+        "chase_percent": "59",
+        "arm_strength": "36",
+        "sprint_speed": "8",
+        "oaa": "",
+        "bat_speed": "92",
+        "squared_up_rate": "66",
+        "swing_length": "79"
+      },
+      "vsPitcher": {
+        "atBats": 21,
+        "hits": 11,
+        "homeRuns": 4,
+        "avg": ".524",
+        "obp": ".583",
+        "slg": "1.143",
+        "ops": "1.726"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 4
+      },
+      "trendWeekOPS": 0.7706146926536732,
+      "trendMonthOPS": 0.7989897948665086,
+      "seasonOPS": 1.037,
+      "marketProb": 0.27,
+      "edge": 0.025390956714648638,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.27,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -565,13 +839,13 @@
       "trendWeekOPS": 1.4495073891625616,
       "trendMonthOPS": 1.0793408826945412,
       "seasonOPS": 0.79,
-      "marketProb": 0.14,
-      "edge": 0.1477871871970058,
+      "marketProb": 0.15,
+      "edge": 0.1377871871970058,
       "graded": false,
       "hr": null,
       "openingProb": 0.14,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": 0.009999999999999981,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -627,73 +901,6 @@
       "trendWeekOPS": 1.0,
       "trendMonthOPS": 0.8888888888888888,
       "seasonOPS": 0.801,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 662139,
-      "name": "Daulton Varsho",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.27455616857219994,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.08563360949397025,
-        "form": 1.6809116809116809,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.1103560171805082,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.2141509433962263
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Varsho, Daulton",
-        "player_id": "662139",
-        "year": "2026",
-        "xwoba": "13",
-        "xba": "22",
-        "xslg": "19",
-        "xiso": "25",
-        "xobp": "12",
-        "brl": "41",
-        "brl_percent": "34",
-        "exit_velocity": "14",
-        "max_ev": "67",
-        "hard_hit_percent": "34",
-        "k_percent": "55",
-        "bb_percent": "34",
-        "whiff_percent": "65",
-        "chase_percent": "16",
-        "arm_strength": "12",
-        "sprint_speed": "50",
-        "oaa": "91",
-        "bat_speed": "58",
-        "squared_up_rate": "16",
-        "swing_length": "79"
-      },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".250",
-        "slg": ".500",
-        "ops": ".750"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 6
-      },
-      "trendWeekOPS": 0.2909090909090909,
-      "trendMonthOPS": 0.5443478260869565,
-      "seasonOPS": 0.653,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -767,77 +974,7 @@
       "hr": null,
       "openingProb": 0.21,
       "priceDelta": 0.03,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 670623,
-      "name": "Isaac Paredes",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.2699303748247083,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.11225883897975308,
-        "form": 1.325476694915254,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.0231276546839951,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.2532051282051282
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Paredes, Isaac",
-        "player_id": "670623",
-        "year": "2026",
-        "xwoba": "50",
-        "xba": "41",
-        "xslg": "24",
-        "xiso": "24",
-        "xobp": "76",
-        "brl": "38",
-        "brl_percent": "22",
-        "exit_velocity": "9",
-        "max_ev": "54",
-        "hard_hit_percent": "9",
-        "k_percent": "92",
-        "bb_percent": "68",
-        "whiff_percent": "94",
-        "chase_percent": "63",
-        "arm_strength": "12",
-        "sprint_speed": "7",
-        "oaa": "40",
-        "bat_speed": "3",
-        "squared_up_rate": "73",
-        "swing_length": "86"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 1
-      },
-      "trendWeekOPS": 0.7,
-      "trendMonthOPS": 0.820125786163522,
-      "seasonOPS": 0.776,
-      "marketProb": 0.13,
-      "edge": 0.13993037482470827,
-      "graded": false,
-      "hr": null,
-      "openingProb": 0.13,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -959,74 +1096,7 @@
       "hr": null,
       "openingProb": 0.16,
       "priceDelta": 0.04000000000000001,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
-      "gamePk": 823095,
-      "playerId": 686527,
-      "name": "Dominic Canzone",
-      "team": "SEA",
-      "opp": "ATH",
-      "order": null,
-      "heuristicProb": 0.2620510346282025,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher and elite quality of contact (barrel/hard-hit/exit velo); tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.15030118445085539,
-        "form": 1.0573308270676691,
-        "pitcherVuln": 1.4160839160839163,
-        "powerQuality": 1.3190489016474538,
-        "park": 0.92,
-        "weather": 1.0,
-        "handedness": 1.0164894436739096
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Canzone, Dominic",
-        "player_id": "686527",
-        "year": "2026",
-        "xwoba": "89",
-        "xba": "80",
-        "xslg": "93",
-        "xiso": "89",
-        "xobp": "71",
-        "brl": "78",
-        "brl_percent": "83",
-        "exit_velocity": "82",
-        "max_ev": "95",
-        "hard_hit_percent": "74",
-        "k_percent": "44",
-        "bb_percent": "46",
-        "whiff_percent": "30",
-        "chase_percent": "20",
-        "arm_strength": "85",
-        "sprint_speed": "26",
-        "oaa": "",
-        "bat_speed": "77",
-        "squared_up_rate": "58",
-        "swing_length": "49"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 1
-      },
-      "trendWeekOPS": 0.9362962962962963,
-      "trendMonthOPS": 0.729251012145749,
-      "seasonOPS": 0.816,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824388,
@@ -1073,7 +1143,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 7,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".143",
+        "obp": ".143",
+        "slg": ".143",
+        "ops": ".286"
+      },
       "veloTrend": null,
       "streak": {
         "type": "hot",
@@ -1082,13 +1160,13 @@
       "trendWeekOPS": 2.5,
       "trendMonthOPS": 0.8999999999999999,
       "seasonOPS": 0.63,
-      "marketProb": 0.11,
-      "edge": 0.13124052756746135,
+      "marketProb": 0.1,
+      "edge": 0.14124052756746133,
       "graded": false,
       "hr": null,
       "openingProb": 0.11,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": -0.009999999999999995,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -1100,7 +1178,7 @@
       "heuristicProb": 0.23908517954158554,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), a hitter-friendly park, and a favorable platoon matchup; tempered by a history of struggling vs this pitcher and the lineup isn't confirmed yet.",
+      "reason": "An average power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), a hitter-friendly park, and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
       "factors": {
         "base": 0.10481129288613589,
         "form": 1.4459035112760492,
@@ -1136,13 +1214,13 @@
         "swing_length": "25"
       },
       "vsPitcher": {
-        "atBats": 8,
-        "hits": 1,
+        "atBats": 3,
+        "hits": 0,
         "homeRuns": 0,
-        "avg": ".125",
-        "obp": ".222",
-        "slg": ".125",
-        "ops": ".347"
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
       },
       "veloTrend": null,
       "streak": {
@@ -1158,7 +1236,7 @@
       "hr": null,
       "openingProb": 0.15,
       "priceDelta": -0.009999999999999981,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -1220,7 +1298,7 @@
       "hr": null,
       "openingProb": 0.08,
       "priceDelta": 0.009999999999999995,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -1232,7 +1310,7 @@
       "heuristicProb": 0.23204256863407377,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "Strong power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), a hitter-friendly park, a favorable platoon matchup, and a track record vs this pitcher (1 HR in 6 AB); tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "reason": "Strong power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), a hitter-friendly park, and a favorable platoon matchup; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
         "base": 0.14126701519889107,
         "form": 1.201848998459168,
@@ -1267,15 +1345,7 @@
         "squared_up_rate": "26",
         "swing_length": "60"
       },
-      "vsPitcher": {
-        "atBats": 6,
-        "hits": 1,
-        "homeRuns": 1,
-        "avg": ".167",
-        "obp": ".286",
-        "slg": ".667",
-        "ops": ".953"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -1290,7 +1360,7 @@
       "hr": null,
       "openingProb": 0.17,
       "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -1531,13 +1601,83 @@
       "trendWeekOPS": 0.7181818181818183,
       "trendMonthOPS": 0.6878434065934066,
       "seasonOPS": 0.701,
-      "marketProb": 0.1,
-      "edge": 0.10139194346126915,
+      "marketProb": 0.09,
+      "edge": 0.11139194346126916,
       "graded": false,
       "hr": null,
       "openingProb": 0.11,
-      "priceDelta": -0.009999999999999995,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": -0.020000000000000004,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 572233,
+      "name": "Christian Walker",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 6,
+      "heuristicProb": 0.1976176100744724,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher and elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and a history of struggling vs this pitcher.",
+      "factors": {
+        "base": 0.1449655814174855,
+        "form": 0.7567567567567567,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.2710403471713199,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.001700680272109
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Walker, Christian",
+        "player_id": "572233",
+        "year": "2026",
+        "xwoba": "22",
+        "xba": "15",
+        "xslg": "37",
+        "xiso": "53",
+        "xobp": "17",
+        "brl": "71",
+        "brl_percent": "58",
+        "exit_velocity": "49",
+        "max_ev": "85",
+        "hard_hit_percent": "51",
+        "k_percent": "34",
+        "bb_percent": "33",
+        "whiff_percent": "20",
+        "chase_percent": "38",
+        "arm_strength": "4",
+        "sprint_speed": "17",
+        "oaa": "77",
+        "bat_speed": "74",
+        "squared_up_rate": "14",
+        "swing_length": "49"
+      },
+      "vsPitcher": {
+        "atBats": 20,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".100",
+        "obp": ".182",
+        "slg": ".100",
+        "ops": ".282"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 6
+      },
+      "trendWeekOPS": 0.5641025641025641,
+      "trendMonthOPS": 0.517967332123412,
+      "seasonOPS": 0.726,
+      "marketProb": 0.14,
+      "edge": 0.057617610074472386,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.14,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -1599,7 +1739,7 @@
       "hr": null,
       "openingProb": 0.14,
       "priceDelta": 0.06,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -1669,6 +1809,76 @@
       "hr": null
     },
     {
+      "gamePk": 824144,
+      "playerId": 695657,
+      "name": "Colson Montgomery",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 6,
+      "heuristicProb": 0.19235050619850957,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo).",
+      "factors": {
+        "base": 0.1673999326341854,
+        "form": 0.9934971098265895,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.3190489016474538,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 0.946360153256705
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Montgomery, Colson",
+        "player_id": "695657",
+        "year": "2026",
+        "xwoba": "27",
+        "xba": "5",
+        "xslg": "57",
+        "xiso": "79",
+        "xobp": "8",
+        "brl": "79",
+        "brl_percent": "81",
+        "exit_velocity": "42",
+        "max_ev": "97",
+        "hard_hit_percent": "59",
+        "k_percent": "1",
+        "bb_percent": "41",
+        "whiff_percent": "1",
+        "chase_percent": "28",
+        "arm_strength": "20",
+        "sprint_speed": "29",
+        "oaa": "96",
+        "bat_speed": "94",
+        "squared_up_rate": "1",
+        "swing_length": "97"
+      },
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 2
+      },
+      "trendWeekOPS": 1.0897435897435896,
+      "trendMonthOPS": 0.6838573267144695,
+      "seasonOPS": 0.731,
+      "marketProb": 0.15,
+      "edge": 0.04235050619850958,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.15,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
       "gamePk": 823337,
       "playerId": 687551,
       "name": "Drew Gilbert",
@@ -1728,7 +1938,7 @@
       "hr": null,
       "openingProb": 0.09,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -1790,7 +2000,67 @@
       "hr": null,
       "openingProb": 0.16,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 664774,
+      "name": "LaMonte Wade Jr.",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 9,
+      "heuristicProb": 0.18957818172990487,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "An average power profile this season, boosted by hot recent form and a homer-prone opposing pitcher.",
+      "factors": {
+        "base": 0.09285808636708703,
+        "form": 1.276485788113695,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.1304347826086956
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Wade Jr., LaMonte",
+        "player_id": "664774",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "32",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "11",
+        "sprint_speed": "13",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 2
+      },
+      "trendWeekOPS": 0.7142857142857142,
+      "trendMonthOPS": 0.6278195488721805,
+      "seasonOPS": 0.657,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.16
     },
     {
       "gamePk": 823907,
@@ -1913,76 +2183,6 @@
       "openingProb": 0.15
     },
     {
-      "gamePk": 824144,
-      "playerId": 695657,
-      "name": "Colson Montgomery",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.18784586483140633,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.16347960678583007,
-        "form": 0.9934971098265895,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.3190489016474538,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.946360153256705
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Montgomery, Colson",
-        "player_id": "695657",
-        "year": "2026",
-        "xwoba": "27",
-        "xba": "5",
-        "xslg": "57",
-        "xiso": "79",
-        "xobp": "8",
-        "brl": "79",
-        "brl_percent": "81",
-        "exit_velocity": "42",
-        "max_ev": "97",
-        "hard_hit_percent": "59",
-        "k_percent": "1",
-        "bb_percent": "41",
-        "whiff_percent": "1",
-        "chase_percent": "28",
-        "arm_strength": "20",
-        "sprint_speed": "29",
-        "oaa": "96",
-        "bat_speed": "94",
-        "squared_up_rate": "1",
-        "swing_length": "97"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 2
-      },
-      "trendWeekOPS": 1.0897435897435896,
-      "trendMonthOPS": 0.6838573267144695,
-      "seasonOPS": 0.731,
-      "marketProb": 0.15,
-      "edge": 0.03784586483140634,
-      "graded": false,
-      "hr": null,
-      "openingProb": 0.15,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
       "gamePk": 823095,
       "playerId": 622268,
       "name": "Donovan Walton",
@@ -2036,65 +2236,6 @@
       "trendWeekOPS": 0.5974025974025974,
       "trendMonthOPS": 0.76625,
       "seasonOPS": 0.807,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 671976,
-      "name": "Tristan Peters",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.18388766089248296,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.10349630986878866,
-        "form": 1.8,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.0231276546839951,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.041289023162135
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Peters, Tristan",
-        "player_id": "671976",
-        "year": "2026",
-        "xwoba": "43",
-        "xba": "59",
-        "xslg": "47",
-        "xiso": "41",
-        "xobp": "49",
-        "brl": "31",
-        "brl_percent": "30",
-        "exit_velocity": "24",
-        "max_ev": "42",
-        "hard_hit_percent": "20",
-        "k_percent": "66",
-        "bb_percent": "30",
-        "whiff_percent": "49",
-        "chase_percent": "30",
-        "arm_strength": "46",
-        "sprint_speed": "84",
-        "oaa": "97",
-        "bat_speed": "17",
-        "squared_up_rate": "68",
-        "swing_length": "12"
-      },
-      "vsPitcher": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 6
-      },
-      "trendWeekOPS": 0.6666666666666666,
-      "trendMonthOPS": 1.0915071770334928,
-      "seasonOPS": 0.813,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -2168,67 +2309,7 @@
       "hr": null,
       "openingProb": 0.11,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 664774,
-      "name": "LaMonte Wade Jr.",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.17881710995760364,
-      "confidence": "Medium",
-      "calibrationApplied": 0.8458,
-      "reason": "An average power profile this season, boosted by hot recent form and a homer-prone opposing pitcher; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.09775630120737855,
-        "form": 1.276485788113695,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.1304347826086956
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Wade Jr., LaMonte",
-        "player_id": "664774",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "32",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "11",
-        "sprint_speed": "13",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 2
-      },
-      "trendWeekOPS": 0.7142857142857142,
-      "trendMonthOPS": 0.6278195488721805,
-      "seasonOPS": 0.657,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "openingProb": 0.16
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823095,
@@ -2284,6 +2365,65 @@
       "trendWeekOPS": 0.7564102564102564,
       "trendMonthOPS": 0.8796648895658796,
       "seasonOPS": 0.697,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 671976,
+      "name": "Tristan Peters",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 8,
+      "heuristicProb": 0.1747020449144996,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "An average power profile this season, boosted by hot recent form.",
+      "factors": {
+        "base": 0.09832642868709851,
+        "form": 1.8,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.0231276546839951,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.041289023162135
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Peters, Tristan",
+        "player_id": "671976",
+        "year": "2026",
+        "xwoba": "43",
+        "xba": "59",
+        "xslg": "47",
+        "xiso": "41",
+        "xobp": "49",
+        "brl": "31",
+        "brl_percent": "30",
+        "exit_velocity": "24",
+        "max_ev": "42",
+        "hard_hit_percent": "20",
+        "k_percent": "66",
+        "bb_percent": "30",
+        "whiff_percent": "49",
+        "chase_percent": "30",
+        "arm_strength": "46",
+        "sprint_speed": "84",
+        "oaa": "97",
+        "bat_speed": "17",
+        "squared_up_rate": "68",
+        "swing_length": "12"
+      },
+      "vsPitcher": null,
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 6
+      },
+      "trendWeekOPS": 0.6666666666666666,
+      "trendMonthOPS": 1.0915071770334928,
+      "seasonOPS": 0.813,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -2349,6 +2489,76 @@
       "hr": null
     },
     {
+      "gamePk": 824144,
+      "playerId": 808959,
+      "name": "Munetaka Murakami",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 2,
+      "heuristicProb": 0.17128264158084874,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form.",
+      "factors": {
+        "base": 0.2163839133272385,
+        "form": 0.5,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.5,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.1391292770603116
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Murakami, Munetaka",
+        "player_id": "808959",
+        "year": "2026",
+        "xwoba": "89",
+        "xba": "5",
+        "xslg": "87",
+        "xiso": "98",
+        "xobp": "74",
+        "brl": "88",
+        "brl_percent": "100",
+        "exit_velocity": "98",
+        "max_ev": "94",
+        "hard_hit_percent": "99",
+        "k_percent": "2",
+        "bb_percent": "100",
+        "whiff_percent": "1",
+        "chase_percent": "91",
+        "arm_strength": "8",
+        "sprint_speed": "35",
+        "oaa": "57",
+        "bat_speed": "81",
+        "squared_up_rate": "10",
+        "swing_length": "91"
+      },
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".333",
+        "obp": ".333",
+        "slg": ".333",
+        "ops": ".666"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 14
+      },
+      "trendWeekOPS": 0.5703703703703704,
+      "trendMonthOPS": 0.6307326732673267,
+      "seasonOPS": 0.844,
+      "marketProb": 0.17,
+      "edge": 0.0012826415808487313,
+      "graded": false,
+      "hr": null,
+      "openingProb": 0.18,
+      "priceDelta": -0.009999999999999981,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
+    },
+    {
       "gamePk": 824632,
       "playerId": 641343,
       "name": "Jake Bauers",
@@ -2358,7 +2568,7 @@
       "heuristicProb": 0.16388675663136146,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (1 HR in 7 AB); tempered by cold recent form and the lineup isn't confirmed yet.",
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
         "base": 0.14600269716165626,
         "form": 0.7190390254906385,
@@ -2393,15 +2603,7 @@
         "squared_up_rate": "47",
         "swing_length": "79"
       },
-      "vsPitcher": {
-        "atBats": 7,
-        "hits": 1,
-        "homeRuns": 1,
-        "avg": ".143",
-        "obp": ".333",
-        "slg": ".571",
-        "ops": ".904"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -2466,9 +2668,9 @@
         "hits": 1,
         "homeRuns": 1,
         "avg": ".200",
-        "obp": ".200",
+        "obp": ".429",
         "slg": ".800",
-        "ops": "1.000"
+        "ops": "1.229"
       },
       "veloTrend": null,
       "streak": {
@@ -2662,6 +2864,100 @@
       "openingProb": 0.1
     },
     {
+      "gamePk": 824144,
+      "playerId": 643217,
+      "name": "Andrew Benintendi",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 4,
+      "heuristicProb": 0.15275012362886875,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo).",
+      "factors": {
+        "base": 0.12699028830793946,
+        "form": 0.8716707021791766,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.3190489016474538,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.1291291291291292
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Benintendi, Andrew",
+        "player_id": "643217",
+        "year": "2026",
+        "xwoba": "35",
+        "xba": "38",
+        "xslg": "53",
+        "xiso": "54",
+        "xobp": "21",
+        "brl": "51",
+        "brl_percent": "56",
+        "exit_velocity": "45",
+        "max_ev": "59",
+        "hard_hit_percent": "69",
+        "k_percent": "37",
+        "bb_percent": "32",
+        "whiff_percent": "27",
+        "chase_percent": "25",
+        "arm_strength": "",
+        "sprint_speed": "29",
+        "oaa": "",
+        "bat_speed": "22",
+        "squared_up_rate": "63",
+        "swing_length": "25"
+      },
+      "vsPitcher": null,
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 4
+      },
+      "trendWeekOPS": 0.7391304347826086,
+      "trendMonthOPS": 0.6697553743513713,
+      "seasonOPS": 0.727,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
+      "gamePk": 823095,
+      "playerId": 703155,
+      "name": "Lazaro Montes",
+      "team": "SEA",
+      "opp": "ATH",
+      "order": null,
+      "heuristicProb": 0.15233995853890564,
+      "confidence": "Low",
+      "calibrationApplied": null,
+      "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher; tempered by the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.11693297944746917,
+        "form": 1.0,
+        "pitcherVuln": 1.4160839160839163,
+        "powerQuality": 1.0,
+        "park": 0.92,
+        "weather": 1.0,
+        "handedness": 1.0
+      },
+      "savant": null,
+      "vsPitcher": null,
+      "veloTrend": null,
+      "streak": {
+        "type": "hot",
+        "games": 1
+      },
+      "trendWeekOPS": 1.85,
+      "trendMonthOPS": 1.85,
+      "seasonOPS": 1.85,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
       "gamePk": 823095,
       "playerId": 702284,
       "name": "Cole Young",
@@ -2706,15 +3002,7 @@
         "squared_up_rate": "69",
         "swing_length": "12"
       },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -2729,7 +3017,7 @@
       "hr": null,
       "openingProb": 0.13,
       "priceDelta": -0.04000000000000001,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -2791,7 +3079,7 @@
       "hr": null,
       "openingProb": 0.09,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -2861,7 +3149,7 @@
       "hr": null,
       "openingProb": 0.13,
       "priceDelta": 0.01999999999999999,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -2991,77 +3279,77 @@
       "hr": null,
       "openingProb": 0.2,
       "priceDelta": 0.03,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824144,
-      "playerId": 808959,
-      "name": "Munetaka Murakami",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.1473032792441677,
+      "playerId": 514888,
+      "name": "Jose Altuve",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": 4,
+      "heuristicProb": 0.14749777346081336,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
+      "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher.",
       "factors": {
-        "base": 0.18609042757985972,
-        "form": 0.5,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.5,
+        "base": 0.1157552136746568,
+        "form": 0.8673469387755102,
+        "pitcherVuln": 1.4139344262295082,
+        "powerQuality": 1.0231276546839951,
         "park": 1.06,
         "weather": 1.0,
-        "handedness": 1.1391292770603116
+        "handedness": 1.0148809523809526
       },
       "savant": {
-        "\ufeff\"player_name\"": "Murakami, Munetaka",
-        "player_id": "808959",
+        "\ufeff\"player_name\"": "Altuve, Jose",
+        "player_id": "514888",
         "year": "2026",
-        "xwoba": "89",
-        "xba": "5",
-        "xslg": "87",
-        "xiso": "98",
-        "xobp": "74",
-        "brl": "88",
-        "brl_percent": "100",
-        "exit_velocity": "98",
-        "max_ev": "94",
-        "hard_hit_percent": "99",
-        "k_percent": "2",
-        "bb_percent": "100",
-        "whiff_percent": "1",
-        "chase_percent": "91",
-        "arm_strength": "8",
-        "sprint_speed": "35",
-        "oaa": "57",
-        "bat_speed": "81",
-        "squared_up_rate": "10",
-        "swing_length": "91"
+        "xwoba": "4",
+        "xba": "12",
+        "xslg": "8",
+        "xiso": "17",
+        "xobp": "8",
+        "brl": "27",
+        "brl_percent": "22",
+        "exit_velocity": "5",
+        "max_ev": "29",
+        "hard_hit_percent": "18",
+        "k_percent": "54",
+        "bb_percent": "34",
+        "whiff_percent": "58",
+        "chase_percent": "17",
+        "arm_strength": "4",
+        "sprint_speed": "54",
+        "oaa": "10",
+        "bat_speed": "12",
+        "squared_up_rate": "78",
+        "swing_length": "68"
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 1,
+        "atBats": 24,
+        "hits": 5,
         "homeRuns": 0,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": ".333",
-        "ops": ".666"
+        "avg": ".208",
+        "obp": ".208",
+        "slg": ".208",
+        "ops": ".416"
       },
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 14
+        "games": 8
       },
-      "trendWeekOPS": 0.5703703703703704,
-      "trendMonthOPS": 0.6307326732673267,
-      "seasonOPS": 0.844,
-      "marketProb": 0.17,
-      "edge": -0.022696720755832317,
+      "trendWeekOPS": 0.5072727272727273,
+      "trendMonthOPS": 0.7727713178294574,
+      "seasonOPS": 0.702,
+      "marketProb": 0.1,
+      "edge": 0.04749777346081335,
       "graded": false,
       "hr": null,
-      "openingProb": 0.18,
-      "priceDelta": -0.009999999999999981,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "openingProb": 0.1,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -3109,13 +3397,13 @@
         "swing_length": "68"
       },
       "vsPitcher": {
-        "atBats": 4,
-        "hits": 0,
+        "atBats": 14,
+        "hits": 3,
         "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
+        "avg": ".214",
+        "obp": ".267",
+        "slg": ".286",
+        "ops": ".553"
       },
       "veloTrend": null,
       "streak": {
@@ -3316,7 +3604,7 @@
       "hr": null,
       "openingProb": 0.1,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -3386,7 +3674,7 @@
       "hr": null,
       "openingProb": 0.2,
       "priceDelta": 0.009999999999999981,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -3448,7 +3736,7 @@
       "hr": null,
       "openingProb": 0.03,
       "priceDelta": 0.11000000000000001,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -3555,13 +3843,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 5,
+        "atBats": 3,
         "hits": 1,
         "homeRuns": 0,
-        "avg": ".200",
-        "obp": ".200",
-        "slg": ".400",
-        "ops": ".600"
+        "avg": ".333",
+        "obp": ".333",
+        "slg": ".667",
+        "ops": "1.000"
       },
       "veloTrend": null,
       "streak": {
@@ -3576,76 +3864,6 @@
       "graded": false,
       "hr": null,
       "openingProb": 0.1
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 514888,
-      "name": "Jose Altuve",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.1342190831963449,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.10533419108687181,
-        "form": 0.8673469387755102,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.0231276546839951,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.0148809523809526
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Altuve, Jose",
-        "player_id": "514888",
-        "year": "2026",
-        "xwoba": "4",
-        "xba": "12",
-        "xslg": "8",
-        "xiso": "17",
-        "xobp": "8",
-        "brl": "27",
-        "brl_percent": "22",
-        "exit_velocity": "5",
-        "max_ev": "29",
-        "hard_hit_percent": "18",
-        "k_percent": "54",
-        "bb_percent": "34",
-        "whiff_percent": "58",
-        "chase_percent": "17",
-        "arm_strength": "4",
-        "sprint_speed": "54",
-        "oaa": "10",
-        "bat_speed": "12",
-        "squared_up_rate": "78",
-        "swing_length": "68"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": ".333",
-        "ops": ".666"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 8
-      },
-      "trendWeekOPS": 0.5072727272727273,
-      "trendMonthOPS": 0.7727713178294574,
-      "seasonOPS": 0.702,
-      "marketProb": 0.09,
-      "edge": 0.044219083196344905,
-      "graded": false,
-      "hr": null,
-      "openingProb": 0.1,
-      "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
     },
     {
       "gamePk": 824632,
@@ -4069,7 +4287,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": 0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -4116,7 +4334,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".333",
+        "obp": ".500",
+        "slg": ".333",
+        "ops": ".833"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -4190,66 +4416,7 @@
       "hr": null,
       "openingProb": 0.16,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 545341,
-      "name": "Randal Grichuk",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.11025651119606003,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "Strong power profile this season, boosted by hot recent form; tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.14336468633236044,
-        "form": 1.1857958148383005,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.7
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Grichuk, Randal",
-        "player_id": "545341",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "92",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "68",
-        "sprint_speed": "45",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 7
-      },
-      "trendWeekOPS": 0.3333333333333333,
-      "trendMonthOPS": 0.9183673469387755,
-      "seasonOPS": 0.837,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824388,
@@ -4313,13 +4480,13 @@
       "trendWeekOPS": 0.3464052287581699,
       "trendMonthOPS": 0.6348576122672508,
       "seasonOPS": 0.771,
-      "marketProb": 0.1,
-      "edge": 0.008930691379405595,
+      "marketProb": 0.09,
+      "edge": 0.018930691379405604,
       "graded": false,
       "hr": null,
       "openingProb": 0.1,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": -0.010000000000000009,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824632,
@@ -4381,7 +4548,7 @@
       "hr": null,
       "openingProb": 0.16,
       "priceDelta": 0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -4561,66 +4728,7 @@
       "hr": null,
       "openingProb": 0.14,
       "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 691011,
-      "name": "Drew Romo",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.10538670951098479,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.11370540899408865,
-        "form": 0.9626690182245737,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.039138943248532
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Romo, Drew",
-        "player_id": "691011",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "43",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "",
-        "sprint_speed": "25",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 9
-      },
-      "trendWeekOPS": 0.4571428571428572,
-      "trendMonthOPS": 0.5964432284541723,
-      "seasonOPS": 0.527,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -4978,7 +5086,7 @@
       "hr": null,
       "openingProb": 0.22,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -5034,73 +5142,6 @@
       "trendWeekOPS": 0.7727272727272727,
       "trendMonthOPS": 0.7502998001332445,
       "seasonOPS": 0.845,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 701358,
-      "name": "Cam Smith",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.09636318979769373,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher and elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.11870380183179607,
-        "form": 0.5,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.3190489016474538,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.8699784791965568
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Smith, Cam",
-        "player_id": "701358",
-        "year": "2026",
-        "xwoba": "49",
-        "xba": "33",
-        "xslg": "63",
-        "xiso": "67",
-        "xobp": "26",
-        "brl": "73",
-        "brl_percent": "71",
-        "exit_velocity": "47",
-        "max_ev": "95",
-        "hard_hit_percent": "70",
-        "k_percent": "26",
-        "bb_percent": "27",
-        "whiff_percent": "26",
-        "chase_percent": "49",
-        "arm_strength": "80",
-        "sprint_speed": "93",
-        "oaa": "89",
-        "bat_speed": "99",
-        "squared_up_rate": "4",
-        "swing_length": "79"
-      },
-      "vsPitcher": {
-        "atBats": 8,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".250",
-        "slg": ".375",
-        "ops": ".625"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 13
-      },
-      "trendWeekOPS": 0.5157894736842106,
-      "trendMonthOPS": 0.7146718146718147,
-      "seasonOPS": 0.668,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -5226,17 +5267,76 @@
     },
     {
       "gamePk": 824144,
+      "playerId": 695731,
+      "name": "Braden Montgomery",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 5,
+      "heuristicProb": 0.09309648976291578,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "A modest power profile this season.",
+      "factors": {
+        "base": 0.08758938808815808,
+        "form": 1.0362617924528301,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.107027027027027
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Montgomery, Braden",
+        "player_id": "695731",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "48",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "85",
+        "sprint_speed": "79",
+        "oaa": "35",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 9
+      },
+      "trendWeekOPS": 0.2957393483709273,
+      "trendMonthOPS": 0.6087035854392847,
+      "seasonOPS": 0.665,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
+      "gamePk": 824144,
       "playerId": 666211,
       "name": "Taylor Trammell",
       "team": "HOU",
       "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.08755534850385861,
+      "order": 7,
+      "heuristicProb": 0.08972966027382623,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and a favorable platoon matchup; tempered by cold recent form, a 19-game HR drought, and the lineup isn't confirmed yet.",
+      "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and a favorable platoon matchup; tempered by cold recent form and a 19-game HR drought.",
       "factors": {
-        "base": 0.1059161572552203,
+        "base": 0.10854643343234749,
         "form": 0.5,
         "pitcherVuln": 1.4139344262295082,
         "powerQuality": 1.0,
@@ -5269,15 +5369,7 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".500",
-        "obp": ".600",
-        "slg": ".750",
-        "ops": "1.350"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -5360,62 +5452,73 @@
     },
     {
       "gamePk": 824144,
-      "playerId": 695731,
-      "name": "Braden Montgomery",
+      "playerId": 678246,
+      "name": "Miguel Vargas",
       "team": "CWS",
       "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.08459325418840742,
+      "order": 3,
+      "heuristicProb": 0.08530736834208147,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "A modest power profile this season, tempered by the lineup isn't confirmed yet.",
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and a tough platoon matchup.",
       "factors": {
-        "base": 0.07958915947978229,
-        "form": 1.0362617924528301,
+        "base": 0.16849348997506353,
+        "form": 0.5,
         "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.0,
+        "powerQuality": 1.3190489016474538,
         "park": 1.06,
         "weather": 1.0,
-        "handedness": 1.107027027027027
+        "handedness": 0.8285494124446157
       },
       "savant": {
-        "\ufeff\"player_name\"": "Montgomery, Braden",
-        "player_id": "695731",
+        "\ufeff\"player_name\"": "Vargas, Miguel",
+        "player_id": "678246",
         "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "48",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "85",
+        "xwoba": "98",
+        "xba": "80",
+        "xslg": "98",
+        "xiso": "97",
+        "xobp": "98",
+        "brl": "98",
+        "brl_percent": "91",
+        "exit_velocity": "77",
+        "max_ev": "88",
+        "hard_hit_percent": "77",
+        "k_percent": "71",
+        "bb_percent": "95",
+        "whiff_percent": "70",
+        "chase_percent": "94",
+        "arm_strength": "48",
         "sprint_speed": "79",
-        "oaa": "35",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
+        "oaa": "5",
+        "bat_speed": "71",
+        "squared_up_rate": "65",
+        "swing_length": "86"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 5,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".200",
+        "obp": ".333",
+        "slg": ".200",
+        "ops": ".533"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 9
+        "games": 11
       },
-      "trendWeekOPS": 0.2957393483709273,
-      "trendMonthOPS": 0.6087035854392847,
-      "seasonOPS": 0.665,
-      "marketProb": null,
-      "edge": null,
+      "trendWeekOPS": 0.5507246376811594,
+      "trendMonthOPS": 0.9523091107199732,
+      "seasonOPS": 0.847,
+      "marketProb": 0.16,
+      "edge": -0.07469263165791853,
       "graded": false,
-      "hr": null
+      "hr": null,
+      "openingProb": 0.16,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -5571,7 +5674,7 @@
       "hr": null,
       "openingProb": 0.06,
       "priceDelta": 0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -5693,7 +5796,7 @@
       "hr": null,
       "openingProb": 0.15,
       "priceDelta": -0.01999999999999999,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -5755,7 +5858,7 @@
       "hr": null,
       "openingProb": 0.07,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -5876,7 +5979,7 @@
       "hr": null,
       "openingProb": 0.07,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824388,
@@ -5932,13 +6035,13 @@
       "trendWeekOPS": 0.16666666666666666,
       "trendMonthOPS": 0.7519623233908949,
       "seasonOPS": 0.744,
-      "marketProb": 0.13,
-      "edge": -0.053286115917167254,
+      "marketProb": 0.15,
+      "edge": -0.07328611591716724,
       "graded": false,
       "hr": null,
       "openingProb": 0.13,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": 0.01999999999999999,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823095,
@@ -6094,6 +6197,73 @@
       "hr": null
     },
     {
+      "gamePk": 824144,
+      "playerId": 668670,
+      "name": "Jake Rogers",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 9,
+      "heuristicProb": 0.07382701594824395,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "An average power profile this season, boosted by hot recent form; tempered by a tough platoon matchup.",
+      "factors": {
+        "base": 0.09372419160474388,
+        "form": 1.2145390070921984,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 0.7
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Rogers, Jake",
+        "player_id": "668670",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "52",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "",
+        "sprint_speed": "24",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": {
+        "atBats": 5,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".200",
+        "obp": ".200",
+        "slg": ".200",
+        "ops": ".400"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 4
+      },
+      "trendWeekOPS": 0.125,
+      "trendMonthOPS": 0.641025641025641,
+      "seasonOPS": 0.582,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
       "gamePk": 824632,
       "playerId": 686217,
       "name": "Sal Frelick",
@@ -6139,13 +6309,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 1,
+        "atBats": 5,
+        "hits": 2,
         "homeRuns": 0,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": ".333",
-        "ops": ".666"
+        "avg": ".400",
+        "obp": ".500",
+        "slg": ".400",
+        "ops": ".900"
       },
       "veloTrend": null,
       "streak": {
@@ -6280,7 +6450,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -6336,73 +6506,6 @@
       "trendWeekOPS": 0.3208333333333333,
       "trendMonthOPS": 0.5717654986522911,
       "seasonOPS": 0.673,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
-      "gamePk": 824144,
-      "playerId": 676694,
-      "name": "Jake Meyers",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.06760540291162988,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher; tempered by cold recent form and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.08946622057772735,
-        "form": 0.5,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.0681818181818183
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Meyers, Jake",
-        "player_id": "676694",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "22",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "23",
-        "sprint_speed": "64",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": {
-        "atBats": 14,
-        "hits": 3,
-        "homeRuns": 0,
-        "avg": ".214",
-        "obp": ".214",
-        "slg": ".286",
-        "ops": ".500"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 14
-      },
-      "trendWeekOPS": null,
-      "trendMonthOPS": 1.0,
-      "seasonOPS": 0.594,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -6468,7 +6571,7 @@
       "hr": null,
       "openingProb": 0.1,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -6589,7 +6692,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824388,
@@ -6645,13 +6748,13 @@
       "trendWeekOPS": 0.25,
       "trendMonthOPS": 0.46862745098039216,
       "seasonOPS": 0.683,
-      "marketProb": 0.11,
-      "edge": -0.04406674127804461,
+      "marketProb": 0.1,
+      "edge": -0.03406674127804461,
       "graded": false,
       "hr": null,
       "openingProb": 0.11,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": -0.009999999999999995,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -6713,7 +6816,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -6834,7 +6937,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": 0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -6896,7 +6999,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": 0.020000000000000018,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -7078,7 +7181,7 @@
       "hr": null,
       "openingProb": 0.12,
       "priceDelta": -0.01999999999999999,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -7140,7 +7243,7 @@
       "hr": null,
       "openingProb": 0.07,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -7269,49 +7372,6 @@
       "hr": null
     },
     {
-      "gamePk": 824144,
-      "playerId": 502054,
-      "name": "Tommy Pham",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.053518029169982384,
-      "confidence": "Low",
-      "calibrationApplied": null,
-      "reason": "An average power profile this season, tempered by cold recent form and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.09542365578421386,
-        "form": 0.5714285714285714,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.0
-      },
-      "savant": null,
-      "vsPitcher": {
-        "atBats": 5,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".400",
-        "obp": ".500",
-        "slg": ".600",
-        "ops": "1.100"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 8
-      },
-      "trendWeekOPS": 0.0,
-      "trendMonthOPS": 0.0,
-      "seasonOPS": 0.067,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
       "gamePk": 824632,
       "playerId": 683734,
       "name": "Andrew Vaughn",
@@ -7321,7 +7381,7 @@
       "heuristicProb": 0.05287860243017569,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "A modest power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (1 HR in 6 AB); tempered by cold recent form, a 24-game HR drought, and the lineup isn't confirmed yet.",
+      "reason": "A modest power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (1 HR in 12 AB); tempered by cold recent form, a 24-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
         "base": 0.07850392032470577,
         "form": 0.5,
@@ -7357,13 +7417,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 6,
+        "atBats": 12,
         "hits": 3,
         "homeRuns": 1,
-        "avg": ".500",
-        "obp": ".500",
-        "slg": "1.167",
-        "ops": "1.667"
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".583",
+        "ops": ".833"
       },
       "veloTrend": null,
       "streak": {
@@ -7373,6 +7433,73 @@
       "trendWeekOPS": 0.9666666666666667,
       "trendMonthOPS": 0.8406056659068708,
       "seasonOPS": 0.852,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null
+    },
+    {
+      "gamePk": 824144,
+      "playerId": 803011,
+      "name": "Sam Antonacci",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": 1,
+      "heuristicProb": 0.051929462231805244,
+      "confidence": "High",
+      "calibrationApplied": 0.944,
+      "reason": "A modest power profile this season, boosted by a favorable platoon matchup; tempered by cold recent form and a 32-game HR drought.",
+      "factors": {
+        "base": 0.08727364023882933,
+        "form": 0.5,
+        "pitcherVuln": 0.925925925925926,
+        "powerQuality": 1.0231276546839951,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.2553846153846153
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Antonacci, Sam",
+        "player_id": "803011",
+        "year": "2026",
+        "xwoba": "77",
+        "xba": "82",
+        "xslg": "43",
+        "xiso": "23",
+        "xobp": "96",
+        "brl": "31",
+        "brl_percent": "26",
+        "exit_velocity": "20",
+        "max_ev": "40",
+        "hard_hit_percent": "18",
+        "k_percent": "82",
+        "bb_percent": "39",
+        "whiff_percent": "92",
+        "chase_percent": "93",
+        "arm_strength": "70",
+        "sprint_speed": "71",
+        "oaa": "7",
+        "bat_speed": "19",
+        "squared_up_rate": "81",
+        "swing_length": "5"
+      },
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 32
+      },
+      "trendWeekOPS": 0.5461538461538462,
+      "trendMonthOPS": 0.688050688050688,
+      "seasonOPS": 0.752,
       "marketProb": null,
       "edge": null,
       "graded": false,
@@ -7491,13 +7618,13 @@
       "trendWeekOPS": 0.45054945054945056,
       "trendMonthOPS": 0.6810420959670298,
       "seasonOPS": 0.681,
-      "marketProb": 0.08,
-      "edge": -0.029047359103094215,
+      "marketProb": 0.06,
+      "edge": -0.009047359103094212,
       "graded": false,
       "hr": null,
       "openingProb": 0.08,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": -0.020000000000000004,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823337,
@@ -7559,7 +7686,7 @@
       "hr": null,
       "openingProb": 0.06,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823095,
@@ -7606,7 +7733,15 @@
         "squared_up_rate": "89",
         "swing_length": "60"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".333",
+        "obp": ".333",
+        "slg": ".333",
+        "ops": ".666"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -7674,13 +7809,13 @@
       "trendWeekOPS": 0.7424242424242424,
       "trendMonthOPS": 0.7560613557644731,
       "seasonOPS": 0.752,
-      "marketProb": 0.08,
-      "edge": -0.03003568340684116,
+      "marketProb": 0.06,
+      "edge": -0.010035683406841155,
       "graded": false,
       "hr": null,
       "openingProb": 0.08,
-      "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "priceDelta": -0.020000000000000004,
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -7817,7 +7952,7 @@
       "hr": null,
       "openingProb": 0.09,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -8005,7 +8140,7 @@
       "hr": null,
       "openingProb": 0.16,
       "priceDelta": 0.01999999999999999,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -8084,7 +8219,7 @@
       "heuristicProb": 0.04558854303042143,
       "confidence": "Medium",
       "calibrationApplied": 0.8458,
-      "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
+      "reason": "An average power profile this season, boosted by warm/humid, carrying conditions and a track record vs this pitcher (1 HR in 11 AB); tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
         "base": 0.09442162792153896,
         "form": 1.1097318768619662,
@@ -8120,13 +8255,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
+        "atBats": 11,
+        "hits": 1,
+        "homeRuns": 1,
+        "avg": ".091",
+        "obp": ".286",
+        "slg": ".364",
+        "ops": ".650"
       },
       "veloTrend": null,
       "streak": {
@@ -8260,7 +8395,7 @@
       "hr": null,
       "openingProb": 0.02,
       "priceDelta": 0.09,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -8381,7 +8516,7 @@
       "hr": null,
       "openingProb": 0.08,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823095,
@@ -8444,76 +8579,17 @@
     },
     {
       "gamePk": 824144,
-      "playerId": 682668,
-      "name": "Luisangel Acu\u00f1a",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.0390669759785244,
-      "confidence": "High",
-      "calibrationApplied": 0.944,
-      "reason": "A modest power profile this season, boosted by a favorable platoon matchup; tempered by cold recent form, a 27-game HR drought, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.06023621176276661,
-        "form": 0.5,
-        "pitcherVuln": 0.925925925925926,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.4
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Acu\u00f1a, Luisangel",
-        "player_id": "682668",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "57",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "67",
-        "sprint_speed": "98",
-        "oaa": "41",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 27
-      },
-      "trendWeekOPS": null,
-      "trendMonthOPS": 0.4913793103448276,
-      "seasonOPS": 0.541,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
-      "gamePk": 824144,
       "playerId": 805367,
       "name": "Chase Meidroth",
       "team": "CWS",
       "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.0371429925406289,
+      "order": 7,
+      "heuristicProb": 0.03807647783074703,
       "confidence": "High",
       "calibrationApplied": 0.944,
-      "reason": "An average power profile this season, tempered by cold recent form, a 19-game HR drought, and the lineup isn't confirmed yet.",
+      "reason": "An average power profile this season, tempered by cold recent form and a 19-game HR drought.",
       "factors": {
-        "base": 0.08518640600608507,
+        "base": 0.08732732819585554,
         "form": 0.5,
         "pitcherVuln": 0.925925925925926,
         "powerQuality": 1.0231276546839951,
@@ -8628,73 +8704,6 @@
       "hr": null
     },
     {
-      "gamePk": 824144,
-      "playerId": 669397,
-      "name": "Nick Allen",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.03580907863145735,
-      "confidence": "Medium",
-      "calibrationApplied": 0.8458,
-      "reason": "A modest power profile this season, boosted by a homer-prone opposing pitcher; tempered by cold recent form, a tough platoon matchup, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.08070905969837228,
-        "form": 0.5,
-        "pitcherVuln": 1.4139344262295082,
-        "powerQuality": 1.0,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.7
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Allen, Nick",
-        "player_id": "669397",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "23",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "42",
-        "sprint_speed": "37",
-        "oaa": "36",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": {
-        "atBats": 5,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".400",
-        "obp": ".500",
-        "slg": ".400",
-        "ops": ".900"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 7
-      },
-      "trendWeekOPS": 1.0454545454545454,
-      "trendMonthOPS": 0.8416666666666667,
-      "seasonOPS": 0.678,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null
-    },
-    {
       "gamePk": 823337,
       "playerId": 693304,
       "name": "Nick Gonzales",
@@ -8754,7 +8763,7 @@
       "hr": null,
       "openingProb": 0.08,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824069,
@@ -9298,13 +9307,13 @@
         "swing_length": "41"
       },
       "vsPitcher": {
-        "atBats": 4,
-        "hits": 2,
+        "atBats": 6,
+        "hits": 3,
         "homeRuns": 0,
         "avg": ".500",
         "obp": ".500",
-        "slg": ".500",
-        "ops": "1.000"
+        "slg": ".667",
+        "ops": "1.167"
       },
       "veloTrend": null,
       "streak": {
@@ -9320,7 +9329,7 @@
       "hr": null,
       "openingProb": 0.07,
       "priceDelta": -0.010000000000000009,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824388,
@@ -9390,7 +9399,7 @@
       "hr": null,
       "openingProb": 0.08,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 824796,
@@ -9689,7 +9698,7 @@
       "hr": null,
       "openingProb": 0.06,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 823907,
@@ -9923,7 +9932,15 @@
         "squared_up_rate": "99",
         "swing_length": "1"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 7,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".286",
+        "obp": ".500",
+        "slg": ".286",
+        "ops": ".786"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -9938,7 +9955,7 @@
       "hr": null,
       "openingProb": 0.04,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T15:23:58.130590"
+      "oddsUpdatedAt": "2026-09-03T15:29:22.005973"
     },
     {
       "gamePk": 822853,
@@ -10067,5 +10084,5 @@
       "hr": null
     }
   ],
-  "oddsRefreshedAt": "2026-09-03T15:23:58.130590"
+  "oddsRefreshedAt": "2026-09-03T15:29:22.005973"
 }
