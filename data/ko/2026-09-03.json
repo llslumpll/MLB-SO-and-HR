@@ -195,11 +195,11 @@
       "marketProb": 0.01,
       "modelProb": 0.783500035283197,
       "edge": 0.773500035283197,
-      "predictionLine": null,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 3,
+      "hit": false,
       "projectedOuts": 21.0,
       "outsReason": "Projected for 19.6 outs (6.7 innings), supported by a track record of a long leash (160 pitches/game this season) and getting deep into games (6.7 IP/start); tempered by a walk rate that tends to spike pitch counts (10.1% BB).",
       "npPerGame": 159.75,
@@ -214,7 +214,7 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 7,
       "outsHit": null,
       "openingProb": 0.01,
       "openingThreshold": 5,
@@ -263,9 +263,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 7,
-      "marketProb": 0.66,
+      "marketProb": 0.52,
       "modelProb": 0.4471596670983252,
-      "edge": -0.2128403329016748,
+      "edge": -0.0728403329016748,
       "predictionLine": 6.5,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -295,7 +295,7 @@
       "prizePicksKLine": 6.5,
       "prizePicksOutsLine": 17.0,
       "openingThreshold": 7,
-      "priceDelta": 0.19000000000000006
+      "priceDelta": 0.050000000000000044
     },
     {
       "gamePk": 824632,
@@ -417,9 +417,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.57,
+      "marketProb": 0.58,
       "modelProb": 0.7102861483569509,
-      "edge": 0.14028614835695097,
+      "edge": 0.13028614835695096,
       "predictionLine": 4.5,
       "predictionOutsLine": 16.5,
       "graded": false,
@@ -450,7 +450,7 @@
       "prizePicksOutsLine": 16.5,
       "prizePicksLineDelta": 0.5,
       "openingThreshold": 5,
-      "priceDelta": 0.0,
+      "priceDelta": 0.010000000000000009,
       "prizePicksOutsLineDelta": 0.0
     },
     {
@@ -649,14 +649,14 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 1.0,
+      "marketProb": null,
       "modelProb": 0.6291980516422516,
-      "edge": -0.3708019483577484,
+      "edge": null,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 5,
+      "hit": true,
       "projectedOuts": 20.2,
       "outsReason": "Projected for 19.5 outs (6.7 innings), supported by a track record of a long leash (122 pitches/game this season) and getting deep into games (6.7 IP/start); tempered by a walk rate that tends to spike pitch counts (10.2% BB).",
       "npPerGame": 121.5,
@@ -671,14 +671,14 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 15,
       "outsHit": null,
-      "openingProb": 1.0,
+      "openingProb": null,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "OVER",
       "prizePicksKLine": 4.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0
+      "openingThreshold": null,
+      "priceDelta": null
     },
     {
       "gamePk": 824069,
@@ -1165,9 +1165,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.32,
+      "marketProb": 0.19,
       "modelProb": 0.4444294783426377,
-      "edge": 0.12442947834263768,
+      "edge": 0.2544294783426377,
       "predictionLine": 4.0,
       "predictionOutsLine": 15.5,
       "graded": false,
@@ -1197,7 +1197,7 @@
       "prizePicksKLine": 4.0,
       "prizePicksOutsLine": 15.5,
       "openingThreshold": 5,
-      "priceDelta": -0.32
+      "priceDelta": -0.45
     },
     {
       "gamePk": 824796,
@@ -1355,5 +1355,5 @@
       "priceDelta": 0.0
     }
   ],
-  "oddsRefreshedAt": "2026-09-03T19:20:19.264758"
+  "oddsRefreshedAt": "2026-09-03T19:30:17.348491"
 }
