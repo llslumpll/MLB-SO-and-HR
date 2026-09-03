@@ -258,6 +258,11 @@ def refine_hits_with_prizepicks(hr_data):
             continue
         if e.get("hitsCall") is not None:
             continue
+        if e.get("projectedHits") is None:
+            # Board was saved by an older build_hr.py before this field
+            # existed -- skip rather than crash; the next heavy rebuild
+            # will regenerate this entry with the field present.
+            continue
         implied_threshold = int(pp_line // 1) + 1
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedHits"])
         e["hitsMarketThreshold"] = implied_threshold
@@ -299,6 +304,8 @@ def refine_tb_with_prizepicks(hr_data):
         if pp_line is None:
             continue
         if e.get("tbCall") is not None:
+            continue
+        if e.get("projectedTotalBases") is None:
             continue
         implied_threshold = int(pp_line // 1) + 1
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedTotalBases"])
