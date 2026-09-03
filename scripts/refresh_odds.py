@@ -49,7 +49,7 @@ def grade_all():
     return total
 
 
-def log_pipeline_health(date, kalshi_matched=None, kalshi_total=None, pp_k_matched=None, pp_k_total=None, pp_outs_matched=None, pp_outs_total=None):
+def log_pipeline_health(date, kalshi_matched=None, kalshi_total=None, pp_k_matched=None, pp_k_total=None, pp_outs_matched=None, pp_outs_total=None, pp_hits_matched=None, pp_hits_total=None, pp_tb_matched=None, pp_tb_total=None):
     """Appends (or updates, if today already has an entry) a snapshot of
     match rates and calibration sample sizes to data/pipeline-health.json.
     One entry per calendar day, not per run -- refresh_odds.py runs every
@@ -75,7 +75,7 @@ def log_pipeline_health(date, kalshi_matched=None, kalshi_total=None, pp_k_match
             cal = json.load(f)
         calibration_snapshot = {
             stat: {tier: cal.get(stat, {}).get(tier, {}).get("sampleSize", 0) for tier in ("High", "Medium", "Low")}
-            for stat in ("hr", "ko", "outs")
+            for stat in ("hr", "ko", "outs", "hits", "totalBases")
         }
     except Exception:  # noqa: BLE001
         pass
@@ -85,6 +85,8 @@ def log_pipeline_health(date, kalshi_matched=None, kalshi_total=None, pp_k_match
         "kalshiMatched": kalshi_matched, "kalshiTotal": kalshi_total,
         "ppKMatched": pp_k_matched, "ppKTotal": pp_k_total,
         "ppOutsMatched": pp_outs_matched, "ppOutsTotal": pp_outs_total,
+        "ppHitsMatched": pp_hits_matched, "ppHitsTotal": pp_hits_total,
+        "ppTBMatched": pp_tb_matched, "ppTBTotal": pp_tb_total,
         "calibration": calibration_snapshot,
     }
 
@@ -115,10 +117,12 @@ def refresh(date):
     ko_records = fetch_kalshi.pull_series("KXMLBKS", "strikeouts")
 
     try:
-        pp_hr_records, pp_k_records, pp_outs_records = fetch_prizepicks.fetch_mlb_props()
+        pp_hr_records, pp_k_records, pp_outs_records, pp_hits_records, pp_tb_records = fetch_prizepicks.fetch_mlb_props()
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] PrizePicks fetch failed entirely, continuing without it: {e}")
-        pp_hr_records, pp_k_records, pp_outs_records = [], [], []
+        pp_hr_records, pp_k_records, pp_outs_records, pp_hits_records, pp_tb_records = [], [], [], [], []
+
+    pp_hits_matched = pp_hits_total = pp_tb_matched = pp_tb_total = None
 
     if hr_exists:
         with open(hr_path) as f:
@@ -126,6 +130,16 @@ def refresh(date):
         hr_data = fetch_kalshi.merge_hr(hr_data, hr_records)
         if pp_hr_records:
             hr_data = fetch_prizepicks.merge_hr(hr_data, pp_hr_records)
+        if pp_hits_records:
+            hr_data = fetch_prizepicks.merge_hits(hr_data, pp_hits_records)
+            pp_hits_matched = hr_data.pop("_ppHitsMatched", None)
+            pp_hits_total = hr_data.pop("_ppHitsTotal", None)
+            hr_data = fetch_prizepicks.refine_hits_with_prizepicks(hr_data)
+        if pp_tb_records:
+            hr_data = fetch_prizepicks.merge_tb(hr_data, pp_tb_records)
+            pp_tb_matched = hr_data.pop("_ppTBMatched", None)
+            pp_tb_total = hr_data.pop("_ppTBTotal", None)
+            hr_data = fetch_prizepicks.refine_tb_with_prizepicks(hr_data)
         hr_data["entries"].sort(key=lambda e: -e["heuristicProb"])
         with open(hr_path, "w") as f:
             json.dump(hr_data, f, indent=2, default=str)
@@ -157,7 +171,7 @@ def refresh(date):
     # Health snapshot happens AFTER grading, so today's calibration.json
     # (which grading feeds into via calibrate.py in the heavy pipeline)
     # reflects the most current numbers available at logging time.
-    log_pipeline_health(date, kalshi_matched, kalshi_total, pp_k_matched, pp_k_total, pp_outs_matched, pp_outs_total)
+    log_pipeline_health(date, kalshi_matched, kalshi_total, pp_k_matched, pp_k_total, pp_outs_matched, pp_outs_total, pp_hits_matched, pp_hits_total, pp_tb_matched, pp_tb_total)
     return True
 
 
