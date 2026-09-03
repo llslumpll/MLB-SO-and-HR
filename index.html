@@ -971,13 +971,14 @@ async function loadHistory(){
       }
       if(dd.ko){
         const graded = dd.ko.entries.filter(e=>e.graded);
-        // predictionLine is the line actually used to make and grade this
-        // call -- prizePicksKLine keeps live-updating throughout the day
-        // and can drift away from it. Falls back to prizePicksKLine for
-        // older saved days from before this distinction existed.
-        const gwl = graded.filter(e=>(e.predictionLine??e.prizePicksKLine)!=null);
+        // A line existing isn't the same as a prediction existing --
+        // predictionLine/prizePicksKLine can be present even when
+        // prizePicksCall was never actually computed for this entry.
+        // Both the accuracy count and the Result column must require a
+        // real call, or a never-predicted entry gets falsely marked wrong.
+        const gwl = graded.filter(e=>e.prizePicksCall && (e.predictionLine??e.prizePicksKLine)!=null);
         const hits = gwl.filter(e=>{
-          if(e.hit==null||!e.prizePicksCall) return false;
+          if(e.hit==null) return false;
           return (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER');
         }).length;
         koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} predictions correct (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
@@ -987,12 +988,13 @@ async function loadHistory(){
             const edgeTxt = e.edge===null||e.edge===undefined ? '—' : (e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'%';
             const lineForDisplay = e.predictionLine ?? e.prizePicksKLine;
             const hasLine = lineForDisplay!=null;
+            const hasPrediction = hasLine && !!e.prizePicksCall;
             const prediction = e.prizePicksCall ? `<span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>` : '—';
             const actualDirection = e.hit ? 'Over' : 'Under';
-            const predictionCorrect = e.prizePicksCall && ((e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER'));
+            const predictionCorrect = (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER');
             const result = !e.graded ? 'pending'
-              : hasLine && e.hit!=null ? (predictionCorrect ? `✅ ${actualDirection}` : `❌ ${actualDirection}`)
-              : '<span class="status">no line to grade</span>';
+              : hasPrediction && e.hit!=null ? (predictionCorrect ? `✅ ${actualDirection}` : `❌ ${actualDirection}`)
+              : '<span class="status">no prediction to grade</span>';
             return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${hasLine?lineForDisplay:'—'}</td><td class="${edgeClass}">${edgeTxt}</td><td>${prediction}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
           }).join('')}</tbody></table>`;
       }
