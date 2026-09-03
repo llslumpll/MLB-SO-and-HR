@@ -179,6 +179,8 @@ def merge_outs(ko_data, records):
             e["prizePicksOutsLine"] = line
             matched += 1
     print(f"  PrizePicks Outs: matched {matched}/{len(ko_data['entries'])} entries")
+    ko_data["_ppOutsMatched"] = matched
+    ko_data["_ppOutsTotal"] = len(ko_data["entries"])
     return ko_data
 
 
@@ -237,6 +239,9 @@ def merge_ko(ko_data, records):
         board_names = sorted(set(e["name"] for e in ko_data["entries"]))
         print(f"  DEBUG: 0 matches -- PrizePicks has {len(pp_names)} pitcher(s) with a K line: {pp_names[:20]}")
         print(f"  DEBUG: today's board has {len(board_names)} pitcher(s): {board_names[:20]}")
+
+    ko_data["_ppKMatched"] = matched
+    ko_data["_ppKTotal"] = len(ko_data["entries"])
 
     return ko_data
 
