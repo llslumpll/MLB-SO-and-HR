@@ -9,7 +9,7 @@ import sys
 from datetime import datetime, timedelta
 
 from common import (
-    API, PARKS, LEAGUE_AVG_HR_RATE, SAVANT,
+    API, PARKS, LEAGUE_AVG_HR_RATE, LEAGUE_AVG_HIT_RATE, LEAGUE_AVG_TB_RATE, SAVANT,
     clip, to_num, get, get_text, parse_ip,
     fetch_savant_percentiles, fetch_weather, today_iso,
 )
@@ -25,6 +25,22 @@ def load_hr_calibration():
     try:
         with open("data/calibration.json") as f:
             return (json.load(f) or {}).get("hr", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def load_hits_calibration():
+    try:
+        with open("data/calibration.json") as f:
+            return (json.load(f) or {}).get("hits", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def load_tb_calibration():
+    try:
+        with open("data/calibration.json") as f:
+            return (json.load(f) or {}).get("totalBases", {})
     except Exception:  # noqa: BLE001
         return {}
 
@@ -105,6 +121,11 @@ def fetch_batter_stats(batter_id, year):
         last10 = log[-10:]
         l10_pa = sum(to_num(g.get("plateAppearances")) or 0 for g in last10)
         l10_hr = sum(to_num(g.get("homeRuns")) or 0 for g in last10)
+        l10_hits = sum(to_num(g.get("hits")) or 0 for g in last10)
+        l10_doubles = sum(to_num(g.get("doubles")) or 0 for g in last10)
+        l10_triples = sum(to_num(g.get("triples")) or 0 for g in last10)
+        l10_singles = l10_hits - l10_doubles - l10_triples - l10_hr
+        l10_tb = l10_singles + l10_doubles * 2 + l10_triples * 3 + l10_hr * 4
 
         now = datetime.utcnow()
 
@@ -134,6 +155,7 @@ def fetch_batter_stats(batter_id, year):
 
         return {
             "season": season, "l10PA": l10_pa, "l10HR": l10_hr,
+            "l10Hits": l10_hits, "l10TB": l10_tb,
             "week": week, "month": month,
             "streakType": streak_type, "streakGames": streak_games,
         }
@@ -356,6 +378,99 @@ def compute_heuristic(b, savant_batter_map, calibration=None):
     }
 
 
+def compute_hits_tb_heuristic(b, confidence, hits_calibration=None, tb_calibration=None):
+    """Projects expected hits and total bases for today's game. Unlike
+    HR's 'at least one' binary framing, PrizePicks offers these as
+    half-point count lines (e.g. '1.5 Hits'), so this follows the same
+    count-projection + Poisson pattern as Strikeouts/Outs, not HR's
+    binomial approach. Reuses HR's already-computed confidence tier
+    rather than re-deriving one -- same batter, same underlying sample
+    size, no reason to score it twice."""
+    s = (b.get("batterStats") or {}).get("season")
+    season_pa = to_num(s.get("plateAppearances")) if s else None
+    season_hits = to_num(s.get("hits")) if s else 0
+    season_ab = to_num(s.get("atBats")) if s else None
+    season_doubles = to_num(s.get("doubles")) if s else 0
+    season_triples = to_num(s.get("triples")) if s else 0
+    season_hr = to_num(s.get("homeRuns")) if s else 0
+    season_singles = (season_hits or 0) - (season_doubles or 0) - (season_triples or 0) - (season_hr or 0)
+    season_tb = season_singles + (season_doubles or 0) * 2 + (season_triples or 0) * 3 + (season_hr or 0) * 4
+
+    PRIOR_PA = 200
+    if season_pa is not None and season_pa > 0:
+        season_hit_rate = ((season_hits or 0) + PRIOR_PA * LEAGUE_AVG_HIT_RATE) / (season_pa + PRIOR_PA)
+        season_tb_rate = (season_tb + PRIOR_PA * LEAGUE_AVG_TB_RATE) / (season_pa + PRIOR_PA)
+    else:
+        season_hit_rate = LEAGUE_AVG_HIT_RATE
+        season_tb_rate = LEAGUE_AVG_TB_RATE
+
+    bs = b.get("batterStats") or {}
+    hit_rate, tb_rate = season_hit_rate, season_tb_rate
+    if bs.get("l10PA", 0) >= 15:
+        L10_PRIOR_PA = 20
+        l10_hit_rate = ((bs.get("l10Hits") or 0) + L10_PRIOR_PA * season_hit_rate) / (bs["l10PA"] + L10_PRIOR_PA)
+        l10_tb_rate = ((bs.get("l10TB") or 0) + L10_PRIOR_PA * season_tb_rate) / (bs["l10PA"] + L10_PRIOR_PA)
+        hit_rate = 0.6 * season_hit_rate + 0.4 * l10_hit_rate
+        tb_rate = 0.6 * season_tb_rate + 0.4 * l10_tb_rate
+
+    order = b.get("order")
+    expected_pa = 4.5 if (order and order <= 2) else 4.2 if (order and order <= 5) else 3.9 if (order and order <= 7) else 3.6 if order else 3.8
+
+    # Matchup: batter's platoon hit-rate split vs the opposing pitcher's
+    # hand, dampened the same way every other matchup factor on this
+    # site is (50% strength, not full swing).
+    matchup_factor = 1.0
+    throws_hand = b.get("oppThrows")
+    platoon = b.get("platoon") or {}
+    if throws_hand and platoon and season_ab:
+        split = platoon.get("vl") if throws_hand == "L" else platoon.get("vr")
+        if split and (to_num(split.get("atBats")) or 0) >= 15:
+            split_hit_rate = (to_num(split.get("hits")) or 0) / (to_num(split.get("atBats")) or 1)
+            season_ab_hit_rate = (season_hits or 0) / season_ab if season_ab else 0
+            if season_ab_hit_rate > 0:
+                raw_matchup = split_hit_rate / season_ab_hit_rate
+                matchup_factor = clip(1 + (raw_matchup - 1) * 0.5, 0.85, 1.2)
+
+    projected_hits = expected_pa * hit_rate * matchup_factor
+
+    # Total bases reuses the park HR factor as a dampened proxy -- a park
+    # that inflates HR mechanically inflates total bases too (a homer IS
+    # 4 bases), but the effect is far more indirect here than for HR
+    # itself, so it's dampened heavily. Deliberately NOT applied to Hits
+    # at all -- contact/BABIP rate isn't meaningfully tied to fence
+    # distance the way raw power is, and applying it there would be
+    # inventing a signal that isn't really present.
+    park_hr_factor = clip((b.get("park") or {}).get("hr", 1.0), 0.8, 1.5)
+    tb_park_factor = clip(1 + (park_hr_factor - 1) * 0.3, 0.92, 1.12)
+    projected_total_bases = expected_pa * tb_rate * matchup_factor * tb_park_factor
+
+    hits_calibration_applied = None
+    if hits_calibration:
+        tier_cal = hits_calibration.get(confidence, {})
+        bias = tier_cal.get("bias", 0.0)
+        if tier_cal.get("status") == "active" and bias != 0.0:
+            projected_hits = max(0.05, projected_hits + bias)
+            hits_calibration_applied = bias
+
+    tb_calibration_applied = None
+    if tb_calibration:
+        tier_cal = tb_calibration.get(confidence, {})
+        bias = tier_cal.get("bias", 0.0)
+        if tier_cal.get("status") == "active" and bias != 0.0:
+            projected_total_bases = max(0.05, projected_total_bases + bias)
+            tb_calibration_applied = bias
+
+    return {
+        "projectedHits": round(clip(projected_hits, 0.1, 4.0), 2),
+        "projectedTotalBases": round(clip(projected_total_bases, 0.1, 8.0), 2),
+        "hitRate": round(hit_rate, 4), "tbRate": round(tb_rate, 4),
+        "hitsMatchupFactor": round(matchup_factor, 3),
+        "tbParkFactor": round(tb_park_factor, 3),
+        "hitsCalibrationApplied": hits_calibration_applied,
+        "tbCalibrationApplied": tb_calibration_applied,
+    }
+
+
 def join_list(arr):
     if not arr:
         return ""
@@ -422,6 +537,53 @@ def reason_text(b):
     return sentence + "."
 
 
+def hits_tb_reason_text(b, hits_tb):
+    """Reasoning for Hits/Total Bases, referencing only what actually
+    feeds the projection: hit rate vs league average, the platoon
+    matchup, and -- for total bases only -- the park's HR factor as a
+    dampened proxy. No park signal for Hits specifically since contact
+    rate isn't meaningfully tied to fence distance."""
+    hit_rate = hits_tb.get("hitRate") or 0
+    matchup = hits_tb.get("hitsMatchupFactor") or 1.0
+    tb_park = hits_tb.get("tbParkFactor") or 1.0
+
+    hits_positives, hits_negatives = [], []
+    if hit_rate > LEAGUE_AVG_HIT_RATE * 1.15:
+        hits_positives.append("a well-above-average hit rate this season")
+    elif hit_rate < LEAGUE_AVG_HIT_RATE * 0.85:
+        hits_negatives.append("a below-average hit rate this season")
+    if matchup > 1.08:
+        hits_positives.append("a favorable platoon matchup")
+    elif matchup < 0.92:
+        hits_negatives.append("a tough platoon matchup")
+
+    hits_base = f"Projected for {hits_tb['projectedHits']:.1f} hits"
+    hits_sentence = hits_base
+    if hits_positives:
+        hits_sentence += f", supported by {join_list(hits_positives)}"
+    if hits_negatives:
+        hits_sentence += ("; " if hits_positives else ", ") + f"tempered by {join_list(hits_negatives)}"
+    hits_sentence += "."
+
+    tb_positives, tb_negatives = [], []
+    if hit_rate > LEAGUE_AVG_HIT_RATE * 1.1:
+        tb_positives.append("strong contact this season")
+    if tb_park > 1.04:
+        tb_positives.append("a park that tends to add extra bases")
+    elif tb_park < 0.97:
+        tb_negatives.append("a park that tends to suppress extra bases")
+
+    tb_base = f"Projected for {hits_tb['projectedTotalBases']:.1f} total bases"
+    tb_sentence = tb_base
+    if tb_positives:
+        tb_sentence += f", supported by {join_list(tb_positives)}"
+    if tb_negatives:
+        tb_sentence += ("; " if tb_positives else ", ") + f"tempered by {join_list(tb_negatives)}"
+    tb_sentence += "."
+
+    return hits_sentence, tb_sentence
+
+
 def build(date, year):
     print(f"Building HR board for {date}...")
     games = fetch_schedule(date)
@@ -430,6 +592,8 @@ def build(date, year):
         return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": []}
 
     calibration = load_hr_calibration()
+    hits_calibration = load_hits_calibration()
+    tb_calibration = load_tb_calibration()
 
     savant_batter_map = fetch_savant_percentiles("batter", year)
     entries = []
@@ -482,6 +646,8 @@ def build(date, year):
             h = compute_heuristic(b, savant_batter_map, calibration)
             b.update(h)
             b["reason"] = reason_text(b)
+            hits_tb = compute_hits_tb_heuristic(b, b["confidence"], hits_calibration, tb_calibration)
+            hits_reason, tb_reason = hits_tb_reason_text(b, hits_tb)
 
             entries.append({
                 "gamePk": b["gamePk"], "playerId": b["id"], "name": b["name"],
@@ -499,6 +665,14 @@ def build(date, year):
                 "seasonOPS": to_num((b.get("batterStats") or {}).get("season", {}).get("ops")) if b.get("batterStats") and b["batterStats"].get("season") else None,
                 "marketProb": None, "edge": None,
                 "graded": False, "hr": None,
+                "projectedHits": hits_tb["projectedHits"], "projectedTotalBases": hits_tb["projectedTotalBases"],
+                "hitsReason": hits_reason, "tbReason": tb_reason,
+                "hitsMatchupFactor": hits_tb["hitsMatchupFactor"], "tbParkFactor": hits_tb["tbParkFactor"],
+                "hitsCalibrationApplied": hits_tb["hitsCalibrationApplied"], "tbCalibrationApplied": hits_tb["tbCalibrationApplied"],
+                "predictionHitsLine": None, "hitsMarketThreshold": None, "hitsModelProb": None, "hitsCall": None,
+                "actualHits": None, "hitsHit": None,
+                "predictionTBLine": None, "tbMarketThreshold": None, "tbModelProb": None, "tbCall": None,
+                "actualTotalBases": None, "tbHit": None,
             })
         print(f"  {away_abbr} @ {home_abbr}: {len(batters)} batters" + ("" if lineup_posted else " (roster fallback, lineup not posted)"))
 
