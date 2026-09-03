@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "generatedAt": "2026-09-03T16:46:04.933196",
+  "generatedAt": "2026-09-03T17:12:09.271047",
   "entries": [
     {
       "gamePk": 823095,
@@ -71,10 +71,7 @@
       "openingProb": 0.45,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "OVER",
-      "prizePicksKLine": 5.0,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.0
+      "prizePicksKLine": 5.0
     },
     {
       "gamePk": 823907,
@@ -145,10 +142,7 @@
       "openingProb": 0.39,
       "prizePicksOpeningLine": 8.5,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 8.0,
-      "prizePicksLineDelta": -0.5,
-      "openingThreshold": 9,
-      "priceDelta": 0.0
+      "prizePicksKLine": 8.0
     },
     {
       "gamePk": 823337,
@@ -159,16 +153,16 @@
       "oppTeamId": 137,
       "hand": "R",
       "seasonRecord": "1-3",
-      "era": "3.67",
-      "seasonK9": 9.11320754716981,
-      "recentK9": 9.64637857577602,
-      "oppK": 21.274976213130355,
-      "matchupFactor": 0.9670443733241071,
+      "era": "3.62",
+      "seasonK9": 9.11214953271028,
+      "recentK9": 9.588785046728972,
+      "oppK": 21.281856219094713,
+      "matchupFactor": 0.9673571008679415,
       "stuffFactor": 1.35,
       "expectedIP": 6.7,
       "projectedK": 6.564944837692995,
       "confidence": "High",
-      "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%), a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 26.7%); tempered by warm weather that can favor the hitter.",
+      "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and a long-innings workload expectation; tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.4755,
       "recentStartsLog": [
         {
@@ -184,29 +178,29 @@
           "battersFaced": 8.0
         },
         {
-          "k": 2,
-          "ip": 0.6666666666666666,
-          "bb": 1,
-          "battersFaced": 3.0
+          "k": 3,
+          "ip": 1.6666666666666665,
+          "bb": 2,
+          "battersFaced": 7.0
         }
       ],
       "veloTrend": null,
-      "marketThreshold": 5,
+      "marketThreshold": 4,
       "marketProb": 0.78,
-      "modelProb": 0.783500035283197,
-      "edge": 0.0035000352831969783,
+      "modelProb": 0.8925420246810829,
+      "edge": 0.11254202468108288,
       "predictionLine": null,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
       "hit": null,
       "projectedOuts": 21.0,
-      "outsReason": "Projected for 18.6 outs (6.7 innings), supported by a track record of a long leash (156 pitches/game this season) and getting deep into games (6.7 IP/start); tempered by a walk rate that tends to spike pitch counts (10.0% BB).",
-      "npPerGame": 156.5,
-      "pitchesPerIP": 16.473684210526315,
-      "bbPct": 9.967845659163988,
-      "kBBPct": 15.434083601286176,
-      "rollingKBBPct": 26.66666666666666,
+      "outsReason": "Projected for 19.2 outs (6.7 innings), supported by a track record of a long leash (159 pitches/game this season) and getting deep into games (6.7 IP/start); tempered by a walk rate that tends to spike pitch counts (10.2% BB).",
+      "npPerGame": 158.75,
+      "pitchesPerIP": 16.493506493506494,
+      "bbPct": 10.158730158730158,
+      "kBBPct": 15.238095238095237,
+      "rollingKBBPct": 21.05263157894737,
       "parkFactor": 0.98,
       "weatherFactor": 0.9598,
       "outsCalibrationApplied": null,
@@ -217,9 +211,9 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.78,
-      "openingThreshold": 5,
+      "openingThreshold": 4,
       "priceDelta": 0.0,
-      "oddsUpdatedAt": "2026-09-03T17:08:58.594781"
+      "oddsUpdatedAt": "2026-09-03T17:13:30.824398"
     },
     {
       "gamePk": 824144,
@@ -293,10 +287,7 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 6.5,
-      "prizePicksOutsLine": 17.0,
-      "openingThreshold": 7,
-      "priceDelta": 0.0,
-      "prizePicksOutsLineDelta": -0.5
+      "prizePicksOutsLine": 17.0
     },
     {
       "gamePk": 824632,
@@ -370,11 +361,7 @@
       "prizePicksCall": "OVER",
       "outsCall": "UNDER",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 17.0,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.0,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 17.0
     },
     {
       "gamePk": 824796,
@@ -448,11 +435,7 @@
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "prizePicksKLine": 5.0,
-      "prizePicksOutsLine": 16.5,
-      "prizePicksLineDelta": 0.5,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 16.5
     },
     {
       "gamePk": 824632,
@@ -526,11 +509,7 @@
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 17.5,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.0,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 17.5
     },
     {
       "gamePk": 824388,
@@ -604,11 +583,7 @@
       "prizePicksCall": "OVER",
       "outsCall": "UNDER",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 17.0,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": -0.010000000000000009,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 17.0
     },
     {
       "gamePk": 823337,
@@ -619,24 +594,18 @@
       "oppTeamId": 134,
       "hand": "R",
       "seasonRecord": "0-1",
-      "era": "4.54",
-      "seasonK9": 7.891625615763547,
-      "recentK9": 7.397607318789584,
-      "oppK": 24.458715596330276,
-      "matchupFactor": 1.1117597998331943,
+      "era": "4.89",
+      "seasonK9": 8.03883495145631,
+      "recentK9": 9.352811870305917,
+      "oppK": 24.45950897764749,
+      "matchupFactor": 1.1117958626203406,
       "stuffFactor": 1.0,
-      "expectedIP": 6.7,
+      "expectedIP": 6.444444444444444,
       "projectedK": 5.415710246704195,
       "confidence": "High",
-      "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup and a long-innings workload expectation; tempered by warm weather that can favor the hitter.",
+      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts, facing a strikeout-prone lineup, and a long-innings workload expectation; tempered by warm weather that can favor the hitter.",
       "calibrationApplied": -0.4755,
       "recentStartsLog": [
-        {
-          "k": 1,
-          "ip": 4.333333333333333,
-          "bb": 5,
-          "battersFaced": 19.0
-        },
         {
           "k": 7,
           "ip": 5.666666666666667,
@@ -648,6 +617,12 @@
           "ip": 5,
           "bb": 1,
           "battersFaced": 23.0
+        },
+        {
+          "k": 2,
+          "ip": 1,
+          "bb": 3,
+          "battersFaced": 8.0
         }
       ],
       "veloTrend": null,
@@ -661,12 +636,12 @@
       "actualK": null,
       "hit": null,
       "projectedOuts": 20.2,
-      "outsReason": "Projected for 20.2 outs (6.7 innings), supported by a track record of a long leash (127 pitches/game this season) and getting deep into games (6.7 IP/start).",
-      "npPerGame": 126.8,
-      "pitchesPerIP": 16.831858407079647,
-      "bbPct": 8.441558441558442,
-      "kBBPct": 11.688311688311689,
-      "rollingKBBPct": 6.34920634920635,
+      "outsReason": "Projected for 16.6 outs (6.4 innings), supported by a track record of a long leash (112 pitches/game this season) and getting deep into games (6.4 IP/start); tempered by a walk rate that tends to spike pitch counts (9.9% BB).",
+      "npPerGame": 112.33333333333333,
+      "pitchesPerIP": 17.431034482758623,
+      "bbPct": 9.876543209876543,
+      "kBBPct": 10.493827160493828,
+      "rollingKBBPct": 13.461538461538462,
       "parkFactor": 0.98,
       "weatherFactor": 0.9598,
       "outsCalibrationApplied": null,
@@ -679,9 +654,7 @@
       "openingProb": 0.45,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "OVER",
-      "prizePicksKLine": 4.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0
+      "prizePicksKLine": 4.0
     },
     {
       "gamePk": 824069,
@@ -752,10 +725,7 @@
       "openingProb": 0.35,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 5.0,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.0
+      "prizePicksKLine": 5.0
     },
     {
       "gamePk": 822853,
@@ -826,10 +796,7 @@
       "openingProb": 0.35,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 4.5,
-      "prizePicksLineDelta": -0.5,
-      "openingThreshold": 6,
-      "priceDelta": 0.0
+      "prizePicksKLine": 4.5
     },
     {
       "gamePk": 823095,
@@ -897,10 +864,7 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 16.5,
-      "openingThreshold": 6,
-      "priceDelta": -0.010000000000000009,
-      "prizePicksOutsLineDelta": 1.0
+      "prizePicksOutsLine": 16.5
     },
     {
       "gamePk": 822853,
@@ -974,10 +938,7 @@
       "prizePicksCall": "OVER",
       "outsCall": "OVER",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 15.5,
-      "openingThreshold": 4,
-      "priceDelta": 0.0,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 15.5
     },
     {
       "gamePk": 824388,
@@ -1048,10 +1009,7 @@
       "openingProb": 0.43,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 4.0,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.010000000000000009
+      "prizePicksKLine": 4.0
     },
     {
       "gamePk": 823907,
@@ -1122,10 +1080,7 @@
       "openingProb": 0.52,
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
-      "prizePicksKLine": 4.5,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0
+      "prizePicksKLine": 4.5
     },
     {
       "gamePk": 824144,
@@ -1199,11 +1154,7 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 15.5,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": -0.010000000000000009,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 15.5
     },
     {
       "gamePk": 824796,
@@ -1277,11 +1228,7 @@
       "prizePicksCall": "UNDER",
       "outsCall": "UNDER",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 17.5,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "prizePicksOutsLineDelta": 0.0
+      "prizePicksOutsLine": 17.5
     },
     {
       "gamePk": 824069,
@@ -1355,11 +1302,10 @@
       "prizePicksCall": "UNDER",
       "outsCall": "OVER",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 18.5,
-      "prizePicksLineDelta": -0.5,
-      "openingThreshold": 5,
-      "priceDelta": 0.0
+      "prizePicksOutsLine": 18.5
     }
   ],
-  "oddsRefreshedAt": "2026-09-03T17:08:58.594781"
+  "oddsRefreshedAt": "2026-09-03T17:13:30.824398",
+  "_kalshiMatched": 18,
+  "_kalshiTotal": 18
 }
