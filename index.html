@@ -462,16 +462,21 @@ function renderHR(){
   `;
 
   const top5 = entries.slice(0,5);
-  const best5 = entries.slice(0,5);
+  // Best 5 means "best bet," which is a different thing from "most likely
+  // to happen" -- a 40% projection against a 40% market price has zero
+  // real edge, while a 15% projection against a 5% market price is a
+  // genuinely better bet despite the lower raw number. Only entries with
+  // a real market comparison can have edge at all.
+  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('hrSection_top5').innerHTML = `
     <div class="hr-section-title">⭐ Top 5 to Track</div>
-    <div class="hr-section-sub">The headline picks — click a card for the full reasoning.</div>
+    <div class="hr-section-sub">The headline picks — highest projected chance of a home run today, regardless of market price. Click a card for the full reasoning.</div>
     <div class="card-grid cols-5">${top5.map((e,i)=>hrCard(e,i+1)).join('')}</div>
   `;
   document.getElementById('hrSection_best15').innerHTML = `
     <div class="hr-section-title">🎯 Best 5 — Suggested Picks</div>
-    <div class="hr-section-sub">The 5 best home runs to take today, out of every player loaded, ranked by projected chance. Click a card for the full breakdown.</div>
-    <div class="card-grid cols-list">${best5.map((e,i)=>hrCard(e,i+1)).join('')}</div>
+    <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
   `;
 
   const rows = entries.slice(0,80).map((e,i)=>{
@@ -550,17 +555,22 @@ function renderKO(){
     return;
   }
 
-  const best5 = entries.slice(0,5);
+  // Same principle as HR's Best 5 -- "best bet" means biggest edge against
+  // a real market price, not just the highest raw projection.
+  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('koSection_best5').innerHTML = `
     <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
-    <div class="hr-section-sub">The 5 best strikeout props to take today, out of every starter loaded, ranked by projected K total.</div>
-    <div class="card-grid cols-list">${best5.map((e,i)=>koCard(e,i+1)).join('')}</div>
+    <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
   `;
 
+  // Pitching Outs has no confirmed market to compare against, so there's
+  // no real "edge" to rank by here -- being upfront about that rather
+  // than implying this is the same kind of ranking as the two above.
   const outsBest5 = [...entries].sort((a,b)=>-a.projectedOuts).slice(0,5);
   document.getElementById('koSection_outsbest5').innerHTML = `
     <div class="hr-section-title">🎯 Pitching Outs Best 5 — Suggested Picks</div>
-    <div class="hr-section-sub">The 5 best pitching outs props to take today, ranked by projected outs recorded.</div>
+    <div class="hr-section-sub">Ranked by projected outs recorded, not by market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
     <div class="card-grid cols-list">${outsBest5.map((e,i)=>outsCard(e,i+1)).join('')}</div>
   `;
 
