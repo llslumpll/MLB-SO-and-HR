@@ -1062,8 +1062,51 @@ async function loadHistory(){
   }).join('');
 
   const calibration = await fetchJSONLocal('data/calibration.json').catch(()=>null);
+  const health = await fetchJSONLocal('data/pipeline-health.json').catch(()=>null);
+
+  let pipelineHealthSection = '';
+  if(health && health.entries && health.entries.length){
+    const kMatchSeries = health.entries.filter(e=>e.ppKTotal>0).map(e=>({day:e.date, hit:e.ppKMatched, tot:e.ppKTotal, pct: e.ppKMatched/e.ppKTotal*100}));
+    const outsMatchSeries = health.entries.filter(e=>e.ppOutsTotal>0).map(e=>({day:e.date, hit:e.ppOutsMatched, tot:e.ppOutsTotal, pct: e.ppOutsMatched/e.ppOutsTotal*100}));
+    const kMatchChart = trendChart('PrizePicks K matching', kMatchSeries, '#5eb1ff');
+    const outsMatchChart = trendChart('PrizePicks Outs matching', outsMatchSeries, '#ff9d5e');
+
+    const withCal = health.entries.filter(e=>e.calibration);
+    const first = withCal[0], last = withCal[withCal.length-1];
+    const sampleRow = (label, stat, tier)=>{
+      const firstN = first?.calibration?.[stat]?.[tier] ?? 0;
+      const lastN = last?.calibration?.[stat]?.[tier] ?? 0;
+      const delta = lastN - firstN;
+      return `<tr><td>${label}</td><td>${firstN}</td><td>${lastN}</td><td class="${delta>0?'edge-pos':'edge-flat'}">${delta>0?'+':''}${delta}</td></tr>`;
+    };
+    const sampleGrowthTable = withCal.length>=2 ? `
+      <table class="board"><thead><tr><th>Tier</th><th>${first.date}</th><th>${last.date}</th><th>Change</th></tr></thead><tbody>
+        ${sampleRow('HR — High','hr','High')}
+        ${sampleRow('Strikeouts — High','ko','High')}
+        ${sampleRow('Strikeouts — Medium','ko','Medium')}
+        ${sampleRow('Pitching Outs — High','outs','High')}
+        ${sampleRow('Pitching Outs — Medium','outs','Medium')}
+      </tbody></table>` : '<div class="status">Needs at least two logged days to show growth.</div>';
+
+    pipelineHealthSection = `
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Pipeline Health</div>
+        <div class="status" style="margin-bottom:4px;">Is the plumbing actually working day to day, separate from whether the predictions are good. A healthy pipeline still needs weeks of clean data before accuracy above means much.</div>
+        ${kMatchChart}
+        ${outsMatchChart}
+        <div style="font-size:12px;color:var(--slate);margin:10px 0 4px;">Calibration sample size growth (${withCal.length} day${withCal.length===1?'':'s'} logged)</div>
+        ${sampleGrowthTable}
+      </div>`;
+  } else {
+    pipelineHealthSection = `
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Pipeline Health</div>
+        <div class="status">Waiting on the first log entry -- this fills in automatically the next time the odds-refresh job runs. Nothing to do here, just check back after the next scheduled run.</div>
+      </div>`;
+  }
 
   let html = `
+    ${pipelineHealthSection}
     <div class="day-card" style="margin-bottom:16px;">
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Prediction Accuracy Over Time</div>
       <div class="status" style="margin-bottom:4px;">The dashed line marks 50% -- a coin flip. If the model is genuinely learning, dots should trend up and away from it as more days accumulate, not stay flat around it.</div>
