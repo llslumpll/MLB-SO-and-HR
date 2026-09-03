@@ -85,6 +85,23 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
     edge_by_key = index_by("edge") if preserve_market_comparison else {}
     prediction_line_by_key = index_by("predictionLine")
     prediction_outs_line_by_key = index_by("predictionOutsLine")
+    # Hits/Total Bases frozen predictions -- always preserved, same as
+    # K/Outs above and unrelated to preserve_market_comparison, which only
+    # controls HR's own freely-updating heuristicProb/edge. These are a
+    # genuine frozen OVER/UNDER call like K's, not a market comparison
+    # against a probability that's meant to keep moving.
+    projected_hits_by_key = index_by("projectedHits")
+    projected_tb_by_key = index_by("projectedTotalBases")
+    hits_call_by_key = index_by("hitsCall")
+    hits_model_prob_by_key = index_by("hitsModelProb")
+    hits_market_threshold_by_key = index_by("hitsMarketThreshold")
+    hits_line_by_key = index_by("prizePicksHitsLine")
+    prediction_hits_line_by_key = index_by("predictionHitsLine")
+    tb_call_by_key = index_by("tbCall")
+    tb_model_prob_by_key = index_by("tbModelProb")
+    tb_market_threshold_by_key = index_by("tbMarketThreshold")
+    tb_line_by_key = index_by("prizePicksTBLine")
+    prediction_tb_line_by_key = index_by("predictionTBLine")
 
     preserved = 0
     for e in new_entries:
@@ -140,6 +157,42 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
             touched = True
         if key in prediction_outs_line_by_key:
             e["predictionOutsLine"] = prediction_outs_line_by_key[key]
+            touched = True
+        if key in projected_hits_by_key:
+            e["projectedHits"] = projected_hits_by_key[key]
+            touched = True
+        if key in projected_tb_by_key:
+            e["projectedTotalBases"] = projected_tb_by_key[key]
+            touched = True
+        if key in hits_call_by_key:
+            e["hitsCall"] = hits_call_by_key[key]
+            touched = True
+        if key in hits_model_prob_by_key:
+            e["hitsModelProb"] = hits_model_prob_by_key[key]
+            touched = True
+        if key in hits_market_threshold_by_key:
+            e["hitsMarketThreshold"] = hits_market_threshold_by_key[key]
+            touched = True
+        if key in hits_line_by_key:
+            e["prizePicksHitsLine"] = hits_line_by_key[key]
+            touched = True
+        if key in prediction_hits_line_by_key:
+            e["predictionHitsLine"] = prediction_hits_line_by_key[key]
+            touched = True
+        if key in tb_call_by_key:
+            e["tbCall"] = tb_call_by_key[key]
+            touched = True
+        if key in tb_model_prob_by_key:
+            e["tbModelProb"] = tb_model_prob_by_key[key]
+            touched = True
+        if key in tb_market_threshold_by_key:
+            e["tbMarketThreshold"] = tb_market_threshold_by_key[key]
+            touched = True
+        if key in tb_line_by_key:
+            e["prizePicksTBLine"] = tb_line_by_key[key]
+            touched = True
+        if key in prediction_tb_line_by_key:
+            e["predictionTBLine"] = prediction_tb_line_by_key[key]
             touched = True
         if touched:
             preserved += 1
