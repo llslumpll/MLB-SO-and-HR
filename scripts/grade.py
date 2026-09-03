@@ -94,8 +94,33 @@ def grade_hr_file(path):
         all_players = {**(box["teams"]["away"].get("players") or {}), **(box["teams"]["home"].get("players") or {})}
         p = all_players.get(f"ID{e['playerId']}")
         if p and p.get("stats", {}).get("batting") is not None:
+            batting = p["stats"]["batting"]
             e["graded"] = True
-            e["hr"] = (p["stats"]["batting"].get("homeRuns") or 0) > 0
+            e["hr"] = (batting.get("homeRuns") or 0) > 0
+
+            actual_hits = batting.get("hits")
+            e["actualHits"] = actual_hits
+            if e.get("hitsMarketThreshold") is not None and actual_hits is not None:
+                e["hitsHit"] = actual_hits >= e["hitsMarketThreshold"]
+            if e.get("predictionHitsLine") is None and e.get("hitsMarketThreshold") is not None:
+                e["predictionHitsLine"] = e["hitsMarketThreshold"] - 0.5
+
+            # totalBases is usually a direct field in MLB's batting stat
+            # object, but fall back to computing it manually (same formula
+            # used everywhere else on this site) if it's ever missing.
+            actual_tb = batting.get("totalBases")
+            if actual_tb is None and actual_hits is not None:
+                doubles = batting.get("doubles") or 0
+                triples = batting.get("triples") or 0
+                hr_count = batting.get("homeRuns") or 0
+                singles = actual_hits - doubles - triples - hr_count
+                actual_tb = singles + doubles * 2 + triples * 3 + hr_count * 4
+            e["actualTotalBases"] = actual_tb
+            if e.get("tbMarketThreshold") is not None and actual_tb is not None:
+                e["tbHit"] = actual_tb >= e["tbMarketThreshold"]
+            if e.get("predictionTBLine") is None and e.get("tbMarketThreshold") is not None:
+                e["predictionTBLine"] = e["tbMarketThreshold"] - 0.5
+
             graded_count += 1
 
     if graded_count or repaired:
