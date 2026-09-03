@@ -34,6 +34,15 @@ K_STAT_MATCHES = ["pitcher strikeout"]
 # stat_types_seen diagnostic already prints every real stat type on each
 # run, so the very next run will confirm one way or the other.
 OUTS_STAT_MATCHES = ["pitching outs", "pitcher outs", "outs recorded"]
+# Exact match, not substring -- "Hits" is a genuine substring of both
+# "Hits Allowed" (a pitcher stat, wrong side entirely) and "Hits+Runs+RBIs"
+# (a combo stat), both real PrizePicks stat types confirmed in earlier
+# diagnostic logs. The same class of collision already found and fixed
+# once for Strikeouts (Pitcher vs Hitter) -- this one is even more
+# dangerous since a substring match here would be silently, completely
+# wrong rather than just imprecise.
+HITS_STAT_EXACT = "hits"
+TB_STAT_EXACT = "total bases"
 
 
 def fetch_leagues():
@@ -125,16 +134,16 @@ def fetch_projections(league_id):
 
 
 def fetch_mlb_props():
-    """Returns (hr_records, k_records, outs_records) -- each a list of
-    {name, team, line, startTime, status}. Standard lines only -- Goblin
-    and Demon alternate lines are excluded."""
+    """Returns (hr_records, k_records, outs_records, hits_records,
+    tb_records) -- each a list of {name, team, line, startTime, status}.
+    Standard lines only -- Goblin and Demon alternate lines are excluded."""
     leagues = fetch_leagues()
     if not leagues:
-        return [], [], []
+        return [], [], [], [], []
     league_id = find_mlb_league_id(leagues)
     if league_id is None:
         print("  [warn] Could not find an MLB league in PrizePicks' /leagues response")
-        return [], [], []
+        return [], [], [], [], []
 
     all_records = fetch_projections(league_id)
     before = len(all_records)
@@ -151,7 +160,9 @@ def fetch_mlb_props():
     outs_records = [r for r in all_records if any(m in r["statType"].lower() for m in OUTS_STAT_MATCHES)]
     if not outs_records:
         print("  PrizePicks: no Pitching Outs stat type matched -- check odds types seen above for the real name")
-    return hr_records, k_records, outs_records
+    hits_records = [r for r in all_records if r["statType"].strip().lower() == HITS_STAT_EXACT]
+    tb_records = [r for r in all_records if r["statType"].strip().lower() == TB_STAT_EXACT]
+    return hr_records, k_records, outs_records, hits_records, tb_records
 
 
 def merge_hr(hr_data, records):
@@ -213,6 +224,93 @@ def refine_outs_with_prizepicks(ko_data):
     if refined:
         print(f"  PrizePicks Outs: computed model call for {refined} entries")
     return ko_data
+
+
+def merge_hits(hr_data, records):
+    by_name = {norm_name(r["name"]): r for r in records}
+    matched = 0
+    for e in hr_data["entries"]:
+        hit = by_name.get(norm_name(e["name"]))
+        if hit:
+            line = hit["line"]
+            if e.get("prizePicksHitsOpeningLine") is None:
+                e["prizePicksHitsOpeningLine"] = line
+            e["prizePicksHitsLineDelta"] = line - e["prizePicksHitsOpeningLine"]
+            e["prizePicksHitsLine"] = line
+            matched += 1
+    print(f"  PrizePicks Hits: matched {matched}/{len(hr_data['entries'])} entries")
+    hr_data["_ppHitsMatched"] = matched
+    hr_data["_ppHitsTotal"] = len(hr_data["entries"])
+    return hr_data
+
+
+def refine_hits_with_prizepicks(hr_data):
+    """Same frozen-prediction pattern as Strikeouts/Outs -- computed once,
+    never recalculated on later refresh cycles, so the call doesn't
+    silently drift as the line moves throughout the day. No Kalshi
+    comparison; there's no confirmed Kalshi market for batter hits props."""
+    import fetch_kalshi
+
+    refined = 0
+    for e in hr_data["entries"]:
+        pp_line = e.get("prizePicksHitsLine")
+        if pp_line is None:
+            continue
+        if e.get("hitsCall") is not None:
+            continue
+        implied_threshold = int(pp_line // 1) + 1
+        model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedHits"])
+        e["hitsMarketThreshold"] = implied_threshold
+        e["hitsModelProb"] = model_prob
+        e["hitsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        e["predictionHitsLine"] = pp_line
+        refined += 1
+
+    if refined:
+        print(f"  PrizePicks Hits: computed model call for {refined} entries")
+    return hr_data
+
+
+def merge_tb(hr_data, records):
+    by_name = {norm_name(r["name"]): r for r in records}
+    matched = 0
+    for e in hr_data["entries"]:
+        hit = by_name.get(norm_name(e["name"]))
+        if hit:
+            line = hit["line"]
+            if e.get("prizePicksTBOpeningLine") is None:
+                e["prizePicksTBOpeningLine"] = line
+            e["prizePicksTBLineDelta"] = line - e["prizePicksTBOpeningLine"]
+            e["prizePicksTBLine"] = line
+            matched += 1
+    print(f"  PrizePicks Total Bases: matched {matched}/{len(hr_data['entries'])} entries")
+    hr_data["_ppTBMatched"] = matched
+    hr_data["_ppTBTotal"] = len(hr_data["entries"])
+    return hr_data
+
+
+def refine_tb_with_prizepicks(hr_data):
+    """Same frozen-prediction pattern as the others."""
+    import fetch_kalshi
+
+    refined = 0
+    for e in hr_data["entries"]:
+        pp_line = e.get("prizePicksTBLine")
+        if pp_line is None:
+            continue
+        if e.get("tbCall") is not None:
+            continue
+        implied_threshold = int(pp_line // 1) + 1
+        model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedTotalBases"])
+        e["tbMarketThreshold"] = implied_threshold
+        e["tbModelProb"] = model_prob
+        e["tbCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        e["predictionTBLine"] = pp_line
+        refined += 1
+
+    if refined:
+        print(f"  PrizePicks Total Bases: computed model call for {refined} entries")
+    return hr_data
 
 
 def merge_ko(ko_data, records):
