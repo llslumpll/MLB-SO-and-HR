@@ -931,8 +931,16 @@ async function loadHistory(){
     dayData[day] = { hr, ko };
   }));
 
-  const tiers = { High:{hrHit:0,hrTot:0,koHit:0,koTot:0}, Medium:{hrHit:0,hrTot:0,koHit:0,koTot:0}, Low:{hrHit:0,hrTot:0,koHit:0,koTot:0} };
-  Object.values(dayData).forEach(dd=>{
+  const tiers = { High:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0}, Medium:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0}, Low:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0} };
+  // Per-day accuracy, used for the rolling trend chart -- this is the
+  // direct answer to "is it actually getting better over time": each
+  // day's real correct/total using the exact same comparison logic as
+  // the day-by-day table and the tier table, just aggregated by date
+  // instead of by confidence.
+  const dailyStats = [];
+  Object.keys(dayData).sort().forEach(day=>{
+    const dd = dayData[day];
+    let kHit=0, kTot=0, outsHit=0, outsTot=0;
     if(dd.hr) dd.hr.entries.forEach(e=>{
       if(e.graded && e.confidence && tiers[e.confidence]){ tiers[e.confidence].hrTot++; if(e.hr) tiers[e.confidence].hrHit++; }
     });
@@ -942,19 +950,71 @@ async function loadHistory(){
         const predictionCorrect = (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER');
         if(predictionCorrect) tiers[e.confidence].koHit++;
       }
+      if(e.graded && e.prizePicksCall && e.hit!=null){
+        kTot++;
+        if((e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER')) kHit++;
+      }
+      if(e.graded && e.confidence && e.outsCall && e.outsHit!=null && tiers[e.confidence]){
+        tiers[e.confidence].outsTot++;
+        const outsPredictionCorrect = (e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER');
+        if(outsPredictionCorrect) tiers[e.confidence].outsHit++;
+      }
+      if(e.graded && e.outsCall && e.outsHit!=null){
+        outsTot++;
+        if((e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER')) outsHit++;
+      }
     });
+    if(kTot>0 || outsTot>0) dailyStats.push({day, kHit, kTot, outsHit, outsTot});
   });
+
+  function trendChart(title, series, color){
+    const points = series.filter(d=>d.tot>0);
+    if(points.length < 2) return `<div class="status" style="margin:8px 0;">${title}: not enough graded days yet to show a trend.</div>`;
+    const W=680, H=180, padL=36, padR=14, padT=14, padB=26;
+    const plotW=W-padL-padR, plotH=H-padT-padB;
+    const n=points.length;
+    const xFor=i=> n>1 ? padL + (i*(plotW/(n-1))) : padL+plotW/2;
+    const yFor=pct=> padT + plotH - (pct/100)*plotH;
+    const linePts = points.map((d,i)=>`${xFor(i).toFixed(1)},${yFor(d.pct).toFixed(1)}`).join(' ');
+    const dots = points.map((d,i)=>`<circle cx="${xFor(i).toFixed(1)}" cy="${yFor(d.pct).toFixed(1)}" r="3" fill="${color}"><title>${d.day}: ${d.hit}/${d.tot} (${d.pct.toFixed(1)}%)</title></circle>`).join('');
+    const gridLines = [0,25,50,75,100].map(pct=>`<line x1="${padL}" y1="${yFor(pct)}" x2="${W-padR}" y2="${yFor(pct)}" stroke="var(--line)" stroke-width="1" opacity="0.4"/><text x="${padL-6}" y="${yFor(pct)+3}" text-anchor="end" font-size="9" fill="var(--slate)">${pct}%</text>`).join('');
+    const fiftyLineY = yFor(50);
+    const firstLabel = points[0].day.slice(5);
+    const lastLabel = points[n-1].day.slice(5);
+    return `
+      <div style="margin:8px 0;">
+        <div style="font-size:12px;color:var(--slate);margin-bottom:4px;">${title} — rolling daily accuracy (each dot is one day's real correct/total)</div>
+        <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;">
+          ${gridLines}
+          <line x1="${padL}" y1="${fiftyLineY}" x2="${W-padR}" y2="${fiftyLineY}" stroke="var(--red)" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+          <polyline points="${linePts}" fill="none" stroke="${color}" stroke-width="2"/>
+          ${dots}
+          <text x="${padL}" y="${H-6}" font-size="9" fill="var(--slate)">${firstLabel}</text>
+          <text x="${W-padR}" y="${H-6}" text-anchor="end" font-size="9" fill="var(--slate)">${lastLabel}</text>
+        </svg>
+      </div>`;
+  }
+
+  const kTrendChart = trendChart('Strikeouts', dailyStats.map(d=>({day:d.day, hit:d.kHit, tot:d.kTot, pct: d.kTot?d.kHit/d.kTot*100:0})), 'var(--amber)');
+  const outsTrendChart = trendChart('Pitching Outs', dailyStats.map(d=>({day:d.day, hit:d.outsHit, tot:d.outsTot, pct: d.outsTot?d.outsHit/d.outsTot*100:0})), '#5eb1ff');
+
   const tierRows = ['High','Medium','Low'].map(t=>{
     const x = tiers[t];
-    return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
+    return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td><td>${x.outsTot?`${x.outsHit}/${x.outsTot} (${(x.outsHit/x.outsTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
   }).join('');
 
   const calibration = await fetchJSONLocal('data/calibration.json').catch(()=>null);
 
   let html = `
     <div class="day-card" style="margin-bottom:16px;">
+      <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Prediction Accuracy Over Time</div>
+      <div class="status" style="margin-bottom:4px;">The dashed line marks 50% -- a coin flip. If the model is genuinely learning, dots should trend up and away from it as more days accumulate, not stay flat around it.</div>
+      ${kTrendChart}
+      ${outsTrendChart}
+    </div>
+    <div class="day-card" style="margin-bottom:16px;">
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Confidence Tier</div>
-      <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K predictions correct</th></tr></thead><tbody>${tierRows}</tbody></table>
+      <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K predictions correct</th><th>Outs predictions correct</th></tr></thead><tbody>${tierRows}</tbody></table>
       <div class="status" style="margin-top:6px;">Only counts graded entries. Needs at least a couple weeks of data to mean much.</div>
     </div>
     ${renderCalibrationCard(calibration)}
@@ -965,7 +1025,7 @@ async function loadHistory(){
     html += `<div class="month-group"><div class="month-head">${month}</div>`;
     for(const day of byMonth[month]){
       const dd = dayData[day];
-      let hrSection='', koSection='';
+      let hrSection='', koSection='', outsSection='';
       if(dd.hr){
         const graded = dd.hr.entries.filter(e=>e.graded);
         const hits = graded.filter(e=>e.hr).length;
@@ -1001,8 +1061,29 @@ async function loadHistory(){
               : '<span class="status">no prediction to grade</span>';
             return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${hasLine?lineForDisplay:'—'}</td><td class="${edgeClass}">${edgeTxt}</td><td>${prediction}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
           }).join('')}</tbody></table>`;
+
+        const outsLineForDisplayAll = e=>e.predictionOutsLine ?? e.prizePicksOutsLine;
+        const outsGwl = graded.filter(e=>e.outsCall && outsLineForDisplayAll(e)!=null);
+        const outsHits = outsGwl.filter(e=>{
+          if(e.outsHit==null) return false;
+          return (e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER');
+        }).length;
+        outsSection = `<div class="day-sub-head">Pitching Outs — ${dd.ko.entries.length} tracked, ${outsGwl.length?`${outsHits}/${outsGwl.length} predictions correct (${(outsHits/outsGwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+          <table class="board"><thead><tr><th>Pitcher</th><th>Proj Outs</th><th>Line</th><th>Prediction</th><th>Actual Outs</th><th>Result</th></tr></thead>
+          <tbody>${dd.ko.entries.slice(0,40).map(e=>{
+            const outsLineForDisplay = e.predictionOutsLine ?? e.prizePicksOutsLine;
+            const outsHasLine = outsLineForDisplay!=null;
+            const outsHasPrediction = outsHasLine && !!e.outsCall;
+            const outsPrediction = e.outsCall ? `<span class="pp-call pp-call-${e.outsCall.toLowerCase()}">${e.outsCall}</span>` : '—';
+            const outsActualDirection = e.outsHit ? 'Over' : 'Under';
+            const outsPredictionCorrect = (e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER');
+            const outsResult = !e.graded ? 'pending'
+              : outsHasPrediction && e.outsHit!=null ? (outsPredictionCorrect ? `✅ ${outsActualDirection}` : `❌ ${outsActualDirection}`)
+              : '<span class="status">no prediction to grade</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedOuts!=null?e.projectedOuts.toFixed(1):'—'}</td><td>${outsHasLine?outsLineForDisplay:'—'}</td><td>${outsPrediction}</td><td>${e.graded&&e.actualOuts!=null?e.actualOuts:'—'}</td><td>${outsResult}</td></tr>`;
+          }).join('')}</tbody></table>`;
       }
-      html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}</div></div>`;
+      html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}${outsSection}</div></div>`;
     }
     html += `</div>`;
   }
