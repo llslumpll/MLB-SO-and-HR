@@ -171,6 +171,8 @@ def merge_ko(ko_data, records):
             matched += 1
     ko_data["oddsRefreshedAt"] = now
     print(f"  K: matched {matched}/{len(ko_data['entries'])} entries to Kalshi prices")
+    ko_data["_kalshiMatched"] = matched
+    ko_data["_kalshiTotal"] = len(ko_data["entries"])
     return ko_data
 
 
