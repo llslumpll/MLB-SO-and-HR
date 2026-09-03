@@ -55,6 +55,8 @@ PARKS = {
 }
 
 LEAGUE_AVG_HR_RATE = 0.028
+LEAGUE_AVG_HIT_RATE = 0.22   # hits per PA, roughly modern MLB league average
+LEAGUE_AVG_TB_RATE = 0.36    # total bases per PA, roughly modern MLB league average
 LEAGUE_AVG_K9 = 8.5
 LEAGUE_AVG_K_PCT = 22
 
