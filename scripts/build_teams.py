@@ -90,6 +90,27 @@ def fetch_team_season_stats(team_id, year):
     return hit, pitch
 
 
+def team_hitting_rates(hit_stat):
+    """K% and BABIP computed directly from the team hitting totals
+    fetch_team_season_stats already retrieves -- no separate API call.
+    BABIP excludes home runs from both the numerator and the ball-in-play
+    denominator, the standard sabermetric definition."""
+    if not hit_stat:
+        return None, None
+    pa = to_num(hit_stat.get("plateAppearances"))
+    so = to_num(hit_stat.get("strikeOuts"))
+    k_pct = (so / pa * 100) if pa and so is not None else None
+
+    ab = to_num(hit_stat.get("atBats"))
+    h = to_num(hit_stat.get("hits"))
+    hr = to_num(hit_stat.get("homeRuns")) or 0
+    sf = to_num(hit_stat.get("sacFlies")) or 0
+    babip_denom = (ab or 0) - (so or 0) - hr + sf
+    babip = ((h - hr) / babip_denom) if (h is not None and babip_denom and babip_denom > 0) else None
+
+    return k_pct, babip
+
+
 def fetch_roster_savant_avg(team_id, batter_pct_map, pitcher_pct_map):
     try:
         data = get(f"{API}/teams/{team_id}/roster", params={"rosterType": "active"})
@@ -111,6 +132,7 @@ def fetch_roster_savant_avg(team_id, batter_pct_map, pitcher_pct_map):
             "barrelPct": avg_field(batters, batter_pct_map, "brl_percent"),
             "hardHitPct": avg_field(batters, batter_pct_map, "hard_hit_percent"),
             "exitVelo": avg_field(batters, batter_pct_map, "exit_velocity"),
+            "xwoba": avg_field(batters, batter_pct_map, "xwoba"),
             "whiffPct": avg_field(pitchers, pitcher_pct_map, "whiff_percent"),
             "chasePct": avg_field(pitchers, pitcher_pct_map, "chase_percent"),
             "pitcherKPct": avg_field(pitchers, pitcher_pct_map, "k_percent"),
@@ -158,9 +180,24 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
         away_p = g["teams"]["away"].get("probablePitcher")
         home_p = g["teams"]["home"].get("probablePitcher")
         if away_p:
-            jobs.append({"pitcher": away_p, "team": g["teams"]["away"]["team"], "opp": g["teams"]["home"]["team"]})
+            jobs.append({"pitcher": away_p, "team": g["teams"]["away"]["team"], "opp": g["teams"]["home"]["team"], "gameDate": g.get("gameDate")})
         if home_p:
-            jobs.append({"pitcher": home_p, "team": g["teams"]["home"]["team"], "opp": g["teams"]["away"]["team"]})
+            jobs.append({"pitcher": home_p, "team": g["teams"]["home"]["team"], "opp": g["teams"]["away"]["team"], "gameDate": g.get("gameDate")})
+
+    opp_team_stats_cache = {}
+
+    def get_opp_team_profile(opp_team_id):
+        # Cached per team since multiple pitchers today could share the
+        # same opponent across different games -- no reason to re-fetch
+        # the same team's aggregate stats twice in one run.
+        if opp_team_id in opp_team_stats_cache:
+            return opp_team_stats_cache[opp_team_id]
+        hit_stat, _ = fetch_team_season_stats(opp_team_id, year)
+        k_pct, babip = team_hitting_rates(hit_stat)
+        roster_savant = fetch_roster_savant_avg(opp_team_id, batter_pct_map, pitcher_pct_map)
+        profile = {"kPct": k_pct, "babip": babip, "xwoba": roster_savant.get("xwoba"), "hardHitPct": roster_savant.get("hardHitPct")}
+        opp_team_stats_cache[opp_team_id] = profile
+        return profile
 
     for job in jobs:
         pid = job["pitcher"]["id"]
@@ -186,6 +223,8 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
         except Exception as e:  # noqa: BLE001
             print(f"    [warn] matchup table failed for pitcher {pid}: {e}")
 
+        opp_profile = get_opp_team_profile(job["opp"]["id"])
+
         matchups.append({
             "pitcherId": pid, "name": job["pitcher"]["fullName"],
             "team": job["team"]["abbreviation"], "opp": job["opp"]["abbreviation"],
@@ -194,6 +233,8 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
             "savant": pitcher_pct_map.get(str(pid)),
             "arsenal": arsenal,
             "matchupTable": matchup_table[:12],
+            "gameDate": job.get("gameDate"),
+            "oppProfile": opp_profile,
         })
         print(f"  {job['pitcher']['fullName']} ({job['team']['abbreviation']} vs {job['opp']['abbreviation']}): "
               f"{len(matchup_table)} opposing batters with history")
