@@ -15,6 +15,8 @@ Important caveats, stated plainly:
     if matching comes up empty, check that log first.
 """
 
+from datetime import datetime
+
 from common import get, norm_name, to_num
 
 PP_BASE = "https://partner-api.prizepicks.com"
@@ -218,6 +220,7 @@ def refine_outs_with_prizepicks(ko_data):
         e["outsMarketThreshold"] = implied_threshold
         e["outsModelProb"] = model_prob
         e["outsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        e["outsCallFrozenAt"] = datetime.utcnow().isoformat()
         e["predictionOutsLine"] = pp_line
         refined += 1
 
@@ -268,6 +271,7 @@ def refine_hits_with_prizepicks(hr_data):
         e["hitsMarketThreshold"] = implied_threshold
         e["hitsModelProb"] = model_prob
         e["hitsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        e["hitsCallFrozenAt"] = datetime.utcnow().isoformat()
         e["predictionHitsLine"] = pp_line
         refined += 1
 
@@ -312,6 +316,7 @@ def refine_tb_with_prizepicks(hr_data):
         e["tbMarketThreshold"] = implied_threshold
         e["tbModelProb"] = model_prob
         e["tbCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+        e["tbCallFrozenAt"] = datetime.utcnow().isoformat()
         e["predictionTBLine"] = pp_line
         refined += 1
 
@@ -388,6 +393,7 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             e["marketThreshold"] = implied_threshold
             e["modelProb"] = model_prob
             e["prizePicksCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
+            e["prizePicksCallFrozenAt"] = datetime.utcnow().isoformat()
             # The exact line this call was made against, frozen forever --
             # prizePicksKLine keeps tracking PrizePicks' current live line
             # (useful for its own movement-tracking purpose), but that can
