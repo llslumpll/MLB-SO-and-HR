@@ -36,7 +36,9 @@
   .date-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
   select{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--panel);color:var(--chalk);border:1px solid var(--line);border-radius:0;padding:8px 12px;}
 
-  .hr-subnav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 16px;}
+  .hr-subnav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 16px;align-items:center;}
+  .subnav-group{display:flex;gap:8px;align-items:center;padding:6px 10px 6px 4px;border:1px solid var(--line);background:var(--panel-2);}
+  .subnav-group-label{font-size:10px;letter-spacing:0.08em;color:var(--slate);font-weight:700;padding-left:4px;}
   .hr-subtab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.3px;text-transform:uppercase;color:var(--slate);background:var(--panel);border:1px solid var(--line);padding:9px 16px;border-radius:0;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease;}
   .hr-subtab:hover{border-color:var(--amber-dim);color:var(--chalk);transform:translateY(-1px);}
   .hr-subtab.active{color:var(--navy);background:var(--amber);border-color:var(--amber);font-weight:600;box-shadow:0 2px 14px rgba(245,166,35,0.25);}
@@ -203,18 +205,25 @@
 
   <div id="hrView">
     <div class="hr-subnav" id="hrSubnav">
-      <button class="hr-subtab active" data-section="trending">🔥 Trending Up</button>
-      <button class="hr-subtab" data-section="top5">⭐ Top 5</button>
-      <button class="hr-subtab" data-section="best15">🎯 HR Best 5</button>
-      <button class="hr-subtab" data-section="all">📋 HR Projections</button>
-      <button class="hr-subtab" data-section="hitsbest5">🎯 Hits Best 5</button>
-      <button class="hr-subtab" data-section="hitsall">📋 Hits Projections</button>
-      <button class="hr-subtab" data-section="tbbest5">🎯 Total Bases Best 5</button>
-      <button class="hr-subtab" data-section="tball">📋 Total Bases Projections</button>
+      <div class="subnav-group">
+        <span class="subnav-group-label">HOME RUNS</span>
+        <button class="hr-subtab active" data-section="trending">🔥 Trending Up</button>
+        <button class="hr-subtab" data-section="best15">🎯 Best 5</button>
+        <button class="hr-subtab" data-section="all">📋 Projections</button>
+      </div>
+      <div class="subnav-group">
+        <span class="subnav-group-label">HITS</span>
+        <button class="hr-subtab" data-section="hitsbest5">🎯 Best 5</button>
+        <button class="hr-subtab" data-section="hitsall">📋 Projections</button>
+      </div>
+      <div class="subnav-group">
+        <span class="subnav-group-label">TOTAL BASES</span>
+        <button class="hr-subtab" data-section="tbbest5">🎯 Best 5</button>
+        <button class="hr-subtab" data-section="tball">📋 Projections</button>
+      </div>
     </div>
     <div id="hrSectionWrap">
       <div class="hr-section" id="hrSection_trending"></div>
-      <div class="hr-section" id="hrSection_top5" style="display:none;"></div>
       <div class="hr-section" id="hrSection_best15" style="display:none;"></div>
       <div class="hr-section" id="hrSection_all" style="display:none;"></div>
       <div class="hr-section" id="hrSection_hitsbest5" style="display:none;"></div>
@@ -493,7 +502,7 @@ function trendCard(e, rank){
 function renderHR(){
   const entries = (HR_DATA && HR_DATA.entries) || [];
   if(!entries.length){
-    ['trending','top5','best15','all'].forEach(s=>{ document.getElementById(`hrSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    ['trending','best15','all','hitsbest5','hitsall','tbbest5','tball'].forEach(s=>{ document.getElementById(`hrSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
     return;
   }
   const trending = entries.filter(e=>{
@@ -511,20 +520,14 @@ function renderHR(){
     <div class="card-grid cols-5">${trending.length?trending.map((e,i)=>trendCard(e,i+1)).join(''):'<div class="placeholder">No trend data available.</div>'}</div>
   `;
 
-  const top5 = entries.slice(0,5);
   // Best 5 means "best bet," which is a different thing from "most likely
   // to happen" -- a 40% projection against a 40% market price has zero
   // real edge, while a 15% projection against a 5% market price is a
   // genuinely better bet despite the lower raw number. Only entries with
   // a real market comparison can have edge at all.
   const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
-  document.getElementById('hrSection_top5').innerHTML = `
-    <div class="hr-section-title">⭐ Top 5 to Track</div>
-    <div class="hr-section-sub">The headline picks — highest projected chance of a home run today, regardless of market price. Click a card for the full reasoning.</div>
-    <div class="card-grid cols-5">${top5.map((e,i)=>hrCard(e,i+1)).join('')}</div>
-  `;
   document.getElementById('hrSection_best15').innerHTML = `
-    <div class="hr-section-title">🎯 Best 5 — Suggested Picks</div>
+    <div class="hr-section-title">🎯 HR Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
     <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
   `;
@@ -721,11 +724,11 @@ function renderKO(){
           ${e.prizePicksKLine!==null&&e.prizePicksKLine!==undefined?`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksKLine} Strikeouts</b>${e.prizePicksCall?` <span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>`:''}</span>`:''}
         </div>
         <div class="factor-grid" style="margin-top:8px;">
-          <div class="factor-item"><div class="fv">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
-          <div class="factor-item"><div class="fv">${e.matchupFactor.toFixed(2)}×</div><div class="fl">Matchup Factor</div></div>
-          <div class="factor-item"><div class="fv">${e.rollingKBBPct!=null?e.rollingKBBPct.toFixed(1)+'%':'—'}</div><div class="fl">Rolling K-BB% (L3)</div></div>
-          <div class="factor-item"><div class="fv">${e.parkFactor!=null?e.parkFactor.toFixed(2):'—'}</div><div class="fl">Park Factor (Pitcher)</div></div>
-          <div class="factor-item"><div class="fv">${e.weatherFactor!=null?e.weatherFactor.toFixed(2)+'×':'—'}</div><div class="fl">Weather Factor</div></div>
+          <div class="factor-item"><div class="fv ${e.stuffFactor>1.05?'stat-good':e.stuffFactor<0.95?'stat-bad':''}">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
+          <div class="factor-item"><div class="fv ${e.matchupFactor>1.05?'stat-good':e.matchupFactor<0.95?'stat-bad':''}">${e.matchupFactor.toFixed(2)}×</div><div class="fl">Matchup Factor</div></div>
+          <div class="factor-item"><div class="fv ${e.rollingKBBPct!=null&&e.rollingKBBPct>=22?'stat-good':e.rollingKBBPct!=null&&e.rollingKBBPct<5?'stat-bad':''}">${e.rollingKBBPct!=null?e.rollingKBBPct.toFixed(1)+'%':'—'}</div><div class="fl">Rolling K-BB% (L3)</div></div>
+          <div class="factor-item"><div class="fv ${e.parkFactor!=null&&e.parkFactor<0.95?'stat-good':e.parkFactor!=null&&e.parkFactor>1.05?'stat-bad':''}">${e.parkFactor!=null?e.parkFactor.toFixed(2):'—'}</div><div class="fl">Park Factor (Pitcher)</div></div>
+          <div class="factor-item"><div class="fv ${e.weatherFactor!=null&&e.weatherFactor>1.02?'stat-good':e.weatherFactor!=null&&e.weatherFactor<0.98?'stat-bad':''}">${e.weatherFactor!=null?e.weatherFactor.toFixed(2)+'×':'—'}</div><div class="fl">Weather Factor</div></div>
         </div>
       </td></tr>
     `;
@@ -757,10 +760,10 @@ function renderKO(){
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
         <div class="factor-grid" style="margin-top:8px;">
-          <div class="factor-item"><div class="fv">${e.npPerGame!=null?e.npPerGame.toFixed(0):'—'}</div><div class="fl">Pitches/Game</div></div>
-          <div class="factor-item"><div class="fv">${e.pitchesPerIP!=null?e.pitchesPerIP.toFixed(1):'—'}</div><div class="fl">Pitches/Inning</div></div>
-          <div class="factor-item"><div class="fv">${e.bbPct!=null?e.bbPct.toFixed(1)+'%':'—'}</div><div class="fl">Walk Rate</div></div>
-          <div class="factor-item"><div class="fv">${e.kBBPct!=null?e.kBBPct.toFixed(1)+'%':'—'}</div><div class="fl">K-BB%</div></div>
+          <div class="factor-item"><div class="fv ${e.npPerGame!=null&&e.npPerGame>=95?'stat-good':e.npPerGame!=null&&e.npPerGame<=80?'stat-bad':''}">${e.npPerGame!=null?e.npPerGame.toFixed(0):'—'}</div><div class="fl">Pitches/Game</div></div>
+          <div class="factor-item"><div class="fv ${e.pitchesPerIP!=null&&e.pitchesPerIP<=15?'stat-good':e.pitchesPerIP!=null&&e.pitchesPerIP>=18?'stat-bad':''}">${e.pitchesPerIP!=null?e.pitchesPerIP.toFixed(1):'—'}</div><div class="fl">Pitches/Inning</div></div>
+          <div class="factor-item"><div class="fv ${e.bbPct!=null&&e.bbPct<5?'stat-good':e.bbPct!=null&&e.bbPct>=9?'stat-bad':''}">${e.bbPct!=null?e.bbPct.toFixed(1)+'%':'—'}</div><div class="fl">Walk Rate</div></div>
+          <div class="factor-item"><div class="fv ${e.kBBPct!=null&&e.kBBPct>=20?'stat-good':e.kBBPct!=null&&e.kBBPct<8?'stat-bad':''}">${e.kBBPct!=null?e.kBBPct.toFixed(1)+'%':'—'}</div><div class="fl">K-BB%</div></div>
         </div>
       </td></tr>
     `;
