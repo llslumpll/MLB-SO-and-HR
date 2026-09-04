@@ -235,10 +235,16 @@
 
   <div id="koView" style="display:none;">
     <div class="hr-subnav" id="koSubnav">
-      <button class="hr-subtab active" data-section="best5">🎯 Strikeouts Best 5</button>
-      <button class="hr-subtab" data-section="outsbest5">🎯 Pitching Outs Best 5</button>
-      <button class="hr-subtab" data-section="all">📋 Strikeouts Projections</button>
-      <button class="hr-subtab" data-section="outsall">📋 Pitching Outs Projections</button>
+      <div class="subnav-group">
+        <span class="subnav-group-label">STRIKEOUTS</span>
+        <button class="hr-subtab active" data-section="best5">🎯 Best 5</button>
+        <button class="hr-subtab" data-section="all">📋 Projections</button>
+      </div>
+      <div class="subnav-group">
+        <span class="subnav-group-label">PITCHING OUTS</span>
+        <button class="hr-subtab" data-section="outsbest5">🎯 Best 5</button>
+        <button class="hr-subtab" data-section="outsall">📋 Projections</button>
+      </div>
     </div>
     <div id="koSectionWrap">
       <div class="hr-section" id="koSection_best5"></div>
@@ -269,6 +275,12 @@ let HR_DATA = null, KO_DATA = null, TEAMS_DATA = null;
 let CURRENT_DATE = null;
 
 function pct(v){ return v===null||v===undefined ? '—' : (v*100).toFixed(1)+'%'; }
+function formatFrozenTime(iso){
+  try {
+    const d = new Date(iso + 'Z');
+    return d.toLocaleString(undefined, {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+  } catch(e) { return iso; }
+}
 function priceMoveTag(e){
   if(e.priceDelta===undefined || e.priceDelta===null || Math.abs(e.priceDelta) < 0.005) return '';
   const up = e.priceDelta > 0;
@@ -581,7 +593,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div></td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_hitsall').innerHTML = `
@@ -614,7 +626,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div></td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_tball').innerHTML = `
@@ -722,6 +734,7 @@ function renderKO(){
           ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
           ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
           ${e.prizePicksKLine!==null&&e.prizePicksKLine!==undefined?`<span class="bx-chip">PrizePicks line: <b>${e.prizePicksKLine} Strikeouts</b>${e.prizePicksCall?` <span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>`:''}</span>`:''}
+          ${e.prizePicksCallFrozenAt?`<span class="bx-chip">Predicted at <b>${formatFrozenTime(e.prizePicksCallFrozenAt)}</b> and never recalculated after that</span>`:''}
         </div>
         <div class="factor-grid" style="margin-top:8px;">
           <div class="factor-item"><div class="fv ${e.stuffFactor>1.05?'stat-good':e.stuffFactor<0.95?'stat-bad':''}">${e.stuffFactor.toFixed(2)}×</div><div class="fl">Stuff Factor</div></div>
@@ -759,6 +772,7 @@ function renderKO(){
       <tr class="why-row" id="${outsRowId}" style="display:none;"><td colspan="7">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
+        ${e.outsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.outsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}
         <div class="factor-grid" style="margin-top:8px;">
           <div class="factor-item"><div class="fv ${e.npPerGame!=null&&e.npPerGame>=95?'stat-good':e.npPerGame!=null&&e.npPerGame<=80?'stat-bad':''}">${e.npPerGame!=null?e.npPerGame.toFixed(0):'—'}</div><div class="fl">Pitches/Game</div></div>
           <div class="factor-item"><div class="fv ${e.pitchesPerIP!=null&&e.pitchesPerIP<=15?'stat-good':e.pitchesPerIP!=null&&e.pitchesPerIP>=18?'stat-bad':''}">${e.pitchesPerIP!=null?e.pitchesPerIP.toFixed(1):'—'}</div><div class="fl">Pitches/Inning</div></div>
@@ -864,11 +878,11 @@ function matchupCard(m){
   const metricsHtml = sv ? `
     <div class="factor-grid">
       <div class="factor-item"><div class="fv">${sv.fb_velocity?parseFloat(sv.fb_velocity).toFixed(1):'—'}</div><div class="fl">FB Velo</div></div>
-      <div class="factor-item"><div class="fv">${sv.k_percent?Math.round(sv.k_percent)+'%':'—'}</div><div class="fl">K%</div></div>
-      <div class="factor-item"><div class="fv">${sv.whiff_percent?Math.round(sv.whiff_percent)+'%':'—'}</div><div class="fl">Whiff%</div></div>
-      <div class="factor-item"><div class="fv">${sv.chase_percent?Math.round(sv.chase_percent)+'%':'—'}</div><div class="fl">Chase%</div></div>
-      <div class="factor-item"><div class="fv">${sv.hard_hit_percent?Math.round(sv.hard_hit_percent)+'%':'—'}</div><div class="fl">Hard-Hit%</div></div>
-      <div class="factor-item"><div class="fv">${sv.xera?parseFloat(sv.xera).toFixed(2):'—'}</div><div class="fl">xERA</div></div>
+      <div class="factor-item"><div class="fv ${sv.k_percent>=70?'stat-good':sv.k_percent&&sv.k_percent<=30?'stat-bad':''}">${sv.k_percent?Math.round(sv.k_percent)+'%':'—'}</div><div class="fl">K%</div></div>
+      <div class="factor-item"><div class="fv ${sv.whiff_percent>=70?'stat-good':sv.whiff_percent&&sv.whiff_percent<=30?'stat-bad':''}">${sv.whiff_percent?Math.round(sv.whiff_percent)+'%':'—'}</div><div class="fl">Whiff%</div></div>
+      <div class="factor-item"><div class="fv ${sv.chase_percent>=70?'stat-good':sv.chase_percent&&sv.chase_percent<=30?'stat-bad':''}">${sv.chase_percent?Math.round(sv.chase_percent)+'%':'—'}</div><div class="fl">Chase%</div></div>
+      <div class="factor-item"><div class="fv ${sv.hard_hit_percent>=70?'stat-good':sv.hard_hit_percent&&sv.hard_hit_percent<=30?'stat-bad':''}">${sv.hard_hit_percent?Math.round(sv.hard_hit_percent)+'%':'—'}</div><div class="fl">Hard-Hit%</div></div>
+      <div class="factor-item"><div class="fv ${sv.xera&&parseFloat(sv.xera)<3.5?'stat-good':sv.xera&&parseFloat(sv.xera)>4.5?'stat-bad':''}">${sv.xera?parseFloat(sv.xera).toFixed(2):'—'}</div><div class="fl">xERA</div></div>
     </div>
   ` : '<div class="placeholder" style="padding:8px 0;">Statcast percentile metrics unavailable.</div>';
 
@@ -923,12 +937,24 @@ function matchupCard(m){
     matchupHtml = '<div class="placeholder" style="padding:8px 0;">No opposing batter has faced this pitcher enough (3+ AB) to show history yet.</div>';
   }
 
+  const opp = m.oppProfile || {};
+  const oppMetricsHtml = `
+    <div class="factor-grid">
+      <div class="factor-item"><div class="fv ${opp.kPct!=null&&opp.kPct>=24?'stat-good':opp.kPct!=null&&opp.kPct<20?'stat-bad':''}">${opp.kPct!=null?opp.kPct.toFixed(1)+'%':'—'}</div><div class="fl">Opp K%</div></div>
+      <div class="factor-item"><div class="fv ${opp.xwoba!=null&&opp.xwoba<0.310?'stat-good':opp.xwoba!=null&&opp.xwoba>0.340?'stat-bad':''}">${opp.xwoba!=null?opp.xwoba.toFixed(3):'—'}</div><div class="fl">Opp xwOBA</div></div>
+      <div class="factor-item"><div class="fv ${opp.babip!=null&&opp.babip<0.290?'stat-good':opp.babip!=null&&opp.babip>0.310?'stat-bad':''}">${opp.babip!=null?opp.babip.toFixed(3):'—'}</div><div class="fl">Opp BABIP</div></div>
+      <div class="factor-item"><div class="fv ${opp.hardHitPct!=null&&opp.hardHitPct<38?'stat-good':opp.hardHitPct!=null&&opp.hardHitPct>=45?'stat-bad':''}">${opp.hardHitPct!=null?opp.hardHitPct.toFixed(1)+'%':'—'}</div><div class="fl">Opp Hard-Hit%</div></div>
+    </div>
+  `;
+
   return `
     <div class="matchup-card">
       <div class="matchup-head">${m.name}${m.hand?` (${m.hand}HP)`:''}</div>
       <div class="matchup-sub">${m.team} vs ${m.opp} · ${s.wins!==undefined?s.wins:'—'}-${s.losses!==undefined?s.losses:'—'}, ${s.era||'—'} ERA</div>
       <div class="matchup-section-label">Statcast — season</div>
       ${metricsHtml}
+      <div class="matchup-section-label">Opposing lineup (${m.opp}) — season offensive profile</div>
+      ${oppMetricsHtml}
       <div class="matchup-section-label">Pitch arsenal (season)</div>
       ${arsenalHtml}
       ${zoneHtml ? `<div class="matchup-section-label">Zone attack</div>${zoneHtml}` : ''}
@@ -945,10 +971,19 @@ function groupMatchupsByGame(matchups){
   const games = {};
   matchups.forEach(m=>{
     const key = [m.team, m.opp].sort().join('_');
-    if(!games[key]) games[key] = { key, label: [m.team, m.opp].sort().join(' vs '), pitchers: [] };
+    if(!games[key]){
+      const timeLabel = m.gameDate ? new Date(m.gameDate).toLocaleTimeString('en-US', {timeZone:'America/Chicago', hour:'numeric', minute:'2-digit'}) + ' CT' : '';
+      games[key] = { key, label: [m.team, m.opp].sort().join(' vs '), timeLabel, gameDate: m.gameDate, pitchers: [] };
+    }
     games[key].pitchers.push(m);
   });
-  return Object.values(games).sort((a,b)=>a.label.localeCompare(b.label));
+  // Real start time, not alphabetical -- games with no known time sort last rather than breaking the list.
+  return Object.values(games).sort((a,b)=>{
+    if(!a.gameDate && !b.gameDate) return 0;
+    if(!a.gameDate) return 1;
+    if(!b.gameDate) return -1;
+    return new Date(a.gameDate) - new Date(b.gameDate);
+  });
 }
 
 function renderMatchupsBubble(matchups){
@@ -969,7 +1004,7 @@ function renderMatchupsBubble(matchups){
       <div class="bubble-title">Today's Pitcher Matchups</div>
       <div class="bubble-sub">Pick a game to see its probable starters: pitch mix, zone tendencies, and how the opposing lineup has hit against them historically.</div>
       <div class="hr-subnav" id="matchupPicker" style="margin-top:0;margin-bottom:16px;">
-        ${MATCHUP_GAMES.map(g=>`<button class="hr-subtab${g.key===CURRENT_MATCHUP_GAME?' active':''}" onclick="selectMatchupGame('${g.key}')">${g.label}</button>`).join('')}
+        ${MATCHUP_GAMES.map(g=>`<button class="hr-subtab${g.key===CURRENT_MATCHUP_GAME?' active':''}" data-game-key="${g.key}" onclick="selectMatchupGame('${g.key}')">${g.label}${g.timeLabel?` · ${g.timeLabel}`:''}</button>`).join('')}
       </div>
       <div id="matchupDetailWrap"></div>
     </div>
@@ -986,7 +1021,7 @@ function renderMatchupDetail(){
 function selectMatchupGame(key){
   CURRENT_MATCHUP_GAME = key;
   document.querySelectorAll('#matchupPicker .hr-subtab').forEach(b=>{
-    b.classList.toggle('active', b.textContent === MATCHUP_GAMES.find(g=>g.key===key).label);
+    b.classList.toggle('active', b.dataset.gameKey === key);
   });
   const el = document.getElementById('matchupDetailWrap');
   if(el){
