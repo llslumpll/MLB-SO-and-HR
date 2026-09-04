@@ -68,9 +68,11 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
     projected_k_by_key = index_by("projectedK")
     projected_outs_by_key = index_by("projectedOuts")
     prize_picks_call_by_key = index_by("prizePicksCall")
+    prize_picks_call_frozen_at_by_key = index_by("prizePicksCallFrozenAt")
     model_prob_by_key = index_by("modelProb")
     market_threshold_by_key = index_by("marketThreshold")
     outs_call_by_key = index_by("outsCall")
+    outs_call_frozen_at_by_key = index_by("outsCallFrozenAt")
     outs_model_prob_by_key = index_by("outsModelProb")
     outs_market_threshold_by_key = index_by("outsMarketThreshold")
     # The DISPLAY fields that go alongside the frozen prediction above --
@@ -93,11 +95,13 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
     projected_hits_by_key = index_by("projectedHits")
     projected_tb_by_key = index_by("projectedTotalBases")
     hits_call_by_key = index_by("hitsCall")
+    hits_call_frozen_at_by_key = index_by("hitsCallFrozenAt")
     hits_model_prob_by_key = index_by("hitsModelProb")
     hits_market_threshold_by_key = index_by("hitsMarketThreshold")
     hits_line_by_key = index_by("prizePicksHitsLine")
     prediction_hits_line_by_key = index_by("predictionHitsLine")
     tb_call_by_key = index_by("tbCall")
+    tb_call_frozen_at_by_key = index_by("tbCallFrozenAt")
     tb_model_prob_by_key = index_by("tbModelProb")
     tb_market_threshold_by_key = index_by("tbMarketThreshold")
     tb_line_by_key = index_by("prizePicksTBLine")
@@ -125,6 +129,9 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
         if key in prize_picks_call_by_key:
             e["prizePicksCall"] = prize_picks_call_by_key[key]
             touched = True
+        if key in prize_picks_call_frozen_at_by_key:
+            e["prizePicksCallFrozenAt"] = prize_picks_call_frozen_at_by_key[key]
+            touched = True
         if key in model_prob_by_key:
             e["modelProb"] = model_prob_by_key[key]
             touched = True
@@ -133,6 +140,9 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
             touched = True
         if key in outs_call_by_key:
             e["outsCall"] = outs_call_by_key[key]
+            touched = True
+        if key in outs_call_frozen_at_by_key:
+            e["outsCallFrozenAt"] = outs_call_frozen_at_by_key[key]
             touched = True
         if key in outs_model_prob_by_key:
             e["outsModelProb"] = outs_model_prob_by_key[key]
@@ -167,6 +177,9 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
         if key in hits_call_by_key:
             e["hitsCall"] = hits_call_by_key[key]
             touched = True
+        if key in hits_call_frozen_at_by_key:
+            e["hitsCallFrozenAt"] = hits_call_frozen_at_by_key[key]
+            touched = True
         if key in hits_model_prob_by_key:
             e["hitsModelProb"] = hits_model_prob_by_key[key]
             touched = True
@@ -181,6 +194,9 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
             touched = True
         if key in tb_call_by_key:
             e["tbCall"] = tb_call_by_key[key]
+            touched = True
+        if key in tb_call_frozen_at_by_key:
+            e["tbCallFrozenAt"] = tb_call_frozen_at_by_key[key]
             touched = True
         if key in tb_model_prob_by_key:
             e["tbModelProb"] = tb_model_prob_by_key[key]
