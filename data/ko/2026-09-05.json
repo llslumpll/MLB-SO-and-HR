@@ -700,9 +700,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 7,
-      "marketProb": 0.38,
+      "marketProb": 0.36,
       "modelProb": 0.3664405285964941,
-      "edge": -0.013559471403505885,
+      "edge": 0.006440528596494133,
       "predictionLine": 6.0,
       "predictionOutsLine": 16.5,
       "graded": false,
@@ -732,7 +732,11 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-05T12:40:21.010644",
       "prizePicksKLine": 6.0,
-      "prizePicksOutsLine": 16.5
+      "prizePicksOutsLine": 17.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 7,
+      "priceDelta": -0.020000000000000018,
+      "prizePicksOutsLineDelta": 1.0
     },
     {
       "gamePk": 823257,
@@ -852,9 +856,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 4,
-      "marketProb": 0.47,
+      "marketProb": 0.92,
       "modelProb": 0.7774535052686058,
-      "edge": 0.3074535052686058,
+      "edge": -0.14254649473139425,
       "predictionLine": 3.5,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -884,7 +888,10 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-05T12:40:21.010687",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 14.5
+      "prizePicksOutsLine": 14.5,
+      "openingThreshold": 4,
+      "priceDelta": 0.48000000000000004,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823094,
@@ -1220,9 +1227,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 4,
-      "marketProb": 0.59,
+      "marketProb": 0.58,
       "modelProb": 0.6462469056236189,
-      "edge": 0.05624690562361889,
+      "edge": 0.0662469056236189,
       "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -1248,7 +1255,10 @@
       "prizePicksOpeningLine": 3.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-05T11:20:22.733776",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.5,
+      "openingThreshold": 4,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 824310,
@@ -1317,7 +1327,12 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-05T12:40:21.010731",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 14.0
+      "prizePicksOutsLine": 13.5,
+      "prizePicksLineDelta": 0.0,
+      "openingProb": null,
+      "openingThreshold": null,
+      "priceDelta": null,
+      "prizePicksOutsLineDelta": -1.0
     },
     {
       "gamePk": 823577,
@@ -1724,9 +1739,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 4,
-      "marketProb": 0.53,
+      "marketProb": 0.63,
       "modelProb": 0.4674924640616587,
-      "edge": -0.06250753593834135,
+      "edge": -0.16250753593834133,
       "predictionLine": 3.5,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -1756,7 +1771,10 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-05T12:40:21.010775",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 14.5
+      "prizePicksOutsLine": 14.5,
+      "openingThreshold": 4,
+      "priceDelta": 0.16999999999999998,
+      "prizePicksLineDelta": 0.0
     },
     {
       "gamePk": 823823,
@@ -1800,9 +1818,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.36,
+      "marketProb": 0.41,
       "modelProb": 0.2506739807815914,
-      "edge": -0.10932601921840857,
+      "edge": -0.15932601921840855,
       "predictionLine": 4.0,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -1832,7 +1850,10 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-05T12:40:21.010795",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 14.5
+      "prizePicksOutsLine": 14.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.04999999999999999
     },
     {
       "gamePk": 824145,
@@ -2207,7 +2228,5 @@
       "prizePicksOutsLine": 17.0
     }
   ],
-  "oddsRefreshedAt": "2026-09-05T20:21:03.470109",
-  "_kalshiMatched": 28,
-  "_kalshiTotal": 30
+  "oddsRefreshedAt": "2026-09-05T20:21:38.751440"
 }
