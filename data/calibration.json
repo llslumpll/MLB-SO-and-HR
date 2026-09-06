@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-09-06T18:16:41.053513",
-  "totalHRGraded": 3021,
-  "totalKGraded": 254,
-  "totalOutsGraded": 163,
+  "generatedAt": "2026-09-06T20:24:34.671327",
+  "totalHRGraded": 3130,
+  "totalKGraded": 264,
+  "totalOutsGraded": 173,
   "minSampleRequired": 100,
   "dampenFactor": 0.3,
   "hr": {
     "High": {
-      "multiplier": 0.9513,
-      "sampleSize": 2780,
-      "avgPredicted": 0.1305,
-      "actualRate": 0.1094,
-      "rawRatio": 0.8377,
+      "multiplier": 0.9484,
+      "sampleSize": 2885,
+      "avgPredicted": 0.131,
+      "actualRate": 0.1085,
+      "rawRatio": 0.8282,
       "status": "active"
     },
     "Medium": {
-      "multiplier": 0.7984,
-      "sampleSize": 218,
-      "avgPredicted": 0.0979,
-      "actualRate": 0.0321,
-      "rawRatio": 0.3281,
+      "multiplier": 0.7976,
+      "sampleSize": 222,
+      "avgPredicted": 0.0969,
+      "actualRate": 0.0315,
+      "rawRatio": 0.3254,
       "status": "active"
     },
     "Low": {
@@ -30,14 +30,14 @@
   },
   "ko": {
     "High": {
-      "bias": -0.3305,
-      "sampleSize": 242,
-      "avgRawBias": -1.1017,
+      "bias": -0.3307,
+      "sampleSize": 251,
+      "avgRawBias": -1.1022,
       "status": "active"
     },
     "Medium": {
       "bias": 0.0,
-      "sampleSize": 11,
+      "sampleSize": 12,
       "status": "insufficient data"
     },
     "Low": {
@@ -48,14 +48,14 @@
   },
   "outs": {
     "High": {
-      "bias": -0.437,
-      "sampleSize": 155,
-      "avgRawBias": -1.4568,
+      "bias": -0.398,
+      "sampleSize": 164,
+      "avgRawBias": -1.3268,
       "status": "active"
     },
     "Medium": {
       "bias": 0.0,
-      "sampleSize": 7,
+      "sampleSize": 8,
       "status": "insufficient data"
     },
     "Low": {
