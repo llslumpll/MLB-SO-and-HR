@@ -426,9 +426,9 @@
       "edge": 0.6056629304264034,
       "predictionLine": 5.5,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 3,
+      "hit": false,
       "projectedOuts": 15.3,
       "outsReason": "Projected for 14.8 outs (5.0 innings).",
       "npPerGame": 85.44444444444444,
@@ -443,7 +443,7 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 13,
       "outsHit": null,
       "openingProb": 0.41,
       "prizePicksOpeningLine": 5.5,
@@ -963,9 +963,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.4,
+      "marketProb": 0.01,
       "modelProb": 0.4108005360488225,
-      "edge": 0.010800536048822473,
+      "edge": 0.4008005360488225,
       "predictionLine": 5.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -994,7 +994,7 @@
       "prizePicksKLine": 5.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": -0.10999999999999999
+      "priceDelta": -0.5
     },
     {
       "gamePk": 823257,
@@ -1341,9 +1341,9 @@
       "edge": null,
       "predictionLine": 3.5,
       "predictionOutsLine": 14.5,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 7,
+      "hit": true,
       "projectedOuts": 13.1,
       "outsReason": "Projected for 13.1 outs (4.5 innings), tempered by a shorter historical leash (74 pitches/game this season) and a walk rate that tends to spike pitch counts (13.2% BB).",
       "npPerGame": 74.5,
@@ -1358,8 +1358,8 @@
       "outsMarketProb": null,
       "outsModelProb": 0.33511511836925856,
       "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
+      "actualOuts": 14,
+      "outsHit": false,
       "prizePicksOpeningLine": 3.5,
       "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "OVER",
@@ -2303,5 +2303,5 @@
       "priceDelta": null
     }
   ],
-  "oddsRefreshedAt": "2026-09-06T03:10:20.619916"
+  "oddsRefreshedAt": "2026-09-06T03:20:16.981753"
 }
