@@ -776,9 +776,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.28,
+      "marketProb": 0.11,
       "modelProb": 0.5728756198319221,
-      "edge": 0.2928756198319221,
+      "edge": 0.46287561983192216,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -804,7 +804,10 @@
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-06T11:20:22.096506",
-      "prizePicksKLine": 5.0
+      "prizePicksKLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": -0.36
     },
     {
       "gamePk": 823417,
@@ -2169,9 +2172,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.33,
+      "marketProb": 0.32,
       "modelProb": 0.25107600852906065,
-      "edge": -0.07892399147093937,
+      "edge": -0.06892399147093936,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -2197,10 +2200,11 @@
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-06T13:00:24.230004",
-      "prizePicksKLine": 3.5
+      "prizePicksKLine": 3.5,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.010000000000000009
     }
   ],
-  "oddsRefreshedAt": "2026-09-06T22:13:39.177110",
-  "_kalshiMatched": 9,
-  "_kalshiTotal": 30
+  "oddsRefreshedAt": "2026-09-06T22:14:15.120214"
 }
