@@ -123,9 +123,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.38,
+      "marketProb": 0.37,
       "modelProb": 0.7021748457145107,
-      "edge": 0.3221748457145107,
+      "edge": 0.3321748457145107,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -154,7 +154,7 @@
       "prizePicksKLine": 5.5,
       "prizePicksLineDelta": 0.5,
       "openingThreshold": 6,
-      "priceDelta": -0.18999999999999995
+      "priceDelta": -0.19999999999999996
     },
     {
       "gamePk": 823419,
@@ -272,9 +272,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 8,
-      "marketProb": 0.8,
+      "marketProb": 0.21,
       "modelProb": 0.38972104626854853,
-      "edge": -0.4102789537314515,
+      "edge": 0.17972104626854854,
       "predictionLine": 7.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -303,7 +303,7 @@
       "prizePicksKLine": 7.0,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 8,
-      "priceDelta": 0.35000000000000003
+      "priceDelta": -0.24000000000000002
     },
     {
       "gamePk": 824389,
@@ -963,9 +963,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.52,
+      "marketProb": 0.55,
       "modelProb": 0.4108005360488225,
-      "edge": -0.10919946395117752,
+      "edge": -0.13919946395117755,
       "predictionLine": 5.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -994,7 +994,7 @@
       "prizePicksKLine": 5.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.010000000000000009
+      "priceDelta": 0.040000000000000036
     },
     {
       "gamePk": 823257,
@@ -1722,9 +1722,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.45,
+      "marketProb": 0.57,
       "modelProb": 0.28769347785947685,
-      "edge": -0.16230652214052316,
+      "edge": -0.2823065221405231,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -1753,7 +1753,7 @@
       "prizePicksKLine": 4.0,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 5,
-      "priceDelta": 0.020000000000000018
+      "priceDelta": 0.13999999999999996
     },
     {
       "gamePk": 823823,
@@ -2192,9 +2192,9 @@
       "edge": 0.34075369643220754,
       "predictionLine": 3.5,
       "predictionOutsLine": 16.0,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 2,
+      "hit": false,
       "projectedOuts": 13.5,
       "outsReason": "Projected for 11.7 outs (4.2 innings), tempered by a shorter historical leash (75 pitches/game this season), a short-outing workload pattern (4.2 IP/start), shaky command (K-BB% of only 7.4%), and a walk rate that tends to spike pitch counts (10.5% BB).",
       "npPerGame": 75.07142857142857,
@@ -2209,8 +2209,8 @@
       "outsMarketProb": null,
       "outsModelProb": 0.2024545356951657,
       "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
+      "actualOuts": 17,
+      "outsHit": true,
       "openingProb": 0.52,
       "prizePicksOpeningLine": 3.5,
       "prizePicksOutsOpeningLine": 16.0,
@@ -2271,9 +2271,9 @@
       "edge": 0.329043400306843,
       "predictionLine": 3.0,
       "predictionOutsLine": 17.5,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 1,
+      "hit": false,
       "projectedOuts": 14.9,
       "outsReason": "Projected for 12.6 outs (5.4 innings).",
       "npPerGame": 88.86206896551724,
@@ -2288,8 +2288,8 @@
       "outsMarketProb": null,
       "outsModelProb": 0.24272499275106618,
       "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
+      "actualOuts": 15,
+      "outsHit": false,
       "openingProb": 0.06,
       "prizePicksOpeningLine": 3.0,
       "prizePicksOutsOpeningLine": 17.5,
@@ -2303,5 +2303,5 @@
       "priceDelta": -0.049999999999999996
     }
   ],
-  "oddsRefreshedAt": "2026-09-06T01:40:19.887042"
+  "oddsRefreshedAt": "2026-09-06T01:50:17.356892"
 }
