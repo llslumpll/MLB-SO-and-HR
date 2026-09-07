@@ -699,9 +699,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.35,
+      "marketProb": 0.32,
       "modelProb": 0.5927765734089747,
-      "edge": 0.24277657340897474,
+      "edge": 0.2727765734089747,
       "predictionLine": 4.0,
       "predictionOutsLine": 16.0,
       "graded": false,
@@ -731,7 +731,10 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-07T13:30:24.849573",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": -0.12
     },
     {
       "gamePk": 824062,
@@ -1077,9 +1080,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 6,
-      "marketProb": 0.42,
+      "marketProb": 0.43,
       "modelProb": 0.291133487021739,
-      "edge": -0.12886651297826096,
+      "edge": -0.13886651297826097,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -1105,7 +1108,10 @@
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-07T11:20:21.025712",
-      "prizePicksKLine": 5.0
+      "prizePicksKLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.02999999999999997
     },
     {
       "gamePk": 824715,
@@ -1363,9 +1369,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 4,
-      "marketProb": 0.45,
+      "marketProb": 0.46,
       "modelProb": 0.3767245527347374,
-      "edge": -0.07327544726526264,
+      "edge": -0.08327544726526265,
       "predictionLine": 3.0,
       "predictionOutsLine": 16.0,
       "graded": false,
@@ -1395,7 +1401,11 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-07T13:30:24.849738",
       "prizePicksKLine": 3.0,
-      "prizePicksOutsLine": 16.0
+      "prizePicksOutsLine": 16.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 4,
+      "priceDelta": 0.010000000000000009,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823820,
@@ -1536,7 +1546,5 @@
       "outsHit": null
     }
   ],
-  "oddsRefreshedAt": "2026-09-07T21:30:44.640693",
-  "_kalshiMatched": 9,
-  "_kalshiTotal": 21
+  "oddsRefreshedAt": "2026-09-07T21:31:29.828046"
 }
