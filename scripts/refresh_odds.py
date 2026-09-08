@@ -90,8 +90,27 @@ def log_pipeline_health(date, kalshi_matched=None, kalshi_total=None, pp_k_match
         "calibration": calibration_snapshot,
     }
 
+    def ratio(matched, total):
+        return (matched / total) if (matched is not None and total) else -1
+
     existing_idx = next((i for i, e in enumerate(health["entries"]) if e.get("date") == date), None)
     if existing_idx is not None:
+        existing = health["entries"][existing_idx]
+        # Match-rate fields: keep whichever of old/new is better, not just
+        # whatever this specific run happened to see. The frequent job runs
+        # 100+ times a day and PrizePicks naturally thins out late at
+        # night, so "last write wins" would make a perfectly healthy day
+        # look broken just because the final check landed at 11pm.
+        for matched_key, total_key in [("ppKMatched", "ppKTotal"), ("ppOutsMatched", "ppOutsTotal"),
+                                        ("ppHitsMatched", "ppHitsTotal"), ("ppTBMatched", "ppTBTotal"),
+                                        ("kalshiMatched", "kalshiTotal")]:
+            new_r = ratio(entry[matched_key], entry[total_key])
+            old_r = ratio(existing.get(matched_key), existing.get(total_key))
+            if new_r < old_r:
+                entry[matched_key], entry[total_key] = existing.get(matched_key), existing.get(total_key)
+        # Calibration should always reflect the latest snapshot -- unlike
+        # match rate, there's no "best of" for sample counts, they should
+        # just be current.
         health["entries"][existing_idx] = entry
     else:
         health["entries"].append(entry)
