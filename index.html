@@ -733,6 +733,7 @@ function renderKO(){
       <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="12">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
+        ${e.conditionalHitRate?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">In starts of ${e.conditionalHitRate.minPitches}+ pitches this season, ${e.name} has gone over ${e.predictionLine} strikeouts in <b>${e.conditionalHitRate.hits}/${e.conditionalHitRate.total}</b> games (${(e.conditionalHitRate.hits/e.conditionalHitRate.total*100).toFixed(0)}%) -- a more targeted look than the season average, filtered to outings where he wasn't pulled early.</div>`:''}
         <div class="bx-line" style="margin-top:8px;">
           ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
           ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
@@ -775,6 +776,7 @@ function renderKO(){
       <tr class="why-row" id="${outsRowId}" style="display:none;"><td colspan="7">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
+        ${e.conditionalOutsHitRate?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">In starts of ${e.conditionalOutsHitRate.minPitches}+ pitches this season, ${e.name} has gone over ${e.predictionOutsLine} outs in <b>${e.conditionalOutsHitRate.hits}/${e.conditionalOutsHitRate.total}</b> games (${(e.conditionalOutsHitRate.hits/e.conditionalOutsHitRate.total*100).toFixed(0)}%) -- a more targeted look than the season average, filtered to outings where he wasn't pulled early.</div>`:''}
         ${e.outsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.outsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}
         <div class="factor-grid" style="margin-top:8px;">
           <div class="factor-item"><div class="fv ${e.npPerGame!=null&&e.npPerGame>=95?'stat-good':e.npPerGame!=null&&e.npPerGame<=80?'stat-bad':''}">${e.npPerGame!=null?e.npPerGame.toFixed(0):'—'}</div><div class="fl">Pitches/Game</div></div>
