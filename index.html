@@ -877,12 +877,12 @@ function matchupCard(m){
   const s = m.season || {};
   const metricsHtml = sv ? `
     <div class="factor-grid">
-      <div class="factor-item"><div class="fv">${sv.fb_velocity?parseFloat(sv.fb_velocity).toFixed(1):'—'}</div><div class="fl">FB Velo</div></div>
+      <div class="factor-item"><div class="fv ${sv.fb_velocity>=70?'stat-good':sv.fb_velocity&&sv.fb_velocity<=30?'stat-bad':''}">${sv.fb_velocity?Math.round(sv.fb_velocity):'—'}</div><div class="fl">FB Velo %ile</div></div>
       <div class="factor-item"><div class="fv ${sv.k_percent>=70?'stat-good':sv.k_percent&&sv.k_percent<=30?'stat-bad':''}">${sv.k_percent?Math.round(sv.k_percent)+'%':'—'}</div><div class="fl">K%</div></div>
       <div class="factor-item"><div class="fv ${sv.whiff_percent>=70?'stat-good':sv.whiff_percent&&sv.whiff_percent<=30?'stat-bad':''}">${sv.whiff_percent?Math.round(sv.whiff_percent)+'%':'—'}</div><div class="fl">Whiff%</div></div>
       <div class="factor-item"><div class="fv ${sv.chase_percent>=70?'stat-good':sv.chase_percent&&sv.chase_percent<=30?'stat-bad':''}">${sv.chase_percent?Math.round(sv.chase_percent)+'%':'—'}</div><div class="fl">Chase%</div></div>
       <div class="factor-item"><div class="fv ${sv.hard_hit_percent>=70?'stat-good':sv.hard_hit_percent&&sv.hard_hit_percent<=30?'stat-bad':''}">${sv.hard_hit_percent?Math.round(sv.hard_hit_percent)+'%':'—'}</div><div class="fl">Hard-Hit%</div></div>
-      <div class="factor-item"><div class="fv ${sv.xera&&parseFloat(sv.xera)<3.5?'stat-good':sv.xera&&parseFloat(sv.xera)>4.5?'stat-bad':''}">${sv.xera?parseFloat(sv.xera).toFixed(2):'—'}</div><div class="fl">xERA</div></div>
+      <div class="factor-item"><div class="fv ${sv.xera>=70?'stat-good':sv.xera&&sv.xera<=30?'stat-bad':''}">${sv.xera?Math.round(sv.xera):'—'}</div><div class="fl">xERA %ile</div></div>
     </div>
   ` : '<div class="placeholder" style="padding:8px 0;">Statcast percentile metrics unavailable.</div>';
 
