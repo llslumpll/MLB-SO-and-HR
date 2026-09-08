@@ -16,10 +16,36 @@ Important caveats, stated plainly:
 """
 
 from datetime import datetime
+import json
 
 from common import get, norm_name, to_num
 
 PP_BASE = "https://partner-api.prizepicks.com"
+
+
+def load_prob_shrink(stat_key):
+    """Reads the probability shrink factor calibrate.py computes, same
+    defensive read-with-fallback pattern used for every other calibration
+    lookup on this site: missing file, missing key, or "insufficient
+    data" status all fall back to a neutral 1.0 (no adjustment), never a
+    crash."""
+    try:
+        with open("data/calibration.json") as f:
+            cal = json.load(f)
+        entry = (cal.get("probShrink") or {}).get(stat_key) or {}
+        if entry.get("status") == "active":
+            return entry.get("shrinkFactor", 1.0)
+    except Exception:  # noqa: BLE001
+        pass
+    return 1.0
+
+
+def apply_prob_shrink(model_prob, shrink_factor):
+    """adjusted = 0.5 + (raw - 0.5) * shrinkFactor -- pulls the
+    probability toward a coinflip without ever flipping which side of
+    50% it lands on, so the OVER/UNDER call itself never changes, only
+    the displayed confidence in that call."""
+    return 0.5 + (model_prob - 0.5) * shrink_factor
 
 # Substrings we look for in PrizePicks' stat_type field (case-insensitive).
 # Update these if the debug log shows PrizePicks phrasing it differently.
@@ -217,6 +243,7 @@ def refine_outs_with_prizepicks(ko_data):
             continue
         implied_threshold = int(pp_line // 1) + 1
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedOuts"])
+        model_prob = apply_prob_shrink(model_prob, load_prob_shrink("outs"))
         e["outsMarketThreshold"] = implied_threshold
         e["outsModelProb"] = model_prob
         e["outsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
@@ -268,6 +295,7 @@ def refine_hits_with_prizepicks(hr_data):
             continue
         implied_threshold = int(pp_line // 1) + 1
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedHits"])
+        model_prob = apply_prob_shrink(model_prob, load_prob_shrink("hits"))
         e["hitsMarketThreshold"] = implied_threshold
         e["hitsModelProb"] = model_prob
         e["hitsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
@@ -313,6 +341,7 @@ def refine_tb_with_prizepicks(hr_data):
             continue
         implied_threshold = int(pp_line // 1) + 1
         model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedTotalBases"])
+        model_prob = apply_prob_shrink(model_prob, load_prob_shrink("totalBases"))
         e["tbMarketThreshold"] = implied_threshold
         e["tbModelProb"] = model_prob
         e["tbCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
@@ -390,6 +419,7 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             # (strictly more than the line).
             implied_threshold = int(pp_line // 1) + 1
             model_prob = fetch_kalshi.poisson_prob_at_least(implied_threshold, e["projectedK"])
+            model_prob = apply_prob_shrink(model_prob, load_prob_shrink("ko"))
             e["marketThreshold"] = implied_threshold
             e["modelProb"] = model_prob
             e["prizePicksCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
