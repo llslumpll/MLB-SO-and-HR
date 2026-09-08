@@ -1239,6 +1239,53 @@ async function loadHistory(){
     return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td><td>${x.outsTot?`${x.outsHit}/${x.outsTot} (${(x.outsHit/x.outsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.hitsTot?`${x.hitsHit}/${x.hitsTot} (${(x.hitsHit/x.hitsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.tbTot?`${x.tbHit}/${x.tbTot} (${(x.tbHit/x.tbTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
   }).join('');
 
+  // Does the model's own conviction actually predict accuracy, independent
+  // of the data-availability confidence tiers above? For every graded
+  // directional prediction across all four stats, bucket by how far the
+  // model's probability sat from a coinflip -- callConfidence is "the
+  // probability the CALL ITSELF would be right" (modelProb for an OVER
+  // call, 1-modelProb for an UNDER call), not just raw modelProb, since a
+  // 20% modelProb backing an UNDER call is just as confident as an 80%
+  // modelProb backing an OVER call. Combined across all four stats since
+  // Hits/TB alone don't have enough graded volume yet to bucket on their
+  // own.
+  const convictionBuckets = [
+    {label:'50-60%', lo:0.50, hi:0.60, hit:0, tot:0},
+    {label:'60-70%', lo:0.60, hi:0.70, hit:0, tot:0},
+    {label:'70-80%', lo:0.70, hi:0.80, hit:0, tot:0},
+    {label:'80%+', lo:0.80, hi:1.01, hit:0, tot:0},
+  ];
+  function bucketPrediction(modelProb, call, correct){
+    if(modelProb==null || !call || correct==null) return;
+    const callConfidence = call==='OVER' ? modelProb : (1-modelProb);
+    const b = convictionBuckets.find(b=>callConfidence>=b.lo && callConfidence<b.hi);
+    if(!b) return;
+    b.tot++;
+    if(correct) b.hit++;
+  }
+  Object.values(dayData).forEach(dd=>{
+    if(dd.ko) dd.ko.entries.forEach(e=>{
+      if(e.graded && e.prizePicksCall && e.hit!=null && e.modelProb!=null){
+        bucketPrediction(e.modelProb, e.prizePicksCall, (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER'));
+      }
+      if(e.graded && e.outsCall && e.outsHit!=null && e.outsModelProb!=null){
+        bucketPrediction(e.outsModelProb, e.outsCall, (e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER'));
+      }
+    });
+    if(dd.hr) dd.hr.entries.forEach(e=>{
+      if(e.graded && e.hitsCall && e.hitsHit!=null && e.hitsModelProb!=null){
+        bucketPrediction(e.hitsModelProb, e.hitsCall, (e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER'));
+      }
+      if(e.graded && e.tbCall && e.tbHit!=null && e.tbModelProb!=null){
+        bucketPrediction(e.tbModelProb, e.tbCall, (e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER'));
+      }
+    });
+  });
+  const convictionRows = convictionBuckets.map(b=>
+    `<tr><td>${b.label}</td><td>${b.tot?`${b.hit}/${b.tot} (${(b.hit/b.tot*100).toFixed(1)}%)`:'—'}</td></tr>`
+  ).join('');
+  const convictionTotalSamples = convictionBuckets.reduce((s,b)=>s+b.tot, 0);
+
   const calibration = await fetchJSONLocal('data/calibration.json').catch(()=>null);
   const health = await fetchJSONLocal('data/pipeline-health.json').catch(()=>null);
 
@@ -1310,6 +1357,11 @@ async function loadHistory(){
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Confidence Tier</div>
       <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K predictions correct</th><th>Outs predictions correct</th><th>Hits predictions correct</th><th>TB predictions correct</th></tr></thead><tbody>${tierRows}</tbody></table>
       <div class="status" style="margin-top:6px;">Only counts graded entries. Needs at least a couple weeks of data to mean much.</div>
+    </div>
+    <div class="day-card" style="margin-bottom:16px;">
+      <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Model Conviction</div>
+      <div class="status" style="margin-bottom:6px;">Different question from the tier table above -- that groups by how much DATA went into a pick, this groups by how CONFIDENT the model's own probability was in the call it actually made, combined across Strikeouts, Outs, Hits, and Total Bases (${convictionTotalSamples} graded predictions total). If this is working, accuracy should climb going down the table -- 80%+ picks should hit noticeably more often than 50-60% ones. If it stays flat, the model's probabilities aren't yet distinguishing confident calls from coin flips, whatever the data-availability tier says.</div>
+      <table class="board"><thead><tr><th>Model said</th><th>Actually correct</th></tr></thead><tbody>${convictionRows}</tbody></table>
     </div>
     ${renderCalibrationCard(calibration)}
   `;
