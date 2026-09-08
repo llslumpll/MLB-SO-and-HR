@@ -260,9 +260,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 8,
-      "marketProb": 0.53,
+      "marketProb": 0.52,
       "modelProb": 0.5001842751653935,
-      "edge": -0.029815724834606483,
+      "edge": -0.019815724834606474,
       "predictionLine": 7.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -288,7 +288,10 @@
       "prizePicksOpeningLine": 7.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-08T11:20:20.819047",
-      "prizePicksKLine": 7.5
+      "prizePicksKLine": 7.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 8,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 824551,
@@ -1372,9 +1375,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.36,
+      "marketProb": 0.35,
       "modelProb": 0.49882041484957873,
-      "edge": 0.13882041484957874,
+      "edge": 0.14882041484957875,
       "predictionLine": 4.0,
       "predictionOutsLine": 15.5,
       "graded": false,
@@ -1404,7 +1407,10 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-08T12:20:20.130822",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.010000000000000009
     },
     {
       "gamePk": 824792,
@@ -1959,9 +1965,9 @@
       ],
       "veloTrend": null,
       "marketThreshold": 5,
-      "marketProb": 0.34,
+      "marketProb": 0.33,
       "modelProb": 0.22731582803678918,
-      "edge": -0.11268417196321084,
+      "edge": -0.10268417196321084,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -1987,10 +1993,11 @@
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-08T11:20:20.819270",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": -0.010000000000000009
     }
   ],
-  "oddsRefreshedAt": "2026-09-08T16:04:20.955279",
-  "_kalshiMatched": 26,
-  "_kalshiTotal": 27
+  "oddsRefreshedAt": "2026-09-08T16:05:09.180372"
 }
