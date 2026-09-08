@@ -105,6 +105,20 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     np_per_game = (num_pitches / games_started) if (num_pitches and games_started) else None
 
     starts = [g for g in log if (parse_ip(g.get("inningsPitched")) or 0) > 0][-3:]
+
+    # Conditional hit-rate pool, same technique as "when he throws 75+
+    # pitches, he's over this line in 10/12 games" -- filters the FULL
+    # season log (not just recent starts) to outings where he wasn't
+    # pulled early, so the K/outs numbers reflect a normal workload
+    # rather than being dragged down by short, unrepresentative outings.
+    # 60 pitches is a rough floor for "got through a real start" without
+    # being so strict it throws away too many otherwise-normal outings.
+    MIN_QUALIFYING_PITCHES = 60
+    all_starts = [g for g in log if (parse_ip(g.get("inningsPitched")) or 0) > 0]
+    qualifying_starts = [g for g in all_starts if (to_num(g.get("numberOfPitches")) or 0) >= MIN_QUALIFYING_PITCHES]
+    qualifying_starts_k = [int(to_num(g.get("strikeOuts")) or 0) for g in qualifying_starts]
+    qualifying_starts_outs = [int(round((parse_ip(g.get("inningsPitched")) or 0) * 3)) for g in qualifying_starts]
+
     recent_k9 = None
     recent_starts_log = []
     rolling_k_bb_pct = None
@@ -260,6 +274,7 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         "calibrationApplied": calibration_applied,
         "outsCalibrationApplied": outs_calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
+        "qualifyingStartsK": qualifying_starts_k, "qualifyingStartsOuts": qualifying_starts_outs,
         "seasonRecord": f"{int(to_num(season_stat.get('wins')) or 0)}-{int(to_num(season_stat.get('losses')) or 0)}",
         "era": season_stat.get("era"),
     }
@@ -421,6 +436,7 @@ def build(date, year):
             "confidence": p["confidence"], "reason": p["reason"],
             "calibrationApplied": p.get("calibrationApplied"),
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
+            "qualifyingStartsK": p["qualifyingStartsK"], "qualifyingStartsOuts": p["qualifyingStartsOuts"],
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
             "predictionLine": None, "predictionOutsLine": None,
             "graded": False, "actualK": None, "hit": None,
