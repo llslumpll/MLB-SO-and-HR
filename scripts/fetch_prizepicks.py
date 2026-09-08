@@ -47,6 +47,19 @@ def apply_prob_shrink(model_prob, shrink_factor):
     the displayed confidence in that call."""
     return 0.5 + (model_prob - 0.5) * shrink_factor
 
+
+def conditional_hit_rate(qualifying_totals, threshold):
+    """Same technique as 'when he throws 75+ pitches, he's over this
+    line in 10/12 games' -- given the pool of qualifying-start totals
+    already computed in build_ko.py and today's actual threshold, counts
+    how many of those normal-workload starts would have cleared it.
+    Returns None if there's no real pool to check against (a rookie with
+    only a couple qualifying starts isn't a meaningful sample)."""
+    if not qualifying_totals or len(qualifying_totals) < 5:
+        return None
+    hits = sum(1 for total in qualifying_totals if total >= threshold)
+    return {"hits": hits, "total": len(qualifying_totals), "minPitches": 60}
+
 # Substrings we look for in PrizePicks' stat_type field (case-insensitive).
 # Update these if the debug log shows PrizePicks phrasing it differently.
 HR_STAT_MATCHES = ["home run"]
@@ -249,6 +262,7 @@ def refine_outs_with_prizepicks(ko_data):
         e["outsCall"] = "OVER" if model_prob >= 0.5 else "UNDER"
         e["outsCallFrozenAt"] = datetime.utcnow().isoformat()
         e["predictionOutsLine"] = pp_line
+        e["conditionalOutsHitRate"] = conditional_hit_rate(e.get("qualifyingStartsOuts"), implied_threshold)
         refined += 1
 
     if refined:
@@ -431,6 +445,7 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             # actually corresponds to. History and grading should always
             # reference THIS frozen value, not the live-drifting one.
             e["predictionLine"] = pp_line
+            e["conditionalHitRate"] = conditional_hit_rate(e.get("qualifyingStartsK"), implied_threshold)
 
         implied_threshold = e["marketThreshold"]
         kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
