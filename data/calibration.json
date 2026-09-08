@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T21:10:43.808004",
+  "generatedAt": "2026-09-08T22:15:06.921972",
   "totalHRGraded": 3693,
   "totalKGraded": 306,
   "totalOutsGraded": 215,
@@ -102,6 +102,31 @@
       "bias": 0.0,
       "sampleSize": 9,
       "status": "insufficient data"
+    }
+  },
+  "probShrink": {
+    "ko": {
+      "shrinkFactor": 0.669,
+      "sampleSize": 183,
+      "rawShrinkFactor": -0.1032,
+      "status": "active"
+    },
+    "outs": {
+      "shrinkFactor": 1.0,
+      "sampleSize": 97,
+      "status": "insufficient data"
+    },
+    "hits": {
+      "shrinkFactor": 0.8491,
+      "sampleSize": 307,
+      "rawShrinkFactor": 0.4969,
+      "status": "active"
+    },
+    "totalBases": {
+      "shrinkFactor": 0.7249,
+      "sampleSize": 388,
+      "rawShrinkFactor": 0.0832,
+      "status": "active"
     }
   }
 }
