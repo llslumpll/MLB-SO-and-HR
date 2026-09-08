@@ -1177,7 +1177,8 @@ async function loadHistory(){
       </div>`;
   }
 
-  function trendChart(title, series, color){
+  function trendChart(title, series, color, description){
+    description = description || 'rolling daily accuracy (each dot is one day\'s real correct/total)';
     const points = series.filter(d=>d.tot>0);
     if(points.length < 2) return `<div class="status" style="margin:8px 0;">${title}: not enough graded days yet to show a trend.</div>`;
     const W=680, H=180, padL=36, padR=14, padT=14, padB=26;
@@ -1193,7 +1194,7 @@ async function loadHistory(){
     const lastLabel = points[n-1].day.slice(5);
     return `
       <div style="margin:8px 0;">
-        <div style="font-size:12px;color:var(--slate);margin-bottom:4px;">${title} — rolling daily accuracy (each dot is one day's real correct/total)</div>
+        <div style="font-size:12px;color:var(--slate);margin-bottom:4px;">${title} — ${description}</div>
         <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;">
           ${gridLines}
           <line x1="${padL}" y1="${fiftyLineY}" x2="${W-padR}" y2="${fiftyLineY}" stroke="var(--red)" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
@@ -1225,8 +1226,8 @@ async function loadHistory(){
   if(health && health.entries && health.entries.length){
     const kMatchSeries = health.entries.filter(e=>e.ppKTotal>0).map(e=>({day:e.date, hit:e.ppKMatched, tot:e.ppKTotal, pct: e.ppKMatched/e.ppKTotal*100}));
     const outsMatchSeries = health.entries.filter(e=>e.ppOutsTotal>0).map(e=>({day:e.date, hit:e.ppOutsMatched, tot:e.ppOutsTotal, pct: e.ppOutsMatched/e.ppOutsTotal*100}));
-    const kMatchChart = trendChart('PrizePicks K matching', kMatchSeries, '#5eb1ff');
-    const outsMatchChart = trendChart('PrizePicks Outs matching', outsMatchSeries, '#ff9d5e');
+    const kMatchChart = trendChart('PrizePicks K matching', kMatchSeries, '#5eb1ff', 'best daily match rate (each dot is the best matched/total seen that day)');
+    const outsMatchChart = trendChart('PrizePicks Outs matching', outsMatchSeries, '#ff9d5e', 'best daily match rate (each dot is the best matched/total seen that day)');
 
     const withCal = health.entries.filter(e=>e.calibration);
     const first = withCal[0], last = withCal[withCal.length-1];
