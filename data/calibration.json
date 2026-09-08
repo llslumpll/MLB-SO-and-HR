@@ -1,8 +1,10 @@
 {
-  "generatedAt": "2026-09-08T18:43:44.350411",
+  "generatedAt": "2026-09-08T21:04:14.752246",
   "totalHRGraded": 3693,
   "totalKGraded": 306,
   "totalOutsGraded": 215,
+  "totalHitsGraded": 1632,
+  "totalTotalBasesGraded": 1629,
   "minSampleRequired": 100,
   "dampenFactor": 0.3,
   "hr": {
@@ -61,6 +63,44 @@
     "Low": {
       "bias": 0.0,
       "sampleSize": 1,
+      "status": "insufficient data"
+    }
+  },
+  "hits": {
+    "High": {
+      "bias": -0.021,
+      "sampleSize": 1519,
+      "avgRawBias": -0.0699,
+      "status": "active"
+    },
+    "Medium": {
+      "bias": -0.0968,
+      "sampleSize": 104,
+      "avgRawBias": -0.3228,
+      "status": "active"
+    },
+    "Low": {
+      "bias": 0.0,
+      "sampleSize": 9,
+      "status": "insufficient data"
+    }
+  },
+  "totalBases": {
+    "High": {
+      "bias": -0.0271,
+      "sampleSize": 1516,
+      "avgRawBias": -0.0903,
+      "status": "active"
+    },
+    "Medium": {
+      "bias": -0.2255,
+      "sampleSize": 104,
+      "avgRawBias": -0.7518,
+      "status": "active"
+    },
+    "Low": {
+      "bias": 0.0,
+      "sampleSize": 9,
       "status": "insufficient data"
     }
   }
