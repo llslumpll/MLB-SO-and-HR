@@ -605,9 +605,9 @@
         17
       ],
       "marketThreshold": 7,
-      "marketProb": 0.52,
+      "marketProb": 0.51,
       "modelProb": 0.6375959085644832,
-      "edge": 0.11759590856448321,
+      "edge": 0.12759590856448322,
       "predictionLine": 6.0,
       "predictionOutsLine": 17.0,
       "graded": false,
@@ -640,7 +640,7 @@
       "prizePicksOutsLine": 17.0,
       "prizePicksLineDelta": 0.5,
       "openingThreshold": 7,
-      "priceDelta": 0.0,
+      "priceDelta": -0.010000000000000009,
       "prizePicksOutsLineDelta": 0.0
     },
     {
@@ -703,9 +703,9 @@
         17
       ],
       "marketThreshold": 5,
-      "marketProb": 0.53,
+      "marketProb": 0.54,
       "modelProb": 0.8632814789757761,
-      "edge": 0.3332814789757761,
+      "edge": 0.3232814789757761,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -734,7 +734,7 @@
       "prizePicksKLine": 4.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 5,
-      "priceDelta": 0.0
+      "priceDelta": 0.010000000000000009
     },
     {
       "gamePk": 823738,
@@ -1082,10 +1082,10 @@
         13,
         14
       ],
-      "marketThreshold": null,
-      "marketProb": null,
-      "modelProb": null,
-      "edge": null,
+      "marketThreshold": 6,
+      "marketProb": 0.44,
+      "modelProb": 0.5517094163890782,
+      "edge": 0.11170941638907822,
       "predictionLine": null,
       "predictionOutsLine": null,
       "graded": false,
@@ -1106,7 +1106,11 @@
       "outsModelProb": null,
       "outsEdge": null,
       "actualOuts": null,
-      "outsHit": null
+      "outsHit": null,
+      "openingProb": 0.44,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "oddsUpdatedAt": "2026-09-08T22:40:19.515928"
     },
     {
       "gamePk": 824957,
@@ -1446,11 +1450,11 @@
         17
       ],
       "marketThreshold": 6,
-      "marketProb": 0.4,
+      "marketProb": 0.43,
       "modelProb": 0.5039587475687565,
-      "edge": 0.10395874756875645,
+      "edge": 0.07395874756875648,
       "predictionLine": 5.0,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 17.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1464,9 +1468,9 @@
       "parkFactor": 0.9,
       "weatherFactor": 1.0,
       "outsCalibrationApplied": -0.349,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 18,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.7464467112662689,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -1477,7 +1481,17 @@
       "prizePicksKLine": 5.0,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.0
+      "priceDelta": 0.02999999999999997,
+      "prizePicksOutsOpeningLine": 17.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 17.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-08T22:40:19.517515",
+      "conditionalOutsHitRate": {
+        "hits": 8,
+        "total": 24,
+        "minPitches": 60
+      }
     },
     {
       "gamePk": 824228,
@@ -1551,9 +1565,9 @@
         12
       ],
       "marketThreshold": 5,
-      "marketProb": 0.46,
+      "marketProb": 0.47,
       "modelProb": 0.66296945161667,
-      "edge": 0.20296945161666996,
+      "edge": 0.19296945161667,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -1581,7 +1595,7 @@
       "prizePicksCallFrozenAt": "2026-09-08T11:20:20.819144",
       "prizePicksKLine": 4.5,
       "openingThreshold": 5,
-      "priceDelta": 0.0
+      "priceDelta": 0.009999999999999953
     },
     {
       "gamePk": 824063,
@@ -1827,9 +1841,9 @@
         12
       ],
       "marketThreshold": 6,
-      "marketProb": 0.42,
+      "marketProb": 0.4,
       "modelProb": 0.4798506321912288,
-      "edge": 0.059850632191228825,
+      "edge": 0.07985063219122879,
       "predictionLine": 5.0,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -1862,7 +1876,7 @@
       "prizePicksOutsLine": 17.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.0,
+      "priceDelta": -0.019999999999999962,
       "prizePicksOutsLineDelta": 0.0
     },
     {
@@ -1951,9 +1965,9 @@
         21
       ],
       "marketThreshold": 5,
-      "marketProb": 0.52,
+      "marketProb": 0.53,
       "modelProb": 0.6473586319687687,
-      "edge": 0.12735863196876873,
+      "edge": 0.11735863196876872,
       "predictionLine": 4.5,
       "predictionOutsLine": 15.5,
       "graded": false,
@@ -1986,7 +2000,7 @@
       "prizePicksOutsLine": 15.5,
       "prizePicksLineDelta": 0.5,
       "openingThreshold": 5,
-      "priceDelta": 0.0
+      "priceDelta": 0.010000000000000009
     },
     {
       "gamePk": 823092,
@@ -2459,9 +2473,9 @@
         15
       ],
       "marketThreshold": 6,
-      "marketProb": 0.38,
+      "marketProb": 0.39,
       "modelProb": 0.35460362629910336,
-      "edge": -0.025396373700896646,
+      "edge": -0.035396373700896655,
       "predictionLine": 5.0,
       "predictionOutsLine": 15.5,
       "graded": false,
@@ -2494,7 +2508,7 @@
       "prizePicksOutsLine": 15.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.0
+      "priceDelta": 0.010000000000000009
     },
     {
       "gamePk": 823414,
@@ -2687,9 +2701,9 @@
         20
       ],
       "marketThreshold": 4,
-      "marketProb": 0.57,
+      "marketProb": 0.64,
       "modelProb": 0.6791535770577342,
-      "edge": 0.10915357705773421,
+      "edge": 0.039153577057734146,
       "predictionLine": 3.5,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -2722,7 +2736,7 @@
       "prizePicksOutsLine": 17.5,
       "prizePicksLineDelta": 0.5,
       "openingThreshold": 4,
-      "priceDelta": 0.0,
+      "priceDelta": 0.07000000000000006,
       "prizePicksOutsLineDelta": 0.0
     },
     {
@@ -3453,5 +3467,5 @@
       "priceDelta": 0.0
     }
   ],
-  "oddsRefreshedAt": "2026-09-08T22:30:27.239517"
+  "oddsRefreshedAt": "2026-09-08T22:40:19.515928"
 }
