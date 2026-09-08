@@ -35,6 +35,8 @@ DAMPEN = 0.3
 HR_MULT_BOUNDS = (0.75, 1.25)
 K_BIAS_BOUNDS = (-1.5, 1.5)
 OUTS_BIAS_BOUNDS = (-3.0, 3.0)
+HITS_BIAS_BOUNDS = (-0.75, 0.75)
+TB_BIAS_BOUNDS = (-1.25, 1.25)
 TIERS = ["High", "Medium", "Low"]
 
 
@@ -76,6 +78,35 @@ def load_all_outs_entries():
         except Exception as e:  # noqa: BLE001
             print(f"  [warn] couldn't read {path}: {e}")
     return [e for e in entries if e.get("graded") and e.get("actualOuts") is not None]
+
+
+def load_all_hits_entries():
+    """Hits fields live on the same hr entries as heuristicProb, so this
+    reads the same data/hr/*.json files load_all_hr_entries does --
+    filtered specifically on actualHits since a graded HR entry doesn't
+    guarantee a Hits prediction was ever made for it (no PrizePicks
+    match), same reasoning as the K/Outs split above."""
+    entries = []
+    for path in sorted(glob.glob("data/hr/*.json")):
+        try:
+            with open(path) as f:
+                data = json.load(f)
+            entries.extend(data.get("entries", []))
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] couldn't read {path}: {e}")
+    return [e for e in entries if e.get("graded") and e.get("actualHits") is not None]
+
+
+def load_all_tb_entries():
+    entries = []
+    for path in sorted(glob.glob("data/hr/*.json")):
+        try:
+            with open(path) as f:
+                data = json.load(f)
+            entries.extend(data.get("entries", []))
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] couldn't read {path}: {e}")
+    return [e for e in entries if e.get("graded") and e.get("actualTotalBases") is not None]
 
 
 def calibrate_hr(entries):
@@ -156,34 +187,93 @@ def calibrate_outs(entries):
     return result
 
 
+def calibrate_hits(entries):
+    """Same bias-correction pattern as calibrate_ko -- projectedHits runs
+    in a much smaller range (typically 0-3) than K, so the bias bounds
+    are tighter accordingly."""
+    result = {}
+    for tier in TIERS:
+        tier_entries = [e for e in entries if e.get("confidence") == tier]
+        n = len(tier_entries)
+        if n < MIN_SAMPLE:
+            result[tier] = {"bias": 0.0, "sampleSize": n, "status": "insufficient data"}
+            continue
+
+        avg_raw_bias = sum(e["actualHits"] - e["projectedHits"] for e in tier_entries) / n
+        dampened = DAMPEN * avg_raw_bias
+        dampened = max(HITS_BIAS_BOUNDS[0], min(HITS_BIAS_BOUNDS[1], dampened))
+
+        result[tier] = {
+            "bias": round(dampened, 4),
+            "sampleSize": n,
+            "avgRawBias": round(avg_raw_bias, 4),
+            "status": "active",
+        }
+    return result
+
+
+def calibrate_total_bases(entries):
+    """Same pattern again, for projectedTotalBases/actualTotalBases."""
+    result = {}
+    for tier in TIERS:
+        tier_entries = [e for e in entries if e.get("confidence") == tier]
+        n = len(tier_entries)
+        if n < MIN_SAMPLE:
+            result[tier] = {"bias": 0.0, "sampleSize": n, "status": "insufficient data"}
+            continue
+
+        avg_raw_bias = sum(e["actualTotalBases"] - e["projectedTotalBases"] for e in tier_entries) / n
+        dampened = DAMPEN * avg_raw_bias
+        dampened = max(TB_BIAS_BOUNDS[0], min(TB_BIAS_BOUNDS[1], dampened))
+
+        result[tier] = {
+            "bias": round(dampened, 4),
+            "sampleSize": n,
+            "avgRawBias": round(avg_raw_bias, 4),
+            "status": "active",
+        }
+    return result
+
+
 def run():
     hr_entries = load_all_hr_entries()
     ko_entries = load_all_ko_entries()
     outs_entries = load_all_outs_entries()
+    hits_entries = load_all_hits_entries()
+    tb_entries = load_all_tb_entries()
 
     calibration = {
         "generatedAt": datetime.utcnow().isoformat(),
         "totalHRGraded": len(hr_entries),
         "totalKGraded": len(ko_entries),
         "totalOutsGraded": len(outs_entries),
+        "totalHitsGraded": len(hits_entries),
+        "totalTotalBasesGraded": len(tb_entries),
         "minSampleRequired": MIN_SAMPLE,
         "dampenFactor": DAMPEN,
         "hr": calibrate_hr(hr_entries),
         "ko": calibrate_ko(ko_entries),
         "outs": calibrate_outs(outs_entries),
+        "hits": calibrate_hits(hits_entries),
+        "totalBases": calibrate_total_bases(tb_entries),
     }
 
     os.makedirs("data", exist_ok=True)
     with open("data/calibration.json", "w") as f:
         json.dump(calibration, f, indent=2, default=str)
 
-    print(f"Calibration updated: {len(hr_entries)} HR graded entries, {len(ko_entries)} K graded entries, {len(outs_entries)} Outs graded entries")
+    print(f"Calibration updated: {len(hr_entries)} HR graded entries, {len(ko_entries)} K graded entries, "
+          f"{len(outs_entries)} Outs graded entries, {len(hits_entries)} Hits graded entries, {len(tb_entries)} Total Bases graded entries")
     for tier, v in calibration["hr"].items():
         print(f"  HR {tier}: {v}")
     for tier, v in calibration["ko"].items():
         print(f"  K {tier}: {v}")
     for tier, v in calibration["outs"].items():
         print(f"  Outs {tier}: {v}")
+    for tier, v in calibration["hits"].items():
+        print(f"  Hits {tier}: {v}")
+    for tier, v in calibration["totalBases"].items():
+        print(f"  Total Bases {tier}: {v}")
 
     return calibration
 
