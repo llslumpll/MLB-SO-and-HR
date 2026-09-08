@@ -1098,7 +1098,7 @@ async function loadHistory(){
     dayData[day] = { hr, ko };
   }));
 
-  const tiers = { High:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0}, Medium:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0}, Low:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0} };
+  const tiers = { High:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0,hitsHit:0,hitsTot:0,tbHit:0,tbTot:0}, Medium:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0,hitsHit:0,hitsTot:0,tbHit:0,tbTot:0}, Low:{hrHit:0,hrTot:0,koHit:0,koTot:0,outsHit:0,outsTot:0,hitsHit:0,hitsTot:0,tbHit:0,tbTot:0} };
   // Per-day accuracy, used for the rolling trend chart -- this is the
   // direct answer to "is it actually getting better over time": each
   // day's real correct/total using the exact same comparison logic as
@@ -1107,7 +1107,7 @@ async function loadHistory(){
   const dailyStats = [];
   Object.keys(dayData).sort().forEach(day=>{
     const dd = dayData[day];
-    let kHit=0, kTot=0, outsHit=0, outsTot=0;
+    let kHit=0, kTot=0, outsHit=0, outsTot=0, hitsHit=0, hitsTot=0, tbHit=0, tbTot=0;
     let hrHighHit=0, hrHighTot=0, hrHighProbSum=0;
     if(dd.hr) dd.hr.entries.forEach(e=>{
       if(e.graded && e.confidence && tiers[e.confidence]){ tiers[e.confidence].hrTot++; if(e.hr) tiers[e.confidence].hrHit++; }
@@ -1121,6 +1121,24 @@ async function loadHistory(){
         hrHighTot++;
         hrHighProbSum += e.heuristicProb;
         if(e.hr) hrHighHit++;
+      }
+      if(e.graded && e.confidence && e.hitsCall && e.hitsHit!=null && tiers[e.confidence]){
+        tiers[e.confidence].hitsTot++;
+        const hitsPredictionCorrect = (e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER');
+        if(hitsPredictionCorrect) tiers[e.confidence].hitsHit++;
+      }
+      if(e.graded && e.hitsCall && e.hitsHit!=null){
+        hitsTot++;
+        if((e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER')) hitsHit++;
+      }
+      if(e.graded && e.confidence && e.tbCall && e.tbHit!=null && tiers[e.confidence]){
+        tiers[e.confidence].tbTot++;
+        const tbPredictionCorrect = (e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER');
+        if(tbPredictionCorrect) tiers[e.confidence].tbHit++;
+      }
+      if(e.graded && e.tbCall && e.tbHit!=null){
+        tbTot++;
+        if((e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER')) tbHit++;
       }
     });
     if(dd.ko) dd.ko.entries.forEach(e=>{
@@ -1143,7 +1161,7 @@ async function loadHistory(){
         if((e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER')) outsHit++;
       }
     });
-    if(kTot>0 || outsTot>0 || hrHighTot>0) dailyStats.push({day, kHit, kTot, outsHit, outsTot, hrHighHit, hrHighTot, hrHighProbSum});
+    if(kTot>0 || outsTot>0 || hrHighTot>0 || hitsTot>0 || tbTot>0) dailyStats.push({day, kHit, kTot, outsHit, outsTot, hrHighHit, hrHighTot, hrHighProbSum, hitsHit, hitsTot, tbHit, tbTot});
   });
 
   function calibrationTrendChart(title, series, actualColor, predictedColor){
@@ -1208,6 +1226,8 @@ async function loadHistory(){
 
   const kTrendChart = trendChart('Strikeouts', dailyStats.map(d=>({day:d.day, hit:d.kHit, tot:d.kTot, pct: d.kTot?d.kHit/d.kTot*100:0})), 'var(--amber)');
   const outsTrendChart = trendChart('Pitching Outs', dailyStats.map(d=>({day:d.day, hit:d.outsHit, tot:d.outsTot, pct: d.outsTot?d.outsHit/d.outsTot*100:0})), '#5eb1ff');
+  const hitsTrendChart = trendChart('Hits', dailyStats.map(d=>({day:d.day, hit:d.hitsHit, tot:d.hitsTot, pct: d.hitsTot?d.hitsHit/d.hitsTot*100:0})), '#c77dff');
+  const tbTrendChart = trendChart('Total Bases', dailyStats.map(d=>({day:d.day, hit:d.tbHit, tot:d.tbTot, pct: d.tbTot?d.tbHit/d.tbTot*100:0})), '#ff9d5e');
   const hrCalibrationChart = calibrationTrendChart('Home Runs (High confidence)', dailyStats.map(d=>({
     day:d.day, tot:d.hrHighTot,
     actualPct: d.hrHighTot?d.hrHighHit/d.hrHighTot*100:0,
@@ -1216,7 +1236,7 @@ async function loadHistory(){
 
   const tierRows = ['High','Medium','Low'].map(t=>{
     const x = tiers[t];
-    return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td><td>${x.outsTot?`${x.outsHit}/${x.outsTot} (${(x.outsHit/x.outsTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
+    return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td><td>${x.outsTot?`${x.outsHit}/${x.outsTot} (${(x.outsHit/x.outsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.hitsTot?`${x.hitsHit}/${x.hitsTot} (${(x.hitsHit/x.hitsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.tbTot?`${x.tbHit}/${x.tbTot} (${(x.tbHit/x.tbTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
   }).join('');
 
   const calibration = await fetchJSONLocal('data/calibration.json').catch(()=>null);
@@ -1226,8 +1246,12 @@ async function loadHistory(){
   if(health && health.entries && health.entries.length){
     const kMatchSeries = health.entries.filter(e=>e.ppKTotal>0).map(e=>({day:e.date, hit:e.ppKMatched, tot:e.ppKTotal, pct: e.ppKMatched/e.ppKTotal*100}));
     const outsMatchSeries = health.entries.filter(e=>e.ppOutsTotal>0).map(e=>({day:e.date, hit:e.ppOutsMatched, tot:e.ppOutsTotal, pct: e.ppOutsMatched/e.ppOutsTotal*100}));
+    const hitsMatchSeries = health.entries.filter(e=>e.ppHitsTotal>0).map(e=>({day:e.date, hit:e.ppHitsMatched, tot:e.ppHitsTotal, pct: e.ppHitsMatched/e.ppHitsTotal*100}));
+    const tbMatchSeries = health.entries.filter(e=>e.ppTBTotal>0).map(e=>({day:e.date, hit:e.ppTBMatched, tot:e.ppTBTotal, pct: e.ppTBMatched/e.ppTBTotal*100}));
     const kMatchChart = trendChart('PrizePicks K matching', kMatchSeries, '#5eb1ff', 'best daily match rate (each dot is the best matched/total seen that day)');
     const outsMatchChart = trendChart('PrizePicks Outs matching', outsMatchSeries, '#ff9d5e', 'best daily match rate (each dot is the best matched/total seen that day)');
+    const hitsMatchChart = trendChart('PrizePicks Hits matching', hitsMatchSeries, '#c77dff', 'best daily match rate (each dot is the best matched/total seen that day)');
+    const tbMatchChart = trendChart('PrizePicks Total Bases matching', tbMatchSeries, 'var(--amber)', 'best daily match rate (each dot is the best matched/total seen that day)');
 
     const withCal = health.entries.filter(e=>e.calibration);
     const first = withCal[0], last = withCal[withCal.length-1];
@@ -1244,6 +1268,8 @@ async function loadHistory(){
         ${sampleRow('Strikeouts — Medium','ko','Medium')}
         ${sampleRow('Pitching Outs — High','outs','High')}
         ${sampleRow('Pitching Outs — Medium','outs','Medium')}
+        ${sampleRow('Hits — High','hits','High')}
+        ${sampleRow('Total Bases — High','totalBases','High')}
       </tbody></table>` : '<div class="status">Needs at least two logged days to show growth.</div>';
 
     pipelineHealthSection = `
@@ -1252,6 +1278,8 @@ async function loadHistory(){
         <div class="status" style="margin-bottom:4px;">Is the plumbing actually working day to day, separate from whether the predictions are good. A healthy pipeline still needs weeks of clean data before accuracy above means much.</div>
         ${kMatchChart}
         ${outsMatchChart}
+        ${hitsMatchChart}
+        ${tbMatchChart}
         <div style="font-size:12px;color:var(--slate);margin:10px 0 4px;">Calibration sample size growth (${withCal.length} day${withCal.length===1?'':'s'} logged)</div>
         ${sampleGrowthTable}
       </div>`;
@@ -1270,6 +1298,8 @@ async function loadHistory(){
       <div class="status" style="margin-bottom:4px;">The dashed line marks 50% -- a coin flip. If the model is genuinely learning, dots should trend up and away from it as more days accumulate, not stay flat around it.</div>
       ${kTrendChart}
       ${outsTrendChart}
+      ${hitsTrendChart}
+      ${tbTrendChart}
     </div>
     <div class="day-card" style="margin-bottom:16px;">
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Home Run Calibration Over Time</div>
@@ -1278,7 +1308,7 @@ async function loadHistory(){
     </div>
     <div class="day-card" style="margin-bottom:16px;">
       <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Confidence Tier</div>
-      <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K predictions correct</th><th>Outs predictions correct</th></tr></thead><tbody>${tierRows}</tbody></table>
+      <table class="board"><thead><tr><th>Confidence</th><th>HR hit rate</th><th>K predictions correct</th><th>Outs predictions correct</th><th>Hits predictions correct</th><th>TB predictions correct</th></tr></thead><tbody>${tierRows}</tbody></table>
       <div class="status" style="margin-top:6px;">Only counts graded entries. Needs at least a couple weeks of data to mean much.</div>
     </div>
     ${renderCalibrationCard(calibration)}
@@ -1289,13 +1319,55 @@ async function loadHistory(){
     html += `<div class="month-group"><div class="month-head">${month}</div>`;
     for(const day of byMonth[month]){
       const dd = dayData[day];
-      let hrSection='', koSection='', outsSection='';
+      let hrSection='', koSection='', outsSection='', hitsSection='', tbSection='';
       if(dd.hr){
         const graded = dd.hr.entries.filter(e=>e.graded);
         const hits = graded.filter(e=>e.hr).length;
         hrSection = `<div class="day-sub-head">Home Runs — ${dd.hr.entries.length} tracked, ${graded.length?`${hits}/${graded.length} hit (${(hits/graded.length*100).toFixed(1)}%)`:'ungraded'}</div>
           <table class="board"><thead><tr><th>Batter</th><th>HR%</th><th>Market</th><th>Edge</th><th>Result</th></tr></thead>
           <tbody>${dd.hr.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${pct(e.heuristicProb)}</td><td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td><td class="${e.edge>0?'edge-pos':e.edge<0?'edge-neg':'edge-flat'}">${e.edge===null||e.edge===undefined?'—':(e.edge*100).toFixed(1)+'%'}</td><td>${e.graded?(e.hr?'✅ HR':'—'):'pending'}</td></tr>`).join('')}</tbody></table>`;
+
+        const hitsLineForDisplayAll = e=>e.predictionHitsLine ?? e.prizePicksHitsLine;
+        const hitsGwl = graded.filter(e=>e.hitsCall && hitsLineForDisplayAll(e)!=null);
+        const hitsHits = hitsGwl.filter(e=>{
+          if(e.hitsHit==null) return false;
+          return (e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER');
+        }).length;
+        hitsSection = `<div class="day-sub-head">Hits — ${dd.hr.entries.length} tracked, ${hitsGwl.length?`${hitsHits}/${hitsGwl.length} predictions correct (${(hitsHits/hitsGwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+          <table class="board"><thead><tr><th>Batter</th><th>Proj Hits</th><th>Line</th><th>Prediction</th><th>Actual Hits</th><th>Result</th></tr></thead>
+          <tbody>${dd.hr.entries.slice(0,40).map(e=>{
+            const hitsLineForDisplay = e.predictionHitsLine ?? e.prizePicksHitsLine;
+            const hitsHasLine = hitsLineForDisplay!=null;
+            const hitsHasPrediction = hitsHasLine && !!e.hitsCall;
+            const hitsPrediction = e.hitsCall ? `<span class="pp-call pp-call-${e.hitsCall.toLowerCase()}">${e.hitsCall}</span>` : '—';
+            const hitsActualDirection = e.hitsHit ? 'Over' : 'Under';
+            const hitsPredictionCorrect = (e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER');
+            const hitsResult = !e.graded ? 'pending'
+              : hitsHasPrediction && e.hitsHit!=null ? (hitsPredictionCorrect ? `✅ ${hitsActualDirection}` : `❌ ${hitsActualDirection}`)
+              : '<span class="status">no prediction to grade</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedHits!=null?e.projectedHits.toFixed(1):'—'}</td><td>${hitsHasLine?hitsLineForDisplay:'—'}</td><td>${hitsPrediction}</td><td>${e.graded&&e.actualHits!=null?e.actualHits:'—'}</td><td>${hitsResult}</td></tr>`;
+          }).join('')}</tbody></table>`;
+
+        const tbLineForDisplayAll = e=>e.predictionTBLine ?? e.prizePicksTBLine;
+        const tbGwl = graded.filter(e=>e.tbCall && tbLineForDisplayAll(e)!=null);
+        const tbHits = tbGwl.filter(e=>{
+          if(e.tbHit==null) return false;
+          return (e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER');
+        }).length;
+        tbSection = `<div class="day-sub-head">Total Bases — ${dd.hr.entries.length} tracked, ${tbGwl.length?`${tbHits}/${tbGwl.length} predictions correct (${(tbHits/tbGwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+          <table class="board"><thead><tr><th>Batter</th><th>Proj TB</th><th>Line</th><th>Prediction</th><th>Actual TB</th><th>Result</th></tr></thead>
+          <tbody>${dd.hr.entries.slice(0,40).map(e=>{
+            const tbLineForDisplay = e.predictionTBLine ?? e.prizePicksTBLine;
+            const tbHasLine = tbLineForDisplay!=null;
+            const tbHasPrediction = tbHasLine && !!e.tbCall;
+            const tbPrediction = e.tbCall ? `<span class="pp-call pp-call-${e.tbCall.toLowerCase()}">${e.tbCall}</span>` : '—';
+            const tbActualDirection = e.tbHit ? 'Over' : 'Under';
+            const tbPredictionCorrect = (e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER');
+            const tbResult = !e.graded ? 'pending'
+              : tbHasPrediction && e.tbHit!=null ? (tbPredictionCorrect ? `✅ ${tbActualDirection}` : `❌ ${tbActualDirection}`)
+              : '<span class="status">no prediction to grade</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedTotalBases!=null?e.projectedTotalBases.toFixed(1):'—'}</td><td>${tbHasLine?tbLineForDisplay:'—'}</td><td>${tbPrediction}</td><td>${e.graded&&e.actualTotalBases!=null?e.actualTotalBases:'—'}</td><td>${tbResult}</td></tr>`;
+          }).join('')}</tbody></table>`;
       }
       if(dd.ko){
         const graded = dd.ko.entries.filter(e=>e.graded);
@@ -1347,7 +1419,7 @@ async function loadHistory(){
             return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedOuts!=null?e.projectedOuts.toFixed(1):'—'}</td><td>${outsHasLine?outsLineForDisplay:'—'}</td><td>${outsPrediction}</td><td>${e.graded&&e.actualOuts!=null?e.actualOuts:'—'}</td><td>${outsResult}</td></tr>`;
           }).join('')}</tbody></table>`;
       }
-      html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${koSection}${outsSection}</div></div>`;
+      html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${hitsSection}${tbSection}${koSection}${outsSection}</div></div>`;
     }
     html += `</div>`;
   }
