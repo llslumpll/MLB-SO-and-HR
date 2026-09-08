@@ -235,6 +235,63 @@ def calibrate_total_bases(entries):
     return result
 
 
+PROB_SHRINK_BOUNDS = (0.3, 1.0)  # never amplify confidence, only ever shrink it toward 50%
+
+
+def calibrate_probability_shrink(entries, call_field, hit_field, prob_field):
+    """Separate from the mean-projection bias correction above -- this
+    corrects the model's PROBABILITY itself, not the projected number.
+
+    The finding this exists to fix: when the model says '80%+ confident',
+    real accuracy in that bucket has been running closer to 65%. The
+    model's own confidence is real signal (higher-confidence picks DO win
+    more) but too extreme relative to what actually happens -- a known
+    pattern when Poisson math assumes less real-world randomness than
+    actually exists (umpire zone, day-to-day stuff, matchup swings the
+    model can't see all add variance the pure math doesn't account for).
+
+    The fix is a single shrink factor per stat: adjusted = 0.5 +
+    (raw - 0.5) * shrinkFactor. A factor of 1.0 means "trust the raw
+    number completely"; 0.5 means "the real spread is half as extreme as
+    claimed". Found via simple linear regression through the origin (no
+    intercept, since a genuine coinflip call should show zero average
+    excess correctness by symmetry) -- this is standard reliability
+    calibration, not a black box: shrinkFactor = sum(x*y) / sum(x*x),
+    where x is the model's claimed edge above 50% and y is whether it was
+    actually right, centered the same way.
+
+    call_field/hit_field/prob_field let one function serve all four
+    stats (K, Outs, Hits, Total Bases) without duplicating this logic
+    four times."""
+    valid = [e for e in entries if e.get(call_field) and e.get(hit_field) is not None and e.get(prob_field) is not None]
+    n = len(valid)
+    if n < MIN_SAMPLE:
+        return {"shrinkFactor": 1.0, "sampleSize": n, "status": "insufficient data"}
+
+    sum_xy, sum_xx = 0.0, 0.0
+    for e in valid:
+        call, hit, prob = e[call_field], e[hit_field], e[prob_field]
+        call_confidence = prob if call == "OVER" else (1 - prob)
+        x = call_confidence - 0.5
+        y_centered = (1.0 if hit else 0.0) - 0.5
+        sum_xy += x * y_centered
+        sum_xx += x * x
+
+    if sum_xx <= 0:
+        return {"shrinkFactor": 1.0, "sampleSize": n, "status": "insufficient data"}
+
+    raw_shrink = sum_xy / sum_xx
+    dampened = 1 + DAMPEN * (raw_shrink - 1)
+    dampened = max(PROB_SHRINK_BOUNDS[0], min(PROB_SHRINK_BOUNDS[1], dampened))
+
+    return {
+        "shrinkFactor": round(dampened, 4),
+        "sampleSize": n,
+        "rawShrinkFactor": round(raw_shrink, 4),
+        "status": "active",
+    }
+
+
 def run():
     hr_entries = load_all_hr_entries()
     ko_entries = load_all_ko_entries()
@@ -256,6 +313,12 @@ def run():
         "outs": calibrate_outs(outs_entries),
         "hits": calibrate_hits(hits_entries),
         "totalBases": calibrate_total_bases(tb_entries),
+        "probShrink": {
+            "ko": calibrate_probability_shrink(ko_entries, "prizePicksCall", "hit", "modelProb"),
+            "outs": calibrate_probability_shrink(outs_entries, "outsCall", "outsHit", "outsModelProb"),
+            "hits": calibrate_probability_shrink(hits_entries, "hitsCall", "hitsHit", "hitsModelProb"),
+            "totalBases": calibrate_probability_shrink(tb_entries, "tbCall", "tbHit", "tbModelProb"),
+        },
     }
 
     os.makedirs("data", exist_ok=True)
@@ -274,6 +337,8 @@ def run():
         print(f"  Hits {tier}: {v}")
     for tier, v in calibration["totalBases"].items():
         print(f"  Total Bases {tier}: {v}")
+    for stat, v in calibration["probShrink"].items():
+        print(f"  Prob shrink {stat}: {v}")
 
     return calibration
 
