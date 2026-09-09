@@ -168,7 +168,83 @@ def fetch_recent_matchup_split(opp_team_id, pitcher_hand, year, today_iso_date):
     return {"bbPct": bb_pct, "obp": obp, "gamesFound": matched, "vsHand": pitcher_hand}
 
 
-def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None, park=None, weather=None, today_iso_date=None):
+_BULLPEN_FATIGUE_CACHE = {}
+LEAGUE_AVG_RELIEF_IP_PER_GAME = 3.5  # roughly matches modern bullpen usage norms
+MIN_BULLPEN_GAMES = 2
+
+
+def fetch_bullpen_fatigue(team_id, today_iso_date, lookback_games=3):
+    """Is THIS team's own bullpen (not the opponent's -- this is about
+    whether tonight's manager has extra incentive to stretch the starter)
+    genuinely gassed right now. Fetches the team's last few completed
+    games' boxscores, sums up everyone who pitched EXCEPT that game's
+    starter, and compares the average relief workload against a league
+    norm. Returns None (an honest absence, not a neutral 1.0) whenever
+    fewer than MIN_BULLPEN_GAMES games could actually be checked, so the
+    caller can distinguish 'genuinely average' from 'couldn't find out'."""
+    cache_key = (team_id, today_iso_date)
+    if cache_key in _BULLPEN_FATIGUE_CACHE:
+        return _BULLPEN_FATIGUE_CACHE[cache_key]
+
+    result = None
+    try:
+        from datetime import datetime, timedelta
+        end = datetime.strptime(today_iso_date, "%Y-%m-%d")
+        start = end - timedelta(days=14)  # a couple weeks is plenty to find 3 completed games
+        sched = get(f"{API}/schedule", params={
+            "teamId": team_id, "startDate": start.strftime("%Y-%m-%d"),
+            "endDate": (end - timedelta(days=1)).strftime("%Y-%m-%d"),
+            "sportId": 1, "hydrate": "probablePitcher", "gameType": "R",
+        })
+        games = []
+        for d in sched.get("dates") or []:
+            games.extend(d.get("games") or [])
+        completed = [g for g in games if g.get("status", {}).get("abstractGameState") == "Final"]
+        recent = completed[-lookback_games:]
+
+        total_relief_ip = 0.0
+        games_counted = 0
+        for g in recent:
+            away_id = g["teams"]["away"]["team"]["id"]
+            home_id = g["teams"]["home"]["team"]["id"]
+            side = "away" if away_id == team_id else "home" if home_id == team_id else None
+            if side is None:
+                continue
+            starter = g["teams"][side].get("probablePitcher")
+            if not starter:
+                continue
+            try:
+                box = get(f"{API}/game/{g['gamePk']}/boxscore")
+            except Exception:  # noqa: BLE001
+                continue
+            team_box = (box.get("teams") or {}).get(side) or {}
+            players = team_box.get("players") or {}
+            relief_ip = 0.0
+            for player_key, player_data in players.items():
+                pid = (player_data.get("person") or {}).get("id")
+                if pid is None or pid == starter.get("id"):
+                    continue
+                pitching_stat = ((player_data.get("stats") or {}).get("pitching") or {})
+                ip = parse_ip(pitching_stat.get("inningsPitched"))
+                if ip:
+                    relief_ip += ip
+            total_relief_ip += relief_ip
+            games_counted += 1
+
+        if games_counted >= MIN_BULLPEN_GAMES:
+            avg_relief_ip = total_relief_ip / games_counted
+            raw_factor = clip(avg_relief_ip / LEAGUE_AVG_RELIEF_IP_PER_GAME, 0.85, 1.25)
+            dampened = 1 + (raw_factor - 1) * 0.5
+            result = {"factor": round(dampened, 3), "avgRecentReliefIP": round(avg_relief_ip, 1), "gamesCounted": games_counted}
+    except Exception as e:  # noqa: BLE001
+        print(f"    [warn] bullpen fatigue fetch failed for team {team_id}: {e}")
+        result = None
+
+    _BULLPEN_FATIGUE_CACHE[cache_key] = result
+    return result
+
+
+def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None, park=None, weather=None, today_iso_date=None, own_team_id=None):
     try:
         data = get(f"{API}/people/{pitcher_id}/stats", params={
             "stats": "season,gameLog", "group": "pitching", "season": year,
@@ -392,7 +468,19 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     k_bb_factor = clip(1.0 + (k_bb_pct - 15.0) / 100.0, 0.85, 1.15) if k_bb_pct is not None else 1.0
     raw_efficiency = (p_per_ip_factor * k_bb_factor) ** 0.5
     dampened_efficiency = 1 + (raw_efficiency - 1) * 0.5
-    projected_ip_outs = clip(base_ip * dampened_matchup * dampened_efficiency, 3.0, 7.0)
+
+    # Bullpen fatigue: a manager whose relievers have been heavily used
+    # the last few games has a real, concrete reason to stretch tonight's
+    # starter deeper -- not a vague vibe, an actual incentive. Already
+    # dampened once inside fetch_bullpen_fatigue itself; this is a
+    # SEPARATE signal from the efficiency/matchup factors above (this
+    # pitcher's own team's situation, not his own stuff or tonight's
+    # opponent), so it's applied as its own independent multiplier rather
+    # than folded into either existing blend.
+    bullpen_fatigue = fetch_bullpen_fatigue(own_team_id, today_iso_date) if (own_team_id and today_iso_date) else None
+    bullpen_factor = bullpen_fatigue["factor"] if bullpen_fatigue else 1.0
+
+    projected_ip_outs = clip(base_ip * dampened_matchup * dampened_efficiency * bullpen_factor, 3.0, 7.0)
     projected_outs = round(projected_ip_outs * 3, 1)
 
     velo_trend = fetch_pitcher_velo_trend(pitcher_id, year, pitcher_pct_map)
@@ -438,6 +526,7 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         "parkFactor": park_hr_factor, "weatherFactor": weather_k_factor,
         "calibrationApplied": calibration_applied,
         "outsCalibrationApplied": outs_calibration_applied,
+        "bullpenFatigue": bullpen_fatigue,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
         "qualifyingStartsKByThreshold": qualifying_starts_k_by_threshold, "qualifyingStartsOutsByThreshold": qualifying_starts_outs_by_threshold,
         "babipAgainst": babip_against,
@@ -528,11 +617,11 @@ def reason_text(p):
 def outs_reason_text(p):
     """Reasoning specifically for the pitching-outs 'long leash' projection.
     Every factor referenced here is something that actually feeds the
-    projection math above -- pitches/game, pitches/inning, BB%, K-BB%, and
-    workload (IP/GS). First-pitch strike % and 3rd-time-through-the-order
-    splits aren't included because this site doesn't currently have a
-    verified data source for either; bullpen fatigue isn't included since
-    it's a team-level signal, not something tracked per pitcher here."""
+    projection math above -- pitches/game, pitches/inning, BB%, K-BB%,
+    workload (IP/GS), and now bullpen fatigue (the pitcher's own team's
+    recent relief usage). First-pitch strike % and 3rd-time-through-the-
+    order splits still aren't included -- no verified data source for
+    either from this environment."""
     positives, negatives = [], []
 
     if p.get("npPerGame") is not None:
@@ -559,6 +648,12 @@ def outs_reason_text(p):
             negatives.append(f"shaky command (K-BB% of only {p['kBBPct']:.1f}%)")
     if p.get("bbPct") is not None and p["bbPct"] >= 9.0:
         negatives.append(f"a walk rate that tends to spike pitch counts ({p['bbPct']:.1f}% BB)")
+
+    bf = p.get("bullpenFatigue")
+    if bf and bf["factor"] >= 1.06:
+        positives.append(f"a bullpen that's been leaned on hard lately ({bf['avgRecentReliefIP']:.1f} relief innings/game over their last {bf['gamesCounted']}), giving the manager real reason to stretch him out")
+    elif bf and bf["factor"] <= 0.96:
+        negatives.append(f"a well-rested bullpen right now ({bf['avgRecentReliefIP']:.1f} relief innings/game over their last {bf['gamesCounted']}), which removes some of the incentive to push him deep")
 
     base = (f"Projected for {p['projectedOuts']:.1f} outs ({p['expectedIP']:.1f} innings)")
     sentence = base
@@ -601,7 +696,7 @@ def build(date, year):
 
     entries = []
     for job in jobs:
-        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration, job.get("park"), job.get("weather"), today_iso_date=date)
+        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration, job.get("park"), job.get("weather"), today_iso_date=date, own_team_id=job["team"]["id"])
         if not proj:
             continue
         p = {
@@ -634,6 +729,7 @@ def build(date, year):
             "rollingKBBPct": p.get("rollingKBBPct"), "parkFactor": p.get("parkFactor"),
             "weatherFactor": p.get("weatherFactor"),
             "outsCalibrationApplied": p.get("outsCalibrationApplied"),
+            "bullpenFatigue": p.get("bullpenFatigue"),
             "outsMarketThreshold": None, "outsMarketProb": None, "outsModelProb": None, "outsEdge": None,
             "actualOuts": None, "outsHit": None,
         })
