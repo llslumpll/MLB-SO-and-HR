@@ -952,6 +952,17 @@ function matchupCard(m){
     </div>
   `;
 
+  const platoon = m.oppPlatoonProfile;
+  const platoonHtml = platoon ? `
+    <div class="matchup-section-label">Opposing lineup vs ${platoon.vsHand==='L'?'LEFT-HANDED':'RIGHT-HANDED'} pitching this season</div>
+    <div class="factor-grid">
+      <div class="factor-item"><div class="fv ${platoon.avg!=null&&platoon.avg<0.240?'stat-good':platoon.avg!=null&&platoon.avg>=0.270?'stat-bad':''}">${platoon.avg!=null?fmt3(platoon.avg):'—'}</div><div class="fl">AVG vs ${platoon.vsHand}HP</div></div>
+      <div class="factor-item"><div class="fv ${platoon.kPct!=null&&platoon.kPct<20?'stat-bad':platoon.kPct!=null&&platoon.kPct>=26?'stat-good':''}">${platoon.kPct!=null?platoon.kPct.toFixed(1)+'%':'—'}</div><div class="fl">K% vs ${platoon.vsHand}HP</div></div>
+      <div class="factor-item"><div class="fv ${platoon.babip!=null&&platoon.babip<0.290?'stat-good':platoon.babip!=null&&platoon.babip>0.310?'stat-bad':''}">${platoon.babip!=null?fmt3(platoon.babip):'—'}</div><div class="fl">BABIP vs ${platoon.vsHand}HP</div></div>
+    </div>
+    <div class="status" style="margin-top:6px;font-size:9.5px;">${platoon.plateAppearances!=null?Math.round(platoon.plateAppearances)+' PA':'—'} this season vs ${platoon.vsHand==='L'?'lefties':'righties'} -- a real, more targeted split than the overall season numbers above, since tonight's starter throws ${platoon.vsHand==='L'?'left':'right'}-handed.</div>
+  ` : '';
+
   return `
     <div class="matchup-card">
       <div class="matchup-head">${m.name}${m.hand?` (${m.hand}HP)`:''}</div>
@@ -960,6 +971,7 @@ function matchupCard(m){
       ${metricsHtml}
       <div class="matchup-section-label">Opposing lineup (${m.opp}) — season offensive profile</div>
       ${oppMetricsHtml}
+      ${platoonHtml}
       <div class="matchup-section-label">Pitch arsenal (season)</div>
       ${arsenalHtml}
       ${zoneHtml ? `<div class="matchup-section-label">Zone attack</div>${zoneHtml}` : ''}
