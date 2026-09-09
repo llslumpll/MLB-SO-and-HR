@@ -111,6 +111,30 @@ def team_hitting_rates(hit_stat):
     return k_pct, babip
 
 
+def fetch_team_hitting_split(team_id, year):
+    """Team-level equivalent of fetch_platoon_hr in build_hr.py -- same
+    statSplits/sitCodes API pattern already proven working for individual
+    batters, applied to a team instead of a person. Returns {"vl": stat,
+    "vr": stat} so the caller can pick the split matching today's actual
+    starting pitcher's hand, same lookup pattern already used for
+    individual batter platoon splits elsewhere in this codebase."""
+    try:
+        data = get(f"{API}/teams/{team_id}/stats", params={
+            "stats": "statSplits", "group": "hitting", "gameType": "R",
+            "sitCodes": "vl,vr", "season": year,
+        })
+        splits = (data.get("stats") or [{}])[0].get("splits") or []
+        out = {}
+        for s in splits:
+            code = s.get("split", {}).get("code")
+            if code in ("vl", "vr"):
+                out[code] = s["stat"]
+        return out
+    except Exception as e:  # noqa: BLE001
+        print(f"    [warn] team hitting split fetch failed for {team_id}: {e}")
+        return {}
+
+
 def fetch_roster_savant_avg(team_id, batter_pct_map, pitcher_pct_map):
     try:
         data = get(f"{API}/teams/{team_id}/roster", params={"rosterType": "active"})
@@ -185,6 +209,7 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
             jobs.append({"pitcher": home_p, "team": g["teams"]["home"]["team"], "opp": g["teams"]["away"]["team"], "gameDate": g.get("gameDate")})
 
     opp_team_stats_cache = {}
+    opp_platoon_cache = {}
 
     def get_opp_team_profile(opp_team_id):
         # Cached per team since multiple pitchers today could share the
@@ -198,6 +223,27 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
         profile = {"kPct": k_pct, "babip": babip, "xwoba": roster_savant.get("xwoba"), "hardHitPct": roster_savant.get("hardHitPct")}
         opp_team_stats_cache[opp_team_id] = profile
         return profile
+
+    def get_opp_platoon_profile(opp_team_id, pitcher_hand):
+        # Both vl and vr are fetched together and cached per team -- the
+        # per-pitcher lookup just picks the side matching today's actual
+        # starter, same pattern already used for individual batter
+        # platoon splits elsewhere in this codebase.
+        if opp_team_id not in opp_platoon_cache:
+            opp_platoon_cache[opp_team_id] = fetch_team_hitting_split(opp_team_id, year)
+        splits = opp_platoon_cache[opp_team_id]
+        split_code = "vl" if pitcher_hand == "L" else "vr"
+        split_stat = splits.get(split_code)
+        if not split_stat:
+            return None
+        k_pct, babip = team_hitting_rates(split_stat)
+        return {
+            "avg": to_num(split_stat.get("avg")),
+            "kPct": k_pct,
+            "babip": babip,
+            "vsHand": pitcher_hand,
+            "plateAppearances": to_num(split_stat.get("plateAppearances")),
+        }
 
     for job in jobs:
         pid = job["pitcher"]["id"]
@@ -223,18 +269,21 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
         except Exception as e:  # noqa: BLE001
             print(f"    [warn] matchup table failed for pitcher {pid}: {e}")
 
+        pitcher_hand = fetch_pitcher_hand(pid)
         opp_profile = get_opp_team_profile(job["opp"]["id"])
+        opp_platoon_profile = get_opp_platoon_profile(job["opp"]["id"], pitcher_hand) if pitcher_hand else None
 
         matchups.append({
             "pitcherId": pid, "name": job["pitcher"]["fullName"],
             "team": job["team"]["abbreviation"], "opp": job["opp"]["abbreviation"],
-            "hand": fetch_pitcher_hand(pid),
+            "hand": pitcher_hand,
             "season": season_stat,
             "savant": pitcher_pct_map.get(str(pid)),
             "arsenal": arsenal,
             "matchupTable": matchup_table[:12],
             "gameDate": job.get("gameDate"),
             "oppProfile": opp_profile,
+            "oppPlatoonProfile": opp_platoon_profile,
         })
         print(f"  {job['pitcher']['fullName']} ({job['team']['abbreviation']} vs {job['opp']['abbreviation']}): "
               f"{len(matchup_table)} opposing batters with history")
