@@ -734,6 +734,8 @@ function renderKO(){
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
         ${e.conditionalHitRate?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">In starts of ${e.conditionalHitRate.minPitches}+ pitches this season, ${e.name} has gone over ${e.predictionLine} strikeouts in <b>${e.conditionalHitRate.hits}/${e.conditionalHitRate.total}</b> games (${(e.conditionalHitRate.hits/e.conditionalHitRate.total*100).toFixed(0)}%) -- a more targeted look than the season average, filtered to outings where he wasn't pulled early.</div>`:''}
+        ${e.workloadStreak>=2?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--green-dim);color:var(--green);">${e.name} has thrown 60+ pitches in <b>${e.workloadStreak}</b> straight starts -- a stable, full-workload role right now, so the recent-start numbers above should reflect a normal outing.</div>`:''}
+        ${e.workloadStreak===0&&e.mostRecentPitchCount!=null&&e.mostRecentPitchCount<60?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--red-dim);color:var(--red);">Worth knowing: ${e.name}'s most recent start was cut short at only ${Math.round(e.mostRecentPitchCount)} pitches -- his typical workload assumptions may not hold tonight.</div>`:''}
         <div class="bx-line" style="margin-top:8px;">
           ${startsLog?`<span class="bx-chip">Last starts: <b>${startsLog}</b></span>`:''}
           ${e.veloTrend?`<span class="bx-chip">FB velo: <b>${e.veloTrend.recentAvg.toFixed(1)} mph L14d</b> vs ${e.veloTrend.seasonFB.toFixed(1)} season</span>`:''}
