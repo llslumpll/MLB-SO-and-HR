@@ -63,7 +63,112 @@ def fetch_roster_k_percent(team_id, year):
         return None
 
 
-def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None, park=None, weather=None):
+# Recent-form matchup refinement: caches expensive per-team lookups across
+# all of today's games sharing the same opponent, same reasoning as the
+# opponent-profile caching already used in build_teams.py.
+_RECENT_MATCHUP_SCHEDULE_CACHE = {}
+_PITCHER_HAND_CACHE = {}
+
+LEAGUE_AVG_BB_PCT_RECENT = 8.5
+LEAGUE_AVG_OBP_RECENT = 0.315
+MIN_RECENT_MATCHUP_GAMES = 15  # below this, the sample is too thin to trust at all
+
+
+def fetch_recent_matchup_split(opp_team_id, pitcher_hand, year, today_iso_date):
+    """Same 'baby matchup' idea as the technique this was built from: is
+    THIS opponent's offense actually weak RIGHT NOW, specifically against
+    pitchers throwing the same hand as tonight's starter -- not just
+    'weak on average across the whole season' the way the existing
+    matchup_factor works. Returns None (not a bad multiplier, an honest
+    absence) if the opposing-starter data isn't available or too thin a
+    sample was found, so the caller can safely fall back to the existing
+    season-long factor alone."""
+    cache_key = opp_team_id
+    if cache_key not in _RECENT_MATCHUP_SCHEDULE_CACHE:
+        try:
+            # ~120 days back is enough runway to usually find 30+ games
+            # against a specific handedness even in a short stretch of
+            # the season, without fetching the entire year's schedule.
+            from datetime import datetime, timedelta
+            end = datetime.strptime(today_iso_date, "%Y-%m-%d")
+            start = end - timedelta(days=120)
+            sched = get(f"{API}/schedule", params={
+                "teamId": opp_team_id, "startDate": start.strftime("%Y-%m-%d"),
+                "endDate": today_iso_date, "sportId": 1, "hydrate": "probablePitcher",
+                "gameType": "R",
+            })
+            games = []
+            for d in sched.get("dates") or []:
+                games.extend(d.get("games") or [])
+
+            games_with_starters = []
+            for g in games:
+                if g.get("status", {}).get("abstractGameState") != "Final":
+                    continue  # only completed games have a real, final starter
+                away_id = g["teams"]["away"]["team"]["id"]
+                home_id = g["teams"]["home"]["team"]["id"]
+                if away_id == opp_team_id:
+                    opp_pitcher = g["teams"]["home"].get("probablePitcher")
+                elif home_id == opp_team_id:
+                    opp_pitcher = g["teams"]["away"].get("probablePitcher")
+                else:
+                    continue
+                if opp_pitcher and opp_pitcher.get("id"):
+                    games_with_starters.append({"gamePk": g["gamePk"], "opposingPitcherId": opp_pitcher["id"]})
+
+            hitting_data = get(f"{API}/teams/{opp_team_id}/stats", params={
+                "stats": "gameLog", "group": "hitting", "season": year,
+            })
+            hitting_log = [{"gamePk": s.get("game", {}).get("gamePk"), **s["stat"]}
+                            for s in ((hitting_data.get("stats") or [{}])[0].get("splits") or [])]
+
+            _RECENT_MATCHUP_SCHEDULE_CACHE[cache_key] = (games_with_starters, hitting_log)
+        except Exception as e:  # noqa: BLE001
+            print(f"    [warn] recent matchup schedule fetch failed for team {opp_team_id}: {e}")
+            _RECENT_MATCHUP_SCHEDULE_CACHE[cache_key] = ([], [])
+
+    games_with_starters, hitting_log = _RECENT_MATCHUP_SCHEDULE_CACHE[cache_key]
+    if not games_with_starters or not hitting_log:
+        return None
+
+    # Dedupe pitcher-hand lookups -- a team facing the same opposing
+    # starter multiple times in the window only needs one real lookup.
+    unique_pitcher_ids = {g["opposingPitcherId"] for g in games_with_starters}
+    for pid in unique_pitcher_ids:
+        if pid not in _PITCHER_HAND_CACHE:
+            _PITCHER_HAND_CACHE[pid] = fetch_pitcher_hand(pid)
+
+    matching = [g for g in games_with_starters if _PITCHER_HAND_CACHE.get(g["opposingPitcherId"]) == pitcher_hand]
+    matching = matching[-30:]  # most recent 30, not the oldest 30
+    if len(matching) < MIN_RECENT_MATCHUP_GAMES:
+        return None
+
+    target_pks = {g["gamePk"] for g in matching}
+    pa_sum = bb_sum = ab_sum = hits_sum = hbp_sum = sf_sum = 0
+    matched = 0
+    for g in hitting_log:
+        if g.get("gamePk") not in target_pks:
+            continue
+        pa_sum += to_num(g.get("plateAppearances")) or 0
+        bb_sum += to_num(g.get("baseOnBalls")) or 0
+        ab_sum += to_num(g.get("atBats")) or 0
+        hits_sum += to_num(g.get("hits")) or 0
+        hbp_sum += to_num(g.get("hitByPitch")) or 0
+        sf_sum += to_num(g.get("sacFlies")) or 0
+        matched += 1
+    if matched < MIN_RECENT_MATCHUP_GAMES or pa_sum == 0:
+        return None
+
+    bb_pct = (bb_sum / pa_sum) * 100
+    obp_denom = ab_sum + bb_sum + hbp_sum + sf_sum
+    obp = (hits_sum + bb_sum + hbp_sum) / obp_denom if obp_denom > 0 else None
+    if obp is None:
+        return None
+
+    return {"bbPct": bb_pct, "obp": obp, "gamesFound": matched, "vsHand": pitcher_hand}
+
+
+def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pct_map, year, calibration=None, outs_calibration=None, park=None, weather=None, today_iso_date=None):
     try:
         data = get(f"{API}/people/{pitcher_id}/stats", params={
             "stats": "season,gameLog", "group": "pitching", "season": year,
@@ -191,7 +296,28 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     base_k9 = (0.6 * season_k9 + 0.4 * recent_k9) if recent_k9 is not None else season_k9
 
     opp_k = fetch_roster_k_percent(opp_team_id, year)
-    matchup_factor = clip(opp_k / LEAGUE_AVG_K_PCT, 0.75, 1.3) if opp_k is not None else 1.0
+    season_matchup_factor = clip(opp_k / LEAGUE_AVG_K_PCT, 0.75, 1.3) if opp_k is not None else 1.0
+
+    # Recent-form refinement: is this opponent's offense actually weak
+    # RIGHT NOW against a same-handed pitcher, not just weak on average
+    # across the whole season. Same "individually bounded, then geometric
+    # mean" blending already used for stuff_factor/matchup_factor below,
+    # rather than letting this stack multiplicatively on top of the
+    # season-long number. Falls back to the season-long factor alone
+    # (recent_form_factor = 1.0, a genuine no-op) whenever the rolling
+    # window can't find enough same-handed games to trust.
+    recent_matchup_applied = None
+    recent_form_factor = 1.0
+    hand_for_matchup = fetch_pitcher_hand(pitcher_id)
+    if hand_for_matchup and today_iso_date:
+        recent_split = fetch_recent_matchup_split(opp_team_id, hand_for_matchup, year, today_iso_date)
+        if recent_split:
+            bb_factor = clip(LEAGUE_AVG_BB_PCT_RECENT / recent_split["bbPct"], 0.85, 1.15) if recent_split["bbPct"] else 1.0
+            obp_factor = clip(LEAGUE_AVG_OBP_RECENT / recent_split["obp"], 0.85, 1.15) if recent_split["obp"] else 1.0
+            recent_form_factor = (bb_factor * obp_factor) ** 0.5
+            recent_matchup_applied = {"factor": round(recent_form_factor, 3), "gamesFound": recent_split["gamesFound"], "vsHand": hand_for_matchup}
+
+    matchup_factor = clip((season_matchup_factor * recent_form_factor) ** 0.5, 0.75, 1.3) if recent_matchup_applied else season_matchup_factor
 
     # stuff_factor and matchup_factor are each individually bounded, but
     # straight-multiplying them let a pitcher with strong Savant numbers AND
@@ -291,9 +417,10 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
             outs_calibration_applied = outs_bias
 
     return {
-        "hand": fetch_pitcher_hand(pitcher_id),
+        "hand": hand_for_matchup,
         "seasonK9": season_k9, "recentK9": recent_k9, "oppK": opp_k,
         "matchupFactor": matchup_factor, "stuffFactor": stuff_factor,
+        "recentMatchupApplied": recent_matchup_applied,
         "expectedIP": expected_ip, "projectedK": projected_k, "confidence": confidence,
         "projectedOuts": projected_outs,
         "npPerGame": np_per_game, "pitchesPerIP": p_per_ip,
@@ -336,6 +463,11 @@ def reason_text(p):
         positives.append("facing a strikeout-prone lineup")
     elif p["matchupFactor"] < 0.92:
         negatives.append("facing a contact-oriented lineup")
+    rm = p.get("recentMatchupApplied")
+    if rm and rm["factor"] >= 1.08:
+        positives.append(f"an opponent that's been genuinely weak vs {rm['vsHand']}HP lately, not just weak on paper (their last {rm['gamesFound']} games specifically vs this handedness)")
+    elif rm and rm["factor"] <= 0.92:
+        negatives.append(f"an opponent that's actually been hitting {rm['vsHand']}HP well lately (their last {rm['gamesFound']} games specifically vs this handedness)")
     if p["expectedIP"] > 6.0:
         positives.append("a long-innings workload expectation")
     elif p["expectedIP"] < 4.5:
@@ -459,7 +591,7 @@ def build(date, year):
 
     entries = []
     for job in jobs:
-        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration, job.get("park"), job.get("weather"))
+        proj = fetch_pitcher_projection(job["pitcher"]["id"], job["opp"]["id"], batter_pct_map, pitcher_pct_map, year, calibration, outs_calibration, job.get("park"), job.get("weather"), today_iso_date=date)
         if not proj:
             continue
         p = {
@@ -475,6 +607,7 @@ def build(date, year):
             "hand": p["hand"], "seasonRecord": p["seasonRecord"], "era": p["era"],
             "seasonK9": p["seasonK9"], "recentK9": p["recentK9"], "oppK": p["oppK"],
             "matchupFactor": p["matchupFactor"], "stuffFactor": p["stuffFactor"],
+            "recentMatchupApplied": p.get("recentMatchupApplied"),
             "expectedIP": p["expectedIP"], "projectedK": p["projectedK"],
             "confidence": p["confidence"], "reason": p["reason"],
             "calibrationApplied": p.get("calibrationApplied"),
