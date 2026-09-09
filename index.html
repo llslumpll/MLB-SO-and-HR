@@ -733,7 +733,11 @@ function renderKO(){
       <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="12">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
-        ${e.conditionalHitRate?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">In starts of ${e.conditionalHitRate.minPitches}+ pitches this season, ${e.name} has gone over ${e.predictionLine} strikeouts in <b>${e.conditionalHitRate.hits}/${e.conditionalHitRate.total}</b> games (${(e.conditionalHitRate.hits/e.conditionalHitRate.total*100).toFixed(0)}%) -- a more targeted look than the season average, filtered to outings where he wasn't pulled early.</div>`:''}
+        ${e.conditionalHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionLine} strikeouts, by workload this season:
+          <ul style="margin:4px 0 0 18px;padding:0;">
+            ${e.conditionalHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
+          </ul>
+        </div>`:''}
         ${e.workloadStreak>=2?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--green-dim);color:var(--green);">${e.name} has thrown 60+ pitches in <b>${e.workloadStreak}</b> straight starts -- a stable, full-workload role right now, so the recent-start numbers above should reflect a normal outing.</div>`:''}
         ${e.workloadStreak===0&&e.mostRecentPitchCount!=null&&e.mostRecentPitchCount<60?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--red-dim);color:var(--red);">Worth knowing: ${e.name}'s most recent start was cut short at only ${Math.round(e.mostRecentPitchCount)} pitches -- his typical workload assumptions may not hold tonight.</div>`:''}
         <div class="bx-line" style="margin-top:8px;">
@@ -778,7 +782,11 @@ function renderKO(){
       <tr class="why-row" id="${outsRowId}" style="display:none;"><td colspan="7">
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
-        ${e.conditionalOutsHitRate?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">In starts of ${e.conditionalOutsHitRate.minPitches}+ pitches this season, ${e.name} has gone over ${e.predictionOutsLine} outs in <b>${e.conditionalOutsHitRate.hits}/${e.conditionalOutsHitRate.total}</b> games (${(e.conditionalOutsHitRate.hits/e.conditionalOutsHitRate.total*100).toFixed(0)}%) -- a more targeted look than the season average, filtered to outings where he wasn't pulled early.</div>`:''}
+        ${e.conditionalOutsHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionOutsLine} outs, by workload this season:
+          <ul style="margin:4px 0 0 18px;padding:0;">
+            ${e.conditionalOutsHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
+          </ul>
+        </div>`:''}
         ${e.outsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.outsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}
         <div class="factor-grid" style="margin-top:8px;">
           <div class="factor-item"><div class="fv ${e.npPerGame!=null&&e.npPerGame>=95?'stat-good':e.npPerGame!=null&&e.npPerGame<=80?'stat-bad':''}">${e.npPerGame!=null?e.npPerGame.toFixed(0):'—'}</div><div class="fl">Pitches/Game</div></div>
