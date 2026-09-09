@@ -95,6 +95,20 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     k_bb_pct = (k_pct_of_pa - bb_pct) if (k_pct_of_pa is not None and bb_pct is not None) else None
     p_per_ip = (num_pitches / season_ip) if (num_pitches and season_ip and season_ip > 0) else None
 
+    # BABIP-against, computed directly from the same season_stat pulled
+    # above -- separates what's actually within the pitcher's control
+    # (K rate, walk rate) from what's largely batted-ball luck. A pitcher
+    # allowing an unusually high BABIP despite good K stuff is more likely
+    # a pitcher who's been unlucky than one who's actually getting hit
+    # hard -- same sabermetric logic already used for team_hitting_rates
+    # in build_teams.py, applied here to a pitcher's own line against.
+    hits_against = to_num(season_stat.get("hits"))
+    ab_against = to_num(season_stat.get("atBats"))
+    hr_against = to_num(season_stat.get("homeRuns")) or 0
+    sf_against = to_num(season_stat.get("sacFlies")) or 0
+    babip_denom = (ab_against or 0) - (season_k or 0) - hr_against + sf_against
+    babip_against = ((hits_against - hr_against) / babip_denom) if (hits_against is not None and babip_denom and babip_denom > 0) else None
+
     PRIOR_IP = 30
     if season_ip is not None:
         season_k9 = (((season_k or 0) + PRIOR_IP * (LEAGUE_AVG_K9 / 9)) / (season_ip + PRIOR_IP)) * 9
@@ -118,6 +132,20 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     qualifying_starts = [g for g in all_starts if (to_num(g.get("numberOfPitches")) or 0) >= MIN_QUALIFYING_PITCHES]
     qualifying_starts_k = [int(to_num(g.get("strikeOuts")) or 0) for g in qualifying_starts]
     qualifying_starts_outs = [int(round((parse_ip(g.get("inningsPitched")) or 0) * 3)) for g in qualifying_starts]
+
+    # Role/workload stability streak, same idea as "he's thrown 88+
+    # pitches in 6 straight games" -- confirms the recent-starts sample
+    # actually reflects a stable, full-workload role right now, not a
+    # pitcher who's been yanked early or is working back from something.
+    # Counts consecutive starts from the MOST RECENT backward, stopping
+    # at the first one that falls short of the same threshold used above.
+    workload_streak = 0
+    for g in reversed(all_starts):
+        if (to_num(g.get("numberOfPitches")) or 0) >= MIN_QUALIFYING_PITCHES:
+            workload_streak += 1
+        else:
+            break
+    most_recent_pitch_count = to_num(all_starts[-1].get("numberOfPitches")) if all_starts else None
 
     recent_k9 = None
     recent_starts_log = []
@@ -275,6 +303,8 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         "outsCalibrationApplied": outs_calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
         "qualifyingStartsK": qualifying_starts_k, "qualifyingStartsOuts": qualifying_starts_outs,
+        "babipAgainst": babip_against,
+        "workloadStreak": workload_streak, "mostRecentPitchCount": most_recent_pitch_count,
         "seasonRecord": f"{int(to_num(season_stat.get('wins')) or 0)}-{int(to_num(season_stat.get('losses')) or 0)}",
         "era": season_stat.get("era"),
     }
@@ -327,6 +357,19 @@ def reason_text(p):
             positives.append("cold weather likely suppressing hard contact")
         elif p["weatherFactor"] < 0.98:
             negatives.append("warm weather that can favor the hitter")
+    # Skill vs. luck: BABIP-against is mostly variance, not something a
+    # pitcher directly controls the way K rate or walk rate is. Framed
+    # here as context on the season line itself, not as a boost/tempered
+    # factor the way the others are, since a bad-luck BABIP doesn't
+    # actually predict tonight's outcome -- it just explains why the
+    # season numbers above might look worse (or better) than the
+    # pitcher's actual underlying stuff.
+    babip_note = ""
+    if p.get("babipAgainst") is not None:
+        if p["babipAgainst"] >= 0.320:
+            babip_note = f" His .{round(p['babipAgainst']*1000):03d} BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard."
+        elif p["babipAgainst"] <= 0.260:
+            babip_note = f" His .{round(p['babipAgainst']*1000):03d} BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize."
 
     base = ("Elite strikeout stuff this season" if p["seasonK9"] > 10 else
             "Strong strikeout stuff this season" if p["seasonK9"] > 8.5 else
@@ -337,7 +380,7 @@ def reason_text(p):
         sentence += f", boosted by {join_list(positives)}"
     if negatives:
         sentence += ("; " if positives else ", ") + f"tempered by {join_list(negatives)}"
-    return sentence + "."
+    return sentence + "." + babip_note
 
 
 def outs_reason_text(p):
@@ -437,6 +480,8 @@ def build(date, year):
             "calibrationApplied": p.get("calibrationApplied"),
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
             "qualifyingStartsK": p["qualifyingStartsK"], "qualifyingStartsOuts": p["qualifyingStartsOuts"],
+            "babipAgainst": p.get("babipAgainst"),
+            "workloadStreak": p.get("workloadStreak"), "mostRecentPitchCount": p.get("mostRecentPitchCount"),
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
             "predictionLine": None, "predictionOutsLine": None,
             "graded": False, "actualK": None, "hit": None,
