@@ -230,13 +230,23 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     # season log (not just recent starts) to outings where he wasn't
     # pulled early, so the K/outs numbers reflect a normal workload
     # rather than being dragged down by short, unrepresentative outings.
-    # 60 pitches is a rough floor for "got through a real start" without
-    # being so strict it throws away too many otherwise-normal outings.
-    MIN_QUALIFYING_PITCHES = 60
+    # Computed at MULTIPLE thresholds (not just one) so the breakdown can
+    # show how the pattern holds up as workload increases -- a pitcher
+    # who clears his line in 10/12 starts of 60+ pitches but only 3/4 of
+    # 80+ pitch starts is telling a genuinely different story than a flat
+    # single number would.
+    QUALIFYING_THRESHOLDS = [60, 70, 80]
     all_starts = [g for g in log if (parse_ip(g.get("inningsPitched")) or 0) > 0]
-    qualifying_starts = [g for g in all_starts if (to_num(g.get("numberOfPitches")) or 0) >= MIN_QUALIFYING_PITCHES]
-    qualifying_starts_k = [int(to_num(g.get("strikeOuts")) or 0) for g in qualifying_starts]
-    qualifying_starts_outs = [int(round((parse_ip(g.get("inningsPitched")) or 0) * 3)) for g in qualifying_starts]
+    qualifying_starts_k_by_threshold = {}
+    qualifying_starts_outs_by_threshold = {}
+    for threshold in QUALIFYING_THRESHOLDS:
+        qualifying_starts = [g for g in all_starts if (to_num(g.get("numberOfPitches")) or 0) >= threshold]
+        qualifying_starts_k_by_threshold[threshold] = [int(to_num(g.get("strikeOuts")) or 0) for g in qualifying_starts]
+        qualifying_starts_outs_by_threshold[threshold] = [int(round((parse_ip(g.get("inningsPitched")) or 0) * 3)) for g in qualifying_starts]
+    # The 60-pitch tier stays the baseline "did he even have a real start"
+    # floor used elsewhere (workload streak below), same reasoning as
+    # before -- not a strict/loose choice, just the floor for "normal".
+    MIN_QUALIFYING_PITCHES = 60
 
     # Role/workload stability streak, same idea as "he's thrown 88+
     # pitches in 6 straight games" -- confirms the recent-starts sample
@@ -429,7 +439,7 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
         "calibrationApplied": calibration_applied,
         "outsCalibrationApplied": outs_calibration_applied,
         "recentStartsLog": recent_starts_log, "veloTrend": velo_trend,
-        "qualifyingStartsK": qualifying_starts_k, "qualifyingStartsOuts": qualifying_starts_outs,
+        "qualifyingStartsKByThreshold": qualifying_starts_k_by_threshold, "qualifyingStartsOutsByThreshold": qualifying_starts_outs_by_threshold,
         "babipAgainst": babip_against,
         "workloadStreak": workload_streak, "mostRecentPitchCount": most_recent_pitch_count,
         "seasonRecord": f"{int(to_num(season_stat.get('wins')) or 0)}-{int(to_num(season_stat.get('losses')) or 0)}",
@@ -612,7 +622,7 @@ def build(date, year):
             "confidence": p["confidence"], "reason": p["reason"],
             "calibrationApplied": p.get("calibrationApplied"),
             "recentStartsLog": p["recentStartsLog"], "veloTrend": p["veloTrend"],
-            "qualifyingStartsK": p["qualifyingStartsK"], "qualifyingStartsOuts": p["qualifyingStartsOuts"],
+            "qualifyingStartsKByThreshold": p["qualifyingStartsKByThreshold"], "qualifyingStartsOutsByThreshold": p["qualifyingStartsOutsByThreshold"],
             "babipAgainst": p.get("babipAgainst"),
             "workloadStreak": p.get("workloadStreak"), "mostRecentPitchCount": p.get("mostRecentPitchCount"),
             "marketThreshold": None, "marketProb": None, "modelProb": None, "edge": None,
