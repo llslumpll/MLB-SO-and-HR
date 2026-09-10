@@ -535,16 +535,17 @@ function renderHR(){
     <div class="card-grid cols-5">${trending.length?trending.map((e,i)=>trendCard(e,i+1)).join(''):'<div class="placeholder">No trend data available.</div>'}</div>
   `;
 
-  // Best 5 means "best bet," which is a different thing from "most likely
-  // to happen" -- a 40% projection against a 40% market price has zero
-  // real edge, while a 15% projection against a 5% market price is a
-  // genuinely better bet despite the lower raw number. Only entries with
-  // a real market comparison can have edge at all.
-  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  // Ranked by raw probability -- the model's own top 5 picks for who it
+  // genuinely believes will homer today, out of the entire day's board.
+  // This is deliberately NOT edge-based: edge finds where the market
+  // looks mispriced, which is a different question from "who is most
+  // likely to actually go deep today." Tracked in History day by day,
+  // toward a real, honest hit-rate goal for these specific 5 names.
+  const best5 = [...entries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
   document.getElementById('hrSection_best15').innerHTML = `
     <div class="hr-section-title">🎯 HR Best 5 — Suggested Picks</div>
-    <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
-    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
+    <div class="hr-section-sub">The 5 players today's model believes are most likely to actually homer, out of everyone on today's board -- tracked day by day in History toward a real accuracy goal, not a market-mispricing ranking.</div>
+    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No entries yet today.</div>'}</div>
   `;
 
   const rows = entries.slice(0,80).map((e,i)=>{
@@ -1261,6 +1262,36 @@ async function loadHistory(){
     predictedPct: d.hrHighTot?d.hrHighProbSum/d.hrHighTot*100:0,
   })), 'var(--amber)', '#5eb1ff');
 
+  // HR Best 5 track record: for each past day, reconstruct exactly what
+  // the top-5-by-probability picks would have been (same sort the live
+  // board uses) and check how many of those specific 5 players actually
+  // homered. A day only counts once every one of its 5 picks is graded --
+  // a partially-finished day would understate or overstate the real
+  // record depending on which games happened to finish first.
+  const best5DailyRecords = [];
+  Object.keys(dayData).sort().forEach(day=>{
+    const dd = dayData[day];
+    if(!dd.hr || !dd.hr.entries.length) return;
+    const top5 = [...dd.hr.entries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
+    const allGraded = top5.every(e=>e.graded);
+    if(!allGraded){
+      best5DailyRecords.push({day, pending:true, picks:top5});
+      return;
+    }
+    const hits = top5.filter(e=>e.hr).length;
+    best5DailyRecords.push({day, pending:false, hits, total:top5.length, picks:top5});
+  });
+  const gradedBest5Days = best5DailyRecords.filter(d=>!d.pending);
+  const best5OverallHits = gradedBest5Days.reduce((s,d)=>s+d.hits, 0);
+  const best5OverallTotal = gradedBest5Days.reduce((s,d)=>s+d.total, 0);
+  const best5TrendChart = trendChart('HR Best 5', gradedBest5Days.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#39FF14', "each dot is that day's real hits/5 among the model's own top-5-probability picks");
+  const best5DayRows = [...best5DailyRecords].reverse().slice(0,14).map(d=>{
+    if(d.pending) return `<tr><td>${d.day}</td><td colspan="2" class="status">games still in progress</td></tr>`;
+    const cls = d.hits>=4?'edge-pos':d.hits<=1?'edge-neg':'';
+    const namesHtml = d.picks.map(p=>`${p.name}${p.graded?(p.hr?' ✅':' ❌'):''}`).join(', ');
+    return `<tr><td>${d.day}</td><td class="${cls}">${d.hits}/${d.total}</td><td class="status" style="text-align:left;">${namesHtml}</td></tr>`;
+  }).join('');
+
   const tierRows = ['High','Medium','Low'].map(t=>{
     const x = tiers[t];
     return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td><td>${x.outsTot?`${x.outsHit}/${x.outsTot} (${(x.outsHit/x.outsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.hitsTot?`${x.hitsHit}/${x.hitsTot} (${(x.hitsHit/x.hitsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.tbTot?`${x.tbHit}/${x.tbTot} (${(x.tbHit/x.tbTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
@@ -1388,6 +1419,14 @@ async function loadHistory(){
         <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Home Run Calibration Over Time</div>
         <div class="status" style="margin-bottom:4px;">HR predicts a probability, not a direction -- there's no "correct/incorrect" call to grade the way Strikeouts and Outs have. The right question here is whether the actual hit rate matches what was predicted, not whether any single pick "won."</div>
         ${hrCalibrationChart}
+      </div>
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">HR Best 5 Track Record</div>
+        <div class="status" style="margin-bottom:6px;">The real question this site exists to answer: when the model picks its 5 most-likely-to-homer players for the day, how many actually go deep? The goal is a consistent 3-5 hits out of 5, day after day -- this is the direct, honest scorecard for that, not a proxy metric.</div>
+        <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${gradedBest5Days.length?`Overall: <b>${best5OverallHits}/${best5OverallTotal}</b> (${(best5OverallHits/best5OverallTotal*100).toFixed(1)}%) across ${gradedBest5Days.length} graded day${gradedBest5Days.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
+        ${best5TrendChart}
+        <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks hit</div>
+        <table class="board"><thead><tr><th>Date</th><th>Result</th><th>Picks</th></tr></thead><tbody>${best5DayRows}</tbody></table>
       </div>
     </div>
     <div id="histConfidence">
