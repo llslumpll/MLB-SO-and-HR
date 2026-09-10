@@ -133,8 +133,9 @@ def fetch_batter_stats(batter_id, year):
             except Exception:  # noqa: BLE001
                 return False
 
-        week = aggregate_games([g for g in log if within_days(g.get("date", ""), 7)])
-        month = aggregate_games([g for g in log if within_days(g.get("date", ""), 30)])
+        l5 = aggregate_games([g for g in log if within_days(g.get("date", ""), 5)])
+        l7 = aggregate_games([g for g in log if within_days(g.get("date", ""), 7)])
+        l10d = aggregate_games([g for g in log if within_days(g.get("date", ""), 10)])
 
         streak_type, streak_games = None, 0
         for g in reversed(log):
@@ -153,7 +154,7 @@ def fetch_batter_stats(batter_id, year):
         return {
             "season": season, "l10PA": l10_pa, "l10HR": l10_hr,
             "l10Hits": l10_hits, "l10TB": l10_tb,
-            "week": week, "month": month,
+            "l5": l5, "l7": l7, "l10d": l10d,
             "streakType": streak_type, "streakGames": streak_games,
         }
     except Exception as e:  # noqa: BLE001
@@ -313,26 +314,29 @@ def compute_heuristic(b, savant_batter_map, calibration=None):
         # A player going ~10 games without a home run is common, not
         # alarming -- HRs are relatively rare events even for good power
         # hitters, so a single homer-less stretch shouldn't collapse the
-        # form factor to its most extreme possible penalty. The prior
-        # weight here was too small relative to a typical L10 PA count
-        # (~35-40), letting one uninformative event (zero recent HRs)
-        # drive the estimate all the way to the floor regardless of how
-        # good the player's underlying power actually is -- confirmed
+        # form factor to its most extreme possible penalty. Confirmed
         # directly against a real board where 34% of all batters landed
-        # on the exact same floor value. Bounds tightened to match the
-        # same 0.75/1.35-style range already used elsewhere on this site
-        # (stuffFactor, matchup_factor), and the prior strengthened so a
-        # homer-less stretch lands as a real but modest signal instead of
-        # a worst-case one. Worth being honest about what this does and
-        # doesn't fix: the underlying ratio is still mathematically
-        # independent of season_rate once l10HR is 0 -- this reduces how
-        # punishing that common case is, it doesn't make two players with
-        # very different season power differentiate from each other
-        # within that same zero-HR group. That would need a deeper
-        # formula redesign, not a parameter tune.
+        # on the exact same floor value under the old (0.5, 1.8) bounds.
+        #
+        # Widened again from a first attempt at (0.75, 1.35): that
+        # version kept season_rate as l10_rate's own shrinkage prior,
+        # which meant it STILL canceled out algebraically whenever
+        # l10HR=0 -- a .02-rate hitter and a .08-rate hitter landed on
+        # the identical value. Shrinking toward the LEAGUE AVERAGE rate
+        # instead (not the player's own season rate) lets season_rate
+        # survive in the ratio, so a genuinely elite hitter's cold
+        # stretch is now treated as more notable than an average
+        # hitter's -- real, defensible differentiation. Bounds widened
+        # to (0.6, 1.4) so that differentiation has room to show up
+        # instead of immediately re-clipping most of the range back to
+        # one shared value; a full formula redesign (blending rates
+        # directly instead of computing a ratio) could probably do
+        # better still, but this is the safer, well-tested change to
+        # make with the season ending soon and two other calibration
+        # resets already triggered today.
         L10_PRIOR_PA = 50
-        l10_rate = ((bs.get("l10HR") or 0) + L10_PRIOR_PA * season_rate) / (bs["l10PA"] + L10_PRIOR_PA)
-        form = clip((l10_rate / season_rate) if season_rate > 0 else 1, 0.75, 1.35)
+        l10_rate = ((bs.get("l10HR") or 0) + L10_PRIOR_PA * LEAGUE_AVG_HR_RATE) / (bs["l10PA"] + L10_PRIOR_PA)
+        form = clip((l10_rate / season_rate) if season_rate > 0 else 1, 0.6, 1.4)
     factors["form"] = form
 
     pitcher_vuln = 1.0
@@ -683,8 +687,9 @@ def build(date, year):
                     "type": (b.get("batterStats") or {}).get("streakType"),
                     "games": (b.get("batterStats") or {}).get("streakGames"),
                 },
-                "trendWeekOPS": (b.get("batterStats") or {}).get("week", {}).get("OPS"),
-                "trendMonthOPS": (b.get("batterStats") or {}).get("month", {}).get("OPS"),
+                "trendL5OPS": (b.get("batterStats") or {}).get("l5", {}).get("OPS"),
+                "trendL7OPS": (b.get("batterStats") or {}).get("l7", {}).get("OPS"),
+                "trendL10OPS": (b.get("batterStats") or {}).get("l10d", {}).get("OPS"),
                 "seasonOPS": to_num((b.get("batterStats") or {}).get("season", {}).get("ops")) if b.get("batterStats") and b["batterStats"].get("season") else None,
                 "marketProb": None, "edge": None,
                 "graded": False, "hr": None,
