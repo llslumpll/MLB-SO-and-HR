@@ -19,9 +19,6 @@ import io
 
 
 def load_hr_calibration():
-    """Reads data/calibration.json (written by calibrate.py based on graded
-    history) if it exists. Returns {} if missing/unreadable -- calibration
-    is purely additive; its absence should never break a build."""
     try:
         with open("data/calibration.json") as f:
             return (json.load(f) or {}).get("hr", {})
@@ -272,6 +269,27 @@ def fetch_pitcher_velo_trend(pitcher_id, year, savant_pitcher_map):
         return None
 
 
+def percentile_to_factor(percentile, lo, hi):
+    """Maps a 0-100 Savant percentile rank to a bounded factor centered
+    at 1.0 for a league-average (50th percentile) player. Same fix
+    already applied to stuffFactor in build_ko.py -- Savant's
+    percentile-rankings endpoint returns a 0-100 RANK, not a raw rate or
+    raw mph, and dividing/subtracting against thresholds designed for
+    raw values silently breaks in one of two ways: either almost
+    everyone above a modest percentile clips to the same ceiling (the
+    brl_percent/hard_hit_percent case), or the result comes out
+    completely backwards for a genuinely elite player (the
+    exit_velocity case, where a real 78th-percentile value read as 78
+    raw mph looks like a WEAK hitter instead of a good one)."""
+    if percentile is None:
+        return None
+    if percentile >= 50:
+        factor = 1.0 + (percentile - 50) / 50 * (hi - 1.0)
+    else:
+        factor = 1.0 - (50 - percentile) / 50 * (1.0 - lo)
+    return clip(factor, lo, hi)
+
+
 def compute_heuristic(b, savant_batter_map, calibration=None):
     factors = {}
     s = (b.get("batterStats") or {}).get("season")
@@ -306,16 +324,23 @@ def compute_heuristic(b, savant_batter_map, calibration=None):
     sv = savant_batter_map.get(str(b["id"]))
     b["savant"] = sv
     if sv:
+        # brl_percent, hard_hit_percent, and exit_velocity here are ALL
+        # 0-100 Savant percentile ranks (confirmed via the percentile-
+        # rankings endpoint used elsewhere in this codebase), not raw
+        # rates or raw mph -- percentile_to_factor is the correct way to
+        # turn each into a bounded multiplier. Bounds match what each
+        # sub-factor previously used, so the RELATIVE weight of each
+        # metric is unchanged -- only the broken mapping is fixed.
         brl = to_num(sv.get("brl_percent"))
         hard_hit = to_num(sv.get("hard_hit_percent"))
         ev = to_num(sv.get("exit_velocity"))
         parts = []
         if brl is not None:
-            parts.append(clip(brl / 8.0, 0.6, 1.8))
+            parts.append(percentile_to_factor(brl, 0.6, 1.8))
         if hard_hit is not None:
-            parts.append(clip(hard_hit / 38.0, 0.7, 1.5))
+            parts.append(percentile_to_factor(hard_hit, 0.7, 1.5))
         if ev is not None:
-            parts.append(clip(1 + (ev - 88.5) * 0.04, 0.85, 1.25))
+            parts.append(percentile_to_factor(ev, 0.85, 1.25))
         if parts:
             prod = 1
             for x in parts:
@@ -379,13 +404,6 @@ def compute_heuristic(b, savant_batter_map, calibration=None):
 
 
 def compute_hits_tb_heuristic(b, confidence, hits_calibration=None, tb_calibration=None):
-    """Projects expected hits and total bases for today's game. Unlike
-    HR's 'at least one' binary framing, PrizePicks offers these as
-    half-point count lines (e.g. '1.5 Hits'), so this follows the same
-    count-projection + Poisson pattern as Strikeouts/Outs, not HR's
-    binomial approach. Reuses HR's already-computed confidence tier
-    rather than re-deriving one -- same batter, same underlying sample
-    size, no reason to score it twice."""
     s = (b.get("batterStats") or {}).get("season")
     season_pa = to_num(s.get("plateAppearances")) if s else None
     season_hits = to_num(s.get("hits")) if s else 0
@@ -416,9 +434,6 @@ def compute_hits_tb_heuristic(b, confidence, hits_calibration=None, tb_calibrati
     order = b.get("order")
     expected_pa = 4.5 if (order and order <= 2) else 4.2 if (order and order <= 5) else 3.9 if (order and order <= 7) else 3.6 if order else 3.8
 
-    # Matchup: batter's platoon hit-rate split vs the opposing pitcher's
-    # hand, dampened the same way every other matchup factor on this
-    # site is (50% strength, not full swing).
     matchup_factor = 1.0
     throws_hand = b.get("oppThrows")
     platoon = b.get("platoon") or {}
@@ -433,13 +448,6 @@ def compute_hits_tb_heuristic(b, confidence, hits_calibration=None, tb_calibrati
 
     projected_hits = expected_pa * hit_rate * matchup_factor
 
-    # Total bases reuses the park HR factor as a dampened proxy -- a park
-    # that inflates HR mechanically inflates total bases too (a homer IS
-    # 4 bases), but the effect is far more indirect here than for HR
-    # itself, so it's dampened heavily. Deliberately NOT applied to Hits
-    # at all -- contact/BABIP rate isn't meaningfully tied to fence
-    # distance the way raw power is, and applying it there would be
-    # inventing a signal that isn't really present.
     park_hr_factor = clip((b.get("park") or {}).get("hr", 1.0), 0.8, 1.5)
     tb_park_factor = clip(1 + (park_hr_factor - 1) * 0.3, 0.92, 1.12)
     projected_total_bases = expected_pa * tb_rate * matchup_factor * tb_park_factor
@@ -538,11 +546,6 @@ def reason_text(b):
 
 
 def hits_tb_reason_text(b, hits_tb):
-    """Reasoning for Hits/Total Bases, referencing only what actually
-    feeds the projection: hit rate vs league average, the platoon
-    matchup, and -- for total bases only -- the park's HR factor as a
-    dampened proxy. No park signal for Hits specifically since contact
-    rate isn't meaningfully tied to fence distance."""
     hit_rate = hits_tb.get("hitRate") or 0
     matchup = hits_tb.get("hitsMatchupFactor") or 1.0
     tb_park = hits_tb.get("tbParkFactor") or 1.0
