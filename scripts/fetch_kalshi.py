@@ -72,11 +72,32 @@ def pull_series(series_ticker, label):
             if threshold is None or not sub:
                 continue
             name = strip_display_name(sub)
-            price_raw = m.get("yes_ask_dollars") or m.get("yes_bid_dollars")
-            price = to_num(price_raw)
-            if not name or price is None or price <= 0:
+            if not name:
                 continue
-            records.append({"name": name, "threshold": threshold, "price": price})
+            # De-vig: yes_ask alone is what a BUYER pays (spread baked in,
+            # sits above fair value); yes_bid alone is what a SELLER
+            # receives (sits below it). Using ask-only, as this did
+            # before, means marketProb is consistently biased HIGH versus
+            # Kalshi's actual fair-value assessment -- which makes our
+            # shown edge look smaller than it really is (conservative,
+            # not inflated), but still wrong. The bid/ask midpoint is the
+            # standard way to strip the market-maker spread back out.
+            # Falls back to whichever single side exists if a market is
+            # too thin to have both quoted (rare on these props, but
+            # happens) -- same graceful-degradation behavior as before
+            # for that edge case, just no longer the default path.
+            yes_bid = to_num(m.get("yes_bid_dollars"))
+            yes_ask = to_num(m.get("yes_ask_dollars"))
+            if yes_bid and yes_ask:
+                price = (yes_bid + yes_ask) / 2
+            else:
+                price = yes_ask or yes_bid
+            if price is None or price <= 0:
+                continue
+            records.append({
+                "name": name, "threshold": threshold, "price": price,
+                "yesBid": yes_bid, "yesAsk": yes_ask,
+            })
         time.sleep(0.1)
     return records
 
@@ -96,6 +117,8 @@ def merge_hr(hr_data, records):
                 e["openingProb"] = price
             e["priceDelta"] = price - e["openingProb"]
             e["marketProb"] = price
+            e["marketBid"] = hit.get("yesBid")
+            e["marketAsk"] = hit.get("yesAsk")
             e["edge"] = e["heuristicProb"] - price
             e["oddsUpdatedAt"] = now
             matched += 1
@@ -165,6 +188,8 @@ def merge_ko(ko_data, records):
             e["priceDelta"] = price - e["openingProb"]
             e["marketThreshold"] = threshold
             e["marketProb"] = price
+            e["marketBid"] = hit.get("yesBid")
+            e["marketAsk"] = hit.get("yesAsk")
             e["modelProb"] = poisson_prob_at_least(threshold, e["projectedK"])
             e["edge"] = e["modelProb"] - price
             e["oddsUpdatedAt"] = now
