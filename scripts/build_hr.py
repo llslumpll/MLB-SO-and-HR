@@ -310,9 +310,29 @@ def compute_heuristic(b, savant_batter_map, calibration=None):
     form = 1.0
     bs = b.get("batterStats") or {}
     if bs.get("l10PA", 0) >= 15:
-        L10_PRIOR_PA = 20
+        # A player going ~10 games without a home run is common, not
+        # alarming -- HRs are relatively rare events even for good power
+        # hitters, so a single homer-less stretch shouldn't collapse the
+        # form factor to its most extreme possible penalty. The prior
+        # weight here was too small relative to a typical L10 PA count
+        # (~35-40), letting one uninformative event (zero recent HRs)
+        # drive the estimate all the way to the floor regardless of how
+        # good the player's underlying power actually is -- confirmed
+        # directly against a real board where 34% of all batters landed
+        # on the exact same floor value. Bounds tightened to match the
+        # same 0.75/1.35-style range already used elsewhere on this site
+        # (stuffFactor, matchup_factor), and the prior strengthened so a
+        # homer-less stretch lands as a real but modest signal instead of
+        # a worst-case one. Worth being honest about what this does and
+        # doesn't fix: the underlying ratio is still mathematically
+        # independent of season_rate once l10HR is 0 -- this reduces how
+        # punishing that common case is, it doesn't make two players with
+        # very different season power differentiate from each other
+        # within that same zero-HR group. That would need a deeper
+        # formula redesign, not a parameter tune.
+        L10_PRIOR_PA = 50
         l10_rate = ((bs.get("l10HR") or 0) + L10_PRIOR_PA * season_rate) / (bs["l10PA"] + L10_PRIOR_PA)
-        form = clip((l10_rate / season_rate) if season_rate > 0 else 1, 0.5, 1.8)
+        form = clip((l10_rate / season_rate) if season_rate > 0 else 1, 0.75, 1.35)
     factors["form"] = form
 
     pitcher_vuln = 1.0
