@@ -48,7 +48,7 @@ TIERS = ["High", "Medium", "Low"]
 # regimes pretending to be one consistent signal. HR/Hits/TB don't use
 # stuff_factor at all, so they're unaffected and keep using full history.
 # Update this to the real date/time this fix actually goes live.
-STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T22:07:00"
+STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T14:24:22"
 
 # Same contamination concern as above, but for a separate bug: HR's
 # power_quality factor was using batter Savant percentiles (barrel%,
@@ -61,7 +61,7 @@ STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T22:07:00"
 # their projection math never touches power_quality at all, confirmed
 # directly in build_hr.py, so their existing history remains valid.
 # Update this to match whenever build_hr.py's fix actually goes live.
-POWER_QUALITY_FIX_CUTOFF = "2026-09-10T22:07:00"
+POWER_QUALITY_FIX_CUTOFF = "2026-09-10T15:43:50"
 
 
 def load_all_hr_entries():
