@@ -39,6 +39,21 @@ def load_outs_calibration():
         return {}
 
 
+def percentile_to_factor(percentile, lo=0.75, hi=1.35):
+    """Maps a 0-100 Savant percentile rank to a bounded factor centered
+    at 1.0 for a league-average (50th percentile) pitcher. This is the
+    correct way to use percentile-rankings data as a multiplier -- unlike
+    dividing the percentile by some raw-rate-style number, which silently
+    clips almost everyone above a modest percentile to the same ceiling."""
+    if percentile is None:
+        return None
+    if percentile >= 50:
+        factor = 1.0 + (percentile - 50) / 50 * (hi - 1.0)
+    else:
+        factor = 1.0 - (50 - percentile) / 50 * (1.0 - lo)
+    return clip(factor, lo, hi)
+
+
 def fetch_roster_k_percent(team_id, year):
     """Real team strikeout rate from season hitting stats (K / plate
     appearances), NOT an average of Savant percentile ranks. That earlier
@@ -366,13 +381,24 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     stuff_factor = 1.0
     p_row = pitcher_pct_map.get(str(pitcher_id))
     if p_row:
+        # k_percent/whiff_percent here are 0-100 PERCENTILE RANKS from
+        # Savant's percentile-rankings endpoint (confirmed elsewhere in
+        # this codebase, e.g. the matchup card's "FB Velo %ile"/"xERA
+        # %ile" labels) -- NOT raw K%/whiff% rates. The original
+        # k_pct/22.0-style division was designed for a raw rate around
+        # 20-27%, so almost any pitcher at or above roughly the 30th
+        # percentile was silently clipped to the exact same 1.35
+        # ceiling, destroying any real differentiation between a merely
+        # good pitcher and a genuinely elite one. percentile_to_factor
+        # instead maps the percentile itself to a factor centered at 1.0
+        # for a league-average (50th percentile) pitcher.
         k_pct = to_num(p_row.get("k_percent"))
         whiff_pct = to_num(p_row.get("whiff_percent"))
         parts = []
         if k_pct is not None:
-            parts.append(clip(k_pct / 22.0, 0.75, 1.35))
+            parts.append(percentile_to_factor(k_pct))
         if whiff_pct is not None:
-            parts.append(clip(whiff_pct / 25.0, 0.75, 1.35))
+            parts.append(percentile_to_factor(whiff_pct))
         if parts:
             prod = 1
             for x in parts:
