@@ -210,7 +210,7 @@
     <div class="hr-subnav" id="hrSubnav">
       <div class="subnav-group">
         <span class="subnav-group-label">HOME RUNS</span>
-        <button class="hr-subtab active" data-section="trending">🔥 Trending Up</button>
+        <button class="hr-subtab active" data-section="trending">💰 Best Value</button>
         <button class="hr-subtab" data-section="best15">🎯 Best 5</button>
         <button class="hr-subtab" data-section="all">📋 Projections</button>
       </div>
@@ -433,6 +433,23 @@ function renderFactorsOnly(e){
   `;
 }
 
+function opsTrendChips(e){
+  const season = e.seasonOPS;
+  const windows = [
+    {label:'L5', val:e.trendL5OPS},
+    {label:'L7', val:e.trendL7OPS},
+    {label:'L10', val:e.trendL10OPS},
+  ];
+  const chips = windows.map(w=>{
+    if(w.val==null || season==null) return `<span class="bx-chip">${w.label} OPS: —</span>`;
+    const delta = w.val - season;
+    const cls = delta > 0.05 ? 'stat-good' : delta < -0.05 ? 'stat-bad' : '';
+    const arrow = delta > 0.05 ? '▲' : delta < -0.05 ? '▼' : '';
+    return `<span class="bx-chip">${w.label} OPS: <b class="${cls}">${fmt3(w.val)}</b>${arrow?` <span class="${cls}" style="font-size:9px;">${arrow}</span>`:''}</span>`;
+  }).join('');
+  return `<div class="bx-line">${chips}<span class="bx-chip">Season OPS: <b>${season!=null?fmt3(season):'—'}</b></span></div>`;
+}
+
 function hrCard(e, rank){
   const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.02 ? 'stat-good' : e.edge<-0.02 ? 'stat-bad' : '';
   const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}% edge</span>` : '';
@@ -451,6 +468,7 @@ function hrCard(e, rank){
         </div>
       </div>
       <div class="card-reason">${e.reason||''}</div>
+      ${opsTrendChips(e)}
       <div class="card-details">${renderFactorsOnly(e)}</div>
     </div>
   `;
@@ -498,41 +516,22 @@ function tbCard(e, rank){
   `;
 }
 
-function trendCard(e, rank){
-  const wOps = e.trendWeekOPS, mOps = e.trendMonthOPS, sOps = e.seasonOPS;
-  const delta = (wOps!==null && wOps!==undefined && sOps!==null) ? wOps-sOps :
-                (mOps!==null && mOps!==undefined && sOps!==null) ? mOps-sOps : null;
-  const basis = (wOps!==null && wOps!==undefined) ? 'Last 7 days' : 'Last 30 days';
-  const useOps = (wOps!==null && wOps!==undefined) ? wOps : mOps;
-  return `
-    <div class="card">
-      <div class="card-rank">#${rank}</div>
-      <div class="card-top"><div><div class="card-name">${e.name}</div><div class="card-sub">${e.team} vs ${e.opp}</div></div></div>
-      <div class="bx-line" style="margin-top:9px;"><span class="bx-chip" style="background:rgba(61,220,132,.1);border-color:var(--green-dim);color:var(--green);">↑ ${basis} OPS ${delta!==null?(delta>0?'+':'')+delta.toFixed(3):'—'} vs season</span></div>
-      <div class="card-reason">${basis}: ${fmt3(useOps)} OPS<br>Season: ${fmt3(sOps)} OPS</div>
-    </div>
-  `;
-}
-
 function renderHR(){
   const entries = (HR_DATA && HR_DATA.entries) || [];
   if(!entries.length){
     ['trending','best15','all','hitsbest5','hitsall','tbbest5','tball'].forEach(s=>{ document.getElementById(`hrSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
     return;
   }
-  const trending = entries.filter(e=>{
-    const d = (e.trendWeekOPS!==null&&e.trendWeekOPS!==undefined&&e.seasonOPS!==null) ? e.trendWeekOPS-e.seasonOPS :
-              (e.trendMonthOPS!==null&&e.trendMonthOPS!==undefined&&e.seasonOPS!==null) ? e.trendMonthOPS-e.seasonOPS : null;
-    return d!==null;
-  }).sort((a,b)=>{
-    const da = (a.trendWeekOPS??a.trendMonthOPS??0)-(a.seasonOPS??0);
-    const db = (b.trendWeekOPS??b.trendMonthOPS??0)-(b.seasonOPS??0);
-    return db-da;
-  }).slice(0,5);
+  // "Best bet" by market mispricing -- the biggest gap between our model
+  // and the market price, which is a genuinely different question from
+  // "most likely to actually homer today" (that's the probability-ranked
+  // Best 5 below). Only entries with a real market comparison can have
+  // edge at all.
+  const edgeBest5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('hrSection_trending').innerHTML = `
-    <div class="hr-section-title">🔥 Trending Up</div>
-    <div class="hr-section-sub">Batters whose recent OPS is running hottest vs their season average.</div>
-    <div class="card-grid cols-5">${trending.length?trending.map((e,i)=>trendCard(e,i+1)).join(''):'<div class="placeholder">No trend data available.</div>'}</div>
+    <div class="hr-section-title">💰 Best Value — Market Mispriced</div>
+    <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability. A different question from the probability-ranked Best 5 below.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    <div class="card-grid cols-list">${edgeBest5.length?edgeBest5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
   `;
 
   // Ranked by raw probability -- the model's own top 5 picks for who it
@@ -561,7 +560,7 @@ function renderHR(){
         <td>${e.graded?(e.hr?'✅ HR':'—'):'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${opsTrendChips(e)}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_all').innerHTML = `
