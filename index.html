@@ -1366,6 +1366,36 @@ async function loadHistory(){
   ).join('');
   const convictionTotalSamples = convictionBuckets.reduce((s,b)=>s+b.tot, 0);
 
+  // Does HR's edge (model probability minus market price) actually mean
+  // anything, or is "Best Value" just a second flavor of the same
+  // underlying probability dressed up differently? HR has no OVER/UNDER
+  // call to bucket by confidence the way K/Outs/Hits/TB do above -- the
+  // direct equivalent question here is whether a BIGGER edge (the model
+  // disagreeing with the market by more) actually predicts a HIGHER real
+  // hit rate. Buckets sized to the real range of edges actually observed
+  // on this site (Kalshi's thin HR market coverage produces much wider
+  // edges than the Poisson-based K/Outs markets do).
+  const edgeBuckets = [
+    {label:'0-5%', lo:0.00, hi:0.05, hit:0, tot:0},
+    {label:'5-15%', lo:0.05, hi:0.15, hit:0, tot:0},
+    {label:'15-25%', lo:0.15, hi:0.25, hit:0, tot:0},
+    {label:'25%+', lo:0.25, hi:1.01, hit:0, tot:0},
+  ];
+  Object.values(dayData).forEach(dd=>{
+    if(!dd.hr) return;
+    dd.hr.entries.forEach(e=>{
+      if(!e.graded || e.edge==null || e.edge<0) return;  // only positive edges -- "model more bullish than market", the actual Best Value direction
+      const b = edgeBuckets.find(b=>e.edge>=b.lo && e.edge<b.hi);
+      if(!b) return;
+      b.tot++;
+      if(e.hr) b.hit++;
+    });
+  });
+  const edgeRows = edgeBuckets.map(b=>
+    `<tr><td>${b.label}</td><td>${b.tot?`${b.hit}/${b.tot} (${(b.hit/b.tot*100).toFixed(1)}%)`:'—'}</td></tr>`
+  ).join('');
+  const edgeTotalSamples = edgeBuckets.reduce((s,b)=>s+b.tot, 0);
+
   const calibration = await fetchJSONLocal('data/calibration.json').catch(()=>null);
   const health = await fetchJSONLocal('data/pipeline-health.json').catch(()=>null);
 
@@ -1473,6 +1503,11 @@ async function loadHistory(){
         <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Accuracy by Model Conviction</div>
         <div class="status" style="margin-bottom:6px;">Different question from the tier table above -- that groups by how much DATA went into a pick, this groups by how CONFIDENT the model's own probability was in the call it actually made, combined across Strikeouts, Outs, Hits, and Total Bases (${convictionTotalSamples} graded predictions total). If this is working, accuracy should climb going down the table -- 80%+ picks should hit noticeably more often than 50-60% ones. If it stays flat, the model's probabilities aren't yet distinguishing confident calls from coin flips, whatever the data-availability tier says.</div>
         <table class="board"><thead><tr><th>Model said</th><th>Actually correct</th></tr></thead><tbody>${convictionRows}</tbody></table>
+      </div>
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Does HR's Edge Actually Mean Anything?</div>
+        <div class="status" style="margin-bottom:6px;">The direct test of whether "Best Value" is a real signal or just the same probability dressed up differently: does a BIGGER edge (the model disagreeing with the market by more) actually predict a HIGHER real hit rate (${edgeTotalSamples} graded picks with a real positive edge)? If this climbs going down the table, bigger disagreements with the market really do mean something. If it stays flat or reverses, the market may already be efficient here, and "Best Value" isn't adding real information beyond what the probability list already captures.</div>
+        <table class="board"><thead><tr><th>Model's edge over market</th><th>Actually hit</th></tr></thead><tbody>${edgeRows}</tbody></table>
       </div>
       ${renderCalibrationCard(calibration)}
     </div>
