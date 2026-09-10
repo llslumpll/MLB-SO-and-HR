@@ -48,7 +48,7 @@ TIERS = ["High", "Medium", "Low"]
 # regimes pretending to be one consistent signal. HR/Hits/TB don't use
 # stuff_factor at all, so they're unaffected and keep using full history.
 # Update this to the real date/time this fix actually goes live.
-STUFF_FACTOR_FIX_CUTOFF = "2026-09-09T00:00:00"
+STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T22:07:00"
 
 # Same contamination concern as above, but for a separate bug: HR's
 # power_quality factor was using batter Savant percentiles (barrel%,
