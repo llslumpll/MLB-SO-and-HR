@@ -92,8 +92,19 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
     # controls HR's own freely-updating heuristicProb/edge. These are a
     # genuine frozen OVER/UNDER call like K's, not a market comparison
     # against a probability that's meant to keep moving.
-    projected_hits_by_key = index_by("projectedHits")
-    projected_tb_by_key = index_by("projectedTotalBases")
+    #
+    # projectedHits/projectedTotalBases were mistakenly included here
+    # before -- those are the underlying PROJECTION number, the Hits/TB
+    # equivalent of heuristicProb itself, not the frozen call built on top
+    # of it. heuristicProb is never preserved (confirmed: it only appears
+    # once in this whole file, for sorting) precisely because it's meant
+    # to keep recomputing fresh on every rebuild -- projectedHits and
+    # projectedTotalBases should behave identically. Preserving them here
+    # caused a real, confirmed bug: the displayed number would go stale
+    # while hitsReason/tbReason (never preserved, always freshly
+    # generated) kept describing whatever the LATEST calculation actually
+    # produced -- two fields that are supposed to describe each other,
+    # silently drifting apart across multiple same-day rebuilds.
     hits_call_by_key = index_by("hitsCall")
     hits_call_frozen_at_by_key = index_by("hitsCallFrozenAt")
     hits_model_prob_by_key = index_by("hitsModelProb")
@@ -167,12 +178,6 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
             touched = True
         if key in prediction_outs_line_by_key:
             e["predictionOutsLine"] = prediction_outs_line_by_key[key]
-            touched = True
-        if key in projected_hits_by_key:
-            e["projectedHits"] = projected_hits_by_key[key]
-            touched = True
-        if key in projected_tb_by_key:
-            e["projectedTotalBases"] = projected_tb_by_key[key]
             touched = True
         if key in hits_call_by_key:
             e["hitsCall"] = hits_call_by_key[key]
