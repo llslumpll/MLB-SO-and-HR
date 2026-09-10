@@ -48,18 +48,45 @@ TIERS = ["High", "Medium", "Low"]
 # regimes pretending to be one consistent signal. HR/Hits/TB don't use
 # stuff_factor at all, so they're unaffected and keep using full history.
 # Update this to the real date/time this fix actually goes live.
-STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T22:07:00"
+STUFF_FACTOR_FIX_CUTOFF = "2026-09-09T00:00:00"
+
+# Same contamination concern as above, but for a separate bug: HR's
+# power_quality factor was using batter Savant percentiles (barrel%,
+# hard-hit%, exit velocity) the same broken way stuff_factor was --
+# brl_percent/hard_hit_percent clipped almost everyone to the same
+# ceiling, and exit_velocity was read as if it were raw mph instead of a
+# percentile, producing backwards results for genuinely elite hitters.
+# HR entries frozen before this cutoff were computed under that broken
+# formula. Hits/Total Bases calibration is NOT filtered by this cutoff --
+# their projection math never touches power_quality at all, confirmed
+# directly in build_hr.py, so their existing history remains valid.
+# Update this to match whenever build_hr.py's fix actually goes live.
+POWER_QUALITY_FIX_CUTOFF = "2026-09-10T22:07:00"
 
 
 def load_all_hr_entries():
+    """heuristicProb (and the powerQuality factor feeding it) recomputes
+    FRESH on every heavy rebuild -- unlike K/Outs' frozen predictions,
+    there's no per-entry freeze timestamp to check. The best available
+    precision is the file's own generatedAt: a data/hr/<date>.json file
+    only reflects its MOST RECENT rebuild (the daily job overwrites it
+    multiple times a day), so if that file was last generated after the
+    power_quality fix went live, its entries reflect the fixed formula."""
     entries = []
+    excluded_files = 0
     for path in sorted(glob.glob("data/hr/*.json")):
         try:
             with open(path) as f:
                 data = json.load(f)
+            generated_at = data.get("generatedAt")
+            if not generated_at or generated_at < POWER_QUALITY_FIX_CUTOFF:
+                excluded_files += 1
+                continue
             entries.extend(data.get("entries", []))
         except Exception as e:  # noqa: BLE001
             print(f"  [warn] couldn't read {path}: {e}")
+    if excluded_files:
+        print(f"  [info] HR calibration: excluded {excluded_files} day(s) last generated before the power_quality fix ({POWER_QUALITY_FIX_CUTOFF})")
     return [e for e in entries if e.get("graded") and e.get("heuristicProb")]
 
 
@@ -337,6 +364,7 @@ def run():
         "minSampleRequired": MIN_SAMPLE,
         "dampenFactor": DAMPEN,
         "stuffFactorFixCutoff": STUFF_FACTOR_FIX_CUTOFF,
+        "powerQualityFixCutoff": POWER_QUALITY_FIX_CUTOFF,
         "hr": calibrate_hr(hr_entries),
         "ko": calibrate_ko(ko_entries),
         "outs": calibrate_outs(outs_entries),
