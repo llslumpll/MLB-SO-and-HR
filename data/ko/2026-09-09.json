@@ -218,9 +218,9 @@
       "workloadStreak": 25,
       "mostRecentPitchCount": 93.0,
       "marketThreshold": 8,
-      "marketProb": 0.88,
+      "marketProb": 0.82,
       "modelProb": 0.5687499643896412,
-      "edge": -0.3112500356103588,
+      "edge": -0.25125003561035875,
       "predictionLine": 7.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -254,7 +254,7 @@
       "prizePicksKLine": 7.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 8,
-      "priceDelta": 0.37
+      "priceDelta": 0.30999999999999994
     },
     {
       "gamePk": 824549,
@@ -3613,9 +3613,9 @@
       "edge": null,
       "predictionLine": 2.5,
       "predictionOutsLine": 14.5,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 3,
+      "hit": true,
       "projectedOuts": 20.7,
       "outsReason": "Projected for 20.6 outs (6.7 innings), supported by a track record of a long leash (166 pitches/game this season), getting deep into games (6.7 IP/start), efficient innings (14.9 pitches/inning), and a bullpen that's been leaned on hard lately (4.0 relief innings/game over their last 3), giving the manager real reason to stretch him out.",
       "npPerGame": 165.5,
@@ -3635,8 +3635,8 @@
       "outsMarketProb": null,
       "outsModelProb": 0.8092344598335663,
       "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
+      "actualOuts": 15,
+      "outsHit": true,
       "prizePicksOpeningLine": 2.5,
       "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "OVER",
@@ -5834,11 +5834,11 @@
       "marketProb": 0.01,
       "modelProb": 0.10058553878233834,
       "edge": 0.09058553878233834,
-      "predictionLine": null,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 1,
+      "hit": false,
       "projectedOuts": 15.5,
       "outsReason": "Projected for 17.5 outs (5.2 innings), supported by a bullpen that's been leaned on hard lately (6.3 relief innings/game over their last 3), giving the manager real reason to stretch him out; tempered by shaky command (K-BB% of only 6.8%).",
       "npPerGame": 86.52631578947368,
@@ -5858,7 +5858,7 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 10,
       "outsHit": null,
       "openingProb": 0.01,
       "openingThreshold": 5,
@@ -5866,5 +5866,5 @@
       "oddsUpdatedAt": "2026-09-10T03:00:22.512407"
     }
   ],
-  "oddsRefreshedAt": "2026-09-10T03:00:22.512407"
+  "oddsRefreshedAt": "2026-09-10T03:10:18.746199"
 }
