@@ -39,6 +39,17 @@ HITS_BIAS_BOUNDS = (-0.75, 0.75)
 TB_BIAS_BOUNDS = (-1.25, 1.25)
 TIERS = ["High", "Medium", "Low"]
 
+# The stuff_factor bug fix (percentile ranks were being used as if they
+# were raw K%/whiff% rates, silently clipping almost every pitcher to the
+# same ceiling) changed the actual K/Outs projection math. Any K/Outs
+# entry FROZEN before this cutoff was predicted under the OLD, broken
+# math -- blending those samples in with new, correctly-computed
+# predictions would contaminate the calibration with two different
+# regimes pretending to be one consistent signal. HR/Hits/TB don't use
+# stuff_factor at all, so they're unaffected and keep using full history.
+# Update this to the real date/time this fix actually goes live.
+STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T22:07:00"
+
 
 def load_all_hr_entries():
     entries = []
@@ -61,14 +72,24 @@ def load_all_ko_entries():
             entries.extend(data.get("entries", []))
         except Exception as e:  # noqa: BLE001
             print(f"  [warn] couldn't read {path}: {e}")
-    return [e for e in entries if e.get("graded") and e.get("actualK") is not None]
+    all_graded = [e for e in entries if e.get("graded") and e.get("actualK") is not None]
+    # Only entries FROZEN after the stuff_factor fix reflect the current
+    # projection math -- an entry with no frozen timestamp at all predates
+    # freeze-tracking entirely, so it's older than the fix too and gets
+    # excluded the same way.
+    post_fix = [e for e in all_graded if e.get("prizePicksCallFrozenAt") and e["prizePicksCallFrozenAt"] >= STUFF_FACTOR_FIX_CUTOFF]
+    excluded = len(all_graded) - len(post_fix)
+    if excluded:
+        print(f"  [info] K calibration: excluded {excluded} entries frozen before the stuff_factor fix ({STUFF_FACTOR_FIX_CUTOFF})")
+    return post_fix
 
 
 def load_all_outs_entries():
     """Same source files as K (outs fields live on the same ko entries),
     but filtered on actualOuts specifically rather than actualK -- kept
     separate since the two could in principle diverge even though in
-    practice they're graded together from the same box score."""
+    practice they're graded together from the same box score. Same
+    post-stuff_factor-fix cutoff as K, using outsCallFrozenAt instead."""
     entries = []
     for path in sorted(glob.glob("data/ko/*.json")):
         try:
@@ -77,7 +98,12 @@ def load_all_outs_entries():
             entries.extend(data.get("entries", []))
         except Exception as e:  # noqa: BLE001
             print(f"  [warn] couldn't read {path}: {e}")
-    return [e for e in entries if e.get("graded") and e.get("actualOuts") is not None]
+    all_graded = [e for e in entries if e.get("graded") and e.get("actualOuts") is not None]
+    post_fix = [e for e in all_graded if e.get("outsCallFrozenAt") and e["outsCallFrozenAt"] >= STUFF_FACTOR_FIX_CUTOFF]
+    excluded = len(all_graded) - len(post_fix)
+    if excluded:
+        print(f"  [info] Outs calibration: excluded {excluded} entries frozen before the stuff_factor fix ({STUFF_FACTOR_FIX_CUTOFF})")
+    return post_fix
 
 
 def load_all_hits_entries():
@@ -85,7 +111,9 @@ def load_all_hits_entries():
     reads the same data/hr/*.json files load_all_hr_entries does --
     filtered specifically on actualHits since a graded HR entry doesn't
     guarantee a Hits prediction was ever made for it (no PrizePicks
-    match), same reasoning as the K/Outs split above."""
+    match), same reasoning as the K/Outs split above. Hits/TB don't use
+    stuff_factor at all (that's a pitcher-only K/Outs concept), so no
+    cutoff filtering needed here -- full history stays valid."""
     entries = []
     for path in sorted(glob.glob("data/hr/*.json")):
         try:
@@ -308,6 +336,7 @@ def run():
         "totalTotalBasesGraded": len(tb_entries),
         "minSampleRequired": MIN_SAMPLE,
         "dampenFactor": DAMPEN,
+        "stuffFactorFixCutoff": STUFF_FACTOR_FIX_CUTOFF,
         "hr": calibrate_hr(hr_entries),
         "ko": calibrate_ko(ko_entries),
         "outs": calibrate_outs(outs_entries),
@@ -325,8 +354,8 @@ def run():
     with open("data/calibration.json", "w") as f:
         json.dump(calibration, f, indent=2, default=str)
 
-    print(f"Calibration updated: {len(hr_entries)} HR graded entries, {len(ko_entries)} K graded entries, "
-          f"{len(outs_entries)} Outs graded entries, {len(hits_entries)} Hits graded entries, {len(tb_entries)} Total Bases graded entries")
+    print(f"Calibration updated: {len(hr_entries)} HR graded entries, {len(ko_entries)} K graded entries (post-fix only), "
+          f"{len(outs_entries)} Outs graded entries (post-fix only), {len(hits_entries)} Hits graded entries, {len(tb_entries)} Total Bases graded entries")
     for tier, v in calibration["hr"].items():
         print(f"  HR {tier}: {v}")
     for tier, v in calibration["ko"].items():
