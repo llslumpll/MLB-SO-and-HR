@@ -616,7 +616,7 @@ def build(date, year):
     games = fetch_schedule(date)
     if not games:
         print("No games today.")
-        return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": []}
+        return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": [], "gamesScheduled": False}
 
     calibration = load_hr_calibration()
     hits_calibration = load_hits_calibration()
@@ -716,7 +716,7 @@ def build(date, year):
     entries = deduped
 
     entries.sort(key=lambda e: -e["heuristicProb"])
-    return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": entries}
+    return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": entries, "gamesScheduled": True}
 
 
 if __name__ == "__main__":
