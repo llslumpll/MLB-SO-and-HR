@@ -359,6 +359,58 @@ def fetch_pitch_arsenal(pitcher_id, year):
         return None
 
 
+_batter_hrs_cache = {}
+
+
+def fetch_player_home_runs(batter_id, year):
+    """This season's home runs for one batter, each with real per-event
+    exit velocity/launch angle/distance -- for the homepage Statcast
+    Spotlight widget.
+
+    Deliberately reuses fetch_pitch_arsenal's exact request shape above
+    (same endpoint, same param style, just batters_lookup[] instead of
+    pitchers_lookup[] and player_type=batter) rather than guessing a new
+    server-side event-type filter param -- that's the same full-season
+    per-pitch pull already proven to work in production for every
+    starting pitcher via fetch_pitch_arsenal, just filtered for
+    events=='home_run' in code afterward, where it can be verified
+    directly instead of trusted blind. Costs one more full-season fetch
+    per call (a lot of rows for one player) but is the safe, boring
+    choice over an untested filter param -- see fetch_savant_
+    exitvelo_barrels's docstring for why that kind of guess needs
+    checking against real live data before it's trusted."""
+    if batter_id in _batter_hrs_cache:
+        return _batter_hrs_cache[batter_id]
+    try:
+        start = f"{year}-01-01"
+        end = today_iso()
+        text = get_text(f"{SAVANT}/statcast_search/csv", params={
+            "all": "true", "hfGT": "R", "player_type": "batter",
+            "game_date_gt": start, "game_date_lt": end,
+            "batters_lookup[]": batter_id, "type": "details",
+        })
+        reader = csv.DictReader(io.StringIO(text))
+        home_runs = []
+        for r in reader:
+            if (r.get("events") or "").strip() != "home_run":
+                continue
+            ev = to_num(r.get("launch_speed"))
+            la = to_num(r.get("launch_angle"))
+            dist = to_num(r.get("hit_distance_sc"))
+            if ev is None or la is None or dist is None:
+                continue
+            home_runs.append({
+                "exitVelo": ev, "launchAngle": la, "distance": dist,
+                "date": r.get("game_date"),
+            })
+        _batter_hrs_cache[batter_id] = home_runs
+        return home_runs
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] home run event fetch failed for {batter_id}: {e}")
+        _batter_hrs_cache[batter_id] = []
+        return []
+
+
 def fetch_team_last_n_record(team_id, n=5, lookback_days=20):
     """Record over the team's last N completed games."""
     try:
