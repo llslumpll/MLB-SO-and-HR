@@ -196,6 +196,8 @@
     </nav>
   </header>
 
+  <div id="staleBanner"></div>
+
   <div class="disclaimer">
     <b>Read this:</b> this site updates itself automatically — a scheduled job pulls MLB data, Statcast metrics, and live Kalshi prices, computes projections, and grades yesterday's results, all without anyone opening a browser. Everything here is the same heuristic (not a trained model) described throughout the build: shrinkage toward league averages, matchup/park/weather/platoon factors for HR, and a Poisson-based line probability for strikeouts. See the date picker below to browse any past day.
   </div>
@@ -342,6 +344,71 @@ async function init(){
   sel.addEventListener('change', () => loadDate(sel.value));
 }
 
+// Pipeline staleness: an honest, visible check that the automated jobs
+// are actually running, not just "the last picks I happened to see
+// looked fine." Two different failure modes, checked separately:
+//   1. The WHOLE pipeline stalls (every board goes quiet at once).
+//   2. ONE board silently falls behind the others and stays behind --
+//      e.g. a data source blocking requests for just that board's fetch
+//      while everything else keeps working. A single "is this old"
+//      check against a clock wouldn't catch that (a normal overnight
+//      gap would trip it too); comparing boards against EACH OTHER
+//      does, without hardcoding the cron schedule into the frontend
+//      (which would silently rot the next time the schedule changes,
+//      e.g. for DST).
+// Only evaluated for the most recent date -- an old date's timestamps
+// are supposed to look old, that's not a problem.
+function checkPipelineStaleness(){
+  const banner = document.getElementById('staleBanner');
+  if(!banner) return;
+  const allDates = [...new Set([...(INDEX.hrDates||[]), ...(INDEX.koDates||[])])].sort().reverse();
+  if(!allDates.length || CURRENT_DATE !== allDates[0]){
+    banner.innerHTML = '';
+    return;
+  }
+
+  const now = Date.now();
+  const boards = [
+    {label:'Home Runs', data:HR_DATA},
+    {label:'Strikeouts', data:KO_DATA},
+    {label:'Teams/Matchups', data:TEAMS_DATA},
+  ].filter(b=>b.data && b.data.generatedAt);
+  if(!boards.length){ banner.innerHTML = ''; return; }
+
+  const times = boards.map(b=>new Date(b.data.generatedAt).getTime());
+  const freshest = Math.max(...times);
+  const freshestHoursAgo = (now - freshest) / 3600000;
+  const issues = [];
+
+  if(freshestHoursAgo > 16){
+    // Even the freshest board is old enough that this isn't the normal
+    // overnight gap between heavy-job runs (~13h by schedule) -- 16h
+    // gives a buffer for occasional delay without false-alarming on a
+    // normal night.
+    issues.push(`No board has updated in ${freshestHoursAgo.toFixed(1)}+ hours -- the daily pipeline may be down.`);
+  } else {
+    boards.forEach((b,i)=>{
+      const hoursBehind = (freshest - times[i]) / 3600000;
+      if(hoursBehind > 5) issues.push(`${b.label} hasn't updated in ${hoursBehind.toFixed(1)}+ hours longer than the other boards -- it may be silently failing while the rest of the pipeline keeps working.`);
+    });
+  }
+
+  // Odds refresh runs every ~10 minutes around the clock, every day --
+  // unlike the heavy job there's no expected overnight gap here at all,
+  // so even a generous buffer is still a meaningful signal if tripped.
+  if(HR_DATA && HR_DATA.oddsRefreshedAt){
+    const oddsAgeMin = (now - new Date(HR_DATA.oddsRefreshedAt).getTime()) / 60000;
+    if(oddsAgeMin > 90) issues.push(`Odds haven't refreshed in ${Math.round(oddsAgeMin)} minutes -- normally every ~10 minutes around the clock.`);
+  }
+
+  banner.innerHTML = issues.length ? `
+    <div style="background:rgba(255,90,90,0.12);border:1px solid var(--red);border-radius:8px;padding:10px 14px;margin:0 0 14px;font-size:13px;color:var(--chalk);">
+      ⚠️ <b>Pipeline may need attention:</b>
+      <ul style="margin:6px 0 0 20px;padding:0;">${issues.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>
+  ` : '';
+}
+
 async function loadDate(date){
   CURRENT_DATE = date;
   document.getElementById('loadStatus').textContent = 'loading…';
@@ -351,6 +418,7 @@ async function loadDate(date){
     TEAMS_DATA = await fetchJSONLocal(`data/teams/${date}.json`).catch(()=>null);
     const oddsTime = HR_DATA.oddsRefreshedAt ? HR_DATA.oddsRefreshedAt.slice(11,16)+' UTC' : null;
     document.getElementById('loadStatus').textContent = `${HR_DATA.entries.length} HR entries, ${KO_DATA.entries.length} K entries${oddsTime ? ' · odds refreshed '+oddsTime : ''}`;
+    checkPipelineStaleness();
     renderHR();
     renderKO();
     renderTeams();
