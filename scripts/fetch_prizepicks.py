@@ -457,13 +457,21 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             e["conditionalHitRateBreakdown"] = conditional_hit_rate_breakdown(e.get("qualifyingStartsKByThreshold"), implied_threshold)
 
         implied_threshold = e["marketThreshold"]
-        kalshi_price = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
-        if kalshi_price is not None:
+        kalshi_hit = (kalshi_threshold_map.get(norm_name(e["name"])) or {}).get(implied_threshold)
+        if kalshi_hit is not None:
+            kalshi_price = kalshi_hit["price"]
             if e.get("openingProb") is None or e.get("openingThreshold") != implied_threshold:
                 e["openingProb"] = kalshi_price
                 e["openingThreshold"] = implied_threshold
             e["priceDelta"] = kalshi_price - e["openingProb"]
             e["marketProb"] = kalshi_price
+            e["marketBid"] = kalshi_hit.get("yesBid")
+            e["marketAsk"] = kalshi_hit.get("yesAsk")
+            # See merge_hr's edgeEligible comment in fetch_kalshi.py --
+            # same fix, same reasoning, applied here since K's Best 5 is
+            # edge-ranked too and was subject to the identical thin-
+            # market artifact.
+            e["edgeEligible"] = bool(kalshi_hit.get("yesBid"))
             e["edge"] = e["modelProb"] - kalshi_price
         else:
             # Kalshi doesn't have a market at this exact threshold -- showing
@@ -474,6 +482,9 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             e["openingProb"] = None
             e["openingThreshold"] = None
             e["priceDelta"] = None
+            e["marketBid"] = None
+            e["marketAsk"] = None
+            e["edgeEligible"] = False
             no_kalshi_at_that_line += 1
         refined += 1
 
