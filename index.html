@@ -112,6 +112,34 @@
   .month-group{margin-bottom:18px;}
   .month-head{font-family:'Teko',sans-serif;font-size:24px;color:var(--chalk);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:8px;}
   .day-card{background:var(--panel);border:1px solid var(--line);border-radius:0;padding:10px 14px;margin-bottom:8px;}
+
+  /* Home page only -- futuristic treatment, scoped under #homeView so it
+     doesn't bleed into the rest of the site's plain terminal aesthetic. */
+  #homeView .home-hero{font-family:'Teko',sans-serif;font-size:38px;font-weight:700;letter-spacing:1px;
+    background:linear-gradient(90deg, var(--amber), #5ef0ff, var(--amber));background-size:200% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:home-shimmer 6s linear infinite;}
+  @keyframes home-shimmer{0%{background-position:0% center;}100%{background-position:200% center;}}
+  #homeView .home-live-dot{width:9px;height:9px;border-radius:50%;display:inline-block;
+    box-shadow:0 0 8px currentColor,0 0 16px currentColor;animation:home-pulse 2s ease-in-out infinite;}
+  @keyframes home-pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+  #homeView .home-card{background:linear-gradient(160deg, var(--panel-2), var(--panel));
+    border:1px solid var(--line);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden;
+    transition:border-color .2s, box-shadow .2s;}
+  #homeView .home-card:hover{border-color:var(--amber);box-shadow:0 0 20px -6px var(--amber);}
+  #homeView .home-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg, transparent, var(--amber), transparent);opacity:0.7;}
+  #homeView .home-stat-num{font-family:'Teko',sans-serif;font-size:30px;font-weight:600;line-height:1;}
+  #homeView .home-badge{display:inline-flex;align-items:center;justify-content:center;border-radius:7px;
+    font-weight:800;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.6);flex-shrink:0;
+    box-shadow:0 0 10px -2px var(--badge-glow, transparent), inset 0 0 0 1px rgba(255,255,255,0.15);}
+  #homeView .home-avatar{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
+    font-weight:700;color:#fff;flex-shrink:0;
+    box-shadow:0 0 12px -2px var(--badge-glow, transparent), inset 0 0 8px rgba(255,255,255,0.15);}
+  #homeView .home-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);}
+  #homeView .home-row:last-child{border-bottom:none;}
+  #homeView .home-bar-track{background:var(--panel);border:1px solid var(--line);border-radius:4px;height:8px;overflow:hidden;flex:1;}
+  #homeView .home-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg, var(--amber), #5ef0ff);}
   .chart-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   @media (max-width: 700px){ .chart-grid-2{grid-template-columns:1fr;} }
   .history-nav{position:sticky;top:0;z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:10px 0;margin-bottom:12px;background:var(--navy);border-bottom:1px solid var(--line);}
@@ -615,20 +643,53 @@ function correlationNote(picks){
   return `<div class="status" style="margin:2px 0 10px;color:var(--amber);">⚠️ Not fully independent: ${parts.join('; ')} -- these picks can win or lose together, not separately.</div>`;
 }
 
+// Real, public team colors (official branding facts, not a logo image or
+// any copyrighted artwork) -- used for team-color badges and player
+// avatar rings on the Home page instead of real photos or trademarked
+// logos, which carry real licensing risk for a project like this one.
+const TEAM_COLORS = {
+  ATH:['#003831','#EFB21E'], ATL:['#CE1141','#13274F'], AZ:['#A71930','#E3D4AD'],
+  BAL:['#DF4601','#000000'], BOS:['#BD3039','#0C2340'], CHC:['#0E3386','#CC3433'],
+  CIN:['#C6011F','#000000'], CLE:['#00385D','#E50022'], COL:['#33006F','#C4CED4'],
+  CWS:['#27251F','#C4CED4'], DET:['#0C2340','#FA4616'], HOU:['#002D62','#EB6E1F'],
+  KC:['#004687','#BD9B60'], LAA:['#BA0021','#003263'], LAD:['#005A9C','#EF3E42'],
+  MIA:['#00A3E0','#EF3340'], MIL:['#0A2351','#B6922E'], MIN:['#002B5C','#D31145'],
+  NYM:['#002D72','#FF5910'], NYY:['#0C2340','#C4CED3'], PHI:['#E81828','#002D72'],
+  PIT:['#FDB827','#27251F'], SD:['#2F241D','#FFC425'], SEA:['#0C2C56','#005C5C'],
+  SF:['#FD5A1E','#27251F'], STL:['#C41E3A','#0C2340'], TB:['#092C5C','#8FBCE6'],
+  TEX:['#003278','#C0111F'], TOR:['#134A8E','#E8291C'], WSH:['#AB0003','#14225A'],
+};
+
+function teamBadge(abbr, size){
+  size = size || 32;
+  const c = TEAM_COLORS[abbr] || ['#5c5c5c','#2a2a2a'];
+  return `<span class="home-badge" style="width:${size}px;height:${size}px;font-size:${(size*0.32).toFixed(0)}px;--badge-glow:${c[0]};background:linear-gradient(135deg, ${c[0]}, ${c[1]});">${abbr||'—'}</span>`;
+}
+
+function playerAvatar(name, teamAbbr, size){
+  size = size || 36;
+  const initials = (name||'').split(' ').filter(Boolean).map(p=>p[0]).join('').slice(0,2).toUpperCase() || '?';
+  const c = TEAM_COLORS[teamAbbr] || ['#5c5c5c','#2a2a2a'];
+  return `<span class="home-avatar" style="width:${size}px;height:${size}px;font-size:${(size*0.36).toFixed(0)}px;--badge-glow:${c[0]};background:radial-gradient(circle at 32% 30%, ${c[0]}, ${c[1]});">${initials}</span>`;
+}
+
 function homeHighlightsHtml(){
   const spotlight = HR_DATA && HR_DATA.statcastSpotlight;
   const matchup = HR_DATA && HR_DATA.topMatchup;
   if(!spotlight && !matchup) return '';
 
   const spotlightHtml = spotlight ? `
-    <div class="day-card" style="flex:1;min-width:280px;">
+    <div class="home-card" style="flex:1;min-width:300px;">
       <div class="hr-section-title" style="font-size:16px;">📡 Statcast Spotlight</div>
       <div class="hr-section-sub">Today's #1 HR pick's hardest-hit home run this season.</div>
-      <div style="font-size:17px;font-weight:600;margin-top:8px;">${spotlight.name} <span style="color:var(--slate);font-weight:400;">(${spotlight.team})</span></div>
-      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:8px;font-size:14px;">
-        <div>Exit Velo <b style="font-size:16px;">${spotlight.exitVelo.toFixed(1)}</b> mph</div>
-        <div>Launch Angle <b style="font-size:16px;">${Math.round(spotlight.launchAngle)}</b>°</div>
-        <div>Distance <b style="font-size:16px;">${Math.round(spotlight.distance)}</b> ft</div>
+      <div class="home-row" style="border-bottom:none;margin-top:10px;">
+        ${playerAvatar(spotlight.name, spotlight.team, 44)}
+        <div style="font-size:18px;font-weight:600;">${spotlight.name} <span style="color:var(--slate);font-weight:400;font-size:14px;">${spotlight.team}</span></div>
+      </div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;">
+        <div><div class="status">EXIT VELO</div><div class="home-stat-num" style="color:var(--amber);">${spotlight.exitVelo.toFixed(1)}<span style="font-size:14px;color:var(--slate);"> mph</span></div></div>
+        <div><div class="status">LAUNCH ANGLE</div><div class="home-stat-num">${Math.round(spotlight.launchAngle)}<span style="font-size:14px;color:var(--slate);">°</span></div></div>
+        <div><div class="status">DISTANCE</div><div class="home-stat-num">${Math.round(spotlight.distance)}<span style="font-size:14px;color:var(--slate);"> ft</span></div></div>
       </div>
       <div class="status" style="margin-top:8px;">${spotlight.seasonHRCount} HR this season · hardest hit on ${spotlight.hrDate||'—'}</div>
     </div>
@@ -638,17 +699,22 @@ function homeHighlightsHtml(){
     if(!matchup || !matchup.batter) return '<div class="status">No opposing batter data available.</div>';
     const b = matchup.batter;
     return matchup.batterKind === 'history'
-      ? `vs <b>${b.name}</b> -- ${b.hits}-for-${b.atBats} (${b.ops} OPS) career`
-      : `opposing team's top HR threat today: <b>${b.name}</b> (${(b.heuristicProb*100).toFixed(0)}% HR probability)`;
+      ? `${playerAvatar(b.name, matchup.opp, 28)} <span style="margin-left:8px;">vs <b>${b.name}</b> -- ${b.hits}-for-${b.atBats} (${b.ops} OPS) career</span>`
+      : `${playerAvatar(b.name, matchup.opp, 28)} <span style="margin-left:8px;">opposing team's top HR threat: <b>${b.name}</b> (${(b.heuristicProb*100).toFixed(0)}% HR probability)</span>`;
   })();
 
   const matchupHtml = matchup ? `
-    <div class="day-card" style="flex:1;min-width:280px;">
+    <div class="home-card" style="flex:1;min-width:300px;">
       <div class="hr-section-title" style="font-size:16px;">🎯 Today's Top Matchup</div>
       <div class="hr-section-sub">${matchup.usedFallback ? 'Highest projected strikeouts today -- no liquid edge market today, so this uses projection instead.' : 'The biggest verified market edge today (real two-sided pricing only).'}</div>
-      <div style="font-size:17px;font-weight:600;margin-top:8px;">${matchup.pitcherName} <span style="color:var(--slate);font-weight:400;">(${matchup.pitcherTeam} vs ${matchup.opp})</span></div>
-      <div style="margin-top:6px;font-size:14px;">Projected ${matchup.projectedK!=null?matchup.projectedK.toFixed(1):'—'} K${matchup.edge!=null?` · edge +${(matchup.edge*100).toFixed(1)}%`:''}</div>
-      <div class="status" style="margin-top:8px;">${batterHtml}</div>
+      <div class="home-row" style="border-bottom:none;margin-top:10px;">
+        ${teamBadge(matchup.pitcherTeam, 36)}
+        <div style="font-size:18px;font-weight:600;">${matchup.pitcherName}</div>
+        <span style="color:var(--slate);font-size:13px;">vs</span>
+        ${teamBadge(matchup.opp, 36)}
+      </div>
+      <div style="margin-top:8px;font-size:14px;">Projected <b class="home-stat-num" style="font-size:22px;">${matchup.projectedK!=null?matchup.projectedK.toFixed(1):'—'}</b> K${matchup.edge!=null?` <span style="color:var(--amber);">· edge +${(matchup.edge*100).toFixed(1)}%</span>`:''}</div>
+      <div style="margin-top:10px;display:flex;align-items:center;">${batterHtml}</div>
     </div>
   ` : '';
 
@@ -659,15 +725,24 @@ function homeHighlightsHtml(){
 // only quick view -- same ranking as the full HR/Strikeouts tabs' own
 // "Best 5", just a compact preview so the homepage doesn't need its own
 // separate ranking logic to drift out of sync with those tabs.
-function miniLeaderboardHtml(title, icon, rows, unitFn){
-  if(!rows.length) return `<div class="day-card" style="flex:1;min-width:280px;"><div class="hr-section-title" style="font-size:16px;">${icon} ${title}</div><div class="status">No data for this date yet.</div></div>`;
+function miniLeaderboardHtml(title, icon, rows, unitFn, pctFn){
+  if(!rows.length) return `<div class="home-card" style="flex:1;min-width:300px;"><div class="hr-section-title" style="font-size:16px;">${icon} ${title}</div><div class="status">No data for this date yet.</div></div>`;
   const rowsHtml = rows.slice(0,5).map((r,i)=>`
-    <tr><td>${i+1}</td><td>${r.name}</td><td style="color:var(--slate);">${r.team}</td><td style="text-align:right;">${unitFn(r)}</td></tr>
+    <div class="home-row">
+      <span style="color:var(--slate);width:16px;font-size:13px;">${i+1}</span>
+      ${playerAvatar(r.name, r.team, 30)}
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r.name}</div>
+        <div class="home-bar-track" style="margin-top:3px;"><div class="home-bar-fill" style="width:${Math.min(100,pctFn(r))}%;"></div></div>
+      </div>
+      ${teamBadge(r.team, 26)}
+      <div style="font-weight:700;font-size:14px;min-width:42px;text-align:right;">${unitFn(r)}</div>
+    </div>
   `).join('');
   return `
-    <div class="day-card" style="flex:1;min-width:280px;">
+    <div class="home-card" style="flex:1;min-width:300px;">
       <div class="hr-section-title" style="font-size:16px;">${icon} ${title}</div>
-      <table class="board" style="margin-top:8px;"><tbody>${rowsHtml}</tbody></table>
+      <div style="margin-top:6px;">${rowsHtml}</div>
     </div>
   `;
 }
@@ -684,13 +759,23 @@ function standingsHtml(){
     return {...t, winPct: (w!=null && l!=null && (w+l)>0) ? w/(w+l) : null};
   }).filter(t=>t.winPct!=null).sort((a,b)=>b.winPct-a.winPct).slice(0,5);
   if(!withPct.length) return '';
+  const maxPct = withPct[0].winPct;
   const rowsHtml = withPct.map((t,i)=>`
-    <tr><td>${i+1}</td><td>${t.abbr||t.name}</td><td style="color:var(--slate);">${t.wins}-${t.losses}</td><td style="text-align:right;">${(t.winPct*100).toFixed(1)}%</td></tr>
+    <div class="home-row">
+      <span style="color:var(--slate);width:16px;font-size:13px;">${i+1}</span>
+      ${teamBadge(t.abbr, 30)}
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13.5px;">${t.name||t.abbr}</div>
+        <div class="home-bar-track" style="margin-top:3px;"><div class="home-bar-fill" style="width:${(t.winPct/maxPct*100).toFixed(0)}%;"></div></div>
+      </div>
+      <div style="color:var(--slate);font-size:12px;min-width:52px;text-align:right;">${t.wins}-${t.losses}</div>
+      <div style="font-weight:700;font-size:14px;min-width:48px;text-align:right;">${(t.winPct*100).toFixed(1)}%</div>
+    </div>
   `).join('');
   return `
-    <div class="day-card" style="flex:1;min-width:280px;">
+    <div class="home-card" style="flex:1;min-width:300px;">
       <div class="hr-section-title" style="font-size:16px;">📊 Top 5 by Win%</div>
-      <table class="board" style="margin-top:8px;"><tbody>${rowsHtml}</tbody></table>
+      <div style="margin-top:6px;">${rowsHtml}</div>
     </div>
   `;
 }
@@ -709,18 +794,25 @@ async function recentResultsHtml(){
     if(!dd || !dd.entries.length) continue;
     const top5 = [...dd.entries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
     top5.filter(e=>e.graded).forEach(e=>{
-      if(rows.length<5) rows.push({date:d, name:e.name, hit:e.hr});
+      if(rows.length<5) rows.push({date:d, name:e.name, team:e.team, hit:e.hr});
     });
   }
   if(!rows.length) return '';
   const rowsHtml = rows.map(r=>`
-    <tr><td>${r.date.slice(5)}</td><td>${r.name}</td><td style="text-align:right;">${r.hit?'<span class="stat-good">✓ HIT</span>':'<span class="stat-bad">✗ MISS</span>'}</td></tr>
+    <div class="home-row">
+      ${playerAvatar(r.name, r.team, 28)}
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13.5px;">${r.name}</div>
+        <div class="status">${r.date.slice(5)}</div>
+      </div>
+      <div style="font-weight:700;font-size:13px;">${r.hit?'<span class="stat-good">✓ HIT</span>':'<span class="stat-bad">✗ MISS</span>'}</div>
+    </div>
   `).join('');
   return `
-    <div class="day-card" style="flex:1;min-width:280px;">
+    <div class="home-card" style="flex:1;min-width:300px;">
       <div class="hr-section-title" style="font-size:16px;">📋 Recent Results</div>
       <div class="hr-section-sub">Real graded outcomes from recent HR Best 5 picks.</div>
-      <table class="board" style="margin-top:8px;"><tbody>${rowsHtml}</tbody></table>
+      <div style="margin-top:6px;">${rowsHtml}</div>
     </div>
   `;
 }
@@ -731,12 +823,13 @@ async function renderHome(){
 
   const gen = HR_DATA && HR_DATA.generatedAt;
   const genAge = gen ? Math.round((Date.now() - new Date(gen).getTime())/60000) : null;
+  const liveOk = genAge!=null && genAge<720;
   const liveBadge = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
-      <div style="font-size:22px;font-weight:700;letter-spacing:0.5px;">MLB EDGE BOARD</div>
-      <div style="font-size:12px;color:var(--slate);display:flex;align-items:center;gap:6px;">
-        <span style="width:8px;height:8px;border-radius:50%;background:${genAge!=null && genAge<720 ? 'var(--green)' : 'var(--red)'};display:inline-block;"></span>
-        ${gen ? `updated ${genAge}m ago` : 'no data yet'}
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px;">
+      <div class="home-hero">MLB EDGE BOARD</div>
+      <div style="font-size:12px;color:var(--slate);display:flex;align-items:center;gap:7px;">
+        <span class="home-live-dot" style="color:${liveOk ? 'var(--green)' : 'var(--red)'};background:currentColor;"></span>
+        ${gen ? `LIVE DATA · updated ${genAge}m ago` : 'no data yet'}
       </div>
     </div>
   `;
@@ -745,18 +838,20 @@ async function renderHome(){
   const koEntries = (KO_DATA && KO_DATA.entries) || [];
   const hrTop5 = [...hrEntries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
   const koTop5 = [...koEntries].sort((a,b)=>b.projectedK-a.projectedK).slice(0,5);
+  const maxProb = hrTop5.length ? hrTop5[0].heuristicProb : 1;
+  const maxK = koTop5.length ? koTop5[0].projectedK : 1;
 
   content.innerHTML = liveBadge + homeHighlightsHtml() + `
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
-      ${miniLeaderboardHtml('Top HR Projections', '💣', hrTop5, r=>`${(r.heuristicProb*100).toFixed(0)}%`)}
-      ${miniLeaderboardHtml('Top Strikeout Projections', '🔥', koTop5, r=>r.projectedK.toFixed(1))}
+      ${miniLeaderboardHtml('Top HR Projections', '💣', hrTop5, r=>`${(r.heuristicProb*100).toFixed(0)}%`, r=>r.heuristicProb/maxProb*100)}
+      ${miniLeaderboardHtml('Top Strikeout Projections', '🔥', koTop5, r=>r.projectedK.toFixed(1), r=>r.projectedK/maxK*100)}
     </div>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
       ${standingsHtml()}
-      <div id="recentResultsSlot" style="flex:1;min-width:280px;"><div class="day-card"><div class="status">Loading recent results…</div></div></div>
+      <div id="recentResultsSlot" style="flex:1;min-width:300px;"><div class="home-card"><div class="status">Loading recent results…</div></div></div>
     </div>
   `;
-  document.getElementById('recentResultsSlot').innerHTML = (await recentResultsHtml()) || '<div class="day-card"><div class="status">No recent graded results yet.</div></div>';
+  document.getElementById('recentResultsSlot').innerHTML = (await recentResultsHtml()) || '<div class="home-card"><div class="status">No recent graded results yet.</div></div>';
 }
 
 function renderHR(){
