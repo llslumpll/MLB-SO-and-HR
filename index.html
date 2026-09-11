@@ -1336,6 +1336,74 @@ async function loadHistory(){
   const mostLikelyRows = best5RowsHtml(mostLikelyRecords);
   const bestValueRows = best5RowsHtml(bestValueRecords);
 
+  // Before/After comparison: pick any date, see whether accuracy actually
+  // moved across it. Exists so "did that fix work" has a real answer
+  // built into the site instead of manually re-downloading days of JSON
+  // and reconstructing rankings by hand every time something ships --
+  // that's exactly what had to happen by hand to find and confirm the
+  // edgeEligible fix above. Boundary is inclusive on the "after" side
+  // (the day you ship a fix counts as day 1 of "after", not "before").
+  function splitByBoundary(boundaryDate){
+    const before = { label: 'Before', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
+    const after  = { label: 'On/after', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
+    mostLikelyRecords.filter(d=>!d.pending).forEach(d=>{
+      const bucket = d.day < boundaryDate ? before : after;
+      bucket.hr.hit += d.hits; bucket.hr.tot += d.total;
+    });
+    bestValueRecords.filter(d=>!d.pending).forEach(d=>{
+      const bucket = d.day < boundaryDate ? before : after;
+      bucket.edge.hit += d.hits; bucket.edge.tot += d.total;
+    });
+    dailyStats.forEach(d=>{
+      const bucket = d.day < boundaryDate ? before : after;
+      bucket.k.hit += d.kHit; bucket.k.tot += d.kTot;
+      bucket.outs.hit += d.outsHit; bucket.outs.tot += d.outsTot;
+      bucket.hits.hit += d.hitsHit; bucket.hits.tot += d.hitsTot;
+      bucket.tb.hit += d.tbHit; bucket.tb.tot += d.tbTot;
+    });
+    return {before, after};
+  }
+
+  function renderFixComparisonHtml(boundaryDate){
+    const {before, after} = splitByBoundary(boundaryDate);
+    const pctOf = b => b.tot ? (b.hit/b.tot*100) : null;
+    const row = (label, key) => {
+      const bp = pctOf(before[key]), ap = pctOf(after[key]);
+      const bTxt = before[key].tot ? `${before[key].hit}/${before[key].tot} (${bp.toFixed(1)}%)` : '—';
+      const aTxt = after[key].tot ? `${after[key].hit}/${after[key].tot} (${ap.toFixed(1)}%)` : '—';
+      let deltaTxt = '—', deltaCls = '';
+      if(bp!=null && ap!=null){
+        const delta = ap - bp;
+        deltaCls = delta>0.5?'edge-pos':delta<-0.5?'edge-neg':'edge-flat';
+        deltaTxt = `${delta>0?'+':''}${delta.toFixed(1)}pp`;
+      }
+      return `<tr><td>${label}</td><td>${bTxt}</td><td>${aTxt}</td><td class="${deltaCls}">${deltaTxt}</td></tr>`;
+    };
+    return `
+      <table class="board"><thead><tr><th>Category</th><th>Before</th><th>On/after ${boundaryDate}</th><th>Change</th></tr></thead><tbody>
+        ${row('HR Best 5 (most likely)', 'hr')}
+        ${row('HR Best 5 (best value)', 'edge')}
+        ${row('Strikeouts', 'k')}
+        ${row('Pitching Outs', 'outs')}
+        ${row('Hits', 'hits')}
+        ${row('Total Bases', 'tb')}
+      </tbody></table>
+      <div class="status" style="margin-top:6px;">Small samples on either side of the boundary (especially the same day something shipped) can swing wildly -- treat single-digit-day windows as a first look, not a verdict. Pick a boundary at least a week old for anything close to a real read.</div>
+    `;
+  }
+  window.__renderFixComparison = function(inputEl){
+    document.getElementById('fixComparisonBody').innerHTML = renderFixComparisonHtml(inputEl.value);
+  };
+  const todayForCompare = allDates[0]; // most recent date with data, sensible default boundary
+  const fixComparisonSection = `
+    <div class="day-card" style="margin-bottom:16px;">
+      <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Before/After a Given Date</div>
+      <div class="status" style="margin-bottom:10px;">Pick the date something changed (a fix, a deploy, anything) and see whether accuracy actually moved across it -- across every tracked category at once, using the exact same numbers as the charts below.</div>
+      <label style="font-size:13px;color:var(--slate);">Boundary date: <input type="date" value="${todayForCompare}" onchange="window.__renderFixComparison(this)" style="margin-left:6px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--chalk);"></label>
+      <div id="fixComparisonBody" style="margin-top:10px;">${renderFixComparisonHtml(todayForCompare)}</div>
+    </div>
+  `;
+
   const tierRows = ['High','Medium','Low'].map(t=>{
     const x = tiers[t];
     return `<tr><td>${t}</td><td>${x.hrTot?`${x.hrHit}/${x.hrTot} (${(x.hrHit/x.hrTot*100).toFixed(1)}%)`:'—'}</td><td>${x.koTot?`${x.koHit}/${x.koTot} (${(x.koHit/x.koTot*100).toFixed(1)}%)`:'—'}</td><td>${x.outsTot?`${x.outsHit}/${x.outsTot} (${(x.outsHit/x.outsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.hitsTot?`${x.hitsHit}/${x.hitsTot} (${(x.hitsHit/x.hitsTot*100).toFixed(1)}%)`:'—'}</td><td>${x.tbTot?`${x.tbHit}/${x.tbTot} (${(x.tbHit/x.tbTot*100).toFixed(1)}%)`:'—'}</td></tr>`;
@@ -1486,6 +1554,7 @@ async function loadHistory(){
     </div>
     <div id="histPipelineHealth">${pipelineHealthSection}</div>
     <div id="histAccuracyTrends">
+      ${fixComparisonSection}
       <div class="day-card" style="margin-bottom:16px;">
         <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">Prediction Accuracy Over Time</div>
         <div class="status" style="margin-bottom:4px;">The dashed line marks 50% -- a coin flip. If the model is genuinely learning, dots should trend up and away from it as more days accumulate, not stay flat around it.</div>
