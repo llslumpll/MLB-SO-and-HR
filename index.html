@@ -527,11 +527,20 @@ function renderHR(){
   // "most likely to actually homer today" (that's the probability-ranked
   // Best 5 below). Only entries with a real market comparison can have
   // edge at all.
-  const edgeBest5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  //
+  // edgeEligible required, not just edge!=null: checked against 14 days
+  // of real graded history (2026-08-28 to 09-10) and found ranking by
+  // raw edge was systematically selecting illiquid Kalshi contracts
+  // sitting at their minimum tick price (near-zero marketProb, no real
+  // bid) rather than genuine market disagreement -- those thin-market
+  // picks hit 0/42, versus 17.9% for everything else. edgeEligible (set
+  // server-side in fetch_kalshi.py) requires an actual two-sided market
+  // before an edge is trusted enough to rank by.
+  const edgeBest5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('hrSection_trending').innerHTML = `
     <div class="hr-section-title">💰 Best Value — Market Mispriced</div>
-    <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability. A different question from the probability-ranked Best 5 below.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
-    <div class="card-grid cols-list">${edgeBest5.length?edgeBest5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
+    <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability. A different question from the probability-ranked Best 5 below. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    <div class="card-grid cols-list">${edgeBest5.length?edgeBest5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No liquidly-priced entries yet today.</div>'}</div>
   `;
 
   // Ranked by raw probability -- the model's own top 5 picks for who it
@@ -694,11 +703,15 @@ function renderKO(){
 
   // Same principle as HR's Best 5 -- "best bet" means biggest edge against
   // a real market price, not just the highest raw projection.
-  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  //
+  // edgeEligible required -- see the matching comment on HR's edgeBest5
+  // above. Same fix, same 14-day empirical check, applied here since K's
+  // main Best 5 is edge-ranked too.
+  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('koSection_best5').innerHTML = `
     <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
-    <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total.':'No entries currently have a real market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
-    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No priced entries yet today.</div>'}</div>
+    <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No liquidly-priced entries yet today.</div>'}</div>
   `;
 
   // Pitching Outs has no confirmed market to compare against, so there's
