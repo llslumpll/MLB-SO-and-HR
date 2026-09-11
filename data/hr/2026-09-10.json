@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "generatedAt": "2026-09-11T02:36:57.543133",
+  "generatedAt": "2026-09-11T02:55:48.597618",
   "entries": [
     {
       "gamePk": 823413,
@@ -9,9 +9,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 1,
-      "heuristicProb": 0.40571999999999997,
+      "heuristicProb": 0.403695,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), and warm/humid, carrying conditions.",
       "factors": {
         "base": 0.24164104456768531,
@@ -47,7 +47,15 @@
         "squared_up_rate": "2",
         "swing_length": "60"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".333",
+        "slg": ".000",
+        "ops": ".333"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -58,7 +66,7 @@
       "trendL10OPS": 0.8665158371040724,
       "seasonOPS": 0.882,
       "marketProb": 0.15000000000000002,
-      "edge": 0.25571999999999995,
+      "edge": 0.253695,
       "graded": true,
       "hr": false,
       "projectedHits": 0.82,
@@ -86,8 +94,8 @@
       "priceDelta": -0.15999999999999998,
       "marketBid": 0.13,
       "marketAsk": 0.17,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823088,
@@ -96,9 +104,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 2,
-      "heuristicProb": 0.340455335621463,
+      "heuristicProb": 0.3387560798425183,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and elite quality of contact (barrel/hard-hit/exit velo).",
       "factors": {
         "base": 0.16644412212724802,
@@ -185,9 +193,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 1,
-      "heuristicProb": 0.3365151231467058,
+      "heuristicProb": 0.3348355334681785,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by hot recent form, a homer-prone opposing pitcher, and elite quality of contact (barrel/hard-hit/exit velo).",
       "factors": {
         "base": 0.20852523834011905,
@@ -224,13 +232,13 @@
         "swing_length": "60"
       },
       "vsPitcher": {
-        "atBats": 19,
-        "hits": 6,
+        "atBats": 4,
+        "hits": 1,
         "homeRuns": 0,
-        "avg": ".316",
-        "obp": ".381",
-        "slg": ".474",
-        "ops": ".855"
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
       },
       "veloTrend": null,
       "streak": {
@@ -278,9 +286,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 4,
-      "heuristicProb": 0.2982701791290385,
+      "heuristicProb": 0.2967814748188337,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), a hitter-friendly park, and a 2-game HR streak; tempered by cold recent form.",
       "factors": {
         "base": 0.1971159616829079,
@@ -360,9 +368,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 2,
-      "heuristicProb": 0.27951713183248544,
+      "heuristicProb": 0.2781220263608282,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), and a hitter-friendly park; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.12032697101335921,
@@ -440,9 +448,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 1,
-      "heuristicProb": 0.27672888839176424,
+      "heuristicProb": 0.2753476993969074,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), and a hitter-friendly park; tempered by cold recent form.",
       "factors": {
         "base": 0.21264466423668227,
@@ -489,7 +497,7 @@
       "trendL10OPS": 0.8116554054054055,
       "seasonOPS": 0.866,
       "marketProb": 0.175,
-      "edge": 0.10172888839176425,
+      "edge": 0.10034769939690741,
       "graded": true,
       "hr": false,
       "projectedHits": 1.03,
@@ -518,8 +526,8 @@
       "priceDelta": -0.07500000000000001,
       "marketBid": 0.17,
       "marketAsk": 0.18,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 824872,
@@ -528,9 +536,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 2,
-      "heuristicProb": 0.24426118269787633,
+      "heuristicProb": 0.24304204414181996,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), and warm/humid, carrying conditions.",
       "factors": {
         "base": 0.14929855594997488,
@@ -585,7 +593,7 @@
       "trendL10OPS": 1.018018018018018,
       "seasonOPS": 0.78,
       "marketProb": 0.16999999999999998,
-      "edge": 0.07426118269787635,
+      "edge": 0.07304204414181997,
       "graded": true,
       "hr": false,
       "projectedHits": 1.11,
@@ -612,8 +620,8 @@
       "priceDelta": -0.030000000000000027,
       "marketBid": 0.15,
       "marketAsk": 0.19,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -622,9 +630,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 2,
-      "heuristicProb": 0.23456622813558134,
+      "heuristicProb": 0.23339547832789487,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, warm/humid, carrying conditions, and a favorable platoon matchup.",
       "factors": {
         "base": 0.12633611288527236,
@@ -679,7 +687,7 @@
       "trendL10OPS": 0.7827260458839406,
       "seasonOPS": 0.681,
       "marketProb": 0.09,
-      "edge": 0.14456622813558134,
+      "edge": 0.14339547832789487,
       "graded": true,
       "hr": false,
       "projectedHits": 0.98,
@@ -706,8 +714,8 @@
       "priceDelta": -0.06,
       "marketBid": 0.07,
       "marketAsk": 0.11,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 824550,
@@ -716,9 +724,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 3,
-      "heuristicProb": 0.2235595510988691,
+      "heuristicProb": 0.22244373701286102,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form.",
       "factors": {
         "base": 0.20568949173620654,
@@ -773,7 +781,7 @@
       "trendL10OPS": 0.4572649572649573,
       "seasonOPS": 0.821,
       "marketProb": 0.16,
-      "edge": 0.0635595510988691,
+      "edge": 0.06244373701286102,
       "graded": true,
       "hr": false,
       "projectedHits": 0.67,
@@ -804,8 +812,8 @@
       "priceDelta": -0.04999999999999999,
       "marketBid": 0.15,
       "marketAsk": 0.17,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -814,9 +822,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 2,
-      "heuristicProb": 0.22088571904892002,
+      "heuristicProb": 0.21978325039794383,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and warm/humid, carrying conditions; tempered by cold recent form.",
       "factors": {
         "base": 0.21394972920336308,
@@ -903,9 +911,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 7,
-      "heuristicProb": 0.215062720397876,
+      "heuristicProb": 0.21398931507202149,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), warm/humid, carrying conditions, and a 3-game HR streak.",
       "factors": {
         "base": 0.13290238434428825,
@@ -996,9 +1004,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 5,
-      "heuristicProb": 0.2073997798922095,
+      "heuristicProb": 0.2063646212747351,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a hitter-friendly park.",
       "factors": {
         "base": 0.13357995427450609,
@@ -1077,9 +1085,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 3,
-      "heuristicProb": 0.20479688307029772,
+      "heuristicProb": 0.20377471584113144,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), warm/humid, carrying conditions, and a favorable platoon matchup; tempered by cold recent form.",
       "factors": {
         "base": 0.15559455515881937,
@@ -1125,8 +1133,8 @@
       "trendL7OPS": 0.38222222222222224,
       "trendL10OPS": 0.6792114695340502,
       "seasonOPS": 0.879,
-      "marketProb": 0.11,
-      "edge": 0.09479688307029772,
+      "marketProb": 0.1,
+      "edge": 0.10377471584113143,
       "graded": true,
       "hr": false,
       "projectedHits": 1.02,
@@ -1150,11 +1158,11 @@
       "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.23,
-      "priceDelta": -0.12000000000000001,
-      "marketBid": 0.1,
+      "priceDelta": -0.13,
+      "marketBid": 0.08,
       "marketAsk": 0.12,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 824550,
@@ -1163,9 +1171,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 5,
-      "heuristicProb": 0.1999436392161867,
+      "heuristicProb": 0.19894569514290275,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo).",
       "factors": {
         "base": 0.18235070145910381,
@@ -1220,7 +1228,7 @@
       "trendL10OPS": 0.5985691573926868,
       "seasonOPS": 0.721,
       "marketProb": 0.16,
-      "edge": 0.03994363921618671,
+      "edge": 0.03894569514290275,
       "graded": true,
       "hr": false,
       "projectedHits": 0.74,
@@ -1251,8 +1259,8 @@
       "priceDelta": -0.04000000000000001,
       "marketBid": 0.14,
       "marketAsk": 0.18,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823088,
@@ -1344,9 +1352,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 8,
-      "heuristicProb": 0.1880997999621498,
+      "heuristicProb": 0.18716096999339463,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a hitter-friendly park.",
       "factors": {
         "base": 0.09822879225118619,
@@ -1420,11 +1428,7 @@
       "hitsCallFrozenAt": "2026-09-11T00:00:23.074438",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-10T14:00:23.615338",
-      "prizePicksTBLine": 0.5,
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      "prizePicksTBLine": 0.5
     },
     {
       "gamePk": 824550,
@@ -1433,9 +1437,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 9,
-      "heuristicProb": 0.18432296898884493,
+      "heuristicProb": 0.18340298966270274,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by hot recent form and a favorable platoon matchup.",
       "factors": {
         "base": 0.11566010013328254,
@@ -1513,9 +1517,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 6,
-      "heuristicProb": 0.17125120775726374,
+      "heuristicProb": 0.17039647125004584,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher, a hitter-friendly park, and a favorable platoon matchup.",
       "factors": {
         "base": 0.10359669017374662,
@@ -1593,9 +1597,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 4,
-      "heuristicProb": 0.1696926451532519,
+      "heuristicProb": 0.16884568762974964,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and warm/humid, carrying conditions.",
       "factors": {
         "base": 0.15367314181367275,
@@ -1683,9 +1687,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 7,
-      "heuristicProb": 0.1648563827145567,
+      "heuristicProb": 0.16403356359053772,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and elite quality of contact (barrel/hard-hit/exit velo); tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.15301473195932425,
@@ -1721,7 +1725,15 @@
         "squared_up_rate": "24",
         "swing_length": "60"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 15,
+        "hits": 4,
+        "homeRuns": 0,
+        "avg": ".267",
+        "obp": ".389",
+        "slg": ".400",
+        "ops": ".789"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -1764,9 +1776,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 1,
-      "heuristicProb": 0.16329690854204343,
+      "heuristicProb": 0.1624818729514942,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo), warm/humid, carrying conditions, and a favorable platoon matchup; tempered by a stingy opposing pitcher.",
       "factors": {
         "base": 0.14132931972157348,
@@ -1853,9 +1865,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 3,
-      "heuristicProb": 0.15863426436326755,
+      "heuristicProb": 0.1578425006214367,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, warm/humid, carrying conditions, and a favorable platoon matchup; tempered by below-average quality of contact.",
       "factors": {
         "base": 0.12367255963393908,
@@ -1892,13 +1904,13 @@
         "swing_length": "86"
       },
       "vsPitcher": {
-        "atBats": 6,
-        "hits": 1,
+        "atBats": 3,
+        "hits": 0,
         "homeRuns": 0,
-        "avg": ".167",
-        "obp": ".167",
-        "slg": ".167",
-        "ops": ".334"
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
       },
       "veloTrend": null,
       "streak": {
@@ -1942,9 +1954,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 3,
-      "heuristicProb": 0.15285875545361444,
+      "heuristicProb": 0.15209581800958022,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and warm/humid, carrying conditions; tempered by cold recent form.",
       "factors": {
         "base": 0.19742881359472764,
@@ -1980,15 +1992,7 @@
         "squared_up_rate": "31",
         "swing_length": "68"
       },
-      "vsPitcher": {
-        "atBats": 18,
-        "hits": 7,
-        "homeRuns": 2,
-        "avg": ".389",
-        "obp": ".476",
-        "slg": ".722",
-        "ops": "1.198"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -1999,7 +2003,7 @@
       "trendL10OPS": 0.33272058823529416,
       "seasonOPS": 0.826,
       "marketProb": 0.19,
-      "edge": -0.037141244546385566,
+      "edge": -0.03790418199041978,
       "graded": true,
       "hr": false,
       "projectedHits": 0.78,
@@ -2026,8 +2030,8 @@
       "priceDelta": -0.04000000000000001,
       "marketBid": 0.17,
       "marketAsk": 0.21,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823499,
@@ -2036,9 +2040,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 2,
-      "heuristicProb": 0.1499842919130112,
+      "heuristicProb": 0.14923570128123598,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and a hitter-friendly park.",
       "factors": {
         "base": 0.11320809432654988,
@@ -2085,7 +2089,7 @@
       "trendL10OPS": 0.8823529411764706,
       "seasonOPS": 0.768,
       "marketProb": 0.125,
-      "edge": 0.024984291913011186,
+      "edge": 0.024235701281235977,
       "graded": true,
       "hr": false,
       "projectedHits": 1.16,
@@ -2112,8 +2116,8 @@
       "priceDelta": -0.04500000000000001,
       "marketBid": 0.12,
       "marketAsk": 0.13,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -2122,9 +2126,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 9,
-      "heuristicProb": 0.14400493687760196,
+      "heuristicProb": 0.14328618996550213,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions and a favorable platoon matchup.",
       "factors": {
         "base": 0.11423386735598762,
@@ -2210,9 +2214,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 4,
-      "heuristicProb": 0.14281682578665275,
+      "heuristicProb": 0.14210400888776198,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo).",
       "factors": {
         "base": 0.157338229261338,
@@ -2249,13 +2253,13 @@
         "swing_length": "91"
       },
       "vsPitcher": {
-        "atBats": 13,
-        "hits": 2,
-        "homeRuns": 1,
-        "avg": ".154",
-        "obp": ".353",
-        "slg": ".385",
-        "ops": ".738"
+        "atBats": 3,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".250",
+        "slg": ".000",
+        "ops": ".250"
       },
       "veloTrend": null,
       "streak": {
@@ -2267,7 +2271,7 @@
       "trendL10OPS": 0.9784313725490196,
       "seasonOPS": 0.67,
       "marketProb": 0.265,
-      "edge": -0.12218317421334726,
+      "edge": -0.12289599111223803,
       "graded": true,
       "hr": false,
       "projectedHits": 0.88,
@@ -2298,10 +2302,8 @@
       "priceDelta": 0.05500000000000002,
       "marketBid": 0.26,
       "marketAsk": 0.27,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "prizePicksTBOpeningLine": 1.5,
-      "prizePicksTBLineDelta": 0.0,
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 824872,
@@ -2310,9 +2312,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 1,
-      "heuristicProb": 0.14099014414413244,
+      "heuristicProb": 0.14028644444509894,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and warm/humid, carrying conditions; tempered by cold recent form.",
       "factors": {
         "base": 0.16090765264284113,
@@ -2348,15 +2350,7 @@
         "squared_up_rate": "45",
         "swing_length": "41"
       },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -2367,7 +2361,7 @@
       "trendL10OPS": 0.6604296604296604,
       "seasonOPS": 0.802,
       "marketProb": 0.15000000000000002,
-      "edge": -0.009009855855867582,
+      "edge": -0.009713555554901082,
       "graded": true,
       "hr": false,
       "projectedHits": 1.12,
@@ -2396,8 +2390,8 @@
       "priceDelta": -0.009999999999999981,
       "marketBid": 0.14,
       "marketAsk": 0.16,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -2406,9 +2400,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 7,
-      "heuristicProb": 0.1404762296596437,
+      "heuristicProb": 0.1397750949730106,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher and warm/humid, carrying conditions; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.14269999957164514,
@@ -2490,9 +2484,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 7,
-      "heuristicProb": 0.1398644597460658,
+      "heuristicProb": 0.13916637848069613,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo), warm/humid, carrying conditions, and a favorable platoon matchup.",
       "factors": {
         "base": 0.10464014621261897,
@@ -2539,7 +2533,7 @@
       "trendL10OPS": 0.6580645161290323,
       "seasonOPS": 0.657,
       "marketProb": 0.13,
-      "edge": 0.009864459746065785,
+      "edge": 0.009166378480696125,
       "graded": true,
       "hr": false,
       "projectedHits": 0.83,
@@ -2566,8 +2560,8 @@
       "priceDelta": -0.03,
       "marketBid": 0.11,
       "marketAsk": 0.15,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -2576,9 +2570,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 9,
-      "heuristicProb": 0.13714507700170608,
+      "heuristicProb": 0.13646056852066385,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions.",
       "factors": {
         "base": 0.09575053451422222,
@@ -2669,9 +2663,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 3,
-      "heuristicProb": 0.1363439796295723,
+      "heuristicProb": 0.13566346952716204,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form and a homer-prone opposing pitcher; tempered by a history of struggling vs this pitcher.",
       "factors": {
         "base": 0.12261415479013049,
@@ -2708,13 +2702,13 @@
         "swing_length": "32"
       },
       "vsPitcher": {
-        "atBats": 13,
+        "atBats": 3,
         "hits": 1,
         "homeRuns": 0,
-        "avg": ".077",
-        "obp": ".071",
-        "slg": ".077",
-        "ops": ".148"
+        "avg": ".333",
+        "obp": ".333",
+        "slg": ".333",
+        "ops": ".666"
       },
       "veloTrend": null,
       "streak": {
@@ -2758,9 +2752,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 7,
-      "heuristicProb": 0.13447601697389724,
+      "heuristicProb": 0.13380483011011893,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), a hitter-friendly park, and a favorable platoon matchup; tempered by cold recent form and a 20-game HR drought.",
       "factors": {
         "base": 0.10998392189156969,
@@ -2834,11 +2828,7 @@
       "hitsCallFrozenAt": "2026-09-11T00:27:59.083485",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-11T00:27:59.083926",
-      "prizePicksTBLine": 0.5,
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      "prizePicksTBLine": 0.5
     },
     {
       "gamePk": 823088,
@@ -2847,9 +2837,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 9,
-      "heuristicProb": 0.13391007200340896,
+      "heuristicProb": 0.1332417098427886,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form and a homer-prone opposing pitcher.",
       "factors": {
         "base": 0.10533819757173302,
@@ -2938,9 +2928,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 1,
-      "heuristicProb": 0.13369606883623558,
+      "heuristicProb": 0.1330287747925765,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.16485863788910116,
@@ -3018,9 +3008,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 9,
-      "heuristicProb": 0.12932289357421078,
+      "heuristicProb": 0.12867742660317713,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and warm/humid, carrying conditions; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.10085585706916955,
@@ -3091,9 +3081,7 @@
       "actualTotalBases": 0,
       "tbHit": null,
       "hitsCallFrozenAt": "2026-09-11T00:00:23.074493",
-      "prizePicksHitsLine": 0.5,
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0
+      "prizePicksHitsLine": 0.5
     },
     {
       "gamePk": 823413,
@@ -3102,9 +3090,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 6,
-      "heuristicProb": 0.1288240369062443,
+      "heuristicProb": 0.12818105979213817,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and warm/humid, carrying conditions.",
       "factors": {
         "base": 0.07890955469679073,
@@ -3191,9 +3179,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 5,
-      "heuristicProb": 0.12162143528098888,
+      "heuristicProb": 0.12101440726550038,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by a history of struggling vs this pitcher.",
       "factors": {
         "base": 0.09615040500411487,
@@ -3272,9 +3260,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 2,
-      "heuristicProb": 0.12037118147655168,
+      "heuristicProb": 0.11977039363644024,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season.",
       "factors": {
         "base": 0.1458003442373128,
@@ -3311,13 +3299,13 @@
         "swing_length": "32"
       },
       "vsPitcher": {
-        "atBats": 16,
-        "hits": 1,
+        "atBats": 4,
+        "hits": 0,
         "homeRuns": 0,
-        "avg": ".063",
-        "obp": ".167",
-        "slg": ".063",
-        "ops": ".230"
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
       },
       "veloTrend": null,
       "streak": {
@@ -3329,7 +3317,7 @@
       "trendL10OPS": 0.80625,
       "seasonOPS": 0.833,
       "marketProb": 0.22,
-      "edge": -0.09962881852344832,
+      "edge": -0.10022960636355976,
       "graded": true,
       "hr": false,
       "projectedHits": 1.04,
@@ -3358,10 +3346,8 @@
       "priceDelta": 0.09,
       "marketBid": 0.2,
       "marketAsk": 0.24,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "prizePicksTBOpeningLine": 1.5,
-      "prizePicksTBLineDelta": 0.0,
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -3370,9 +3356,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 6,
-      "heuristicProb": 0.1184047823496662,
+      "heuristicProb": 0.11781380905710466,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions and a track record vs this pitcher (1 HR in 6 AB); tempered by cold recent form.",
       "factors": {
         "base": 0.1446858586443588,
@@ -3409,13 +3395,13 @@
         "swing_length": "49"
       },
       "vsPitcher": {
-        "atBats": 24,
-        "hits": 10,
+        "atBats": 6,
+        "hits": 4,
         "homeRuns": 1,
-        "avg": ".417",
-        "obp": ".462",
-        "slg": ".667",
-        "ops": "1.129"
+        "avg": ".667",
+        "obp": ".667",
+        "slg": "1.167",
+        "ops": "1.834"
       },
       "veloTrend": null,
       "streak": {
@@ -3459,9 +3445,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 9,
-      "heuristicProb": 0.1179029142868637,
+      "heuristicProb": 0.1173144458814834,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by a homer-prone opposing pitcher and a hitter-friendly park; tempered by a tough platoon matchup and a 46-game HR drought.",
       "factors": {
         "base": 0.06705454582970993,
@@ -3535,11 +3521,7 @@
       "hitsCallFrozenAt": "2026-09-11T01:40:36.326053",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-11T01:40:36.326620",
-      "prizePicksTBLine": 0.5,
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      "prizePicksTBLine": 0.5
     },
     {
       "gamePk": 823413,
@@ -3548,9 +3530,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 5,
-      "heuristicProb": 0.11634244719285615,
+      "heuristicProb": 0.11576176727674276,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and warm/humid, carrying conditions; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.10832066241503846,
@@ -3637,9 +3619,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 3,
-      "heuristicProb": 0.11463152476654674,
+      "heuristicProb": 0.11405938428135436,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and warm/humid, carrying conditions; tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
       "factors": {
         "base": 0.20500471383073626,
@@ -3676,13 +3658,13 @@
         "swing_length": "100"
       },
       "vsPitcher": {
-        "atBats": 5,
+        "atBats": 3,
         "hits": 0,
         "homeRuns": 0,
         "avg": ".000",
-        "obp": ".167",
+        "obp": ".000",
         "slg": ".000",
-        "ops": ".167"
+        "ops": ".000"
       },
       "veloTrend": null,
       "streak": {
@@ -3728,9 +3710,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 6,
-      "heuristicProb": 0.11379670618286951,
+      "heuristicProb": 0.11322873238315466,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, and a favorable platoon matchup; tempered by a history of struggling vs this pitcher.",
       "factors": {
         "base": 0.08902671753962199,
@@ -3819,9 +3801,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 2,
-      "heuristicProb": 0.11122758397785323,
+      "heuristicProb": 0.11067243299304806,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and a tough platoon matchup.",
       "factors": {
         "base": 0.17823971301347263,
@@ -3876,7 +3858,7 @@
       "trendL10OPS": 0.6037593984962406,
       "seasonOPS": 0.836,
       "marketProb": 0.16999999999999998,
-      "edge": -0.05877241602214675,
+      "edge": -0.05932756700695192,
       "graded": true,
       "hr": false,
       "projectedHits": 0.91,
@@ -3903,8 +3885,8 @@
       "priceDelta": 0.009999999999999981,
       "marketBid": 0.15,
       "marketAsk": 0.19,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823413,
@@ -3913,9 +3895,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 1,
-      "heuristicProb": 0.11102466830287111,
+      "heuristicProb": 0.11047053009594685,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions; tempered by cold recent form and a history of struggling vs this pitcher.",
       "factors": {
         "base": 0.15388210657717005,
@@ -4002,9 +3984,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 7,
-      "heuristicProb": 0.10892988893726568,
+      "heuristicProb": 0.10838620603995236,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and warm/humid, carrying conditions; tempered by cold recent form and a 22-game HR drought.",
       "factors": {
         "base": 0.11542520207121332,
@@ -4040,7 +4022,15 @@
         "squared_up_rate": "53",
         "swing_length": "41"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 10,
+        "hits": 5,
+        "homeRuns": 0,
+        "avg": ".500",
+        "obp": ".500",
+        "slg": ".700",
+        "ops": "1.200"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -4083,9 +4073,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 3,
-      "heuristicProb": 0.10827714259028025,
+      "heuristicProb": 0.1077367176328088,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
       "factors": {
         "base": 0.22541149296257257,
@@ -4172,9 +4162,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 5,
-      "heuristicProb": 0.10490428849142283,
+      "heuristicProb": 0.10438069787672519,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by a homer-prone opposing pitcher; tempered by cold recent form.",
       "factors": {
         "base": 0.1407294484863062,
@@ -4211,13 +4201,13 @@
         "swing_length": "12"
       },
       "vsPitcher": {
-        "atBats": 7,
-        "hits": 1,
+        "atBats": 19,
+        "hits": 5,
         "homeRuns": 0,
-        "avg": ".143",
+        "avg": ".263",
         "obp": ".333",
-        "slg": ".286",
-        "ops": ".619"
+        "slg": ".368",
+        "ops": ".701"
       },
       "veloTrend": null,
       "streak": {
@@ -4261,9 +4251,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 5,
-      "heuristicProb": 0.10473684293367824,
+      "heuristicProb": 0.10421408806100572,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form and a favorable platoon matchup; tempered by a 27-game HR drought.",
       "factors": {
         "base": 0.066361891160851,
@@ -4341,9 +4331,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 3,
-      "heuristicProb": 0.10213346304250052,
+      "heuristicProb": 0.10162370196919612,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form.",
       "factors": {
         "base": 0.15755961338415958,
@@ -4424,9 +4414,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 3,
-      "heuristicProb": 0.09968024671639426,
+      "heuristicProb": 0.09918272995705113,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and a hitter-friendly park; tempered by cold recent form.",
       "factors": {
         "base": 0.11047412662820355,
@@ -4505,9 +4495,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 6,
-      "heuristicProb": 0.09910523241548325,
+      "heuristicProb": 0.09861058562547696,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form and a favorable platoon matchup.",
       "factors": {
         "base": 0.08469821669227529,
@@ -4544,13 +4534,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".667",
-        "obp": ".667",
-        "slg": "1.000",
-        "ops": "1.667"
+        "atBats": 5,
+        "hits": 1,
+        "homeRuns": 1,
+        "avg": ".200",
+        "obp": ".200",
+        "slg": ".800",
+        "ops": "1.000"
       },
       "veloTrend": null,
       "streak": {
@@ -4594,9 +4584,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 4,
-      "heuristicProb": 0.09909522551901985,
+      "heuristicProb": 0.09860062867470354,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by below-average quality of contact.",
       "factors": {
         "base": 0.11647787157794243,
@@ -4731,9 +4721,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 1,
-      "heuristicProb": 0.09213688077266513,
+      "heuristicProb": 0.09167701390989118,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, tempered by cold recent form and a tough platoon matchup.",
       "factors": {
         "base": 0.17143629612146505,
@@ -4811,9 +4801,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 6,
-      "heuristicProb": 0.0909756645868978,
+      "heuristicProb": 0.09052159350144856,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, tempered by a stingy opposing pitcher.",
       "factors": {
         "base": 0.15672668082232943,
@@ -4891,9 +4881,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 3,
-      "heuristicProb": 0.08934909625464493,
+      "heuristicProb": 0.08890314357812996,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by a stingy opposing pitcher.",
       "factors": {
         "base": 0.10363971608023004,
@@ -4972,9 +4962,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 4,
-      "heuristicProb": 0.08810445669264556,
+      "heuristicProb": 0.08766471617011129,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form.",
       "factors": {
         "base": 0.12337910180195988,
@@ -5061,9 +5051,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 7,
-      "heuristicProb": 0.08434507094110949,
+      "heuristicProb": 0.08392409398987281,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), and warm/humid, carrying conditions; tempered by a stingy opposing pitcher and a tough platoon matchup.",
       "factors": {
         "base": 0.11239978184135735,
@@ -5141,9 +5131,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 8,
-      "heuristicProb": 0.08261867078280391,
+      "heuristicProb": 0.08220631051381254,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions and a favorable platoon matchup; tempered by cold recent form and a 25-game HR drought.",
       "factors": {
         "base": 0.09636027759296728,
@@ -5179,15 +5169,7 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".400",
-        "slg": ".500",
-        "ops": ".900"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -5225,11 +5207,7 @@
       "hitsCallFrozenAt": "2026-09-11T00:40:53.182224",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-10T11:30:24.357534",
-      "prizePicksTBLine": 0.5,
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      "prizePicksTBLine": 0.5
     },
     {
       "gamePk": 823499,
@@ -5238,9 +5216,9 @@
       "team": "NYY",
       "opp": "COL",
       "order": 8,
-      "heuristicProb": 0.08219141294774679,
+      "heuristicProb": 0.08178118517682303,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and a hitter-friendly park; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.08433278568432678,
@@ -5310,175 +5288,6 @@
       "tbCall": null,
       "actualTotalBases": 0,
       "tbHit": null
-    },
-    {
-      "gamePk": 824872,
-      "playerId": 683748,
-      "name": "Victor Mesa Jr.",
-      "team": "TB",
-      "opp": "ATL",
-      "order": 4,
-      "heuristicProb": 0.08191873030115153,
-      "confidence": "High",
-      "calibrationApplied": 0.9016,
-      "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions and a 2-game HR streak; tempered by a stingy opposing pitcher and a tough platoon matchup.",
-      "factors": {
-        "base": 0.16791318268746236,
-        "form": 0.9565991237677983,
-        "pitcherVuln": 0.7405063291139241,
-        "powerQuality": 1.0,
-        "park": 1.02,
-        "weather": 1.0698614784,
-        "handedness": 0.7
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Mesa Jr., Victor",
-        "player_id": "683748",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "66",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "96",
-        "sprint_speed": "67",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "hot",
-        "games": 2
-      },
-      "trendL5OPS": 1.7252747252747251,
-      "trendL7OPS": 1.2964426877470356,
-      "trendL10OPS": 1.1149193548387095,
-      "seasonOPS": 0.795,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": true,
-      "projectedHits": 1.27,
-      "projectedTotalBases": 2.22,
-      "hitsReason": "Projected for 1.3 hits, supported by a well-above-average hit rate this season and a favorable platoon matchup.",
-      "tbReason": "Projected for 2.2 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.158,
-      "tbParkFactor": 1.006,
-      "hitsCalibrationApplied": -0.017,
-      "tbCalibrationApplied": -0.0231,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 1,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 4,
-      "tbHit": null
-    },
-    {
-      "gamePk": 823499,
-      "playerId": 664983,
-      "name": "Jake McCarthy",
-      "team": "COL",
-      "opp": "NYY",
-      "order": 1,
-      "heuristicProb": 0.08172572598502757,
-      "confidence": "High",
-      "calibrationApplied": 0.9016,
-      "reason": "An average power profile this season, boosted by hot recent form and a hitter-friendly park; tempered by a stingy opposing pitcher and below-average quality of contact.",
-      "factors": {
-        "base": 0.12117674044179527,
-        "form": 1.238714843359023,
-        "pitcherVuln": 0.7,
-        "powerQuality": 0.8023629719161255,
-        "park": 1.11,
-        "weather": 1.0356842496,
-        "handedness": 0.9352657004830918
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "McCarthy, Jake",
-        "player_id": "664983",
-        "year": "2026",
-        "xwoba": "50",
-        "xba": "85",
-        "xslg": "58",
-        "xiso": "37",
-        "xobp": "45",
-        "brl": "38",
-        "brl_percent": "24",
-        "exit_velocity": "5",
-        "max_ev": "66",
-        "hard_hit_percent": "9",
-        "k_percent": "78",
-        "bb_percent": "9",
-        "whiff_percent": "67",
-        "chase_percent": "9",
-        "arm_strength": "17",
-        "sprint_speed": "99",
-        "oaa": "70",
-        "bat_speed": "37",
-        "squared_up_rate": "39",
-        "swing_length": "26"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".667",
-        "obp": ".667",
-        "slg": ".667",
-        "ops": "1.334"
-      },
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 3
-      },
-      "trendL5OPS": 1.0555555555555556,
-      "trendL7OPS": 0.9128571428571428,
-      "trendL10OPS": 1.0386996904024768,
-      "seasonOPS": 0.82,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": false,
-      "projectedHits": 1.21,
-      "projectedTotalBases": 2.14,
-      "hitsReason": "Projected for 1.2 hits, supported by a well-above-average hit rate this season.",
-      "tbReason": "Projected for 2.1 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.019,
-      "tbParkFactor": 1.033,
-      "hitsCalibrationApplied": -0.017,
-      "tbCalibrationApplied": -0.0231,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 2,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 4,
-      "tbHit": null,
-      "openingProb": 0.1
     },
     {
       "gamePk": 823499,
@@ -5574,15 +5383,184 @@
       "prizePicksTBLine": 0.5
     },
     {
+      "gamePk": 824872,
+      "playerId": 683748,
+      "name": "Victor Mesa Jr.",
+      "team": "TB",
+      "opp": "ATL",
+      "order": 4,
+      "heuristicProb": 0.08150986352391641,
+      "confidence": "High",
+      "calibrationApplied": 0.8971,
+      "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions and a 2-game HR streak; tempered by a stingy opposing pitcher and a tough platoon matchup.",
+      "factors": {
+        "base": 0.16791318268746236,
+        "form": 0.9565991237677983,
+        "pitcherVuln": 0.7405063291139241,
+        "powerQuality": 1.0,
+        "park": 1.02,
+        "weather": 1.0698614784,
+        "handedness": 0.7
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Mesa Jr., Victor",
+        "player_id": "683748",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "66",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "96",
+        "sprint_speed": "67",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "veloTrend": null,
+      "streak": {
+        "type": "hot",
+        "games": 2
+      },
+      "trendL5OPS": 1.7252747252747251,
+      "trendL7OPS": 1.2964426877470356,
+      "trendL10OPS": 1.1149193548387095,
+      "seasonOPS": 0.795,
+      "marketProb": null,
+      "edge": null,
+      "graded": true,
+      "hr": true,
+      "projectedHits": 1.27,
+      "projectedTotalBases": 2.22,
+      "hitsReason": "Projected for 1.3 hits, supported by a well-above-average hit rate this season and a favorable platoon matchup.",
+      "tbReason": "Projected for 2.2 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 1.158,
+      "tbParkFactor": 1.006,
+      "hitsCalibrationApplied": -0.017,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": 1,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": 4,
+      "tbHit": null
+    },
+    {
+      "gamePk": 823499,
+      "playerId": 664983,
+      "name": "Jake McCarthy",
+      "team": "COL",
+      "opp": "NYY",
+      "order": 1,
+      "heuristicProb": 0.08131782251682369,
+      "confidence": "High",
+      "calibrationApplied": 0.8971,
+      "reason": "An average power profile this season, boosted by hot recent form and a hitter-friendly park; tempered by a stingy opposing pitcher and below-average quality of contact.",
+      "factors": {
+        "base": 0.12117674044179527,
+        "form": 1.238714843359023,
+        "pitcherVuln": 0.7,
+        "powerQuality": 0.8023629719161255,
+        "park": 1.11,
+        "weather": 1.0356842496,
+        "handedness": 0.9352657004830918
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "McCarthy, Jake",
+        "player_id": "664983",
+        "year": "2026",
+        "xwoba": "50",
+        "xba": "85",
+        "xslg": "58",
+        "xiso": "37",
+        "xobp": "45",
+        "brl": "38",
+        "brl_percent": "24",
+        "exit_velocity": "5",
+        "max_ev": "66",
+        "hard_hit_percent": "9",
+        "k_percent": "78",
+        "bb_percent": "9",
+        "whiff_percent": "67",
+        "chase_percent": "9",
+        "arm_strength": "17",
+        "sprint_speed": "99",
+        "oaa": "70",
+        "bat_speed": "37",
+        "squared_up_rate": "39",
+        "swing_length": "26"
+      },
+      "vsPitcher": {
+        "atBats": 6,
+        "hits": 2,
+        "homeRuns": 1,
+        "avg": ".333",
+        "obp": ".333",
+        "slg": "1.167",
+        "ops": "1.500"
+      },
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 3
+      },
+      "trendL5OPS": 1.0555555555555556,
+      "trendL7OPS": 0.9128571428571428,
+      "trendL10OPS": 1.0386996904024768,
+      "seasonOPS": 0.82,
+      "marketProb": null,
+      "edge": null,
+      "graded": true,
+      "hr": false,
+      "projectedHits": 1.21,
+      "projectedTotalBases": 2.14,
+      "hitsReason": "Projected for 1.2 hits, supported by a well-above-average hit rate this season.",
+      "tbReason": "Projected for 2.1 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 1.019,
+      "tbParkFactor": 1.033,
+      "hitsCalibrationApplied": -0.017,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": 2,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": 4,
+      "tbHit": null,
+      "openingProb": 0.1
+    },
+    {
       "gamePk": 823088,
       "playerId": 677594,
       "name": "Julio Rodr\u00edguez",
       "team": "SEA",
       "opp": "TEX",
       "order": 5,
-      "heuristicProb": 0.0801569072483067,
+      "heuristicProb": 0.07975683395347818,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by a track record vs this pitcher (1 HR in 18 AB); tempered by cold recent form.",
       "factors": {
         "base": 0.13398528758291928,
@@ -5637,7 +5615,7 @@
       "trendL10OPS": 0.5209176788124157,
       "seasonOPS": 0.693,
       "marketProb": 0.20500000000000002,
-      "edge": -0.12484309275169332,
+      "edge": -0.12524316604652183,
       "graded": true,
       "hr": true,
       "projectedHits": 0.88,
@@ -5666,10 +5644,8 @@
       "priceDelta": 0.065,
       "marketBid": 0.19,
       "marketAsk": 0.22,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "prizePicksTBOpeningLine": 1.5,
-      "prizePicksTBLineDelta": 0.0,
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 823499,
@@ -5678,9 +5654,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 6,
-      "heuristicProb": 0.07983639159017858,
+      "heuristicProb": 0.0794379180296686,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form and a hitter-friendly park; tempered by a stingy opposing pitcher and a tough platoon matchup.",
       "factors": {
         "base": 0.10137664047970252,
@@ -5717,13 +5693,13 @@
         "swing_length": "18"
       },
       "vsPitcher": {
-        "atBats": 6,
+        "atBats": 3,
         "hits": 2,
-        "homeRuns": 1,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": "1.167",
-        "ops": "1.500"
+        "homeRuns": 0,
+        "avg": ".667",
+        "obp": ".667",
+        "slg": ".667",
+        "ops": "1.334"
       },
       "veloTrend": null,
       "streak": {
@@ -5767,9 +5743,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 4,
-      "heuristicProb": 0.07793661169885072,
+      "heuristicProb": 0.07754762018083294,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.08458800237702169,
@@ -5847,9 +5823,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 5,
-      "heuristicProb": 0.07600709155246321,
+      "heuristicProb": 0.07562773051432425,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a hitter-friendly park; tempered by a stingy opposing pitcher.",
       "factors": {
         "base": 0.10087642307943756,
@@ -5936,9 +5912,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 4,
-      "heuristicProb": 0.0725455452952966,
+      "heuristicProb": 0.07218346127374732,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form and a hitter-friendly park; tempered by a stingy opposing pitcher and below-average quality of contact.",
       "factors": {
         "base": 0.10658764108420771,
@@ -6025,9 +6001,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 4,
-      "heuristicProb": 0.0722821465995223,
+      "heuristicProb": 0.07192137723428511,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by a homer-prone opposing pitcher, warm/humid, carrying conditions, and a favorable platoon matchup; tempered by below-average quality of contact and a 19-game HR drought.",
       "factors": {
         "base": 0.05928492702113741,
@@ -6106,9 +6082,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 9,
-      "heuristicProb": 0.07228167701180122,
+      "heuristicProb": 0.07192090999033593,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.09197937671089818,
@@ -6199,9 +6175,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 8,
-      "heuristicProb": 0.07221573214032934,
+      "heuristicProb": 0.07185529425808501,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form, a homer-prone opposing pitcher, warm/humid, carrying conditions, and a favorable platoon matchup; tempered by below-average quality of contact and a 93-game HR drought.",
       "factors": {
         "base": 0.04322459466081574,
@@ -6280,9 +6256,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 9,
-      "heuristicProb": 0.07183826988547741,
+      "heuristicProb": 0.07147971596524155,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.10579099262604985,
@@ -6360,9 +6336,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 5,
-      "heuristicProb": 0.07166643036448435,
+      "heuristicProb": 0.07130873411710172,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form and warm/humid, carrying conditions; tempered by below-average quality of contact.",
       "factors": {
         "base": 0.08880740970151713,
@@ -6441,9 +6417,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 4,
-      "heuristicProb": 0.0711509039730727,
+      "heuristicProb": 0.07079578078332245,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher, elite quality of contact (barrel/hard-hit/exit velo), and a track record vs this pitcher (1 HR in 3 AB); tempered by cold recent form.",
       "factors": {
         "base": 0.09929597689768732,
@@ -6480,13 +6456,13 @@
         "swing_length": "18"
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 1,
-        "homeRuns": 1,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": "1.333",
-        "ops": "1.666"
+        "atBats": 17,
+        "hits": 3,
+        "homeRuns": 2,
+        "avg": ".176",
+        "obp": ".222",
+        "slg": ".529",
+        "ops": ".751"
       },
       "veloTrend": null,
       "streak": {
@@ -6529,9 +6505,9 @@
       "team": "HOU",
       "opp": "PHI",
       "order": 4,
-      "heuristicProb": 0.07020606043317679,
+      "heuristicProb": 0.06985565307742114,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by warm/humid, carrying conditions; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.08881633508825404,
@@ -6609,9 +6585,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 2,
-      "heuristicProb": 0.06952447932291034,
+      "heuristicProb": 0.06917747382495881,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
       "factors": {
         "base": 0.17412448934289926,
@@ -6690,9 +6666,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 6,
-      "heuristicProb": 0.06919021817485908,
+      "heuristicProb": 0.06884488101671038,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions and a track record vs this pitcher (1 HR in 3 AB); tempered by cold recent form and below-average quality of contact.",
       "factors": {
         "base": 0.12040308088206486,
@@ -6729,13 +6705,13 @@
         "swing_length": "32"
       },
       "vsPitcher": {
-        "atBats": 3,
+        "atBats": 9,
         "hits": 1,
         "homeRuns": 1,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": "1.333",
-        "ops": "1.666"
+        "avg": ".111",
+        "obp": ".111",
+        "slg": ".444",
+        "ops": ".555"
       },
       "veloTrend": null,
       "streak": {
@@ -6747,7 +6723,7 @@
       "trendL10OPS": 0.5808823529411764,
       "seasonOPS": 0.715,
       "marketProb": 0.115,
-      "edge": -0.04580978182514092,
+      "edge": -0.046155118983289625,
       "graded": true,
       "hr": false,
       "projectedHits": 0.75,
@@ -6774,8 +6750,8 @@
       "priceDelta": -0.015,
       "marketBid": 0.1,
       "marketAsk": 0.13,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 824872,
@@ -6784,9 +6760,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 2,
-      "heuristicProb": 0.06905179885327763,
+      "heuristicProb": 0.06870715256352634,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions; tempered by cold recent form and a stingy opposing pitcher.",
       "factors": {
         "base": 0.15891130173278434,
@@ -6865,9 +6841,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 6,
-      "heuristicProb": 0.06868883030682713,
+      "heuristicProb": 0.06834599563914664,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by cold recent form.",
       "factors": {
         "base": 0.10355909362986071,
@@ -6903,7 +6879,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -7026,9 +7010,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 8,
-      "heuristicProb": 0.06771264227601342,
+      "heuristicProb": 0.06737467988665889,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by a homer-prone opposing pitcher and a favorable platoon matchup; tempered by a 77-game HR drought.",
       "factors": {
         "base": 0.053311781272648684,
@@ -7119,9 +7103,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 8,
-      "heuristicProb": 0.06751188766901145,
+      "heuristicProb": 0.06717492727137331,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by a hitter-friendly park and a favorable platoon matchup; tempered by a stingy opposing pitcher and a 38-game HR drought.",
       "factors": {
         "base": 0.06587109428086879,
@@ -7212,9 +7196,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 1,
-      "heuristicProb": 0.0649493124244692,
+      "heuristicProb": 0.06462514216503032,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by a favorable platoon matchup; tempered by cold recent form, below-average quality of contact, and a 39-game HR drought.",
       "factors": {
         "base": 0.08392472428960096,
@@ -7251,13 +7235,13 @@
         "swing_length": "5"
       },
       "vsPitcher": {
-        "atBats": 5,
-        "hits": 1,
-        "homeRuns": 1,
-        "avg": ".200",
-        "obp": ".200",
-        "slg": ".800",
-        "ops": "1.000"
+        "atBats": 3,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".667",
+        "obp": ".667",
+        "slg": "1.000",
+        "ops": "1.667"
       },
       "veloTrend": null,
       "streak": {
@@ -7301,9 +7285,9 @@
       "team": "PHI",
       "opp": "HOU",
       "order": 9,
-      "heuristicProb": 0.06339259677077606,
+      "heuristicProb": 0.06307619627668946,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher and warm/humid, carrying conditions; tempered by cold recent form and a tough platoon matchup.",
       "factors": {
         "base": 0.08997680984386813,
@@ -7386,9 +7370,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 8,
-      "heuristicProb": 0.06184931666524929,
+      "heuristicProb": 0.061540618877989284,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by cold recent form and a 21-game HR drought.",
       "factors": {
         "base": 0.09025309963637163,
@@ -7425,13 +7409,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 14,
-        "hits": 1,
+        "atBats": 7,
+        "hits": 0,
         "homeRuns": 0,
-        "avg": ".071",
-        "obp": ".071",
-        "slg": ".143",
-        "ops": ".214"
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
       },
       "veloTrend": null,
       "streak": {
@@ -7469,11 +7453,7 @@
       "hitsCallFrozenAt": "2026-09-10T23:40:17.484008",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-10T23:40:17.484672",
-      "prizePicksTBLine": 0.5,
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      "prizePicksTBLine": 0.5
     },
     {
       "gamePk": 823088,
@@ -7482,9 +7462,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 9,
-      "heuristicProb": 0.059332848185934546,
+      "heuristicProb": 0.05903671041215826,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher; tempered by a tough platoon matchup.",
       "factors": {
         "base": 0.08679582698927713,
@@ -7562,9 +7542,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 9,
-      "heuristicProb": 0.05918586225144339,
+      "heuristicProb": 0.058890458103116536,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by a 47-game HR drought.",
       "factors": {
         "base": 0.056889562729211196,
@@ -7600,15 +7580,7 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": {
-        "atBats": 21,
-        "hits": 6,
-        "homeRuns": 0,
-        "avg": ".286",
-        "obp": ".348",
-        "slg": ".381",
-        "ops": ".729"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -7650,9 +7622,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 5,
-      "heuristicProb": 0.0589106635563229,
+      "heuristicProb": 0.05861663295960213,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, and a 22-game HR drought.",
       "factors": {
         "base": 0.12068845498036018,
@@ -7730,9 +7702,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 1,
-      "heuristicProb": 0.05709320190600258,
+      "heuristicProb": 0.056808242490988155,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a favorable platoon matchup; tempered by cold recent form and a 47-game HR drought.",
       "factors": {
         "base": 0.1078449581663451,
@@ -7768,15 +7740,7 @@
         "squared_up_rate": "76",
         "swing_length": "49"
       },
-      "vsPitcher": {
-        "atBats": 17,
-        "hits": 3,
-        "homeRuns": 1,
-        "avg": ".176",
-        "obp": ".222",
-        "slg": ".353",
-        "ops": ".575"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -7821,9 +7785,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 5,
-      "heuristicProb": 0.05653056765874706,
+      "heuristicProb": 0.05624841642265083,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
       "factors": {
         "base": 0.1692764622738654,
@@ -7902,9 +7866,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 2,
-      "heuristicProb": 0.05609441802507424,
+      "heuristicProb": 0.05581444366714076,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by hot recent form and a hitter-friendly park; tempered by a stingy opposing pitcher and a tough platoon matchup.",
       "factors": {
         "base": 0.10243249136838928,
@@ -7991,9 +7955,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 9,
-      "heuristicProb": 0.054643032679994236,
+      "heuristicProb": 0.05437030237047785,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, tempered by a 18-game HR drought.",
       "factors": {
         "base": 0.07483280215101873,
@@ -8072,9 +8036,9 @@
       "team": "ATL",
       "opp": "TB",
       "order": 9,
-      "heuristicProb": 0.05254009623141218,
+      "heuristicProb": 0.05227786194454289,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by warm/humid, carrying conditions; tempered by a 35-game HR drought.",
       "factors": {
         "base": 0.0627293951032123,
@@ -8157,9 +8121,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 7,
-      "heuristicProb": 0.0519839408800216,
+      "heuristicProb": 0.05172448243507916,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a favorable platoon matchup; tempered by cold recent form.",
       "factors": {
         "base": 0.10335747836846076,
@@ -8206,7 +8170,7 @@
       "trendL10OPS": 0.7732497387669801,
       "seasonOPS": 0.695,
       "marketProb": 0.13,
-      "edge": -0.07801605911997841,
+      "edge": -0.07827551756492085,
       "graded": true,
       "hr": false,
       "projectedHits": 0.89,
@@ -8233,8 +8197,8 @@
       "priceDelta": 0.05,
       "marketBid": 0.11,
       "marketAsk": 0.15,
-      "oddsUpdatedAt": "2026-09-11T02:50:58.524587",
-      "edgeEligible": true
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-11T02:57:03.191158"
     },
     {
       "gamePk": 824550,
@@ -8243,9 +8207,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 8,
-      "heuristicProb": 0.04898353520868998,
+      "heuristicProb": 0.04873905216916125,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form.",
       "factors": {
         "base": 0.09479847067991531,
@@ -8334,9 +8298,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 7,
-      "heuristicProb": 0.04564100839706412,
+      "heuristicProb": 0.04541320833297053,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by cold recent form and a stingy opposing pitcher.",
       "factors": {
         "base": 0.10139459893776048,
@@ -8415,9 +8379,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 6,
-      "heuristicProb": 0.043292873104088886,
+      "heuristicProb": 0.04307679288118694,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by warm/humid, carrying conditions; tempered by cold recent form, a stingy opposing pitcher, and a 16-game HR drought.",
       "factors": {
         "base": 0.08295753250186388,
@@ -8453,7 +8417,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".500",
+        "obp": ".500",
+        "slg": ".750",
+        "ops": "1.250"
+      },
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -8496,9 +8468,9 @@
       "team": "TEX",
       "opp": "SEA",
       "order": 8,
-      "heuristicProb": 0.0428925265571817,
+      "heuristicProb": 0.04267844451469355,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a homer-prone opposing pitcher; tempered by cold recent form and a tough platoon matchup.",
       "factors": {
         "base": 0.07874593789715045,
@@ -8576,9 +8548,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 6,
-      "heuristicProb": 0.04255774971019716,
+      "heuristicProb": 0.04234533858143065,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "Strong power profile this season, boosted by warm/humid, carrying conditions; tempered by a stingy opposing pitcher, below-average quality of contact, and a tough platoon matchup.",
       "factors": {
         "base": 0.1231861822267718,
@@ -8656,9 +8628,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 4,
-      "heuristicProb": 0.04239215699238564,
+      "heuristicProb": 0.04218057235788505,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by a stingy opposing pitcher, below-average quality of contact, and a tough platoon matchup.",
       "factors": {
         "base": 0.11294116816693278,
@@ -8695,13 +8667,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 5,
-        "hits": 2,
+        "atBats": 3,
+        "hits": 1,
         "homeRuns": 0,
-        "avg": ".400",
-        "obp": ".400",
-        "slg": ".400",
-        "ops": ".800"
+        "avg": ".333",
+        "obp": ".333",
+        "slg": ".333",
+        "ops": ".666"
       },
       "veloTrend": null,
       "streak": {
@@ -8745,9 +8717,9 @@
       "team": "CWS",
       "opp": "PIT",
       "order": 7,
-      "heuristicProb": 0.04191096879459667,
+      "heuristicProb": 0.04170178583144707,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form, below-average quality of contact, and a 25-game HR drought.",
       "factors": {
         "base": 0.08453286139089722,
@@ -8834,9 +8806,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 9,
-      "heuristicProb": 0.0417055272743016,
+      "heuristicProb": 0.041497369695847344,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by warm/humid, carrying conditions; tempered by a stingy opposing pitcher, below-average quality of contact, and a tough platoon matchup.",
       "factors": {
         "base": 0.10108040897282122,
@@ -8923,9 +8895,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 6,
-      "heuristicProb": 0.039944578421055574,
+      "heuristicProb": 0.03974520996176681,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, tempered by cold recent form, below-average quality of contact, and a 27-game HR drought.",
       "factors": {
         "base": 0.07539115287672415,
@@ -8962,13 +8934,13 @@
         "swing_length": "60"
       },
       "vsPitcher": {
-        "atBats": 8,
-        "hits": 3,
+        "atBats": 3,
+        "hits": 0,
         "homeRuns": 0,
-        "avg": ".375",
-        "obp": ".444",
-        "slg": ".375",
-        "ops": ".819"
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
       },
       "veloTrend": null,
       "streak": {
@@ -9012,9 +8984,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 9,
-      "heuristicProb": 0.033682798467728425,
+      "heuristicProb": 0.03351468334671603,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form and a tough platoon matchup.",
       "factors": {
         "base": 0.09501154039382032,
@@ -9096,9 +9068,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 4,
-      "heuristicProb": 0.03286519739192396,
+      "heuristicProb": 0.03270116302162265,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, a tough platoon matchup, and a 19-game HR drought.",
       "factors": {
         "base": 0.11277304181345749,
@@ -9176,9 +9148,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 9,
-      "heuristicProb": 0.0327745906163405,
+      "heuristicProb": 0.03261100847595282,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher, below-average quality of contact, and a tough platoon matchup.",
       "factors": {
         "base": 0.05615637914911331,
@@ -9259,9 +9231,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 8,
-      "heuristicProb": 0.0317279560180235,
+      "heuristicProb": 0.03156959776371882,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by warm/humid, carrying conditions; tempered by a stingy opposing pitcher, a tough platoon matchup, and a 19-game HR drought.",
       "factors": {
         "base": 0.06780903354882462,
@@ -9340,9 +9312,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 1,
-      "heuristicProb": 0.031444821056912486,
+      "heuristicProb": 0.03128787596512444,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
       "factors": {
         "base": 0.09716130991875194,
@@ -9421,9 +9393,9 @@
       "team": "SEA",
       "opp": "TEX",
       "order": 9,
-      "heuristicProb": 0.030865458304395754,
+      "heuristicProb": 0.03071140488561827,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by a track record vs this pitcher (1 HR in 12 AB); tempered by a tough platoon matchup and a 39-game HR drought.",
       "factors": {
         "base": 0.05589093576354731,
@@ -9459,15 +9431,7 @@
         "squared_up_rate": "95",
         "swing_length": "12"
       },
-      "vsPitcher": {
-        "atBats": 12,
-        "hits": 3,
-        "homeRuns": 1,
-        "avg": ".250",
-        "obp": ".308",
-        "slg": ".500",
-        "ops": ".808"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -9509,9 +9473,9 @@
       "team": "COL",
       "opp": "NYY",
       "order": 9,
-      "heuristicProb": 0.028016944678763804,
+      "heuristicProb": 0.02787710855292703,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, boosted by a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
       "factors": {
         "base": 0.0819077943798634,
@@ -9602,9 +9566,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 7,
-      "heuristicProb": 0.026014887427810128,
+      "heuristicProb": 0.02588504382374497,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, and a 24-game HR drought.",
       "factors": {
         "base": 0.05768047187350056,
@@ -9683,9 +9647,9 @@
       "team": "TB",
       "opp": "ATL",
       "order": 5,
-      "heuristicProb": 0.02228885082989223,
+      "heuristicProb": 0.022177604347267437,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, boosted by hot recent form and warm/humid, carrying conditions; tempered by a stingy opposing pitcher, below-average quality of contact, and a 135-game HR drought.",
       "factors": {
         "base": 0.030544766162701853,
@@ -9721,15 +9685,7 @@
         "squared_up_rate": "100",
         "swing_length": "3"
       },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
+      "vsPitcher": null,
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -9772,9 +9728,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 4,
-      "heuristicProb": 0.021285734030437948,
+      "heuristicProb": 0.021179494231040246,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "A modest power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, a tough platoon matchup, and a 40-game HR drought.",
       "factors": {
         "base": 0.06223763595328502,
@@ -9853,9 +9809,9 @@
       "team": "PIT",
       "opp": "CWS",
       "order": 8,
-      "heuristicProb": 0.019928354498285547,
+      "heuristicProb": 0.019828889552364646,
       "confidence": "High",
-      "calibrationApplied": 0.9016,
+      "calibrationApplied": 0.8971,
       "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, below-average quality of contact, a tough platoon matchup, and a 32-game HR drought.",
       "factors": {
         "base": 0.08793170924668914,
@@ -9928,5 +9884,5 @@
       "openingProb": 0.09
     }
   ],
-  "oddsRefreshedAt": "2026-09-11T02:50:58.524587"
+  "oddsRefreshedAt": "2026-09-11T02:57:03.191158"
 }
