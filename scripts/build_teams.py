@@ -193,7 +193,7 @@ def fetch_roster_savant_avg(team_id, batter_ev_map, batter_xstats_map, pitcher_p
             "barrelPct": avg_field(batters, batter_ev_map, "brl_percent"),
             "hardHitPct": avg_field(batters, batter_ev_map, "ev95percent"),
             "exitVelo": avg_field(batters, batter_ev_map, "avg_hit_speed"),
-            "xwoba": avg_field(batters, batter_xstats_map, "xwoba"),
+            "xwoba": avg_field(batters, batter_xstats_map, "est_woba"),
             "whiffPctile": avg_field(pitchers, pitcher_pct_map, "whiff_percent"),
             "chasePctile": avg_field(pitchers, pitcher_pct_map, "chase_percent"),
         }
