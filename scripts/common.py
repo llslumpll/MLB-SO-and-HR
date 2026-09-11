@@ -167,20 +167,24 @@ def fetch_savant_exitvelo_barrels(kind, year):
     if key in _savant_ev_cache:
         return _savant_ev_cache[key]
     try:
+        # Local import, not top-level: common.py is also imported by
+        # refresh_odds.py, which runs every 10 minutes via a separate
+        # workflow that only installs requests/tzdata. A top-level
+        # pandas import here would break that job every single cycle.
+        # pandas is only needed for these two functions, only called
+        # from build_teams.py (daily.yml, which does install pandas).
+        import pandas as pd
         text = get_text(
             f"{SAVANT}/leaderboard/statcast",
             params={"type": kind, "year": year, "position": "", "team": "", "min": "1", "csv": "true"},
         )
-        # Diagnostic: this endpoint came back empty on its first live test
-        # (2026-09-11), silently -- no exception, just zero usable rows.
-        # URL structure independently confirmed correct against pybaseball's
-        # own proven-working implementation, so logging exactly what came
-        # back is more useful right now than guessing at another param
-        # change untested.
-        first_line = text.splitlines()[0] if text.splitlines() else "(empty response)"
-        print(f"  [debug] exitvelo/barrels {kind}/{year}: {len(text)} chars, header: {first_line[:200]}")
-        reader = csv.DictReader(io.StringIO(text))
-        rows = {row["player_id"]: row for row in reader if row.get("player_id")}
+        # pandas' C parser, not Python's stdlib csv module -- see
+        # fetch_savant_expected_stats's docstring for why. Kept
+        # consistent between both functions even though this specific
+        # endpoint's CSV happened to parse fine with csv.DictReader in
+        # the 2026-09-11 live test (325/325 batters).
+        df = pd.read_csv(io.StringIO(text), dtype={"player_id": str}, on_bad_lines="skip")
+        rows = {row["player_id"]: row.to_dict() for _, row in df.iterrows() if row.get("player_id")}
         print(f"  [debug] exitvelo/barrels {kind}/{year}: parsed {len(rows)} rows with a player_id")
         _savant_ev_cache[key] = rows
         return rows
@@ -203,14 +207,25 @@ def fetch_savant_expected_stats(kind, year):
     if key in _savant_xstats_cache:
         return _savant_xstats_cache[key]
     try:
+        # Local import -- see fetch_savant_exitvelo_barrels's comment on
+        # why this can't be a top-level import in this file.
+        #
+        # pandas instead of Python's stdlib csv module: live-tested
+        # 2026-09-11, this specific endpoint's CSV (89KB) broke
+        # csv.DictReader down to a single parsed row -- almost certainly
+        # an unescaped quote character in a player's name somewhere in
+        # the file, which makes the stdlib parser lose track of field
+        # boundaries and swallow everything after it into one field.
+        # pandas' C parser handles this far more gracefully, and
+        # on_bad_lines="skip" means one malformed row (one missing
+        # player, worst case) can't take the whole fetch down with it.
+        import pandas as pd
         text = get_text(
             f"{SAVANT}/leaderboard/expected_statistics",
             params={"type": kind, "year": year, "position": "", "team": "", "min": "1", "csv": "true"},
         )
-        first_line = text.splitlines()[0] if text.splitlines() else "(empty response)"
-        print(f"  [debug] expected-stats {kind}/{year}: {len(text)} chars, header: {first_line[:200]}")
-        reader = csv.DictReader(io.StringIO(text))
-        rows = {row["player_id"]: row for row in reader if row.get("player_id")}
+        df = pd.read_csv(io.StringIO(text), dtype={"player_id": str}, on_bad_lines="skip")
+        rows = {row["player_id"]: row.to_dict() for _, row in df.iterrows() if row.get("player_id")}
         print(f"  [debug] expected-stats {kind}/{year}: parsed {len(rows)} rows with a player_id")
         _savant_xstats_cache[key] = rows
         return rows
