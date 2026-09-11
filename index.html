@@ -189,10 +189,11 @@
       <div class="sys-tag">SYS.MLB-EDGE // AUTO-BUILD // NO HUMAN IN THE LOOP</div>
     </div>
     <nav class="tabs2">
-      <button class="navbtn active" data-view="hr">[01] HomeRuns</button>
-      <button class="navbtn" data-view="ko">[02] Strikeouts</button>
-      <button class="navbtn" data-view="teams">[03] Teams/Matchups</button>
-      <button class="navbtn" data-view="history">[04] History</button>
+      <button class="navbtn active" data-view="home">[01] Home</button>
+      <button class="navbtn" data-view="hr">[02] HomeRuns</button>
+      <button class="navbtn" data-view="ko">[03] Strikeouts</button>
+      <button class="navbtn" data-view="teams">[04] Teams/Matchups</button>
+      <button class="navbtn" data-view="history">[05] History</button>
     </nav>
   </header>
 
@@ -208,7 +209,11 @@
     <span class="status" id="loadStatus"></span>
   </div>
 
-  <div id="hrView">
+  <div id="homeView">
+    <div id="homeContent"></div>
+  </div>
+
+  <div id="hrView" style="display:none;">
     <div class="hr-subnav" id="hrSubnav">
       <div class="subnav-group">
         <span class="subnav-group-label">HOME RUNS</span>
@@ -419,6 +424,7 @@ async function loadDate(date){
     const oddsTime = HR_DATA.oddsRefreshedAt ? HR_DATA.oddsRefreshedAt.slice(11,16)+' UTC' : null;
     document.getElementById('loadStatus').textContent = `${HR_DATA.entries.length} HR entries, ${KO_DATA.entries.length} K entries${oddsTime ? ' · odds refreshed '+oddsTime : ''}`;
     checkPipelineStaleness();
+    renderHome();
     renderHR();
     renderKO();
     renderTeams();
@@ -607,6 +613,150 @@ function correlationNote(picks){
       : `${names} (opposite sides of ${g[0].team} vs ${g[0].opp})`;
   });
   return `<div class="status" style="margin:2px 0 10px;color:var(--amber);">⚠️ Not fully independent: ${parts.join('; ')} -- these picks can win or lose together, not separately.</div>`;
+}
+
+function homeHighlightsHtml(){
+  const spotlight = HR_DATA && HR_DATA.statcastSpotlight;
+  const matchup = HR_DATA && HR_DATA.topMatchup;
+  if(!spotlight && !matchup) return '';
+
+  const spotlightHtml = spotlight ? `
+    <div class="day-card" style="flex:1;min-width:280px;">
+      <div class="hr-section-title" style="font-size:16px;">📡 Statcast Spotlight</div>
+      <div class="hr-section-sub">Today's #1 HR pick's hardest-hit home run this season.</div>
+      <div style="font-size:17px;font-weight:600;margin-top:8px;">${spotlight.name} <span style="color:var(--slate);font-weight:400;">(${spotlight.team})</span></div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:8px;font-size:14px;">
+        <div>Exit Velo <b style="font-size:16px;">${spotlight.exitVelo.toFixed(1)}</b> mph</div>
+        <div>Launch Angle <b style="font-size:16px;">${Math.round(spotlight.launchAngle)}</b>°</div>
+        <div>Distance <b style="font-size:16px;">${Math.round(spotlight.distance)}</b> ft</div>
+      </div>
+      <div class="status" style="margin-top:8px;">${spotlight.seasonHRCount} HR this season · hardest hit on ${spotlight.hrDate||'—'}</div>
+    </div>
+  ` : '';
+
+  const batterHtml = (() => {
+    if(!matchup || !matchup.batter) return '<div class="status">No opposing batter data available.</div>';
+    const b = matchup.batter;
+    return matchup.batterKind === 'history'
+      ? `vs <b>${b.name}</b> -- ${b.hits}-for-${b.atBats} (${b.ops} OPS) career`
+      : `opposing team's top HR threat today: <b>${b.name}</b> (${(b.heuristicProb*100).toFixed(0)}% HR probability)`;
+  })();
+
+  const matchupHtml = matchup ? `
+    <div class="day-card" style="flex:1;min-width:280px;">
+      <div class="hr-section-title" style="font-size:16px;">🎯 Today's Top Matchup</div>
+      <div class="hr-section-sub">${matchup.usedFallback ? 'Highest projected strikeouts today -- no liquid edge market today, so this uses projection instead.' : 'The biggest verified market edge today (real two-sided pricing only).'}</div>
+      <div style="font-size:17px;font-weight:600;margin-top:8px;">${matchup.pitcherName} <span style="color:var(--slate);font-weight:400;">(${matchup.pitcherTeam} vs ${matchup.opp})</span></div>
+      <div style="margin-top:6px;font-size:14px;">Projected ${matchup.projectedK!=null?matchup.projectedK.toFixed(1):'—'} K${matchup.edge!=null?` · edge +${(matchup.edge*100).toFixed(1)}%`:''}</div>
+      <div class="status" style="margin-top:8px;">${batterHtml}</div>
+    </div>
+  ` : '';
+
+  return `<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">${spotlightHtml}${matchupHtml}</div>`;
+}
+
+// Mini-leaderboard: top 5 by heuristicProb (HR) or projectedK (K), read-
+// only quick view -- same ranking as the full HR/Strikeouts tabs' own
+// "Best 5", just a compact preview so the homepage doesn't need its own
+// separate ranking logic to drift out of sync with those tabs.
+function miniLeaderboardHtml(title, icon, rows, unitFn){
+  if(!rows.length) return `<div class="day-card" style="flex:1;min-width:280px;"><div class="hr-section-title" style="font-size:16px;">${icon} ${title}</div><div class="status">No data for this date yet.</div></div>`;
+  const rowsHtml = rows.slice(0,5).map((r,i)=>`
+    <tr><td>${i+1}</td><td>${r.name}</td><td style="color:var(--slate);">${r.team}</td><td style="text-align:right;">${unitFn(r)}</td></tr>
+  `).join('');
+  return `
+    <div class="day-card" style="flex:1;min-width:280px;">
+      <div class="hr-section-title" style="font-size:16px;">${icon} ${title}</div>
+      <table class="board" style="margin-top:8px;"><tbody>${rowsHtml}</tbody></table>
+    </div>
+  `;
+}
+
+// Real team standings by win% -- swapped in for the design concept's
+// "Team Power Rankings", which had no defined formula behind its 0-100
+// score. Win% is real, already-fetched data with a clear, honest
+// meaning instead of an invented number.
+function standingsHtml(){
+  const teams = (TEAMS_DATA && TEAMS_DATA.teams) || [];
+  if(!teams.length) return '';
+  const withPct = teams.map(t=>{
+    const w = t.wins, l = t.losses;
+    return {...t, winPct: (w!=null && l!=null && (w+l)>0) ? w/(w+l) : null};
+  }).filter(t=>t.winPct!=null).sort((a,b)=>b.winPct-a.winPct).slice(0,5);
+  if(!withPct.length) return '';
+  const rowsHtml = withPct.map((t,i)=>`
+    <tr><td>${i+1}</td><td>${t.abbr||t.name}</td><td style="color:var(--slate);">${t.wins}-${t.losses}</td><td style="text-align:right;">${(t.winPct*100).toFixed(1)}%</td></tr>
+  `).join('');
+  return `
+    <div class="day-card" style="flex:1;min-width:280px;">
+      <div class="hr-section-title" style="font-size:16px;">📊 Top 5 by Win%</div>
+      <table class="board" style="margin-top:8px;"><tbody>${rowsHtml}</tbody></table>
+    </div>
+  `;
+}
+
+// Recent Results: real graded picks from the last few available past
+// days' HR Best 5 (probability-ranked), with the actual HIT/MISS
+// outcome -- pulls a bounded, small number of extra day-files (not the
+// whole history) specifically for this strip.
+async function recentResultsHtml(){
+  const pastDates = (INDEX.hrDates||[]).slice().sort().reverse().filter(d=>d!==CURRENT_DATE).slice(0,4);
+  if(!pastDates.length) return '';
+  const rows = [];
+  for(const d of pastDates){
+    if(rows.length>=5) break;
+    const dd = await fetchJSONLocal(`data/hr/${d}.json`).catch(()=>null);
+    if(!dd || !dd.entries.length) continue;
+    const top5 = [...dd.entries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
+    top5.filter(e=>e.graded).forEach(e=>{
+      if(rows.length<5) rows.push({date:d, name:e.name, hit:e.hr});
+    });
+  }
+  if(!rows.length) return '';
+  const rowsHtml = rows.map(r=>`
+    <tr><td>${r.date.slice(5)}</td><td>${r.name}</td><td style="text-align:right;">${r.hit?'<span class="stat-good">✓ HIT</span>':'<span class="stat-bad">✗ MISS</span>'}</td></tr>
+  `).join('');
+  return `
+    <div class="day-card" style="flex:1;min-width:280px;">
+      <div class="hr-section-title" style="font-size:16px;">📋 Recent Results</div>
+      <div class="hr-section-sub">Real graded outcomes from recent HR Best 5 picks.</div>
+      <table class="board" style="margin-top:8px;"><tbody>${rowsHtml}</tbody></table>
+    </div>
+  `;
+}
+
+async function renderHome(){
+  const content = document.getElementById('homeContent');
+  if(!content) return;
+
+  const gen = HR_DATA && HR_DATA.generatedAt;
+  const genAge = gen ? Math.round((Date.now() - new Date(gen).getTime())/60000) : null;
+  const liveBadge = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:22px;font-weight:700;letter-spacing:0.5px;">MLB EDGE BOARD</div>
+      <div style="font-size:12px;color:var(--slate);display:flex;align-items:center;gap:6px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:${genAge!=null && genAge<720 ? 'var(--green)' : 'var(--red)'};display:inline-block;"></span>
+        ${gen ? `updated ${genAge}m ago` : 'no data yet'}
+      </div>
+    </div>
+  `;
+
+  const hrEntries = (HR_DATA && HR_DATA.entries) || [];
+  const koEntries = (KO_DATA && KO_DATA.entries) || [];
+  const hrTop5 = [...hrEntries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
+  const koTop5 = [...koEntries].sort((a,b)=>b.projectedK-a.projectedK).slice(0,5);
+
+  content.innerHTML = liveBadge + homeHighlightsHtml() + `
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+      ${miniLeaderboardHtml('Top HR Projections', '💣', hrTop5, r=>`${(r.heuristicProb*100).toFixed(0)}%`)}
+      ${miniLeaderboardHtml('Top Strikeout Projections', '🔥', koTop5, r=>r.projectedK.toFixed(1))}
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+      ${standingsHtml()}
+      <div id="recentResultsSlot" style="flex:1;min-width:280px;"><div class="day-card"><div class="status">Loading recent results…</div></div></div>
+    </div>
+  `;
+  document.getElementById('recentResultsSlot').innerHTML = (await recentResultsHtml()) || '<div class="day-card"><div class="status">No recent graded results yet.</div></div>';
 }
 
 function renderHR(){
@@ -1858,7 +2008,7 @@ document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click', ()=>
   document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));
   b.classList.add('active');
   const view = b.dataset.view;
-  const views = { hr:'hrView', ko:'koView', teams:'teamsView', history:'historyView' };
+  const views = { home:'homeView', hr:'hrView', ko:'koView', teams:'teamsView', history:'historyView' };
   const currentlyVisible = Object.values(views).map(id=>document.getElementById(id)).find(el=>el.style.display!=='none');
   const target = document.getElementById(views[view]);
   cameraSwap(currentlyVisible, target);
