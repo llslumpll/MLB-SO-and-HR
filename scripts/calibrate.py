@@ -19,10 +19,19 @@ Safety rails, stated plainly:
     stretch of games from swinging future projections too hard.
   - Bounded output: even after dampening, the final adjustment is clipped
     to a modest range as an extra rail.
-  - Uses ALL graded history (not just recent days) while data is scarce.
-    Worth revisiting once there's a few months of volume -- a rolling
-    window would let the model adapt to real drift (e.g. league-wide K
-    rates trending up) rather than being anchored to old seasons forever.
+  - Uses ALL graded history, with no season boundary reset. Decided
+    2026-09-11: calibration carries forward across the season rollover
+    rather than resetting to neutral -- losing everything the model
+    learned felt like a worse default than the risk of mild offseason
+    staleness, especially with DAMPEN and MIN_SAMPLE already guarding
+    against overreacting to any one stretch of games. If a real regime
+    change ever needs excluding (a rule change, a juiced/deadened ball,
+    anything that would make old and new data genuinely different
+    signals pretending to be one) -- don't build a new mechanism, reuse
+    the STUFF_FACTOR_FIX_CUTOFF/POWER_QUALITY_FIX_CUTOFF pattern already
+    proven below: a dated cutoff constant and an exclusion filter in the
+    relevant load_all_*_entries function. That's the same tool, just
+    pointed at a new date.
 """
 
 import glob
