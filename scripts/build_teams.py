@@ -15,7 +15,8 @@ from datetime import datetime
 
 from common import (
     API, clip, to_num, get,
-    fetch_savant_percentiles, fetch_pitch_arsenal, fetch_team_last_n_record,
+    fetch_savant_percentiles, fetch_savant_exitvelo_barrels, fetch_savant_expected_stats,
+    fetch_pitch_arsenal, fetch_team_last_n_record,
     today_iso,
 )
 from build_hr import fetch_pitcher_hand, fetch_vs_pitcher
@@ -111,6 +112,21 @@ def team_hitting_rates(hit_stat):
     return k_pct, babip
 
 
+def team_pitching_k_rate(pitch_stat):
+    """Real team strikeout rate for the pitching staff, computed directly
+    from the team pitching totals fetch_team_season_stats already
+    retrieves from the MLB Stats API -- same real-stat pattern as
+    team_hitting_rates above, no Savant dependency needed at all. This
+    replaces the old pitcherKPct, which averaged Savant PERCENTILE ranks
+    across the pitching staff and mislabeled the result as a real K% --
+    a real, cheaper fix was sitting in data already being fetched."""
+    if not pitch_stat:
+        return None
+    bf = to_num(pitch_stat.get("battersFaced"))
+    so = to_num(pitch_stat.get("strikeOuts"))
+    return (so / bf * 100) if bf and so is not None else None
+
+
 def fetch_team_hitting_split(team_id, year):
     """Team-level equivalent of fetch_platoon_hr in build_hr.py -- same
     statSplits/sitCodes API pattern already proven working for individual
@@ -135,7 +151,28 @@ def fetch_team_hitting_split(team_id, year):
         return {}
 
 
-def fetch_roster_savant_avg(team_id, batter_pct_map, pitcher_pct_map):
+def fetch_roster_savant_avg(team_id, batter_ev_map, batter_xstats_map, pitcher_pct_map):
+    """Roster-average Statcast quality metrics.
+
+    barrelPct/hardHitPct/exitVelo/xwoba are now real (non-percentile)
+    values, averaged from Savant's actual Exit Velocity & Barrels /
+    Expected Statistics leaderboards -- see fetch_savant_exitvelo_barrels
+    in common.py for the full story on why this changed. Before this
+    fix, these were roster-averaged PERCENTILE RANKS (0-100 scale)
+    displayed as if they were real mph/percent/xwOBA -- confirmed live
+    on 2026-09-10: exitVelo was showing values like 44.3 (should be
+    ~88mph), and the matchup card's "Opp xwOBA" chip was rendering
+    red/"bad" on literally every team, unconditionally, because its
+    0.310/0.340 thresholds assumed a real 0-1 xwOBA scale but the
+    averaged-percentile values were always 30-70.
+
+    whiffPctile/chasePctile are, honestly, still percentile averages --
+    there's no bulk real-stat leaderboard for team-wide pitching-staff
+    plate discipline on Savant, only per-pitch aggregation, which would
+    mean 12+ heavy CSV pulls per team x 30 teams to do properly. Left as
+    percentiles rather than guessing at an expensive, untested pipeline;
+    named/labeled accordingly (see index.html) instead of passed off as
+    real rates the way they used to be."""
     try:
         data = get(f"{API}/teams/{team_id}/roster", params={"rosterType": "active"})
         roster = data.get("roster") or []
@@ -153,20 +190,19 @@ def fetch_roster_savant_avg(team_id, batter_pct_map, pitcher_pct_map):
             return sum(vals) / len(vals) if vals else None
 
         return {
-            "barrelPct": avg_field(batters, batter_pct_map, "brl_percent"),
-            "hardHitPct": avg_field(batters, batter_pct_map, "hard_hit_percent"),
-            "exitVelo": avg_field(batters, batter_pct_map, "exit_velocity"),
-            "xwoba": avg_field(batters, batter_pct_map, "xwoba"),
-            "whiffPct": avg_field(pitchers, pitcher_pct_map, "whiff_percent"),
-            "chasePct": avg_field(pitchers, pitcher_pct_map, "chase_percent"),
-            "pitcherKPct": avg_field(pitchers, pitcher_pct_map, "k_percent"),
+            "barrelPct": avg_field(batters, batter_ev_map, "brl_percent"),
+            "hardHitPct": avg_field(batters, batter_ev_map, "ev95percent"),
+            "exitVelo": avg_field(batters, batter_ev_map, "avg_hit_speed"),
+            "xwoba": avg_field(batters, batter_xstats_map, "xwoba"),
+            "whiffPctile": avg_field(pitchers, pitcher_pct_map, "whiff_percent"),
+            "chasePctile": avg_field(pitchers, pitcher_pct_map, "chase_percent"),
         }
     except Exception as e:  # noqa: BLE001
         print(f"    [warn] roster savant avg failed for {team_id}: {e}")
         return {}
 
 
-def build_teams(year, batter_pct_map, pitcher_pct_map):
+def build_teams(year, batter_ev_map, batter_xstats_map, pitcher_pct_map):
     print("Building team records/stats for all 30 teams...")
     team_list = fetch_team_list(year)
     standings = fetch_standings(year)
@@ -176,7 +212,11 @@ def build_teams(year, batter_pct_map, pitcher_pct_map):
         standing = standings.get(t["id"], {})
         hit, pitch = fetch_team_season_stats(t["id"], year)
         last5 = fetch_team_last_n_record(t["id"], n=5)
-        savant = fetch_roster_savant_avg(t["id"], batter_pct_map, pitcher_pct_map)
+        savant = fetch_roster_savant_avg(t["id"], batter_ev_map, batter_xstats_map, pitcher_pct_map)
+        # Real team-wide pitching K%, computed from the same team pitching
+        # totals already fetched above -- no Savant call needed for this
+        # one at all, see team_pitching_k_rate's docstring.
+        savant["pitcherKPct"] = team_pitching_k_rate(pitch)
 
         trend = None
         if last5 and last5["games"] and standing.get("pct") is not None:
@@ -196,7 +236,7 @@ def build_teams(year, batter_pct_map, pitcher_pct_map):
     return teams
 
 
-def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
+def build_matchups(games, year, batter_ev_map, batter_xstats_map, pitcher_pct_map):
     print("Building today's pitcher matchup scouting reports...")
     matchups = []
     jobs = []
@@ -219,7 +259,13 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
             return opp_team_stats_cache[opp_team_id]
         hit_stat, _ = fetch_team_season_stats(opp_team_id, year)
         k_pct, babip = team_hitting_rates(hit_stat)
-        roster_savant = fetch_roster_savant_avg(opp_team_id, batter_pct_map, pitcher_pct_map)
+        # xwoba/hardHitPct now come from fetch_roster_savant_avg's real
+        # (non-percentile) values -- this is the exact call that was
+        # feeding the matchup card's "Opp xwOBA" chip a 30-70 scale
+        # percentile average against thresholds written for a real 0-1
+        # xwOBA, making it render red/"bad" unconditionally. Fixed at
+        # the source; no change needed to the chip's thresholds.
+        roster_savant = fetch_roster_savant_avg(opp_team_id, batter_ev_map, batter_xstats_map, pitcher_pct_map)
         profile = {"kPct": k_pct, "babip": babip, "xwoba": roster_savant.get("xwoba"), "hardHitPct": roster_savant.get("hardHitPct")}
         opp_team_stats_cache[opp_team_id] = profile
         return profile
@@ -291,11 +337,19 @@ def build_matchups(games, year, batter_pct_map, pitcher_pct_map):
 
 
 def build(date, year, games):
-    batter_pct_map = fetch_savant_percentiles("batter", year)
+    # pitcher_pct_map is still percentile-based -- used for whiffPctile/
+    # chasePctile (honestly labeled, see fetch_roster_savant_avg) and for
+    # each individual starter's own scouting-card percentile chips, which
+    # were already using this data correctly.
     pitcher_pct_map = fetch_savant_percentiles("pitcher", year)
+    # Real (non-percentile) batter quality-of-contact, replacing the old
+    # batter_pct_map-based average. batter_pct_map itself is no longer
+    # needed here now that nothing averages it.
+    batter_ev_map = fetch_savant_exitvelo_barrels("batter", year)
+    batter_xstats_map = fetch_savant_expected_stats("batter", year)
 
-    teams = build_teams(year, batter_pct_map, pitcher_pct_map)
-    matchups = build_matchups(games, year, batter_pct_map, pitcher_pct_map)
+    teams = build_teams(year, batter_ev_map, batter_xstats_map, pitcher_pct_map)
+    matchups = build_matchups(games, year, batter_ev_map, batter_xstats_map, pitcher_pct_map)
 
     return {
         "date": date, "generatedAt": datetime.utcnow().isoformat(),
