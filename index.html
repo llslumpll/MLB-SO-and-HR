@@ -862,23 +862,23 @@ function renderStatsBubble(teams){
         <td>${h.homeRuns!==undefined?h.homeRuns:'—'}</td><td>${h.stolenBases!==undefined?h.stolenBases:'—'}</td>
         <td>${p.era!==undefined?p.era:'—'}</td><td>${p.whip!==undefined?p.whip:'—'}</td>
         <td>${p.strikeOuts!==undefined?p.strikeOuts:'—'}</td><td>${p.baseOnBalls!==undefined?p.baseOnBalls:'—'}</td>
-        <td>${sv.whiffPct!==undefined&&sv.whiffPct!==null?Math.round(sv.whiffPct)+'%':'—'}</td>
-        <td>${sv.chasePct!==undefined&&sv.chasePct!==null?Math.round(sv.chasePct)+'%':'—'}</td>
+        <td>${sv.whiffPctile!==undefined&&sv.whiffPctile!==null?Math.round(sv.whiffPctile)+' %ile':'—'}</td>
+        <td>${sv.chasePctile!==undefined&&sv.chasePctile!==null?Math.round(sv.chasePctile)+' %ile':'—'}</td>
         <td>${sv.barrelPct!==undefined&&sv.barrelPct!==null?sv.barrelPct.toFixed(1)+'%':'—'}</td>
         <td>${sv.hardHitPct!==undefined&&sv.hardHitPct!==null?Math.round(sv.hardHitPct)+'%':'—'}</td>
-        <td>${sv.exitVelo!==undefined&&sv.exitVelo!==null?sv.exitVelo.toFixed(1):'—'}</td>
+        <td>${sv.exitVelo!==undefined&&sv.exitVelo!==null?sv.exitVelo.toFixed(1)+' mph':'—'}</td>
       </tr>
     `;
   }).join('');
   return `
     <div class="bubble">
       <div class="bubble-title">Full Team Stats</div>
-      <div class="bubble-sub">Batting, pitching, and roster-average Statcast quality metrics for every team, sorted by win%. Whiff%/Chase% reflect the pitching staff; Barrel%/Hard-Hit%/EV reflect the offense.</div>
+      <div class="bubble-sub">Batting, pitching, and roster-average Statcast quality metrics for every team, sorted by win%. Whiff/Chase reflect the pitching staff as a roster-average Statcast percentile (no bulk real-rate source exists for a full staff); Barrel%/Hard-Hit%/EV are real roster-average rates reflecting the offense.</div>
       <div class="teamstat-scroll">
         <table class="teamstat">
           <thead><tr>
             <th>Team</th><th>Record</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>SB</th>
-            <th>ERA</th><th>WHIP</th><th>K</th><th>BB</th><th>Whiff%</th><th>Chase%</th><th>Barrel%</th><th>Hard-Hit%</th><th>EV</th>
+            <th>ERA</th><th>WHIP</th><th>K</th><th>BB</th><th>Whiff %ile</th><th>Chase %ile</th><th>Barrel%</th><th>Hard-Hit%</th><th>EV</th>
           </tr></thead>
           <tbody>${rows}</tbody>
         </table>
