@@ -67,6 +67,19 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
     # time it was computed today, plus everything derived from it.
     projected_k_by_key = index_by("projectedK")
     projected_outs_by_key = index_by("projectedOuts")
+    # reason/outsReason were NOT preserved before -- confirmed via git
+    # history on 2026-09-10 that this let the narrative silently keep
+    # rewriting itself against fresh factors each rebuild (K-BB%, recent
+    # form, BABIP notes, etc.) while projectedK/projectedOuts stayed
+    # frozen from the first build. Same bug family as the Hits/TB
+    # projectedHits fix earlier today, just showing up as a qualitative
+    # mismatch (narrative describing conditions the frozen number never
+    # saw) instead of a literal number-vs-text contradiction. reason and
+    # outsReason are generated in the same moment as projectedK/
+    # projectedOuts in build_ko.py, so they belong in the same frozen
+    # package, not regenerated fresh independently of it.
+    reason_by_key = index_by("reason")
+    outs_reason_by_key = index_by("outsReason")
     prize_picks_call_by_key = index_by("prizePicksCall")
     prize_picks_call_frozen_at_by_key = index_by("prizePicksCallFrozenAt")
     model_prob_by_key = index_by("modelProb")
@@ -136,6 +149,12 @@ def preserve_opening_prices(new_entries, old_path, preserve_market_comparison=Tr
             touched = True
         if key in projected_outs_by_key:
             e["projectedOuts"] = projected_outs_by_key[key]
+            touched = True
+        if key in reason_by_key:
+            e["reason"] = reason_by_key[key]
+            touched = True
+        if key in outs_reason_by_key:
+            e["outsReason"] = outs_reason_by_key[key]
             touched = True
         if key in prize_picks_call_by_key:
             e["prizePicksCall"] = prize_picks_call_by_key[key]
