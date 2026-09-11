@@ -171,8 +171,17 @@ def fetch_savant_exitvelo_barrels(kind, year):
             f"{SAVANT}/leaderboard/statcast",
             params={"type": kind, "year": year, "position": "", "team": "", "min": "1", "csv": "true"},
         )
+        # Diagnostic: this endpoint came back empty on its first live test
+        # (2026-09-11), silently -- no exception, just zero usable rows.
+        # URL structure independently confirmed correct against pybaseball's
+        # own proven-working implementation, so logging exactly what came
+        # back is more useful right now than guessing at another param
+        # change untested.
+        first_line = text.splitlines()[0] if text.splitlines() else "(empty response)"
+        print(f"  [debug] exitvelo/barrels {kind}/{year}: {len(text)} chars, header: {first_line[:200]}")
         reader = csv.DictReader(io.StringIO(text))
         rows = {row["player_id"]: row for row in reader if row.get("player_id")}
+        print(f"  [debug] exitvelo/barrels {kind}/{year}: parsed {len(rows)} rows with a player_id")
         _savant_ev_cache[key] = rows
         return rows
     except Exception as e:  # noqa: BLE001
@@ -198,8 +207,11 @@ def fetch_savant_expected_stats(kind, year):
             f"{SAVANT}/leaderboard/expected_statistics",
             params={"type": kind, "year": year, "position": "", "team": "", "min": "1", "csv": "true"},
         )
+        first_line = text.splitlines()[0] if text.splitlines() else "(empty response)"
+        print(f"  [debug] expected-stats {kind}/{year}: {len(text)} chars, header: {first_line[:200]}")
         reader = csv.DictReader(io.StringIO(text))
         rows = {row["player_id"]: row for row in reader if row.get("player_id")}
+        print(f"  [debug] expected-stats {kind}/{year}: parsed {len(rows)} rows with a player_id")
         _savant_xstats_cache[key] = rows
         return rows
     except Exception as e:  # noqa: BLE001
