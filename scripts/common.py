@@ -135,6 +135,79 @@ def fetch_savant_percentiles(kind, year):
         return {}
 
 
+_savant_ev_cache = {}
+
+
+def fetch_savant_exitvelo_barrels(kind, year):
+    """kind: 'batter' or 'pitcher'. Returns {player_id_str: row_dict}.
+
+    Real (non-percentile) exit velocity/barrel/hard-hit rates from
+    Savant's actual "Exit Velocity & Barrels" leaderboard --
+    NOT the same endpoint as fetch_savant_percentiles above, which
+    returns percentile RANKS under confusingly similar field names
+    (brl_percent, hard_hit_percent, exit_velocity) despite sounding like
+    raw rates. Confirmed via git history that build_teams.py was
+    mistakenly averaging THOSE percentile ranks across a whole roster
+    and displaying the result as if it were a real team-average exit
+    velocity/barrel%/hard-hit% -- e.g. showing "44.3" as exit velocity
+    when real MLB average is ~88mph. This endpoint's avg_hit_speed/
+    brl_percent/ev95percent columns are genuine raw per-player values,
+    verified against real Savant player pages (e.g. avg_hit_speed in the
+    84-92 mph range, matching real exit velocities) before use.
+
+    UNVERIFIED FROM THIS ENVIRONMENT: the exact CSV-trigger query param
+    (assumed csv=true, matching the proven percentile-rankings pattern)
+    and the "min" qualifier param (assumed min=1 for "every batter with
+    at least one batted ball", broadest roster coverage). Savant isn't
+    reachable from the sandbox this was written in -- confirm the first
+    live run actually returns real mph/percent values before trusting
+    this, the same way every other fix this session was checked against
+    a real live pull."""
+    key = f"{kind}_{year}"
+    if key in _savant_ev_cache:
+        return _savant_ev_cache[key]
+    try:
+        text = get_text(
+            f"{SAVANT}/leaderboard/statcast",
+            params={"type": kind, "year": year, "position": "", "team": "", "min": "1", "csv": "true"},
+        )
+        reader = csv.DictReader(io.StringIO(text))
+        rows = {row["player_id"]: row for row in reader if row.get("player_id")}
+        _savant_ev_cache[key] = rows
+        return rows
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Savant exit-velo/barrels fetch failed for {kind}/{year}: {e}")
+        _savant_ev_cache[key] = {}
+        return {}
+
+
+_savant_xstats_cache = {}
+
+
+def fetch_savant_expected_stats(kind, year):
+    """kind: 'batter' or 'pitcher'. Returns {player_id_str: row_dict}.
+
+    Real (non-percentile) xwOBA/xBA/xSLG from Savant's "Expected
+    Statistics" leaderboard -- same rationale and same unverified-CSV-
+    param caveat as fetch_savant_exitvelo_barrels above."""
+    key = f"{kind}_{year}"
+    if key in _savant_xstats_cache:
+        return _savant_xstats_cache[key]
+    try:
+        text = get_text(
+            f"{SAVANT}/leaderboard/expected_statistics",
+            params={"type": kind, "year": year, "position": "", "team": "", "min": "1", "csv": "true"},
+        )
+        reader = csv.DictReader(io.StringIO(text))
+        rows = {row["player_id"]: row for row in reader if row.get("player_id")}
+        _savant_xstats_cache[key] = rows
+        return rows
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Savant expected-stats fetch failed for {kind}/{year}: {e}")
+        _savant_xstats_cache[key] = {}
+        return {}
+
+
 _weather_cache = {}
 
 
