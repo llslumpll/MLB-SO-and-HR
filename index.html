@@ -516,6 +516,31 @@ function tbCard(e, rank){
   `;
 }
 
+// Correlated-prop flagging: a "Best 5" is only actually 5 independent bets
+// if the 5 picks don't share a game. Two batters from the same team both
+// having a big night, or a whole game running hot/cold on weather or a
+// bad umpire zone, means those picks move together -- winning or losing
+// as a cluster, not independently. This doesn't change who gets picked
+// (the ranking itself is untouched), it just makes the correlation
+// visible before the games start instead of finding out after.
+function correlationNote(picks){
+  const groups = {};
+  picks.forEach(e=>{
+    if(!e.gamePk) return;
+    (groups[e.gamePk] = groups[e.gamePk] || []).push(e);
+  });
+  const shared = Object.values(groups).filter(g=>g.length>1);
+  if(!shared.length) return '';
+  const parts = shared.map(g=>{
+    const sameTeam = g.every(e=>e.team===g[0].team);
+    const names = g.map(e=>e.name).join(' & ');
+    return sameTeam
+      ? `${names} (both ${g[0].team}, same game)`
+      : `${names} (opposite sides of ${g[0].team} vs ${g[0].opp})`;
+  });
+  return `<div class="status" style="margin:2px 0 10px;color:var(--amber);">⚠️ Not fully independent: ${parts.join('; ')} -- these picks can win or lose together, not separately.</div>`;
+}
+
 function renderHR(){
   const entries = (HR_DATA && HR_DATA.entries) || [];
   if(!entries.length){
@@ -540,6 +565,7 @@ function renderHR(){
   document.getElementById('hrSection_trending').innerHTML = `
     <div class="hr-section-title">💰 Best Value — Market Mispriced</div>
     <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability. A different question from the probability-ranked Best 5 below. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    ${correlationNote(edgeBest5)}
     <div class="card-grid cols-list">${edgeBest5.length?edgeBest5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No liquidly-priced entries yet today.</div>'}</div>
   `;
 
@@ -553,6 +579,7 @@ function renderHR(){
   document.getElementById('hrSection_best15').innerHTML = `
     <div class="hr-section-title">🎯 HR Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">The 5 players today's model believes are most likely to actually homer, out of everyone on today's board -- tracked day by day in History toward a real accuracy goal, not a market-mispricing ranking.</div>
+    ${correlationNote(best5)}
     <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>hrCard(e,i+1)).join(''):'<div class="placeholder">No entries yet today.</div>'}</div>
   `;
 
@@ -588,6 +615,7 @@ function renderHR(){
   document.getElementById('hrSection_hitsbest5').innerHTML = `
     <div class="hr-section-title">🎯 Hits Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">Ranked by projected hits, not market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
+    ${correlationNote(hitsBest5)}
     <div class="card-grid cols-list">${hitsBest5.map((e,i)=>hitsCard(e,i+1)).join('')}</div>
   `;
 
@@ -621,6 +649,7 @@ function renderHR(){
   document.getElementById('hrSection_tbbest5').innerHTML = `
     <div class="hr-section-title">🎯 Total Bases Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">Ranked by projected total bases, not market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
+    ${correlationNote(tbBest5)}
     <div class="card-grid cols-list">${tbBest5.map((e,i)=>tbCard(e,i+1)).join('')}</div>
   `;
 
@@ -711,6 +740,7 @@ function renderKO(){
   document.getElementById('koSection_best5').innerHTML = `
     <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    ${correlationNote(best5)}
     <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No liquidly-priced entries yet today.</div>'}</div>
   `;
 
@@ -721,6 +751,7 @@ function renderKO(){
   document.getElementById('koSection_outsbest5').innerHTML = `
     <div class="hr-section-title">🎯 Pitching Outs Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">Ranked by projected outs recorded, not by market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
+    ${correlationNote(outsBest5)}
     <div class="card-grid cols-list">${outsBest5.map((e,i)=>outsCard(e,i+1)).join('')}</div>
   `;
 
