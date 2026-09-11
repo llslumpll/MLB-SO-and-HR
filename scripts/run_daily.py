@@ -18,6 +18,7 @@ from common import today_iso
 import build_hr
 import build_ko
 import build_teams
+import build_home_highlights
 import calibrate
 import fetch_kalshi
 import grade
@@ -270,6 +271,7 @@ def main():
     print("=" * 60)
     print(f"STEP 2b: Build Teams/Matchups board for {date}")
     print("=" * 60)
+    teams_result = None
     try:
         games_today = build_hr.fetch_schedule(date)
         teams_result = build_teams.build(date, year, games_today)
@@ -301,6 +303,28 @@ def main():
             json.dump(ko_data, f, indent=2, default=str)
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] Kalshi step failed, continuing without odds: {e}")
+
+    print("=" * 60)
+    print(f"STEP 3b: Build homepage highlights for {date}")
+    print("=" * 60)
+    try:
+        # Read fresh from disk rather than reuse STEP 3's local variables --
+        # those only exist if STEP 3 got far enough to assign them, and this
+        # shouldn't depend on that. Reading from disk always reflects
+        # whatever was last actually written, Kalshi-merged or not.
+        with open(f"data/hr/{date}.json") as f:
+            hr_for_highlights = json.load(f)
+        with open(f"data/ko/{date}.json") as f:
+            ko_for_highlights = json.load(f)
+        highlights = build_home_highlights.build(hr_for_highlights, ko_for_highlights, teams_result, year)
+        hr_for_highlights["statcastSpotlight"] = highlights["statcastSpotlight"]
+        hr_for_highlights["topMatchup"] = highlights["topMatchup"]
+        with open(f"data/hr/{date}.json", "w") as f:
+            json.dump(hr_for_highlights, f, indent=2, default=str)
+        print(f"  spotlight: {highlights['statcastSpotlight']['name'] if highlights['statcastSpotlight'] else 'none'}"
+              f" | top matchup: {highlights['topMatchup']['pitcherName'] if highlights['topMatchup'] else 'none'}")
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Homepage highlights build failed, continuing without it: {e}")
 
     print("=" * 60)
     print("STEP 4: Grade past days")
