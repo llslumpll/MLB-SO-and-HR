@@ -1279,9 +1279,18 @@ async function loadHistory(){
   // itself uses) and check how many of those specific 5 players actually
   // homered. A day only counts once every one of its 5 picks is graded --
   // a partially-finished day would understate or overstate the real
-  // record depending on which games happened to finish first. Shared
-  // between both list types (probability-ranked and edge-ranked) so
-  // they can never drift out of sync with each other's logic.
+  // record depending on which games happened to finish first.
+  //
+  // bestValueRecords requires edgeEligible, matching the live board's
+  // fix (see edgeBest5 in the HR section above) -- this used to be a
+  // SEPARATE, unfiltered reimplementation, despite the comment here
+  // once claiming the two "can never drift out of sync": they had
+  // already drifted. Historical days before the edgeEligible field
+  // existed (before 2026-09-11) will show as ungraded/excluded here for
+  // the Best Value chart specifically, since there's no way to verify
+  // after the fact whether those old edge values came from a liquid
+  // market or a thin one -- an honest gap in the trend line is better
+  // than pretending pre-fix history is trustworthy.
   function reconstructBest5Days(dayData, rankFn, filterFn){
     const records = [];
     Object.keys(dayData).sort().forEach(day=>{
@@ -1302,7 +1311,7 @@ async function loadHistory(){
   }
 
   const mostLikelyRecords = reconstructBest5Days(dayData, (a,b)=>b.heuristicProb-a.heuristicProb, null);
-  const bestValueRecords = reconstructBest5Days(dayData, (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined);
+  const bestValueRecords = reconstructBest5Days(dayData, (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true);
 
   function summarizeBest5(records){
     const graded = records.filter(d=>!d.pending);
@@ -1397,7 +1406,14 @@ async function loadHistory(){
   Object.values(dayData).forEach(dd=>{
     if(!dd.hr) return;
     dd.hr.entries.forEach(e=>{
-      if(!e.graded || e.edge==null || e.edge<0) return;  // only positive edges -- "model more bullish than market", the actual Best Value direction
+      // edgeEligible required here too -- without it, the "25%+" bucket
+      // in particular was dominated by illiquid no-bid contracts sitting
+      // at their minimum tick price, not genuine market disagreement.
+      // That was corrupting this exact question the table exists to
+      // answer: a false "bigger edges hit less" pattern driven by market
+      // noise looks identical to a true "the market is already
+      // efficient" finding unless the noise is filtered out first.
+      if(!e.graded || e.edge==null || e.edge<0 || !e.edgeEligible) return;  // only positive edges -- "model more bullish than market", the actual Best Value direction
       const b = edgeBuckets.find(b=>e.edge>=b.lo && e.edge<b.hi);
       if(!b) return;
       b.tot++;
