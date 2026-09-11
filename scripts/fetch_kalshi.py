@@ -119,6 +119,17 @@ def merge_hr(hr_data, records):
             e["marketProb"] = price
             e["marketBid"] = hit.get("yesBid")
             e["marketAsk"] = hit.get("yesAsk")
+            # Confirmed live on 2026-09-10: ranking "biggest edge" picks
+            # by heuristicProb - marketProb alone was systematically
+            # selecting illiquid, no-real-bid contracts sitting at their
+            # minimum tick price (e.g. $0.01-0.02 ask, $0.00 bid) rather
+            # than genuine market disagreement -- a floor price isn't an
+            # informed market consensus. Checked against 14 days of real
+            # graded history: those thin-market picks hit 0/42, versus
+            # 17.9% for everything else. edgeEligible requires an actual
+            # two-sided market (a real, positive bid exists) before an
+            # entry's edge is trustworthy enough to rank Best 5 by.
+            e["edgeEligible"] = bool(hit.get("yesBid"))
             e["edge"] = e["heuristicProb"] - price
             e["oddsUpdatedAt"] = now
             matched += 1
@@ -138,14 +149,18 @@ def poisson_prob_at_least(threshold, lam):
 
 
 def k_threshold_map(records):
-    """Raw {norm_name: {threshold: price}} -- every threshold Kalshi has a
-    market for, unfiltered, so a specific threshold can be looked up on
-    demand (e.g. to match a PrizePicks line) rather than only Kalshi's own
-    'closest to 50%' pick."""
+    """Raw {norm_name: {threshold: {"price":..., "yesBid":..., "yesAsk":...}}}
+    -- every threshold Kalshi has a market for, unfiltered, so a specific
+    threshold can be looked up on demand (e.g. to match a PrizePicks
+    line) rather than only Kalshi's own 'closest to 50%' pick. Carries
+    bid/ask through (not just the de-vigged price) so the caller can
+    judge genuine liquidity -- see edgeEligible in merge_hr/merge_ko."""
     out = {}
     for r in records:
         key = norm_name(r["name"])
-        out.setdefault(key, {})[r["threshold"]] = r["price"]
+        out.setdefault(key, {})[r["threshold"]] = {
+            "price": r["price"], "yesBid": r.get("yesBid"), "yesAsk": r.get("yesAsk"),
+        }
     return out
 
 
@@ -190,6 +205,10 @@ def merge_ko(ko_data, records):
             e["marketProb"] = price
             e["marketBid"] = hit.get("yesBid")
             e["marketAsk"] = hit.get("yesAsk")
+            # Same edgeEligible fix as merge_hr above -- this path feeds
+            # the same edge field the K Best 5 ranking reads, before a
+            # PrizePicks call exists to freeze the threshold.
+            e["edgeEligible"] = bool(hit.get("yesBid"))
             e["modelProb"] = poisson_prob_at_least(threshold, e["projectedK"])
             e["edge"] = e["modelProb"] - price
             e["oddsUpdatedAt"] = now
