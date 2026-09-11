@@ -69,7 +69,17 @@ def to_num(v):
     if v is None or v == "":
         return None
     try:
-        return float(v)
+        f = float(v)
+        # pandas represents a missing/blank CSV cell as float NaN, not
+        # None -- confirmed live on 2026-09-11: one MIN batter's missing
+        # avg_hit_speed cell came through as NaN, and NaN silently
+        # poisoned that whole team's average (nan + anything = nan),
+        # corrupting the entire team's exitVelo from one player's gap.
+        # Every other caller of to_num works from JSON or csv.DictReader,
+        # neither of which can ever produce a real float NaN -- only the
+        # pandas-based Savant fetches can, so this is safe everywhere
+        # else in the codebase.
+        return None if f != f else f  # f != f is true only for NaN
     except (TypeError, ValueError):
         return None
 
