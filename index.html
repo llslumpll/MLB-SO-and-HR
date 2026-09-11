@@ -612,7 +612,15 @@ function correlationNote(picks){
 function renderHR(){
   const entries = (HR_DATA && HR_DATA.entries) || [];
   if(!entries.length){
-    ['trending','best15','all','hitsbest5','hitsall','tbbest5','tball'].forEach(s=>{ document.getElementById(`hrSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    // gamesScheduled===false means the pipeline ran and correctly found
+    // nothing to build (off-season, or a genuine no-games day) -- that's
+    // not a problem, and "no data yet" would wrongly read as broken or
+    // pending. gamesScheduled===undefined covers older saved boards from
+    // before this field existed, which get the old, more neutral message.
+    const msg = HR_DATA && HR_DATA.gamesScheduled===false
+      ? 'No games scheduled for this date.'
+      : 'No data for this date yet.';
+    ['trending','best15','all','hitsbest5','hitsall','tbbest5','tball'].forEach(s=>{ document.getElementById(`hrSection_${s}`).innerHTML = `<div class="placeholder">${msg}</div>`; });
     return;
   }
   // "Best bet" by market mispricing -- the biggest gap between our model
@@ -794,7 +802,11 @@ function outsCard(e, rank){
 function renderKO(){
   const entries = (KO_DATA && KO_DATA.entries) || [];
   if(!entries.length){
-    ['best5','outsbest5','all','outsall'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = '<div class="placeholder">No data for this date yet.</div>'; });
+    // Same reasoning as renderHR's equivalent check above.
+    const msg = KO_DATA && KO_DATA.gamesScheduled===false
+      ? 'No games scheduled for this date.'
+      : 'No data for this date yet.';
+    ['best5','outsbest5','all','outsall'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = `<div class="placeholder">${msg}</div>`; });
     return;
   }
 
