@@ -1159,11 +1159,11 @@
       "outsHit": null,
       "openingProb": 0.445,
       "openingThreshold": 3,
-      "priceDelta": 0.0,
+      "priceDelta": 0.05499999999999999,
       "marketBid": 0.44,
       "marketAsk": 0.45,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-15T21:21:20.399869"
+      "oddsUpdatedAt": "2026-09-15T21:22:20.744254"
     },
     {
       "gamePk": 822849,
@@ -4505,9 +4505,9 @@
       "workloadStreak": 18,
       "mostRecentPitchCount": 60.0,
       "marketThreshold": 4,
-      "marketProb": 0.45,
+      "marketProb": 0.455,
       "modelProb": 0.5901352667760744,
-      "edge": 0.1401352667760744,
+      "edge": 0.1351352667760744,
       "predictionLine": 3.5,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -4542,7 +4542,13 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-15T12:30:29.034847",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 14.5
+      "prizePicksOutsLine": 14.5,
+      "openingThreshold": 4,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.45,
+      "marketAsk": 0.46,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823654,
@@ -6222,7 +6228,5 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-15T21:21:20.399869",
-  "_kalshiMatched": 28,
-  "_kalshiTotal": 30
+  "oddsRefreshedAt": "2026-09-15T21:22:20.744254"
 }
