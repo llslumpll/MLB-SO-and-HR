@@ -3083,9 +3083,9 @@
       "workloadStreak": 18,
       "mostRecentPitchCount": 78.0,
       "marketThreshold": 5,
-      "marketProb": 0.45,
+      "marketProb": 0.445,
       "modelProb": 0.5200889631677142,
-      "edge": 0.07008896316771424,
+      "edge": 0.07508896316771424,
       "predictionLine": 4.0,
       "predictionOutsLine": 16.5,
       "graded": false,
@@ -3123,9 +3123,9 @@
       "prizePicksOutsLine": 16.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 5,
-      "priceDelta": 0.0050000000000000044,
+      "priceDelta": 0.0,
       "marketBid": 0.44,
-      "marketAsk": 0.46,
+      "marketAsk": 0.45,
       "edgeEligible": true
     },
     {
@@ -4968,11 +4968,11 @@
       "marketProb": 0.01,
       "modelProb": 0.16892166585095736,
       "edge": 0.15892166585095735,
-      "predictionLine": null,
+      "predictionLine": 5.5,
       "predictionOutsLine": 15.5,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 4,
+      "hit": false,
       "projectedOuts": 18.2,
       "outsReason": "Projected for 18.2 outs (6.1 innings), supported by getting deep into games (6.1 IP/start), efficient innings (14.7 pitches/inning), and a bullpen that's been leaned on hard lately (4.3 relief innings/game over their last 3), giving the manager real reason to stretch him out.",
       "npPerGame": 89.88,
@@ -4992,8 +4992,8 @@
       "outsMarketProb": null,
       "outsModelProb": 0.7287984818678361,
       "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
+      "actualOuts": 12,
+      "outsHit": false,
       "openingProb": 0.01,
       "prizePicksOutsOpeningLine": 15.5,
       "outsCall": "OVER",
@@ -5004,7 +5004,7 @@
       "marketBid": 0.0,
       "marketAsk": 0.01,
       "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-16T21:40:22.997470"
+      "oddsUpdatedAt": "2026-09-16T21:43:09.135427"
     },
     {
       "gamePk": 825031,
@@ -5915,9 +5915,9 @@
       "edge": 0.23048829528169856,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 3,
+      "hit": false,
       "projectedOuts": 16.4,
       "outsReason": "Projected for 16.4 outs (4.5 innings), supported by a bullpen that's been leaned on hard lately (4.8 relief innings/game over their last 3), giving the manager real reason to stretch him out; tempered by a shorter historical leash (79 pitches/game this season), shaky command (K-BB% of only 7.8%), and a walk rate that tends to spike pitch counts (9.5% BB).",
       "npPerGame": 78.375,
@@ -5937,7 +5937,7 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 15,
       "outsHit": null,
       "openingProb": 0.01,
       "prizePicksOpeningLine": 4.5,
@@ -6046,5 +6046,5 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-16T21:40:22.997470"
+  "oddsRefreshedAt": "2026-09-16T21:43:09.135427"
 }
