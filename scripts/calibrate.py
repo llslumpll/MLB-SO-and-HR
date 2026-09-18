@@ -229,10 +229,18 @@ def calibrate_ko(entries):
 def calibrate_outs(entries):
     """Same bias-correction approach as calibrate_ko, applied to
     projectedOuts/actualOuts instead. Wider bounds than K's since an outs
-    total naturally runs about double a strikeout total in magnitude."""
+    total naturally runs about double a strikeout total in magnitude.
+
+    Same defensive filter as calibrate_hits/calibrate_total_bases, same
+    reasoning: confirmed live on 2026-09-18 that projectedOuts is ALSO
+    100% missing from this project's earliest saved days, for the same
+    reason (Outs was added to build_ko.py after those files were
+    written) -- this had the identical silent-crash-and-stale-fallback
+    risk as the Hits/TB bug, just not yet confirmed tripped in a log."""
     result = {}
     for tier in TIERS:
-        tier_entries = [e for e in entries if e.get("confidence") == tier]
+        tier_entries = [e for e in entries if e.get("confidence") == tier
+                         and e.get("actualOuts") is not None and e.get("projectedOuts") is not None]
         n = len(tier_entries)
         if n < MIN_SAMPLE:
             result[tier] = {"bias": 0.0, "sampleSize": n, "status": "insufficient data"}
@@ -254,10 +262,23 @@ def calibrate_outs(entries):
 def calibrate_hits(entries):
     """Same bias-correction pattern as calibrate_ko -- projectedHits runs
     in a much smaller range (typically 0-3) than K, so the bias bounds
-    are tighter accordingly."""
+    are tighter accordingly.
+
+    Filters for entries that actually HAVE both actualHits and
+    projectedHits before computing bias, rather than assuming every
+    pooled entry has them. Confirmed live on 2026-09-18: every entry in
+    this project's earliest ~13 saved days (2026-08-28 through 09-09)
+    predates when the Hits feature was added to build_hr.py at all, and
+    a bare e["projectedHits"] here crashed this ENTIRE calibration step
+    -- silently, every time enough of those pre-feature entries landed
+    in the same confidence tier as newer ones -- falling back to
+    whatever calibration was last successfully computed instead of
+    updating, exactly the kind of silent staleness this project's own
+    philosophy says never to allow."""
     result = {}
     for tier in TIERS:
-        tier_entries = [e for e in entries if e.get("confidence") == tier]
+        tier_entries = [e for e in entries if e.get("confidence") == tier
+                         and e.get("actualHits") is not None and e.get("projectedHits") is not None]
         n = len(tier_entries)
         if n < MIN_SAMPLE:
             result[tier] = {"bias": 0.0, "sampleSize": n, "status": "insufficient data"}
@@ -277,10 +298,12 @@ def calibrate_hits(entries):
 
 
 def calibrate_total_bases(entries):
-    """Same pattern again, for projectedTotalBases/actualTotalBases."""
+    """Same pattern again, for projectedTotalBases/actualTotalBases --
+    same defensive filter as calibrate_hits above, same reasoning."""
     result = {}
     for tier in TIERS:
-        tier_entries = [e for e in entries if e.get("confidence") == tier]
+        tier_entries = [e for e in entries if e.get("confidence") == tier
+                         and e.get("actualTotalBases") is not None and e.get("projectedTotalBases") is not None]
         n = len(tier_entries)
         if n < MIN_SAMPLE:
             result[tier] = {"bias": 0.0, "sampleSize": n, "status": "insufficient data"}
