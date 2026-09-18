@@ -12,6 +12,7 @@ from common import (
     API, PARKS, LEAGUE_AVG_HR_RATE, LEAGUE_AVG_HIT_RATE, LEAGUE_AVG_TB_RATE, SAVANT,
     clip, to_num, get, get_text, parse_ip,
     fetch_savant_percentiles, fetch_weather, today_iso,
+    fetch_vs_team, batter_vs_team_trend,
 )
 
 import csv
@@ -54,7 +55,7 @@ def fetch_boxscore(game_pk):
     return get(f"{API}/game/{game_pk}/boxscore")
 
 
-def extract_batters(team_box, team_abbr, opp_abbr, game_pk, game_date, opp_pitcher):
+def extract_batters(team_box, team_abbr, opp_abbr, opp_team_id, game_pk, game_date, opp_pitcher):
     out = []
     for p in (team_box.get("players") or {}).values():
         batting_order = p.get("battingOrder")
@@ -63,21 +64,21 @@ def extract_batters(team_box, team_abbr, opp_abbr, game_pk, game_date, opp_pitch
                 "id": p["person"]["id"], "name": p["person"]["fullName"],
                 "pos": (p.get("position") or {}).get("abbreviation", ""),
                 "order": int(batting_order) // 100,
-                "team": team_abbr, "opp": opp_abbr, "gamePk": game_pk,
+                "team": team_abbr, "opp": opp_abbr, "oppTeamId": opp_team_id, "gamePk": game_pk,
                 "gameDate": game_date, "oppPitcher": opp_pitcher,
             })
     out.sort(key=lambda b: b["order"])
     return out
 
 
-def extract_roster_fallback(team_box, team_abbr, opp_abbr, game_pk, game_date, opp_pitcher):
+def extract_roster_fallback(team_box, team_abbr, opp_abbr, opp_team_id, game_pk, game_date, opp_pitcher):
     out = []
     for p in (team_box.get("players") or {}).values():
         pos = (p.get("position") or {}).get("abbreviation", "")
         if pos and pos != "P":
             out.append({
                 "id": p["person"]["id"], "name": p["person"]["fullName"], "pos": pos,
-                "order": None, "team": team_abbr, "opp": opp_abbr, "gamePk": game_pk,
+                "order": None, "team": team_abbr, "opp": opp_abbr, "oppTeamId": opp_team_id, "gamePk": game_pk,
                 "gameDate": game_date, "oppPitcher": opp_pitcher,
             })
     return out[:9]
@@ -636,13 +637,15 @@ def build(date, year):
         home_pitcher = g["teams"]["home"].get("probablePitcher")
         away_abbr = g["teams"]["away"]["team"]["abbreviation"]
         home_abbr = g["teams"]["home"]["team"]["abbreviation"]
+        away_id = g["teams"]["away"]["team"]["id"]
+        home_id = g["teams"]["home"]["team"]["id"]
 
-        away_batters = extract_batters(box["teams"]["away"], away_abbr, home_abbr, g["gamePk"], g["gameDate"], home_pitcher)
-        home_batters = extract_batters(box["teams"]["home"], home_abbr, away_abbr, g["gamePk"], g["gameDate"], away_pitcher)
+        away_batters = extract_batters(box["teams"]["away"], away_abbr, home_abbr, home_id, g["gamePk"], g["gameDate"], home_pitcher)
+        home_batters = extract_batters(box["teams"]["home"], home_abbr, away_abbr, away_id, g["gamePk"], g["gameDate"], away_pitcher)
         lineup_posted = bool(away_batters) and bool(home_batters)
         if not lineup_posted:
-            away_batters = extract_roster_fallback(box["teams"]["away"], away_abbr, home_abbr, g["gamePk"], g["gameDate"], home_pitcher)
-            home_batters = extract_roster_fallback(box["teams"]["home"], home_abbr, away_abbr, g["gamePk"], g["gameDate"], away_pitcher)
+            away_batters = extract_roster_fallback(box["teams"]["away"], away_abbr, home_abbr, home_id, g["gamePk"], g["gameDate"], home_pitcher)
+            home_batters = extract_roster_fallback(box["teams"]["home"], home_abbr, away_abbr, away_id, g["gamePk"], g["gameDate"], away_pitcher)
 
         batters = away_batters + home_batters
 
@@ -669,6 +672,12 @@ def build(date, year):
             b["weather"] = weather if (park and park["roof"] == "open") else {"climateControlled": True}
             b["platoon"] = fetch_platoon_hr(b["id"], year)
             b["vsPitcher"] = fetch_vs_pitcher(b["id"], opp_pitcher["id"]) if opp_pitcher else None
+            # "Any trend a player may have against today's opponent" --
+            # scoped to vs-team career stats specifically (see
+            # batter_vs_team_trend's docstring in common.py for the
+            # notability thresholds and why they exist). None when there
+            # isn't a real trend, not a forced stat on every card.
+            b["vsTeamTrend"] = batter_vs_team_trend(fetch_vs_team(b["id"], b["oppTeamId"], "hitting")) if b.get("oppTeamId") else None
 
             h = compute_heuristic(b, savant_batter_map, calibration)
             b.update(h)
@@ -683,6 +692,7 @@ def build(date, year):
                 "calibrationApplied": b.get("calibrationApplied"),
                 "reason": b["reason"], "factors": b["factors"],
                 "savant": b.get("savant"), "vsPitcher": b.get("vsPitcher"),
+                "vsTeamTrend": b.get("vsTeamTrend"),
                 "veloTrend": b.get("veloTrend"), "streak": {
                     "type": (b.get("batterStats") or {}).get("streakType"),
                     "games": (b.get("batterStats") or {}).get("streakGames"),
