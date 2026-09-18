@@ -882,7 +882,14 @@ function renderHR(){
   // picks hit 0/42, versus 17.9% for everything else. edgeEligible (set
   // server-side in fetch_kalshi.py) requires an actual two-sided market
   // before an edge is trusted enough to rank by.
-  const edgeBest5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  // edge>0 required, not just edgeEligible: a market can be perfectly
+  // liquid and still show the model MORE pessimistic than the market
+  // (negative edge) -- that's not a mispricing in our favor and
+  // shouldn't be ranked as "Best Value." Same fix already applied to
+  // Today's Top Matchup (build_home_highlights.py) on 2026-09-11; this
+  // section was missed at the time and confirmed still showing negative
+  // "edges" as suggested picks on real live data checked 2026-09-18.
+  const edgeBest5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('hrSection_trending').innerHTML = `
     <div class="hr-section-title">💰 Best Value — Market Mispriced</div>
     <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability. A different question from the probability-ranked Best 5 below. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
@@ -1061,7 +1068,13 @@ function renderKO(){
   // edgeEligible required -- see the matching comment on HR's edgeBest5
   // above. Same fix, same 14-day empirical check, applied here since K's
   // main Best 5 is edge-ranked too.
-  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  // Same fix as HR's edgeBest5 above -- edge>0 required, not just
+  // edgeEligible. Confirmed live on 2026-09-18: this section was
+  // actively showing negative-edge picks (as bad as -0.68) as
+  // "Suggested Picks" on days where none of the eligible K entries had
+  // a genuine positive edge, which happens often since K has a much
+  // smaller daily pool of eligible entries than HR does.
+  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0).sort((a,b)=>b.edge-a.edge).slice(0,5);
   document.getElementById('koSection_best5').innerHTML = `
     <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
@@ -1667,7 +1680,7 @@ async function loadHistory(){
   }
 
   const mostLikelyRecords = reconstructBest5Days(dayData, (a,b)=>b.heuristicProb-a.heuristicProb, null);
-  const bestValueRecords = reconstructBest5Days(dayData, (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true);
+  const bestValueRecords = reconstructBest5Days(dayData, (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
 
   function summarizeBest5(records){
     const graded = records.filter(d=>!d.pending);
