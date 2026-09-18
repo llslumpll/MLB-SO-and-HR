@@ -13,6 +13,7 @@ from common import (
     clip, to_num, get, get_text, parse_ip,
     fetch_savant_percentiles, fetch_weather, today_iso,
     fetch_vs_team, batter_vs_team_trend,
+    fetch_vs_pitcher_full, batter_vs_pitcher_trend,
 )
 
 import csv
@@ -678,6 +679,14 @@ def build(date, year):
             # notability thresholds and why they exist). None when there
             # isn't a real trend, not a forced stat on every card.
             b["vsTeamTrend"] = batter_vs_team_trend(fetch_vs_team(b["id"], b["oppTeamId"], "hitting")) if b.get("oppTeamId") else None
+            # Same idea, but against today's specific opposing pitcher --
+            # see batter_vs_pitcher_trend's docstring in common.py. This
+            # is separate from the existing b["vsPitcher"] fetch above
+            # (fetch_vs_pitcher, season-only, used elsewhere) -- this one
+            # checks career too and only returns something when it's
+            # actually notable enough to be a trend, not raw stats shown
+            # unconditionally.
+            b["vsPitcherTrend"] = batter_vs_pitcher_trend(fetch_vs_pitcher_full(b["id"], opp_pitcher["id"])) if opp_pitcher else None
 
             h = compute_heuristic(b, savant_batter_map, calibration)
             b.update(h)
@@ -692,7 +701,8 @@ def build(date, year):
                 "calibrationApplied": b.get("calibrationApplied"),
                 "reason": b["reason"], "factors": b["factors"],
                 "savant": b.get("savant"), "vsPitcher": b.get("vsPitcher"),
-                "vsTeamTrend": b.get("vsTeamTrend"),
+                "vsTeamTrend": b.get("vsTeamTrend"), "vsPitcherTrend": b.get("vsPitcherTrend"),
+                "oppPitcherName": (b.get("oppPitcher") or {}).get("fullName"),
                 "veloTrend": b.get("veloTrend"), "streak": {
                     "type": (b.get("batterStats") or {}).get("streakType"),
                     "games": (b.get("batterStats") or {}).get("streakGames"),
