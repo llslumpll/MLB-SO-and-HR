@@ -552,6 +552,26 @@ function opsTrendChips(e){
   return `<div class="bx-line">${chips}<span class="bx-chip">Season OPS: <b>${season!=null?fmt3(season):'—'}</b></span></div>`;
 }
 
+// "Any trend a player may have" -- scoped to career vs today's specific
+// opponent (see batter_vs_team_trend/pitcher_vs_team_trend in common.py
+// for the notability thresholds). Only renders when the player's build
+// data actually found one -- e.vsTeamTrend is null/absent on every card
+// without a real trend, which is most cards, on purpose.
+function vsTeamTrendChip(e){
+  const t = e.vsTeamTrend;
+  if(!t) return '';
+  const isPitching = t.inningsPitched !== undefined;
+  if(isPitching){
+    const era = parseFloat(t.era);
+    const cls = era<=3.00 ? 'stat-good' : 'stat-bad';
+    const verb = era<=3.00 ? 'dominated' : 'struggled against';
+    return `<div class="bx-line"><span class="bx-chip">🔥 Career ${verb} ${e.opp}: <b class="${cls}">${t.era} ERA</b>, ${t.whip} WHIP, ${t.strikeOuts} K in ${t.inningsPitched} IP</span></div>`;
+  }
+  const ops = parseFloat(t.ops);
+  const cls = 'stat-good'; // both trigger conditions (4+ HR, .950+ OPS) are positive-only for batters
+  return `<div class="bx-line"><span class="bx-chip">🔥 Career trend vs ${e.opp}: <b class="${cls}">${t.homeRuns} HR</b> in ${t.atBats} AB (${t.avg} AVG, ${t.ops} OPS)</span></div>`;
+}
+
 function hrCard(e, rank){
   const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.02 ? 'stat-good' : e.edge<-0.02 ? 'stat-bad' : '';
   const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}% edge</span>` : '';
@@ -571,6 +591,7 @@ function hrCard(e, rank){
       </div>
       <div class="card-reason">${e.reason||''}</div>
       ${opsTrendChips(e)}
+      ${vsTeamTrendChip(e)}
       <div class="card-details">${renderFactorsOnly(e)}</div>
     </div>
   `;
@@ -593,6 +614,7 @@ function hitsCard(e, rank){
         </div>
       </div>
       <div class="card-reason">${e.hitsReason||''}</div>
+      ${vsTeamTrendChip(e)}
     </div>
   `;
 }
@@ -614,6 +636,7 @@ function tbCard(e, rank){
         </div>
       </div>
       <div class="card-reason">${e.tbReason||''}</div>
+      ${vsTeamTrendChip(e)}
     </div>
   `;
 }
@@ -1027,6 +1050,7 @@ function koCard(e, rank){
         </div>
       </div>
       <div class="card-reason">${e.reason||''}</div>
+      ${vsTeamTrendChip(e)}
     </div>
   `;
 }
@@ -1047,6 +1071,7 @@ function outsCard(e, rank){
         </div>
       </div>
       <div class="card-reason">${e.outsReason||''}</div>
+      ${vsTeamTrendChip(e)}
     </div>
   `;
 }
