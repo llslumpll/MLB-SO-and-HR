@@ -62,7 +62,14 @@ def build_top_matchup(hr_data, ko_data, teams_data):
     if not ko_entries:
         return None
 
-    eligible = [e for e in ko_entries if e.get("edge") is not None and e.get("edgeEligible")]
+    # Positive edge only -- "model more bullish than market" is the real
+    # Best Value direction (same rule already applied to the History
+    # page's edge-bucket accuracy table). Confirmed live on 2026-09-11:
+    # without this, the "highest" edge among eligible entries could
+    # still be negative on a day where the model is more pessimistic
+    # than the market everywhere, which isn't a real mispricing in our
+    # favor and shouldn't be badged as one.
+    eligible = [e for e in ko_entries if e.get("edge") is not None and e.get("edgeEligible") and e["edge"] > 0]
     used_fallback = not eligible
     pitcher = max(eligible, key=lambda e: e["edge"]) if eligible \
         else max(ko_entries, key=lambda e: e.get("projectedK") or 0)
