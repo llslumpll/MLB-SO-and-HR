@@ -425,9 +425,9 @@
       "workloadStreak": 28,
       "mostRecentPitchCount": 94.0,
       "marketThreshold": 8,
-      "marketProb": 0.435,
+      "marketProb": 0.425,
       "modelProb": 0.6811244472937308,
-      "edge": 0.24612444729373079,
+      "edge": 0.2561244472937308,
       "predictionLine": 7.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -458,7 +458,13 @@
       "prizePicksOpeningLine": 7.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-18T11:20:27.975307",
-      "prizePicksKLine": 7.0
+      "prizePicksKLine": 7.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 8,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.42,
+      "marketAsk": 0.43,
+      "edgeEligible": true
     },
     {
       "gamePk": 824383,
@@ -678,9 +684,9 @@
       "workloadStreak": 4,
       "mostRecentPitchCount": 91.0,
       "marketThreshold": 8,
-      "marketProb": 0.41000000000000003,
+      "marketProb": 0.405,
       "modelProb": 0.4599587426136911,
-      "edge": 0.04995874261369104,
+      "edge": 0.05495874261369105,
       "predictionLine": 7.0,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -715,7 +721,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-18T12:52:45.596143",
       "prizePicksKLine": 7.0,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 8,
+      "priceDelta": 0.010000000000000009,
+      "marketBid": 0.39,
+      "marketAsk": 0.42,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824463,
@@ -1727,9 +1740,9 @@
       "workloadStreak": 4,
       "mostRecentPitchCount": 83.0,
       "marketThreshold": 3,
-      "marketProb": 0.53,
+      "marketProb": 0.525,
       "modelProb": 0.9339746995789638,
-      "edge": 0.4039746995789638,
+      "edge": 0.4089746995789638,
       "predictionLine": null,
       "predictionOutsLine": 12.5,
       "graded": false,
@@ -1764,9 +1777,10 @@
       "openingThreshold": 3,
       "priceDelta": 0.0,
       "marketBid": 0.52,
-      "marketAsk": 0.54,
+      "marketAsk": 0.53,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-18T18:18:02.886842"
+      "oddsUpdatedAt": "2026-09-18T18:19:11.556358",
+      "prizePicksOutsLineDelta": 1.0
     },
     {
       "gamePk": 824547,
@@ -1849,9 +1863,9 @@
       "workloadStreak": 2,
       "mostRecentPitchCount": 77.0,
       "marketThreshold": 4,
-      "marketProb": null,
+      "marketProb": 0.605,
       "modelProb": 0.835119976531018,
-      "edge": null,
+      "edge": 0.230119976531018,
       "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -1881,7 +1895,14 @@
       "prizePicksOpeningLine": 3.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-18T11:20:27.975521",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "openingProb": 0.605,
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.6,
+      "marketAsk": 0.61,
+      "edgeEligible": true,
+      "prizePicksLineDelta": 0.5
     },
     {
       "gamePk": 823977,
@@ -2316,9 +2337,9 @@
       "workloadStreak": 22,
       "mostRecentPitchCount": 65.0,
       "marketThreshold": 5,
-      "marketProb": 0.32,
+      "marketProb": 0.315,
       "modelProb": 0.647068979085551,
-      "edge": 0.32706897908555105,
+      "edge": 0.33206897908555105,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -2349,7 +2370,13 @@
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-18T11:20:27.975602",
-      "prizePicksKLine": 3.5
+      "prizePicksKLine": 3.5,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.0050000000000000044,
+      "marketBid": 0.3,
+      "marketAsk": 0.33,
+      "edgeEligible": true
     },
     {
       "gamePk": 823331,
@@ -2582,9 +2609,9 @@
       "workloadStreak": 29,
       "mostRecentPitchCount": 82.0,
       "marketThreshold": 6,
-      "marketProb": 0.45,
+      "marketProb": 0.445,
       "modelProb": 0.4693144924576895,
-      "edge": 0.019314492457689514,
+      "edge": 0.02431449245768952,
       "predictionLine": 5.5,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -2619,7 +2646,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-18T12:52:45.596454",
       "prizePicksKLine": 5.5,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": -0.019999999999999962,
+      "marketBid": 0.44,
+      "marketAsk": 0.45,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823898,
@@ -2737,7 +2771,8 @@
       "marketBid": 0.56,
       "marketAsk": 0.57,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-18T18:18:02.886842"
+      "oddsUpdatedAt": "2026-09-18T18:19:11.556358",
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824138,
@@ -3621,7 +3656,7 @@
       "marketBid": 0.53,
       "marketAsk": 0.54,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-18T18:18:02.886842"
+      "oddsUpdatedAt": "2026-09-18T18:19:11.556358"
     },
     {
       "gamePk": 825032,
@@ -5416,9 +5451,9 @@
       "workloadStreak": 9,
       "mostRecentPitchCount": 96.0,
       "marketThreshold": 5,
-      "marketProb": 0.41500000000000004,
+      "marketProb": 0.405,
       "modelProb": 0.4166029574525125,
-      "edge": 0.0016029574525124879,
+      "edge": 0.011602957452512497,
       "predictionLine": 4.5,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -5453,7 +5488,14 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-18T12:52:45.597198",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.014999999999999958,
+      "marketBid": 0.4,
+      "marketAsk": 0.41,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksLineDelta": -0.5
     },
     {
       "gamePk": 823572,
@@ -5634,7 +5676,5 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-18T18:18:02.886842",
-  "_kalshiMatched": 25,
-  "_kalshiTotal": 28
+  "oddsRefreshedAt": "2026-09-18T18:19:11.556358"
 }
