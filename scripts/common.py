@@ -411,6 +411,76 @@ def fetch_player_home_runs(batter_id, year):
         return []
 
 
+def fetch_vs_team(person_id, team_id, group):
+    """group: 'hitting' or 'pitching'. Career stats for one player against
+    one specific team -- the real "vsTeam" split, confirmed as an
+    officially supported MLB Stats API stat type via the API's own
+    statTypes endpoint (https://statsapi.mlb.com/api/v1/statTypes lists
+    vsTeam, vsTeam5Y, vsTeamTotal alongside the already-proven vsPlayer
+    type fetch_vs_pitcher above uses). Same request shape as
+    fetch_vs_pitcher, just opposingTeamId instead of opposingPlayerId.
+
+    UNVERIFIED FROM THIS ENVIRONMENT: MLB Stats API isn't reachable from
+    the sandbox this was written in, so the exact param name
+    (opposingTeamId) is inferred by direct analogy to fetch_vs_pitcher's
+    already-proven opposingPlayerId, not independently confirmed live.
+    Check the first real run's output before trusting this -- same
+    standard as every other new endpoint added this session."""
+    try:
+        data = get(f"{API}/people/{person_id}/stats", params={
+            "stats": "vsTeam", "group": group,
+            "opposingTeamId": team_id, "sportId": 1,
+        })
+        splits = (data.get("stats") or [{}])[0].get("splits") or []
+        return splits[0]["stat"] if splits else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def batter_vs_team_trend(stat):
+    """A notable career trend against today's specific opponent, or None
+    if there isn't one worth surfacing. Thresholds (4+ HR or .950+ OPS,
+    15+ AB floor) are a judgment call agreed with the user on
+    2026-09-18 -- deliberately not "any deviation from average", since
+    showing a trend chip on every card would make the notable ones
+    invisible. 15 AB is a real floor, not the 3 AB fetch_vs_pitcher
+    uses for vs-one-pitcher matchups -- vs-team samples are naturally
+    much bigger (every pitcher on that team, not just one), so a small
+    sample here is less excusable."""
+    if not stat:
+        return None
+    ab = to_num(stat.get("atBats"))
+    if not ab or ab < 15:
+        return None
+    hr = int(to_num(stat.get("homeRuns")) or 0)
+    ops = to_num(stat.get("ops"))
+    if hr >= 4 or (ops is not None and ops >= 0.950):
+        return {
+            "atBats": int(ab), "hits": int(to_num(stat.get("hits")) or 0),
+            "homeRuns": hr, "avg": stat.get("avg"), "ops": stat.get("ops"),
+        }
+    return None
+
+
+def pitcher_vs_team_trend(stat):
+    """Same idea as batter_vs_team_trend, for pitchers -- notable in
+    EITHER direction (dominant or has really struggled), since both are
+    real, useful trends, not just the flattering one. ERA thresholds
+    (<=3.00 dominant, >=6.00 has struggled) with a 15+ IP floor."""
+    if not stat:
+        return None
+    ip = to_num(stat.get("inningsPitched"))
+    if not ip or ip < 15:
+        return None
+    era = to_num(stat.get("era"))
+    if era is not None and (era <= 3.00 or era >= 6.00):
+        return {
+            "inningsPitched": stat.get("inningsPitched"), "era": stat.get("era"),
+            "whip": stat.get("whip"), "strikeOuts": int(to_num(stat.get("strikeOuts")) or 0),
+        }
+    return None
+
+
 def fetch_team_last_n_record(team_id, n=5, lookback_days=20):
     """Record over the team's last N completed games."""
     try:
