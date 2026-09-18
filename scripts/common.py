@@ -412,13 +412,20 @@ def fetch_player_home_runs(batter_id, year):
 
 
 def fetch_vs_team(person_id, team_id, group):
-    """group: 'hitting' or 'pitching'. Career stats for one player against
-    one specific team -- the real "vsTeam" split, confirmed as an
-    officially supported MLB Stats API stat type via the API's own
-    statTypes endpoint (https://statsapi.mlb.com/api/v1/statTypes lists
-    vsTeam, vsTeam5Y, vsTeamTotal alongside the already-proven vsPlayer
-    type fetch_vs_pitcher above uses). Same request shape as
-    fetch_vs_pitcher, just opposingTeamId instead of opposingPlayerId.
+    """group: 'hitting' or 'pitching'. Returns {"season": stat_or_None,
+    "career": stat_or_None} for one player against one specific team.
+
+    IMPORTANT: vsTeam (no "Total") is SEASON-scoped, not career -- verified
+    via the mlbstatsapi wrapper's own documented examples showing vsplayer
+    (2 games) vs vsplayertotal (4 games) for the same two players, the
+    same season/career split applies to vsTeam/vsTeamTotal. Confirmed via
+    MLB's own official statTypes endpoint (https://statsapi.mlb.com/api/v1/statTypes)
+    that both vsTeam and vsTeamTotal are real, separate, supported types.
+    Fetching both matters: a trend like "5 HR this season vs the
+    Dodgers" and a trend like "124 career IP vs the Rangers at a 2.69
+    ERA" are genuinely different kinds of facts and must never be
+    mislabeled as the other -- this was flagged directly by the user
+    after the first version of this fetch only pulled the season split.
 
     UNVERIFIED FROM THIS ENVIRONMENT: MLB Stats API isn't reachable from
     the sandbox this was written in, so the exact param name
@@ -426,58 +433,155 @@ def fetch_vs_team(person_id, team_id, group):
     already-proven opposingPlayerId, not independently confirmed live.
     Check the first real run's output before trusting this -- same
     standard as every other new endpoint added this session."""
-    try:
-        data = get(f"{API}/people/{person_id}/stats", params={
-            "stats": "vsTeam", "group": group,
-            "opposingTeamId": team_id, "sportId": 1,
-        })
-        splits = (data.get("stats") or [{}])[0].get("splits") or []
-        return splits[0]["stat"] if splits else None
-    except Exception:  # noqa: BLE001
-        return None
+    def _fetch(stat_type):
+        try:
+            data = get(f"{API}/people/{person_id}/stats", params={
+                "stats": stat_type, "group": group,
+                "opposingTeamId": team_id, "sportId": 1,
+            })
+            splits = (data.get("stats") or [{}])[0].get("splits") or []
+            return splits[0]["stat"] if splits else None
+        except Exception:  # noqa: BLE001
+            return None
+    return {"season": _fetch("vsTeam"), "career": _fetch("vsTeamTotal")}
 
 
-def batter_vs_team_trend(stat):
-    """A notable career trend against today's specific opponent, or None
-    if there isn't one worth surfacing. Thresholds (4+ HR or .950+ OPS,
-    15+ AB floor) are a judgment call agreed with the user on
+def fetch_vs_pitcher_full(batter_id, pitcher_id):
+    """Same season/career split as fetch_vs_team above, but for one
+    batter against one specific opposing pitcher -- the vsPlayer/
+    vsPlayerTotal pair. Deliberately separate from fetch_vs_pitcher
+    above (which stays exactly as it was, still season-only, still
+    used by Teams/Matchups' opposing-batters table) rather than
+    changing that function's behavior for existing call sites; this is
+    purely for the new batter-vs-pitcher trend chip."""
+    def _fetch(stat_type):
+        try:
+            data = get(f"{API}/people/{batter_id}/stats", params={
+                "stats": stat_type, "group": "hitting",
+                "opposingPlayerId": pitcher_id, "sportId": 1,
+            })
+            splits = (data.get("stats") or [{}])[0].get("splits") or []
+            return splits[0]["stat"] if splits else None
+        except Exception:  # noqa: BLE001
+            return None
+    return {"season": _fetch("vsPlayer"), "career": _fetch("vsPlayerTotal")}
+
+
+def batter_vs_team_trend(splits):
+    """A notable trend against today's specific opponent team, checking
+    CAREER first (the more meaningful long-term signal, e.g. Sonny
+    Gray's 124 career IP vs the Rangers) and falling back to THIS
+    SEASON only if career doesn't clear the bar (e.g. Elly De La Cruz's
+    5 HR vs the Dodgers this year) -- either way the result says which
+    timeframe it actually is, never left ambiguous. splits is the
+    {"season":..., "career":...} dict fetch_vs_team returns.
+
+    Thresholds (10%+ HR rate, i.e. roughly 1 HR every 10 AB, or .950+
+    OPS, 15+ AB floor) are a judgment call agreed with the user on
     2026-09-18 -- deliberately not "any deviation from average", since
-    showing a trend chip on every card would make the notable ones
-    invisible. 15 AB is a real floor, not the 3 AB fetch_vs_pitcher
-    uses for vs-one-pitcher matchups -- vs-team samples are naturally
-    much bigger (every pitcher on that team, not just one), so a small
-    sample here is less excusable."""
-    if not stat:
+    a trend chip on every card would make the notable ones invisible.
+    HR RATE, not a flat HR count: a flat "4+ HR" threshold looked right
+    for a single season but was too easy to clear over a whole CAREER
+    just by accumulation (8 HR in 200 AB across many years is a
+    perfectly average ~4% rate, not a real trend, yet would have passed
+    a flat count check) -- caught by testing against a deliberately
+    unremarkable mock before this ever reached production. Rate scales
+    correctly regardless of which timeframe (season or career) actually
+    produced the sample. 15 AB is a real floor, not the 3 AB
+    fetch_vs_pitcher uses for vs-one-pitcher matchups -- vs-team
+    samples are naturally much bigger (every pitcher on that team, not
+    just one), so a small sample here is less excusable."""
+    def _check(stat):
+        if not stat:
+            return None
+        ab = to_num(stat.get("atBats"))
+        if not ab or ab < 15:
+            return None
+        hr = int(to_num(stat.get("homeRuns")) or 0)
+        ops = to_num(stat.get("ops"))
+        if (hr / ab) >= 0.10 or (ops is not None and ops >= 0.950):
+            return {
+                "atBats": int(ab), "hits": int(to_num(stat.get("hits")) or 0),
+                "homeRuns": hr, "avg": stat.get("avg"), "ops": stat.get("ops"),
+            }
         return None
-    ab = to_num(stat.get("atBats"))
-    if not ab or ab < 15:
+    if not splits:
         return None
-    hr = int(to_num(stat.get("homeRuns")) or 0)
-    ops = to_num(stat.get("ops"))
-    if hr >= 4 or (ops is not None and ops >= 0.950):
-        return {
-            "atBats": int(ab), "hits": int(to_num(stat.get("hits")) or 0),
-            "homeRuns": hr, "avg": stat.get("avg"), "ops": stat.get("ops"),
-        }
+    career_hit = _check(splits.get("career"))
+    if career_hit:
+        career_hit["timeframe"] = "career"
+        return career_hit
+    season_hit = _check(splits.get("season"))
+    if season_hit:
+        season_hit["timeframe"] = "season"
+        return season_hit
     return None
 
 
-def pitcher_vs_team_trend(stat):
-    """Same idea as batter_vs_team_trend, for pitchers -- notable in
+def batter_vs_pitcher_trend(splits):
+    """Same career-first-then-season logic as batter_vs_team_trend, for
+    one batter against today's specific opposing PITCHER. Same HR-rate
+    reasoning (see batter_vs_team_trend's docstring), lower thresholds
+    than the vs-team version (10%+ HR rate or .900+ OPS, 8+ AB floor)
+    since a single pitcher's sample is naturally much smaller than a
+    whole team's -- fetch_vs_pitcher's existing 3 AB floor (used
+    elsewhere, unaffected by this) shows that a meaningful vs-one-
+    pitcher trend can exist at a much smaller sample than vs-team."""
+    def _check(stat):
+        if not stat:
+            return None
+        ab = to_num(stat.get("atBats"))
+        if not ab or ab < 8:
+            return None
+        hr = int(to_num(stat.get("homeRuns")) or 0)
+        ops = to_num(stat.get("ops"))
+        if (hr / ab) >= 0.10 or (ops is not None and ops >= 0.900):
+            return {
+                "atBats": int(ab), "hits": int(to_num(stat.get("hits")) or 0),
+                "homeRuns": hr, "avg": stat.get("avg"), "ops": stat.get("ops"),
+            }
+        return None
+    if not splits:
+        return None
+    career_hit = _check(splits.get("career"))
+    if career_hit:
+        career_hit["timeframe"] = "career"
+        return career_hit
+    season_hit = _check(splits.get("season"))
+    if season_hit:
+        season_hit["timeframe"] = "season"
+        return season_hit
+    return None
+
+
+def pitcher_vs_team_trend(splits):
+    """Same career-first-then-season logic, for pitchers -- notable in
     EITHER direction (dominant or has really struggled), since both are
     real, useful trends, not just the flattering one. ERA thresholds
     (<=3.00 dominant, >=6.00 has struggled) with a 15+ IP floor."""
-    if not stat:
+    def _check(stat):
+        if not stat:
+            return None
+        ip = to_num(stat.get("inningsPitched"))
+        if not ip or ip < 15:
+            return None
+        era = to_num(stat.get("era"))
+        if era is not None and (era <= 3.00 or era >= 6.00):
+            return {
+                "inningsPitched": stat.get("inningsPitched"), "era": stat.get("era"),
+                "whip": stat.get("whip"), "strikeOuts": int(to_num(stat.get("strikeOuts")) or 0),
+            }
         return None
-    ip = to_num(stat.get("inningsPitched"))
-    if not ip or ip < 15:
+    if not splits:
         return None
-    era = to_num(stat.get("era"))
-    if era is not None and (era <= 3.00 or era >= 6.00):
-        return {
-            "inningsPitched": stat.get("inningsPitched"), "era": stat.get("era"),
-            "whip": stat.get("whip"), "strikeOuts": int(to_num(stat.get("strikeOuts")) or 0),
-        }
+    career_hit = _check(splits.get("career"))
+    if career_hit:
+        career_hit["timeframe"] = "career"
+        return career_hit
+    season_hit = _check(splits.get("season"))
+    if season_hit:
+        season_hit["timeframe"] = "season"
+        return season_hit
     return None
 
 
