@@ -1,55 +1,59 @@
 {
-  "generatedAt": "2026-09-12T20:38:42.363729",
-  "totalHRGraded": 433,
-  "totalKGraded": 31,
-  "totalOutsGraded": 12,
-  "totalHitsGraded": 2776,
-  "totalTotalBasesGraded": 2770,
+  "generatedAt": "2026-09-18T22:36:31.047564",
+  "totalHRGraded": 2301,
+  "totalKGraded": 169,
+  "totalOutsGraded": 83,
+  "totalHitsGraded": 4650,
+  "totalTotalBasesGraded": 4642,
   "minSampleRequired": 100,
   "dampenFactor": 0.3,
   "stuffFactorFixCutoff": "2026-09-10T14:24:22",
   "powerQualityFixCutoff": "2026-09-10T15:43:50",
   "hr": {
     "High": {
-      "multiplier": 0.9805,
-      "sampleSize": 414,
-      "avgPredicted": 0.1189,
-      "actualRate": 0.1111,
-      "rawRatio": 0.9348,
+      "multiplier": 0.9869,
+      "sampleSize": 2157,
+      "avgPredicted": 0.1192,
+      "actualRate": 0.114,
+      "rawRatio": 0.9564,
       "status": "active"
     },
     "Medium": {
-      "multiplier": 1.0,
-      "sampleSize": 19,
-      "status": "insufficient data"
+      "multiplier": 0.9623,
+      "sampleSize": 135,
+      "avgPredicted": 0.1017,
+      "actualRate": 0.0889,
+      "rawRatio": 0.8744,
+      "status": "active"
     },
     "Low": {
       "multiplier": 1.0,
-      "sampleSize": 0,
+      "sampleSize": 9,
       "status": "insufficient data"
     }
   },
   "ko": {
     "High": {
-      "bias": 0.0,
-      "sampleSize": 31,
-      "status": "insufficient data"
+      "bias": -0.1401,
+      "sampleSize": 167,
+      "avgRawBias": -0.4672,
+      "status": "active"
     },
     "Medium": {
       "bias": 0.0,
-      "sampleSize": 0,
+      "sampleSize": 1,
       "status": "insufficient data"
     },
     "Low": {
       "bias": 0.0,
-      "sampleSize": 0,
+      "sampleSize": 1,
       "status": "insufficient data"
     }
   },
   "outs": {
     "High": {
       "bias": 0.0,
-      "sampleSize": 12,
+      "sampleSize": 82,
       "status": "insufficient data"
     },
     "Medium": {
@@ -59,69 +63,70 @@
     },
     "Low": {
       "bias": 0.0,
-      "sampleSize": 0,
+      "sampleSize": 1,
       "status": "insufficient data"
     }
   },
   "hits": {
     "High": {
-      "bias": -0.0108,
-      "sampleSize": 2593,
-      "avgRawBias": -0.0358,
+      "bias": -0.0135,
+      "sampleSize": 4317,
+      "avgRawBias": -0.0449,
       "status": "active"
     },
     "Medium": {
-      "bias": -0.0935,
-      "sampleSize": 168,
-      "avgRawBias": -0.3117,
+      "bias": -0.0713,
+      "sampleSize": 272,
+      "avgRawBias": -0.2378,
       "status": "active"
     },
     "Low": {
       "bias": 0.0,
-      "sampleSize": 15,
+      "sampleSize": 21,
       "status": "insufficient data"
     }
   },
   "totalBases": {
     "High": {
-      "bias": -0.0134,
-      "sampleSize": 2587,
-      "avgRawBias": -0.0445,
+      "bias": -0.0211,
+      "sampleSize": 4309,
+      "avgRawBias": -0.0702,
       "status": "active"
     },
     "Medium": {
-      "bias": -0.1919,
-      "sampleSize": 168,
-      "avgRawBias": -0.6397,
+      "bias": -0.1227,
+      "sampleSize": 272,
+      "avgRawBias": -0.4092,
       "status": "active"
     },
     "Low": {
       "bias": 0.0,
-      "sampleSize": 15,
+      "sampleSize": 21,
       "status": "insufficient data"
     }
   },
   "probShrink": {
     "ko": {
-      "shrinkFactor": 1.0,
-      "sampleSize": 31,
-      "status": "insufficient data"
+      "shrinkFactor": 0.6217,
+      "sampleSize": 169,
+      "rawShrinkFactor": -0.2609,
+      "status": "active"
     },
     "outs": {
       "shrinkFactor": 1.0,
-      "sampleSize": 12,
+      "sampleSize": 83,
       "status": "insufficient data"
     },
     "hits": {
-      "shrinkFactor": 0.8463,
-      "sampleSize": 515,
-      "rawShrinkFactor": 0.4876,
+      "shrinkFactor": 0.8066,
+      "sampleSize": 910,
+      "rawShrinkFactor": 0.3553,
       "status": "active"
     },
     "totalBases": {
-      "shrinkFactor": 0.7421,
-      "sampleSize": 674,
-      "rawShrinkFactor": 0.1403,
+      "shrinkFactor": 0.7304,
+      "sampleSize": 1163,
+      "rawShrinkFactor": 0.1012,
       "status": "active"
     }
   }
