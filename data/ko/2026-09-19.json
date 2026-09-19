@@ -245,9 +245,9 @@
       "workloadStreak": 31,
       "mostRecentPitchCount": 94.0,
       "marketThreshold": 7,
-      "marketProb": 0.45499999999999996,
+      "marketProb": 0.45,
       "modelProb": 0.586145055261694,
-      "edge": 0.13114505526169407,
+      "edge": 0.13614505526169401,
       "predictionLine": 6.0,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -274,7 +274,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.425,
+      "openingProb": 0.45,
       "prizePicksOpeningLine": 6.0,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "OVER",
@@ -282,7 +282,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-19T12:30:32.101012",
       "prizePicksKLine": 6.0,
-      "prizePicksOutsLine": 17.5
+      "prizePicksOutsLine": 17.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.44,
+      "marketAsk": 0.46,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823976,
@@ -531,9 +538,9 @@
       "workloadStreak": 30,
       "mostRecentPitchCount": 95.0,
       "marketThreshold": 7,
-      "marketProb": 0.485,
+      "marketProb": 0.495,
       "modelProb": 0.5686956970727297,
-      "edge": 0.08369569707272972,
+      "edge": 0.07369569707272972,
       "predictionLine": 6.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -564,7 +571,13 @@
       "prizePicksOpeningLine": 6.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.424497",
-      "prizePicksKLine": 6.5
+      "prizePicksKLine": 6.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.49,
+      "marketAsk": 0.5,
+      "edgeEligible": true
     },
     {
       "gamePk": 823899,
@@ -804,11 +817,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.485,
+      "openingProb": 0.505,
       "prizePicksOpeningLine": 7.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.424583",
-      "prizePicksKLine": 7.5
+      "prizePicksKLine": 7.5,
+      "prizePicksLineDelta": 0.5,
+      "openingThreshold": 8,
+      "priceDelta": 0.0,
+      "marketBid": 0.5,
+      "marketAsk": 0.51,
+      "edgeEligible": true
     },
     {
       "gamePk": 824545,
@@ -1045,9 +1064,9 @@
       "workloadStreak": 1,
       "mostRecentPitchCount": 94.0,
       "marketThreshold": 6,
-      "marketProb": 0.55,
+      "marketProb": 0.64,
       "modelProb": 0.5946367652286367,
-      "edge": 0.04463676522863669,
+      "edge": -0.04536323477136328,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -1081,9 +1100,9 @@
       "prizePicksKLine": 5.5,
       "prizePicksLineDelta": 0.5,
       "openingThreshold": 6,
-      "priceDelta": 0.05500000000000005,
-      "marketBid": 0.49,
-      "marketAsk": 0.61,
+      "priceDelta": 0.14500000000000002,
+      "marketBid": 0.63,
+      "marketAsk": 0.65,
       "edgeEligible": true
     },
     {
@@ -1268,11 +1287,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.385,
+      "openingProb": 0.395,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.424724",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.39,
+      "marketAsk": 0.4,
+      "edgeEligible": true
     },
     {
       "gamePk": 823976,
@@ -1506,11 +1531,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.435,
+      "openingProb": 0.425,
       "prizePicksOpeningLine": 6.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.424794",
-      "prizePicksKLine": 6.0
+      "prizePicksKLine": 6.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.42,
+      "marketAsk": 0.43,
+      "edgeEligible": true
     },
     {
       "gamePk": 823330,
@@ -1776,7 +1807,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.455,
+      "openingProb": 0.445,
       "prizePicksOpeningLine": 5.0,
       "prizePicksOutsOpeningLine": 15.5,
       "prizePicksCall": "OVER",
@@ -1784,7 +1815,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-19T12:30:32.101067",
       "prizePicksKLine": 5.0,
-      "prizePicksOutsLine": 16.5
+      "prizePicksOutsLine": 16.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.44,
+      "marketAsk": 0.45,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 1.0
     },
     {
       "gamePk": 823249,
@@ -2038,7 +2076,13 @@
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.424932",
-      "prizePicksKLine": 5.0
+      "prizePicksKLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.44,
+      "marketAsk": 0.45,
+      "edgeEligible": true
     },
     {
       "gamePk": 824304,
@@ -2252,7 +2296,13 @@
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-19T12:30:32.101115",
       "prizePicksKLine": 4.5,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.43,
+      "marketAsk": 0.44,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": -1.0
     },
     {
       "gamePk": 823571,
@@ -2443,9 +2493,9 @@
       "workloadStreak": 21,
       "mostRecentPitchCount": 82.0,
       "marketThreshold": 6,
-      "marketProb": 0.405,
+      "marketProb": 0.41000000000000003,
       "modelProb": 0.4796232175003109,
-      "edge": 0.07462321750031087,
+      "edge": 0.06962321750031086,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -2479,9 +2529,9 @@
       "prizePicksKLine": 5.0,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.010000000000000009,
+      "priceDelta": 0.015000000000000013,
       "marketBid": 0.4,
-      "marketAsk": 0.41,
+      "marketAsk": 0.42,
       "edgeEligible": true
     },
     {
@@ -2649,9 +2699,9 @@
       "workloadStreak": 10,
       "mostRecentPitchCount": 89.0,
       "marketThreshold": 6,
-      "marketProb": 0.485,
+      "marketProb": 0.475,
       "modelProb": 0.4349475222288577,
-      "edge": -0.0500524777711423,
+      "edge": -0.04005247777114229,
       "predictionLine": 5.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -2685,9 +2735,9 @@
       "prizePicksKLine": 5.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": -0.010000000000000009,
+      "priceDelta": -0.020000000000000018,
       "marketBid": 0.47,
-      "marketAsk": 0.5,
+      "marketAsk": 0.48,
       "edgeEligible": true
     },
     {
@@ -2917,9 +2967,9 @@
       "workloadStreak": 28,
       "mostRecentPitchCount": 95.0,
       "marketThreshold": 6,
-      "marketProb": 0.46499999999999997,
+      "marketProb": 0.45999999999999996,
       "modelProb": 0.43336680139989403,
-      "edge": -0.03163319860010594,
+      "edge": -0.026633198600105934,
       "predictionLine": 5.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -2953,8 +3003,8 @@
       "prizePicksKLine": 5.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.0,
-      "marketBid": 0.46,
+      "priceDelta": -0.0050000000000000044,
+      "marketBid": 0.45,
       "marketAsk": 0.47,
       "edgeEligible": true
     },
@@ -3063,9 +3113,9 @@
       "workloadStreak": 7,
       "mostRecentPitchCount": 87.0,
       "marketThreshold": 5,
-      "marketProb": 0.425,
+      "marketProb": 0.655,
       "modelProb": 0.5259838018505728,
-      "edge": 0.10098380185057282,
+      "edge": -0.12901619814942722,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -3099,9 +3149,9 @@
       "prizePicksKLine": 4.5,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 5,
-      "priceDelta": -0.09000000000000002,
-      "marketBid": 0.23,
-      "marketAsk": 0.62,
+      "priceDelta": 0.14,
+      "marketBid": 0.52,
+      "marketAsk": 0.79,
       "edgeEligible": true
     },
     {
@@ -3376,7 +3426,13 @@
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.425333",
-      "prizePicksKLine": 5.0
+      "prizePicksKLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.41,
+      "marketAsk": 0.42,
+      "edgeEligible": true
     },
     {
       "gamePk": 823571,
@@ -3592,11 +3648,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.475,
+      "openingProb": 0.485,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.425400",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.48,
+      "marketAsk": 0.49,
+      "edgeEligible": true
     },
     {
       "gamePk": 824380,
@@ -3866,7 +3928,13 @@
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.425464",
-      "prizePicksKLine": 4.5
+      "prizePicksKLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.51,
+      "marketAsk": 0.53,
+      "edgeEligible": true
     },
     {
       "gamePk": 822921,
@@ -4109,9 +4177,9 @@
       "workloadStreak": 30,
       "mostRecentPitchCount": 86.0,
       "marketThreshold": 6,
-      "marketProb": 0.405,
+      "marketProb": 0.4,
       "modelProb": 0.3729881488553053,
-      "edge": -0.032011851144694736,
+      "edge": -0.027011851144694732,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -4145,8 +4213,8 @@
       "prizePicksKLine": 5.0,
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 6,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.4,
+      "priceDelta": 0.0,
+      "marketBid": 0.39,
       "marketAsk": 0.41,
       "edgeEligible": true
     },
@@ -4283,9 +4351,9 @@
       "workloadStreak": 7,
       "mostRecentPitchCount": 70.0,
       "marketThreshold": 4,
-      "marketProb": 0.415,
+      "marketProb": 0.405,
       "modelProb": 0.5696333148019118,
-      "edge": 0.15463331480191184,
+      "edge": 0.1646333148019118,
       "predictionLine": 3.0,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -4312,7 +4380,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.415,
+      "openingProb": 0.405,
       "prizePicksOpeningLine": 3.0,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "OVER",
@@ -4320,7 +4388,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-19T12:30:32.101159",
       "prizePicksKLine": 3.0,
-      "prizePicksOutsLine": 16.5
+      "prizePicksOutsLine": 16.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.4,
+      "marketAsk": 0.41,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": -1.0
     },
     {
       "gamePk": 823330,
@@ -4590,7 +4665,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-19T12:30:32.101198",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.4,
+      "marketAsk": 0.41,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 824380,
@@ -4824,7 +4906,14 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-19T12:30:32.101236",
       "prizePicksKLine": 4.5,
-      "prizePicksOutsLine": 15.5
+      "prizePicksOutsLine": 15.5,
+      "prizePicksLineDelta": 0.5,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.46,
+      "marketAsk": 0.47,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 825029,
@@ -5020,11 +5109,16 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.475,
+      "openingProb": 0.485,
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.425689",
-      "prizePicksKLine": 4.5
+      "prizePicksKLine": 4.5,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.48,
+      "marketAsk": 0.49,
+      "edgeEligible": true
     },
     {
       "gamePk": 824461,
@@ -5461,11 +5555,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.455,
+      "openingProb": 0.445,
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T12:40:22.448254",
-      "prizePicksKLine": 4.5
+      "prizePicksKLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.44,
+      "marketAsk": 0.45,
+      "edgeEligible": true
     },
     {
       "gamePk": 824137,
@@ -5613,7 +5713,13 @@
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.425752",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.42,
+      "marketAsk": 0.43,
+      "edgeEligible": true
     },
     {
       "gamePk": 824461,
@@ -6054,11 +6160,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.37,
+      "openingProb": 0.365,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-19T11:20:21.425875",
-      "prizePicksKLine": 4.0
+      "prizePicksKLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.36,
+      "marketAsk": 0.37,
+      "edgeEligible": true
     },
     {
       "gamePk": 823003,
@@ -6481,9 +6593,9 @@
       "marketBid": 0.38,
       "marketAsk": 0.41,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-19T18:11:14.126279"
+      "oddsUpdatedAt": "2026-09-19T18:20:21.353075"
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-19T18:11:14.126279"
+  "oddsRefreshedAt": "2026-09-19T18:20:21.353075"
 }
