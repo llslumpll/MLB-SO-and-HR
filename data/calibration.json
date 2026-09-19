@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-09-19T20:42:54.016423",
-  "totalHRGraded": 2679,
-  "totalKGraded": 196,
+  "generatedAt": "2026-09-19T22:19:05.447413",
+  "totalHRGraded": 2701,
+  "totalKGraded": 198,
   "totalOutsGraded": 101,
-  "totalHitsGraded": 5005,
-  "totalTotalBasesGraded": 4997,
+  "totalHitsGraded": 5027,
+  "totalTotalBasesGraded": 5019,
   "minSampleRequired": 100,
   "dampenFactor": 0.3,
   "stuffFactorFixCutoff": "2026-09-10T14:24:22",
   "powerQualityFixCutoff": "2026-09-10T15:43:50",
   "hr": {
     "High": {
-      "multiplier": 0.9802,
-      "sampleSize": 2497,
-      "avgPredicted": 0.1188,
-      "actualRate": 0.1109,
-      "rawRatio": 0.9341,
+      "multiplier": 0.9788,
+      "sampleSize": 2519,
+      "avgPredicted": 0.1187,
+      "actualRate": 0.1104,
+      "rawRatio": 0.9294,
       "status": "active"
     },
     "Medium": {
@@ -34,9 +34,9 @@
   },
   "ko": {
     "High": {
-      "bias": -0.1694,
-      "sampleSize": 194,
-      "avgRawBias": -0.5648,
+      "bias": -0.1642,
+      "sampleSize": 196,
+      "avgRawBias": -0.5472,
       "status": "active"
     },
     "Medium": {
@@ -69,9 +69,9 @@
   },
   "hits": {
     "High": {
-      "bias": -0.0121,
-      "sampleSize": 4644,
-      "avgRawBias": -0.0402,
+      "bias": -0.0124,
+      "sampleSize": 4666,
+      "avgRawBias": -0.0415,
       "status": "active"
     },
     "Medium": {
@@ -88,9 +88,9 @@
   },
   "totalBases": {
     "High": {
-      "bias": -0.0212,
-      "sampleSize": 4636,
-      "avgRawBias": -0.0708,
+      "bias": -0.0221,
+      "sampleSize": 4658,
+      "avgRawBias": -0.0737,
       "status": "active"
     },
     "Medium": {
@@ -107,9 +107,9 @@
   },
   "probShrink": {
     "ko": {
-      "shrinkFactor": 0.565,
-      "sampleSize": 196,
-      "rawShrinkFactor": -0.45,
+      "shrinkFactor": 0.5633,
+      "sampleSize": 198,
+      "rawShrinkFactor": -0.4558,
       "status": "active"
     },
     "outs": {
@@ -119,15 +119,15 @@
       "status": "active"
     },
     "hits": {
-      "shrinkFactor": 0.8358,
-      "sampleSize": 978,
-      "rawShrinkFactor": 0.4526,
+      "shrinkFactor": 0.8342,
+      "sampleSize": 980,
+      "rawShrinkFactor": 0.4474,
       "status": "active"
     },
     "totalBases": {
-      "shrinkFactor": 0.7358,
-      "sampleSize": 1259,
-      "rawShrinkFactor": 0.1194,
+      "shrinkFactor": 0.7369,
+      "sampleSize": 1261,
+      "rawShrinkFactor": 0.1231,
       "status": "active"
     }
   }
