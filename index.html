@@ -582,6 +582,21 @@ function vsPitcherTrendChip(e){
   return `<div class="bx-line"><span class="bx-chip">⚔️ ${tf} vs ${e.oppPitcherName}: <b class="stat-good">${t.homeRuns} HR</b> in ${t.atBats} AB (${t.avg} AVG, ${t.ops} OPS)</span></div>`;
 }
 
+// Pitcher's side of the same kind of matchup -- against one specific
+// opposing batter (whichever one in today's lineup is most notable, see
+// find_notable_vs_batter_trend in build_ko.py), not the whole team.
+// direction "pitcher" means the PITCHER has dominated this hitter (good
+// for the pitcher); "batter" means this hitter has hit the pitcher hard
+// (bad for the pitcher) -- colored accordingly, never just green.
+function vsBatterTrendChip(e){
+  const t = e.vsBatterTrend;
+  if(!t || !t.batterName) return '';
+  const tf = t.timeframe === 'career' ? 'Career' : 'This season';
+  const cls = t.direction === 'pitcher' ? 'stat-good' : 'stat-bad';
+  const verb = t.direction === 'pitcher' ? 'has owned' : 'has hit well against';
+  return `<div class="bx-line"><span class="bx-chip">⚔️ ${tf}, ${verb} ${t.batterName}: <b class="${cls}">${t.avg} AVG</b>, ${t.homeRuns} HR in ${t.atBats} AB (${t.ops} OPS)</span></div>`;
+}
+
 function hrCard(e, rank){
   const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.02 ? 'stat-good' : e.edge<-0.02 ? 'stat-bad' : '';
   const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}% edge</span>` : '';
@@ -1064,6 +1079,7 @@ function koCard(e, rank){
       </div>
       <div class="card-reason">${e.reason||''}</div>
       ${vsTeamTrendChip(e)}
+      ${vsBatterTrendChip(e)}
     </div>
   `;
 }
@@ -1085,6 +1101,7 @@ function outsCard(e, rank){
       </div>
       <div class="card-reason">${e.outsReason||''}</div>
       ${vsTeamTrendChip(e)}
+      ${vsBatterTrendChip(e)}
     </div>
   `;
 }
@@ -1154,6 +1171,7 @@ function renderKO(){
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
         ${vsTeamTrendChip(e)}
+        ${vsBatterTrendChip(e)}
         ${e.conditionalHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionLine} strikeouts, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
@@ -1204,6 +1222,7 @@ function renderKO(){
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
         ${vsTeamTrendChip(e)}
+        ${vsBatterTrendChip(e)}
         ${e.conditionalOutsHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionOutsLine} outs, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalOutsHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
