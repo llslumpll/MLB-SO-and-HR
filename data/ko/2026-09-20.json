@@ -1755,8 +1755,8 @@
       "edge": null,
       "predictionLine": null,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
+      "graded": true,
+      "actualK": 1,
       "hit": null,
       "projectedOuts": 20.4,
       "outsReason": "Projected for 20.4 outs (6.7 innings), supported by a track record of a long leash (963 pitches/game this season), getting deep into games (6.7 IP/start), and a bullpen that's been leaned on hard lately (4.3 relief innings/game over their last 3), giving the manager real reason to stretch him out; tempered by a walk rate that tends to spike pitch counts (9.1% BB).",
@@ -1777,7 +1777,7 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 3,
       "outsHit": null
     },
     {
@@ -4312,9 +4312,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 18.0,
       "marketThreshold": 5,
-      "marketProb": 0.525,
+      "marketProb": 0.47500000000000003,
       "modelProb": 0.4772414059376587,
-      "edge": -0.04775859406234134,
+      "edge": 0.002241405937658647,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -4347,9 +4347,9 @@
       "prizePicksCallFrozenAt": "2026-09-20T11:20:21.350214",
       "prizePicksKLine": 4.5,
       "openingThreshold": 5,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.51,
-      "marketAsk": 0.54,
+      "priceDelta": -0.044999999999999984,
+      "marketBid": 0.16,
+      "marketAsk": 0.79,
       "edgeEligible": true
     },
     {
@@ -5630,11 +5630,11 @@
       "marketProb": 0.995,
       "modelProb": 0.15780280005940628,
       "edge": -0.8371971999405937,
-      "predictionLine": null,
+      "predictionLine": 5.5,
       "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
+      "graded": true,
+      "actualK": 6,
+      "hit": true,
       "projectedOuts": 12.0,
       "outsReason": "Projected for 12.0 outs (4.9 innings), tempered by a shorter historical leash (76 pitches/game this season).",
       "npPerGame": 76.4,
@@ -5654,7 +5654,7 @@
       "outsMarketProb": null,
       "outsModelProb": null,
       "outsEdge": null,
-      "actualOuts": null,
+      "actualOuts": 15,
       "outsHit": null,
       "openingProb": 0.995,
       "openingThreshold": 6,
@@ -5662,7 +5662,7 @@
       "marketBid": 0.99,
       "marketAsk": 1.0,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-20T22:40:20.174226"
+      "oddsUpdatedAt": "2026-09-20T22:50:21.539430"
     },
     {
       "gamePk": 825028,
@@ -6493,9 +6493,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 7.0,
       "marketThreshold": 4,
-      "marketProb": 0.525,
+      "marketProb": 0.83,
       "modelProb": 0.4492948580917062,
-      "edge": -0.0757051419082938,
+      "edge": -0.38070514190829374,
       "predictionLine": 3.5,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -6532,9 +6532,9 @@
       "prizePicksKLine": 3.5,
       "prizePicksOutsLine": 14.5,
       "openingThreshold": 4,
-      "priceDelta": 0.020000000000000018,
-      "marketBid": 0.16,
-      "marketAsk": 0.89,
+      "priceDelta": 0.32499999999999996,
+      "marketBid": 0.82,
+      "marketAsk": 0.84,
       "edgeEligible": true,
       "prizePicksLineDelta": 0.0,
       "prizePicksOutsLineDelta": 0.0
@@ -6805,7 +6805,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-20T22:40:20.174226",
+  "oddsRefreshedAt": "2026-09-20T22:50:21.539430",
   "lockedBest5": {
     "kEdge": [
       {
