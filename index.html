@@ -905,6 +905,34 @@ async function renderHome(){
   document.getElementById('recentResultsSlot').innerHTML = (await recentResultsHtml()) || '<div class="home-card"><div class="status">No recent graded results yet.</div></div>';
 }
 
+// Best 5 selection is locked server-side (see STEP 3c in run_daily.py)
+// the first time it's computed each day, so the same 5 players stay in
+// the list all day instead of reshuffling every rebuild as
+// heuristicProb/edge drift -- confirmed with the user on 2026-09-25:
+// before this, a morning-correct pick could silently vanish from the
+// list before it ever got credit, since grading always used whatever
+// the LATEST rebuild's fresh ranking happened to show.
+//
+// lockedList is an array of {playerId, gamePk} in locked order; each is
+// resolved against the CURRENT entries array so the displayed stat
+// values (heuristicProb, edge, etc.) still reflect the latest numbers
+// for those same 5 players -- only the SELECTION and ORDER are frozen,
+// not the individual predictions themselves.
+//
+// Falls back to a fresh sort for boards saved before this field
+// existed (lockedList null/undefined/empty), or in the unexpected case
+// where every locked player has since disappeared from entries.
+function resolveBest5(entries, lockedList, sortFn, filterFn){
+  if(lockedList && lockedList.length){
+    const found = lockedList
+      .map(loc=>entries.find(e=>e.playerId===loc.playerId && e.gamePk===loc.gamePk))
+      .filter(Boolean);
+    if(found.length) return found;
+  }
+  const pool = filterFn ? entries.filter(filterFn) : entries;
+  return [...pool].sort(sortFn).slice(0,5);
+}
+
 function renderHR(){
   const entries = (HR_DATA && HR_DATA.entries) || [];
   if(!entries.length){
@@ -940,7 +968,8 @@ function renderHR(){
   // Today's Top Matchup (build_home_highlights.py) on 2026-09-11; this
   // section was missed at the time and confirmed still showing negative
   // "edges" as suggested picks on real live data checked 2026-09-18.
-  const edgeBest5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  const edgeBest5 = resolveBest5(entries, (HR_DATA.lockedBest5||{}).hrEdge,
+    (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
   document.getElementById('hrSection_trending').innerHTML = `
     <div class="hr-section-title">💰 Best Value — Market Mispriced</div>
     <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest raw probability. A different question from the probability-ranked Best 5 below. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
@@ -954,7 +983,7 @@ function renderHR(){
   // looks mispriced, which is a different question from "who is most
   // likely to actually go deep today." Tracked in History day by day,
   // toward a real, honest hit-rate goal for these specific 5 names.
-  const best5 = [...entries].sort((a,b)=>b.heuristicProb-a.heuristicProb).slice(0,5);
+  const best5 = resolveBest5(entries, (HR_DATA.lockedBest5||{}).hrProb, (a,b)=>b.heuristicProb-a.heuristicProb);
   document.getElementById('hrSection_best15').innerHTML = `
     <div class="hr-section-title">🎯 HR Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">The 5 players today's model believes are most likely to actually homer, out of everyone on today's board -- tracked day by day in History toward a real accuracy goal, not a market-mispricing ranking.</div>
@@ -990,7 +1019,8 @@ function renderHR(){
   // Hits/Total Bases have no confirmed Kalshi market, so no real edge to
   // rank Best 5 by -- ranked by projection instead, same honest approach
   // already used for Pitching Outs, with the same disclosure.
-  const hitsBest5 = [...entries].filter(e=>e.projectedHits!=null).sort((a,b)=>b.projectedHits-a.projectedHits).slice(0,5);
+  const hitsBest5 = resolveBest5(entries, (HR_DATA.lockedBest5||{}).hits,
+    (a,b)=>b.projectedHits-a.projectedHits, e=>e.projectedHits!=null);
   document.getElementById('hrSection_hitsbest5').innerHTML = `
     <div class="hr-section-title">🎯 Hits Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">Ranked by projected hits, not market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
@@ -1024,7 +1054,8 @@ function renderHR(){
     </div>
   `;
 
-  const tbBest5 = [...entries].filter(e=>e.projectedTotalBases!=null).sort((a,b)=>b.projectedTotalBases-a.projectedTotalBases).slice(0,5);
+  const tbBest5 = resolveBest5(entries, (HR_DATA.lockedBest5||{}).tb,
+    (a,b)=>b.projectedTotalBases-a.projectedTotalBases, e=>e.projectedTotalBases!=null);
   document.getElementById('hrSection_tbbest5').innerHTML = `
     <div class="hr-section-title">🎯 Total Bases Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">Ranked by projected total bases, not market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
@@ -1129,7 +1160,8 @@ function renderKO(){
   // "Suggested Picks" on days where none of the eligible K entries had
   // a genuine positive edge, which happens often since K has a much
   // smaller daily pool of eligible entries than HR does.
-  const best5 = entries.filter(e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0).sort((a,b)=>b.edge-a.edge).slice(0,5);
+  const best5 = resolveBest5(entries, (KO_DATA.lockedBest5||{}).kEdge,
+    (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
   document.getElementById('koSection_best5').innerHTML = `
     <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
@@ -1140,7 +1172,7 @@ function renderKO(){
   // Pitching Outs has no confirmed market to compare against, so there's
   // no real "edge" to rank by here -- being upfront about that rather
   // than implying this is the same kind of ranking as the two above.
-  const outsBest5 = [...entries].sort((a,b)=>b.projectedOuts-a.projectedOuts).slice(0,5);
+  const outsBest5 = resolveBest5(entries, (KO_DATA.lockedBest5||{}).outs, (a,b)=>b.projectedOuts-a.projectedOuts);
   document.getElementById('koSection_outsbest5').innerHTML = `
     <div class="hr-section-title">🎯 Pitching Outs Best 5 — Suggested Picks</div>
     <div class="hr-section-sub">Ranked by projected outs recorded, not by market edge -- there's no confirmed market for this stat to compare against, so this reflects the model's own conviction, not a mispricing.</div>
@@ -1719,14 +1751,22 @@ async function loadHistory(){
   // after the fact whether those old edge values came from a liquid
   // market or a thin one -- an honest gap in the trend line is better
   // than pretending pre-fix history is trustworthy.
-  function reconstructBest5Days(dayData, rankFn, filterFn){
+  function reconstructBest5Days(dayData, lockKey, rankFn, filterFn){
     const records = [];
     Object.keys(dayData).sort().forEach(day=>{
       const dd = dayData[day];
       if(!dd.hr || !dd.hr.entries.length) return;
-      const pool = filterFn ? dd.hr.entries.filter(filterFn) : dd.hr.entries;
-      if(!pool.length) return;
-      const top5 = [...pool].sort(rankFn).slice(0,5);
+      // Uses that DAY's own locked selection when it exists -- this is
+      // what actually fixes the grading concern: before this, the
+      // History page reconstructed "what would Best 5 have been" by
+      // re-sorting that day's LATEST saved snapshot, which is exactly
+      // the same drifted-list problem as the live board, just one step
+      // removed. A day's real lockedBest5 (if that day predates this
+      // feature, none exists and it falls back to the old re-sort
+      // behavior) is the actual list that was shown and should be
+      // graded, not a re-guess.
+      const top5 = resolveBest5(dd.hr.entries, (dd.hr.lockedBest5||{})[lockKey], rankFn, filterFn);
+      if(!top5.length) return;
       const allGraded = top5.every(e=>e.graded);
       if(!allGraded){
         records.push({day, pending:true, picks:top5});
@@ -1738,8 +1778,8 @@ async function loadHistory(){
     return records;
   }
 
-  const mostLikelyRecords = reconstructBest5Days(dayData, (a,b)=>b.heuristicProb-a.heuristicProb, null);
-  const bestValueRecords = reconstructBest5Days(dayData, (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
+  const mostLikelyRecords = reconstructBest5Days(dayData, 'hrProb', (a,b)=>b.heuristicProb-a.heuristicProb, null);
+  const bestValueRecords = reconstructBest5Days(dayData, 'hrEdge', (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
 
   function summarizeBest5(records){
     const graded = records.filter(d=>!d.pending);
