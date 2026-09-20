@@ -250,6 +250,22 @@ def main():
     os.makedirs("data/ko", exist_ok=True)
     os.makedirs("data/teams", exist_ok=True)
 
+    # Stashed BEFORE Step 1/2 overwrite these files -- see STEP 3c below
+    # for why this needs to be captured this early, not re-read later.
+    old_hr_locked, old_ko_locked = None, None
+    if os.path.exists(f"data/hr/{date}.json"):
+        try:
+            with open(f"data/hr/{date}.json") as f:
+                old_hr_locked = json.load(f).get("lockedBest5")
+        except Exception:  # noqa: BLE001
+            old_hr_locked = None
+    if os.path.exists(f"data/ko/{date}.json"):
+        try:
+            with open(f"data/ko/{date}.json") as f:
+                old_ko_locked = json.load(f).get("lockedBest5")
+        except Exception:  # noqa: BLE001
+            old_ko_locked = None
+
     print("=" * 60)
     print(f"STEP 1: Build HR board for {date}")
     print("=" * 60)
@@ -325,6 +341,70 @@ def main():
               f" | top matchup: {highlights['topMatchup']['pitcherName'] if highlights['topMatchup'] else 'none'}")
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] Homepage highlights build failed, continuing without it: {e}")
+
+    print("=" * 60)
+    print(f"STEP 3c: Lock Best 5 selections for {date}")
+    print("=" * 60)
+    try:
+        # Freeze WHICH 5 players are in each Best 5 list, the first time
+        # it's computed each day -- confirmed with the user on 2026-09-25:
+        # the board's Best 5 was reshuffling every rebuild as
+        # heuristicProb/edge drifted through the day, and grading used
+        # whatever the LATEST rebuild's ranking happened to be, meaning a
+        # morning-correct pick could vanish from the list before it ever
+        # got credit for hitting. This locks the SELECTION itself (which
+        # playerId+gamePk pairs, in what order), the same "freeze rather
+        # than let it silently drift" principle already applied to
+        # individual K/Outs predictions -- just never applied to the
+        # ranking/selection step before, for any of the 6 Best 5 lists.
+        #
+        # Once locked for a date, every later same-day rebuild reuses the
+        # exact same 5 (or fewer, if a filter genuinely had fewer than 5
+        # candidates) playerId+gamePk pairs, regardless of how the
+        # underlying values move afterward. An empty lock (0 candidates
+        # at the very first build, e.g. before Kalshi markets exist yet
+        # for an edge-based ranking) is NOT treated as final -- it keeps
+        # retrying on each rebuild until a real selection exists, rather
+        # than permanently locking in "no picks today."
+        def lock_or_reuse(old_locked, entries, sort_key, filter_fn=None):
+            if old_locked:
+                return old_locked
+            pool = [e for e in entries if filter_fn(e)] if filter_fn else entries
+            top5 = sorted(pool, key=lambda e: -(sort_key(e) if sort_key(e) is not None else -999))[:5]
+            return [{"playerId": e.get("playerId"), "gamePk": e.get("gamePk")} for e in top5]
+
+        with open(f"data/hr/{date}.json") as f:
+            hr_for_lock = json.load(f)
+        with open(f"data/ko/{date}.json") as f:
+            ko_for_lock = json.load(f)
+        hr_entries = hr_for_lock.get("entries") or []
+        ko_entries = ko_for_lock.get("entries") or []
+
+        hr_for_lock["lockedBest5"] = {
+            "hrProb": lock_or_reuse((old_hr_locked or {}).get("hrProb"), hr_entries, lambda e: e.get("heuristicProb")),
+            "hrEdge": lock_or_reuse((old_hr_locked or {}).get("hrEdge"), hr_entries, lambda e: e.get("edge"),
+                                     filter_fn=lambda e: e.get("edge") is not None and e.get("edgeEligible") and e["edge"] > 0),
+            "hits": lock_or_reuse((old_hr_locked or {}).get("hits"), hr_entries, lambda e: e.get("projectedHits"),
+                                   filter_fn=lambda e: e.get("projectedHits") is not None),
+            "tb": lock_or_reuse((old_hr_locked or {}).get("tb"), hr_entries, lambda e: e.get("projectedTotalBases"),
+                                 filter_fn=lambda e: e.get("projectedTotalBases") is not None),
+        }
+        ko_for_lock["lockedBest5"] = {
+            "kEdge": lock_or_reuse((old_ko_locked or {}).get("kEdge"), ko_entries, lambda e: e.get("edge"),
+                                    filter_fn=lambda e: e.get("edge") is not None and e.get("edgeEligible") and e["edge"] > 0),
+            "outs": lock_or_reuse((old_ko_locked or {}).get("outs"), ko_entries, lambda e: e.get("projectedOuts")),
+        }
+
+        with open(f"data/hr/{date}.json", "w") as f:
+            json.dump(hr_for_lock, f, indent=2, default=str)
+        with open(f"data/ko/{date}.json", "w") as f:
+            json.dump(ko_for_lock, f, indent=2, default=str)
+
+        for k, v in {**hr_for_lock["lockedBest5"], **ko_for_lock["lockedBest5"]}.items():
+            was_reused = "reused" if (old_hr_locked or {}).get(k) or (old_ko_locked or {}).get(k) else "computed fresh"
+            print(f"  {k}: {len(v)} locked ({was_reused})")
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] Best 5 locking failed, boards will fall back to live ranking: {e}")
 
     print("=" * 60)
     print("STEP 4: Grade past days")
