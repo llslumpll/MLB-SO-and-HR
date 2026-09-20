@@ -14,6 +14,7 @@ from common import (
     clip, to_num, get, parse_ip,
     fetch_savant_percentiles, fetch_weather, today_iso,
     fetch_vs_team, pitcher_vs_team_trend,
+    fetch_vs_pitcher_full, pitcher_vs_batter_trend,
 )
 from build_hr import fetch_schedule, fetch_pitcher_hand, fetch_pitcher_velo_trend
 
@@ -53,6 +54,38 @@ def percentile_to_factor(percentile, lo=0.75, hi=1.35):
     else:
         factor = 1.0 - (50 - percentile) / 50 * (1.0 - lo)
     return clip(factor, lo, hi)
+
+
+def find_notable_vs_batter_trend(pitcher_id, opp_team_id):
+    """A pitcher faces a whole lineup, not one hitter -- unlike the
+    batter side (which always has exactly one opposing starter to
+    check), there isn't a single "the opposing batter today" here. This
+    checks every active-roster position player on the opposing team
+    (same rosterType=active pattern already proven in build_teams.py's
+    fetch_roster_savant_avg) and surfaces whichever ONE matchup is most
+    extreme, if any clears pitcher_vs_batter_trend's bar. No new fetch
+    endpoint -- reuses fetch_vs_pitcher_full exactly as-is, just called
+    from the pitcher's side of the same at-bats instead of the
+    batter's."""
+    try:
+        roster = get(f"{API}/teams/{opp_team_id}/roster", params={"rosterType": "active"}).get("roster") or []
+    except Exception:  # noqa: BLE001
+        return None
+    batters = [r for r in roster if (r.get("position") or {}).get("abbreviation") != "P"]
+    best = None
+    best_deviation = -1
+    for b in batters:
+        splits = fetch_vs_pitcher_full(b["person"]["id"], pitcher_id)
+        trend = pitcher_vs_batter_trend(splits)
+        if not trend:
+            continue
+        ops = to_num(trend.get("ops")) or 0.700
+        deviation = abs(ops - 0.700)
+        if deviation > best_deviation:
+            best_deviation = deviation
+            trend["batterName"] = b["person"]["fullName"]
+            best = trend
+    return best
 
 
 def fetch_roster_k_percent(team_id, year):
@@ -737,10 +770,11 @@ def build(date, year):
         # notability thresholds -- same "any real trend, not every card"
         # scoping, mirrored here for the pitching side.
         p["vsTeamTrend"] = pitcher_vs_team_trend(fetch_vs_team(p["id"], p["oppTeamId"], "pitching"))
+        p["vsBatterTrend"] = find_notable_vs_batter_trend(p["id"], p["oppTeamId"])
         entries.append({
             "gamePk": p["gamePk"], "playerId": p["id"], "name": p["name"],
             "team": p["team"], "opp": p["opp"], "oppTeamId": p["oppTeamId"],
-            "vsTeamTrend": p.get("vsTeamTrend"),
+            "vsTeamTrend": p.get("vsTeamTrend"), "vsBatterTrend": p.get("vsBatterTrend"),
             "hand": p["hand"], "seasonRecord": p["seasonRecord"], "era": p["era"],
             "seasonK9": p["seasonK9"], "recentK9": p["recentK9"], "oppK": p["oppK"],
             "matchupFactor": p["matchupFactor"], "stuffFactor": p["stuffFactor"],
