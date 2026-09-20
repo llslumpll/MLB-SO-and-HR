@@ -585,6 +585,51 @@ def pitcher_vs_team_trend(splits):
     return None
 
 
+def pitcher_vs_batter_trend(splits):
+    """The pitcher's side of the exact same at-bats batter_vs_pitcher_trend
+    already checks -- no new fetch, this is fetch_vs_pitcher_full's
+    output (batting-side stat line: AB, HR, AVG, OPS) reused, just with
+    a threshold that also checks the direction batter_vs_pitcher_trend
+    doesn't: the PITCHER dominating this specific batter (very low OPS
+    against), not just the batter dominating the pitcher. Same career-
+    first-then-season logic, same 8+ AB floor, same 10%+ HR rate or
+    .900+ OPS for batter dominance; pitcher dominance is OPS <=.500 with
+    the same 8+ AB floor (a real shutdown trend, not just a cold
+    streak)."""
+    def _check(stat):
+        if not stat:
+            return None
+        ab = to_num(stat.get("atBats"))
+        if not ab or ab < 8:
+            return None
+        hr = int(to_num(stat.get("homeRuns")) or 0)
+        ops = to_num(stat.get("ops"))
+        if ops is not None and ops <= 0.500:
+            return {
+                "atBats": int(ab), "hits": int(to_num(stat.get("hits")) or 0),
+                "homeRuns": hr, "avg": stat.get("avg"), "ops": stat.get("ops"),
+                "direction": "pitcher",
+            }
+        if (hr / ab) >= 0.10 or (ops is not None and ops >= 0.900):
+            return {
+                "atBats": int(ab), "hits": int(to_num(stat.get("hits")) or 0),
+                "homeRuns": hr, "avg": stat.get("avg"), "ops": stat.get("ops"),
+                "direction": "batter",
+            }
+        return None
+    if not splits:
+        return None
+    career_hit = _check(splits.get("career"))
+    if career_hit:
+        career_hit["timeframe"] = "career"
+        return career_hit
+    season_hit = _check(splits.get("season"))
+    if season_hit:
+        season_hit["timeframe"] = "season"
+        return season_hit
+    return None
+
+
 def fetch_team_last_n_record(team_id, n=5, lookback_days=20):
     """Record over the team's last N completed games."""
     try:
