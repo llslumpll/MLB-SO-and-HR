@@ -1751,11 +1751,12 @@ async function loadHistory(){
   // after the fact whether those old edge values came from a liquid
   // market or a thin one -- an honest gap in the trend line is better
   // than pretending pre-fix history is trustworthy.
-  function reconstructBest5Days(dayData, lockKey, rankFn, filterFn){
+  function reconstructBest5Days(dayData, boardKey, lockKey, rankFn, filterFn, outcomeField){
     const records = [];
     Object.keys(dayData).sort().forEach(day=>{
       const dd = dayData[day];
-      if(!dd.hr || !dd.hr.entries.length) return;
+      const board = dd[boardKey];
+      if(!board || !board.entries.length) return;
       // Uses that DAY's own locked selection when it exists -- this is
       // what actually fixes the grading concern: before this, the
       // History page reconstructed "what would Best 5 have been" by
@@ -1765,21 +1766,31 @@ async function loadHistory(){
       // feature, none exists and it falls back to the old re-sort
       // behavior) is the actual list that was shown and should be
       // graded, not a re-guess.
-      const top5 = resolveBest5(dd.hr.entries, (dd.hr.lockedBest5||{})[lockKey], rankFn, filterFn);
+      const top5 = resolveBest5(board.entries, (board.lockedBest5||{})[lockKey], rankFn, filterFn);
       if(!top5.length) return;
       const allGraded = top5.every(e=>e.graded);
       if(!allGraded){
         records.push({day, pending:true, picks:top5});
         return;
       }
-      const hits = top5.filter(e=>e.hr).length;
-      records.push({day, pending:false, hits, total:top5.length, picks:top5});
+      const hits = top5.filter(e=>e[outcomeField]).length;
+      records.push({day, pending:false, hits, total:top5.length, picks:top5, outcomeField});
     });
     return records;
   }
 
-  const mostLikelyRecords = reconstructBest5Days(dayData, 'hrProb', (a,b)=>b.heuristicProb-a.heuristicProb, null);
-  const bestValueRecords = reconstructBest5Days(dayData, 'hrEdge', (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
+  const mostLikelyRecords = reconstructBest5Days(dayData, 'hr', 'hrProb', (a,b)=>b.heuristicProb-a.heuristicProb, null, 'hr');
+  const bestValueRecords = reconstructBest5Days(dayData, 'hr', 'hrEdge', (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0, 'hr');
+  // Same Best-5-specific tracking as HR above, for Strikeouts and
+  // Pitching Outs -- these previously only had whole-board "X/Y
+  // predictions correct" accuracy (see dailyStats), never a Best-5-
+  // specific track record the way HR has. Confirmed as a real gap by
+  // the user on 2026-09-25, directly after the Best5 locking fix made
+  // this kind of tracking meaningful for K/Outs for the first time
+  // (before locking, K's Best 5 drifted through the day exactly like
+  // HR's did, so tracking it would have had the same flaw).
+  const kEdgeRecords = reconstructBest5Days(dayData, 'ko', 'kEdge', (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0, 'hit');
+  const outsRecords = reconstructBest5Days(dayData, 'ko', 'outs', (a,b)=>b.projectedOuts-a.projectedOuts, null, 'outsHit');
 
   function summarizeBest5(records){
     const graded = records.filter(d=>!d.pending);
@@ -1789,20 +1800,26 @@ async function loadHistory(){
   }
   const mostLikelySummary = summarizeBest5(mostLikelyRecords);
   const bestValueSummary = summarizeBest5(bestValueRecords);
+  const kEdgeSummary = summarizeBest5(kEdgeRecords);
+  const outsSummary = summarizeBest5(outsRecords);
 
   const best5TrendChart = trendChart('HR Best 5 (most likely)', mostLikelySummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#39FF14', "each dot is that day's real hits/5 among the model's own top-5-probability picks");
   const bestValueTrendChart = trendChart('HR Best 5 (best value)', bestValueSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#5eb1ff', "each dot is that day's real hits/5 among the top-5-edge picks");
+  const kEdgeTrendChart = trendChart('Strikeouts Best 5', kEdgeSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), 'var(--amber)', "each dot is that day's real correct-calls/5 among the top-5-edge K picks");
+  const outsTrendChartBest5 = trendChart('Pitching Outs Best 5', outsSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#ff9d5e', "each dot is that day's real correct-calls/5 among the top-5-projected Outs picks");
 
   function best5RowsHtml(records){
     return [...records].reverse().map(d=>{
       if(d.pending) return `<tr><td>${d.day}</td><td colspan="2" class="status">games still in progress</td></tr>`;
       const cls = d.hits>=4?'edge-pos':d.hits<=1?'edge-neg':'';
-      const namesHtml = d.picks.map(p=>`${p.name}${p.graded?(p.hr?' ✅':' ❌'):''}`).join(', ');
+      const namesHtml = d.picks.map(p=>`${p.name}${p.graded?(p[d.outcomeField]?' ✅':' ❌'):''}`).join(', ');
       return `<tr><td>${d.day}</td><td class="${cls}">${d.hits}/${d.total}</td><td class="status" style="text-align:left;">${namesHtml}</td></tr>`;
     }).join('');
   }
   const mostLikelyRows = best5RowsHtml(mostLikelyRecords);
   const bestValueRows = best5RowsHtml(bestValueRecords);
+  const kEdgeRows = best5RowsHtml(kEdgeRecords);
+  const outsRows = best5RowsHtml(outsRecords);
 
   // Before/After comparison: pick any date, see whether accuracy actually
   // moved across it. Exists so "did that fix work" has a real answer
@@ -1812,8 +1829,8 @@ async function loadHistory(){
   // edgeEligible fix above. Boundary is inclusive on the "after" side
   // (the day you ship a fix counts as day 1 of "after", not "before").
   function splitByBoundary(boundaryDate){
-    const before = { label: 'Before', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
-    const after  = { label: 'On/after', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
+    const before = { label: 'Before', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, kBest5:{hit:0,tot:0}, outsBest5:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
+    const after  = { label: 'On/after', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, kBest5:{hit:0,tot:0}, outsBest5:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
     mostLikelyRecords.filter(d=>!d.pending).forEach(d=>{
       const bucket = d.day < boundaryDate ? before : after;
       bucket.hr.hit += d.hits; bucket.hr.tot += d.total;
@@ -1821,6 +1838,18 @@ async function loadHistory(){
     bestValueRecords.filter(d=>!d.pending).forEach(d=>{
       const bucket = d.day < boundaryDate ? before : after;
       bucket.edge.hit += d.hits; bucket.edge.tot += d.total;
+    });
+    // kBest5/outsBest5: the actual Best-5-picks-that-day question, same
+    // as HR's rows above -- distinct from the plain k/outs rows below,
+    // which are whole-board "every call made that day" accuracy, a
+    // different (also useful, just different) question.
+    kEdgeRecords.filter(d=>!d.pending).forEach(d=>{
+      const bucket = d.day < boundaryDate ? before : after;
+      bucket.kBest5.hit += d.hits; bucket.kBest5.tot += d.total;
+    });
+    outsRecords.filter(d=>!d.pending).forEach(d=>{
+      const bucket = d.day < boundaryDate ? before : after;
+      bucket.outsBest5.hit += d.hits; bucket.outsBest5.tot += d.total;
     });
     dailyStats.forEach(d=>{
       const bucket = d.day < boundaryDate ? before : after;
@@ -1851,8 +1880,10 @@ async function loadHistory(){
       <table class="board"><thead><tr><th>Category</th><th>Before</th><th>On/after ${boundaryDate}</th><th>Change</th></tr></thead><tbody>
         ${row('HR Best 5 (most likely)', 'hr')}
         ${row('HR Best 5 (best value)', 'edge')}
-        ${row('Strikeouts', 'k')}
-        ${row('Pitching Outs', 'outs')}
+        ${row('Strikeouts Best 5', 'kBest5')}
+        ${row('Pitching Outs Best 5', 'outsBest5')}
+        ${row('Strikeouts (all calls)', 'k')}
+        ${row('Pitching Outs (all calls)', 'outs')}
         ${row('Hits', 'hits')}
         ${row('Total Bases', 'tb')}
       </tbody></table>
@@ -2056,6 +2087,26 @@ async function loadHistory(){
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks hit. Scroll for older days as more accumulate.</div>
         <div class="long-scroll" style="max-height:320px;">
           <table class="board"><thead><tr><th>Date</th><th>Result</th><th>Picks</th></tr></thead><tbody>${bestValueRows}</tbody></table>
+        </div>
+      </div>
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Strikeouts Best 5 Track Record</div>
+        <div class="status" style="margin-bottom:6px;">Same question as HR's Best Value above, for the Strikeouts board's top-5-edge picks -- how often does the biggest verified market edge actually turn into a correct call?</div>
+        <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${kEdgeSummary.graded.length?`Overall: <b>${kEdgeSummary.hits}/${kEdgeSummary.total}</b> (${(kEdgeSummary.hits/kEdgeSummary.total*100).toFixed(1)}%) across ${kEdgeSummary.graded.length} graded day${kEdgeSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
+        ${kEdgeTrendChart}
+        <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
+        <div class="long-scroll" style="max-height:320px;">
+          <table class="board"><thead><tr><th>Date</th><th>Result</th><th>Picks</th></tr></thead><tbody>${kEdgeRows}</tbody></table>
+        </div>
+      </div>
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Pitching Outs Best 5 Track Record</div>
+        <div class="status" style="margin-bottom:6px;">Same idea, for the Outs board's top-5-by-projection picks -- there's no confirmed market for this stat, so this is ranked by the model's own conviction, not a mispricing.</div>
+        <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${outsSummary.graded.length?`Overall: <b>${outsSummary.hits}/${outsSummary.total}</b> (${(outsSummary.hits/outsSummary.total*100).toFixed(1)}%) across ${outsSummary.graded.length} graded day${outsSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
+        ${outsTrendChartBest5}
+        <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
+        <div class="long-scroll" style="max-height:320px;">
+          <table class="board"><thead><tr><th>Date</th><th>Result</th><th>Picks</th></tr></thead><tbody>${outsRows}</tbody></table>
         </div>
       </div>
     </div>
