@@ -68,8 +68,8 @@
       "trendL7OPS": 0.7525083612040133,
       "trendL10OPS": 0.820460704607046,
       "seasonOPS": 0.858,
-      "marketProb": 0.18,
-      "edge": 0.10248055202818024,
+      "marketProb": 0.185,
+      "edge": 0.09748055202818023,
       "graded": false,
       "hr": null,
       "projectedHits": 0.8,
@@ -93,11 +93,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.18,
-      "priceDelta": 0.0,
-      "marketBid": 0.17,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.18,
       "marketAsk": 0.19,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 824221,
@@ -186,7 +186,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 823169,
@@ -514,10 +514,10 @@
       "tbParkFactor": 1.024,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5158694338928744,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
       "predictionTBLine": 0.5,
@@ -527,7 +527,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "tbCallFrozenAt": "2026-09-21T11:20:16.938335",
-      "prizePicksTBLine": 0.5
+      "prizePicksTBLine": 0.5,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-21T16:00:22.693117"
     },
     {
       "gamePk": 823169,
@@ -948,7 +952,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 824787,
@@ -1589,8 +1593,8 @@
       "trendL7OPS": 0.6339869281045751,
       "trendL10OPS": 0.8559139784946237,
       "seasonOPS": 0.828,
-      "marketProb": 0.125,
-      "edge": -0.01959463781395708,
+      "marketProb": 0.13,
+      "edge": -0.024594637813957085,
       "graded": false,
       "hr": null,
       "projectedHits": 0.86,
@@ -1614,11 +1618,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.10500000000000001,
-      "priceDelta": 0.01999999999999999,
+      "priceDelta": 0.024999999999999994,
       "marketBid": 0.12,
-      "marketAsk": 0.13,
+      "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 824787,
@@ -1797,7 +1801,7 @@
       "marketBid": 0.14,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 823169,
@@ -2392,7 +2396,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 823169,
@@ -2738,7 +2742,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 823169,
@@ -2912,7 +2916,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 824221,
@@ -3606,7 +3610,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T15:50:16.209275"
+      "oddsUpdatedAt": "2026-09-21T16:00:22.692565"
     },
     {
       "gamePk": 824787,
@@ -4637,7 +4641,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-21T15:50:16.209275",
+  "oddsRefreshedAt": "2026-09-21T16:00:22.692565",
   "statcastSpotlight": {
     "name": "Pete Alonso",
     "team": "BAL",
