@@ -122,7 +122,7 @@ def calibrate_hr_factors(entries):
         n = len(values)
         p33, p67 = values[n // 3], values[(2 * n) // 3]
 
-        tiers = {}
+        tiers = {"p33": p33, "p67": p67}
         for label, lo, hi in [("low", None, p33), ("mid", p33, p67), ("high", p67, None)]:
             bucket = [e for e in with_factor
                       if (lo is None or e["factors"][factor] >= lo)
@@ -500,6 +500,8 @@ def run():
             print(f"    {factor}: insufficient data ({tiers['sampleSize']} total)")
         else:
             for label, v in tiers.items():
+                if label in ("p33", "p67"):
+                    continue
                 print(f"    {factor} ({label}): {v}")
     for tier, v in calibration["ko"].items():
         print(f"  K {tier}: {v}")
