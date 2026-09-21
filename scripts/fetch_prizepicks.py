@@ -426,8 +426,24 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
 
     Entries with no PrizePicks line are left exactly as Kalshi's own merge
     already set them.
+
+    edgeEligible also requires the market price to have been captured
+    reasonably close in time to projectionsFrozenAt (this day's
+    projectedK computation time) -- confirmed live on 2026-09-21 that K's
+    real liquid markets tend to only appear very late (often in-game),
+    long after projectedK/modelProb were frozen that morning. Comparing
+    a stale morning projection against a market that's already absorbed
+    real in-game information isn't a genuine edge, it's an artifact of
+    two numbers from different points in time. MAX_EDGE_AGE_HOURS is a
+    judgment call, not a precisely derived number -- picked to roughly
+    match the ~4-hour spacing between heavy builds, so a market becoming
+    liquid within about one build cycle of the projection still counts,
+    but one that only firms up hours later (or in-game) doesn't.
     """
     import fetch_kalshi
+
+    MAX_EDGE_AGE_HOURS = 5
+    projections_frozen_at = ko_data.get("projectionsFrozenAt")
 
     refined = 0
     no_kalshi_at_that_line = 0
@@ -470,8 +486,20 @@ def refine_ko_with_prizepicks(ko_data, kalshi_threshold_map):
             # See merge_hr's edgeEligible comment in fetch_kalshi.py --
             # same fix, same reasoning, applied here since K's Best 5 is
             # edge-ranked too and was subject to the identical thin-
-            # market artifact.
-            e["edgeEligible"] = bool(kalshi_hit.get("yesBid"))
+            # market artifact. ALSO requires the market price to be
+            # contemporaneous with the projection -- see this function's
+            # docstring above for why a late-arriving liquid price
+            # compared against a stale morning projection isn't a real
+            # edge.
+            has_real_bid = bool(kalshi_hit.get("yesBid"))
+            timing_ok = True
+            if projections_frozen_at:
+                try:
+                    age_hours = (datetime.utcnow() - datetime.fromisoformat(projections_frozen_at)).total_seconds() / 3600
+                    timing_ok = age_hours <= MAX_EDGE_AGE_HOURS
+                except (ValueError, TypeError):
+                    timing_ok = True  # malformed timestamp -- don't silently exclude, just skip the gate
+            e["edgeEligible"] = has_real_bid and timing_ok
             e["edge"] = e["modelProb"] - kalshi_price
         else:
             # Kalshi doesn't have a market at this exact threshold -- showing
