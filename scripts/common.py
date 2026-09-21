@@ -678,3 +678,71 @@ def norm_name(s):
     s = re.sub(r"[^a-z\s]", "", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
+
+_prior_season_ip_cache = {}
+
+
+def fetch_prior_season_ip(pitcher_id, year):
+    """Total innings pitched in the PRIOR season -- same endpoint/param
+    shape as the already-proven season stat fetch in
+    fetch_pitcher_projection (build_ko.py), just season=year-1 instead
+    of the current year.
+
+    Built 2026-09-21 alongside the documented hook-risk limitation in
+    build_ko.py: a pitcher already at or past his full prior-season IP
+    total is at real, concrete risk of being protected/shut down or
+    given a shorter leash down the stretch -- this is a real roster-
+    management fact many teams follow, not a vague guess, but it's a
+    NEW signal with no backtested data behind it yet (unlike the HR
+    factor work, there's no way to reconstruct what this value would
+    have been for historical entries without having already been
+    fetching and storing it). Applied dampened and monitored, not
+    blindly trusted -- see its use in fetch_pitcher_projection."""
+    if pitcher_id in _prior_season_ip_cache:
+        return _prior_season_ip_cache[pitcher_id]
+    try:
+        data = get(f"{API}/people/{pitcher_id}/stats", params={
+            "stats": "season", "group": "pitching", "season": year - 1,
+        })
+        stats = data.get("stats") or []
+        season_group = next((s for s in stats if s["type"]["displayName"] == "season"), None)
+        if season_group and season_group.get("splits"):
+            stat = season_group["splits"][0]["stat"]
+            ip = parse_ip(stat.get("inningsPitched"))
+            _prior_season_ip_cache[pitcher_id] = ip
+            return ip
+        _prior_season_ip_cache[pitcher_id] = None
+        return None
+    except Exception:  # noqa: BLE001
+        _prior_season_ip_cache[pitcher_id] = None
+        return None
+
+
+def fetch_team_games_back(team_id, year):
+    """Real games-back for one team, from the same proven /standings
+    endpoint already used in build_teams.py's fetch_standings (kept as
+    its own scoped function here rather than importing across build_ko/
+    build_teams, which aren't currently coupled).
+
+    Returns {"gamesBack": float, "wins": int, "losses": int} or None.
+    gamesBack is 0.0 for a division leader. Used as a simple, honestly-
+    imperfect "postseason stakes" proxy: DIVISION race proximity only --
+    this does NOT account for the wildcard race, so a team whose real
+    drama is a wildcard chase, not the division, may get misclassified
+    as "no stakes" here. Built 2026-09-21 alongside the season-IP
+    signal, same dampened/monitored treatment, not a fully validated
+    correction."""
+    try:
+        data = get(f"{API}/standings", params={
+            "leagueId": "103,104", "season": year, "standingsTypes": "regularSeason",
+        })
+        for rec in data.get("records") or []:
+            for tr in rec.get("teamRecords") or []:
+                if tr["team"]["id"] == team_id:
+                    gb_raw = tr.get("gamesBack")
+                    gb = 0.0 if gb_raw in (None, "-") else to_num(gb_raw)
+                    return {"gamesBack": gb, "wins": tr.get("wins"), "losses": tr.get("losses")}
+        return None
+    except Exception:  # noqa: BLE001
+        return None
