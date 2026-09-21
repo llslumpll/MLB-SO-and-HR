@@ -15,6 +15,7 @@ from common import (
     fetch_savant_percentiles, fetch_weather, today_iso,
     fetch_vs_team, pitcher_vs_team_trend,
     fetch_vs_pitcher_full, pitcher_vs_batter_trend,
+    fetch_prior_season_ip, fetch_team_games_back,
 )
 from build_hr import fetch_schedule, fetch_pitcher_hand, fetch_pitcher_velo_trend
 
@@ -540,6 +541,43 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     bullpen_fatigue = fetch_bullpen_fatigue(own_team_id, today_iso_date) if (own_team_id and today_iso_date) else None
     bullpen_factor = bullpen_fatigue["factor"] if bullpen_fatigue else 1.0
 
+    # Two new signals, added 2026-09-21 following a real-world writeup
+    # showing this exact kind of workload/stakes reasoning already gets
+    # used in practice (e.g. "already X IP over last season with
+    # playoffs ahead" as a documented pattern). Both are REAL,
+    # DEFENSIBLE roster-management facts, not vague guesses -- but
+    # unlike the HR factor corrections earlier this session, neither can
+    # be backtested against this codebase's own history (that requires
+    # having already been fetching and storing them), so both are kept
+    # small, capped, and dampened rather than trusted at full strength.
+    # Monitor over the rest of this season; revisit properly (backtested
+    # like the HR factors) once real paired data exists.
+    prior_ip = fetch_prior_season_ip(pitcher_id, year) if pitcher_id else None
+    workload_factor = 1.0
+    if prior_ip and season_ip and prior_ip > 0:
+        over_ratio = season_ip / prior_ip
+        if over_ratio >= 1.0:
+            # Already at or past last year's full-season workload --
+            # capped at a modest 10% shrink even for a huge overage, and
+            # only engages once actually AT the prior total, not before.
+            workload_factor = clip(1.0 - (over_ratio - 1.0) * 0.2, 0.90, 1.0)
+
+    team_standing = fetch_team_games_back(own_team_id, year) if own_team_id else None
+    stakes_factor = 1.0
+    if team_standing and team_standing.get("gamesBack") is not None:
+        wins = team_standing.get("wins") or 0
+        losses = team_standing.get("losses") or 0
+        games_remaining = max(0, 162 - wins - losses)
+        gb = team_standing["gamesBack"]
+        # Division race only -- doesn't see the wildcard picture, a
+        # real, honest gap noted in fetch_team_games_back's docstring.
+        # Mathematically eliminated from the division AND deep enough
+        # into games_remaining that a wildcard push is also unlikely --
+        # small, capped shrink reflecting reduced incentive to push a
+        # starter deep in a lower-stakes game.
+        if games_remaining > 0 and gb >= games_remaining + 3:
+            stakes_factor = 0.95
+
     # KNOWN LIMITATION, documented 2026-09-21, priority for next season:
     # base_ip/expected_ip are season and recent innings-per-start
     # AVERAGES, with no way to discount for the real risk of an early
@@ -561,15 +599,15 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     # separate problems, confirmed by the same pitchers missing badly on
     # both projectedOuts and projectedK together.
     #
-    # NOT fixed here: properly modeling hook risk needs new signals
-    # (recent form trend, a team's actual bullpen-hook tendency, etc.)
-    # and real backtesting before it's trustworthy -- an off-season
-    # project, not a late-season one. In the meantime, calibrate.py's
-    # existing overall bias correction is already absorbing this at the
-    # aggregate level (real, sample-backed, currently active), even
-    # though it can't tell which specific starts are at elevated risk
-    # the way a real hook-risk signal eventually could.
-    projected_ip_outs = clip(base_ip * dampened_matchup * dampened_efficiency * bullpen_factor, 3.0, 7.0)
+    # workload_factor and stakes_factor above are a first, dampened
+    # attempt at this -- NOT a full fix. A team's actual hook tendency
+    # (calibrate_team_hook_tendency in calibrate.py) is measured but not
+    # yet applied -- real per-team sample sizes are still too thin
+    # (~10 starts/team as of 2026-09-21) to trust, unlike workload/
+    # stakes which rest on sound roster-management logic even without a
+    # backtest. Revisit team hook tendency once a full season of
+    # post-fix data exists.
+    projected_ip_outs = clip(base_ip * dampened_matchup * dampened_efficiency * bullpen_factor * workload_factor * stakes_factor, 3.0, 7.0)
     projected_outs = round(projected_ip_outs * 3, 1)
 
     velo_trend = fetch_pitcher_velo_trend(pitcher_id, year, pitcher_pct_map)
