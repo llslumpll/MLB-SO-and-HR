@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T15:37:41.688579",
+  "generatedAt": "2026-09-21T18:11:39.753463",
   "totalHRGraded": 3468,
   "totalKGraded": 248,
   "totalOutsGraded": 123,
@@ -30,6 +30,176 @@
       "multiplier": 1.0,
       "sampleSize": 13,
       "status": "insufficient data"
+    }
+  },
+  "hrFactors": {
+    "form": {
+      "p33": 0.8062930186823993,
+      "p67": 1.1196691651589559,
+      "low": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.0922,
+        "actualRate": 0.0822,
+        "rawBias": -0.01,
+        "dampenedBias": -0.003,
+        "status": "active"
+      },
+      "mid": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.1121,
+        "actualRate": 0.0822,
+        "rawBias": -0.0299,
+        "dampenedBias": -0.009,
+        "status": "active"
+      },
+      "high": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.1498,
+        "actualRate": 0.1488,
+        "rawBias": -0.001,
+        "dampenedBias": -0.0003,
+        "status": "active"
+      }
+    },
+    "pitcherVuln": {
+      "p33": 0.7870370370370371,
+      "p67": 1.0638297872340428,
+      "low": {
+        "sampleSize": 1142,
+        "avgPredicted": 0.085,
+        "actualRate": 0.0928,
+        "rawBias": 0.0078,
+        "dampenedBias": 0.0024,
+        "status": "active"
+      },
+      "mid": {
+        "sampleSize": 1166,
+        "avgPredicted": 0.1112,
+        "actualRate": 0.1012,
+        "rawBias": -0.01,
+        "dampenedBias": -0.003,
+        "status": "active"
+      },
+      "high": {
+        "sampleSize": 1160,
+        "avgPredicted": 0.1573,
+        "actualRate": 0.119,
+        "rawBias": -0.0384,
+        "dampenedBias": -0.0115,
+        "status": "active"
+      }
+    },
+    "powerQuality": {
+      "p33": 1.0,
+      "p67": 1.019125227179703,
+      "low": {
+        "sampleSize": 965,
+        "avgPredicted": 0.0833,
+        "actualRate": 0.0819,
+        "rawBias": -0.0014,
+        "dampenedBias": -0.0004,
+        "status": "active"
+      },
+      "mid": {
+        "sampleSize": 1347,
+        "avgPredicted": 0.102,
+        "actualRate": 0.0824,
+        "rawBias": -0.0196,
+        "dampenedBias": -0.0059,
+        "status": "active"
+      },
+      "high": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.1657,
+        "actualRate": 0.1488,
+        "rawBias": -0.0169,
+        "dampenedBias": -0.0051,
+        "status": "active"
+      }
+    },
+    "park": {
+      "p33": 0.98,
+      "p67": 1.05,
+      "low": {
+        "sampleSize": 997,
+        "avgPredicted": 0.1039,
+        "actualRate": 0.0983,
+        "rawBias": -0.0056,
+        "dampenedBias": -0.0017,
+        "status": "active"
+      },
+      "mid": {
+        "sampleSize": 1309,
+        "avgPredicted": 0.1116,
+        "actualRate": 0.0993,
+        "rawBias": -0.0123,
+        "dampenedBias": -0.0037,
+        "status": "active"
+      },
+      "high": {
+        "sampleSize": 1162,
+        "avgPredicted": 0.1373,
+        "actualRate": 0.1153,
+        "rawBias": -0.022,
+        "dampenedBias": -0.0066,
+        "status": "active"
+      }
+    },
+    "weather": {
+      "p33": 1.0,
+      "p67": 1.01792768,
+      "low": {
+        "sampleSize": 449,
+        "avgPredicted": 0.1263,
+        "actualRate": 0.1069,
+        "rawBias": -0.0194,
+        "dampenedBias": -0.0058,
+        "status": "active"
+      },
+      "mid": {
+        "sampleSize": 1860,
+        "avgPredicted": 0.1141,
+        "actualRate": 0.1075,
+        "rawBias": -0.0066,
+        "dampenedBias": -0.002,
+        "status": "active"
+      },
+      "high": {
+        "sampleSize": 1159,
+        "avgPredicted": 0.1211,
+        "actualRate": 0.0984,
+        "rawBias": -0.0227,
+        "dampenedBias": -0.0068,
+        "status": "active"
+      }
+    },
+    "handedness": {
+      "p33": 0.9473237043330501,
+      "p67": 1.1163552933464438,
+      "low": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.0913,
+        "actualRate": 0.1064,
+        "rawBias": 0.0151,
+        "dampenedBias": 0.0045,
+        "status": "active"
+      },
+      "mid": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.1252,
+        "actualRate": 0.1159,
+        "rawBias": -0.0093,
+        "dampenedBias": -0.0028,
+        "status": "active"
+      },
+      "high": {
+        "sampleSize": 1156,
+        "avgPredicted": 0.1375,
+        "actualRate": 0.0908,
+        "rawBias": -0.0467,
+        "dampenedBias": -0.014,
+        "status": "active"
+      }
     }
   },
   "ko": {
