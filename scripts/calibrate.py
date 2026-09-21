@@ -73,7 +73,80 @@ STUFF_FACTOR_FIX_CUTOFF = "2026-09-10T14:24:22"
 POWER_QUALITY_FIX_CUTOFF = "2026-09-10T15:43:50"
 
 
-def load_all_hr_entries():
+HR_FACTOR_NAMES = ["form", "pitcherVuln", "powerQuality", "park", "weather", "handedness"]
+FACTOR_MIN_SAMPLE = 40  # smaller than MIN_SAMPLE=100 above -- terciles x 6
+                        # factors subdivides the same graded pool much
+                        # further, so this bar is set based on what real
+                        # accumulated data actually supports (checked
+                        # against real numbers before picking this,
+                        # see the 2026-09-21 investigation notes).
+
+
+def calibrate_hr_factors(entries):
+    """MEASUREMENT ONLY -- this does not yet change any live prediction.
+    Built 2026-09-21 as the first step toward the model learning from
+    its own factor-level mistakes, not just an overall bias per
+    confidence tier the way calibrate_hr above does.
+
+    The existing overall-bias calibration answers "is the model too
+    optimistic or pessimistic overall, within a confidence tier". This
+    answers a more specific question: "within a batch of predictions,
+    is being in the top/bottom third for ONE SPECIFIC factor (park,
+    form, matchup, etc) correlated with the model being wrong in a way
+    the overall bias correction doesn't already capture". If predictions
+    are well-calibrated, a group averaging 35% probability should hit
+    about 35% of the time regardless of which factor pushed that number
+    up -- a persistent gap specific to one factor's tercile is evidence
+    that factor is currently over- or under-weighted in the formula.
+
+    Terciles are data-driven (33rd/67th percentile of THAT factor's own
+    observed distribution), not hardcoded cutoffs, since each factor's
+    real range differs (e.g. weather multiplier barely moves, park
+    moves more).
+
+    Deliberately not fed back into build_hr.py's prediction formula yet
+    -- this needs to be checked against real results first (same
+    "measure, verify, then decide" order every other fix this session
+    followed) before letting it touch live predictions. See the
+    printed findings in STEP 4b of run_daily.py for what this actually
+    found once real data has accumulated."""
+    graded = [e for e in entries if e.get("graded") and e.get("hr") is not None and e.get("factors") and e.get("heuristicProb") is not None]
+    result = {}
+    for factor in HR_FACTOR_NAMES:
+        with_factor = [e for e in graded if e["factors"].get(factor) is not None]
+        if len(with_factor) < FACTOR_MIN_SAMPLE * 3:
+            result[factor] = {"status": "insufficient data", "sampleSize": len(with_factor)}
+            continue
+
+        values = sorted(e["factors"][factor] for e in with_factor)
+        n = len(values)
+        p33, p67 = values[n // 3], values[(2 * n) // 3]
+
+        tiers = {}
+        for label, lo, hi in [("low", None, p33), ("mid", p33, p67), ("high", p67, None)]:
+            bucket = [e for e in with_factor
+                      if (lo is None or e["factors"][factor] >= lo)
+                      and (hi is None or e["factors"][factor] < hi)]
+            n_bucket = len(bucket)
+            if n_bucket < FACTOR_MIN_SAMPLE:
+                tiers[label] = {"status": "insufficient data", "sampleSize": n_bucket}
+                continue
+            avg_predicted = sum(e["heuristicProb"] for e in bucket) / n_bucket
+            actual_rate = sum(1 for e in bucket if e["hr"]) / n_bucket
+            raw_bias = actual_rate - avg_predicted
+            tiers[label] = {
+                "sampleSize": n_bucket,
+                "avgPredicted": round(avg_predicted, 4),
+                "actualRate": round(actual_rate, 4),
+                "rawBias": round(raw_bias, 4),
+                "dampenedBias": round(DAMPEN * raw_bias, 4),
+                "status": "active",
+            }
+        result[factor] = tiers
+    return result
+
+
+
     """heuristicProb (and the powerQuality factor feeding it) recomputes
     FRESH on every heavy rebuild -- unlike K/Outs' frozen predictions,
     there's no per-entry freeze timestamp to check. The best available
@@ -398,6 +471,9 @@ def run():
         "stuffFactorFixCutoff": STUFF_FACTOR_FIX_CUTOFF,
         "powerQualityFixCutoff": POWER_QUALITY_FIX_CUTOFF,
         "hr": calibrate_hr(hr_entries),
+        # Measurement only, not yet applied to predictions -- see
+        # calibrate_hr_factors' docstring above for the full reasoning.
+        "hrFactors": calibrate_hr_factors(hr_entries),
         "ko": calibrate_ko(ko_entries),
         "outs": calibrate_outs(outs_entries),
         "hits": calibrate_hits(hits_entries),
@@ -418,6 +494,13 @@ def run():
           f"{len(outs_entries)} Outs graded entries (post-fix only), {len(hits_entries)} Hits graded entries, {len(tb_entries)} Total Bases graded entries")
     for tier, v in calibration["hr"].items():
         print(f"  HR {tier}: {v}")
+    print("  HR per-factor calibration (measurement only, not yet applied):")
+    for factor, tiers in calibration["hrFactors"].items():
+        if isinstance(tiers, dict) and "status" in tiers and tiers["status"] == "insufficient data":
+            print(f"    {factor}: insufficient data ({tiers['sampleSize']} total)")
+        else:
+            for label, v in tiers.items():
+                print(f"    {factor} ({label}): {v}")
     for tier, v in calibration["ko"].items():
         print(f"  K {tier}: {v}")
     for tier, v in calibration["outs"].items():
