@@ -146,7 +146,7 @@ def calibrate_hr_factors(entries):
     return result
 
 
-
+def load_all_hr_entries():
     """heuristicProb (and the powerQuality factor feeding it) recomputes
     FRESH on every heavy rebuild -- unlike K/Outs' frozen predictions,
     there's no per-entry freeze timestamp to check. The best available
