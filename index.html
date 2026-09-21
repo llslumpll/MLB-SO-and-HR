@@ -1905,7 +1905,7 @@ async function loadHistory(){
         ${row('HR Best 5 (best value)', 'edge')}
         ${row('Strikeouts Best 5 (best value)', 'kBest5')}
         ${row('Strikeouts Best 5 (most likely)', 'kBest5Prob')}
-        ${row('Pitching Outs Best 5', 'outsBest5')}
+        ${row('Pitching Outs Best 5 (most projected)', 'outsBest5')}
         ${row('Strikeouts (all calls)', 'k')}
         ${row('Pitching Outs (all calls)', 'outs')}
         ${row('Hits', 'hits')}
@@ -2095,7 +2095,7 @@ async function loadHistory(){
       </div>
       <div class="day-card" style="margin-bottom:16px;">
         <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 HR Best 5 Track Record — Most Likely to Homer</div>
-        <div class="status" style="margin-bottom:6px;">The real question this site exists to answer: when the model picks its 5 most-likely-to-homer players for the day (ranked by raw probability), how many actually go deep? The goal is a consistent 3-5 hits out of 5, day after day.</div>
+        <div class="status" style="margin-bottom:6px;"><b>This is the model's own pure projection ranking</b> -- the real question this site exists to answer: when the model picks its 5 most-likely-to-homer players for the day (ranked by raw probability), how many actually go deep? The goal is a consistent 3-5 hits out of 5, day after day.</div>
         <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${mostLikelySummary.graded.length?`Overall: <b>${mostLikelySummary.hits}/${mostLikelySummary.total}</b> (${(mostLikelySummary.hits/mostLikelySummary.total*100).toFixed(1)}%) across ${mostLikelySummary.graded.length} graded day${mostLikelySummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
         ${best5TrendChart}
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks hit. Scroll for older days as more accumulate.</div>
@@ -2105,7 +2105,7 @@ async function loadHistory(){
       </div>
       <div class="day-card" style="margin-bottom:16px;">
         <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">💰 HR Best 5 Track Record — Best Value (Market Mispriced)</div>
-        <div class="status" style="margin-bottom:6px;">A different question from the list above -- this tracks the 5 picks with the biggest gap between the model and the market price, not the highest raw probability. These are two genuinely different rankings and can (and often will) name different players on the same day.</div>
+        <div class="status" style="margin-bottom:6px;"><b>This is the market-edge ranking</b> -- a different question from the list above. This tracks the 5 picks with the biggest gap between the model and the market price, not the highest raw probability. These are two genuinely different rankings and can (and often will) name different players on the same day.</div>
         <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${bestValueSummary.graded.length?`Overall: <b>${bestValueSummary.hits}/${bestValueSummary.total}</b> (${(bestValueSummary.hits/bestValueSummary.total*100).toFixed(1)}%) across ${bestValueSummary.graded.length} graded day${bestValueSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
         ${bestValueTrendChart}
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks hit. Scroll for older days as more accumulate.</div>
@@ -2114,8 +2114,8 @@ async function loadHistory(){
         </div>
       </div>
       <div class="day-card" style="margin-bottom:16px;">
-        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Strikeouts Best 5 Track Record</div>
-        <div class="status" style="margin-bottom:6px;">Same question as HR's Best Value above, for the Strikeouts board's top-5-edge picks -- how often does the biggest verified market edge actually turn into a correct call?</div>
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">💰 Strikeouts Best 5 Track Record — Best Value (Market Mispriced)</div>
+        <div class="status" style="margin-bottom:6px;"><b>This is the market-edge ranking</b> -- same question as HR's Best Value above, for the Strikeouts board's top-5-edge picks: how often does the biggest verified market edge actually turn into a correct call?</div>
         <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${kEdgeSummary.graded.length?`Overall: <b>${kEdgeSummary.hits}/${kEdgeSummary.total}</b> (${(kEdgeSummary.hits/kEdgeSummary.total*100).toFixed(1)}%) across ${kEdgeSummary.graded.length} graded day${kEdgeSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
         ${kEdgeTrendChart}
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
@@ -2124,8 +2124,8 @@ async function loadHistory(){
         </div>
       </div>
       <div class="day-card" style="margin-bottom:16px;">
-        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Strikeouts Best 5 Track Record — Most Likely</div>
-        <div class="status" style="margin-bottom:6px;">A different question from the Best Value board above -- this tracks the 5 highest-projected-K picks, not the biggest market mispricing. Added 2026-09-20 as the missing baseline: before this, Strikeouts was the only prop with an edge-ranked Best 5 and no plain-projection version to check it against.</div>
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Strikeouts Best 5 Track Record — Most Likely to Strike Out</div>
+        <div class="status" style="margin-bottom:6px;"><b>This is the model's own pure projection ranking</b> -- a different question from the market-edge board above. This tracks the 5 highest-projected-K picks, not the biggest market mispricing. Added 2026-09-20 as the missing baseline: before this, Strikeouts was the only prop with an edge-ranked Best 5 and no plain-projection version to check it against.</div>
         <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${kProbSummary.graded.length?`Overall: <b>${kProbSummary.hits}/${kProbSummary.total}</b> (${(kProbSummary.hits/kProbSummary.total*100).toFixed(1)}%) across ${kProbSummary.graded.length} graded day${kProbSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
         ${kProbTrendChart}
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
@@ -2134,8 +2134,8 @@ async function loadHistory(){
         </div>
       </div>
       <div class="day-card" style="margin-bottom:16px;">
-        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Pitching Outs Best 5 Track Record</div>
-        <div class="status" style="margin-bottom:6px;">Same idea, for the Outs board's top-5-by-projection picks -- there's no confirmed market for this stat, so this is ranked by the model's own conviction, not a mispricing.</div>
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Pitching Outs Best 5 Track Record — Most Projected Outs</div>
+        <div class="status" style="margin-bottom:6px;"><b>This is the model's own pure projection ranking</b> -- there's no confirmed market for this stat at all, so there's no edge version to compare against; this is the only ranking that exists for Pitching Outs.</div>
         <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${outsSummary.graded.length?`Overall: <b>${outsSummary.hits}/${outsSummary.total}</b> (${(outsSummary.hits/outsSummary.total*100).toFixed(1)}%) across ${outsSummary.graded.length} graded day${outsSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
         ${outsTrendChartBest5}
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
