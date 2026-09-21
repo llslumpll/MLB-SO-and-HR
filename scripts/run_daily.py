@@ -253,6 +253,7 @@ def main():
     # Stashed BEFORE Step 1/2 overwrite these files -- see STEP 3c below
     # for why this needs to be captured this early, not re-read later.
     old_hr_locked, old_ko_locked = None, None
+    old_ko_projections_frozen_at = None
     if os.path.exists(f"data/hr/{date}.json"):
         try:
             with open(f"data/hr/{date}.json") as f:
@@ -262,7 +263,9 @@ def main():
     if os.path.exists(f"data/ko/{date}.json"):
         try:
             with open(f"data/ko/{date}.json") as f:
-                old_ko_locked = json.load(f).get("lockedBest5")
+                old_ko_data = json.load(f)
+                old_ko_locked = old_ko_data.get("lockedBest5")
+                old_ko_projections_frozen_at = old_ko_data.get("projectionsFrozenAt")
         except Exception:  # noqa: BLE001
             old_ko_locked = None
 
@@ -280,6 +283,20 @@ def main():
     print("=" * 60)
     ko_result = build_ko.build(date, year)
     ko_result["entries"] = preserve_opening_prices(ko_result["entries"], f"data/ko/{date}.json")
+    # Confirmed live on 2026-09-21: K's edge-ranked Best 5 was almost
+    # always empty (0 real positive-edge picks on 23 of 24 days) because
+    # projectedK/modelProb freeze at first computation but marketProb/
+    # edge get recomputed live every 10-minute odds-refresh cycle --
+    # meaning by the time a K market finally becomes genuinely liquid
+    # (which the data shows happens very late, often in-game, not
+    # pre-game), the "edge" compares a fresh late market price against a
+    # stale morning projection that never got to see the game happen.
+    # projectionsFrozenAt marks when THIS DAY's projectedK values were
+    # first computed (kept fixed all day, same "capture once, reuse"
+    # pattern as lockedBest5 above), so refine_ko_with_prizepicks can
+    # refuse to trust an "edge" built from a comparison that's no longer
+    # contemporaneous.
+    ko_result["projectionsFrozenAt"] = old_ko_projections_frozen_at or ko_result["generatedAt"]
     with open(f"data/ko/{date}.json", "w") as f:
         json.dump(ko_result, f, indent=2, default=str)
     print(f"Wrote data/ko/{date}.json with {len(ko_result['entries'])} entries")
