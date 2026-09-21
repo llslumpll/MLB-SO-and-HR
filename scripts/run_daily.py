@@ -392,6 +392,13 @@ def main():
         ko_for_lock["lockedBest5"] = {
             "kEdge": lock_or_reuse((old_ko_locked or {}).get("kEdge"), ko_entries, lambda e: e.get("edge"),
                                     filter_fn=lambda e: e.get("edge") is not None and e.get("edgeEligible") and e["edge"] > 0),
+            # New 2026-09-20: Strikeouts was the only prop with an edge-
+            # ranked Best 5 and no plain-projection alternative to check
+            # it against -- every other prop either has both (HR) or
+            # neither (Hits/TB/Outs have no market at all). Added so
+            # there's finally a baseline to compare the edge board's
+            # real performance against.
+            "kProb": lock_or_reuse((old_ko_locked or {}).get("kProb"), ko_entries, lambda e: e.get("projectedK")),
             "outs": lock_or_reuse((old_ko_locked or {}).get("outs"), ko_entries, lambda e: e.get("projectedOuts")),
         }
 
