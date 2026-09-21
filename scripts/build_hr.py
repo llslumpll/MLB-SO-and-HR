@@ -28,6 +28,20 @@ def load_hr_calibration():
         return {}
 
 
+def load_hr_factor_calibration():
+    """Only handedness and pitcherVuln are actually applied below --
+    park/form/weather stay measurement-only in calibrate.py for now
+    (see calibrate_hr_factors' docstring for why only these two were
+    judged solid enough to act on: large, consistent gaps over
+    ~1,000+ graded entries per bucket, versus smaller/less clean
+    patterns for the others)."""
+    try:
+        with open("data/calibration.json") as f:
+            return (json.load(f) or {}).get("hrFactors", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def load_hits_calibration():
     try:
         with open("data/calibration.json") as f:
@@ -293,7 +307,7 @@ def percentile_to_factor(percentile, lo, hi):
     return clip(factor, lo, hi)
 
 
-def compute_heuristic(b, savant_batter_map, calibration=None):
+def compute_heuristic(b, savant_batter_map, calibration=None, factor_calibration=None):
     factors = {}
     s = (b.get("batterStats") or {}).get("season")
     season_pa = to_num(s.get("plateAppearances")) if s else None
@@ -423,9 +437,35 @@ def compute_heuristic(b, savant_batter_map, calibration=None):
             prob = clip(prob * mult, 0.01, 0.45)
             calibration_applied = mult
 
+    # Factor-level correction: applied 2026-09-21, additive not
+    # multiplicative (dampenedBias is actual_rate - avg_predicted from
+    # calibrate_hr_factors, a probability delta, not a ratio). Only
+    # handedness and pitcherVuln -- see load_hr_factor_calibration's
+    # docstring for why the other measured factors (park/form/weather)
+    # stay measurement-only for now. Applied only when THIS entry's own
+    # factor value actually falls in the "high" tercile that showed the
+    # gap -- p67 is the real cutoff calibrate_hr_factors measured, not a
+    # guess, so this only corrects the specific situation the data
+    # actually supports, not every prediction uniformly.
+    factors_applied = {}
+    if factor_calibration:
+        for factor_name in ("handedness", "pitcherVuln"):
+            tier_data = factor_calibration.get(factor_name)
+            if not tier_data or "p67" not in tier_data:
+                continue
+            high = tier_data.get("high")
+            if not high or high.get("status") != "active":
+                continue
+            if factors.get(factor_name, 0) >= tier_data["p67"]:
+                delta = high.get("dampenedBias", 0)
+                if delta:
+                    prob = clip(prob + delta, 0.01, 0.45)
+                    factors_applied[factor_name] = delta
+
     return {
         "heuristicProb": prob, "factors": factors, "seasonRate": season_rate,
         "confidence": confidence, "calibrationApplied": calibration_applied,
+        "factorCalibrationApplied": factors_applied or None,
     }
 
 
@@ -621,6 +661,7 @@ def build(date, year):
         return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": [], "gamesScheduled": False}
 
     calibration = load_hr_calibration()
+    factor_calibration = load_hr_factor_calibration()
     hits_calibration = load_hits_calibration()
     tb_calibration = load_tb_calibration()
 
@@ -688,7 +729,7 @@ def build(date, year):
             # unconditionally.
             b["vsPitcherTrend"] = batter_vs_pitcher_trend(fetch_vs_pitcher_full(b["id"], opp_pitcher["id"])) if opp_pitcher else None
 
-            h = compute_heuristic(b, savant_batter_map, calibration)
+            h = compute_heuristic(b, savant_batter_map, calibration, factor_calibration)
             b.update(h)
             b["reason"] = reason_text(b)
             hits_tb = compute_hits_tb_heuristic(b, b["confidence"], hits_calibration, tb_calibration)
@@ -699,6 +740,7 @@ def build(date, year):
                 "team": b["team"], "opp": b["opp"], "order": b["order"],
                 "heuristicProb": b["heuristicProb"], "confidence": b["confidence"],
                 "calibrationApplied": b.get("calibrationApplied"),
+                "factorCalibrationApplied": b.get("factorCalibrationApplied"),
                 "reason": b["reason"], "factors": b["factors"],
                 "savant": b.get("savant"), "vsPitcher": b.get("vsPitcher"),
                 "vsTeamTrend": b.get("vsTeamTrend"), "vsPitcherTrend": b.get("vsPitcherTrend"),
