@@ -275,7 +275,8 @@
     <div class="hr-subnav" id="koSubnav">
       <div class="subnav-group">
         <span class="subnav-group-label">STRIKEOUTS</span>
-        <button class="hr-subtab active" data-section="best5">🎯 Best 5</button>
+        <button class="hr-subtab active" data-section="trending">💰 Best Value</button>
+        <button class="hr-subtab" data-section="best5">🎯 Best 5</button>
         <button class="hr-subtab" data-section="all">📋 Projections</button>
       </div>
       <div class="subnav-group">
@@ -285,7 +286,8 @@
       </div>
     </div>
     <div id="koSectionWrap">
-      <div class="hr-section" id="koSection_best5"></div>
+      <div class="hr-section" id="koSection_trending"></div>
+      <div class="hr-section" id="koSection_best5" style="display:none;"></div>
       <div class="hr-section" id="koSection_outsbest5" style="display:none;"></div>
       <div class="hr-section" id="koSection_all" style="display:none;"></div>
       <div class="hr-section" id="koSection_outsall" style="display:none;"></div>
@@ -1144,7 +1146,7 @@ function renderKO(){
     const msg = KO_DATA && KO_DATA.gamesScheduled===false
       ? 'No games scheduled for this date.'
       : 'No data for this date yet.';
-    ['best5','outsbest5','all','outsall'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = `<div class="placeholder">${msg}</div>`; });
+    ['trending','best5','outsbest5','all','outsall'].forEach(s=>{ document.getElementById(`koSection_${s}`).innerHTML = `<div class="placeholder">${msg}</div>`; });
     return;
   }
 
@@ -1160,13 +1162,27 @@ function renderKO(){
   // "Suggested Picks" on days where none of the eligible K entries had
   // a genuine positive edge, which happens often since K has a much
   // smaller daily pool of eligible entries than HR does.
-  const best5 = resolveBest5(entries, (KO_DATA.lockedBest5||{}).kEdge,
+  const edgeBest5 = resolveBest5(entries, (KO_DATA.lockedBest5||{}).kEdge,
     (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0);
+  document.getElementById('koSection_trending').innerHTML = `
+    <div class="hr-section-title">💰 Best Value — Market Mispriced</div>
+    <div class="hr-section-sub">${edgeBest5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total. A different question from the projection-ranked Best 5 below. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    ${correlationNote(edgeBest5)}
+    <div class="card-grid cols-list">${edgeBest5.length?edgeBest5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No liquidly-priced entries yet today.</div>'}</div>
+  `;
+
+  // Pure projection ranking, no market comparison at all -- confirmed
+  // with the user on 2026-09-20 that Strikeouts was the only prop with
+  // an edge-ranked board and NO plain-projection alternative to compare
+  // it against, unlike HR which has always had both. Added so there's
+  // finally a baseline to check the edge-ranked board's performance
+  // against, the same way HR's two boards can be compared to each other.
+  const best5 = resolveBest5(entries, (KO_DATA.lockedBest5||{}).kProb, (a,b)=>b.projectedK-a.projectedK);
   document.getElementById('koSection_best5').innerHTML = `
     <div class="hr-section-title">🎯 Strikeouts Best 5 — Suggested Picks</div>
-    <div class="hr-section-sub">${best5.length?'The 5 biggest gaps between our model and the market price -- where the market looks most mispriced in your favor, not just the highest projected K total. Limited to markets with real two-sided pricing, not thin/no-bid contracts.':'No entries currently have a real, liquid market price to compare against, so a genuine edge-based ranking is not possible right now.'}</div>
+    <div class="hr-section-sub">The 5 pitchers projected for the most strikeouts today, out of everyone on today's board -- tracked day by day in History toward a real accuracy goal, not a market-mispricing ranking.</div>
     ${correlationNote(best5)}
-    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No liquidly-priced entries yet today.</div>'}</div>
+    <div class="card-grid cols-list">${best5.length?best5.map((e,i)=>koCard(e,i+1)).join(''):'<div class="placeholder">No entries yet today.</div>'}</div>
   `;
 
   // Pitching Outs has no confirmed market to compare against, so there's
@@ -1790,6 +1806,10 @@ async function loadHistory(){
   // (before locking, K's Best 5 drifted through the day exactly like
   // HR's did, so tracking it would have had the same flaw).
   const kEdgeRecords = reconstructBest5Days(dayData, 'ko', 'kEdge', (a,b)=>b.edge-a.edge, e=>e.edge!==null&&e.edge!==undefined&&e.edgeEligible===true&&e.edge>0, 'hit');
+  // New alongside kEdge, same reasoning as the live board's split above --
+  // now there's a real baseline to compare the edge-ranked board's
+  // performance against, the same way HR's two boards can be compared.
+  const kProbRecords = reconstructBest5Days(dayData, 'ko', 'kProb', (a,b)=>b.projectedK-a.projectedK, null, 'hit');
   const outsRecords = reconstructBest5Days(dayData, 'ko', 'outs', (a,b)=>b.projectedOuts-a.projectedOuts, null, 'outsHit');
 
   function summarizeBest5(records){
@@ -1801,11 +1821,13 @@ async function loadHistory(){
   const mostLikelySummary = summarizeBest5(mostLikelyRecords);
   const bestValueSummary = summarizeBest5(bestValueRecords);
   const kEdgeSummary = summarizeBest5(kEdgeRecords);
+  const kProbSummary = summarizeBest5(kProbRecords);
   const outsSummary = summarizeBest5(outsRecords);
 
   const best5TrendChart = trendChart('HR Best 5 (most likely)', mostLikelySummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#39FF14', "each dot is that day's real hits/5 among the model's own top-5-probability picks");
   const bestValueTrendChart = trendChart('HR Best 5 (best value)', bestValueSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#5eb1ff', "each dot is that day's real hits/5 among the top-5-edge picks");
   const kEdgeTrendChart = trendChart('Strikeouts Best 5', kEdgeSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), 'var(--amber)', "each dot is that day's real correct-calls/5 among the top-5-edge K picks");
+  const kProbTrendChart = trendChart('Strikeouts Best 5 (most likely)', kProbSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#5eb1ff', "each dot is that day's real correct-calls/5 among the top-5-projected K picks -- the baseline to compare the edge-ranked board above against");
   const outsTrendChartBest5 = trendChart('Pitching Outs Best 5', outsSummary.graded.map(d=>({day:d.day, hit:d.hits, tot:d.total, pct:d.hits/d.total*100})), '#ff9d5e', "each dot is that day's real correct-calls/5 among the top-5-projected Outs picks");
 
   function best5RowsHtml(records){
@@ -1819,6 +1841,7 @@ async function loadHistory(){
   const mostLikelyRows = best5RowsHtml(mostLikelyRecords);
   const bestValueRows = best5RowsHtml(bestValueRecords);
   const kEdgeRows = best5RowsHtml(kEdgeRecords);
+  const kProbRows = best5RowsHtml(kProbRecords);
   const outsRows = best5RowsHtml(outsRecords);
 
   // Before/After comparison: pick any date, see whether accuracy actually
@@ -1829,8 +1852,8 @@ async function loadHistory(){
   // edgeEligible fix above. Boundary is inclusive on the "after" side
   // (the day you ship a fix counts as day 1 of "after", not "before").
   function splitByBoundary(boundaryDate){
-    const before = { label: 'Before', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, kBest5:{hit:0,tot:0}, outsBest5:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
-    const after  = { label: 'On/after', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, kBest5:{hit:0,tot:0}, outsBest5:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
+    const before = { label: 'Before', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, kBest5:{hit:0,tot:0}, kBest5Prob:{hit:0,tot:0}, outsBest5:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
+    const after  = { label: 'On/after', hr:{hit:0,tot:0}, edge:{hit:0,tot:0}, kBest5:{hit:0,tot:0}, kBest5Prob:{hit:0,tot:0}, outsBest5:{hit:0,tot:0}, k:{hit:0,tot:0}, outs:{hit:0,tot:0}, hits:{hit:0,tot:0}, tb:{hit:0,tot:0} };
     mostLikelyRecords.filter(d=>!d.pending).forEach(d=>{
       const bucket = d.day < boundaryDate ? before : after;
       bucket.hr.hit += d.hits; bucket.hr.tot += d.total;
@@ -1839,13 +1862,13 @@ async function loadHistory(){
       const bucket = d.day < boundaryDate ? before : after;
       bucket.edge.hit += d.hits; bucket.edge.tot += d.total;
     });
-    // kBest5/outsBest5: the actual Best-5-picks-that-day question, same
-    // as HR's rows above -- distinct from the plain k/outs rows below,
-    // which are whole-board "every call made that day" accuracy, a
-    // different (also useful, just different) question.
     kEdgeRecords.filter(d=>!d.pending).forEach(d=>{
       const bucket = d.day < boundaryDate ? before : after;
       bucket.kBest5.hit += d.hits; bucket.kBest5.tot += d.total;
+    });
+    kProbRecords.filter(d=>!d.pending).forEach(d=>{
+      const bucket = d.day < boundaryDate ? before : after;
+      bucket.kBest5Prob.hit += d.hits; bucket.kBest5Prob.tot += d.total;
     });
     outsRecords.filter(d=>!d.pending).forEach(d=>{
       const bucket = d.day < boundaryDate ? before : after;
@@ -1880,7 +1903,8 @@ async function loadHistory(){
       <table class="board"><thead><tr><th>Category</th><th>Before</th><th>On/after ${boundaryDate}</th><th>Change</th></tr></thead><tbody>
         ${row('HR Best 5 (most likely)', 'hr')}
         ${row('HR Best 5 (best value)', 'edge')}
-        ${row('Strikeouts Best 5', 'kBest5')}
+        ${row('Strikeouts Best 5 (best value)', 'kBest5')}
+        ${row('Strikeouts Best 5 (most likely)', 'kBest5Prob')}
         ${row('Pitching Outs Best 5', 'outsBest5')}
         ${row('Strikeouts (all calls)', 'k')}
         ${row('Pitching Outs (all calls)', 'outs')}
@@ -2097,6 +2121,16 @@ async function loadHistory(){
         <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
         <div class="long-scroll" style="max-height:320px;">
           <table class="board"><thead><tr><th>Date</th><th>Result</th><th>Picks</th></tr></thead><tbody>${kEdgeRows}</tbody></table>
+        </div>
+      </div>
+      <div class="day-card" style="margin-bottom:16px;">
+        <div class="month-head" style="border:none;margin:0 0 10px;padding:0;font-size:20px;">🎯 Strikeouts Best 5 Track Record — Most Likely</div>
+        <div class="status" style="margin-bottom:6px;">A different question from the Best Value board above -- this tracks the 5 highest-projected-K picks, not the biggest market mispricing. Added 2026-09-20 as the missing baseline: before this, Strikeouts was the only prop with an edge-ranked Best 5 and no plain-projection version to check it against.</div>
+        <div class="status" style="margin-bottom:10px;font-size:13px;color:var(--chalk);">${kProbSummary.graded.length?`Overall: <b>${kProbSummary.hits}/${kProbSummary.total}</b> (${(kProbSummary.hits/kProbSummary.total*100).toFixed(1)}%) across ${kProbSummary.graded.length} graded day${kProbSummary.graded.length===1?'':'s'}`:'No graded days yet -- check back once today\'s games finish.'}</div>
+        ${kProbTrendChart}
+        <div style="font-size:12px;color:var(--slate);margin:10px 0 6px;">Day by day (most recent first) -- ✅/❌ shows exactly which of the 5 picks were correct. Scroll for older days as more accumulate.</div>
+        <div class="long-scroll" style="max-height:320px;">
+          <table class="board"><thead><tr><th>Date</th><th>Result</th><th>Picks</th></tr></thead><tbody>${kProbRows}</tbody></table>
         </div>
       </div>
       <div class="day-card" style="margin-bottom:16px;">
