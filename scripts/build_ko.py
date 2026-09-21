@@ -540,6 +540,35 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     bullpen_fatigue = fetch_bullpen_fatigue(own_team_id, today_iso_date) if (own_team_id and today_iso_date) else None
     bullpen_factor = bullpen_fatigue["factor"] if bullpen_fatigue else 1.0
 
+    # KNOWN LIMITATION, documented 2026-09-21, priority for next season:
+    # base_ip/expected_ip are season and recent innings-per-start
+    # AVERAGES, with no way to discount for the real risk of an early
+    # hook (bad process that day, high pitch count, a blowout, a quick
+    # bullpen call). A start's true outcome distribution is asymmetric:
+    # the upside is naturally capped around 7 IP by modern pitch-count
+    # management, but the downside isn't bounded at all -- so a point
+    # estimate built from the average systematically overstates the true
+    # expected value once you account for how often "not a typical
+    # night" actually happens.
+    #
+    # Evidence (checked against 566 real post-fix projections,
+    # 2026-09-21): 54 of them (9.5%) sit at EXACTLY the 21-out/7-IP
+    # ceiling below, and every one of the worst real misses that day
+    # showed a pitcher pulled after 3-4 innings when the model expected
+    # a full outing. Since fewer innings directly means fewer strikeout
+    # chances, this same cause explains projectedK's overshoot too (see
+    # expected_ip feeding projected_k above) -- one root cause, not two
+    # separate problems, confirmed by the same pitchers missing badly on
+    # both projectedOuts and projectedK together.
+    #
+    # NOT fixed here: properly modeling hook risk needs new signals
+    # (recent form trend, a team's actual bullpen-hook tendency, etc.)
+    # and real backtesting before it's trustworthy -- an off-season
+    # project, not a late-season one. In the meantime, calibrate.py's
+    # existing overall bias correction is already absorbing this at the
+    # aggregate level (real, sample-backed, currently active), even
+    # though it can't tell which specific starts are at elevated risk
+    # the way a real hook-risk signal eventually could.
     projected_ip_outs = clip(base_ip * dampened_matchup * dampened_efficiency * bullpen_factor, 3.0, 7.0)
     projected_outs = round(projected_ip_outs * 3, 1)
 
