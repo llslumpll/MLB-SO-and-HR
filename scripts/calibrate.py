@@ -146,6 +146,61 @@ def calibrate_hr_factors(entries):
     return result
 
 
+TEAM_HOOK_MIN_SAMPLE = 100  # matches the project's standard MIN_SAMPLE --
+                             # checked real numbers before building this:
+                             # even the best-covered team currently has
+                             # only ~10 graded starts (2026-09-21), so this
+                             # bar won't be met until well into next
+                             # season. That's intentional, not a bug --
+                             # measuring now means real data is already
+                             # accumulating for a safe decision later,
+                             # rather than waiting until next season to
+                             # start collecting it.
+
+
+def calibrate_team_hook_tendency(ko_entries):
+    """MEASUREMENT ONLY, same as calibrate_hr_factors above -- does not
+    yet change any live prediction. Built 2026-09-21 following a
+    real-world writeup showing bettors already track exactly this
+    (e.g. 'Kevin Cash pulled a no-hitter at 5 IP' as a documented
+    pattern, not a guess) -- the idea is genuinely good and the
+    infrastructure to measure it costs nothing to have running now.
+
+    Groups graded Outs entries by the PITCHER'S OWN team (a team's
+    hook tendency reflects its current manager, without needing a
+    separate manager-identity lookup) and measures the average gap
+    between projected and actual outs, the same residual-based
+    approach as the HR factor work -- if the projection formula is
+    otherwise reasonable, a team whose starters consistently come out
+    shorter than projected, regardless of how well they were
+    pitching, is showing a real quick-hook pattern.
+
+    NOT applied to predictions: TEAM_HOOK_MIN_SAMPLE isn't met by any
+    team yet (checked against real live data before setting that bar,
+    not picked arbitrarily low to force an early result). Revisit once
+    a full season of post-fix data exists."""
+    graded = [e for e in ko_entries if e.get("outsHit") is not None and e.get("actualOuts") is not None and e.get("projectedOuts") is not None and e.get("team")]
+    by_team = {}
+    for e in graded:
+        by_team.setdefault(e["team"], []).append(e)
+
+    result = {}
+    for team, entries in by_team.items():
+        n = len(entries)
+        if n < TEAM_HOOK_MIN_SAMPLE:
+            result[team] = {"status": "insufficient data", "sampleSize": n}
+            continue
+        residuals = [e["actualOuts"] - e["projectedOuts"] for e in entries]
+        avg_residual = sum(residuals) / n
+        result[team] = {
+            "sampleSize": n,
+            "avgResidual": round(avg_residual, 3),
+            "dampenedAdjustment": round(DAMPEN * avg_residual, 3),
+            "status": "active",
+        }
+    return result
+
+
 def load_all_hr_entries():
     """heuristicProb (and the powerQuality factor feeding it) recomputes
     FRESH on every heavy rebuild -- unlike K/Outs' frozen predictions,
@@ -475,6 +530,8 @@ def run():
         # calibrate_hr_factors' docstring above for the full reasoning.
         "hrFactors": calibrate_hr_factors(hr_entries),
         "ko": calibrate_ko(ko_entries),
+        # Measurement only, not yet applied -- see calibrate_team_hook_tendency's docstring above.
+        "teamHookTendency": calibrate_team_hook_tendency(ko_entries),
         "outs": calibrate_outs(outs_entries),
         "hits": calibrate_hits(hits_entries),
         "totalBases": calibrate_total_bases(tb_entries),
