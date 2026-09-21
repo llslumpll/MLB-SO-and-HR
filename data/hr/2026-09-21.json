@@ -98,7 +98,7 @@
       "marketBid": 0.17,
       "marketAsk": 0.19,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 824221,
@@ -188,7 +188,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 823169,
@@ -535,7 +535,9 @@
       "hitsCallFrozenAt": "2026-09-21T16:00:22.693117",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-21T11:20:16.938335",
-      "prizePicksTBLine": 0.5
+      "prizePicksTBLine": 0.5,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0
     },
     {
       "gamePk": 823169,
@@ -958,6 +960,89 @@
       "tbHit": null
     },
     {
+      "gamePk": 824787,
+      "playerId": 694212,
+      "name": "Samuel Basallo",
+      "team": "BAL",
+      "opp": "TOR",
+      "order": null,
+      "heuristicProb": 0.13125952230610763,
+      "confidence": "High",
+      "calibrationApplied": 0.9713,
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a favorable platoon matchup; tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.1420998210261244,
+        "form": 0.7227602905569007,
+        "pitcherVuln": 0.800711743772242,
+        "powerQuality": 1.2263980816866715,
+        "park": 1.08,
+        "weather": 1.03317424,
+        "handedness": 1.20083857442348
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Basallo, Samuel",
+        "player_id": "694212",
+        "year": "2026",
+        "xwoba": "47",
+        "xba": "26",
+        "xslg": "74",
+        "xiso": "82",
+        "xobp": "17",
+        "brl": "61",
+        "brl_percent": "79",
+        "exit_velocity": "73",
+        "max_ev": "85",
+        "hard_hit_percent": "63",
+        "k_percent": "20",
+        "bb_percent": "37",
+        "whiff_percent": "12",
+        "chase_percent": "6",
+        "arm_strength": "",
+        "sprint_speed": "3",
+        "oaa": "",
+        "bat_speed": "75",
+        "squared_up_rate": "33",
+        "swing_length": "69"
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Trey Yesavage",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 3
+      },
+      "trendL5OPS": 0.6952380952380952,
+      "trendL7OPS": 0.6102941176470589,
+      "trendL10OPS": 0.5443478260869565,
+      "seasonOPS": 0.7,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.78,
+      "projectedTotalBases": 1.35,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.4 total bases.",
+      "hitsMatchupFactor": 1.04,
+      "tbParkFactor": 1.024,
+      "hitsCalibrationApplied": -0.0139,
+      "tbCalibrationApplied": -0.0261,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null
+    },
+    {
       "gamePk": 823169,
       "playerId": 605137,
       "name": "Josh Bell",
@@ -1045,90 +1130,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
-    },
-    {
-      "gamePk": 824787,
-      "playerId": 694212,
-      "name": "Samuel Basallo",
-      "team": "BAL",
-      "opp": "TOR",
-      "order": null,
-      "heuristicProb": 0.13125952230610763,
-      "confidence": "High",
-      "calibrationApplied": 0.9713,
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a favorable platoon matchup; tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.1420998210261244,
-        "form": 0.7227602905569007,
-        "pitcherVuln": 0.800711743772242,
-        "powerQuality": 1.2263980816866715,
-        "park": 1.08,
-        "weather": 1.03317424,
-        "handedness": 1.20083857442348
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Basallo, Samuel",
-        "player_id": "694212",
-        "year": "2026",
-        "xwoba": "47",
-        "xba": "26",
-        "xslg": "74",
-        "xiso": "82",
-        "xobp": "17",
-        "brl": "61",
-        "brl_percent": "79",
-        "exit_velocity": "73",
-        "max_ev": "85",
-        "hard_hit_percent": "63",
-        "k_percent": "20",
-        "bb_percent": "37",
-        "whiff_percent": "12",
-        "chase_percent": "6",
-        "arm_strength": "",
-        "sprint_speed": "3",
-        "oaa": "",
-        "bat_speed": "75",
-        "squared_up_rate": "33",
-        "swing_length": "69"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Trey Yesavage",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 3
-      },
-      "trendL5OPS": 0.6952380952380952,
-      "trendL7OPS": 0.6102941176470589,
-      "trendL10OPS": 0.5443478260869565,
-      "seasonOPS": 0.7,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.78,
-      "projectedTotalBases": 1.35,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.4 total bases.",
-      "hitsMatchupFactor": 1.04,
-      "tbParkFactor": 1.024,
-      "hitsCalibrationApplied": -0.0139,
-      "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 823169,
@@ -1805,7 +1807,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 824221,
@@ -1867,7 +1869,7 @@
       "trendL10OPS": 0.8559139784946237,
       "seasonOPS": 0.828,
       "marketProb": 0.14,
-      "edge": -0.03533679151710749,
+      "edge": -0.03473768794835244,
       "graded": false,
       "hr": null,
       "projectedHits": 0.86,
@@ -1895,7 +1897,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 824221,
@@ -1964,7 +1966,7 @@
       "trendL10OPS": 1.2281167108753315,
       "seasonOPS": 0.75,
       "marketProb": 0.13,
-      "edge": -0.026322020437522783,
+      "edge": -0.026912106730960048,
       "graded": false,
       "hr": null,
       "projectedHits": 0.88,
@@ -1992,7 +1994,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 823169,
@@ -2566,7 +2568,7 @@
       "trendL10OPS": 0.8257918552036199,
       "seasonOPS": 0.705,
       "marketProb": 0.11499999999999999,
-      "edge": -0.03182962114871199,
+      "edge": -0.03148518530895009,
       "graded": false,
       "hr": null,
       "projectedHits": 0.79,
@@ -2594,7 +2596,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 823169,
@@ -2682,7 +2684,11 @@
       "hitsCallFrozenAt": "2026-09-21T11:20:16.937929",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-21T11:20:16.938385",
-      "prizePicksTBLine": 0.5
+      "prizePicksTBLine": 0.5,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 824787,
@@ -2948,7 +2954,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 823169,
@@ -3095,8 +3101,8 @@
       "trendL7OPS": 0.8516483516483516,
       "trendL10OPS": 0.7263513513513513,
       "seasonOPS": 0.731,
-      "marketProb": 0.09,
-      "edge": -0.022299819765283543,
+      "marketProb": 0.095,
+      "edge": -0.02761730957970758,
       "graded": false,
       "hr": null,
       "projectedHits": 0.96,
@@ -3120,11 +3126,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.095,
-      "priceDelta": -0.0050000000000000044,
-      "marketBid": 0.08,
+      "priceDelta": 0.0,
+      "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 824221,
@@ -3388,7 +3394,11 @@
       "hitsCallFrozenAt": "2026-09-21T11:20:16.938000",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-21T11:20:16.938466",
-      "prizePicksTBLine": 0.5
+      "prizePicksTBLine": 0.5,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 824787,
@@ -3644,7 +3654,11 @@
       "hitsCallFrozenAt": "2026-09-21T11:20:16.938045",
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-21T11:20:16.938508",
-      "prizePicksTBLine": 0.5
+      "prizePicksTBLine": 0.5,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 823169,
@@ -3910,7 +3924,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-21T17:02:03.949551"
+      "oddsUpdatedAt": "2026-09-21T17:10:18.036804"
     },
     {
       "gamePk": 823169,
@@ -4861,7 +4875,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-21T17:02:03.949551",
+  "oddsRefreshedAt": "2026-09-21T17:10:18.036804",
   "statcastSpotlight": {
     "name": "Pete Alonso",
     "team": "BAL",
