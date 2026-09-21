@@ -493,6 +493,30 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     environment_factor = clip((park_k_factor * weather_k_factor) ** 0.5, 0.95, 1.05)
 
     expected_ip = clip((season_ip / games_started) if (season_ip and games_started) else 5.2, 3.5, 6.7)
+    # DELIBERATELY NOT given the workload_factor/stakes_factor shrink
+    # applied to projected_ip_outs below, decided 2026-09-21 -- not an
+    # oversight. Confirmed live the same day: those two factors visibly
+    # shrank projectedOuts for real pitchers (e.g. Trey Yesavage 15.8 ->
+    # 13.4) while projectedK stayed exactly the same, since projectedK
+    # is computed from THIS expected_ip, computed earlier and separately
+    # from projected_ip_outs below.
+    #
+    # Left that way on purpose: projectedK already has its OWN separate
+    # correction mechanisms (calibrate.py's K bias, currently -0.1457,
+    # and a probability shrink, currently 0.557) tuned against
+    # historical residuals from the OLD, un-shrunk expected_ip. Applying
+    # the same new shrink here too, on the same day, would make those
+    # existing corrections suddenly over-correct for a gap that's
+    # already partially fixed -- the exact "compounding mistake" this
+    # file's own efficiency-factor comments elsewhere already warn
+    # about, just in a new spot.
+    #
+    # TRIGGER TO REVISIT: calibration reruns daily, so K's existing bias/
+    # shrink should naturally tighten within 1-2 cycles if the shared
+    # root cause genuinely explains K's overshoot too. Check
+    # calibration.json's ko.High.bias and probShrink.ko after a few more
+    # days -- if neither has visibly improved, that's real evidence
+    # (not a symmetry guess) that expected_ip needs the same fix.
     projected_k = final_k9 * environment_factor * expected_ip / 9
     # Absolute safety ceiling on the PROJECTED MEAN specifically -- not a
     # best-case outcome; the Poisson math used downstream already accounts
