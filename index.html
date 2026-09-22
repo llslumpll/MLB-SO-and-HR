@@ -599,6 +599,22 @@ function vsBatterTrendChip(e){
   return `<div class="bx-line"><span class="bx-chip">⚔️ ${tf}, ${verb} ${t.batterName}: <b class="${cls}">${t.avg} AVG</b>, ${t.homeRuns} HR in ${t.atBats} AB (${t.ops} OPS)</span></div>`;
 }
 
+// Real safety feature, not just a nice-to-have -- confirmed live
+// 2026-09-21 that the actual MLB.com news feed had a scratch/injury
+// headline for a pitcher who had a real entry on that day's K board at
+// the same time. A frozen, hours-old prediction can't know a player
+// just got scratched or hurt; this surfaces it directly on the card
+// instead of leaving a stale, wrong-looking pick with no explanation.
+// e.recentNews is only ever set when a real headline actually matched
+// this player's name (see match_news_to_players in common.py) -- most
+// cards will have none, on purpose.
+function newsChip(e){
+  const news = e.recentNews;
+  if(!news || !news.length) return '';
+  const items = news.map(n=>`<div><a href="${n.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">${n.title}</a> <span style="color:var(--slate);">(${n.source})</span></div>`).join('');
+  return `<div class="bx-line" style="border-color:var(--red);"><span class="bx-chip" style="border-color:var(--red);display:block;">📰 Recent news mentions ${e.name}:${items}</span></div>`;
+}
+
 function hrCard(e, rank){
   const edgeClass = e.edge===null||e.edge===undefined ? '' : e.edge>0.02 ? 'stat-good' : e.edge<-0.02 ? 'stat-bad' : '';
   const edgeHtml = (e.edge!==null && e.edge!==undefined) ? ` · <span class="${edgeClass}">${e.edge>0?'+':''}${(e.edge*100).toFixed(1)}% edge</span>` : '';
@@ -620,6 +636,7 @@ function hrCard(e, rank){
       ${opsTrendChips(e)}
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
+      ${newsChip(e)}
       <div class="card-details">${renderFactorsOnly(e)}</div>
     </div>
   `;
@@ -644,6 +661,7 @@ function hitsCard(e, rank){
       <div class="card-reason">${e.hitsReason||''}</div>
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
+      ${newsChip(e)}
     </div>
   `;
 }
@@ -667,6 +685,7 @@ function tbCard(e, rank){
       <div class="card-reason">${e.tbReason||''}</div>
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
+      ${newsChip(e)}
     </div>
   `;
 }
@@ -1006,7 +1025,7 @@ function renderHR(){
         <td>${e.graded?(e.hr?'✅ HR':'—'):'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${opsTrendChips(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${opsTrendChips(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_all').innerHTML = `
@@ -1044,7 +1063,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_hitsall').innerHTML = `
@@ -1079,7 +1098,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_tball').innerHTML = `
@@ -1113,6 +1132,7 @@ function koCard(e, rank){
       <div class="card-reason">${e.reason||''}</div>
       ${vsTeamTrendChip(e)}
       ${vsBatterTrendChip(e)}
+      ${newsChip(e)}
     </div>
   `;
 }
@@ -1135,6 +1155,7 @@ function outsCard(e, rank){
       <div class="card-reason">${e.outsReason||''}</div>
       ${vsTeamTrendChip(e)}
       ${vsBatterTrendChip(e)}
+      ${newsChip(e)}
     </div>
   `;
 }
@@ -1220,6 +1241,7 @@ function renderKO(){
         <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
         ${vsTeamTrendChip(e)}
         ${vsBatterTrendChip(e)}
+        ${newsChip(e)}
         ${e.conditionalHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionLine} strikeouts, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
@@ -1271,6 +1293,7 @@ function renderKO(){
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
         ${vsTeamTrendChip(e)}
         ${vsBatterTrendChip(e)}
+        ${newsChip(e)}
         ${e.conditionalOutsHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionOutsLine} outs, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalOutsHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
