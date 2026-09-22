@@ -746,3 +746,78 @@ def fetch_team_games_back(team_id, year):
         return None
     except Exception:  # noqa: BLE001
         return None
+
+
+NEWS_FEEDS = {
+    "MLB.com": "https://www.mlb.com/feeds/news/rss.xml",
+    "ESPN": "https://www.espn.com/espn/rss/mlb/news",
+}
+
+
+def fetch_mlb_news():
+    """Real MLB news headlines from two official/major RSS feeds --
+    confirmed live and working 2026-09-21 (pulled real current headlines
+    from both before building this, not assumed). Plain XML via the
+    standard library's ElementTree, no new dependency.
+
+    Built alongside the player-card news matching in run_daily.py: this
+    turns out to be a genuine safety feature, not just a nice-to-have --
+    confirmed live the same day that this exact feed had "Cease
+    (shoulder) undergoes MRI, scratched from next start" and "Skubal to
+    bereavement list" for two pitchers who had real entries on that
+    day's actual K board. A frozen, hours-old prediction for someone who
+    just got scratched is exactly the kind of thing this project's own
+    "be honest about limitations" philosophy says to catch, not ship
+    quietly.
+
+    Returns a list of {title, link, pubDate, source} dicts, most recent
+    first within each feed (feed order preserved, not globally re-
+    sorted -- pubDate formats differ slightly between sources and
+    parsing them all into one guaranteed-correct sort order isn't worth
+    the risk of getting it subtly wrong; two clearly-labeled recent
+    lists is more honest than one falsely-precise merged one)."""
+    import xml.etree.ElementTree as ET
+
+    items = []
+    for source, url in NEWS_FEEDS.items():
+        try:
+            text = get_text(url)
+            root = ET.fromstring(text)
+            for item in root.findall(".//item")[:30]:
+                title = (item.findtext("title") or "").strip()
+                link = (item.findtext("link") or "").strip()
+                pub_date = (item.findtext("pubDate") or "").strip()
+                if title and link:
+                    items.append({"title": title, "link": link, "pubDate": pub_date, "source": source})
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] news feed fetch failed for {source}: {e}")
+    return items
+
+
+def match_news_to_players(news_items, player_names):
+    """Match news headlines to player names by last-name, whole-word,
+    case-insensitive substring. Returns {player_name: [matching items]}.
+
+    A helper for SURFACING headlines, not a hard automated filter or
+    decision -- always keeps the original headline text attached so a
+    person can make the actual judgment call quickly (e.g. "Cease
+    scratched" is obviously relevant to a Dylan Cease projection; a
+    coincidental name match on a common surname might not be), rather
+    than silently acting on a possibly-wrong match.
+
+    Skips last names under 4 characters (e.g. "Lee", "Wu") -- too short
+    to match reliably without a real risk of matching an unrelated
+    story that happens to contain the same short, common word."""
+    import re
+    matches = {}
+    for player_name in player_names:
+        if not player_name:
+            continue
+        last_name = player_name.split()[-1]
+        if len(last_name) < 4:
+            continue
+        pattern = re.compile(r"\b" + re.escape(last_name) + r"\b", re.IGNORECASE)
+        found = [item for item in news_items if pattern.search(item["title"])]
+        if found:
+            matches[player_name] = found
+    return matches
