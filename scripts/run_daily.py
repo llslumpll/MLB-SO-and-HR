@@ -11,10 +11,11 @@ import glob
 import json
 import os
 import sys
+from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from common import today_iso
+from common import today_iso, fetch_mlb_news, match_news_to_players
 import build_hr
 import build_ko
 import build_teams
@@ -429,6 +430,44 @@ def main():
             print(f"  {k}: {len(v)} locked ({was_reused})")
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] Best 5 locking failed, boards will fall back to live ranking: {e}")
+
+    print("=" * 60)
+    print(f"STEP 3d: Fetch and match MLB news for {date}")
+    print("=" * 60)
+    try:
+        # Two real, confirmed-working feeds (verified live 2026-09-21
+        # before building this, including pulling actual current
+        # headlines to test the matching logic against real cases, not
+        # assumed). Matched against BOTH boards' player names -- this
+        # turned out to be a genuine safety feature the same day it was
+        # built: the real feed had a scratch/injury headline for a
+        # pitcher who had an actual entry on that day's K board, exactly
+        # the kind of thing a frozen, hours-old prediction can't know
+        # about on its own.
+        news_items = fetch_mlb_news()
+        with open(f"data/hr/{date}.json") as f:
+            hr_for_news = json.load(f)
+        with open(f"data/ko/{date}.json") as f:
+            ko_for_news = json.load(f)
+
+        all_names = [e.get("name") for e in hr_for_news.get("entries", [])] + [e.get("name") for e in ko_for_news.get("entries", [])]
+        matches = match_news_to_players(news_items, all_names)
+
+        for e in hr_for_news.get("entries", []):
+            e["recentNews"] = matches.get(e.get("name"))
+        for e in ko_for_news.get("entries", []):
+            e["recentNews"] = matches.get(e.get("name"))
+
+        with open(f"data/hr/{date}.json", "w") as f:
+            json.dump(hr_for_news, f, indent=2, default=str)
+        with open(f"data/ko/{date}.json", "w") as f:
+            json.dump(ko_for_news, f, indent=2, default=str)
+        with open("data/news.json", "w") as f:
+            json.dump({"generatedAt": datetime.utcnow().isoformat(), "items": news_items}, f, indent=2, default=str)
+
+        print(f"  fetched {len(news_items)} headlines, matched to {len(matches)} players on today's board")
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] News fetch/match failed, continuing without it: {e}")
 
     print("=" * 60)
     print("STEP 4: Grade past days")
