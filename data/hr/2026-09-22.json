@@ -101,7 +101,7 @@
       "marketBid": 0.16,
       "marketAsk": 0.21,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824302,
@@ -190,10 +190,10 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 1.5,
+      "tbMarketThreshold": 2,
+      "tbModelProb": 0.6090178550369382,
+      "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.16999999999999998,
@@ -201,7 +201,11 @@
       "marketBid": 0.15,
       "marketAsk": 0.19,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506",
+      "prizePicksTBOpeningLine": 1.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 1.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877595"
     },
     {
       "gamePk": 824867,
@@ -300,7 +304,7 @@
       "marketBid": 0.21,
       "marketAsk": 0.22,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824624,
@@ -390,7 +394,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824867,
@@ -478,10 +482,10 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 1.5,
+      "tbMarketThreshold": 2,
+      "tbModelProb": 0.47683716504133167,
+      "tbCall": "UNDER",
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.2,
@@ -489,7 +493,11 @@
       "marketBid": 0.19,
       "marketAsk": 0.21,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506",
+      "prizePicksTBOpeningLine": 1.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 1.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877661"
     },
     {
       "gamePk": 824302,
@@ -761,7 +769,7 @@
       "marketBid": 0.2,
       "marketAsk": 0.23,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823412,
@@ -842,18 +850,26 @@
       "tbParkFactor": 1.024,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5281593087170701,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.707393725750132,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875431",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877722"
     },
     {
       "gamePk": 824867,
@@ -945,7 +961,7 @@
       "marketBid": 0.16,
       "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824302,
@@ -1045,7 +1061,7 @@
       "marketBid": 0.2,
       "marketAsk": 0.24,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824785,
@@ -1135,12 +1151,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6677123089960225,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877781"
     },
     {
       "gamePk": 823089,
@@ -1216,18 +1236,26 @@
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5705850957602312,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.731236467466143,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875514",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877839"
     },
     {
       "gamePk": 823543,
@@ -1427,7 +1455,7 @@
       "marketBid": 0.18,
       "marketAsk": 0.21,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824785,
@@ -1534,7 +1562,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823328,
@@ -1634,7 +1662,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 822840,
@@ -2014,7 +2042,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824867,
@@ -2180,18 +2208,26 @@
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5072770684312455,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6868340584858535,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875581",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877910"
     },
     {
       "gamePk": 823089,
@@ -2292,7 +2328,7 @@
       "marketBid": 0.09,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823897,
@@ -2382,7 +2418,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824953,
@@ -2546,8 +2582,8 @@
       "trendL7OPS": 1.0101010101010102,
       "trendL10OPS": 1.3159722222222223,
       "seasonOPS": 0.857,
-      "marketProb": 0.14,
-      "edge": 0.03497688361263773,
+      "marketProb": 0.14500000000000002,
+      "edge": 0.029976883612637728,
       "graded": false,
       "hr": null,
       "projectedHits": 0.94,
@@ -2571,11 +2607,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.14,
-      "priceDelta": 0.0,
+      "priceDelta": 0.0050000000000000044,
       "marketBid": 0.12,
-      "marketAsk": 0.16,
+      "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823412,
@@ -2658,18 +2694,26 @@
       "tbParkFactor": 1.024,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5556946765425747,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.695701326588443,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875648",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.877970"
     },
     {
       "gamePk": 824867,
@@ -2848,7 +2892,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824222,
@@ -3219,7 +3263,7 @@
       "marketBid": 0.16,
       "marketAsk": 0.19,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823897,
@@ -3479,7 +3523,7 @@
       "marketBid": 0.18,
       "marketAsk": 0.2,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824061,
@@ -3584,7 +3628,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823897,
@@ -3920,8 +3964,8 @@
       "trendL7OPS": 0.5106100795755968,
       "trendL10OPS": 0.5055821371610845,
       "seasonOPS": 0.825,
-      "marketProb": 0.09,
-      "edge": 0.0572990201505868,
+      "marketProb": 0.1,
+      "edge": 0.04729902015058679,
       "graded": false,
       "hr": null,
       "projectedHits": 0.85,
@@ -3945,11 +3989,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.09,
-      "priceDelta": 0.0,
-      "marketBid": 0.08,
-      "marketAsk": 0.1,
+      "priceDelta": 0.010000000000000009,
+      "marketBid": 0.09,
+      "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823328,
@@ -4049,7 +4093,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824222,
@@ -4225,7 +4269,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 822840,
@@ -4580,18 +4624,26 @@
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5072770684312455,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6868340584858535,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875713",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878030"
     },
     {
       "gamePk": 823089,
@@ -5227,7 +5279,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824624,
@@ -5317,7 +5369,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824624,
@@ -5657,10 +5709,10 @@
       "tbParkFactor": 1.024,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.47623102790090904,
+      "hitsCall": "UNDER",
       "actualHits": null,
       "hitsHit": null,
       "predictionTBLine": null,
@@ -5668,7 +5720,11 @@
       "tbModelProb": null,
       "tbCall": null,
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875773"
     },
     {
       "gamePk": 822840,
@@ -5758,7 +5814,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824061,
@@ -6024,7 +6080,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824302,
@@ -6210,7 +6266,7 @@
       "marketBid": 0.14,
       "marketAsk": 0.16,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823412,
@@ -6300,7 +6356,7 @@
       "marketBid": 0.21,
       "marketAsk": 0.22,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824867,
@@ -7253,7 +7309,7 @@
       "marketBid": 0.17,
       "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824867,
@@ -7575,8 +7631,8 @@
       "trendL7OPS": 0.5404761904761904,
       "trendL10OPS": 0.7149425287356321,
       "seasonOPS": 0.823,
-      "marketProb": 0.11000000000000001,
-      "edge": -0.002098271749914532,
+      "marketProb": 0.1,
+      "edge": 0.007901728250085477,
       "graded": false,
       "hr": null,
       "projectedHits": 0.86,
@@ -7600,11 +7656,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.11000000000000001,
-      "priceDelta": 0.0,
+      "priceDelta": -0.010000000000000009,
       "marketBid": 0.08,
-      "marketAsk": 0.14,
+      "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823328,
@@ -7788,7 +7844,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824785,
@@ -8422,7 +8478,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823166,
@@ -8483,8 +8539,8 @@
       "trendL7OPS": 0.641025641025641,
       "trendL10OPS": 0.7367965367965368,
       "seasonOPS": 0.741,
-      "marketProb": 0.10500000000000001,
-      "edge": -0.0007142772527161667,
+      "marketProb": 0.11000000000000001,
+      "edge": -0.005714277252716171,
       "graded": false,
       "hr": null,
       "projectedHits": 0.9,
@@ -8508,11 +8564,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.10500000000000001,
-      "priceDelta": 0.0,
+      "priceDelta": 0.0050000000000000044,
       "marketBid": 0.08,
-      "marketAsk": 0.13,
+      "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823166,
@@ -8671,18 +8727,26 @@
       "tbParkFactor": 1.012,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.6455525732073426,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.7197916972825406,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875833",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878091"
     },
     {
       "gamePk": 823543,
@@ -9684,10 +9748,10 @@
       "tbParkFactor": 1.045,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5157554605304426,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
       "predictionTBLine": null,
@@ -9695,7 +9759,11 @@
       "tbModelProb": null,
       "tbCall": null,
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875907"
     },
     {
       "gamePk": 823089,
@@ -9788,7 +9856,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823494,
@@ -10097,18 +10165,26 @@
       "tbParkFactor": 1.027,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5705850957602312,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6922075316296797,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.875968",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878148"
     },
     {
       "gamePk": 824867,
@@ -10183,18 +10259,26 @@
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.43798402629406713,
+      "hitsCall": "UNDER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.5597570227397157,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876027",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878204"
     },
     {
       "gamePk": 823897,
@@ -10370,7 +10454,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824222,
@@ -10467,7 +10551,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824624,
@@ -11079,7 +11163,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823166,
@@ -11238,18 +11322,26 @@
       "tbParkFactor": 0.958,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5115374602844606,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6132081310436486,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876085",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878261"
     },
     {
       "gamePk": 824061,
@@ -11431,18 +11523,26 @@
       "tbParkFactor": 1.036,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5157554605304426,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.648789145876344,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876143",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878321"
     },
     {
       "gamePk": 824222,
@@ -11616,12 +11716,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6182662189419864,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878377"
     },
     {
       "gamePk": 824061,
@@ -11711,7 +11815,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 822840,
@@ -12217,10 +12321,10 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 1.5,
+      "tbMarketThreshold": 2,
+      "tbModelProb": 0.4297426991692198,
+      "tbCall": "UNDER",
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.215,
@@ -12228,7 +12332,11 @@
       "marketBid": 0.21,
       "marketAsk": 0.22,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506",
+      "prizePicksTBOpeningLine": 1.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 1.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878436"
     },
     {
       "gamePk": 824785,
@@ -12647,12 +12755,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6656928516279257,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878491"
     },
     {
       "gamePk": 824953,
@@ -13528,7 +13640,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823543,
@@ -13611,18 +13723,26 @@
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.4898029996057002,
+      "hitsCall": "UNDER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6207575791900255,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876201",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878547"
     },
     {
       "gamePk": 822840,
@@ -13885,7 +14005,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823328,
@@ -13954,8 +14074,8 @@
       "trendL7OPS": 0.5224358974358975,
       "trendL10OPS": 0.5808080808080809,
       "seasonOPS": 0.788,
-      "marketProb": 0.05500000000000001,
-      "edge": 0.019350881262775357,
+      "marketProb": 0.06,
+      "edge": 0.014350881262775367,
       "graded": false,
       "hr": null,
       "projectedHits": 0.77,
@@ -13979,11 +14099,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.05500000000000001,
-      "priceDelta": 0.0,
+      "priceDelta": 0.0049999999999999906,
       "marketBid": 0.04,
-      "marketAsk": 0.07,
+      "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823543,
@@ -14757,7 +14877,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.21,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823494,
@@ -15166,8 +15286,8 @@
       "trendL7OPS": 0.7362962962962962,
       "trendL10OPS": 0.7385281385281386,
       "seasonOPS": 0.721,
-      "marketProb": 0.07500000000000001,
-      "edge": -0.005214772627525094,
+      "marketProb": 0.07,
+      "edge": -0.0002147726275250894,
       "graded": false,
       "hr": null,
       "projectedHits": 0.85,
@@ -15191,11 +15311,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.07500000000000001,
-      "priceDelta": 0.0,
-      "marketBid": 0.07,
+      "priceDelta": -0.0050000000000000044,
+      "marketBid": 0.06,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824061,
@@ -15270,18 +15390,26 @@
       "tbParkFactor": 0.988,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5029738589280615,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.628083907424433,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876258",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878604"
     },
     {
       "gamePk": 823089,
@@ -15359,8 +15487,8 @@
       "trendL7OPS": 0.8333333333333333,
       "trendL10OPS": 0.7641129032258065,
       "seasonOPS": 0.709,
-      "marketProb": 0.08,
-      "edge": -0.01095312886342345,
+      "marketProb": 0.07500000000000001,
+      "edge": -0.00595312886342346,
       "graded": false,
       "hr": null,
       "projectedHits": 0.89,
@@ -15384,11 +15512,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.08,
-      "priceDelta": 0.0,
+      "priceDelta": -0.0049999999999999906,
       "marketBid": 0.05,
-      "marketAsk": 0.11,
+      "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823412,
@@ -16603,12 +16731,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6615928452628006,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878659"
     },
     {
       "gamePk": 823494,
@@ -16695,12 +16827,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6615928452628006,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878714"
     },
     {
       "gamePk": 824953,
@@ -16872,12 +17008,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.5835058434069962,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878771"
     },
     {
       "gamePk": 823543,
@@ -17304,18 +17444,26 @@
       "tbParkFactor": 1.036,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5240659692178503,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6328474352148391,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876317",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878828"
     },
     {
       "gamePk": 824953,
@@ -17665,7 +17813,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823494,
@@ -18001,18 +18149,26 @@
       "tbParkFactor": 0.994,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5240659692178503,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6182662189419864,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876374",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878901"
     },
     {
       "gamePk": 822840,
@@ -18196,18 +18352,26 @@
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0139,
       "tbCalibrationApplied": -0.0261,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.4898029996057002,
+      "hitsCall": "UNDER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6207575791900255,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876431",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.878964"
     },
     {
       "gamePk": 823897,
@@ -18450,18 +18614,26 @@
       "tbParkFactor": 0.958,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5029738589280615,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6054287679723677,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876488",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.879023"
     },
     {
       "gamePk": 824302,
@@ -18542,12 +18714,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 1.5,
+      "tbMarketThreshold": 2,
+      "tbModelProb": 0.42718649613311876,
+      "tbCall": "UNDER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 1.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 1.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.879080"
     },
     {
       "gamePk": 824709,
@@ -18723,7 +18899,7 @@
       "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823897,
@@ -19067,7 +19243,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823412,
@@ -19760,7 +19936,7 @@
       "marketBid": 0.03,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823328,
@@ -19923,12 +20099,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 1.5,
+      "tbMarketThreshold": 2,
+      "tbModelProb": 0.5403865491408721,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 1.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 1.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.879138"
     },
     {
       "gamePk": 823543,
@@ -21403,10 +21583,10 @@
       "tbParkFactor": 0.958,
       "hitsCalibrationApplied": -0.0663,
       "tbCalibrationApplied": -0.1174,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5072770684312455,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
       "predictionTBLine": null,
@@ -21414,7 +21594,11 @@
       "tbModelProb": null,
       "tbCall": null,
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-22T11:30:24.876545"
     },
     {
       "gamePk": 823412,
@@ -22801,7 +22985,7 @@
       "marketBid": 0.03,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 823089,
@@ -22976,12 +23160,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6398164542049579,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.879196"
     },
     {
       "gamePk": 823412,
@@ -23144,12 +23332,16 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6132081310436486,
+      "tbCall": "OVER",
       "actualTotalBases": null,
-      "tbHit": null
+      "tbHit": null,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-22T11:30:24.879252"
     },
     {
       "gamePk": 823543,
@@ -23427,7 +23619,7 @@
       "marketBid": 0.02,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-22T11:22:00.295228"
+      "oddsUpdatedAt": "2026-09-22T11:30:24.873506"
     },
     {
       "gamePk": 824302,
@@ -25527,7 +25719,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-22T11:22:00.295228",
+  "oddsRefreshedAt": "2026-09-22T11:30:24.873506",
   "statcastSpotlight": {
     "name": "Pete Alonso",
     "team": "BAL",
