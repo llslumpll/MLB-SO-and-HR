@@ -517,6 +517,37 @@ def fetch_pitcher_projection(pitcher_id, opp_team_id, batter_pct_map, pitcher_pc
     # calibration.json's ko.High.bias and probShrink.ko after a few more
     # days -- if neither has visibly improved, that's real evidence
     # (not a symmetry guess) that expected_ip needs the same fix.
+    #
+    # RELATED, OPPOSITE-DIRECTION LIMITATION, documented 2026-09-22:
+    # expected_ip being a season/recent AVERAGE cuts both ways -- it also
+    # can't see a pitcher having a genuinely dominant, efficient night
+    # and going deep. Real example the same day this was written: Carlos
+    # Rodon projected for 5.5 K off a 5.3-inning expected_ip (season K/9
+    # 9.4, L3 K/9 9.3 -- both correctly weighted, the K/9-to-projection
+    # math itself checked out exactly), actually threw 8 innings with 8
+    # K and only 3 hits. The miss was entirely in expected_ip undershooting
+    # a start that ran 3 innings past his own average, not in how the K
+    # rate was applied to it.
+    #
+    # CHECKED, NOT JUST ASSUMED: babipAgainst (already computed and
+    # stored below) looked like a plausible signal for exactly this --
+    # a real soft-contact profile, not just luck, might mean a pitcher
+    # is more likely to work deep. Tested against 257 real graded
+    # entries: low-BABIP-against pitchers (<=.260, "soft contact")
+    # averaged a -2.07 out residual; everyone else averaged -2.27 --
+    # essentially identical. The existing babip_note comment below
+    # calling BABIP-against "mostly variance, not a reliable factor" is
+    # confirmed correct by real data, not just an assumption -- checked
+    # 2026-09-22 specifically because this Rodon start made it worth
+    # verifying rather than trusting the comment at face value.
+    #
+    # NOT fixed here: no other currently-available signal in this
+    # pipeline predicts "efficient start likely to run long" -- that
+    # would need something like in-game pitch-efficiency pace or early-
+    # inning results, neither of which exists in this pipeline yet, and
+    # isn't safely buildable-and-testable in the handful of days left
+    # this season. A genuine off-season item, tracked here so it isn't
+    # lost, not something to guess at this close to the end.
     projected_k = final_k9 * environment_factor * expected_ip / 9
     # Absolute safety ceiling on the PROJECTED MEAN specifically -- not a
     # best-case outcome; the Poisson math used downstream already accounts
