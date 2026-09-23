@@ -63,7 +63,31 @@ def fetch_schedule(date):
         "sportId": 1, "date": date, "hydrate": "team,probablePitcher,venue",
     })
     dates = data.get("dates") or []
-    return dates[0]["games"] if dates else []
+    games = dates[0]["games"] if dates else []
+    # Real, confirmed bug fixed 2026-09-23: MLB's own schedule endpoint
+    # can return the same gamePk more than once for a single date --
+    # confirmed live via actual duplicate entries in production data
+    # (e.g. 2026-09-22: the exact same player, same gamePk, same team/
+    # opp/order, appearing twice with two slightly different
+    # heuristicProb values -- proof the whole per-game pipeline, not
+    # just a display glitch, ran twice for that game). This is the
+    # single function both build_hr.py and build_ko.py call for their
+    # schedules (build_ko imports it from here), so deduping once at
+    # the source fixes both without needing the same fix twice.
+    # Confirmed NOT a doubleheader mistake: a real doubleheader's two
+    # games have two distinct gamePks and are correctly kept as two
+    # separate games here -- only an exact repeated gamePk is collapsed.
+    seen = set()
+    deduped = []
+    for g in games:
+        pk = g.get("gamePk")
+        if pk in seen:
+            continue
+        seen.add(pk)
+        deduped.append(g)
+    if len(deduped) != len(games):
+        print(f"  [warn] schedule returned {len(games) - len(deduped)} duplicate gamePk(s) for {date}, deduped")
+    return deduped
 
 
 def fetch_boxscore(game_pk):
@@ -778,6 +802,25 @@ def build(date, year):
     entries = deduped
 
     entries.sort(key=lambda e: -e["heuristicProb"])
+    # Defensive safety net, same day as the fetch_schedule fix above:
+    # even with that fixed at the source, this keeps only the LAST
+    # entry for any (playerId, gamePk) that somehow still ends up
+    # duplicated by any other path -- cheap, and directly matches the
+    # actual key preserve_opening_prices already uses to identify a
+    # unique player+game.
+    seen_keys = set()
+    deduped_entries = []
+    for e in reversed(entries):
+        key = (e.get("playerId"), e.get("gamePk"))
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        deduped_entries.append(e)
+    deduped_entries.reverse()
+    if len(deduped_entries) != len(entries):
+        print(f"  [warn] {len(entries) - len(deduped_entries)} duplicate (playerId, gamePk) entries removed before writing")
+    entries = deduped_entries
+
     return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": entries, "gamesScheduled": True}
 
 
