@@ -934,6 +934,25 @@ def build(date, year):
     entries = deduped
 
     entries.sort(key=lambda e: -e["projectedK"])
+    # Same defensive safety net as build_hr.py, added the same day the
+    # actual root cause (fetch_schedule occasionally returning a
+    # duplicate gamePk) got fixed at the source. K/Outs wasn't observed
+    # showing the symptom on the same day HR was, but both files call
+    # the exact same fetch_schedule function, so this stays here as
+    # defense in depth rather than assuming it could never happen here.
+    seen_keys = set()
+    deduped_entries = []
+    for e in reversed(entries):
+        key = (e.get("playerId"), e.get("gamePk"))
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        deduped_entries.append(e)
+    deduped_entries.reverse()
+    if len(deduped_entries) != len(entries):
+        print(f"  [warn] {len(entries) - len(deduped_entries)} duplicate (playerId, gamePk) entries removed before writing")
+    entries = deduped_entries
+
     return {"date": date, "generatedAt": datetime.utcnow().isoformat(), "entries": entries, "gamesScheduled": True}
 
 
