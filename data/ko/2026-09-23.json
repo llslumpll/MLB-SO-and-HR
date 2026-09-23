@@ -1,6 +1,6 @@
 {
   "date": "2026-09-23",
-  "generatedAt": "2026-09-23T18:17:35.771624",
+  "generatedAt": "2026-09-23T19:11:00.512841",
   "entries": [
     {
       "gamePk": 824868,
@@ -37,7 +37,7 @@
       "projectedK": 7.892876438370737,
       "confidence": "High",
       "reason": "Elite strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%), a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 24.7%).",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 11,
@@ -241,8 +241,8 @@
       "kBBPct": 25.35885167464115,
       "rollingKBBPct": 24.705882352941174,
       "parkFactor": 1.02,
-      "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 0.9985,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.056,
         "avgRecentReliefIP": 3.9,
@@ -263,14 +263,7 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123021",
       "prizePicksKLine": 7.0,
       "prizePicksOutsLine": 15.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 8,
-      "priceDelta": 0.0,
-      "marketBid": 0.45,
-      "marketAsk": 0.46,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 823327,
@@ -298,7 +291,7 @@
       "projectedK": 7.27310658028358,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%) and a long-innings workload expectation. His .230 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 1,
@@ -350,8 +343,8 @@
       "kBBPct": 15.07246376811594,
       "rollingKBBPct": 10.0,
       "parkFactor": 0.98,
-      "weatherFactor": 1.01665,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.0,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 5.0,
@@ -400,7 +393,7 @@
       "projectedK": 7.234673787576039,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 26.7%). His .217 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 8,
@@ -620,8 +613,8 @@
       "kBBPct": 20.08797653958944,
       "rollingKBBPct": 26.66666666666666,
       "parkFactor": 1.04,
-      "weatherFactor": 1.00285,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00195,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 6.7,
@@ -638,13 +631,135 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.470569",
       "prizePicksKLine": 6.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.49,
-      "marketAsk": 0.5,
-      "edgeEligible": false
+      "recentNews": null
+    },
+    {
+      "gamePk": 823492,
+      "playerId": 669438,
+      "name": "Mason Englert",
+      "team": "TB",
+      "opp": "NYY",
+      "oppTeamId": 147,
+      "vsTeamTrend": null,
+      "vsBatterTrend": null,
+      "hand": "R",
+      "seasonRecord": "0-3",
+      "era": "4.54",
+      "seasonK9": 8.269035532994925,
+      "recentK9": 9.368429670869494,
+      "oppK": 24.606703146374826,
+      "matchupFactor": 1.0654194284644696,
+      "stuffFactor": 1.0,
+      "recentMatchupApplied": {
+        "factor": 1.015,
+        "gamesFound": 30,
+        "vsHand": "R"
+      },
+      "expectedIP": 6.7,
+      "projectedK": 6.568385068282233,
+      "confidence": "High",
+      "reason": "Average strikeout stuff this season, boosted by trending up in recent starts and a long-innings workload expectation. His .321 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
+      "calibrationApplied": -0.1309,
+      "recentStartsLog": [
+        {
+          "k": 3,
+          "ip": 4,
+          "bb": 2,
+          "battersFaced": 18.0
+        },
+        {
+          "k": 9,
+          "ip": 5.666666666666667,
+          "bb": 1,
+          "battersFaced": 24.0
+        },
+        {
+          "k": 4,
+          "ip": 5,
+          "bb": 1,
+          "battersFaced": 23.0
+        }
+      ],
+      "veloTrend": null,
+      "qualifyingStartsKByThreshold": {
+        "60": [
+          2,
+          3,
+          3,
+          9,
+          4
+        ],
+        "70": [
+          3,
+          9,
+          4
+        ],
+        "80": [
+          3,
+          9,
+          4
+        ]
+      },
+      "qualifyingStartsOutsByThreshold": {
+        "60": [
+          11,
+          15,
+          12,
+          17,
+          15
+        ],
+        "70": [
+          15,
+          17,
+          15
+        ],
+        "80": [
+          15,
+          17,
+          15
+        ]
+      },
+      "babipAgainst": 0.32075471698113206,
+      "workloadStreak": 4,
+      "mostRecentPitchCount": 88.0,
+      "marketThreshold": 3,
+      "marketProb": 0.47500000000000003,
+      "modelProb": 0.9590852850776961,
+      "edge": 0.48408528507769605,
+      "predictionLine": null,
+      "predictionOutsLine": null,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "projectedOuts": 20.4,
+      "outsReason": "Projected for 20.4 outs (6.7 innings), supported by a track record of a long leash (199 pitches/game this season) and getting deep into games (6.7 IP/start); tempered by a well-rested bullpen right now (2.8 relief innings/game over their last 3), which removes some of the incentive to push him deep.",
+      "npPerGame": 198.66666666666666,
+      "pitchesPerIP": 16.710280373831775,
+      "bbPct": 5.095541401273886,
+      "kBBPct": 15.286624203821658,
+      "rollingKBBPct": 18.461538461538463,
+      "parkFactor": 1.11,
+      "weatherFactor": 1.01335,
+      "outsCalibrationApplied": -0.6068,
+      "bullpenFatigue": {
+        "factor": 0.925,
+        "avgRecentReliefIP": 2.8,
+        "gamesCounted": 3
+      },
+      "outsMarketThreshold": null,
+      "outsMarketProb": null,
+      "outsModelProb": null,
+      "outsEdge": null,
+      "actualOuts": null,
+      "outsHit": null,
+      "openingProb": 0.47500000000000003,
+      "openingThreshold": 3,
+      "priceDelta": 0.0,
+      "marketBid": 0.05,
+      "marketAsk": 0.9,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-23T19:14:04.513436",
+      "recentNews": null
     },
     {
       "gamePk": 823410,
@@ -672,7 +787,7 @@
       "projectedK": 6.526155166411135,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), and locked-in command over their last starts (K-BB% of 30.2%); tempered by an opponent that's actually been hitting RHP well lately (their last 30 games specifically vs this handedness). His .219 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 7,
@@ -818,8 +933,8 @@
       "kBBPct": 26.07449856733524,
       "rollingKBBPct": 30.158730158730155,
       "parkFactor": 1.08,
-      "weatherFactor": 1.01275,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.01245,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.7,
@@ -836,13 +951,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.470657",
       "prizePicksKLine": 5.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.46,
-      "marketAsk": 0.47,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824223,
@@ -858,8 +967,8 @@
       "era": "3.71",
       "seasonK9": 8.203125,
       "recentK9": 7.756009615384617,
-      "oppK": 22.7709645343056,
-      "matchupFactor": 1.0105272207114828,
+      "oppK": 22.782925215089346,
+      "matchupFactor": 1.0107925807219722,
       "stuffFactor": 1.0,
       "recentMatchupApplied": {
         "factor": 0.987,
@@ -870,7 +979,7 @@
       "projectedK": 6.252984320093561,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by trending up in recent starts, a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 23.1%). His .357 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 1,
@@ -922,8 +1031,8 @@
       "kBBPct": 4.8484848484848495,
       "rollingKBBPct": 6.666666666666667,
       "parkFactor": 0.95,
-      "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.0015,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.119,
         "avgRecentReliefIP": 4.3,
@@ -952,10 +1061,10 @@
       "seasonK9": 9.651315789473685,
       "recentK9": 9.169908466819221,
       "oppK": 22.973433242506815,
-      "matchupFactor": 1.0159007021661108,
+      "matchupFactor": 1.0166812641726835,
       "stuffFactor": 1.065232369016263,
       "recentMatchupApplied": {
-        "factor": 0.988,
+        "factor": 0.99,
         "gamesFound": 30,
         "vsHand": "R"
       },
@@ -963,7 +1072,7 @@
       "projectedK": 6.117977173734093,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 7,
@@ -1198,7 +1307,7 @@
       "rollingKBBPct": 11.53846153846154,
       "parkFactor": 1.12,
       "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.056,
         "avgRecentReliefIP": 3.9,
@@ -1219,14 +1328,7 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123103",
       "prizePicksKLine": 5.5,
       "prizePicksOutsLine": 17.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.52,
-      "marketAsk": 0.54,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 824625,
@@ -1254,7 +1356,7 @@
       "projectedK": 6.07776770789992,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts and locked-in command over their last starts (K-BB% of 25.0%).",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 9,
@@ -1494,8 +1596,8 @@
       "kBBPct": 17.994505494505496,
       "rollingKBBPct": 25.0,
       "parkFactor": 1.09,
-      "weatherFactor": 1.00825,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00735,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.7,
@@ -1512,13 +1614,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.470825",
       "prizePicksKLine": 6.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.5,
-      "openingThreshold": 6,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.55,
-      "marketAsk": 0.57,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824951,
@@ -1555,7 +1651,7 @@
       "projectedK": 5.6063434746201555,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by an opponent that's been genuinely weak vs RHP lately, not just weak on paper (their last 30 games specifically vs this handedness). His .258 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 4,
@@ -1757,8 +1853,8 @@
       "kBBPct": 12.06611570247934,
       "rollingKBBPct": 21.25,
       "parkFactor": 1.05,
-      "weatherFactor": 1.0027,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00345,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.119,
         "avgRecentReliefIP": 4.3,
@@ -1779,14 +1875,7 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123193",
       "prizePicksKLine": 4.5,
       "prizePicksOutsLine": 17.5,
-      "recentNews": null,
-      "prizePicksLineDelta": -0.5,
-      "openingThreshold": 6,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.35,
-      "marketAsk": 0.38,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 823168,
@@ -1814,7 +1903,7 @@
       "projectedK": 5.4973584493927286,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by pitching in a park that favors attacking the zone; tempered by trending down in recent starts.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 5,
@@ -1996,8 +2085,8 @@
       "kBBPct": 16.17933723196881,
       "rollingKBBPct": 19.047619047619047,
       "parkFactor": 0.86,
-      "weatherFactor": 0.9994,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 0.9988,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.929,
         "avgRecentReliefIP": 3.0,
@@ -2014,12 +2103,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.470995",
       "prizePicksKLine": 5.0,
-      "recentNews": null,
-      "openingThreshold": 6,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.47,
-      "marketAsk": 0.48,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824060,
@@ -2047,7 +2131,7 @@
       "projectedK": 5.362562642379501,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by a long-innings workload expectation; tempered by trending down in recent starts.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 0,
@@ -2099,8 +2183,8 @@
       "kBBPct": 15.613382899628256,
       "rollingKBBPct": 9.090909090909092,
       "parkFactor": 0.96,
-      "weatherFactor": 1.0018,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00195,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.103,
         "avgRecentReliefIP": 4.2,
@@ -2149,7 +2233,7 @@
       "projectedK": 4.993541650619985,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, tempered by trending down in recent starts.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 3,
@@ -2325,8 +2409,8 @@
       "kBBPct": 20.321931589537225,
       "rollingKBBPct": 18.30985915492958,
       "parkFactor": 1.11,
-      "weatherFactor": 1.01305,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.01335,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.925,
         "avgRecentReliefIP": 2.3,
@@ -2347,14 +2431,7 @@
       "outsCallFrozenAt": "2026-09-23T13:30:24.321252",
       "prizePicksKLine": 5.0,
       "prizePicksOutsLine": 17.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.39,
-      "marketAsk": 0.4,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 823086,
@@ -2382,7 +2459,7 @@
       "projectedK": 4.980616661846566,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by a long-innings workload expectation; tempered by trending down in recent starts. His .192 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 2,
@@ -2473,7 +2550,7 @@
       "rollingKBBPct": 12.06896551724138,
       "parkFactor": 0.92,
       "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.9,
@@ -2494,13 +2571,7 @@
       "outsCallFrozenAt": "2026-09-23T14:40:24.000987",
       "prizePicksKLine": 4.0,
       "prizePicksOutsLine": 14.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.38,
-      "marketAsk": 0.4,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824710,
@@ -2537,7 +2608,7 @@
       "projectedK": 4.896521845420169,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by cold weather likely suppressing hard contact; tempered by an opponent that's actually been hitting RHP well lately (their last 30 games specifically vs this handedness).",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 7,
@@ -2745,8 +2816,8 @@
       "kBBPct": 15.279878971255673,
       "rollingKBBPct": 13.333333333333332,
       "parkFactor": 1.15,
-      "weatherFactor": 1.0225,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.02115,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.925,
         "avgRecentReliefIP": 1.7,
@@ -2763,13 +2834,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471242",
       "prizePicksKLine": 4.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.53,
-      "marketAsk": 0.54,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824710,
@@ -2797,7 +2862,7 @@
       "projectedK": 4.822874341329248,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by cold weather likely suppressing hard contact.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 3,
@@ -3025,8 +3090,8 @@
       "kBBPct": 15.295815295815297,
       "rollingKBBPct": 9.523809523809524,
       "parkFactor": 1.15,
-      "weatherFactor": 1.0225,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.02115,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.992,
         "avgRecentReliefIP": 3.4,
@@ -3043,13 +3108,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471317",
       "prizePicksKLine": 4.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.47,
-      "marketAsk": 0.48,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 823086,
@@ -3086,7 +3145,7 @@
       "projectedK": 4.785502103424833,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by an opponent that's been genuinely weak vs RHP lately, not just weak on paper (their last 30 games specifically vs this handedness); tempered by below-average swing-and-miss stuff. His .336 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 5,
@@ -3315,7 +3374,7 @@
       "rollingKBBPct": 8.974358974358978,
       "parkFactor": 0.92,
       "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.96,
         "avgRecentReliefIP": 3.2,
@@ -3332,13 +3391,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471394",
       "prizePicksKLine": 5.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.5,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.55,
-      "marketAsk": 0.56,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 823168,
@@ -3366,7 +3419,7 @@
       "projectedK": 4.664395650843745,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by an opponent that's been genuinely weak vs LHP lately, not just weak on paper (their last 28 games specifically vs this handedness), a long-innings workload expectation, and pitching in a park that favors attacking the zone; tempered by trending down in recent starts and shaky recent command (K-BB% of only 2.9%).",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 4,
@@ -3440,8 +3493,8 @@
       "kBBPct": 6.024096385542167,
       "rollingKBBPct": 2.9411764705882337,
       "parkFactor": 0.86,
-      "weatherFactor": 0.9994,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 0.9988,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.056,
         "avgRecentReliefIP": 3.9,
@@ -3458,13 +3511,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471468",
       "prizePicksKLine": 3.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 4,
-      "priceDelta": -0.0050000000000000044,
-      "marketBid": 0.47,
-      "marketAsk": 0.49,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 823410,
@@ -3501,7 +3548,7 @@
       "projectedK": 4.644382417067753,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, tempered by trending down in recent starts and an opponent that's actually been hitting RHP well lately (their last 30 games specifically vs this handedness).",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 5,
@@ -3743,8 +3790,8 @@
       "kBBPct": 15.546218487394956,
       "rollingKBBPct": 6.578947368421053,
       "parkFactor": 1.08,
-      "weatherFactor": 1.01275,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.01245,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.925,
         "avgRecentReliefIP": 2.9,
@@ -3765,14 +3812,7 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123271",
       "prizePicksKLine": 5.5,
       "prizePicksOutsLine": 15.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.5,
-      "openingThreshold": 6,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.48,
-      "marketAsk": 0.49,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 823894,
@@ -3809,7 +3849,7 @@
       "projectedK": 4.468804039390713,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, tempered by shaky recent command (K-BB% of only 3.2%). His .254 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 1,
@@ -4043,8 +4083,8 @@
       "kBBPct": 8.02919708029197,
       "rollingKBBPct": 3.1746031746031758,
       "parkFactor": 1.04,
-      "weatherFactor": 1.00285,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00195,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.4,
@@ -4061,13 +4101,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T13:20:28.122537",
       "prizePicksKLine": 4.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.34,
-      "marketAsk": 0.36,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 823327,
@@ -4104,7 +4138,7 @@
       "projectedK": 4.156744254745715,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, tempered by trending down in recent starts and shaky recent command (K-BB% of only -1.6%). His .337 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 3,
@@ -4310,8 +4344,8 @@
       "kBBPct": 14.263803680981594,
       "rollingKBBPct": -1.587301587301587,
       "parkFactor": 0.98,
-      "weatherFactor": 1.01665,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.0,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.024,
         "avgRecentReliefIP": 3.7,
@@ -4328,13 +4362,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471617",
       "prizePicksKLine": 5.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": -0.020000000000000018,
-      "marketBid": 0.37,
-      "marketAsk": 0.38,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824785,
@@ -4356,22 +4384,22 @@
       },
       "hand": "R",
       "seasonRecord": "8-5",
-      "era": "4.55",
-      "seasonK9": 7.069767441860464,
-      "recentK9": 7.648403626330311,
-      "oppK": 19.016002723867892,
-      "matchupFactor": 0.9395583992327887,
+      "era": "4.41",
+      "seasonK9": 6.977272727272727,
+      "recentK9": 7.008689839572192,
+      "oppK": 18.994223581379543,
+      "matchupFactor": 0.941471908235549,
       "stuffFactor": 0.8220401450050965,
       "recentMatchupApplied": {
-        "factor": 1.021,
+        "factor": 1.027,
         "gamesFound": 30,
         "vsHand": "R"
       },
-      "expectedIP": 5.5,
+      "expectedIP": 5.666666666666667,
       "projectedK": 4.105806939533201,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by trending up in recent starts; tempered by below-average swing-and-miss stuff. His .332 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 5,
@@ -4386,10 +4414,10 @@
           "battersFaced": 26.0
         },
         {
-          "k": 1,
-          "ip": 2,
+          "k": 2,
+          "ip": 5,
           "bb": 0,
-          "battersFaced": 8.0
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
@@ -4411,7 +4439,8 @@
           4,
           6,
           5,
-          6
+          6,
+          2
         ],
         "70": [
           3,
@@ -4429,7 +4458,8 @@
           4,
           6,
           5,
-          6
+          6,
+          2
         ],
         "80": [
           3,
@@ -4446,7 +4476,8 @@
           4,
           6,
           5,
-          6
+          6,
+          2
         ]
       },
       "qualifyingStartsOutsByThreshold": {
@@ -4467,7 +4498,8 @@
           17,
           17,
           15,
-          20
+          20,
+          15
         ],
         "70": [
           13,
@@ -4485,7 +4517,8 @@
           17,
           17,
           15,
-          20
+          20,
+          15
         ],
         "80": [
           13,
@@ -4502,12 +4535,13 @@
           17,
           17,
           15,
-          20
+          20,
+          15
         ]
       },
-      "babipAgainst": 0.3312302839116719,
-      "workloadStreak": 0,
-      "mostRecentPitchCount": 40.0,
+      "babipAgainst": 0.3323170731707317,
+      "workloadStreak": 8,
+      "mostRecentPitchCount": 82.0,
       "marketThreshold": 5,
       "marketProb": 0.08499999999999999,
       "modelProb": 0.4409795654430851,
@@ -4515,18 +4549,18 @@
       "predictionLine": 4.0,
       "predictionOutsLine": 15.5,
       "graded": true,
-      "actualK": 1,
+      "actualK": 2,
       "hit": false,
       "projectedOuts": 13.8,
       "outsReason": "Projected for 13.8 outs (5.7 innings), supported by a track record of a long leash (97 pitches/game this season); tempered by shaky command (K-BB% of only 8.0%) and a well-rested bullpen right now (1.8 relief innings/game over their last 3), which removes some of the incentive to push him deep.",
-      "npPerGame": 93.38888888888889,
-      "pitchesPerIP": 16.97979797979798,
-      "bbPct": 8.295964125560538,
-      "kBBPct": 8.071748878923767,
-      "rollingKBBPct": 13.793103448275863,
+      "npPerGame": 95.72222222222223,
+      "pitchesPerIP": 16.892156862745097,
+      "bbPct": 8.078602620087336,
+      "kBBPct": 8.078602620087336,
+      "rollingKBBPct": 12.857142857142858,
       "parkFactor": 1.08,
-      "weatherFactor": 1.0054,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00465,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.925,
         "avgRecentReliefIP": 1.8,
@@ -4536,42 +4570,18 @@
       "outsMarketProb": null,
       "outsModelProb": 0.3846759488970708,
       "outsEdge": null,
-      "actualOuts": 6,
+      "actualOuts": 15,
       "outsHit": false,
       "openingProb": 0.41000000000000003,
-      "openingThreshold": 5,
-      "priceDelta": -0.32500000000000007,
-      "marketBid": 0.06,
-      "marketAsk": 0.11,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-23T16:40:21.477480",
-      "recentNews": null,
-      "prizePicksOutsOpeningLine": 15.5,
-      "prizePicksOutsLineDelta": 0.5,
-      "prizePicksOutsLine": 16.0,
-      "outsCall": "UNDER",
-      "outsCallFrozenAt": "2026-09-23T15:41:44.785280",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 10,
-          "total": 17
-        },
-        {
-          "minPitches": "70",
-          "hits": 10,
-          "total": 16
-        },
-        {
-          "minPitches": "80",
-          "hits": 10,
-          "total": 15
-        }
-      ],
       "prizePicksOpeningLine": 4.0,
+      "prizePicksOutsOpeningLine": 15.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T16:40:21.478910",
-      "prizePicksKLine": 4.0
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-09-23T15:41:44.785280",
+      "prizePicksKLine": 4.0,
+      "prizePicksOutsLine": 16.0,
+      "recentNews": null
     },
     {
       "gamePk": 824301,
@@ -4608,7 +4618,7 @@
       "projectedK": 4.074478537071304,
       "confidence": "High",
       "reason": "Below-average strikeout stuff this season, boosted by trending up in recent starts; tempered by below-average swing-and-miss stuff.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 4,
@@ -4830,8 +4840,8 @@
       "kBBPct": 6.149341142020498,
       "rollingKBBPct": 16.417910447761194,
       "parkFactor": 1.47,
-      "weatherFactor": 1.0084,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.0081,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.119,
         "avgRecentReliefIP": 4.3,
@@ -4852,14 +4862,7 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123345",
       "prizePicksKLine": 4.0,
       "prizePicksOutsLine": 15.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.34,
-      "marketAsk": 0.35,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 824301,
@@ -4887,7 +4890,7 @@
       "projectedK": 4.043652812681405,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season. His .339 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 7,
@@ -4967,8 +4970,8 @@
       "kBBPct": 10.891089108910894,
       "rollingKBBPct": 9.523809523809522,
       "parkFactor": 1.47,
-      "weatherFactor": 1.0084,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.0081,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 5.0,
@@ -4989,12 +4992,7 @@
       "outsCallFrozenAt": "2026-09-23T15:50:21.832496",
       "prizePicksKLine": 3.5,
       "prizePicksOutsLine": 13.5,
-      "recentNews": null,
-      "openingThreshold": 4,
-      "priceDelta": 0.0,
-      "marketBid": 0.43,
-      "marketAsk": 0.45,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824868,
@@ -5022,7 +5020,7 @@
       "projectedK": 3.9658102474788506,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by an opponent that's been genuinely weak vs LHP lately, not just weak on paper (their last 29 games specifically vs this handedness); tempered by below-average swing-and-miss stuff.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 5,
@@ -5246,8 +5244,8 @@
       "kBBPct": 7.132667617689016,
       "rollingKBBPct": 9.615384615384617,
       "parkFactor": 1.02,
-      "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 0.9985,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.024,
         "avgRecentReliefIP": 3.7,
@@ -5264,13 +5262,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471694",
       "prizePicksKLine": 4.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.33,
-      "marketAsk": 0.35,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824060,
@@ -5307,7 +5299,7 @@
       "projectedK": 3.8895664344379886,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, tempered by below-average swing-and-miss stuff and an opponent that's actually been hitting RHP well lately (their last 30 games specifically vs this handedness). His .331 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 1,
@@ -5541,8 +5533,8 @@
       "kBBPct": 10.51912568306011,
       "rollingKBBPct": 11.42857142857143,
       "parkFactor": 0.96,
-      "weatherFactor": 1.0018,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00195,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 0.944,
         "avgRecentReliefIP": 3.1,
@@ -5559,13 +5551,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471769",
       "prizePicksKLine": 4.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.009999999999999953,
-      "marketBid": 0.46,
-      "marketAsk": 0.47,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824223,
@@ -5578,22 +5564,22 @@
       "vsBatterTrend": null,
       "hand": "L",
       "seasonRecord": "10-11",
-      "era": "3.95",
-      "seasonK9": 7.19704433497537,
-      "recentK9": 8.352293719211822,
-      "oppK": 21.819380355965723,
-      "matchupFactor": 0.9859694983246915,
+      "era": "4.03",
+      "seasonK9": 7.205882352941177,
+      "recentK9": 8.383669885864794,
+      "oppK": 21.81848076290694,
+      "matchupFactor": 0.985949172805707,
       "stuffFactor": 0.8174044286642934,
       "recentMatchupApplied": {
         "factor": 0.98,
         "gamesFound": 29,
         "vsHand": "L"
       },
-      "expectedIP": 5.580645161290323,
+      "expectedIP": 5.612903225806452,
       "projectedK": 3.7618852627587525,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, tempered by below-average swing-and-miss stuff.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 2,
@@ -5608,10 +5594,10 @@
           "battersFaced": 23.0
         },
         {
-          "k": 5,
-          "ip": 4.333333333333333,
-          "bb": 1,
-          "battersFaced": 15.0
+          "k": 6,
+          "ip": 5.333333333333333,
+          "bb": 3,
+          "battersFaced": 22.0
         }
       ],
       "veloTrend": null,
@@ -5645,7 +5631,8 @@
           5,
           3,
           2,
-          8
+          8,
+          6
         ],
         "70": [
           5,
@@ -5675,7 +5662,8 @@
           5,
           3,
           2,
-          8
+          8,
+          6
         ],
         "80": [
           5,
@@ -5704,7 +5692,8 @@
           5,
           3,
           2,
-          8
+          8,
+          6
         ]
       },
       "qualifyingStartsOutsByThreshold": {
@@ -5737,7 +5726,8 @@
           18,
           21,
           18,
-          15
+          15,
+          16
         ],
         "70": [
           18,
@@ -5767,7 +5757,8 @@
           18,
           21,
           18,
-          15
+          15,
+          16
         ],
         "80": [
           18,
@@ -5796,12 +5787,13 @@
           18,
           21,
           18,
-          15
+          15,
+          16
         ]
       },
-      "babipAgainst": 0.2903846153846154,
-      "workloadStreak": 0,
-      "mostRecentPitchCount": 59.0,
+      "babipAgainst": 0.29389312977099236,
+      "workloadStreak": 11,
+      "mostRecentPitchCount": 87.0,
       "marketThreshold": 6,
       "marketProb": 0.995,
       "modelProb": 0.3235269384252055,
@@ -5813,14 +5805,14 @@
       "hit": null,
       "projectedOuts": 17.7,
       "outsReason": "Projected for 17.7 outs (5.6 innings), supported by a bullpen that's been leaned on hard lately (4.4 relief innings/game over their last 3), giving the manager real reason to stretch him out.",
-      "npPerGame": 88.38709677419355,
-      "pitchesPerIP": 15.83815028901734,
-      "bbPct": 8.655126498002662,
-      "kBBPct": 9.18774966711052,
-      "rollingKBBPct": 12.698412698412696,
+      "npPerGame": 89.29032258064517,
+      "pitchesPerIP": 15.908045977011493,
+      "bbPct": 8.839050131926122,
+      "kBBPct": 8.970976253298154,
+      "rollingKBBPct": 10.000000000000002,
       "parkFactor": 0.95,
-      "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.0015,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.4,
@@ -5841,13 +5833,7 @@
       "outsCallFrozenAt": "2026-09-23T15:00:29.626951",
       "prizePicksKLine": 5.0,
       "prizePicksOutsLine": 17.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.5800000000000001,
-      "marketBid": 0.99,
-      "marketAsk": 1.0,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824951,
@@ -5884,7 +5870,7 @@
       "projectedK": 3.7137620736792085,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, boosted by facing a strikeout-prone lineup and an opponent that's been genuinely weak vs LHP lately, not just weak on paper (their last 30 games specifically vs this handedness); tempered by below-average swing-and-miss stuff.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 6,
@@ -6090,8 +6076,8 @@
       "kBBPct": 8.66013071895425,
       "rollingKBBPct": 7.8125,
       "parkFactor": 1.05,
-      "weatherFactor": 1.0027,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00345,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.8,
@@ -6108,13 +6094,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-23T11:21:20.471916",
       "prizePicksKLine": 5.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.0,
-      "marketBid": 0.36,
-      "marketAsk": 0.38,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 822841,
@@ -6142,7 +6122,7 @@
       "projectedK": 3.511220927081116,
       "confidence": "High",
       "reason": "Below-average strikeout stuff this season, tempered by trending down in recent starts. His .331 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 3,
@@ -6239,7 +6219,7 @@
       "rollingKBBPct": 5.454545454545454,
       "parkFactor": 1.12,
       "weatherFactor": 1.0,
-      "outsCalibrationApplied": -0.6073,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 5.4,
@@ -6260,14 +6240,7 @@
       "outsCallFrozenAt": "2026-09-23T15:41:44.785406",
       "prizePicksKLine": 3.0,
       "prizePicksOutsLine": 12.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 4,
-      "priceDelta": 0.0,
-      "marketBid": 0.35,
-      "marketAsk": 0.36,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "recentNews": null
     },
     {
       "gamePk": 824625,
@@ -6295,7 +6268,7 @@
       "projectedK": 3.4908600669876177,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, tempered by below-average swing-and-miss stuff and an opponent that's actually been hitting RHP well lately (their last 30 games specifically vs this handedness).",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 5,
@@ -6409,8 +6382,8 @@
       "kBBPct": 11.653116531165313,
       "rollingKBBPct": 8.450704225352112,
       "parkFactor": 1.09,
-      "weatherFactor": 1.00825,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00735,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.6,
@@ -6431,13 +6404,7 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123419",
       "prizePicksKLine": 4.0,
       "prizePicksOutsLine": 15.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.33,
-      "marketAsk": 0.35,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824785,
@@ -6459,22 +6426,22 @@
       },
       "hand": "R",
       "seasonRecord": "3-8",
-      "era": "6.11",
-      "seasonK9": 7.408360128617362,
-      "recentK9": 7.379421221864952,
-      "oppK": 24.886267902274643,
-      "matchupFactor": 1.057960698374608,
+      "era": "6.19",
+      "seasonK9": 7.345794392523365,
+      "recentK9": 7.036463919105255,
+      "oppK": 24.865501008742434,
+      "matchupFactor": 1.0587287863000059,
       "stuffFactor": 0.8074961300216863,
       "recentMatchupApplied": {
-        "factor": 0.989,
+        "factor": 0.992,
         "gamesFound": 30,
         "vsHand": "R"
       },
-      "expectedIP": 4.333333333333334,
+      "expectedIP": 4.529411764705882,
       "projectedK": 2.878174702341387,
       "confidence": "High",
       "reason": "Average strikeout stuff this season, tempered by trending down in recent starts, below-average swing-and-miss stuff, and shaky recent command (K-BB% of only 4.5%). His .254 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1313,
+      "calibrationApplied": -0.1309,
       "recentStartsLog": [
         {
           "k": 3,
@@ -6489,10 +6456,10 @@
           "battersFaced": 20.0
         },
         {
-          "k": 3,
-          "ip": 1,
-          "bb": 2,
-          "battersFaced": 7.0
+          "k": 5,
+          "ip": 4.333333333333333,
+          "bb": 3,
+          "battersFaced": 20.0
         }
       ],
       "veloTrend": null,
@@ -6512,7 +6479,8 @@
           10,
           2,
           3,
-          3
+          3,
+          5
         ],
         "70": [
           4,
@@ -6528,7 +6496,8 @@
           10,
           2,
           3,
-          3
+          3,
+          5
         ],
         "80": [
           4,
@@ -6558,7 +6527,8 @@
           21,
           17,
           15,
-          15
+          15,
+          13
         ],
         "70": [
           18,
@@ -6574,7 +6544,8 @@
           21,
           17,
           15,
-          15
+          15,
+          13
         ],
         "80": [
           18,
@@ -6588,9 +6559,9 @@
           15
         ]
       },
-      "babipAgainst": 0.26046511627906976,
-      "workloadStreak": 0,
-      "mostRecentPitchCount": 32.0,
+      "babipAgainst": 0.2544642857142857,
+      "workloadStreak": 15,
+      "mostRecentPitchCount": 77.0,
       "marketThreshold": 5,
       "marketProb": 0.995,
       "modelProb": 0.3157518883404431,
@@ -6598,18 +6569,18 @@
       "predictionLine": 4.5,
       "predictionOutsLine": 14.5,
       "graded": true,
-      "actualK": 3,
-      "hit": false,
+      "actualK": 7,
+      "hit": true,
       "projectedOuts": 14.0,
       "outsReason": "Projected for 14.0 outs (4.5 innings), supported by a bullpen that's been leaned on hard lately (4.0 relief innings/game over their last 3), giving the manager real reason to stretch him out; tempered by a shorter historical leash (78 pitches/game this season), shaky command (K-BB% of only 7.3%), and a walk rate that tends to spike pitch counts (9.8% BB).",
-      "npPerGame": 75.6470588235294,
-      "pitchesPerIP": 17.457013574660632,
-      "bbPct": 10.248447204968944,
-      "kBBPct": 7.453416149068325,
-      "rollingKBBPct": 6.0,
+      "npPerGame": 78.29411764705883,
+      "pitchesPerIP": 17.285714285714285,
+      "bbPct": 10.149253731343283,
+      "kBBPct": 7.46268656716418,
+      "rollingKBBPct": 6.349206349206348,
       "parkFactor": 1.08,
-      "weatherFactor": 1.0054,
-      "outsCalibrationApplied": -0.6073,
+      "weatherFactor": 1.00465,
+      "outsCalibrationApplied": -0.6068,
       "bullpenFatigue": {
         "factor": 1.071,
         "avgRecentReliefIP": 4.0,
@@ -6619,8 +6590,8 @@
       "outsMarketProb": null,
       "outsModelProb": 0.4569279501060632,
       "outsEdge": null,
-      "actualOuts": 6,
-      "outsHit": false,
+      "actualOuts": 15,
+      "outsHit": true,
       "openingProb": 0.515,
       "prizePicksOpeningLine": 4.5,
       "prizePicksOutsOpeningLine": 14.5,
@@ -6630,18 +6601,14 @@
       "outsCallFrozenAt": "2026-09-23T13:20:28.123488",
       "prizePicksKLine": 4.5,
       "prizePicksOutsLine": 14.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.48,
-      "marketBid": 0.99,
-      "marketAsk": 1.0,
-      "edgeEligible": false
+      "recentNews": null
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-23T11:16:14.049909",
-  "oddsRefreshedAt": "2026-09-23T18:50:24.062620",
+  "oddsRefreshedAt": "2026-09-23T19:14:04.513436",
+  "_kalshiMatched": 27,
+  "_kalshiTotal": 30,
   "lockedBest5": {
     "kEdge": [
       {
