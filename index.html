@@ -2202,95 +2202,96 @@ async function loadHistory(){
           <tbody>${dd.hr.entries.slice(0,40).map(e=>`<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${pct(e.heuristicProb)}</td><td>${e.marketProb!==null&&e.marketProb!==undefined?pct(e.marketProb):'—'}</td><td class="${e.edge>0?'edge-pos':e.edge<0?'edge-neg':'edge-flat'}">${e.edge===null||e.edge===undefined?'—':(e.edge*100).toFixed(1)+'%'}</td><td>${e.graded?(e.hr?'✅ HR':'—'):'pending'}</td></tr>`).join('')}</tbody></table>`;
 
         const hitsLineForDisplayAll = e=>e.predictionHitsLine ?? e.prizePicksHitsLine;
-        const hitsGwl = graded.filter(e=>e.hitsCall && hitsLineForDisplayAll(e)!=null);
+        // Only players who actually got a real prediction (a call + a
+        // line to grade it against) -- confirmed with the user on
+        // 2026-09-23 that showing every rostered batter here, most with
+        // no prediction at all, was actively misleading: a "454
+        // tracked" header sitting above a table where almost none of
+        // the visible rows had a real call made it look like the site
+        // was tracking far more (or performing far worse) than it
+        // actually was. Pending (not yet graded) real predictions still
+        // show -- only players with NO call ever made are excluded.
+        const hitsPredicted = dd.hr.entries.filter(e=>e.hitsCall && hitsLineForDisplayAll(e)!=null);
+        const hitsGwl = hitsPredicted.filter(e=>e.graded);
         const hitsHits = hitsGwl.filter(e=>{
           if(e.hitsHit==null) return false;
           return (e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER');
         }).length;
-        hitsSection = `<div class="day-sub-head">Hits — ${dd.hr.entries.length} tracked, ${hitsGwl.length?`${hitsHits}/${hitsGwl.length} predictions correct (${(hitsHits/hitsGwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+        hitsSection = `<div class="day-sub-head">Hits — ${hitsPredicted.length} with a prediction, ${hitsGwl.length?`${hitsHits}/${hitsGwl.length} predictions correct (${(hitsHits/hitsGwl.length*100).toFixed(1)}%)`:'none graded yet'}</div>
           <table class="board"><thead><tr><th>Batter</th><th>Proj Hits</th><th>Line</th><th>Prediction</th><th>Actual Hits</th><th>Result</th></tr></thead>
-          <tbody>${dd.hr.entries.slice(0,40).map(e=>{
+          <tbody>${hitsPredicted.slice(0,100).map(e=>{
             const hitsLineForDisplay = e.predictionHitsLine ?? e.prizePicksHitsLine;
-            const hitsHasLine = hitsLineForDisplay!=null;
-            const hitsHasPrediction = hitsHasLine && !!e.hitsCall;
-            const hitsPrediction = e.hitsCall ? `<span class="pp-call pp-call-${e.hitsCall.toLowerCase()}">${e.hitsCall}</span>` : '—';
             const hitsActualDirection = e.hitsHit ? 'Over' : 'Under';
             const hitsPredictionCorrect = (e.hitsHit && e.hitsCall==='OVER') || (!e.hitsHit && e.hitsCall==='UNDER');
             const hitsResult = !e.graded ? 'pending'
-              : hitsHasPrediction && e.hitsHit!=null ? (hitsPredictionCorrect ? `✅ ${hitsActualDirection}` : `❌ ${hitsActualDirection}`)
-              : '<span class="status">no prediction to grade</span>';
-            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedHits!=null?e.projectedHits.toFixed(1):'—'}</td><td>${hitsHasLine?hitsLineForDisplay:'—'}</td><td>${hitsPrediction}</td><td>${e.graded&&e.actualHits!=null?e.actualHits:'—'}</td><td>${hitsResult}</td></tr>`;
+              : e.hitsHit!=null ? (hitsPredictionCorrect ? `✅ ${hitsActualDirection}` : `❌ ${hitsActualDirection}`)
+              : '<span class="status">no result yet</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedHits!=null?e.projectedHits.toFixed(1):'—'}</td><td>${hitsLineForDisplay}</td><td><span class="pp-call pp-call-${e.hitsCall.toLowerCase()}">${e.hitsCall}</span></td><td>${e.graded&&e.actualHits!=null?e.actualHits:'—'}</td><td>${hitsResult}</td></tr>`;
           }).join('')}</tbody></table>`;
 
         const tbLineForDisplayAll = e=>e.predictionTBLine ?? e.prizePicksTBLine;
-        const tbGwl = graded.filter(e=>e.tbCall && tbLineForDisplayAll(e)!=null);
+        const tbPredicted = dd.hr.entries.filter(e=>e.tbCall && tbLineForDisplayAll(e)!=null);
+        const tbGwl = tbPredicted.filter(e=>e.graded);
         const tbHits = tbGwl.filter(e=>{
           if(e.tbHit==null) return false;
           return (e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER');
         }).length;
-        tbSection = `<div class="day-sub-head">Total Bases — ${dd.hr.entries.length} tracked, ${tbGwl.length?`${tbHits}/${tbGwl.length} predictions correct (${(tbHits/tbGwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+        tbSection = `<div class="day-sub-head">Total Bases — ${tbPredicted.length} with a prediction, ${tbGwl.length?`${tbHits}/${tbGwl.length} predictions correct (${(tbHits/tbGwl.length*100).toFixed(1)}%)`:'none graded yet'}</div>
           <table class="board"><thead><tr><th>Batter</th><th>Proj TB</th><th>Line</th><th>Prediction</th><th>Actual TB</th><th>Result</th></tr></thead>
-          <tbody>${dd.hr.entries.slice(0,40).map(e=>{
+          <tbody>${tbPredicted.slice(0,100).map(e=>{
             const tbLineForDisplay = e.predictionTBLine ?? e.prizePicksTBLine;
-            const tbHasLine = tbLineForDisplay!=null;
-            const tbHasPrediction = tbHasLine && !!e.tbCall;
-            const tbPrediction = e.tbCall ? `<span class="pp-call pp-call-${e.tbCall.toLowerCase()}">${e.tbCall}</span>` : '—';
             const tbActualDirection = e.tbHit ? 'Over' : 'Under';
             const tbPredictionCorrect = (e.tbHit && e.tbCall==='OVER') || (!e.tbHit && e.tbCall==='UNDER');
             const tbResult = !e.graded ? 'pending'
-              : tbHasPrediction && e.tbHit!=null ? (tbPredictionCorrect ? `✅ ${tbActualDirection}` : `❌ ${tbActualDirection}`)
-              : '<span class="status">no prediction to grade</span>';
-            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedTotalBases!=null?e.projectedTotalBases.toFixed(1):'—'}</td><td>${tbHasLine?tbLineForDisplay:'—'}</td><td>${tbPrediction}</td><td>${e.graded&&e.actualTotalBases!=null?e.actualTotalBases:'—'}</td><td>${tbResult}</td></tr>`;
+              : e.tbHit!=null ? (tbPredictionCorrect ? `✅ ${tbActualDirection}` : `❌ ${tbActualDirection}`)
+              : '<span class="status">no result yet</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedTotalBases!=null?e.projectedTotalBases.toFixed(1):'—'}</td><td>${tbLineForDisplay}</td><td><span class="pp-call pp-call-${e.tbCall.toLowerCase()}">${e.tbCall}</span></td><td>${e.graded&&e.actualTotalBases!=null?e.actualTotalBases:'—'}</td><td>${tbResult}</td></tr>`;
           }).join('')}</tbody></table>`;
       }
       if(dd.ko){
-        const graded = dd.ko.entries.filter(e=>e.graded);
-        // A line existing isn't the same as a prediction existing --
-        // predictionLine/prizePicksKLine can be present even when
-        // prizePicksCall was never actually computed for this entry.
-        // Both the accuracy count and the Result column must require a
-        // real call, or a never-predicted entry gets falsely marked wrong.
-        const gwl = graded.filter(e=>e.prizePicksCall && (e.predictionLine??e.prizePicksKLine)!=null);
+        // Same fix as Hits/TB above, same day -- only pitchers who
+        // actually got a real prediction, not every rostered starter.
+        const koPredicted = dd.ko.entries.filter(e=>e.prizePicksCall && (e.predictionLine??e.prizePicksKLine)!=null);
+        const gwl = koPredicted.filter(e=>e.graded);
         const hits = gwl.filter(e=>{
           if(e.hit==null) return false;
           return (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER');
         }).length;
-        koSection = `<div class="day-sub-head">Strikeouts — ${dd.ko.entries.length} tracked, ${gwl.length?`${hits}/${gwl.length} predictions correct (${(hits/gwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+        koSection = `<div class="day-sub-head">Strikeouts — ${koPredicted.length} with a prediction, ${gwl.length?`${hits}/${gwl.length} predictions correct (${(hits/gwl.length*100).toFixed(1)}%)`:'none graded yet'}</div>
           <table class="board"><thead><tr><th>Pitcher</th><th>Proj K</th><th>Line</th><th>Edge</th><th>Prediction</th><th>Actual K</th><th>Result</th></tr></thead>
-          <tbody>${dd.ko.entries.slice(0,40).map(e=>{
+          <tbody>${koPredicted.slice(0,100).map(e=>{
             const edgeClass = e.edge===null||e.edge===undefined ? 'edge-flat' : e.edge>0.03 ? 'edge-pos' : e.edge<-0.03 ? 'edge-neg' : 'edge-flat';
             const edgeTxt = e.edge===null||e.edge===undefined ? '—' : (e.edge>0?'+':'')+(e.edge*100).toFixed(1)+'%';
             const lineForDisplay = e.predictionLine ?? e.prizePicksKLine;
-            const hasLine = lineForDisplay!=null;
-            const hasPrediction = hasLine && !!e.prizePicksCall;
-            const prediction = e.prizePicksCall ? `<span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span>` : '—';
             const actualDirection = e.hit ? 'Over' : 'Under';
             const predictionCorrect = (e.hit && e.prizePicksCall==='OVER') || (!e.hit && e.prizePicksCall==='UNDER');
             const result = !e.graded ? 'pending'
-              : hasPrediction && e.hit!=null ? (predictionCorrect ? `✅ ${actualDirection}` : `❌ ${actualDirection}`)
-              : '<span class="status">no prediction to grade</span>';
-            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${hasLine?lineForDisplay:'—'}</td><td class="${edgeClass}">${edgeTxt}</td><td>${prediction}</td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
+              : e.hit!=null ? (predictionCorrect ? `✅ ${actualDirection}` : `❌ ${actualDirection}`)
+              : '<span class="status">no result yet</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedK.toFixed(1)}</td><td>${lineForDisplay}</td><td class="${edgeClass}">${edgeTxt}</td><td><span class="pp-call pp-call-${e.prizePicksCall.toLowerCase()}">${e.prizePicksCall}</span></td><td>${e.graded&&e.actualK!==null?e.actualK:'—'}</td><td>${result}</td></tr>`;
           }).join('')}</tbody></table>`;
 
         const outsLineForDisplayAll = e=>e.predictionOutsLine ?? e.prizePicksOutsLine;
-        const outsGwl = graded.filter(e=>e.outsCall && outsLineForDisplayAll(e)!=null);
+        // Same fix as Strikeouts/Hits/TB above -- only pitchers with a
+        // real prediction, and this no longer depends on a separate
+        // "graded" variable (that belonged to the sibling HR block,
+        // caught and fixed in the same pass as this whole filter).
+        const outsPredicted = dd.ko.entries.filter(e=>e.outsCall && outsLineForDisplayAll(e)!=null);
+        const outsGwl = outsPredicted.filter(e=>e.graded);
         const outsHits = outsGwl.filter(e=>{
           if(e.outsHit==null) return false;
           return (e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER');
         }).length;
-        outsSection = `<div class="day-sub-head">Pitching Outs — ${dd.ko.entries.length} tracked, ${outsGwl.length?`${outsHits}/${outsGwl.length} predictions correct (${(outsHits/outsGwl.length*100).toFixed(1)}%)`:'ungraded'}</div>
+        outsSection = `<div class="day-sub-head">Pitching Outs — ${outsPredicted.length} with a prediction, ${outsGwl.length?`${outsHits}/${outsGwl.length} predictions correct (${(outsHits/outsGwl.length*100).toFixed(1)}%)`:'none graded yet'}</div>
           <table class="board"><thead><tr><th>Pitcher</th><th>Proj Outs</th><th>Line</th><th>Prediction</th><th>Actual Outs</th><th>Result</th></tr></thead>
-          <tbody>${dd.ko.entries.slice(0,40).map(e=>{
+          <tbody>${outsPredicted.slice(0,100).map(e=>{
             const outsLineForDisplay = e.predictionOutsLine ?? e.prizePicksOutsLine;
-            const outsHasLine = outsLineForDisplay!=null;
-            const outsHasPrediction = outsHasLine && !!e.outsCall;
-            const outsPrediction = e.outsCall ? `<span class="pp-call pp-call-${e.outsCall.toLowerCase()}">${e.outsCall}</span>` : '—';
             const outsActualDirection = e.outsHit ? 'Over' : 'Under';
             const outsPredictionCorrect = (e.outsHit && e.outsCall==='OVER') || (!e.outsHit && e.outsCall==='UNDER');
             const outsResult = !e.graded ? 'pending'
-              : outsHasPrediction && e.outsHit!=null ? (outsPredictionCorrect ? `✅ ${outsActualDirection}` : `❌ ${outsActualDirection}`)
-              : '<span class="status">no prediction to grade</span>';
-            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedOuts!=null?e.projectedOuts.toFixed(1):'—'}</td><td>${outsHasLine?outsLineForDisplay:'—'}</td><td>${outsPrediction}</td><td>${e.graded&&e.actualOuts!=null?e.actualOuts:'—'}</td><td>${outsResult}</td></tr>`;
+              : e.outsHit!=null ? (outsPredictionCorrect ? `✅ ${outsActualDirection}` : `❌ ${outsActualDirection}`)
+              : '<span class="status">no result yet</span>';
+            return `<tr><td>${e.name} <span class="pteam">${e.team}</span></td><td>${e.projectedOuts!=null?e.projectedOuts.toFixed(1):'—'}</td><td>${outsLineForDisplay}</td><td><span class="pp-call pp-call-${e.outsCall.toLowerCase()}">${e.outsCall}</span></td><td>${e.graded&&e.actualOuts!=null?e.actualOuts:'—'}</td><td>${outsResult}</td></tr>`;
           }).join('')}</tbody></table>`;
       }
       html += `<div class="day-card"><div class="day-head" onclick="this.nextElementSibling.classList.toggle('open')"><span>${day}</span><span class="day-stats">${dd.hr?`${dd.hr.entries.length} HR`:''}${dd.hr&&dd.ko?' · ':''}${dd.ko?`${dd.ko.entries.length} K`:''}</span></div><div class="day-body">${hrSection}${hitsSection}${tbSection}${koSection}${outsSection}</div></div>`;
