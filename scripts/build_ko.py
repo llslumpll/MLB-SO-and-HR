@@ -13,7 +13,7 @@ from common import (
     API, LEAGUE_AVG_K9, LEAGUE_AVG_K_PCT, PARKS,
     clip, to_num, get, parse_ip,
     fetch_savant_percentiles, fetch_weather, today_iso,
-    fetch_vs_team, pitcher_vs_team_trend,
+    fetch_vs_team, pitcher_vs_team_trend, pitcher_first_meeting_this_season,
     fetch_vs_pitcher_full, pitcher_vs_batter_trend,
     fetch_prior_season_ip, fetch_team_games_back,
 )
@@ -891,12 +891,17 @@ def build(date, year):
         # See batter_vs_team_trend's docstring in common.py for the
         # notability thresholds -- same "any real trend, not every card"
         # scoping, mirrored here for the pitching side.
-        p["vsTeamTrend"] = pitcher_vs_team_trend(fetch_vs_team(p["id"], p["oppTeamId"], "pitching"))
+        vs_team_splits = fetch_vs_team(p["id"], p["oppTeamId"], "pitching")
+        p["vsTeamTrend"] = pitcher_vs_team_trend(vs_team_splits)
+        # Reuses the same fetch above -- no new API call. See
+        # pitcher_first_meeting_this_season's docstring in common.py.
+        p["firstMeetingThisSeason"] = pitcher_first_meeting_this_season(vs_team_splits)
         p["vsBatterTrend"] = find_notable_vs_batter_trend(p["id"], p["oppTeamId"])
         entries.append({
             "gamePk": p["gamePk"], "playerId": p["id"], "name": p["name"],
             "team": p["team"], "opp": p["opp"], "oppTeamId": p["oppTeamId"],
             "vsTeamTrend": p.get("vsTeamTrend"), "vsBatterTrend": p.get("vsBatterTrend"),
+            "firstMeetingThisSeason": p.get("firstMeetingThisSeason"),
             "hand": p["hand"], "seasonRecord": p["seasonRecord"], "era": p["era"],
             "seasonK9": p["seasonK9"], "recentK9": p["recentK9"], "oppK": p["oppK"],
             "matchupFactor": p["matchupFactor"], "stuffFactor": p["stuffFactor"],
