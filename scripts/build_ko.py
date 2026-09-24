@@ -763,8 +763,20 @@ def reason_text(p):
             positives.append(f"locked-in command over their last starts (K-BB% of {p['rollingKBBPct']:.1f}%)")
         elif p["rollingKBBPct"] < 5.0:
             negatives.append(f"shaky recent command (K-BB% of only {p['rollingKBBPct']:.1f}%)")
+    # Real gap fixed 2026-09-24: this only ever had the low-parkFactor
+    # branch below -- a pitcher-friendly park got mentioned in the
+    # reason text, but the symmetric case (a hitter-friendly park,
+    # tempering the K outlook) never did, even though the weather block
+    # right below already covers both its directions. Confirmed live:
+    # multiple real entries with parkFactor 1.11-1.15 (clearly hitter-
+    # friendly by this same threshold's own distance from 1.0) had zero
+    # park mention at all. Same 0.92-from-1.0 magnitude, mirrored to the
+    # high side, same reasoning the low branch already established --
+    # not a new assumption, just completing the existing one.
     if p.get("parkFactor") is not None and p["parkFactor"] < 0.92:
         positives.append("pitching in a park that favors attacking the zone")
+    elif p.get("parkFactor") is not None and p["parkFactor"] > 1.08:
+        negatives.append("pitching in a park that favors the hitter")
     if p.get("weatherFactor") is not None:
         if p["weatherFactor"] > 1.02:
             positives.append("cold weather likely suppressing hard contact")
