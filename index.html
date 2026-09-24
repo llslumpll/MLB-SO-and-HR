@@ -219,6 +219,7 @@
     <div>
       <h1>MLB EDGE <span id="glitchLogo">BOARD</span></h1>
       <div class="sub" id="genLabel">—</div>
+      <div class="sub" id="seasonCountdown" style="color:var(--amber);"></div>
       <div class="sys-tag">SYS.MLB-EDGE // AUTO-BUILD // NO HUMAN IN THE LOOP</div>
     </div>
     <nav class="tabs2">
@@ -370,6 +371,15 @@ async function init(){
     return;
   }
   document.getElementById('genLabel').textContent = `data last updated ${INDEX.updatedAt||'—'}`;
+
+  // Pure date math, no new data needed -- 2026 regular season ends
+  // 2026-09-27, mentioned repeatedly throughout this whole build.
+  const seasonEnd = new Date('2026-09-27T23:59:59Z');
+  const daysLeft = Math.max(0, Math.ceil((seasonEnd - new Date()) / 86400000));
+  const countdownEl = document.getElementById('seasonCountdown');
+  if(countdownEl){
+    countdownEl.textContent = daysLeft > 0 ? `${daysLeft} day${daysLeft===1?'':'s'} left in the regular season` : 'regular season has ended';
+  }
 
   const allDates = [...new Set([...(INDEX.hrDates||[]), ...(INDEX.koDates||[])])].sort().reverse();
   const sel = document.getElementById('dateSelect');
@@ -634,11 +644,65 @@ function vsBatterTrendChip(e){
 // e.recentNews is only ever set when a real headline actually matched
 // this player's name (see match_news_to_players in common.py) -- most
 // cards will have none, on purpose.
+// Keywords that mean "this changes whether today's prediction is even
+// still valid" -- a scratch or injury update is a completely different
+// level of urgency than a generic mention, and deserves to visually
+// stand out from the rest, not look the same as any other headline.
+const NEWS_URGENT_KEYWORDS = ["scratch", "injur", "il (", "10-day", "15-day", "60-day",
+  "day-to-day", "dfa", "designated for assignment", "bereavement", "out for the season",
+  "placed on", "activated", "recalled", "optioned", "mri", "surgery"];
+
+function newsIsUrgent(title){
+  const t = title.toLowerCase();
+  return NEWS_URGENT_KEYWORDS.some(k=>t.includes(k));
+}
+
+// pubDate comes straight from the RSS feed (e.g. "Sun, 20 Sep 2026
+// 17:50:33 GMT") -- real, parseable Date string, just never displayed
+// before. How old a headline is matters a lot for judging relevance.
+function newsAge(pubDate){
+  if(!pubDate) return '';
+  const then = new Date(pubDate);
+  if(isNaN(then.getTime())) return '';
+  const hours = (Date.now() - then.getTime()) / 3600000;
+  if(hours < 1) return 'just now';
+  if(hours < 24) return `${Math.round(hours)}h ago`;
+  return `${Math.round(hours/24)}d ago`;
+}
+
+// priceDelta and openingProb were already being computed and saved on
+// every entry (fetch_kalshi.py), just never surfaced anywhere on the
+// site. A real, meaningful move since the market opened is a genuine
+// signal (sharp money moving the price) -- separate from edge (which
+// compares the model to the CURRENT price), this is about how much the
+// market itself has moved. Requires openingProb to actually exist --
+// see the real 2026-09-24 fix in fetch_kalshi.py for why a thin/no-bid
+// first sighting no longer locks in a false opening price; this chip
+// inherits that same protection for free since it just reads the
+// already-guarded field.
+function marketMoveChip(e){
+  const delta = e.priceDelta;
+  if(delta==null || e.openingProb==null || Math.abs(delta) < 0.05) return '';
+  const cls = delta > 0 ? 'stat-good' : 'stat-bad';
+  const dir = delta > 0 ? 'risen' : 'fallen';
+  const arrow = delta > 0 ? '▲' : '▼';
+  return `<div class="bx-line"><span class="bx-chip">${arrow} Market has ${dir} <b class="${cls}">${Math.abs(delta*100).toFixed(1)}pp</b> since it opened (${(e.openingProb*100).toFixed(1)}% &rarr; ${(e.marketProb*100).toFixed(1)}%)</span></div>`;
+}
+
 function newsChip(e){
   const news = e.recentNews;
   if(!news || !news.length) return '';
-  const items = news.map(n=>`<div><a href="${n.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">${n.title}</a> <span style="color:var(--slate);">(${n.source})</span></div>`).join('');
-  return `<div class="bx-line" style="border-color:var(--red);"><span class="bx-chip" style="border-color:var(--red);display:block;">📰 Recent news mentions ${e.name}:${items}</span></div>`;
+  const anyUrgent = news.some(n=>newsIsUrgent(n.title));
+  const items = news.map(n=>{
+    const urgent = newsIsUrgent(n.title);
+    const age = newsAge(n.pubDate);
+    const ageHtml = age?` <span style="color:var(--slate);">· ${age}</span>`:'';
+    return `<div>${urgent?'⚠️ ':''}<a href="${n.link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;font-weight:${urgent?'700':'400'};">${n.title}</a> <span style="color:var(--slate);">(${n.source})</span>${ageHtml}</div>`;
+  }).join('');
+  const borderColor = anyUrgent ? 'var(--red)' : 'var(--amber)';
+  const icon = anyUrgent ? '🚨' : '📰';
+  const label = anyUrgent ? 'Urgent news mentions' : 'Recent news mentions';
+  return `<div class="bx-line" style="border-color:${borderColor};"><span class="bx-chip" style="border-color:${borderColor};display:block;">${icon} ${label} ${e.name}:${items}</span></div>`;
 }
 
 function hrCard(e, rank){
@@ -663,6 +727,7 @@ function hrCard(e, rank){
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
       ${newsChip(e)}
+      ${marketMoveChip(e)}
       <div class="card-details">${renderFactorsOnly(e)}</div>
     </div>
   `;
@@ -688,6 +753,7 @@ function hitsCard(e, rank){
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
       ${newsChip(e)}
+      ${marketMoveChip(e)}
     </div>
   `;
 }
@@ -712,6 +778,7 @@ function tbCard(e, rank){
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
       ${newsChip(e)}
+      ${marketMoveChip(e)}
     </div>
   `;
 }
@@ -1051,7 +1118,7 @@ function renderHR(){
         <td>${e.graded?(e.hr?'✅ HR':'—'):'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${opsTrendChips(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${opsTrendChips(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_all').innerHTML = `
@@ -1089,7 +1156,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_hitsall').innerHTML = `
@@ -1124,7 +1191,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_tball').innerHTML = `
@@ -1159,6 +1226,7 @@ function koCard(e, rank){
       ${vsTeamTrendChip(e)}
       ${vsBatterTrendChip(e)}
       ${newsChip(e)}
+      ${marketMoveChip(e)}
     </div>
   `;
 }
@@ -1182,6 +1250,7 @@ function outsCard(e, rank){
       ${vsTeamTrendChip(e)}
       ${vsBatterTrendChip(e)}
       ${newsChip(e)}
+      ${marketMoveChip(e)}
     </div>
   `;
 }
@@ -1268,6 +1337,7 @@ function renderKO(){
         ${vsTeamTrendChip(e)}
         ${vsBatterTrendChip(e)}
         ${newsChip(e)}
+        ${marketMoveChip(e)}
         ${e.conditionalHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionLine} strikeouts, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
@@ -1321,6 +1391,7 @@ function renderKO(){
         ${vsTeamTrendChip(e)}
         ${vsBatterTrendChip(e)}
         ${newsChip(e)}
+        ${marketMoveChip(e)}
         ${e.conditionalOutsHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionOutsLine} outs, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalOutsHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
