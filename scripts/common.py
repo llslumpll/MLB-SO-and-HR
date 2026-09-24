@@ -859,3 +859,41 @@ def pitcher_first_meeting_this_season(splits):
     if not splits:
         return False
     return splits.get("season") is None
+
+
+# Team nicknames as they'd actually appear in a real headline (e.g. "Brewers
+# place Hall on IL"), not the site's own 2-3 letter abbreviations -- a
+# headline never says "MIL", so matching on abbreviation alone would never
+# find real team-level news like this. Same real, public factual info as
+# the TEAM_COLORS map already used for badges.
+TEAM_NICKNAMES = {
+    "ATH": "Athletics", "ATL": "Braves", "AZ": "Diamondbacks", "BAL": "Orioles",
+    "BOS": "Red Sox", "CHC": "Cubs", "CIN": "Reds", "CLE": "Guardians",
+    "COL": "Rockies", "CWS": "White Sox", "DET": "Tigers", "HOU": "Astros",
+    "KC": "Royals", "LAA": "Angels", "LAD": "Dodgers", "MIA": "Marlins",
+    "MIL": "Brewers", "MIN": "Twins", "NYM": "Mets", "NYY": "Yankees",
+    "PHI": "Phillies", "PIT": "Pirates", "SD": "Padres", "SEA": "Mariners",
+    "SF": "Giants", "STL": "Cardinals", "TB": "Rays", "TEX": "Rangers",
+    "TOR": "Blue Jays", "WSH": "Nationals",
+}
+
+
+def match_news_to_teams(news_items, team_abbrs):
+    """Same idea as match_news_to_players, for teams -- a headline like
+    'Brewers place Hall on IL' is real, relevant roster news for every
+    Brewers player/pitcher on today's board, even though it never
+    mentions any of them by name. Whole-word, case-insensitive match on
+    the team's real nickname (never the site's own abbreviation, which
+    would never appear in an actual headline). Returns
+    {team_abbr: [matching items]}."""
+    import re
+    matches = {}
+    for abbr in team_abbrs:
+        nickname = TEAM_NICKNAMES.get(abbr)
+        if not nickname:
+            continue
+        pattern = re.compile(r"\b" + re.escape(nickname) + r"\b", re.IGNORECASE)
+        found = [item for item in news_items if pattern.search(item["title"])]
+        if found:
+            matches[abbr] = found
+    return matches
