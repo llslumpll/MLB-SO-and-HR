@@ -113,9 +113,24 @@ def merge_hr(hr_data, records):
         hit = by_name.get(norm_name(e["name"]))
         if hit:
             price = hit["price"]
-            if e.get("openingProb") is None:
+            # Real bug fixed 2026-09-24: openingProb used to lock in
+            # whatever price was FIRST seen for this entry, with no
+            # check that the price was genuinely liquid. If the market
+            # was thin/no-bid the first time it was captured (common --
+            # same root cause as the K edge-timing fix earlier this
+            # session), it defaults to the ask-only ceiling (~0.995),
+            # and that broken snapshot got PERMANENTLY frozen as the
+            # baseline every later price gets compared against --
+            # confirmed live: 4 real entries showing an "opening" of
+            # 0.995 dropping to a genuinely liquid 0.07-0.14, none of
+            # which was real market movement, just a broken first
+            # snapshot. Now only locks in openingProb once a real bid
+            # actually exists; a thin/no-bid first sighting is treated
+            # as not having an opening price yet, not a false baseline.
+            if e.get("openingProb") is None and hit.get("yesBid"):
                 e["openingProb"] = price
-            e["priceDelta"] = price - e["openingProb"]
+            if e.get("openingProb") is not None:
+                e["priceDelta"] = price - e["openingProb"]
             e["marketProb"] = price
             e["marketBid"] = hit.get("yesBid")
             e["marketAsk"] = hit.get("yesAsk")
@@ -197,10 +212,14 @@ def merge_ko(ko_data, records):
             # belongs to a different question entirely -- treat this as a
             # fresh first sighting rather than comparing prices from two
             # different thresholds as if they were the same market moving.
-            if e.get("openingProb") is None or e.get("openingThreshold") != threshold:
+            # Same real-bid guard as merge_hr above, fixed the same day:
+            # a thin/no-bid first sighting no longer locks in a broken
+            # ~0.995 ceiling price as the permanent baseline.
+            if (e.get("openingProb") is None or e.get("openingThreshold") != threshold) and hit.get("yesBid"):
                 e["openingProb"] = price
                 e["openingThreshold"] = threshold
-            e["priceDelta"] = price - e["openingProb"]
+            if e.get("openingProb") is not None:
+                e["priceDelta"] = price - e["openingProb"]
             e["marketThreshold"] = threshold
             e["marketProb"] = price
             e["marketBid"] = hit.get("yesBid")
