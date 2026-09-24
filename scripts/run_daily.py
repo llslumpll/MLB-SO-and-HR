@@ -15,7 +15,7 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from common import today_iso, fetch_mlb_news, match_news_to_players
+from common import today_iso, fetch_mlb_news, match_news_to_players, match_news_to_teams
 import build_hr
 import build_ko
 import build_teams
@@ -453,10 +453,30 @@ def main():
         all_names = [e.get("name") for e in hr_for_news.get("entries", [])] + [e.get("name") for e in ko_for_news.get("entries", [])]
         matches = match_news_to_players(news_items, all_names)
 
+        # Team-level news too, added 2026-09-24 -- "Brewers place Hall on
+        # IL" is real, relevant roster news for every Brewers player on
+        # today's board, even though it never names any of them
+        # specifically. Merged into the same recentNews list per entry
+        # (deduped by link) rather than a separate field, so a player
+        # with both a personal mention and team news sees everything in
+        # one place, not two.
+        all_teams = {e.get("team") for e in hr_for_news.get("entries", [])} | {e.get("team") for e in ko_for_news.get("entries", [])}
+        team_matches = match_news_to_teams(news_items, [t for t in all_teams if t])
+
+        def combined_news(entry):
+            items = list(matches.get(entry.get("name")) or [])
+            team_items = team_matches.get(entry.get("team")) or []
+            seen_links = {i["link"] for i in items}
+            for ti in team_items:
+                if ti["link"] not in seen_links:
+                    items.append(ti)
+                    seen_links.add(ti["link"])
+            return items or None
+
         for e in hr_for_news.get("entries", []):
-            e["recentNews"] = matches.get(e.get("name"))
+            e["recentNews"] = combined_news(e)
         for e in ko_for_news.get("entries", []):
-            e["recentNews"] = matches.get(e.get("name"))
+            e["recentNews"] = combined_news(e)
 
         with open(f"data/hr/{date}.json", "w") as f:
             json.dump(hr_for_news, f, indent=2, default=str)
