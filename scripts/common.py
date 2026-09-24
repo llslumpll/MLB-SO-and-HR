@@ -841,3 +841,21 @@ def match_news_to_players(news_items, player_names):
         if found:
             matches[player_name] = found
     return matches
+
+
+def pitcher_first_meeting_this_season(splits):
+    """True when this pitcher hasn't faced this specific opponent team
+    at ALL yet this season (regardless of career history against them).
+    Added 2026-09-24 at the user's request, from a real handicapper
+    writeup (WizBetz) making exactly this point: no facing them yet
+    this season means no in-season familiarity or adjustment on either
+    side, which is a real, simple, useful fact on its own.
+
+    Reuses the same splits dict fetch_vs_team already returns (season +
+    career) -- no new fetch. If the season split is None, the MLB Stats
+    API returned no split at all for this pairing this year, which
+    means zero games faced (any real appearance, even a token relief
+    outing, would return a real stat line with some innings on it)."""
+    if not splits:
+        return False
+    return splits.get("season") is None
