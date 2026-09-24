@@ -575,9 +575,20 @@ function vsTeamTrendChip(e){
   const isPitching = t.inningsPitched !== undefined;
   if(isPitching){
     const era = parseFloat(t.era);
-    const cls = era<=3.00 ? 'stat-good' : 'stat-bad';
-    const verb = era<=3.00 ? 'dominated' : 'struggled against';
-    return `<div class="bx-line"><span class="bx-chip">🔥 ${tf}, has ${verb} ${e.opp}: <b class="${cls}">${t.era} ERA</b>, ${t.whip} WHIP, ${t.strikeOuts} K in ${t.inningsPitched} IP</span></div>`;
+    const kPct = t.kPct;
+    // Real bug fixed 2026-09-24 alongside adding K%: era alone used to
+    // decide "dominated" vs "struggled", which would mislabel a pitcher
+    // who triggers on an elite K% alone but happens to have a mediocre
+    // ERA against this team (confirmed: 30.8% K% with a 4.50 ERA was
+    // showing as "struggled", backwards). Now takes whichever signal is
+    // more clearly extreme, not ERA by default.
+    const eraGood = era<=3.00, eraBad = era>=6.00;
+    const kGood = kPct!=null && kPct>=28, kBad = kPct!=null && kPct<=15;
+    const isBad = (eraBad||kBad) && !(eraGood||kGood);
+    const cls = isBad ? 'stat-bad' : 'stat-good';
+    const verb = isBad ? 'struggled against' : 'dominated';
+    const kPctText = kPct!=null ? `, ${kPct}% K rate` : '';
+    return `<div class="bx-line"><span class="bx-chip">🔥 ${tf}, has ${verb} ${e.opp}: <b class="${cls}">${t.era} ERA</b>, ${t.whip} WHIP${kPctText}, ${t.strikeOuts} K in ${t.inningsPitched} IP</span></div>`;
   }
   return `<div class="bx-line"><span class="bx-chip">🔥 ${tf} vs ${e.opp}: <b class="stat-good">${t.homeRuns} HR</b> in ${t.atBats} AB (${t.avg} AVG, ${t.ops} OPS)</span></div>`;
 }
@@ -600,8 +611,18 @@ function vsBatterTrendChip(e){
   if(!t || !t.batterName) return '';
   const tf = t.timeframe === 'career' ? 'Career' : 'This season';
   const cls = t.direction === 'pitcher' ? 'stat-good' : 'stat-bad';
-  const verb = t.direction === 'pitcher' ? 'has owned' : 'has hit well against';
-  return `<div class="bx-line"><span class="bx-chip">⚔️ ${tf}, ${verb} ${t.batterName}: <b class="${cls}">${t.avg} AVG</b>, ${t.homeRuns} HR in ${t.atBats} AB (${t.ops} OPS)</span></div>`;
+  // Real bug fixed 2026-09-24: when the BATTER is the one dominating,
+  // the sentence must say so explicitly -- the old text kept the
+  // pitcher as the implicit subject in both directions ("Kyle Leahy...
+  // has hit well against Oneil Cruz"), which is backwards and
+  // nonsensical for a pitcher. Confirmed live on a real card before
+  // this fix. Direction "pitcher" keeps the pitcher as subject
+  // ("has owned X"), correct as-is; direction "batter" now names the
+  // batter as the explicit subject instead.
+  const text = t.direction === 'pitcher'
+    ? `${tf}, has owned ${t.batterName}`
+    : `${tf}, ${t.batterName} has hit them well`;
+  return `<div class="bx-line"><span class="bx-chip">⚔️ ${text}: <b class="${cls}">${t.avg} AVG</b>, ${t.homeRuns} HR in ${t.atBats} AB (${t.ops} OPS)</span></div>`;
 }
 
 // Real safety feature, not just a nice-to-have -- confirmed live
