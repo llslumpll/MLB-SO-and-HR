@@ -335,16 +335,24 @@ function priceMoveTag(e){
   return ` <span class="${cls}" style="font-size:9.5px;">${arrow}${Math.abs(e.priceDelta*100).toFixed(1)}pp</span>`;
 }
 function lineMoveTag(e){
-  if(e.prizePicksLineDelta===undefined || e.prizePicksLineDelta===null || Math.abs(e.prizePicksLineDelta) < 0.05) return '';
-  const up = e.prizePicksLineDelta > 0;
-  const arrow = up ? '▲' : '▼';
-  return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(e.prizePicksLineDelta).toFixed(1)}</span>`;
+  // Recomputed locally from openingLine/currentLine, same fix and same
+  // reason as prizePicksLineMoveChip below -- the stored
+  // prizePicksLineDelta field can go stale relative to those two
+  // values (confirmed live 2026-09-24), so this and the new chip must
+  // agree with each other rather than showing two different numbers
+  // for the same thing.
+  if(e.prizePicksOpeningLine==null || e.prizePicksKLine==null) return '';
+  const delta = e.prizePicksKLine - e.prizePicksOpeningLine;
+  if(Math.abs(delta) < 0.05) return '';
+  const arrow = delta > 0 ? '▲' : '▼';
+  return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(delta).toFixed(1)}</span>`;
 }
 function outsLineMoveTag(e){
-  if(e.prizePicksOutsLineDelta===undefined || e.prizePicksOutsLineDelta===null || Math.abs(e.prizePicksOutsLineDelta) < 0.05) return '';
-  const up = e.prizePicksOutsLineDelta > 0;
-  const arrow = up ? '▲' : '▼';
-  return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(e.prizePicksOutsLineDelta).toFixed(1)}</span>`;
+  if(e.prizePicksOutsOpeningLine==null || e.prizePicksOutsLine==null) return '';
+  const delta = e.prizePicksOutsLine - e.prizePicksOutsOpeningLine;
+  if(Math.abs(delta) < 0.05) return '';
+  const arrow = delta > 0 ? '▲' : '▼';
+  return ` <span style="font-size:9.5px;color:var(--slate);">${arrow}${Math.abs(delta).toFixed(1)}</span>`;
 }
 function fmt3(v){
   if(v===null||v===undefined) return '—';
@@ -687,6 +695,46 @@ function marketMoveChip(e){
   const dir = delta > 0 ? 'risen' : 'fallen';
   const arrow = delta > 0 ? '▲' : '▼';
   return `<div class="bx-line"><span class="bx-chip">${arrow} Market has ${dir} <b class="${cls}">${Math.abs(delta*100).toFixed(1)}pp</b> since it opened (${(e.openingProb*100).toFixed(1)}% &rarr; ${(e.marketProb*100).toFixed(1)}%)</span></div>`;
+}
+
+// The PrizePicks LINE itself moving (e.g. 6 strikeouts -> 6.5) is a
+// different signal from marketMoveChip above (which tracks Kalshi's
+// PROBABILITY moving) -- this is PrizePicks' own posted number shifting,
+// which already gets tracked (prizePicksLineDelta/prizePicksOutsLineDelta,
+// used for the small inline arrow next to the line in the card header)
+// but never had its own prominent callout the way the other trend chips
+// do. Added 2026-09-24 at the user's specific request for a PrizePicks-
+// focused version of this, separate from the Kalshi one. K/Outs only --
+// confirmed live that Hits/TB don't have this same opening-line tracking.
+// Computes its own delta from openingLine/currentLine rather than
+// trusting the stored prizePicksLineDelta field directly -- confirmed
+// live 2026-09-24 that the stored field can go stale relative to the
+// two line values themselves (found a real entry showing an identical
+// opening and current line, 4.5 -> 4.5, while the stored delta still
+// said 0.5 -- mathematically inconsistent, most likely a sync gap
+// somewhere in how openingLine gets reset without the delta field
+// being recomputed at the same moment). Recomputing locally guarantees
+// this chip can never display a self-contradictory statement, whatever
+// state that backend field is actually in. Worth root-causing properly
+// later; this is the safe fix for what ships today.
+function prizePicksLineMoveChip(e){
+  if(e.prizePicksOpeningLine!=null && e.prizePicksKLine!=null){
+    const delta = e.prizePicksKLine - e.prizePicksOpeningLine;
+    if(Math.abs(delta)>=0.5){
+      const arrow = delta>0?'▲':'▼';
+      const dir = delta>0?'risen':'dropped';
+      return `<div class="bx-line"><span class="bx-chip">${arrow} PrizePicks line has ${dir} since it opened: <b>${e.prizePicksOpeningLine} &rarr; ${e.prizePicksKLine} strikeouts</b></span></div>`;
+    }
+  }
+  if(e.prizePicksOutsOpeningLine!=null && e.prizePicksOutsLine!=null){
+    const delta = e.prizePicksOutsLine - e.prizePicksOutsOpeningLine;
+    if(Math.abs(delta)>=0.5){
+      const arrow = delta>0?'▲':'▼';
+      const dir = delta>0?'risen':'dropped';
+      return `<div class="bx-line"><span class="bx-chip">${arrow} PrizePicks line has ${dir} since it opened: <b>${e.prizePicksOutsOpeningLine} &rarr; ${e.prizePicksOutsLine} outs</b></span></div>`;
+    }
+  }
+  return '';
 }
 
 function newsChip(e){
@@ -1227,6 +1275,7 @@ function koCard(e, rank){
       ${vsBatterTrendChip(e)}
       ${newsChip(e)}
       ${marketMoveChip(e)}
+      ${prizePicksLineMoveChip(e)}
     </div>
   `;
 }
@@ -1251,6 +1300,7 @@ function outsCard(e, rank){
       ${vsBatterTrendChip(e)}
       ${newsChip(e)}
       ${marketMoveChip(e)}
+      ${prizePicksLineMoveChip(e)}
     </div>
   `;
 }
@@ -1338,6 +1388,7 @@ function renderKO(){
         ${vsBatterTrendChip(e)}
         ${newsChip(e)}
         ${marketMoveChip(e)}
+        ${prizePicksLineMoveChip(e)}
         ${e.conditionalHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionLine} strikeouts, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
@@ -1392,6 +1443,7 @@ function renderKO(){
         ${vsBatterTrendChip(e)}
         ${newsChip(e)}
         ${marketMoveChip(e)}
+        ${prizePicksLineMoveChip(e)}
         ${e.conditionalOutsHitRateBreakdown?`<div class="bx-chip" style="display:block;margin-top:6px;border-color:var(--amber);">${e.name} vs ${e.predictionOutsLine} outs, by workload this season:
           <ul style="margin:4px 0 0 18px;padding:0;">
             ${e.conditionalOutsHitRateBreakdown.map(tier=>`<li>${tier.minPitches}+ pitches: <b>${tier.hits}/${tier.total}</b> (${(tier.hits/tier.total*100).toFixed(0)}%)</li>`).join('')}
