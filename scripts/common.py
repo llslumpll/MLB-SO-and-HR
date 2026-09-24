@@ -558,7 +558,21 @@ def pitcher_vs_team_trend(splits):
     """Same career-first-then-season logic, for pitchers -- notable in
     EITHER direction (dominant or has really struggled), since both are
     real, useful trends, not just the flattering one. ERA thresholds
-    (<=3.00 dominant, >=6.00 has struggled) with a 15+ IP floor."""
+    (<=3.00 dominant, >=6.00 has struggled) with a 15+ IP floor.
+
+    Also checks K% (strikeOuts/battersFaced) as its own separate trigger,
+    added 2026-09-24 at the user's request specifically for strikeout
+    props -- ERA and K% can genuinely diverge (a pitcher can run a great
+    ERA against a team via weak contact without missing many bats, or
+    the reverse), so a real strikeout-specific signal matters here even
+    when ERA alone wouldn't have flagged anything. battersFaced is
+    already a proven field from this exact stat shape (used elsewhere
+    in build_ko.py's own season-stat fetch), so this needed no new
+    endpoint. Thresholds (>=28% elite, <=15% really struggles to miss
+    bats) are set relative to a roughly 22-23% MLB-average K% -- a
+    reasoned judgment call, not backtested against this project's own
+    accumulated vsTeam history the way the HR factors were, since this
+    specific check is new."""
     def _check(stat):
         if not stat:
             return None
@@ -566,10 +580,16 @@ def pitcher_vs_team_trend(splits):
         if not ip or ip < 15:
             return None
         era = to_num(stat.get("era"))
-        if era is not None and (era <= 3.00 or era >= 6.00):
+        strike_outs = to_num(stat.get("strikeOuts")) or 0
+        batters_faced = to_num(stat.get("battersFaced"))
+        k_pct = (strike_outs / batters_faced * 100) if batters_faced else None
+        era_trigger = era is not None and (era <= 3.00 or era >= 6.00)
+        k_trigger = k_pct is not None and (k_pct >= 28.0 or k_pct <= 15.0)
+        if era_trigger or k_trigger:
             return {
                 "inningsPitched": stat.get("inningsPitched"), "era": stat.get("era"),
-                "whip": stat.get("whip"), "strikeOuts": int(to_num(stat.get("strikeOuts")) or 0),
+                "whip": stat.get("whip"), "strikeOuts": int(strike_outs),
+                "kPct": round(k_pct, 1) if k_pct is not None else None,
             }
         return None
     if not splits:
