@@ -704,6 +704,27 @@ function newsAge(pubDate){
 // fake percentage would misrepresent what's actually being measured.
 // Shown only once status is "active" (enough sample); insufficient-
 // data tiers stay silent rather than quoting an unreliable number.
+// Team win/loss streak ("W4", "L2") already exists, pulled straight
+// from MLB's own /standings response and stored on every team in
+// TEAMS_DATA -- confirmed live it's only ever shown in a small subline
+// on the Teams/Matchups page, never here where someone's actually
+// looking at a specific player's pick. TEAMS_DATA is already loaded
+// globally, so this needed no new fetch, no backend change at all --
+// pure frontend, just surfacing what's already there. Only shown at
+// 3+ games, same spirit as the existing per-player HR-streak chip's
+// own threshold, so a routine 1-2 game blip doesn't clutter every card.
+function teamStreakChip(e){
+  if(!TEAMS_DATA || !TEAMS_DATA.teams || !e.team) return '';
+  const t = TEAMS_DATA.teams.find(t=>t.abbr===e.team);
+  if(!t || !t.streak) return '';
+  const type = t.streak[0];
+  const count = parseInt(t.streak.slice(1), 10);
+  if(!count || count < 3) return '';
+  const cls = type==='W' ? 'stat-good' : 'stat-bad';
+  const word = type==='W' ? 'won' : 'lost';
+  return `<div class="bx-line"><span class="bx-chip">${type==='W'?'🔥':'❄️'} ${e.team} has <b class="${cls}">${word} ${count} straight</b></span></div>`;
+}
+
 function confidenceTrackRecordChip(e, propType){
   if(!CALIBRATION_DATA || !e.confidence) return '';
   const tierData = CALIBRATION_DATA[propType] && CALIBRATION_DATA[propType][e.confidence];
@@ -800,6 +821,7 @@ function hrCard(e, rank){
       </div>
       <div class="card-reason">${e.reason||''}</div>
       ${confidenceTrackRecordChip(e, 'hr')}
+      ${teamStreakChip(e)}
       ${opsTrendChips(e)}
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
@@ -828,6 +850,7 @@ function hitsCard(e, rank){
       </div>
       <div class="card-reason">${e.hitsReason||''}</div>
       ${confidenceTrackRecordChip(e, 'hits')}
+      ${teamStreakChip(e)}
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
       ${newsChip(e)}
@@ -854,6 +877,7 @@ function tbCard(e, rank){
       </div>
       <div class="card-reason">${e.tbReason||''}</div>
       ${confidenceTrackRecordChip(e, 'totalBases')}
+      ${teamStreakChip(e)}
       ${vsTeamTrendChip(e)}
       ${vsPitcherTrendChip(e)}
       ${newsChip(e)}
@@ -1197,7 +1221,7 @@ function renderHR(){
         <td>${e.graded?(e.hr?'✅ HR':'—'):'—'}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${confidenceTrackRecordChip(e,'hr')}${opsTrendChips(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7">${renderFactorsOnly(e)}${confidenceTrackRecordChip(e,'hr')}${teamStreakChip(e)}${opsTrendChips(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_all').innerHTML = `
@@ -1235,7 +1259,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${confidenceTrackRecordChip(e,'hits')}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.hitsReason||''}</div>${confidenceTrackRecordChip(e,'hits')}${teamStreakChip(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}${e.hitsCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.hitsCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_hitsall').innerHTML = `
@@ -1270,7 +1294,7 @@ function renderHR(){
         <td>${prediction}</td>
         <td><button class="whybtn" onclick="event.stopPropagation();document.getElementById('${rowId}').style.display=document.getElementById('${rowId}').style.display==='none'?'table-row':'none';">why</button></td>
       </tr>
-      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${confidenceTrackRecordChip(e,'totalBases')}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
+      <tr class="why-row" id="${rowId}" style="display:none;"><td colspan="7"><div class="card-reason">${e.tbReason||''}</div>${confidenceTrackRecordChip(e,'totalBases')}${teamStreakChip(e)}${vsTeamTrendChip(e)}${vsPitcherTrendChip(e)}${newsChip(e)}${marketMoveChip(e)}${e.tbCallFrozenAt?`<div class="bx-line" style="margin-top:8px;"><span class="bx-chip">Predicted at <b>${formatFrozenTime(e.tbCallFrozenAt)}</b> and never recalculated after that</span></div>`:''}</td></tr>
     `;
   }).join('');
   document.getElementById('hrSection_tball').innerHTML = `
@@ -1303,6 +1327,7 @@ function koCard(e, rank){
       </div>
       <div class="card-reason">${e.reason||''}</div>
       ${confidenceTrackRecordChip(e, 'ko')}
+      ${teamStreakChip(e)}
       ${vsTeamTrendChip(e)}
       ${vsBatterTrendChip(e)}
       ${newsChip(e)}
@@ -1329,6 +1354,7 @@ function outsCard(e, rank){
       </div>
       <div class="card-reason">${e.outsReason||''}</div>
       ${confidenceTrackRecordChip(e, 'outs')}
+      ${teamStreakChip(e)}
       ${vsTeamTrendChip(e)}
       ${vsBatterTrendChip(e)}
       ${newsChip(e)}
@@ -1418,6 +1444,7 @@ function renderKO(){
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.reason||''}</div>
         ${confidenceTrackRecordChip(e, 'ko')}
+        ${teamStreakChip(e)}
         ${vsTeamTrendChip(e)}
         ${vsBatterTrendChip(e)}
         ${newsChip(e)}
@@ -1474,6 +1501,7 @@ function renderKO(){
         <span class="conf-badge conf-${(e.confidence||'').toLowerCase()}">${e.confidence||'—'} confidence</span>
         <div class="card-reason" style="margin-top:8px;">${e.outsReason||''}</div>
         ${confidenceTrackRecordChip(e, 'outs')}
+        ${teamStreakChip(e)}
         ${vsTeamTrendChip(e)}
         ${vsBatterTrendChip(e)}
         ${newsChip(e)}
