@@ -497,9 +497,9 @@
       "workloadStreak": 19,
       "mostRecentPitchCount": 98.0,
       "marketThreshold": 6,
-      "marketProb": 0.53,
+      "marketProb": 0.525,
       "modelProb": 0.6603322145142602,
-      "edge": 0.13033221451426014,
+      "edge": 0.13533221451426014,
       "predictionLine": 5.5,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -535,7 +535,21 @@
       "outsCallFrozenAt": "2026-09-25T12:10:25.411606",
       "prizePicksKLine": 5.5,
       "prizePicksOutsLine": 17.5,
-      "recentNews": null
+      "recentNews": [
+        {
+          "title": "Lucas the legend! Spence's 3-HR game keeps Astros in first-place tie",
+          "link": "https://www.mlb.com/news/lucas-spence-hits-three-home-runs-in-astros-win-over-a-s",
+          "pubDate": "Fri, 25 Sep 2026 06:11:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.020000000000000018,
+      "marketBid": 0.52,
+      "marketAsk": 0.53,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823652,
@@ -1814,9 +1828,9 @@
       "workloadStreak": 2,
       "mostRecentPitchCount": 97.0,
       "marketThreshold": 7,
-      "marketProb": 0.41000000000000003,
+      "marketProb": 0.395,
       "modelProb": 0.5025281242221432,
-      "edge": 0.09252812422214318,
+      "edge": 0.1075281242221432,
       "predictionLine": 6.0,
       "predictionOutsLine": 16.5,
       "graded": false,
@@ -1859,7 +1873,14 @@
           "pubDate": "Fri, 25 Sep 2026 17:30:45 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 7,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.39,
+      "marketAsk": 0.4,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823409,
@@ -2131,9 +2152,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 98.0,
       "marketThreshold": 7,
-      "marketProb": 0.375,
+      "marketProb": 0.37,
       "modelProb": 0.4812760205498752,
-      "edge": 0.10627602054987523,
+      "edge": 0.11127602054987523,
       "predictionLine": 6.0,
       "predictionOutsLine": 18.5,
       "graded": false,
@@ -2176,7 +2197,14 @@
           "pubDate": "Fri, 25 Sep 2026 15:34:01 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 7,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.36,
+      "marketAsk": 0.38,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 823085,
@@ -2906,7 +2934,14 @@
           "pubDate": "Fri, 25 Sep 2026 20:00:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "marketBid": 0.03,
+      "marketAsk": 0.97,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-25T21:41:36.119740",
+      "openingProb": 0.43000000000000005,
+      "openingThreshold": 5,
+      "priceDelta": 0.06999999999999995
     },
     {
       "gamePk": 824706,
@@ -3118,9 +3153,9 @@
       "workloadStreak": 6,
       "mostRecentPitchCount": 83.0,
       "marketThreshold": 5,
-      "marketProb": 0.59,
+      "marketProb": 0.585,
       "modelProb": 0.6082967333775988,
-      "edge": 0.01829673337759885,
+      "edge": 0.023296733377598855,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -3177,7 +3212,14 @@
           "pubDate": "Thu, 24 Sep 2026 23:12:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 1.0,
+      "openingProb": 0.67,
+      "openingThreshold": 5,
+      "priceDelta": -0.08500000000000008,
+      "marketBid": 0.52,
+      "marketAsk": 0.65,
+      "edgeEligible": false
     },
     {
       "gamePk": 823652,
@@ -3968,9 +4010,9 @@
       "workloadStreak": 31,
       "mostRecentPitchCount": 80.0,
       "marketThreshold": 6,
-      "marketProb": 0.54,
+      "marketProb": 0.535,
       "modelProb": 0.4948200400507744,
-      "edge": -0.045179959949225634,
+      "edge": -0.04017995994922563,
       "predictionLine": 5.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -4001,8 +4043,29 @@
       "prizePicksOpeningLine": 5.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-25T19:40:24.246272",
-      "prizePicksKLine": 5.5,
-      "recentNews": null
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 31
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 30
+        },
+        {
+          "minPitches": "80",
+          "hits": 15,
+          "total": 28
+        }
+      ],
+      "openingProb": 0.5549999999999999,
+      "openingThreshold": 6,
+      "priceDelta": -0.019999999999999907,
+      "marketBid": 0.53,
+      "marketAsk": 0.54,
+      "edgeEligible": false
     },
     {
       "gamePk": 823491,
@@ -4239,9 +4302,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 55.0,
       "marketThreshold": 7,
-      "marketProb": 0.33999999999999997,
+      "marketProb": 0.01,
       "modelProb": 0.3960042543787744,
-      "edge": 0.05600425437877443,
+      "edge": 0.3860042543787744,
       "predictionLine": 6.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -4273,7 +4336,13 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-25T15:20:34.841842",
       "prizePicksKLine": 6.5,
-      "recentNews": null
+      "recentNews": null,
+      "prizePicksLineDelta": 0.5,
+      "openingThreshold": 7,
+      "priceDelta": -0.445,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false
     },
     {
       "gamePk": 824058,
@@ -7402,9 +7471,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-25T11:17:52.081008",
-  "oddsRefreshedAt": "2026-09-25T21:40:08.432139",
-  "_kalshiMatched": 26,
-  "_kalshiTotal": 31,
+  "oddsRefreshedAt": "2026-09-25T21:41:36.119740",
   "lockedBest5": {
     "kEdge": [
       {
