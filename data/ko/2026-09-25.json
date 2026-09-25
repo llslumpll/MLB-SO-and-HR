@@ -2660,9 +2660,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 14.0,
       "marketThreshold": 6,
-      "marketProb": 0.41000000000000003,
+      "marketProb": 0.415,
       "modelProb": 0.5469797995212158,
-      "edge": 0.13697979952121575,
+      "edge": 0.1319797995212158,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -2690,10 +2690,12 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.405,
-      "prizePicksOpeningLine": 5.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-09-25T11:30:23.490899",
-      "prizePicksKLine": 5.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.009999999999999953,
+      "marketBid": 0.41,
+      "marketAsk": 0.42,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-25T11:30:23.488927",
       "recentNews": [
         {
           "title": "Fern\u00e1ndez's indelible imprint still felt on Marlins' franchise 10 years after his tragic death",
@@ -5892,9 +5894,9 @@
       "workloadStreak": 17,
       "mostRecentPitchCount": 97.0,
       "marketThreshold": 5,
-      "marketProb": 0.385,
+      "marketProb": 0.365,
       "modelProb": 0.4318846352505398,
-      "edge": 0.04688463525053976,
+      "edge": 0.06688463525053978,
       "predictionLine": 4.0,
       "predictionOutsLine": 15.5,
       "graded": false,
@@ -5948,6 +5950,56 @@
           "link": "https://www.mlb.com/news/pete-crow-armstrong-joins-40-40-club",
           "pubDate": "Thu, 24 Sep 2026 22:51:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-25T11:30:23.492018",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 8,
+          "total": 17
+        },
+        {
+          "minPitches": "70",
+          "hits": 8,
+          "total": 17
+        },
+        {
+          "minPitches": "80",
+          "hits": 8,
+          "total": 16
+        }
+      ],
+      "openingProb": 0.42500000000000004,
+      "openingThreshold": 5,
+      "priceDelta": -0.06000000000000005,
+      "marketBid": 0.36,
+      "marketAsk": 0.37,
+      "edgeEligible": true,
+      "prizePicksOutsOpeningLine": 15.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 15.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-25T12:10:25.412592",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 13,
+          "total": 17
+        },
+        {
+          "minPitches": "70",
+          "hits": 13,
+          "total": 17
+        },
+        {
+          "minPitches": "80",
+          "hits": 13,
+          "total": 16
         }
       ]
     },
@@ -6374,9 +6426,9 @@
       "workloadStreak": 20,
       "mostRecentPitchCount": 90.0,
       "marketThreshold": 5,
-      "marketProb": 0.425,
+      "marketProb": 0.41500000000000004,
       "modelProb": 0.3480433852868555,
-      "edge": -0.07695661471314447,
+      "edge": -0.06695661471314451,
       "predictionLine": 4.0,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -6404,6 +6456,35 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.425,
+      "openingThreshold": 5,
+      "priceDelta": -0.009999999999999953,
+      "marketBid": 0.4,
+      "marketAsk": 0.43,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-25T12:20:25.479745",
+      "recentNews": null,
+      "prizePicksOutsOpeningLine": 17.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 17.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-09-25T12:10:25.412713",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 6,
+          "total": 20
+        },
+        {
+          "minPitches": "70",
+          "hits": 6,
+          "total": 20
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 15
+        }
+      ],
       "prizePicksOpeningLine": 4.0,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "UNDER",
@@ -6655,9 +6736,9 @@
       "workloadStreak": 30,
       "mostRecentPitchCount": 88.0,
       "marketThreshold": 4,
-      "marketProb": 0.53,
+      "marketProb": 0.535,
       "modelProb": 0.44569436480491026,
-      "edge": -0.08430563519508977,
+      "edge": -0.08930563519508977,
       "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -6685,6 +6766,13 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.51,
+      "openingThreshold": 4,
+      "priceDelta": 0.025000000000000022,
+      "marketBid": 0.53,
+      "marketAsk": 0.54,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-25T11:30:23.488927",
+      "recentNews": null,
       "prizePicksOpeningLine": 3.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-25T11:30:23.492122",
@@ -6916,9 +7004,9 @@
       "workloadStreak": 28,
       "mostRecentPitchCount": 72.0,
       "marketThreshold": 4,
-      "marketProb": 0.5,
+      "marketProb": 0.505,
       "modelProb": 0.4300848402100202,
-      "edge": -0.06991515978997981,
+      "edge": -0.07491515978997981,
       "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -6946,10 +7034,12 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.505,
-      "prizePicksOpeningLine": 3.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-09-25T11:30:23.492229",
-      "prizePicksKLine": 3.5,
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.5,
+      "marketAsk": 0.51,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-25T11:30:23.488927",
       "recentNews": [
         {
           "title": "Snakes (still) alive! D-backs sweep Rockies clinging to playoff hopes with 3 to play",
@@ -6962,9 +7052,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-25T11:17:52.081008",
-  "oddsRefreshedAt": "2026-09-25T15:15:51.517200",
-  "_kalshiMatched": 22,
-  "_kalshiTotal": 29,
+  "oddsRefreshedAt": "2026-09-25T15:16:41.933389",
   "lockedBest5": {
     "kEdge": [
       {
