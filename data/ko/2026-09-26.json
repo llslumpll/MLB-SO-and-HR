@@ -166,11 +166,11 @@
       "babipAgainst": 0.32362459546925565,
       "workloadStreak": 6,
       "mostRecentPitchCount": 80.0,
-      "marketThreshold": 5,
-      "marketProb": 0.56,
-      "modelProb": 0.8425774582137839,
-      "edge": 0.2825774582137839,
-      "predictionLine": null,
+      "marketThreshold": 6,
+      "marketProb": 0.35,
+      "modelProb": 0.6268176647000115,
+      "edge": 0.27681766470001157,
+      "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -196,14 +196,36 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.56,
-      "openingThreshold": 5,
+      "openingProb": 0.35,
+      "openingThreshold": 6,
       "priceDelta": 0.0,
-      "marketBid": 0.55,
-      "marketAsk": 0.57,
+      "marketBid": 0.33,
+      "marketAsk": 0.37,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 5.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159142",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 9,
+          "total": 19
+        },
+        {
+          "minPitches": "70",
+          "hits": 8,
+          "total": 16
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 13
+        }
+      ]
     },
     {
       "gamePk": 822678,
@@ -303,9 +325,9 @@
       "mostRecentPitchCount": 95.0,
       "marketThreshold": 5,
       "marketProb": 0.475,
-      "modelProb": 0.8017961498598967,
-      "edge": 0.3267961498598967,
-      "predictionLine": null,
+      "modelProb": 0.6728990142547348,
+      "edge": 0.19789901425473477,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -337,8 +359,25 @@
       "marketBid": 0.47,
       "marketAsk": 0.48,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159258",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 3,
+          "total": 5
+        },
+        {
+          "minPitches": "70",
+          "hits": 3,
+          "total": 5
+        }
+      ]
     },
     {
       "gamePk": 823653,
@@ -542,9 +581,9 @@
       "mostRecentPitchCount": 29.0,
       "marketThreshold": 4,
       "marketProb": 0.47,
-      "modelProb": 0.836269649017561,
-      "edge": 0.366269649017561,
-      "predictionLine": null,
+      "modelProb": 0.6926488819221607,
+      "edge": 0.2226488819221607,
+      "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -576,7 +615,7 @@
       "marketBid": 0.46,
       "marketAsk": 0.48,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "deGrom's final regular-season start goes awry as Rangers drop critical game",
@@ -589,6 +628,28 @@
           "link": "https://www.mlb.com/news/josh-jung-exits-game-after-being-hit-by-pitch",
           "pubDate": "Sat, 26 Sep 2026 03:54:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159344",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 17,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 17,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 17,
+          "total": 22
         }
       ]
     },
@@ -702,9 +763,9 @@
       "mostRecentPitchCount": 19.0,
       "marketThreshold": 8,
       "marketProb": 0.515,
-      "modelProb": 0.22415816314280368,
-      "edge": -0.29084183685719633,
-      "predictionLine": null,
+      "modelProb": 0.34197021166451225,
+      "edge": -0.17302978833548777,
+      "predictionLine": 7.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -736,8 +797,30 @@
       "marketBid": 0.5,
       "marketAsk": 0.53,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 7.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 7.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159429",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 3,
+          "total": 7
+        },
+        {
+          "minPitches": "70",
+          "hits": 3,
+          "total": 7
+        },
+        {
+          "minPitches": "80",
+          "hits": 3,
+          "total": 6
+        }
+      ]
     },
     {
       "gamePk": 822678,
@@ -905,9 +988,9 @@
       "mostRecentPitchCount": 61.0,
       "marketThreshold": 4,
       "marketProb": 0.41000000000000003,
-      "modelProb": 0.8211982221002647,
-      "edge": 0.4111982221002647,
-      "predictionLine": null,
+      "modelProb": 0.6840144614412417,
+      "edge": 0.27401446144124164,
+      "predictionLine": 3.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -939,8 +1022,30 @@
       "marketBid": 0.39,
       "marketAsk": 0.43,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 3.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159508",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 17
+        },
+        {
+          "minPitches": "70",
+          "hits": 14,
+          "total": 16
+        },
+        {
+          "minPitches": "80",
+          "hits": 14,
+          "total": 15
+        }
+      ]
     },
     {
       "gamePk": 823813,
@@ -1004,11 +1109,11 @@
       "babipAgainst": 0.30039525691699603,
       "workloadStreak": 0,
       "mostRecentPitchCount": 15.0,
-      "marketThreshold": null,
+      "marketThreshold": 2,
       "marketProb": null,
-      "modelProb": null,
+      "modelProb": 0.7688899663853717,
       "edge": null,
-      "predictionLine": null,
+      "predictionLine": 1.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -1034,7 +1139,19 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "recentNews": null
+      "recentNews": null,
+      "prizePicksOpeningLine": 1.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 1.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159583",
+      "conditionalHitRateBreakdown": null,
+      "openingProb": null,
+      "openingThreshold": null,
+      "priceDelta": null,
+      "marketBid": null,
+      "marketAsk": null,
+      "edgeEligible": false
     },
     {
       "gamePk": 823407,
@@ -1171,10 +1288,10 @@
       "workloadStreak": 16,
       "mostRecentPitchCount": 74.0,
       "marketThreshold": 5,
-      "marketProb": 0.54,
-      "modelProb": 0.5943473606608725,
-      "edge": 0.054347360660872424,
-      "predictionLine": null,
+      "marketProb": 0.535,
+      "modelProb": 0.5540516029226138,
+      "edge": 0.019051602922613764,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -1202,12 +1319,34 @@
       "outsHit": null,
       "openingProb": 0.54,
       "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.53,
+      "priceDelta": -0.0050000000000000044,
+      "marketBid": 0.52,
       "marketAsk": 0.55,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159657",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 13,
+          "total": 18
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 9
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 6
+        }
+      ]
     },
     {
       "gamePk": 823083,
@@ -1345,7 +1484,7 @@
       "marketBid": 0.41,
       "marketAsk": 0.43,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": null
     },
     {
@@ -1546,7 +1685,7 @@
       "marketBid": 0.55,
       "marketAsk": 0.56,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": null
     },
     {
@@ -1751,11 +1890,11 @@
       "babipAgainst": 0.3197969543147208,
       "workloadStreak": 0,
       "mostRecentPitchCount": 36.0,
-      "marketThreshold": 3,
-      "marketProb": 0.5900000000000001,
-      "modelProb": 0.839266640120416,
-      "edge": 0.24926664012041588,
-      "predictionLine": null,
+      "marketThreshold": 4,
+      "marketProb": 0.4,
+      "modelProb": 0.601529882701166,
+      "edge": 0.201529882701166,
+      "predictionLine": 3.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -1781,14 +1920,36 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.5900000000000001,
-      "openingThreshold": 3,
+      "openingProb": 0.4,
+      "openingThreshold": 4,
       "priceDelta": 0.0,
-      "marketBid": 0.56,
-      "marketAsk": 0.62,
+      "marketBid": 0.39,
+      "marketAsk": 0.41,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 3.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159739",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 19,
+          "total": 25
+        },
+        {
+          "minPitches": "70",
+          "hits": 19,
+          "total": 23
+        },
+        {
+          "minPitches": "80",
+          "hits": 16,
+          "total": 19
+        }
+      ]
     },
     {
       "gamePk": 823733,
@@ -1942,7 +2103,7 @@
       "marketBid": 0.46,
       "marketAsk": 0.47,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": null
     },
     {
@@ -2149,7 +2310,7 @@
       "marketBid": 0.41,
       "marketAsk": 0.44,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": null
     },
     {
@@ -2445,7 +2606,7 @@
       "marketBid": 0.57,
       "marketAsk": 0.59,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "Guardians squeeze out unsightly win over Royals in AL Central race",
@@ -2573,7 +2734,7 @@
       "marketBid": 0.48,
       "marketAsk": 0.5,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": null
     },
     {
@@ -2779,9 +2940,9 @@
       "mostRecentPitchCount": 31.0,
       "marketThreshold": 5,
       "marketProb": 0.46499999999999997,
-      "modelProb": 0.3619146618137232,
-      "edge": -0.10308533818627674,
-      "predictionLine": null,
+      "modelProb": 0.420890909753082,
+      "edge": -0.04410909024691795,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -2813,13 +2974,35 @@
       "marketBid": 0.46,
       "marketAsk": 0.47,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "Oh my, Rodriguez! Twins' No. 5 prospect robs a hit with some signature flair",
           "link": "https://www.mlb.com/news/emmanuel-rodriguez-robs-an-extra-base-hit-at-the-wall",
           "pubDate": "Sat, 26 Sep 2026 04:49:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159819",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 7,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 7,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 18
         }
       ]
     },
@@ -3076,9 +3259,9 @@
       "mostRecentPitchCount": 95.0,
       "marketThreshold": 4,
       "marketProb": 0.525,
-      "modelProb": 0.533710014572572,
-      "edge": 0.008710014572571922,
-      "predictionLine": null,
+      "modelProb": 0.5193124673486265,
+      "edge": -0.005687532651373561,
+      "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -3110,13 +3293,35 @@
       "marketBid": 0.52,
       "marketAsk": 0.53,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "Guardians squeeze out unsightly win over Royals in AL Central race",
           "link": "https://www.mlb.com/news/cleveland-guardians-keep-pace-with-white-sox-in-al-central-race",
           "pubDate": "Sat, 26 Sep 2026 06:06:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159903",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 19,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 19,
+          "total": 29
+        },
+        {
+          "minPitches": "80",
+          "hits": 16,
+          "total": 26
         }
       ]
     },
@@ -3368,7 +3573,7 @@
       "marketBid": 0.4,
       "marketAsk": 0.42,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "Murakami homers twice as White Sox stay laser-focused on AL Central race",
@@ -3498,9 +3703,9 @@
       "mostRecentPitchCount": 79.0,
       "marketThreshold": 5,
       "marketProb": 0.445,
-      "modelProb": 0.32981800694656227,
-      "edge": -0.11518199305343774,
-      "predictionLine": null,
+      "modelProb": 0.4025027361796855,
+      "edge": -0.04249726382031449,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -3532,13 +3737,35 @@
       "marketBid": 0.44,
       "marketAsk": 0.45,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "Consequential 6th in loss to A's could prove costly for Astros' AL West hopes",
           "link": "https://www.mlb.com/news/astros-stay-even-with-rangers-in-al-west-with-loss-to-athletics",
           "pubDate": "Sat, 26 Sep 2026 06:13:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159986",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 3,
+          "total": 10
+        },
+        {
+          "minPitches": "70",
+          "hits": 3,
+          "total": 9
+        },
+        {
+          "minPitches": "80",
+          "hits": 3,
+          "total": 6
         }
       ]
     },
@@ -3734,9 +3961,9 @@
       "mostRecentPitchCount": 60.0,
       "marketThreshold": 4,
       "marketProb": 0.48,
-      "modelProb": 0.4960951703380795,
-      "edge": 0.0160951703380795,
-      "predictionLine": null,
+      "modelProb": 0.49776292308668574,
+      "edge": 0.017762923086685756,
+      "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -3768,13 +3995,35 @@
       "marketBid": 0.47,
       "marketAsk": 0.49,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "With swipe of third, Elly becomes 4th Reds player to secure 30-30 season",
           "link": "https://www.mlb.com/news/elly-de-la-cruz-notches-reds-4th-30-30-season",
           "pubDate": "Sat, 26 Sep 2026 03:41:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.160072",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 16,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 16,
+          "total": 21
+        },
+        {
+          "minPitches": "80",
+          "hits": 13,
+          "total": 18
         }
       ]
     },
@@ -4204,11 +4453,11 @@
       "babipAgainst": 0.29453681710213775,
       "workloadStreak": 20,
       "mostRecentPitchCount": 89.0,
-      "marketThreshold": 4,
-      "marketProb": 0.54,
-      "modelProb": 0.4655176216274436,
-      "edge": -0.07448237837255645,
-      "predictionLine": null,
+      "marketThreshold": 5,
+      "marketProb": 0.35,
+      "modelProb": 0.37192203472006224,
+      "edge": 0.021922034720062267,
+      "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -4234,14 +4483,36 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.54,
-      "openingThreshold": 4,
+      "openingProb": 0.35,
+      "openingThreshold": 5,
       "priceDelta": 0.0,
-      "marketBid": 0.53,
-      "marketAsk": 0.55,
+      "marketBid": 0.34,
+      "marketAsk": 0.36,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.160155",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 12,
+          "total": 30
+        },
+        {
+          "minPitches": "70",
+          "hits": 12,
+          "total": 26
+        },
+        {
+          "minPitches": "80",
+          "hits": 10,
+          "total": 20
+        }
+      ]
     },
     {
       "gamePk": 824219,
@@ -4341,7 +4612,7 @@
       "marketBid": 0.51,
       "marketAsk": 0.53,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
       "recentNews": [
         {
           "title": "'That's my girl': Verlander daddy-daughter duo  shares unforgettable first pitch",
@@ -4465,9 +4736,9 @@
       "mostRecentPitchCount": 70.0,
       "marketThreshold": 4,
       "marketProb": 0.5,
-      "modelProb": 0.3065977822946693,
-      "edge": -0.19340221770533073,
-      "predictionLine": null,
+      "modelProb": 0.389199869476616,
+      "edge": -0.110800130523384,
+      "predictionLine": 3.5,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -4499,15 +4770,30 @@
       "marketBid": 0.49,
       "marketAsk": 0.51,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-26T11:17:08.685612",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-26T11:20:22.158138",
+      "recentNews": null,
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-26T11:20:22.160230",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 2,
+          "total": 9
+        },
+        {
+          "minPitches": "70",
+          "hits": 2,
+          "total": 9
+        }
+      ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-26T11:15:15.768085",
-  "oddsRefreshedAt": "2026-09-26T11:17:08.685612",
-  "_kalshiMatched": 21,
-  "_kalshiTotal": 24,
+  "oddsRefreshedAt": "2026-09-26T11:20:22.158138",
   "lockedBest5": {
     "kEdge": [
       {
