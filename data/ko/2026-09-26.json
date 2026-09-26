@@ -542,9 +542,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 29.0,
       "marketThreshold": 4,
-      "marketProb": 0.4,
+      "marketProb": 0.39,
       "modelProb": 0.6926488819221607,
-      "edge": 0.29264888192216065,
+      "edge": 0.30264888192216066,
       "predictionLine": 3.5,
       "predictionOutsLine": 11.5,
       "graded": false,
@@ -586,6 +586,30 @@
           "link": "https://www.mlb.com/news/jacob-degrom-has-rough-start-as-rangers-lose-to-twins",
           "pubDate": "Sat, 26 Sep 2026 04:47:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "openingThreshold": 4,
+      "priceDelta": -0.034999999999999976,
+      "marketBid": 0.35,
+      "marketAsk": 0.43,
+      "edgeEligible": false,
+      "prizePicksLineDelta": -0.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 22,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 22,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 22,
+          "total": 22
         }
       ]
     },
@@ -1655,7 +1679,14 @@
           "pubDate": "Sat, 26 Sep 2026 04:53:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingProb": 0.475,
+      "openingThreshold": 3,
+      "priceDelta": 0.0,
+      "marketBid": 0.47,
+      "marketAsk": 0.48,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-26T22:15:15.643655"
     },
     {
       "gamePk": 822759,
@@ -3074,9 +3105,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 31.0,
       "marketThreshold": 5,
-      "marketProb": 0.41500000000000004,
+      "marketProb": 0.255,
       "modelProb": 0.420890909753082,
-      "edge": 0.005890909753081985,
+      "edge": 0.16589090975308202,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": false,
@@ -3115,7 +3146,13 @@
           "pubDate": "Sat, 26 Sep 2026 04:49:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.16000000000000003,
+      "marketBid": 0.07,
+      "marketAsk": 0.44,
+      "edgeEligible": false
     },
     {
       "gamePk": 824057,
@@ -4822,9 +4859,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-26T11:15:15.768085",
-  "oddsRefreshedAt": "2026-09-26T22:14:20.197925",
-  "_kalshiMatched": 17,
-  "_kalshiTotal": 25,
+  "oddsRefreshedAt": "2026-09-26T22:15:15.643655",
   "lockedBest5": {
     "kEdge": [
       {
