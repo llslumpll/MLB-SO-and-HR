@@ -244,7 +244,7 @@
       "modelProb": 0.6813052646349407,
       "edge": 0.18630526463494068,
       "predictionLine": 6.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 14.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -263,9 +263,9 @@
         "avgRecentReliefIP": 5.1,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 15,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.6373082320600537,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -293,7 +293,29 @@
       "priceDelta": -0.020000000000000018,
       "marketBid": 0.49,
       "marketAsk": 0.5,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksOutsOpeningLine": 14.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 14.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482050",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 26,
+          "total": 28
+        },
+        {
+          "minPitches": "70",
+          "hits": 26,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 24,
+          "total": 25
+        }
+      ]
     },
     {
       "gamePk": 823084,
@@ -849,9 +871,9 @@
       "workloadStreak": 9,
       "mostRecentPitchCount": 101.0,
       "marketThreshold": 7,
-      "marketProb": 0.425,
+      "marketProb": 0.415,
       "modelProb": 0.5647791412981075,
-      "edge": 0.13977914129810748,
+      "edge": 0.1497791412981075,
       "predictionLine": 6.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -899,9 +921,9 @@
       ],
       "prizePicksLineDelta": 0.0,
       "openingThreshold": 7,
-      "priceDelta": 0.024999999999999967,
-      "marketBid": 0.42,
-      "marketAsk": 0.43,
+      "priceDelta": 0.014999999999999958,
+      "marketBid": 0.41,
+      "marketAsk": 0.42,
       "edgeEligible": false
     },
     {
@@ -1042,9 +1064,9 @@
       "mostRecentPitchCount": 86.0,
       "marketThreshold": 5,
       "marketProb": 0.445,
-      "modelProb": 0.7908374207656774,
-      "edge": 0.3458374207656774,
-      "predictionLine": null,
+      "modelProb": 0.665515576157747,
+      "edge": 0.22051557615774703,
+      "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -1075,14 +1097,36 @@
       "priceDelta": 0.0,
       "marketBid": 0.44,
       "marketAsk": 0.45,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T12:50:26.664681",
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-27T13:00:27.480488",
       "recentNews": [
         {
           "title": "Injuries: Burnes, Arraez, Gausman, Judge, Red Sox, Braves",
           "link": "https://www.mlb.com/news/baseball-injury-updates",
           "pubDate": "Sun, 27 Sep 2026 00:05:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-27T13:00:27.481588",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 5,
+          "total": 13
+        },
+        {
+          "minPitches": "70",
+          "hits": 5,
+          "total": 11
+        },
+        {
+          "minPitches": "80",
+          "hits": 4,
+          "total": 10
         }
       ]
     },
@@ -1294,7 +1338,7 @@
       "modelProb": 0.5769645357948723,
       "edge": 0.05196453579487226,
       "predictionLine": 5.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 16.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1313,9 +1357,9 @@
         "avgRecentReliefIP": 4.4,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 17,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.6579217359566545,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -1346,6 +1390,28 @@
         {
           "minPitches": "80",
           "hits": 7,
+          "total": 16
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482149",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 12,
+          "total": 27
+        },
+        {
+          "minPitches": "70",
+          "hits": 12,
+          "total": 20
+        },
+        {
+          "minPitches": "80",
+          "hits": 12,
           "total": 16
         }
       ]
@@ -1810,7 +1876,7 @@
       "modelProb": 0.7144041675184183,
       "edge": 0.16940416751841825,
       "predictionLine": 3.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 11.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1829,9 +1895,9 @@
         "avgRecentReliefIP": 5.6,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 12,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.7645039612609212,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -1853,7 +1919,29 @@
       "priceDelta": 0.0,
       "marketBid": 0.54,
       "marketAsk": 0.55,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482232",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 31,
+          "total": 31
+        },
+        {
+          "minPitches": "70",
+          "hits": 31,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 29,
+          "total": 29
+        }
+      ]
     },
     {
       "gamePk": 824948,
@@ -2086,9 +2174,9 @@
       "workloadStreak": 28,
       "mostRecentPitchCount": 62.0,
       "marketThreshold": 3,
-      "marketProb": 0.44,
+      "marketProb": 0.425,
       "modelProb": 0.9265558908640577,
-      "edge": 0.48655589086405765,
+      "edge": 0.5015558908640576,
       "predictionLine": null,
       "predictionOutsLine": null,
       "graded": false,
@@ -2117,11 +2205,11 @@
       "outsHit": null,
       "openingProb": 0.44999999999999996,
       "openingThreshold": 3,
-      "priceDelta": -0.009999999999999953,
-      "marketBid": 0.43,
-      "marketAsk": 0.45,
+      "priceDelta": -0.024999999999999967,
+      "marketBid": 0.41,
+      "marketAsk": 0.44,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T12:50:26.664681",
+      "oddsUpdatedAt": "2026-09-27T13:00:27.480488",
       "recentNews": [
         {
           "title": "AL West up for grabs: Here's how Astros or Rangers can win it in Game 162",
@@ -2356,13 +2444,14 @@
       "prizePicksOpeningLine": 3.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.622214",
-      "prizePicksKLine": 3.5,
+      "prizePicksKLine": 4.0,
       "recentNews": null,
       "openingThreshold": 4,
       "priceDelta": 0.0050000000000000044,
       "marketBid": 0.58,
       "marketAsk": 0.6,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksLineDelta": 0.5
     },
     {
       "gamePk": 823650,
@@ -2534,7 +2623,7 @@
       "modelProb": 0.5640610263589421,
       "edge": 0.03906102635894204,
       "predictionLine": 4.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 15.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -2553,9 +2642,9 @@
         "avgRecentReliefIP": 3.6,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 16,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.4573418808812481,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -2570,7 +2659,29 @@
       "priceDelta": 0.015000000000000013,
       "marketBid": 0.52,
       "marketAsk": 0.53,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksOutsOpeningLine": 15.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 15.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482332",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 8,
+          "total": 16
+        },
+        {
+          "minPitches": "70",
+          "hits": 8,
+          "total": 15
+        },
+        {
+          "minPitches": "80",
+          "hits": 7,
+          "total": 13
+        }
+      ]
     },
     {
       "gamePk": 823650,
@@ -2821,7 +2932,7 @@
       "modelProb": 0.4492031832019115,
       "edge": -0.0007968167980885177,
       "predictionLine": 4.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 14.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -2840,9 +2951,9 @@
         "avgRecentReliefIP": 4.2,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 15,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.5342627418830054,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -2850,7 +2961,7 @@
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T07:20:17.996800",
-      "prizePicksKLine": 4.5,
+      "prizePicksKLine": 4.0,
       "recentNews": [
         {
           "title": "AL West up for grabs: Here's how Astros or Rangers can win it in Game 162",
@@ -2869,7 +2980,30 @@
       "priceDelta": 0.0050000000000000044,
       "marketBid": 0.44,
       "marketAsk": 0.46,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksLineDelta": -0.5,
+      "prizePicksOutsOpeningLine": 14.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 14.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482418",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 24,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 24,
+          "total": 29
+        },
+        {
+          "minPitches": "80",
+          "hits": 23,
+          "total": 27
+        }
+      ]
     },
     {
       "gamePk": 823490,
@@ -3319,7 +3453,7 @@
       "modelProb": 0.35438717764119576,
       "edge": -0.050612822358804266,
       "predictionLine": 5.0,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 15.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -3338,9 +3472,9 @@
         "avgRecentReliefIP": 3.3,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 16,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.2935183115021714,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -3371,6 +3505,28 @@
         {
           "minPitches": "80",
           "hits": 4,
+          "total": 12
+        }
+      ],
+      "prizePicksOutsOpeningLine": 15.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 15.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482506",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 5,
+          "total": 12
+        },
+        {
+          "minPitches": "70",
+          "hits": 5,
+          "total": 12
+        },
+        {
+          "minPitches": "80",
+          "hits": 5,
           "total": 12
         }
       ]
@@ -3480,7 +3636,7 @@
       "modelProb": 0.35098447090457136,
       "edge": null,
       "predictionLine": 5.0,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 14.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -3499,9 +3655,9 @@
         "avgRecentReliefIP": 5.6,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 15,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.42277063993143094,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -3516,7 +3672,29 @@
       "priceDelta": null,
       "marketBid": null,
       "marketAsk": null,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksOutsOpeningLine": 14.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 14.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482587",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 1,
+          "total": 6
+        },
+        {
+          "minPitches": "70",
+          "hits": 1,
+          "total": 5
+        },
+        {
+          "minPitches": "80",
+          "hits": 1,
+          "total": 5
+        }
+      ]
     },
     {
       "gamePk": 824055,
@@ -4476,7 +4654,7 @@
       "marketBid": 0.59,
       "marketAsk": 0.6,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T12:50:26.664681",
+      "oddsUpdatedAt": "2026-09-27T13:00:27.480488",
       "recentNews": null
     },
     {
@@ -4900,7 +5078,7 @@
       "modelProb": 0.47136804366693574,
       "edge": 0.0013680436669357698,
       "predictionLine": 3.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 13.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -4919,9 +5097,9 @@
         "avgRecentReliefIP": 3.9,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 14,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.440469239459996,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -4936,7 +5114,29 @@
       "priceDelta": 0.024999999999999967,
       "marketBid": 0.46,
       "marketAsk": 0.48,
-      "edgeEligible": false
+      "edgeEligible": false,
+      "prizePicksOutsOpeningLine": 13.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 13.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-09-27T13:00:27.482665",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 18,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 16,
+          "total": 19
+        },
+        {
+          "minPitches": "80",
+          "hits": 11,
+          "total": 12
+        }
+      ]
     },
     {
       "gamePk": 823246,
@@ -5631,14 +5831,14 @@
       "prizePicksOpeningLine": 3.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T07:31:31.282961",
-      "prizePicksKLine": 3.5,
+      "prizePicksKLine": 4.0,
       "recentNews": null,
       "openingThreshold": 4,
       "priceDelta": 0.0,
       "marketBid": 0.53,
       "marketAsk": 0.55,
       "edgeEligible": false,
-      "prizePicksLineDelta": 0.0
+      "prizePicksLineDelta": 0.5
     },
     {
       "gamePk": 823731,
@@ -5881,11 +6081,11 @@
       "babipAgainst": 0.2818371607515658,
       "workloadStreak": 28,
       "mostRecentPitchCount": 89.0,
-      "marketThreshold": 4,
-      "marketProb": 0.59,
-      "modelProb": 0.3682165042121188,
-      "edge": -0.22178349578788115,
-      "predictionLine": null,
+      "marketThreshold": 5,
+      "marketProb": 0.39,
+      "modelProb": 0.3272532345821816,
+      "edge": -0.06274676541781843,
+      "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -5911,14 +6111,36 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.58,
-      "openingThreshold": 4,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.58,
-      "marketAsk": 0.6,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T12:50:26.664681",
-      "recentNews": null
+      "openingProb": 0.39,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.38,
+      "marketAsk": 0.4,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-27T13:00:27.480488",
+      "recentNews": null,
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-27T13:00:27.481781",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 9,
+          "total": 28
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 9,
+          "total": 26
+        }
+      ]
     },
     {
       "gamePk": 823164,
@@ -6017,7 +6239,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-27T05:22:11.313796",
-  "oddsRefreshedAt": "2026-09-27T12:50:26.664681",
+  "oddsRefreshedAt": "2026-09-27T13:00:27.480488",
   "lockedBest5": {
     "kEdge": [
       {
