@@ -53,5 +53,38 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Daily board update $(date -u +%Y-%m-%d)"
-          git pull --rebase -X theirs origin main
-          git push
+          # Real bug fixed 2026-09-27: "git pull --rebase -X theirs" performs a
+          # line-based TEXT merge whenever two runs' pushes race (this repo
+          # runs 4 heavy builds/day plus an odds-refresh every 10 minutes, all
+          # writing the same files -- overlap is routine, not rare). Git has
+          # no concept of "this is a JSON array of player records"; it just
+          # diffs text lines, and these files get fully re-sorted by
+          # probability on every rebuild, which is exactly the kind of
+          # reordering that confuses a line-based diff. Confirmed via direct
+          # local simulation of this exact race, twice: once producing the
+          # same player appearing twice with two different probabilities
+          # (matching a real, live example from 2026-09-26 -- Jonathan Aranda
+          # showing both 41.3% and 21.3% for the same game), and once
+          # producing silent, permanent data loss (three players' updates
+          # vanishing with no trace or warning). Since this repo has a single
+          # automated writer and every run's data/ output is a complete,
+          # independently-recomputed, self-consistent snapshot -- never an
+          # incremental patch -- there is no legitimate reason to want a
+          # line-merged hybrid of two runs' files. Whichever run finishes
+          # should simply become the new truth, wholesale. This retries by
+          # re-fetching and re-stacking our already-committed working tree on
+          # the new tip, never by merging file content -- verified against
+          # the exact same simulated race to produce zero duplicates and zero
+          # data loss.
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --soft origin/main
+            git add data/
+            git diff --cached --quiet && echo "No changes to commit" || git commit -m "Daily board update $(date -u +%Y-%m-%d)"
+            if git push origin HEAD:main; then
+              echo "Pushed successfully on attempt $i"
+              break
+            fi
+            echo "Push rejected on attempt $i, retrying..."
+            sleep $((RANDOM % 10 + 5))
+          done
