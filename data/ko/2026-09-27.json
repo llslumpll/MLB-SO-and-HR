@@ -1,6 +1,6 @@
 {
   "date": "2026-09-27",
-  "generatedAt": "2026-09-27T11:15:50.646618",
+  "generatedAt": "2026-09-27T15:48:56.627970",
   "entries": [
     {
       "gamePk": 823731,
@@ -271,9 +271,13 @@
       "outsHit": null,
       "openingProb": 0.515,
       "prizePicksOpeningLine": 6.5,
+      "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.621951",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:02:06.009419",
       "prizePicksKLine": 6.5,
+      "prizePicksOutsLine": 14.5,
       "recentNews": [
         {
           "title": "May makes his rotation case as Brewers ponder postseason pitching plans",
@@ -286,34 +290,6 @@
           "link": "https://www.mlb.com/news/christian-yelich-named-brewers-captain",
           "pubDate": "Sun, 27 Sep 2026 03:42:00 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": -0.03500000000000003,
-      "marketBid": 0.47,
-      "marketAsk": 0.49,
-      "edgeEligible": false,
-      "prizePicksOutsOpeningLine": 14.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 14.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-09-27T13:02:06.009419",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 26,
-          "total": 28
-        },
-        {
-          "minPitches": "70",
-          "hits": 26,
-          "total": 27
-        },
-        {
-          "minPitches": "80",
-          "hits": 24,
-          "total": 25
         }
       ]
     },
@@ -611,35 +587,11 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.435,
-      "openingThreshold": 8,
-      "priceDelta": 0.0,
-      "marketBid": 0.43,
-      "marketAsk": 0.44,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T11:20:59.657765",
-      "recentNews": null,
       "prizePicksOpeningLine": 7.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 7.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T11:20:59.658741",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 7,
-          "total": 31
-        },
-        {
-          "minPitches": "70",
-          "hits": 7,
-          "total": 31
-        },
-        {
-          "minPitches": "80",
-          "hits": 7,
-          "total": 31
-        }
-      ]
+      "prizePicksKLine": 7.0,
+      "recentNews": null
     },
     {
       "gamePk": 823408,
@@ -887,7 +839,7 @@
       "kBBPct": 22.668810289389064,
       "rollingKBBPct": 27.999999999999993,
       "parkFactor": 1.08,
-      "weatherFactor": 1.00345,
+      "weatherFactor": 1.0045,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.119,
@@ -913,18 +865,18 @@
           "source": "MLB.com"
         },
         {
+          "title": "Start time for crucial Rays-Phillies finale moved to 2:30 ET",
+          "link": "https://www.mlb.com/news/rays-phillies-sept-27-2026-game-time-update",
+          "pubDate": "Sun, 27 Sep 2026 15:42:57 GMT",
+          "source": "MLB.com"
+        },
+        {
           "title": "Reeling Phillies have one more game to save their season",
           "link": "https://www.mlb.com/news/phillies-lose-to-rays-unable-to-clinch-playoff-spot-again",
           "pubDate": "Sun, 27 Sep 2026 04:50:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.39,
-      "marketAsk": 0.42,
-      "edgeEligible": false
+      ]
     },
     {
       "gamePk": 823814,
@@ -1093,40 +1045,16 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.445,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.44,
-      "marketAsk": 0.45,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T13:02:06.007550",
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-09-27T13:02:06.008820",
+      "prizePicksKLine": 4.0,
       "recentNews": [
         {
           "title": "Injuries: Burnes, Arraez, Gausman, Judge, Red Sox, Braves",
           "link": "https://www.mlb.com/news/baseball-injury-updates",
           "pubDate": "Sun, 27 Sep 2026 00:05:00 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "prizePicksOpeningLine": 4.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-09-27T13:02:06.008820",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 5,
-          "total": 13
-        },
-        {
-          "minPitches": "70",
-          "hits": 5,
-          "total": 11
-        },
-        {
-          "minPitches": "80",
-          "hits": 4,
-          "total": 10
         }
       ]
     },
@@ -1364,57 +1292,15 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.525,
-      "openingThreshold": 6,
-      "priceDelta": -0.020000000000000018,
-      "marketBid": 0.5,
-      "marketAsk": 0.51,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T11:20:59.657765",
-      "recentNews": null,
       "prizePicksOpeningLine": 5.5,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 5.5,
+      "prizePicksOutsOpeningLine": 16.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T11:20:59.658842",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 10,
-          "total": 27
-        },
-        {
-          "minPitches": "70",
-          "hits": 7,
-          "total": 20
-        },
-        {
-          "minPitches": "80",
-          "hits": 7,
-          "total": 16
-        }
-      ],
-      "prizePicksOutsOpeningLine": 16.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 16.5,
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-27T13:02:06.009559",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 12,
-          "total": 27
-        },
-        {
-          "minPitches": "70",
-          "hits": 12,
-          "total": 20
-        },
-        {
-          "minPitches": "80",
-          "hits": 12,
-          "total": 16
-        }
-      ]
+      "prizePicksKLine": 5.5,
+      "prizePicksOutsLine": 16.5,
+      "recentNews": null
     },
     {
       "gamePk": 824217,
@@ -1595,7 +1481,7 @@
       "kBBPct": 21.64179104477612,
       "rollingKBBPct": 33.333333333333336,
       "parkFactor": 0.95,
-      "weatherFactor": 0.9952,
+      "weatherFactor": 0.994,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -1613,13 +1499,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T10:00:25.873570",
       "prizePicksKLine": 6.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": -0.015000000000000013,
-      "marketBid": 0.37,
-      "marketAsk": 0.4,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824055,
@@ -1888,7 +1768,7 @@
       "kBBPct": 19.562243502051984,
       "rollingKBBPct": 22.058823529411768,
       "parkFactor": 0.96,
-      "weatherFactor": 0.99565,
+      "weatherFactor": 0.9934,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -1903,9 +1783,13 @@
       "outsHit": null,
       "openingProb": 0.545,
       "prizePicksOpeningLine": 3.5,
+      "prizePicksOutsOpeningLine": 11.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.622089",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:02:06.009674",
       "prizePicksKLine": 3.5,
+      "prizePicksOutsLine": 11.5,
       "recentNews": [
         {
           "title": "Guardians clinch 7th Central title in last 11 years, secure 1st-round bye",
@@ -1913,33 +1797,297 @@
           "pubDate": "Sun, 27 Sep 2026 05:24:00 GMT",
           "source": "MLB.com"
         }
+      ]
+    },
+    {
+      "gamePk": 824705,
+      "playerId": 684007,
+      "name": "Shota Imanaga",
+      "team": "CHC",
+      "opp": "BOS",
+      "oppTeamId": 111,
+      "vsTeamTrend": null,
+      "vsBatterTrend": {
+        "atBats": 8,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "ops": ".111",
+        "direction": "pitcher",
+        "timeframe": "career",
+        "batterName": "Willson Contreras"
+      },
+      "firstMeetingThisSeason": false,
+      "hand": "L",
+      "seasonRecord": "11-10",
+      "era": "3.74",
+      "seasonK9": 8.822950819672132,
+      "recentK9": 9.736421952957947,
+      "oppK": 21.701217505758475,
+      "matchupFactor": 0.9800746527315094,
+      "stuffFactor": 1.1596486536878314,
+      "recentMatchupApplied": {
+        "factor": 0.974,
+        "gamesFound": 29,
+        "vsHand": "L"
+      },
+      "expectedIP": 5.591397849462366,
+      "projectedK": 5.94175243021645,
+      "confidence": "High",
+      "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts, elite swing-and-miss stuff (K%/whiff%), and locked-in command over their last starts (K-BB% of 26.2%); tempered by pitching in a park that favors the hitter.",
+      "calibrationApplied": -0.1207,
+      "recentStartsLog": [
+        {
+          "k": 4,
+          "ip": 6,
+          "bb": 2,
+          "battersFaced": 24.0
+        },
+        {
+          "k": 8,
+          "ip": 6,
+          "bb": 0,
+          "battersFaced": 22.0
+        },
+        {
+          "k": 7,
+          "ip": 5,
+          "bb": 0,
+          "battersFaced": 19.0
+        }
       ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 4,
-      "priceDelta": -0.040000000000000036,
-      "marketBid": 0.5,
-      "marketAsk": 0.51,
-      "edgeEligible": false,
-      "prizePicksOutsOpeningLine": 11.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 11.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-09-27T13:02:06.009674",
-      "conditionalOutsHitRateBreakdown": [
+      "veloTrend": null,
+      "qualifyingStartsKByThreshold": {
+        "60": [
+          7,
+          4,
+          9,
+          11,
+          1,
+          6,
+          5,
+          10,
+          6,
+          2,
+          6,
+          2,
+          5,
+          7,
+          3,
+          4,
+          4,
+          8,
+          5,
+          4,
+          4,
+          6,
+          6,
+          5,
+          10,
+          4,
+          4,
+          4,
+          4,
+          8,
+          7
+        ],
+        "70": [
+          7,
+          4,
+          9,
+          11,
+          1,
+          6,
+          5,
+          10,
+          6,
+          2,
+          6,
+          2,
+          5,
+          7,
+          3,
+          4,
+          8,
+          5,
+          4,
+          4,
+          6,
+          6,
+          5,
+          10,
+          4,
+          4,
+          4,
+          4,
+          8,
+          7
+        ],
+        "80": [
+          7,
+          4,
+          9,
+          11,
+          1,
+          6,
+          5,
+          10,
+          6,
+          6,
+          5,
+          7,
+          3,
+          4,
+          8,
+          5,
+          4,
+          4,
+          6,
+          6,
+          5,
+          10,
+          4,
+          4,
+          4,
+          8,
+          7
+        ]
+      },
+      "qualifyingStartsOutsByThreshold": {
+        "60": [
+          15,
+          15,
+          18,
+          18,
+          21,
+          16,
+          21,
+          18,
+          21,
+          13,
+          18,
+          16,
+          18,
+          15,
+          17,
+          16,
+          19,
+          14,
+          15,
+          21,
+          18,
+          20,
+          15,
+          14,
+          18,
+          6,
+          15,
+          18,
+          18,
+          18,
+          15
+        ],
+        "70": [
+          15,
+          15,
+          18,
+          18,
+          21,
+          16,
+          21,
+          18,
+          21,
+          13,
+          18,
+          16,
+          18,
+          15,
+          17,
+          19,
+          14,
+          15,
+          21,
+          18,
+          20,
+          15,
+          14,
+          18,
+          6,
+          15,
+          18,
+          18,
+          18,
+          15
+        ],
+        "80": [
+          15,
+          15,
+          18,
+          18,
+          21,
+          16,
+          21,
+          18,
+          21,
+          18,
+          18,
+          15,
+          17,
+          19,
+          14,
+          15,
+          21,
+          18,
+          20,
+          15,
+          14,
+          18,
+          15,
+          18,
+          18,
+          18,
+          15
+        ]
+      },
+      "babipAgainst": 0.26327433628318586,
+      "workloadStreak": 31,
+      "mostRecentPitchCount": 91.0,
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "predictionLine": null,
+      "predictionOutsLine": null,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "projectedOuts": 13.8,
+      "outsReason": "Projected for 13.8 outs (5.6 innings), tempered by a well-rested bullpen right now (2.9 relief innings/game over their last 3), which removes some of the incentive to push him deep.",
+      "npPerGame": 90.25806451612904,
+      "pitchesPerIP": 16.142307692307693,
+      "bbPct": 5.270655270655271,
+      "kBBPct": 19.088319088319086,
+      "rollingKBBPct": 26.153846153846157,
+      "parkFactor": 1.15,
+      "weatherFactor": 1.0075,
+      "outsCalibrationApplied": -0.4868,
+      "bullpenFatigue": {
+        "factor": 0.925,
+        "avgRecentReliefIP": 2.9,
+        "gamesCounted": 3
+      },
+      "outsMarketThreshold": null,
+      "outsMarketProb": null,
+      "outsModelProb": null,
+      "outsEdge": null,
+      "actualOuts": null,
+      "outsHit": null,
+      "recentNews": [
         {
-          "minPitches": "60",
-          "hits": 31,
-          "total": 31
-        },
-        {
-          "minPitches": "70",
-          "hits": 31,
-          "total": 31
-        },
-        {
-          "minPitches": "80",
-          "hits": 29,
-          "total": 29
+          "title": "Padres lock up No. 4 seed, will host Cubs in Wild Card Series",
+          "link": "https://www.mlb.com/news/padres-secure-home-field-in-nl-wild-card-series",
+          "pubDate": "Sun, 27 Sep 2026 05:00:00 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -2190,7 +2338,7 @@
       "kBBPct": 14.329268292682928,
       "rollingKBBPct": 21.311475409836067,
       "parkFactor": 1.05,
-      "weatherFactor": 0.99505,
+      "weatherFactor": 0.9919,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.024,
@@ -2203,13 +2351,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.44999999999999996,
+      "openingProb": 0.405,
       "openingThreshold": 3,
-      "priceDelta": -0.04499999999999993,
+      "priceDelta": 0.0,
       "marketBid": 0.4,
       "marketAsk": 0.41,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T15:30:24.473872",
+      "oddsUpdatedAt": "2026-09-27T15:51:49.889067",
       "recentNews": [
         {
           "title": "AL West up for grabs: Here's how Astros or Rangers can win it in Game 162",
@@ -2427,7 +2575,7 @@
       "kBBPct": 18.28193832599119,
       "rollingKBBPct": 27.118644067796605,
       "parkFactor": 0.92,
-      "weatherFactor": 0.98575,
+      "weatherFactor": 0.98455,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.056,
@@ -2445,13 +2593,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.622214",
       "prizePicksKLine": 4.0,
-      "recentNews": null,
-      "openingThreshold": 4,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.59,
-      "marketAsk": 0.6,
-      "edgeEligible": false,
-      "prizePicksLineDelta": 0.5
+      "recentNews": null
     },
     {
       "gamePk": 823650,
@@ -2635,7 +2777,7 @@
       "kBBPct": 15.542521994134898,
       "rollingKBBPct": 18.032786885245905,
       "parkFactor": 0.99,
-      "weatherFactor": 0.99205,
+      "weatherFactor": 0.99775,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.008,
@@ -2650,38 +2792,14 @@
       "outsHit": null,
       "openingProb": 0.51,
       "prizePicksOpeningLine": 4.5,
+      "prizePicksOutsOpeningLine": 15.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.622353",
-      "prizePicksKLine": 4.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.51,
-      "marketAsk": 0.53,
-      "edgeEligible": false,
-      "prizePicksOutsOpeningLine": 15.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 15.5,
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-27T13:02:06.009794",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 8,
-          "total": 16
-        },
-        {
-          "minPitches": "70",
-          "hits": 8,
-          "total": 15
-        },
-        {
-          "minPitches": "80",
-          "hits": 7,
-          "total": 13
-        }
-      ]
+      "prizePicksKLine": 4.5,
+      "prizePicksOutsLine": 15.5,
+      "recentNews": null
     },
     {
       "gamePk": 823650,
@@ -2944,7 +3062,7 @@
       "kBBPct": 14.035087719298243,
       "rollingKBBPct": -5.263157894736842,
       "parkFactor": 0.99,
-      "weatherFactor": 0.99205,
+      "weatherFactor": 0.99775,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.103,
@@ -2959,9 +3077,13 @@
       "outsHit": null,
       "openingProb": 0.445,
       "prizePicksOpeningLine": 4.5,
+      "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T07:20:17.996800",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T13:02:06.009910",
       "prizePicksKLine": 4.0,
+      "prizePicksOutsLine": 14.5,
       "recentNews": [
         {
           "title": "AL West up for grabs: Here's how Astros or Rangers can win it in Game 162",
@@ -2974,34 +3096,6 @@
           "link": "https://www.mlb.com/news/rangers-win-over-twins-keeps-al-west-title-hopes-alive",
           "pubDate": "Sun, 27 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.43,
-      "marketAsk": 0.46,
-      "edgeEligible": false,
-      "prizePicksLineDelta": -0.5,
-      "prizePicksOutsOpeningLine": 14.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 14.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-09-27T13:02:06.009910",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 24,
-          "total": 32
-        },
-        {
-          "minPitches": "70",
-          "hits": 24,
-          "total": 29
-        },
-        {
-          "minPitches": "80",
-          "hits": 23,
-          "total": 27
         }
       ]
     },
@@ -3273,7 +3367,7 @@
       "kBBPct": 11.833550065019509,
       "rollingKBBPct": 4.054054054054054,
       "parkFactor": 1.11,
-      "weatherFactor": 1.00015,
+      "weatherFactor": 1.00285,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 0.992,
@@ -3291,13 +3385,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.622470",
       "prizePicksKLine": 5.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.004999999999999949,
-      "marketBid": 0.41,
-      "marketAsk": 0.42,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 823084,
@@ -3479,57 +3567,15 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.405,
-      "openingThreshold": 6,
-      "priceDelta": 0.0,
-      "marketBid": 0.4,
-      "marketAsk": 0.41,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T11:20:59.657765",
-      "recentNews": null,
       "prizePicksOpeningLine": 5.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 5.0,
+      "prizePicksOutsOpeningLine": 15.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T11:20:59.658958",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 4,
-          "total": 12
-        },
-        {
-          "minPitches": "70",
-          "hits": 4,
-          "total": 12
-        },
-        {
-          "minPitches": "80",
-          "hits": 4,
-          "total": 12
-        }
-      ],
-      "prizePicksOutsOpeningLine": 15.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 15.5,
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-27T13:02:06.010039",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 5,
-          "total": 12
-        },
-        {
-          "minPitches": "70",
-          "hits": 5,
-          "total": 12
-        },
-        {
-          "minPitches": "80",
-          "hits": 5,
-          "total": 12
-        }
-      ]
+      "prizePicksKLine": 5.0,
+      "prizePicksOutsLine": 15.5,
+      "recentNews": null
     },
     {
       "gamePk": 823490,
@@ -3648,7 +3694,7 @@
       "kBBPct": 4.0,
       "rollingKBBPct": 13.114754098360656,
       "parkFactor": 1.11,
-      "weatherFactor": 1.00015,
+      "weatherFactor": 1.00285,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -3662,39 +3708,14 @@
       "actualOuts": null,
       "outsHit": null,
       "prizePicksOpeningLine": 5.0,
+      "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T06:50:21.281844",
-      "prizePicksKLine": 5.0,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingProb": null,
-      "openingThreshold": null,
-      "priceDelta": null,
-      "marketBid": null,
-      "marketAsk": null,
-      "edgeEligible": false,
-      "prizePicksOutsOpeningLine": 14.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 14.5,
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-27T13:02:06.010151",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 1,
-          "total": 6
-        },
-        {
-          "minPitches": "70",
-          "hits": 1,
-          "total": 5
-        },
-        {
-          "minPitches": "80",
-          "hits": 1,
-          "total": 5
-        }
-      ]
+      "prizePicksKLine": 5.0,
+      "prizePicksOutsLine": 14.5,
+      "recentNews": null
     },
     {
       "gamePk": 824055,
@@ -3812,7 +3833,7 @@
       "kBBPct": 8.38323353293413,
       "rollingKBBPct": 3.333333333333334,
       "parkFactor": 0.96,
-      "weatherFactor": 0.99565,
+      "weatherFactor": 0.9934,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -3829,13 +3850,7 @@
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-27T05:43:18.992688",
       "prizePicksKLine": 2.5,
-      "recentNews": null,
-      "openingProb": null,
-      "openingThreshold": null,
-      "priceDelta": null,
-      "marketBid": null,
-      "marketAsk": null,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824542,
@@ -4063,7 +4078,7 @@
       "kBBPct": 12.984822934232715,
       "rollingKBBPct": 10.526315789473683,
       "parkFactor": 0.99,
-      "weatherFactor": 1.0096,
+      "weatherFactor": 1.009,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.119,
@@ -4077,35 +4092,11 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.43,
-      "openingThreshold": 5,
-      "priceDelta": -0.0050000000000000044,
-      "marketBid": 0.42,
-      "marketAsk": 0.43,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T11:20:59.657765",
-      "recentNews": null,
       "prizePicksOpeningLine": 4.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T11:20:59.659048",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 8,
-          "total": 24
-        },
-        {
-          "minPitches": "70",
-          "hits": 7,
-          "total": 22
-        },
-        {
-          "minPitches": "80",
-          "hits": 7,
-          "total": 20
-        }
-      ]
+      "prizePicksKLine": 4.0,
+      "recentNews": null
     },
     {
       "gamePk": 822679,
@@ -4196,13 +4187,7 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T05:26:04.622584",
       "prizePicksKLine": 4.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 5,
-      "priceDelta": -0.020000000000000018,
-      "marketBid": 0.46,
-      "marketAsk": 0.47,
-      "edgeEligible": false
+      "recentNews": null
     },
     {
       "gamePk": 824542,
@@ -4455,7 +4440,7 @@
       "kBBPct": 10.304789550072567,
       "rollingKBBPct": 8.92857142857143,
       "parkFactor": 0.99,
-      "weatherFactor": 1.0096,
+      "weatherFactor": 1.009,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -4469,40 +4454,16 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.385,
-      "openingThreshold": 5,
-      "priceDelta": -0.08000000000000002,
-      "marketBid": 0.3,
-      "marketAsk": 0.31,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T11:20:59.657765",
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-27T11:20:59.659128",
+      "prizePicksKLine": 3.5,
       "recentNews": [
         {
           "title": "Disappointed? Sure. But White Sox are excited for playoffs",
           "link": "https://www.mlb.com/news/white-sox-al-wild-card-berth-loss-rockies-2026",
           "pubDate": "Sun, 27 Sep 2026 04:05:00 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "prizePicksOpeningLine": 4.0,
-      "prizePicksLineDelta": -0.5,
-      "prizePicksKLine": 3.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-09-27T11:20:59.659128",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 12,
-          "total": 31
-        },
-        {
-          "minPitches": "70",
-          "hits": 12,
-          "total": 28
-        },
-        {
-          "minPitches": "80",
-          "hits": 12,
-          "total": 24
         }
       ]
     },
@@ -4619,9 +4580,9 @@
       "workloadStreak": 1,
       "mostRecentPitchCount": 68.0,
       "marketThreshold": 3,
-      "marketProb": 0.55,
+      "marketProb": 0.5700000000000001,
       "modelProb": 0.7038446470066849,
-      "edge": 0.15384464700668488,
+      "edge": 0.13384464700668486,
       "predictionLine": null,
       "predictionOutsLine": null,
       "graded": false,
@@ -4648,13 +4609,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.585,
+      "openingProb": 0.5700000000000001,
       "openingThreshold": 3,
-      "priceDelta": -0.03499999999999992,
-      "marketBid": 0.54,
-      "marketAsk": 0.56,
+      "priceDelta": 0.0,
+      "marketBid": 0.56,
+      "marketAsk": 0.58,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T15:30:24.473872",
+      "oddsUpdatedAt": "2026-09-27T15:51:49.889067",
       "recentNews": null
     },
     {
@@ -4847,12 +4808,14 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.435,
-      "openingThreshold": 6,
-      "priceDelta": -0.015000000000000013,
-      "marketBid": 0.41,
-      "marketAsk": 0.43,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T11:20:59.657765",
+      "prizePicksOpeningLine": 5.0,
+      "prizePicksOutsOpeningLine": 14.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-09-27T11:20:59.659200",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-09-27T14:30:26.189821",
+      "prizePicksKLine": 5.0,
+      "prizePicksOutsLine": 14.5,
       "recentNews": [
         {
           "title": "Scherzer to wait on retirement decision, wants to 'see how things unfold'",
@@ -4865,50 +4828,6 @@
           "link": "https://www.mlb.com/news/justin-verlander-max-scherzer-connected-by-strikeouts-legacy",
           "pubDate": "Sat, 26 Sep 2026 20:59:21 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "prizePicksOpeningLine": 5.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 5.0,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-09-27T11:20:59.659200",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 2,
-          "total": 16
-        },
-        {
-          "minPitches": "70",
-          "hits": 2,
-          "total": 15
-        },
-        {
-          "minPitches": "80",
-          "hits": 2,
-          "total": 10
-        }
-      ],
-      "prizePicksOutsOpeningLine": 14.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 14.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-09-27T14:30:26.189821",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 11,
-          "total": 16
-        },
-        {
-          "minPitches": "70",
-          "hits": 11,
-          "total": 15
-        },
-        {
-          "minPitches": "80",
-          "hits": 8,
-          "total": 10
         }
       ]
     },
@@ -5127,38 +5046,14 @@
       "outsHit": null,
       "openingProb": 0.445,
       "prizePicksOpeningLine": 3.5,
+      "prizePicksOutsOpeningLine": 13.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T09:30:24.660426",
-      "prizePicksKLine": 3.5,
-      "recentNews": null,
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 4,
-      "priceDelta": 0.02999999999999997,
-      "marketBid": 0.47,
-      "marketAsk": 0.48,
-      "edgeEligible": false,
-      "prizePicksOutsOpeningLine": 13.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 13.5,
       "outsCall": "UNDER",
       "outsCallFrozenAt": "2026-09-27T13:02:06.010259",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 18,
-          "total": 22
-        },
-        {
-          "minPitches": "70",
-          "hits": 16,
-          "total": 19
-        },
-        {
-          "minPitches": "80",
-          "hits": 11,
-          "total": 12
-        }
-      ]
+      "prizePicksKLine": 3.5,
+      "prizePicksOutsLine": 13.5,
+      "recentNews": null
     },
     {
       "gamePk": 823246,
@@ -5169,14 +5064,14 @@
       "oppTeamId": 109,
       "vsTeamTrend": null,
       "vsBatterTrend": {
-        "atBats": 9,
-        "hits": 2,
-        "homeRuns": 1,
-        "avg": ".222",
-        "ops": "1.031",
-        "direction": "batter",
-        "timeframe": "career",
-        "batterName": "Gabriel Moreno"
+        "atBats": 8,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".125",
+        "ops": ".347",
+        "direction": "pitcher",
+        "timeframe": "season",
+        "batterName": "Ketel Marte"
       },
       "firstMeetingThisSeason": false,
       "hand": "R",
@@ -5366,7 +5261,7 @@
       "kBBPct": 8.480565371024737,
       "rollingKBBPct": 7.6923076923076925,
       "parkFactor": 0.92,
-      "weatherFactor": 0.98575,
+      "weatherFactor": 0.98455,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -5379,6 +5274,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
+      "openingProb": 0.4,
+      "openingThreshold": 3,
+      "priceDelta": 0.0,
+      "marketBid": 0.39,
+      "marketAsk": 0.41,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-27T15:51:49.889067",
       "recentNews": [
         {
           "title": "Padres lock up No. 4 seed, will host Cubs in Wild Card Series",
@@ -5392,14 +5294,7 @@
           "pubDate": "Sat, 26 Sep 2026 23:23:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "openingProb": 0.395,
-      "openingThreshold": 3,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.39,
-      "marketAsk": 0.41,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T15:30:24.473872"
+      ]
     },
     {
       "gamePk": 824948,
@@ -5480,7 +5375,7 @@
       "kBBPct": 13.333333333333336,
       "rollingKBBPct": 9.523809523809522,
       "parkFactor": 1.05,
-      "weatherFactor": 0.99505,
+      "weatherFactor": 0.9919,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 0.976,
@@ -5562,7 +5457,7 @@
       "kBBPct": 16.666666666666668,
       "rollingKBBPct": 16.666666666666668,
       "parkFactor": 0.95,
-      "weatherFactor": 0.9952,
+      "weatherFactor": 0.994,
       "outsCalibrationApplied": null,
       "bullpenFatigue": {
         "factor": 1.024,
@@ -5587,13 +5482,7 @@
           "pubDate": "Sat, 26 Sep 2026 22:58:48 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 3,
-      "priceDelta": 0.0,
-      "marketBid": 0.5,
-      "marketAsk": 0.51,
-      "edgeEligible": false
+      ]
     },
     {
       "gamePk": 823408,
@@ -5843,7 +5732,7 @@
       "kBBPct": 11.756373937677054,
       "rollingKBBPct": 19.047619047619044,
       "parkFactor": 1.08,
-      "weatherFactor": 1.00345,
+      "weatherFactor": 1.0045,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.103,
@@ -5861,13 +5750,14 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T07:31:31.282961",
       "prizePicksKLine": 3.5,
-      "recentNews": null,
-      "openingThreshold": 4,
-      "priceDelta": -0.04500000000000004,
-      "marketBid": 0.49,
-      "marketAsk": 0.5,
-      "edgeEligible": false,
-      "prizePicksLineDelta": 0.0
+      "recentNews": [
+        {
+          "title": "Start time for crucial Rays-Phillies finale moved to 2:30 ET",
+          "link": "https://www.mlb.com/news/rays-phillies-sept-27-2026-game-time-update",
+          "pubDate": "Sun, 27 Sep 2026 15:42:57 GMT",
+          "source": "MLB.com"
+        }
+      ]
     },
     {
       "gamePk": 823731,
@@ -6141,35 +6031,11 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.39,
-      "openingThreshold": 5,
-      "priceDelta": -0.025000000000000022,
-      "marketBid": 0.36,
-      "marketAsk": 0.37,
-      "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T13:02:06.007550",
-      "recentNews": null,
       "prizePicksOpeningLine": 4.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-27T13:02:06.009064",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 9,
-          "total": 28
-        },
-        {
-          "minPitches": "70",
-          "hits": 9,
-          "total": 28
-        },
-        {
-          "minPitches": "80",
-          "hits": 9,
-          "total": 26
-        }
-      ]
+      "prizePicksKLine": 4.0,
+      "recentNews": null
     },
     {
       "gamePk": 823164,
@@ -6250,7 +6116,7 @@
       "kBBPct": 4.3795620437956195,
       "rollingKBBPct": 11.11111111111111,
       "parkFactor": 0.86,
-      "weatherFactor": 1.01095,
+      "weatherFactor": 1.0126,
       "outsCalibrationApplied": -0.4868,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -6268,7 +6134,9 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-27T05:22:11.313796",
-  "oddsRefreshedAt": "2026-09-27T15:30:24.473872",
+  "oddsRefreshedAt": "2026-09-27T15:51:49.889067",
+  "_kalshiMatched": 23,
+  "_kalshiTotal": 28,
   "lockedBest5": {
     "kEdge": [
       {
