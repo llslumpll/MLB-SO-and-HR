@@ -1181,9 +1181,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 36.0,
       "marketThreshold": 5,
-      "marketProb": 0.605,
+      "marketProb": 0.26,
       "modelProb": 0.5540516029226138,
-      "edge": -0.05094839707738619,
+      "edge": 0.2940516029226138,
       "predictionLine": 4.5,
       "predictionOutsLine": 12.5,
       "graded": false,
@@ -1215,6 +1215,17 @@
       "prizePicksOutsOpeningLine": 12.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-09-26T11:20:22.159657",
+      "prizePicksKLine": 4.5,
+      "recentNews": null,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": -0.22999999999999998,
+      "marketBid": 0.07,
+      "marketAsk": 0.45,
+      "edgeEligible": false,
+      "prizePicksOutsOpeningLine": 12.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 12.5,
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-09-26T23:20:23.278884",
       "prizePicksKLine": 4.5,
@@ -1664,7 +1675,7 @@
       "marketBid": 0.0,
       "marketAsk": 0.01,
       "edgeEligible": false,
-      "oddsUpdatedAt": "2026-09-27T00:42:44.500828",
+      "oddsUpdatedAt": "2026-09-27T00:45:02.223841",
       "recentNews": [
         {
           "title": "Nola lasts 1 inning on short rest in Phils' shuffled rotation",
@@ -2452,9 +2463,9 @@
       "workloadStreak": 17,
       "mostRecentPitchCount": 91.0,
       "marketThreshold": 5,
-      "marketProb": 0.455,
+      "marketProb": 0.45,
       "modelProb": 0.4691335600672783,
-      "edge": 0.014133560067278284,
+      "edge": 0.019133560067278288,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -2486,110 +2497,13 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-26T13:00:24.390980",
       "prizePicksKLine": 4.0,
-      "recentNews": null
-    },
-    {
-      "gamePk": 823245,
-      "playerId": 664199,
-      "name": "Taylor Clarke",
-      "team": "AZ",
-      "opp": "SD",
-      "oppTeamId": 135,
-      "vsTeamTrend": null,
-      "vsBatterTrend": {
-        "atBats": 8,
-        "hits": 2,
-        "homeRuns": 1,
-        "avg": ".250",
-        "ops": ".958",
-        "direction": "batter",
-        "timeframe": "career",
-        "batterName": "Fernando Tatis Jr."
-      },
-      "firstMeetingThisSeason": false,
-      "hand": "R",
-      "seasonRecord": "2-4",
-      "era": "2.86",
-      "seasonK9": 6.449511400651466,
-      "recentK9": 6.541969431220246,
-      "oppK": 21.633812228533245,
-      "matchupFactor": 0.9754645922175552,
-      "stuffFactor": 0.8335016496684335,
-      "recentMatchupApplied": {
-        "factor": 0.968,
-        "gamesFound": 30,
-        "vsHand": "R"
-      },
-      "expectedIP": 6.7,
-      "projectedK": 4.2419347131839915,
-      "confidence": "High",
-      "reason": "Below-average strikeout stuff this season, boosted by a long-innings workload expectation; tempered by below-average swing-and-miss stuff. His .232 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1171,
-      "recentStartsLog": [
-        {
-          "k": 0,
-          "ip": 0.6666666666666666,
-          "bb": 0,
-          "battersFaced": 2.0
-        },
-        {
-          "k": 1,
-          "ip": 1,
-          "bb": 0,
-          "battersFaced": 5.0
-        },
-        {
-          "k": 1,
-          "ip": 1,
-          "bb": 0,
-          "battersFaced": 7.0
-        }
-      ],
-      "veloTrend": null,
-      "qualifyingStartsKByThreshold": {
-        "60": [],
-        "70": [],
-        "80": []
-      },
-      "qualifyingStartsOutsByThreshold": {
-        "60": [],
-        "70": [],
-        "80": []
-      },
-      "babipAgainst": 0.23222748815165878,
-      "workloadStreak": 0,
-      "mostRecentPitchCount": 34.0,
-      "marketThreshold": null,
-      "marketProb": null,
-      "modelProb": null,
-      "edge": null,
-      "predictionLine": null,
-      "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
-      "projectedOuts": 20.5,
-      "outsReason": "Projected for 20.5 outs (6.7 innings), supported by a track record of a long leash (1045 pitches/game this season), getting deep into games (6.7 IP/start), and efficient innings (14.4 pitches/inning); tempered by a well-rested bullpen right now (2.7 relief innings/game over their last 3), which removes some of the incentive to push him deep.",
-      "npPerGame": 1045.0,
-      "pitchesPerIP": 14.447004608294932,
-      "bbPct": 4.964539007092199,
-      "kBBPct": 10.99290780141844,
-      "rollingKBBPct": 14.285714285714285,
-      "parkFactor": 0.92,
-      "weatherFactor": 0.9943,
-      "outsCalibrationApplied": -0.4667,
-      "bullpenFatigue": {
-        "factor": 0.925,
-        "avgRecentReliefIP": 2.7,
-        "gamesCounted": 3
-      },
-      "outsMarketThreshold": null,
-      "outsMarketProb": null,
-      "outsModelProb": null,
-      "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
-      "recentNews": null
+      "recentNews": null,
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": -0.0050000000000000044,
+      "marketBid": 0.44,
+      "marketAsk": 0.46,
+      "edgeEligible": false
     },
     {
       "gamePk": 824057,
@@ -2855,9 +2769,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 86.0,
       "marketThreshold": 5,
-      "marketProb": 0.74,
+      "marketProb": 0.15,
       "modelProb": 0.4439887029408926,
-      "edge": -0.2960112970591074,
+      "edge": 0.29398870294089263,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -2889,7 +2803,20 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-26T13:00:24.391099",
       "prizePicksKLine": 4.0,
-      "recentNews": null
+      "recentNews": [
+        {
+          "title": "Guardians squeeze out unsightly win over Royals in AL Central race",
+          "link": "https://www.mlb.com/news/cleveland-guardians-keep-pace-with-white-sox-in-al-central-race",
+          "pubDate": "Sat, 26 Sep 2026 06:06:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": -0.205,
+      "marketBid": 0.0,
+      "marketAsk": 0.15,
+      "edgeEligible": false
     },
     {
       "gamePk": 823165,
@@ -4633,9 +4560,9 @@
       "workloadStreak": 20,
       "mostRecentPitchCount": 89.0,
       "marketThreshold": 5,
-      "marketProb": 0.325,
+      "marketProb": 0.235,
       "modelProb": 0.37192203472006224,
-      "edge": 0.04692203472006223,
+      "edge": 0.13692203472006226,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -4667,14 +4594,13 @@
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-09-26T11:20:22.160155",
       "prizePicksKLine": 3.5,
-      "recentNews": [
-        {
-          "title": "Padres' recent roster moves have major implications for their playoff roster",
-          "link": "https://www.mlb.com/news/casey-mize-placed-on-injured-list-gavin-sheets-reinstated",
-          "pubDate": "Sat, 26 Sep 2026 23:23:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
+      "recentNews": null,
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.08500000000000002,
+      "marketBid": 0.1,
+      "marketAsk": 0.37,
+      "edgeEligible": false
     },
     {
       "gamePk": 824219,
@@ -4967,9 +4893,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-09-26T11:15:15.768085",
-  "oddsRefreshedAt": "2026-09-27T00:42:44.500828",
-  "_kalshiMatched": 15,
-  "_kalshiTotal": 26,
+  "oddsRefreshedAt": "2026-09-27T00:45:02.223841",
   "lockedBest5": {
     "kEdge": [
       {
