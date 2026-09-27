@@ -48,6 +48,24 @@ jobs:
             echo "No price changes to commit"
           else
             git commit -m "Odds refresh $(date -u +%Y-%m-%dT%H:%M)"
-            git pull --rebase -X theirs origin main
-            git push
+            # Same real fix as daily.yml, same day -- see that file for the
+            # full writeup and the local race simulation that confirmed both
+            # the failure (duplicate/lost entries from "pull --rebase -X
+            # theirs" line-merging a resorted JSON file) and this fix
+            # (zero duplicates, zero data loss under the identical simulated
+            # race). This job runs every 10 minutes, so it's the most
+            # frequent writer to these files and the most likely to ever
+            # encounter a race, whatever its exact trigger turns out to be.
+            for i in 1 2 3 4 5; do
+              git fetch origin main
+              git reset --soft origin/main
+              git add data/
+              git diff --cached --quiet && echo "No changes to commit" || git commit -m "Odds refresh $(date -u +%Y-%m-%dT%H:%M)"
+              if git push origin HEAD:main; then
+                echo "Pushed successfully on attempt $i"
+                break
+              fi
+              echo "Push rejected on attempt $i, retrying..."
+              sleep $((RANDOM % 10 + 5))
+            done
           fi
