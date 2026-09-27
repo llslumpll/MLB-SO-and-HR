@@ -83,8 +83,17 @@ jobs:
             git diff --cached --quiet && echo "No changes to commit" || git commit -m "Daily board update $(date -u +%Y-%m-%d)"
             if git push origin HEAD:main; then
               echo "Pushed successfully on attempt $i"
-              break
+              exit 0
             fi
             echo "Push rejected on attempt $i, retrying..."
             sleep $((RANDOM % 10 + 5))
           done
+          # Caught in review, not something the original code needed: a
+          # plain "for" loop's exit code is whatever its LAST command was --
+          # here, always the retry "sleep", which never fails. Without this,
+          # exhausting all 5 attempts would report the step as successful
+          # even though nothing was ever pushed, silently hiding a real
+          # failure instead of surfacing it the way the old single git-push
+          # call properly did.
+          echo "::error::Failed to push after 5 attempts"
+          exit 1
