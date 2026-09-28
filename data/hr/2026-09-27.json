@@ -4418,16 +4418,16 @@
       "tbParkFactor": 1.045,
       "hitsCalibrationApplied": -0.0126,
       "tbCalibrationApplied": -0.0232,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.52451086771872,
+      "hitsCall": "OVER",
       "actualHits": 0,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.7045791246663252,
+      "tbCall": "OVER",
       "actualTotalBases": 0,
       "tbHit": null,
       "recentNews": [
@@ -4443,7 +4443,15 @@
       "edgeEligible": false,
       "oddsUpdatedAt": "2026-09-27T21:50:21.021269",
       "openingProb": 0.09,
-      "priceDelta": -0.01999999999999999
+      "priceDelta": -0.01999999999999999,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-28T00:30:20.258124",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-28T00:30:20.259537"
     },
     {
       "gamePk": 824217,
@@ -6508,10 +6516,10 @@
       "tbParkFactor": 1.045,
       "hitsCalibrationApplied": -0.0126,
       "tbCalibrationApplied": -0.0232,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5368938679722668,
+      "hitsCall": "OVER",
       "actualHits": 2,
       "hitsHit": null,
       "predictionTBLine": 0.5,
@@ -6537,7 +6545,11 @@
       "edgeEligible": false,
       "oddsUpdatedAt": "2026-09-27T21:50:21.021269",
       "openingProb": 0.105,
-      "priceDelta": 0.585
+      "priceDelta": 0.585,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-28T00:30:20.258235"
     },
     {
       "gamePk": 824948,
@@ -16407,7 +16419,9 @@
       "marketBid": 0.99,
       "marketAsk": 1.0,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-27T22:00:24.030123"
+      "oddsUpdatedAt": "2026-09-27T22:00:24.030123",
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0
     },
     {
       "gamePk": 824948,
@@ -16666,16 +16680,16 @@
       "tbParkFactor": 1.045,
       "hitsCalibrationApplied": -0.0126,
       "tbCalibrationApplied": -0.0232,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5567242830327979,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6491120302292562,
+      "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
       "recentNews": [
@@ -16685,7 +16699,15 @@
           "pubDate": "Sun, 27 Sep 2026 05:00:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-28T00:30:20.258344",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-28T00:30:20.259645"
     },
     {
       "gamePk": 823814,
@@ -26547,7 +26569,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-28T00:20:16.921415",
+  "oddsRefreshedAt": "2026-09-28T00:30:20.255712",
   "statcastSpotlight": {
     "name": "Pete Alonso",
     "team": "BAL",
