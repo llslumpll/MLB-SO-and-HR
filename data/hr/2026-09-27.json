@@ -18302,16 +18302,16 @@
       "tbParkFactor": 1.024,
       "hitsCalibrationApplied": -0.0617,
       "tbCalibrationApplied": -0.1143,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5449452088280244,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.653475014351613,
+      "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
       "recentNews": [
@@ -18327,7 +18327,15 @@
           "pubDate": "Sun, 27 Sep 2026 04:50:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-28T01:20:20.874002",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-28T01:20:20.874703"
     },
     {
       "gamePk": 824542,
@@ -26629,7 +26637,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-28T01:10:22.167997",
+  "oddsRefreshedAt": "2026-09-28T01:20:20.872546",
   "statcastSpotlight": {
     "name": "Pete Alonso",
     "team": "BAL",
