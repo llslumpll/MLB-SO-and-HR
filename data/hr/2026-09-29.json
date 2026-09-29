@@ -75,10 +75,10 @@
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0127,
       "tbCalibrationApplied": -0.0225,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5204052329214457,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
       "predictionTBLine": 0.5,
@@ -94,7 +94,7 @@
       "marketBid": 0.18,
       "marketAsk": 0.19,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "White Sox-Astros AL Wild Card Series Game 1 FAQ (5 ET, Peacock/NBCSN)",
@@ -114,7 +114,11 @@
           "pubDate": "Mon, 28 Sep 2026 01:20:01 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-29T17:50:19.699030"
     },
     {
       "gamePk": 849851,
@@ -326,7 +330,7 @@
       "marketBid": 0.2,
       "marketAsk": 0.21,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Cubs-Padres NL Wild Card Series Game 1 FAQ (10 p.m. ET, Peacock/NBCSN)",
@@ -430,7 +434,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "White Sox-Astros AL Wild Card Series Game 1 FAQ (5 ET, Peacock/NBCSN)",
@@ -554,7 +558,7 @@
       "marketBid": 0.16,
       "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Red Sox-Yankees AL Wild Card Series Game 1 FAQ (8 ET, NBC/Peacock)",
@@ -672,7 +676,7 @@
       "marketBid": 0.14,
       "marketAsk": 0.16,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -790,7 +794,7 @@
       "marketBid": 0.16,
       "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -1018,7 +1022,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -1138,7 +1142,7 @@
       "marketBid": 0.16,
       "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -1361,7 +1365,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Cubs-Padres NL Wild Card Series Game 1 FAQ (10 p.m. ET, Peacock/NBCSN)",
@@ -1586,7 +1590,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -1781,8 +1785,8 @@
       "trendL7OPS": 1.0863095238095237,
       "trendL10OPS": 0.8500000000000001,
       "seasonOPS": 0.697,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.12,
+      "edge": -0.007149621602745848,
       "graded": false,
       "hr": null,
       "projectedHits": 0.67,
@@ -1824,7 +1828,11 @@
           "pubDate": "Mon, 28 Sep 2026 01:20:01 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "marketBid": 0.0,
+      "marketAsk": 0.12,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210"
     },
     {
       "gamePk": 849845,
@@ -1922,7 +1930,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -2036,7 +2044,7 @@
       "marketBid": 0.15,
       "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "White Sox-Astros AL Wild Card Series Game 1 FAQ (5 ET, Peacock/NBCSN)",
@@ -2569,8 +2577,8 @@
       "trendL7OPS": 0.8131868131868132,
       "trendL10OPS": 0.6044624746450304,
       "seasonOPS": 0.669,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.12,
+      "edge": -0.02620285224072623,
       "graded": false,
       "hr": null,
       "projectedHits": 0.63,
@@ -2626,7 +2634,11 @@
       "prizePicksHitsOpeningLine": 0.5,
       "prizePicksHitsLineDelta": 0.0,
       "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      "prizePicksTBLineDelta": 0.0,
+      "marketBid": 0.0,
+      "marketAsk": 0.12,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210"
     },
     {
       "gamePk": 849843,
@@ -2687,8 +2699,8 @@
       "trendL7OPS": 0.4810606060606061,
       "trendL10OPS": 0.6,
       "seasonOPS": 0.738,
-      "marketProb": 0.10500000000000001,
-      "edge": -0.011895386085994067,
+      "marketProb": 0.11499999999999999,
+      "edge": -0.021895386085994048,
       "graded": false,
       "hr": null,
       "projectedHits": 0.77,
@@ -2716,11 +2728,11 @@
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-29T11:20:17.907384",
       "prizePicksTBLine": 0.5,
-      "priceDelta": 0.0,
-      "marketBid": 0.1,
-      "marketAsk": 0.11,
+      "priceDelta": 0.009999999999999981,
+      "marketBid": 0.11,
+      "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Cubs-Padres NL Wild Card Series Game 1 FAQ (10 p.m. ET, Peacock/NBCSN)",
@@ -2836,7 +2848,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Red Sox-Yankees AL Wild Card Series Game 1 FAQ (8 ET, NBC/Peacock)",
@@ -2960,7 +2972,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -3078,7 +3090,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -3167,8 +3179,8 @@
       "trendL7OPS": 1.6428571428571428,
       "trendL10OPS": 1.35,
       "seasonOPS": 0.765,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.07,
+      "edge": 0.01919433969826065,
       "graded": false,
       "hr": null,
       "projectedHits": 0.97,
@@ -3210,7 +3222,11 @@
           "pubDate": "Mon, 28 Sep 2026 01:20:01 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "marketBid": 0.0,
+      "marketAsk": 0.07,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210"
     },
     {
       "gamePk": 849843,
@@ -3286,8 +3302,8 @@
       "trendL7OPS": 0.6719367588932806,
       "trendL10OPS": 0.6058467741935484,
       "seasonOPS": 0.71,
-      "marketProb": 0.16999999999999998,
-      "edge": -0.08117513659541588,
+      "marketProb": 0.175,
+      "edge": -0.08617513659541588,
       "graded": false,
       "hr": null,
       "projectedHits": 0.7,
@@ -3311,11 +3327,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.14500000000000002,
-      "priceDelta": 0.024999999999999967,
-      "marketBid": 0.16,
+      "priceDelta": 0.02999999999999997,
+      "marketBid": 0.17,
       "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Cubs-Padres NL Wild Card Series Game 1 FAQ (10 p.m. ET, Peacock/NBCSN)",
@@ -3541,7 +3557,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Cubs-Padres NL Wild Card Series Game 1 FAQ (10 p.m. ET, Peacock/NBCSN)",
@@ -3969,7 +3985,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Red Sox-Yankees AL Wild Card Series Game 1 FAQ (8 ET, NBC/Peacock)",
@@ -4085,7 +4101,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "White Sox-Astros AL Wild Card Series Game 1 FAQ (5 ET, Peacock/NBCSN)",
@@ -4639,7 +4655,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Red Sox-Yankees AL Wild Card Series Game 1 FAQ (8 ET, NBC/Peacock)",
@@ -4963,7 +4979,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "White Sox-Astros AL Wild Card Series Game 1 FAQ (5 ET, Peacock/NBCSN)",
@@ -5289,7 +5305,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Cubs-Padres NL Wild Card Series Game 1 FAQ (10 p.m. ET, Peacock/NBCSN)",
@@ -5470,8 +5486,8 @@
       "trendL7OPS": 0.26900584795321636,
       "trendL10OPS": 0.26900584795321636,
       "seasonOPS": 0.774,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.11,
+      "edge": -0.04625610309420615,
       "graded": false,
       "hr": null,
       "projectedHits": 0.76,
@@ -5517,7 +5533,11 @@
       "prizePicksTBOpeningLine": 0.5,
       "prizePicksTBLineDelta": 0.0,
       "prizePicksTBLine": 0.5,
-      "tbCallFrozenAt": "2026-09-29T17:30:19.618232"
+      "tbCallFrozenAt": "2026-09-29T17:30:19.618232",
+      "marketBid": 0.0,
+      "marketAsk": 0.11,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210"
     },
     {
       "gamePk": 849851,
@@ -5941,7 +5961,7 @@
       "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -6066,7 +6086,7 @@
       "marketBid": 0.04,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -6147,8 +6167,8 @@
       "trendL7OPS": 0.5655270655270654,
       "trendL10OPS": 0.8126050420168067,
       "seasonOPS": 0.701,
-      "marketProb": 0.095,
-      "edge": -0.03843448775036,
+      "marketProb": 0.1,
+      "edge": -0.043434487750360004,
       "graded": false,
       "hr": null,
       "projectedHits": 1.01,
@@ -6172,11 +6192,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.1,
-      "priceDelta": -0.0050000000000000044,
+      "priceDelta": 0.0,
       "marketBid": 0.09,
-      "marketAsk": 0.1,
+      "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "White Sox-Astros AL Wild Card Series Game 1 FAQ (5 ET, Peacock/NBCSN)",
@@ -6466,8 +6486,8 @@
       "trendL7OPS": 0.1875,
       "trendL10OPS": 0.1875,
       "seasonOPS": 0.626,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.1,
+      "edge": -0.04606674741258021,
       "graded": false,
       "hr": null,
       "projectedHits": 0.48,
@@ -6515,7 +6535,11 @@
           "pubDate": "Mon, 28 Sep 2026 01:20:01 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "marketBid": 0.0,
+      "marketAsk": 0.1,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210"
     },
     {
       "gamePk": 849845,
@@ -6607,7 +6631,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -6696,8 +6720,8 @@
       "trendL7OPS": 0.5555555555555556,
       "trendL10OPS": 0.5555555555555556,
       "seasonOPS": 0.762,
-      "marketProb": 0.055,
-      "edge": -0.00611150935417791,
+      "marketProb": 0.05,
+      "edge": -0.0011115093541779128,
       "graded": false,
       "hr": null,
       "projectedHits": 0.71,
@@ -6725,11 +6749,11 @@
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-09-29T11:20:17.907649",
       "prizePicksTBLine": 0.5,
-      "priceDelta": 0.010000000000000002,
-      "marketBid": 0.05,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.04,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -7389,7 +7413,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -7605,7 +7629,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -7723,7 +7747,7 @@
       "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -8053,7 +8077,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-29T17:40:21.630384",
+      "oddsUpdatedAt": "2026-09-29T17:50:19.698210",
       "recentNews": [
         {
           "title": "Phillies-Braves NL Wild Card Series Game 1 FAQ, lineups (2 ET, NBC/Peacock)",
@@ -8081,7 +8105,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-29T17:40:21.630384",
+  "oddsRefreshedAt": "2026-09-29T17:50:19.698210",
   "statcastSpotlight": {
     "name": "Munetaka Murakami",
     "team": "CWS",
