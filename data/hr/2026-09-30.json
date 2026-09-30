@@ -1,6 +1,6 @@
 {
   "date": "2026-09-30",
-  "generatedAt": "2026-09-30T11:09:12.962246",
+  "generatedAt": "2026-09-30T06:04:00.698590",
   "entries": [
     {
       "gamePk": 849846,
@@ -9,9 +9,9 @@
       "team": "CWS",
       "opp": "HOU",
       "order": null,
-      "heuristicProb": 0.25628642697968884,
+      "heuristicProb": 0.2561762255472119,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -44,8 +44,8 @@
         "whiff_percent": "1",
         "chase_percent": "91",
         "arm_strength": "8",
-        "sprint_speed": "33",
-        "oaa": "41",
+        "sprint_speed": "34",
+        "oaa": "44",
         "bat_speed": "80",
         "squared_up_rate": "7",
         "swing_length": "92"
@@ -72,7 +72,7 @@
       "trendL10OPS": 1.0985576923076923,
       "seasonOPS": 0.825,
       "marketProb": 0.16,
-      "edge": 0.09628642697968884,
+      "edge": 0.09617622554721192,
       "graded": false,
       "hr": null,
       "projectedHits": 0.74,
@@ -82,7 +82,7 @@
       "hitsMatchupFactor": 1.027,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.520331997451113,
@@ -96,23 +96,33 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.16,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431005",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432128",
-      "prizePicksTBLine": 0.5,
       "priceDelta": 0.0,
       "marketBid": 0.15,
       "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "White Sox only stumble in Game 1? It might have been staged",
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431005",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432128"
     },
     {
       "gamePk": 849848,
@@ -121,9 +131,9 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.19052417453881149,
+      "heuristicProb": 0.18875890234527037,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -134,7 +144,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 1.4111467960104276,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.121038215729751
       },
       "savant": {
@@ -162,7 +172,15 @@
         "squared_up_rate": "74",
         "swing_length": "80"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 7,
+        "hits": 3,
+        "homeRuns": 2,
+        "avg": ".429",
+        "obp": ".556",
+        "slg": "1.286",
+        "ops": "1.842"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Sonny Gray",
@@ -176,7 +194,7 @@
       "trendL10OPS": 1.0,
       "seasonOPS": 0.897,
       "marketProb": 0.195,
-      "edge": -0.004475825461188521,
+      "edge": -0.006241097654729633,
       "graded": false,
       "hr": null,
       "projectedHits": 0.85,
@@ -186,7 +204,7 @@
       "hitsMatchupFactor": 1.017,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -204,7 +222,7 @@
       "marketBid": 0.18,
       "marketAsk": 0.21,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Yanks ride Massachusetts natives Schlittler, Rice to Game 1 win over Sox",
@@ -213,7 +231,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Avocado toast in the morning, grand slams at night: Routine key for Rice",
+          "title": "Avocado toast in the morning, grand slams at night: Routine is the key for Rice",
           "link": "https://www.mlb.com/news/ben-rice-hits-grand-slam-game-1-al-wild-card-series",
           "pubDate": "Wed, 30 Sep 2026 05:53:17 GMT",
           "source": "MLB.com"
@@ -227,9 +245,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.18913302766493714,
+      "heuristicProb": 0.18814939036001366,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (2 HR in 25 AB); tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
@@ -238,7 +256,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 1.4390618889853,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.058287795992714
       },
       "savant": {
@@ -295,7 +313,7 @@
       "trendL10OPS": 0.6671195652173914,
       "seasonOPS": 0.857,
       "marketProb": 0.245,
-      "edge": -0.05586697233506285,
+      "edge": -0.05685060963998634,
       "graded": false,
       "hr": null,
       "projectedHits": 0.62,
@@ -305,7 +323,7 @@
       "hitsMatchupFactor": 0.964,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -323,7 +341,7 @@
       "marketBid": 0.24,
       "marketAsk": 0.25,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Riley flips Game 1 with 8th-inning blast on 99.9 mph pitch from Phillies' closer",
@@ -338,9 +356,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -352,9 +376,9 @@
       "team": "HOU",
       "opp": "CWS",
       "order": null,
-      "heuristicProb": 0.18812254642064435,
+      "heuristicProb": 0.18804504202413774,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -385,10 +409,10 @@
         "whiff_percent": "24",
         "chase_percent": "36",
         "arm_strength": "4",
-        "sprint_speed": "15",
+        "sprint_speed": "16",
         "oaa": "84",
-        "bat_speed": "77",
-        "squared_up_rate": "11",
+        "bat_speed": "74",
+        "squared_up_rate": "13",
         "swing_length": "50"
       },
       "vsPitcher": null,
@@ -405,7 +429,7 @@
       "trendL10OPS": 1.2076923076923078,
       "seasonOPS": 0.726,
       "marketProb": 0.16499999999999998,
-      "edge": 0.023122546420644374,
+      "edge": 0.023045042024137763,
       "graded": false,
       "hr": null,
       "projectedHits": 0.81,
@@ -415,7 +439,7 @@
       "hitsMatchupFactor": 1.008,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -433,12 +457,18 @@
       "marketBid": 0.15,
       "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Bullpen game struggles put Astros in must-win position for ALWC G2",
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
           "source": "MLB.com"
         }
       ]
@@ -450,11 +480,11 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.16291447636717393,
+      "heuristicProb": 0.16294249838329966,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (2 HR in 25 AB); tempered by the lineup isn't confirmed yet.",
       "factors": {
@@ -463,7 +493,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.1798349860221353,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.093170007423905
       },
       "savant": {
@@ -520,7 +550,7 @@
       "trendL10OPS": 0.5698005698005698,
       "seasonOPS": 0.71,
       "marketProb": 0.16,
-      "edge": 0.0029144763671739293,
+      "edge": 0.0029424983832996576,
       "graded": false,
       "hr": null,
       "projectedHits": 0.67,
@@ -530,7 +560,7 @@
       "hitsMatchupFactor": 0.992,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -543,32 +573,32 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
-      "openingProb": 0.16,
-      "priceDelta": 0.0,
-      "marketBid": 0.15,
-      "marketAsk": 0.17,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
       "recentNews": [
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "King, dingers power Padres in G1 rout at frenzied Petco",
           "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "marketBid": 0.15,
+      "marketAsk": 0.17,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
+      "openingProb": 0.16,
+      "priceDelta": 0.0
     },
     {
       "gamePk": 849842,
@@ -577,12 +607,12 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.15819015024106478,
+      "heuristicProb": 0.15822306286501867,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112,
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "Strong power profile this season, boosted by hot recent form and a favorable platoon matchup; tempered by a history of struggling vs this pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -591,7 +621,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 0.9266301628622537,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.2181208053691275
       },
       "savant": {
@@ -651,7 +681,7 @@
       "hitsMatchupFactor": 1.022,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5287251462443966,
@@ -664,30 +694,34 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431108",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432205",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
-        {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "King, dingers power Padres in G1 rout at frenzied Petco",
           "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431108",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432205"
     },
     {
       "gamePk": 849842,
@@ -696,12 +730,12 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.15806902892390923,
+      "heuristicProb": 0.15817439076409404,
       "confidence": "Medium",
       "calibrationApplied": 0.8775,
       "factorCalibrationApplied": {
         "handedness": -0.0112,
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "An average power profile this season, boosted by hot recent form and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
       "factors": {
@@ -710,7 +744,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.21875
       },
       "savant": {
@@ -775,30 +809,34 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T07:20:19.029360",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432274",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
-        {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "King, dingers power Padres in G1 rout at frenzied Petco",
           "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432274",
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T07:20:19.029360"
     },
     {
       "gamePk": 849846,
@@ -807,9 +845,9 @@
       "team": "HOU",
       "opp": "CWS",
       "order": null,
-      "heuristicProb": 0.14941986925889894,
+      "heuristicProb": 0.14935369565945147,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -842,9 +880,9 @@
         "whiff_percent": "11",
         "chase_percent": "7",
         "arm_strength": "32",
-        "sprint_speed": "94",
+        "sprint_speed": "93",
         "oaa": "10",
-        "bat_speed": "52",
+        "bat_speed": "50",
         "squared_up_rate": "29",
         "swing_length": "68"
       },
@@ -877,7 +915,7 @@
       "trendL10OPS": 0.8225806451612903,
       "seasonOPS": 0.802,
       "marketProb": 0.14500000000000002,
-      "edge": 0.004419869258898923,
+      "edge": 0.004353695659451456,
       "graded": false,
       "hr": null,
       "projectedHits": 0.95,
@@ -887,7 +925,7 @@
       "hitsMatchupFactor": 1.006,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -905,12 +943,18 @@
       "marketBid": 0.13,
       "marketAsk": 0.16,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Bullpen game struggles put Astros in must-win position for ALWC G2",
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
           "source": "MLB.com"
         }
       ]
@@ -922,9 +966,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.1472970296304047,
+      "heuristicProb": 0.14741673096635005,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -935,7 +979,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.3715424756584509,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.1102764736567552
       },
       "savant": {
@@ -992,7 +1036,7 @@
       "trendL10OPS": 0.9899425287356322,
       "seasonOPS": 0.942,
       "marketProb": 0.20500000000000002,
-      "edge": -0.05770297036959532,
+      "edge": -0.057583269033649964,
       "graded": false,
       "hr": null,
       "projectedHits": 0.9,
@@ -1002,7 +1046,7 @@
       "hitsMatchupFactor": 1.0,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1015,13 +1059,13 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
+      "recentNews": null,
       "openingProb": 0.18,
       "priceDelta": 0.025000000000000022,
       "marketBid": 0.19,
       "marketAsk": 0.22,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947"
     },
     {
       "gamePk": 849848,
@@ -1030,9 +1074,9 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.14690990999661568,
+      "heuristicProb": 0.1456243130687038,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by hot recent form and a hitter-friendly park; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -1041,7 +1085,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 1.0329303550653213,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.0755269320843093
       },
       "savant": {
@@ -1069,15 +1113,7 @@
         "squared_up_rate": "18",
         "swing_length": "68"
       },
-      "vsPitcher": {
-        "atBats": 7,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
+      "vsPitcher": null,
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Sonny Gray",
@@ -1101,7 +1137,7 @@
       "hitsMatchupFactor": 1.063,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5245495545448825,
@@ -1114,9 +1150,11 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431188",
+      "recentNews": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
       "prizePicksHitsLine": 0.5,
-      "recentNews": null
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431188"
     },
     {
       "gamePk": 849841,
@@ -1125,9 +1163,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.1443174845372853,
+      "heuristicProb": 0.14350867392790967,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -1138,7 +1176,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 1.1640539883557022,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.4
       },
       "savant": {
@@ -1188,7 +1226,7 @@
       "trendL10OPS": 0.6117511520737328,
       "seasonOPS": 0.865,
       "marketProb": 0.16499999999999998,
-      "edge": -0.020682515462714685,
+      "edge": -0.02149132607209031,
       "graded": false,
       "hr": null,
       "projectedHits": 0.88,
@@ -1198,7 +1236,7 @@
       "hitsMatchupFactor": 1.055,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1216,7 +1254,7 @@
       "marketBid": 0.15,
       "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Sale shakes off postseason woes, fans Harper with triple-digit heat",
@@ -1237,9 +1275,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1251,9 +1295,9 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.1366247730652321,
+      "heuristicProb": 0.13542918055187908,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form, elite quality of contact (barrel/hard-hit/exit velo), and a hitter-friendly park; tempered by a stingy opposing pitcher, a history of struggling vs this pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -1262,7 +1306,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 1.4046907962236481,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.923076923076923
       },
       "savant": {
@@ -1284,10 +1328,10 @@
         "whiff_percent": "22",
         "chase_percent": "29",
         "arm_strength": "52",
-        "sprint_speed": "45",
+        "sprint_speed": "44",
         "oaa": "2",
         "bat_speed": "56",
-        "squared_up_rate": "36",
+        "squared_up_rate": "37",
         "swing_length": "11"
       },
       "vsPitcher": {
@@ -1329,7 +1373,7 @@
       "hitsMatchupFactor": 0.965,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1351,9 +1395,9 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.13292678001167754,
+      "heuristicProb": 0.1322354584521534,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (2 HR in 23 AB); tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -1362,7 +1406,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.4380442198999408,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.9490367277213627
       },
       "savant": {
@@ -1385,7 +1429,7 @@
         "chase_percent": "63",
         "arm_strength": "24",
         "sprint_speed": "9",
-        "oaa": "96",
+        "oaa": "97",
         "bat_speed": "82",
         "squared_up_rate": "40",
         "swing_length": "68"
@@ -1419,7 +1463,7 @@
       "trendL10OPS": 0.5333333333333333,
       "seasonOPS": 0.823,
       "marketProb": 0.14500000000000002,
-      "edge": -0.012073219988322476,
+      "edge": -0.01276454154784662,
       "graded": false,
       "hr": null,
       "projectedHits": 0.88,
@@ -1429,7 +1473,7 @@
       "hitsMatchupFactor": 1.019,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1447,7 +1491,7 @@
       "marketBid": 0.14,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "4 big takeaways from the Phillies-Braves back-and-forth WC opener",
@@ -1456,7 +1500,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -1470,9 +1514,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.1321769361487334,
+      "heuristicProb": 0.13148951435439346,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by the lineup isn't confirmed yet.",
       "factors": {
@@ -1481,7 +1525,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 1.0377596497276713,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.08354011579818
       },
       "savant": {
@@ -1506,7 +1550,7 @@
         "sprint_speed": "68",
         "oaa": "38",
         "bat_speed": "42",
-        "squared_up_rate": "54",
+        "squared_up_rate": "52",
         "swing_length": "40"
       },
       "vsPitcher": {
@@ -1531,7 +1575,7 @@
       "trendL10OPS": 0.7863777089783281,
       "seasonOPS": 0.712,
       "marketProb": 0.085,
-      "edge": 0.0471769361487334,
+      "edge": 0.046489514354393455,
       "graded": false,
       "hr": null,
       "projectedHits": 0.85,
@@ -1541,7 +1585,7 @@
       "hitsMatchupFactor": 1.021,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5644845744567512,
@@ -1555,13 +1599,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.08,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431260",
-      "prizePicksHitsLine": 0.5,
       "priceDelta": 0.0050000000000000044,
       "marketBid": 0.07,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Riley flips Game 1 with 8th-inning blast on 99.9 mph pitch from Phillies' closer",
@@ -1576,12 +1618,22 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431260"
     },
     {
       "gamePk": 849842,
@@ -1590,11 +1642,11 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.13085611220335125,
+      "heuristicProb": 0.13085992285710893,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
@@ -1603,7 +1655,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.3535766883968816,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.0765718299964875
       },
       "savant": {
@@ -1632,7 +1684,7 @@
         "swing_length": "59"
       },
       "vsPitcher": {
-        "atBats": 3,
+        "atBats": 6,
         "hits": 0,
         "homeRuns": 0,
         "avg": ".000",
@@ -1653,7 +1705,7 @@
       "trendL10OPS": 0.5335968379446641,
       "seasonOPS": 0.743,
       "marketProb": 0.135,
-      "edge": -0.00414388779664876,
+      "edge": -0.00414007714289108,
       "graded": false,
       "hr": null,
       "projectedHits": 0.89,
@@ -1663,7 +1715,7 @@
       "hitsMatchupFactor": 0.98,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1676,32 +1728,32 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
-      "openingProb": 0.13,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.13,
-      "marketAsk": 0.14,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
       "recentNews": [
-        {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "King, dingers power Padres in G1 rout at frenzied Petco",
           "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "marketBid": 0.13,
+      "marketAsk": 0.14,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
+      "openingProb": 0.13,
+      "priceDelta": 0.0050000000000000044
     },
     {
       "gamePk": 849846,
@@ -1710,9 +1762,9 @@
       "team": "HOU",
       "opp": "CWS",
       "order": null,
-      "heuristicProb": 0.12624440196606707,
+      "heuristicProb": 0.1261877764013473,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -1752,13 +1804,13 @@
         "swing_length": "88"
       },
       "vsPitcher": {
-        "atBats": 9,
-        "hits": 3,
+        "atBats": 3,
+        "hits": 2,
         "homeRuns": 0,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": ".556",
-        "ops": ".889"
+        "avg": ".667",
+        "obp": ".667",
+        "slg": "1.333",
+        "ops": "2.000"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -1773,7 +1825,7 @@
       "trendL10OPS": 1.0409429280397022,
       "seasonOPS": 0.807,
       "marketProb": 0.14500000000000002,
-      "edge": -0.018755598033932952,
+      "edge": -0.018812223598652728,
       "graded": false,
       "hr": null,
       "projectedHits": 0.88,
@@ -1783,7 +1835,7 @@
       "hitsMatchupFactor": 0.995,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1801,12 +1853,18 @@
       "marketBid": 0.14,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Bullpen game struggles put Astros in must-win position for ALWC G2",
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1818,12 +1876,12 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.12518118957845992,
+      "heuristicProb": 0.12518917292330556,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112,
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "A modest power profile this season, boosted by hot recent form and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
       "factors": {
@@ -1832,7 +1890,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.4
       },
       "savant": {
@@ -1884,7 +1942,7 @@
       "hitsMatchupFactor": 0.998,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1905,21 +1963,21 @@
           "source": "MLB.com"
         },
         {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
+          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
+          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
-          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1931,9 +1989,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.1245728241197878,
+      "heuristicProb": 0.12392494956029534,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by hot recent form; tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
       "factors": {
@@ -1942,7 +2000,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.719626168224299
       },
       "savant": {
@@ -1964,8 +2022,8 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "18",
-        "sprint_speed": "84",
-        "oaa": "84",
+        "sprint_speed": "85",
+        "oaa": "85",
         "bat_speed": "",
         "squared_up_rate": "",
         "swing_length": ""
@@ -2002,7 +2060,7 @@
       "hitsMatchupFactor": 0.898,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2029,9 +2087,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2043,9 +2107,9 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.1095179459082976,
+      "heuristicProb": 0.10846155277316386,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -2056,7 +2120,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 1.167176477416878,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.210332103321033
       },
       "savant": {
@@ -2116,7 +2180,7 @@
       "hitsMatchupFactor": 1.01,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2138,9 +2202,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.0995701895743898,
+      "heuristicProb": 0.09964538773261508,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -2149,7 +2213,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.9155281412527881,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.9870129870129871
       },
       "savant": {
@@ -2199,7 +2263,7 @@
       "trendL10OPS": 1.9696969696969697,
       "seasonOPS": 0.819,
       "marketProb": 0.14500000000000002,
-      "edge": -0.045429810425610215,
+      "edge": -0.045354612267384936,
       "graded": false,
       "hr": null,
       "projectedHits": 0.86,
@@ -2209,7 +2273,7 @@
       "hitsMatchupFactor": 0.99,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2222,13 +2286,13 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
+      "recentNews": null,
       "openingProb": 0.115,
       "priceDelta": 0.030000000000000013,
       "marketBid": 0.14,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947"
     },
     {
       "gamePk": 849841,
@@ -2237,9 +2301,9 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.0966005055612915,
+      "heuristicProb": 0.09609810858643374,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -2248,7 +2312,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.3901245165613978,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.753529411764706
       },
       "savant": {
@@ -2273,17 +2337,17 @@
         "sprint_speed": "16",
         "oaa": "",
         "bat_speed": "87",
-        "squared_up_rate": "44",
+        "squared_up_rate": "43",
         "swing_length": "40"
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 2,
+        "atBats": 9,
+        "hits": 3,
         "homeRuns": 0,
-        "avg": ".667",
-        "obp": ".667",
-        "slg": ".667",
-        "ops": "1.334"
+        "avg": ".333",
+        "obp": ".333",
+        "slg": ".333",
+        "ops": ".666"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -2298,17 +2362,17 @@
       "trendL10OPS": 0.8728571428571428,
       "seasonOPS": 0.817,
       "marketProb": 0.09,
-      "edge": 0.006600505561291506,
+      "edge": 0.00609810858643374,
       "graded": false,
       "hr": null,
       "projectedHits": 0.93,
-      "projectedTotalBases": 1.5,
+      "projectedTotalBases": 1.51,
       "hitsReason": "Projected for 0.9 hits, supported by a well-above-average hit rate this season.",
       "tbReason": "Projected for 1.5 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 0.931,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2326,7 +2390,7 @@
       "marketBid": 0.08,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "4 big takeaways from the Phillies-Braves back-and-forth WC opener",
@@ -2335,7 +2399,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -2349,9 +2413,9 @@
       "team": "HOU",
       "opp": "CWS",
       "order": null,
-      "heuristicProb": 0.09527178340068802,
+      "heuristicProb": 0.09522791821028709,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -2421,7 +2485,7 @@
       "hitsMatchupFactor": 1.037,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2440,209 +2504,14 @@
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
           "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849848,
-      "playerId": 575929,
-      "name": "Willson Contreras",
-      "team": "BOS",
-      "opp": "NYY",
-      "order": null,
-      "heuristicProb": 0.0950967654993971,
-      "confidence": "High",
-      "calibrationApplied": 0.9709,
-      "factorCalibrationApplied": {
-        "handedness": -0.0112
-      },
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.15835446752718318,
-        "form": 0.6079823533466603,
-        "pitcherVuln": 0.7,
-        "powerQuality": 1.2848029191006796,
-        "park": 1.11,
-        "weather": 1.0211968,
-        "handedness": 1.1154684095860565
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Contreras, Willson",
-        "player_id": "575929",
-        "year": "2026",
-        "xwoba": "95",
-        "xba": "64",
-        "xslg": "89",
-        "xiso": "91",
-        "xobp": "94",
-        "brl": "78",
-        "brl_percent": "90",
-        "exit_velocity": "62",
-        "max_ev": "97",
-        "hard_hit_percent": "72",
-        "k_percent": "25",
-        "bb_percent": "76",
-        "whiff_percent": "13",
-        "chase_percent": "23",
-        "arm_strength": "51",
-        "sprint_speed": "48",
-        "oaa": "66",
-        "bat_speed": "96",
-        "squared_up_rate": "6",
-        "swing_length": "92"
-      },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".400",
-        "slg": ".500",
-        "ops": ".900"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Max Fried",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 2
-      },
-      "trendL5OPS": 0.0,
-      "trendL7OPS": 0.0,
-      "trendL10OPS": 0.0,
-      "seasonOPS": 0.902,
-      "marketProb": 0.13,
-      "edge": -0.0349032345006029,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.81,
-      "projectedTotalBases": 1.49,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.5 total bases.",
-      "hitsMatchupFactor": 1.005,
-      "tbParkFactor": 1.033,
-      "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.135,
-      "priceDelta": -0.0050000000000000044,
-      "marketBid": 0.12,
-      "marketAsk": 0.14,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
-      "recentNews": [
+        },
         {
-          "title": "Red Sox can't solve Schlittler, offensive woes in Game 1 loss to Yanks",
-          "link": "https://www.mlb.com/news/red-sox-lose-to-yankees-al-wild-card-series-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 03:23:58 GMT",
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
           "source": "MLB.com"
         }
       ]
-    },
-    {
-      "gamePk": 849848,
-      "playerId": 682987,
-      "name": "Spencer Jones",
-      "team": "NYY",
-      "opp": "BOS",
-      "order": null,
-      "heuristicProb": 0.09491612038447281,
-      "confidence": "High",
-      "calibrationApplied": 0.9709,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, boosted by a hitter-friendly park; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.12299127640812146,
-        "form": 1.0769529731830547,
-        "pitcherVuln": 0.7100591715976332,
-        "powerQuality": 1.0,
-        "park": 1.11,
-        "weather": 1.0211968,
-        "handedness": 0.91699604743083
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Jones, Spencer",
-        "player_id": "682987",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "95",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "79",
-        "sprint_speed": "88",
-        "oaa": "15",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": {
-        "atBats": 6,
-        "hits": 3,
-        "homeRuns": 0,
-        "avg": ".500",
-        "obp": ".500",
-        "slg": ".667",
-        "ops": "1.167"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Sonny Gray",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 5
-      },
-      "trendL5OPS": 0.5,
-      "trendL7OPS": 0.5384615384615385,
-      "trendL10OPS": 0.6413043478260869,
-      "seasonOPS": 0.742,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.68,
-      "projectedTotalBases": 1.27,
-      "hitsReason": "Projected for 0.7 hits.",
-      "tbReason": "Projected for 1.3 total bases.",
-      "hitsMatchupFactor": 0.924,
-      "tbParkFactor": 1.033,
-      "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "recentNews": null
     },
     {
       "gamePk": 849846,
@@ -2651,9 +2520,9 @@
       "team": "HOU",
       "opp": "CWS",
       "order": null,
-      "heuristicProb": 0.0948680739298665,
+      "heuristicProb": 0.09482898933869136,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -2714,7 +2583,7 @@
       "hitsMatchupFactor": 0.984,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2733,8 +2602,215 @@
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
+    },
+    {
+      "gamePk": 849848,
+      "playerId": 575929,
+      "name": "Willson Contreras",
+      "team": "BOS",
+      "opp": "NYY",
+      "order": null,
+      "heuristicProb": 0.09416657096605253,
+      "confidence": "High",
+      "calibrationApplied": 0.9705,
+      "factorCalibrationApplied": {
+        "handedness": -0.0112
+      },
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.15835446752718318,
+        "form": 0.6079823533466603,
+        "pitcherVuln": 0.7,
+        "powerQuality": 1.2848029191006796,
+        "park": 1.11,
+        "weather": 1.0126776,
+        "handedness": 1.1154684095860565
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Contreras, Willson",
+        "player_id": "575929",
+        "year": "2026",
+        "xwoba": "95",
+        "xba": "64",
+        "xslg": "89",
+        "xiso": "91",
+        "xobp": "94",
+        "brl": "78",
+        "brl_percent": "90",
+        "exit_velocity": "62",
+        "max_ev": "97",
+        "hard_hit_percent": "72",
+        "k_percent": "25",
+        "bb_percent": "76",
+        "whiff_percent": "13",
+        "chase_percent": "23",
+        "arm_strength": "51",
+        "sprint_speed": "48",
+        "oaa": "67",
+        "bat_speed": "96",
+        "squared_up_rate": "6",
+        "swing_length": "92"
+      },
+      "vsPitcher": {
+        "atBats": 11,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".182",
+        "obp": ".357",
+        "slg": ".364",
+        "ops": ".721"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Max Fried",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 2
+      },
+      "trendL5OPS": 0.0,
+      "trendL7OPS": 0.0,
+      "trendL10OPS": 0.0,
+      "seasonOPS": 0.902,
+      "marketProb": 0.13,
+      "edge": -0.03583342903394747,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.81,
+      "projectedTotalBases": 1.49,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.5 total bases.",
+      "hitsMatchupFactor": 1.005,
+      "tbParkFactor": 1.033,
+      "hitsCalibrationApplied": -0.0129,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.135,
+      "priceDelta": -0.0050000000000000044,
+      "marketBid": 0.12,
+      "marketAsk": 0.14,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
+      "recentNews": [
+        {
+          "title": "Red Sox can't solve Schlittler, offensive woes in Game 1 loss to Yanks",
+          "link": "https://www.mlb.com/news/red-sox-lose-to-yankees-al-wild-card-series-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 03:23:58 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849848,
+      "playerId": 682987,
+      "name": "Spencer Jones",
+      "team": "NYY",
+      "opp": "BOS",
+      "order": null,
+      "heuristicProb": 0.09408551697059554,
+      "confidence": "High",
+      "calibrationApplied": 0.9705,
+      "factorCalibrationApplied": null,
+      "reason": "Strong power profile this season, boosted by a hitter-friendly park; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.12299127640812146,
+        "form": 1.0769529731830547,
+        "pitcherVuln": 0.7100591715976332,
+        "powerQuality": 1.0,
+        "park": 1.11,
+        "weather": 1.0126776,
+        "handedness": 0.91699604743083
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Jones, Spencer",
+        "player_id": "682987",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "95",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "79",
+        "sprint_speed": "88",
+        "oaa": "15",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": {
+        "atBats": 6,
+        "hits": 3,
+        "homeRuns": 0,
+        "avg": ".500",
+        "obp": ".500",
+        "slg": ".667",
+        "ops": "1.167"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Sonny Gray",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 5
+      },
+      "trendL5OPS": 0.5,
+      "trendL7OPS": 0.5384615384615385,
+      "trendL10OPS": 0.6413043478260869,
+      "seasonOPS": 0.742,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.68,
+      "projectedTotalBases": 1.27,
+      "hitsReason": "Projected for 0.7 hits.",
+      "tbReason": "Projected for 1.3 total bases.",
+      "hitsMatchupFactor": 0.924,
+      "tbParkFactor": 1.033,
+      "hitsCalibrationApplied": -0.0129,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": null
     },
     {
       "gamePk": 849848,
@@ -2743,9 +2819,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.0910879730568142,
+      "heuristicProb": 0.09019285914702278,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -2756,7 +2832,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.1851851851851853
       },
       "savant": {
@@ -2808,7 +2884,7 @@
       "hitsMatchupFactor": 1.039,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5160720532038641,
@@ -2821,10 +2897,6 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431334",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432343",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
           "title": "Red Sox can't solve Schlittler, offensive woes in Game 1 loss to Yanks",
@@ -2832,7 +2904,15 @@
           "pubDate": "Wed, 30 Sep 2026 03:23:58 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431334",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432343"
     },
     {
       "gamePk": 849846,
@@ -2931,6 +3011,12 @@
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -2941,9 +3027,9 @@
       "team": "HOU",
       "opp": "CWS",
       "order": null,
-      "heuristicProb": 0.08583121900430672,
+      "heuristicProb": 0.08579585749683766,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -3012,7 +3098,7 @@
       "hitsMatchupFactor": 1.016,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.4895980994944357,
@@ -3025,18 +3111,28 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431405",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432408",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
           "title": "Bullpen game struggles put Astros in must-win position for ALWC G2",
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431405",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432408"
     },
     {
       "gamePk": 849841,
@@ -3045,7 +3141,7 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.0855146659991782,
+      "heuristicProb": 0.08510498622960116,
       "confidence": "Low",
       "calibrationApplied": null,
       "factorCalibrationApplied": null,
@@ -3056,7 +3152,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.0
       },
       "savant": null,
@@ -3105,7 +3201,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -3154,7 +3250,7 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "32",
-        "sprint_speed": "77",
+        "sprint_speed": "78",
         "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
@@ -3203,6 +3299,12 @@
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -3248,7 +3350,7 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "",
-        "sprint_speed": "37",
+        "sprint_speed": "40",
         "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
@@ -3291,18 +3393,28 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431472",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432472",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
           "title": "White Sox only stumble in Game 1? It might have been staged",
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431472",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432472"
     },
     {
       "gamePk": 849842,
@@ -3311,11 +3423,11 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.08224111978089475,
+      "heuristicProb": 0.08220821504917485,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "An average power profile this season, tempered by the lineup isn't confirmed yet.",
       "factors": {
@@ -3324,7 +3436,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.9541420118343196
       },
       "savant": {
@@ -3384,7 +3496,7 @@
       "hitsMatchupFactor": 0.991,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3399,21 +3511,21 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
+          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
+          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
-          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -3425,9 +3537,9 @@
       "team": "CWS",
       "opp": "HOU",
       "order": null,
-      "heuristicProb": 0.08147324410837495,
+      "heuristicProb": 0.08143967803808619,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, tempered by cold recent form, a stingy opposing pitcher, a 19-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -3458,7 +3570,7 @@
         "whiff_percent": "1",
         "chase_percent": "32",
         "arm_strength": "16",
-        "sprint_speed": "28",
+        "sprint_speed": "29",
         "oaa": "98",
         "bat_speed": "94",
         "squared_up_rate": "1",
@@ -3486,7 +3598,7 @@
       "trendL10OPS": 0.1511111111111111,
       "seasonOPS": 0.685,
       "marketProb": 0.135,
-      "edge": -0.05352675589162506,
+      "edge": -0.05356032196191382,
       "graded": false,
       "hr": null,
       "projectedHits": 0.57,
@@ -3496,7 +3608,7 @@
       "hitsMatchupFactor": 0.954,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.44178720025933127,
@@ -3510,23 +3622,33 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.14,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431542",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432534",
-      "prizePicksTBLine": 0.5,
       "priceDelta": -0.0050000000000000044,
       "marketBid": 0.12,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "White Sox only stumble in Game 1? It might have been staged",
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431542",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432534"
     },
     {
       "gamePk": 849846,
@@ -3535,9 +3657,9 @@
       "team": "CWS",
       "opp": "HOU",
       "order": null,
-      "heuristicProb": 0.07999362670784166,
+      "heuristicProb": 0.0799606702234631,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -3598,7 +3720,7 @@
       "hitsMatchupFactor": 0.884,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3617,6 +3739,12 @@
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -3627,9 +3755,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.07962176151709885,
+      "heuristicProb": 0.07968189407129334,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -3638,7 +3766,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.1389463949635197,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.0963855421686746
       },
       "savant": {
@@ -3663,7 +3791,7 @@
         "sprint_speed": "64",
         "oaa": "77",
         "bat_speed": "44",
-        "squared_up_rate": "16",
+        "squared_up_rate": "15",
         "swing_length": "11"
       },
       "vsPitcher": {
@@ -3688,7 +3816,7 @@
       "trendL10OPS": 0.5747126436781609,
       "seasonOPS": 0.738,
       "marketProb": 0.11,
-      "edge": -0.03037823848290115,
+      "edge": -0.030318105928706665,
       "graded": false,
       "hr": null,
       "projectedHits": 0.77,
@@ -3698,7 +3826,7 @@
       "hitsMatchupFactor": 1.053,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.532859190112305,
@@ -3711,17 +3839,21 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "openingProb": 0.11,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431608",
+      "recentNews": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
       "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432597",
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431608",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
       "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432597",
+      "openingProb": 0.11,
       "priceDelta": 0.0,
       "marketBid": 0.1,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947"
     },
     {
       "gamePk": 849841,
@@ -3730,7 +3862,7 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.07653529432210474,
+      "heuristicProb": 0.07616863251765248,
       "confidence": "Low",
       "calibrationApplied": null,
       "factorCalibrationApplied": null,
@@ -3741,7 +3873,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.0
       },
       "savant": null,
@@ -3798,113 +3930,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
-          "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849841,
-      "playerId": 671739,
-      "name": "Michael Harris II",
-      "team": "ATL",
-      "opp": "PHI",
-      "order": null,
-      "heuristicProb": 0.07446214795236901,
-      "confidence": "High",
-      "calibrationApplied": 0.9709,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, a history of struggling vs this pitcher, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.13855993474084038,
-        "form": 0.677765547605944,
-        "pitcherVuln": 0.7,
-        "powerQuality": 1.2545470236052503,
-        "park": 1.02,
-        "weather": 1.0528679808,
-        "handedness": 0.865934065934066
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Harris II, Michael",
-        "player_id": "671739",
-        "year": "2026",
-        "xwoba": "76",
-        "xba": "98",
-        "xslg": "87",
-        "xiso": "72",
-        "xobp": "42",
-        "brl": "88",
-        "brl_percent": "69",
-        "exit_velocity": "76",
-        "max_ev": "96",
-        "hard_hit_percent": "84",
-        "k_percent": "64",
-        "bb_percent": "2",
-        "whiff_percent": "46",
-        "chase_percent": "1",
-        "arm_strength": "67",
-        "sprint_speed": "56",
-        "oaa": "97",
-        "bat_speed": "83",
-        "squared_up_rate": "40",
-        "swing_length": "98"
-      },
-      "vsPitcher": {
-        "atBats": 15,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".133",
-        "obp": ".188",
-        "slg": ".133",
-        "ops": ".321"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Cristopher S\u00e1nchez",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 7
-      },
-      "trendL5OPS": 1.25,
-      "trendL7OPS": 1.0,
-      "trendL10OPS": 1.0052173913043478,
-      "seasonOPS": 0.812,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 1.03,
-      "projectedTotalBases": 1.67,
-      "hitsReason": "Projected for 1.0 hits, supported by a well-above-average hit rate this season.",
-      "tbReason": "Projected for 1.7 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 0.985,
-      "tbParkFactor": 1.006,
-      "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "4 big takeaways from the Phillies-Braves back-and-forth WC opener",
-          "link": "https://www.mlb.com/news/key-takeaways-from-braves-win-over-phillies-in-game-1-of-nl-wild-card-series",
-          "pubDate": "Tue, 29 Sep 2026 23:17:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -3918,9 +3944,9 @@
       "team": "CWS",
       "opp": "HOU",
       "order": null,
-      "heuristicProb": 0.07426725894346768,
+      "heuristicProb": 0.07423666165890966,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -3981,7 +4007,7 @@
       "hitsMatchupFactor": 1.005,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4000,6 +4026,118 @@
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849841,
+      "playerId": 671739,
+      "name": "Michael Harris II",
+      "team": "ATL",
+      "opp": "PHI",
+      "order": null,
+      "heuristicProb": 0.07407488747525953,
+      "confidence": "High",
+      "calibrationApplied": 0.9705,
+      "factorCalibrationApplied": null,
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, a history of struggling vs this pitcher, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.13855993474084038,
+        "form": 0.677765547605944,
+        "pitcherVuln": 0.7,
+        "powerQuality": 1.2545470236052503,
+        "park": 1.02,
+        "weather": 1.0478239487999998,
+        "handedness": 0.865934065934066
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Harris II, Michael",
+        "player_id": "671739",
+        "year": "2026",
+        "xwoba": "76",
+        "xba": "98",
+        "xslg": "87",
+        "xiso": "72",
+        "xobp": "42",
+        "brl": "88",
+        "brl_percent": "69",
+        "exit_velocity": "76",
+        "max_ev": "96",
+        "hard_hit_percent": "84",
+        "k_percent": "64",
+        "bb_percent": "2",
+        "whiff_percent": "46",
+        "chase_percent": "1",
+        "arm_strength": "67",
+        "sprint_speed": "55",
+        "oaa": "97",
+        "bat_speed": "83",
+        "squared_up_rate": "40",
+        "swing_length": "98"
+      },
+      "vsPitcher": {
+        "atBats": 15,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".133",
+        "obp": ".188",
+        "slg": ".133",
+        "ops": ".321"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Cristopher S\u00e1nchez",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 7
+      },
+      "trendL5OPS": 1.25,
+      "trendL7OPS": 1.0,
+      "trendL10OPS": 1.0052173913043478,
+      "seasonOPS": 0.812,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 1.03,
+      "projectedTotalBases": 1.67,
+      "hitsReason": "Projected for 1.0 hits, supported by a well-above-average hit rate this season.",
+      "tbReason": "Projected for 1.7 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 0.985,
+      "tbParkFactor": 1.006,
+      "hitsCalibrationApplied": -0.0129,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "4 big takeaways from the Phillies-Braves back-and-forth WC opener",
+          "link": "https://www.mlb.com/news/key-takeaways-from-braves-win-over-phillies-in-game-1-of-nl-wild-card-series",
+          "pubDate": "Tue, 29 Sep 2026 23:17:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
+          "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -4010,9 +4148,9 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.07221999236984784,
+      "heuristicProb": 0.07148999065710036,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -4023,7 +4161,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.4
       },
       "savant": {
@@ -4083,7 +4221,7 @@
       "hitsMatchupFactor": 1.12,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4105,11 +4243,11 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.07079578139819154,
+      "heuristicProb": 0.07078615626514638,
       "confidence": "Medium",
       "calibrationApplied": 0.8775,
       "factorCalibrationApplied": {
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
       "factors": {
@@ -4118,7 +4256,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.7
       },
       "savant": {
@@ -4140,20 +4278,20 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "",
-        "sprint_speed": "42",
+        "sprint_speed": "40",
         "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 14,
-        "hits": 7,
-        "homeRuns": 2,
-        "avg": ".500",
-        "obp": ".563",
-        "slg": "1.000",
-        "ops": "1.563"
+        "atBats": 5,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".200",
+        "obp": ".200",
+        "slg": ".200",
+        "ops": ".400"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": {
@@ -4200,21 +4338,21 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
+          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
+          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
-          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -4226,9 +4364,9 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.0695013389891095,
+      "heuristicProb": 0.0688931383041304,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by a hitter-friendly park; tempered by a stingy opposing pitcher, below-average quality of contact, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4237,7 +4375,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 0.7716496750505282,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.0675324675324676
       },
       "savant": {
@@ -4262,7 +4400,7 @@
         "sprint_speed": "67",
         "oaa": "77",
         "bat_speed": "11",
-        "squared_up_rate": "14",
+        "squared_up_rate": "13",
         "swing_length": "8"
       },
       "vsPitcher": {
@@ -4297,7 +4435,7 @@
       "hitsMatchupFactor": 1.003,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4401,6 +4539,12 @@
           "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -4411,9 +4555,9 @@
       "team": "CWS",
       "opp": "HOU",
       "order": null,
-      "heuristicProb": 0.06750997965743394,
+      "heuristicProb": 0.06748216629677582,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher, below-average quality of contact, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4451,13 +4595,13 @@
         "swing_length": "5"
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 1,
+        "atBats": 8,
+        "hits": 2,
         "homeRuns": 0,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": ".333",
-        "ops": ".666"
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -4482,7 +4626,7 @@
       "hitsMatchupFactor": 0.948,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4501,6 +4645,12 @@
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -4511,9 +4661,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.0660252110690518,
+      "heuristicProb": 0.06608353368213284,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -4524,7 +4674,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.1944444444444444
       },
       "savant": {
@@ -4576,7 +4726,7 @@
       "hitsMatchupFactor": 0.964,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4598,9 +4748,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.0656946311436689,
+      "heuristicProb": 0.06511974265601989,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form, a hitter-friendly park, and a track record vs this pitcher (2 HR in 19 AB); tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4609,7 +4759,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.727536231884058
       },
       "savant": {
@@ -4631,8 +4781,8 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "16",
-        "sprint_speed": "57",
-        "oaa": "44",
+        "sprint_speed": "58",
+        "oaa": "43",
         "bat_speed": "",
         "squared_up_rate": "",
         "swing_length": ""
@@ -4676,7 +4826,7 @@
       "hitsMatchupFactor": 1.024,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4705,9 +4855,9 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.06389056194985297,
+      "heuristicProb": 0.06355828185608885,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4716,7 +4866,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.7
       },
       "savant": {
@@ -4776,7 +4926,7 @@
       "hitsMatchupFactor": 0.85,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4797,7 +4947,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -4811,9 +4961,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.062476319495948854,
+      "heuristicProb": 0.062151394551378074,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
@@ -4822,7 +4972,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 0.9330681877219008,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.0926686217008799
       },
       "savant": {
@@ -4889,7 +5039,7 @@
       "hitsMatchupFactor": 1.011,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4916,9 +5066,127 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849846,
+      "playerId": 514888,
+      "name": "Jose Altuve",
+      "team": "HOU",
+      "opp": "CWS",
+      "order": null,
+      "heuristicProb": 0.06146770891215216,
+      "confidence": "High",
+      "calibrationApplied": 0.9705,
+      "factorCalibrationApplied": null,
+      "reason": "An average power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.10209901522344078,
+        "form": 0.9137115839243499,
+        "pitcherVuln": 0.8268858800773694,
+        "powerQuality": 0.790353140200821,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 0.9800498753117207
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Altuve, Jose",
+        "player_id": "514888",
+        "year": "2026",
+        "xwoba": "2",
+        "xba": "12",
+        "xslg": "7",
+        "xiso": "14",
+        "xobp": "4",
+        "brl": "22",
+        "brl_percent": "16",
+        "exit_velocity": "5",
+        "max_ev": "43",
+        "hard_hit_percent": "14",
+        "k_percent": "58",
+        "bb_percent": "22",
+        "whiff_percent": "62",
+        "chase_percent": "13",
+        "arm_strength": "4",
+        "sprint_speed": "52",
+        "oaa": "3",
+        "bat_speed": "9",
+        "squared_up_rate": "79",
+        "swing_length": "68"
+      },
+      "vsPitcher": {
+        "atBats": 8,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".375",
+        "ops": ".625"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Sean Burke",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 6
+      },
+      "trendL5OPS": 0.5576923076923077,
+      "trendL7OPS": 0.5108225108225108,
+      "trendL10OPS": 0.7225806451612904,
+      "seasonOPS": 0.701,
+      "marketProb": 0.105,
+      "edge": -0.043532291087847834,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.92,
+      "projectedTotalBases": 1.39,
+      "hitsReason": "Projected for 0.9 hits.",
+      "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 0.979,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0129,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.095,
+      "priceDelta": 0.009999999999999995,
+      "marketBid": 0.09,
+      "marketAsk": 0.12,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
+      "recentNews": [
+        {
+          "title": "Bullpen game struggles put Astros in must-win position for ALWC G2",
+          "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
           "source": "MLB.com"
         }
       ]
@@ -4930,9 +5198,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.061753063955149144,
+      "heuristicProb": 0.06121266780820634,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by a hitter-friendly park; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -4941,7 +5209,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.9476954162834663,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.8615384615384616
       },
       "savant": {
@@ -4963,7 +5231,7 @@
         "whiff_percent": "89",
         "chase_percent": "76",
         "arm_strength": "",
-        "sprint_speed": "29",
+        "sprint_speed": "28",
         "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
@@ -5001,7 +5269,7 @@
       "hitsMatchupFactor": 0.961,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5024,113 +5292,15 @@
       ]
     },
     {
-      "gamePk": 849846,
-      "playerId": 514888,
-      "name": "Jose Altuve",
-      "team": "HOU",
-      "opp": "CWS",
-      "order": null,
-      "heuristicProb": 0.06149304336198715,
-      "confidence": "High",
-      "calibrationApplied": 0.9709,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.10209901522344078,
-        "form": 0.9137115839243499,
-        "pitcherVuln": 0.8268858800773694,
-        "powerQuality": 0.790353140200821,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.9800498753117207
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Altuve, Jose",
-        "player_id": "514888",
-        "year": "2026",
-        "xwoba": "2",
-        "xba": "12",
-        "xslg": "7",
-        "xiso": "14",
-        "xobp": "4",
-        "brl": "22",
-        "brl_percent": "16",
-        "exit_velocity": "5",
-        "max_ev": "43",
-        "hard_hit_percent": "14",
-        "k_percent": "58",
-        "bb_percent": "22",
-        "whiff_percent": "62",
-        "chase_percent": "13",
-        "arm_strength": "4",
-        "sprint_speed": "53",
-        "oaa": "2",
-        "bat_speed": "9",
-        "squared_up_rate": "79",
-        "swing_length": "68"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Sean Burke",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 6
-      },
-      "trendL5OPS": 0.5576923076923077,
-      "trendL7OPS": 0.5108225108225108,
-      "trendL10OPS": 0.7225806451612904,
-      "seasonOPS": 0.701,
-      "marketProb": 0.105,
-      "edge": -0.04350695663801284,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.92,
-      "projectedTotalBases": 1.39,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 0.979,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.095,
-      "priceDelta": 0.009999999999999995,
-      "marketBid": 0.09,
-      "marketAsk": 0.12,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
-      "recentNews": [
-        {
-          "title": "Bullpen game struggles put Astros in must-win position for ALWC G2",
-          "link": "https://www.mlb.com/news/astros-lose-al-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 02:20:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
       "gamePk": 849848,
       "playerId": 643396,
       "name": "Isiah Kiner-Falefa",
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.06034205598664652,
+      "heuristicProb": 0.059715997149669145,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -5141,7 +5311,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.4
       },
       "savant": {
@@ -5170,13 +5340,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 2,
+        "atBats": 11,
+        "hits": 4,
         "homeRuns": 0,
-        "avg": ".667",
-        "obp": ".667",
-        "slg": ".667",
-        "ops": "1.334"
+        "avg": ".364",
+        "obp": ".364",
+        "slg": ".364",
+        "ops": ".728"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -5201,7 +5371,7 @@
       "hitsMatchupFactor": 0.85,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5230,9 +5400,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.060133734609496906,
+      "heuristicProb": 0.05950949877630797,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -5243,7 +5413,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.4
       },
       "savant": {
@@ -5295,7 +5465,7 @@
       "hitsMatchupFactor": 1.036,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5324,7 +5494,7 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.05918045285634842,
+      "heuristicProb": 0.058896933836466075,
       "confidence": "Medium",
       "calibrationApplied": 0.8775,
       "factorCalibrationApplied": null,
@@ -5335,7 +5505,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.9615384615384615
       },
       "savant": {
@@ -5357,7 +5527,7 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "81",
-        "sprint_speed": "60",
+        "sprint_speed": "61",
         "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
@@ -5414,9 +5584,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -5428,9 +5604,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.057621624566896505,
+      "heuristicProb": 0.05732194777224008,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, tempered by cold recent form, a 23-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -5439,7 +5615,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 0.9179695611882374,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.0509803921568628
       },
       "savant": {
@@ -5499,7 +5675,7 @@
       "hitsMatchupFactor": 0.994,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5526,9 +5702,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -5540,9 +5722,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.05656291004596705,
+      "heuristicProb": 0.05660562791842968,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by a track record vs this pitcher (2 HR in 13 AB); tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -5551,7 +5733,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.9033333333333334
       },
       "savant": {
@@ -5579,7 +5761,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 13,
+        "hits": 2,
+        "homeRuns": 2,
+        "avg": ".154",
+        "obp": ".267",
+        "slg": ".615",
+        "ops": ".882"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": {
         "atBats": 13,
@@ -5610,7 +5800,7 @@
       "hitsMatchupFactor": 0.989,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5632,9 +5822,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.055671719020895474,
+      "heuristicProb": 0.055713763841272954,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -5643,7 +5833,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.023214872622928,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.9133489461358314
       },
       "savant": {
@@ -5666,12 +5856,20 @@
         "chase_percent": "80",
         "arm_strength": "1",
         "sprint_speed": "16",
-        "oaa": "86",
+        "oaa": "87",
         "bat_speed": "10",
         "squared_up_rate": "81",
         "swing_length": "16"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".200",
+        "slg": ".000",
+        "ops": ".200"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Nick Pivetta",
@@ -5685,7 +5883,7 @@
       "trendL10OPS": 0.7076923076923077,
       "seasonOPS": 0.745,
       "marketProb": 0.095,
-      "edge": -0.03932828097910453,
+      "edge": -0.03928623615872705,
       "graded": false,
       "hr": null,
       "projectedHits": 0.8,
@@ -5695,7 +5893,7 @@
       "hitsMatchupFactor": 0.999,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5708,13 +5906,13 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
+      "recentNews": null,
       "openingProb": 0.10500000000000001,
       "priceDelta": -0.010000000000000009,
       "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
-      "recentNews": null
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947"
     },
     {
       "gamePk": 849848,
@@ -5723,9 +5921,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.05491203521322723,
+      "heuristicProb": 0.05443150436423863,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -5734,7 +5932,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.2417848040581652,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.7855263157894737
       },
       "savant": {
@@ -5757,7 +5955,7 @@
         "chase_percent": "49",
         "arm_strength": "98",
         "sprint_speed": "67",
-        "oaa": "80",
+        "oaa": "79",
         "bat_speed": "69",
         "squared_up_rate": "41",
         "swing_length": "31"
@@ -5784,7 +5982,7 @@
       "trendL10OPS": 0.4692028985507246,
       "seasonOPS": 0.773,
       "marketProb": 0.13,
-      "edge": -0.07508796478677277,
+      "edge": -0.07556849563576137,
       "graded": false,
       "hr": null,
       "projectedHits": 0.79,
@@ -5794,7 +5992,7 @@
       "hitsMatchupFactor": 1.094,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5812,7 +6010,7 @@
       "marketBid": 0.12,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-09-30T11:11:25.793471",
+      "oddsUpdatedAt": "2026-09-30T11:13:02.084947",
       "recentNews": [
         {
           "title": "Red Sox can't solve Schlittler, offensive woes in Game 1 loss to Yanks",
@@ -5829,9 +6027,9 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.053650280145136064,
+      "heuristicProb": 0.05337125739790949,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher, below-average quality of contact, and the lineup isn't confirmed yet.",
       "factors": {
@@ -5840,7 +6038,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7855851587878804,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.9727891156462584
       },
       "savant": {
@@ -5862,13 +6060,21 @@
         "whiff_percent": "91",
         "chase_percent": "12",
         "arm_strength": "73",
-        "sprint_speed": "34",
-        "oaa": "89",
+        "sprint_speed": "33",
+        "oaa": "90",
         "bat_speed": "12",
         "squared_up_rate": "77",
         "swing_length": "68"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 8,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Cristopher S\u00e1nchez",
@@ -5892,7 +6098,7 @@
       "hitsMatchupFactor": 0.962,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -5913,7 +6119,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -5927,9 +6133,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.05225655371904263,
+      "heuristicProb": 0.05179926077722537,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by a hitter-friendly park; tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -5938,7 +6144,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.7
       },
       "savant": {
@@ -5998,7 +6204,7 @@
       "hitsMatchupFactor": 0.977,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6033,9 +6239,9 @@
       "team": "BOS",
       "opp": "NYY",
       "order": null,
-      "heuristicProb": 0.049919782595987366,
+      "heuristicProb": 0.0493849282438075,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -6046,7 +6252,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.8559582475922988,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 1.4
       },
       "savant": {
@@ -6106,7 +6312,7 @@
       "hitsMatchupFactor": 0.999,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6129,15 +6335,121 @@
       ]
     },
     {
+      "gamePk": 849846,
+      "playerId": 671976,
+      "name": "Tristan Peters",
+      "team": "CWS",
+      "opp": "HOU",
+      "order": null,
+      "heuristicProb": 0.048227009314193034,
+      "confidence": "High",
+      "calibrationApplied": 0.9705,
+      "factorCalibrationApplied": null,
+      "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, below-average quality of contact, a 26-game HR drought, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09338845372204851,
+        "form": 0.7328787878787879,
+        "pitcherVuln": 0.7686335403726708,
+        "powerQuality": 0.8497961218059347,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.0486474694589878
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Peters, Tristan",
+        "player_id": "671976",
+        "year": "2026",
+        "xwoba": "39",
+        "xba": "50",
+        "xslg": "38",
+        "xiso": "34",
+        "xobp": "48",
+        "brl": "28",
+        "brl_percent": "25",
+        "exit_velocity": "24",
+        "max_ev": "40",
+        "hard_hit_percent": "22",
+        "k_percent": "69",
+        "bb_percent": "25",
+        "whiff_percent": "56",
+        "chase_percent": "31",
+        "arm_strength": "48",
+        "sprint_speed": "83",
+        "oaa": "96",
+        "bat_speed": "18",
+        "squared_up_rate": "66",
+        "swing_length": "11"
+      },
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Hunter Brown",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 26
+      },
+      "trendL5OPS": 0.2222222222222222,
+      "trendL7OPS": 0.28431372549019607,
+      "trendL10OPS": 0.26900584795321636,
+      "seasonOPS": 0.774,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.76,
+      "projectedTotalBases": 1.22,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.2 total bases.",
+      "hitsMatchupFactor": 1.023,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0129,
+      "tbCalibrationApplied": -0.0231,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "White Sox only stumble in Game 1? It might have been staged",
+          "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
       "gamePk": 849848,
       "playerId": 502671,
       "name": "Paul Goldschmidt",
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.048559290842398364,
+      "heuristicProb": 0.048134352353701414,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by a hitter-friendly park; tempered by cold recent form, a stingy opposing pitcher, a tough platoon matchup, a history of struggling vs this pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -6146,7 +6458,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 0.9938088635991698,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.7136524822695035
       },
       "savant": {
@@ -6206,7 +6518,7 @@
       "hitsMatchupFactor": 0.922,
       "tbParkFactor": 1.033,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6222,115 +6534,15 @@
       "recentNews": null
     },
     {
-      "gamePk": 849846,
-      "playerId": 671976,
-      "name": "Tristan Peters",
-      "team": "CWS",
-      "opp": "HOU",
-      "order": null,
-      "heuristicProb": 0.04824688649474499,
-      "confidence": "High",
-      "calibrationApplied": 0.9709,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, below-average quality of contact, a 26-game HR drought, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.09338845372204851,
-        "form": 0.7328787878787879,
-        "pitcherVuln": 0.7686335403726708,
-        "powerQuality": 0.8497961218059347,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.0486474694589878
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Peters, Tristan",
-        "player_id": "671976",
-        "year": "2026",
-        "xwoba": "39",
-        "xba": "50",
-        "xslg": "38",
-        "xiso": "34",
-        "xobp": "48",
-        "brl": "28",
-        "brl_percent": "25",
-        "exit_velocity": "24",
-        "max_ev": "40",
-        "hard_hit_percent": "22",
-        "k_percent": "69",
-        "bb_percent": "25",
-        "whiff_percent": "56",
-        "chase_percent": "31",
-        "arm_strength": "48",
-        "sprint_speed": "83",
-        "oaa": "96",
-        "bat_speed": "17",
-        "squared_up_rate": "65",
-        "swing_length": "11"
-      },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".250",
-        "slg": ".250",
-        "ops": ".500"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Hunter Brown",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 26
-      },
-      "trendL5OPS": 0.2222222222222222,
-      "trendL7OPS": 0.28431372549019607,
-      "trendL10OPS": 0.26900584795321636,
-      "seasonOPS": 0.774,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.76,
-      "projectedTotalBases": 1.22,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.2 total bases.",
-      "hitsMatchupFactor": 1.023,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "White Sox only stumble in Game 1? It might have been staged",
-          "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
       "gamePk": 849841,
       "playerId": 664761,
       "name": "Alec Bohm",
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.0481194703923432,
+      "heuristicProb": 0.0478692121124677,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form, a tough platoon matchup, a 20-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -6339,7 +6551,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 1.0445046223898333,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.7773778920308483
       },
       "savant": {
@@ -6399,7 +6611,7 @@
       "hitsMatchupFactor": 0.96,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6426,9 +6638,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -6440,11 +6658,11 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.04766269705803567,
+      "heuristicProb": 0.04760367774609645,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "A modest power profile this season, tempered by a 43-game HR drought and the lineup isn't confirmed yet.",
       "factors": {
@@ -6453,7 +6671,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 1.0
       },
       "savant": {
@@ -6475,7 +6693,7 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "29",
-        "sprint_speed": "89",
+        "sprint_speed": "88",
         "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
@@ -6505,7 +6723,7 @@
       "hitsMatchupFactor": 1.014,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6520,21 +6738,21 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
+          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
+          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
-          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -6546,9 +6764,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.046978551606651486,
+      "heuristicProb": 0.047014031106811245,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -6557,7 +6775,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.9132610508757298
       },
       "savant": {
@@ -6609,7 +6827,7 @@
       "hitsMatchupFactor": 0.928,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6638,7 +6856,7 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.04593920803583073,
+      "heuristicProb": 0.045719124568945044,
       "confidence": "Medium",
       "calibrationApplied": 0.8775,
       "factorCalibrationApplied": null,
@@ -6649,7 +6867,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.0
       },
       "savant": {
@@ -6722,7 +6940,7 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
@@ -6736,11 +6954,11 @@
       "team": "SD",
       "opp": "CHC",
       "order": null,
-      "heuristicProb": 0.043320921001161056,
+      "heuristicProb": 0.04325862265998327,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
-        "pitcherVuln": -0.0066
+        "pitcherVuln": -0.0067
       },
       "reason": "A modest power profile this season, tempered by a tough platoon matchup, a 24-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -6749,7 +6967,7 @@
         "pitcherVuln": 1.0975609756097564,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.7116564417177914
       },
       "savant": {
@@ -6801,7 +7019,7 @@
       "hitsMatchupFactor": 1.03,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6816,21 +7034,21 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "King sets tone with no-hit bid in Padres' 'beautiful night of baseball'",
-          "link": "https://www.mlb.com/news/michael-king-takes-no-hit-bid-into-7th-inning-in-wild-card-series-opener",
-          "pubDate": "Wed, 30 Sep 2026 07:26:29 GMT",
+          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
+          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
+          "pubDate": "Wed, 30 Sep 2026 05:23:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "King, dingers power Padres in G1 rout at frenzied Petco",
-          "link": "https://www.mlb.com/news/padres-win-nl-wild-card-game-1-2026",
-          "pubDate": "Wed, 30 Sep 2026 07:53:00 GMT",
+          "title": "Statement made: Musgrove's first appearance since '24 seals Padres' Game 1 win",
+          "link": "https://www.mlb.com/news/joe-musgrove-pitches-for-first-time-since-2024-in-nl-wild-card-series-game-1",
+          "pubDate": "Wed, 30 Sep 2026 05:20:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Tatis, Machado lead electric offense in Padres' Wild Card Series opening win",
           "link": "https://www.mlb.com/news/fernando-tatis-jr-manny-machado-homer-in-1st-inning-of-wild-card-series-game-1",
-          "pubDate": "Wed, 30 Sep 2026 07:51:00 GMT",
+          "pubDate": "Wed, 30 Sep 2026 04:57:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -6842,9 +7060,9 @@
       "team": "CWS",
       "opp": "HOU",
       "order": null,
-      "heuristicProb": 0.040910843054631246,
+      "heuristicProb": 0.040889373966958104,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": {
         "handedness": -0.0112
       },
@@ -6915,7 +7133,7 @@
       "hitsMatchupFactor": 1.087,
       "tbParkFactor": 1.018,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -6934,6 +7152,12 @@
           "link": "https://www.mlb.com/news/white-sox-win-al-wild-card-game-1-2026",
           "pubDate": "Wed, 30 Sep 2026 03:56:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "White Sox-Astros AL Wild Card Series Game 2 FAQ (Wed., 5 ET, Peacock/NBCSN)",
+          "link": "https://www.mlb.com/news/white-sox-vs-astros-al-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Wed, 30 Sep 2026 03:52:14 GMT",
+          "source": "MLB.com"
         }
       ]
     },
@@ -6944,9 +7168,9 @@
       "team": "PHI",
       "opp": "ATL",
       "order": null,
-      "heuristicProb": 0.0399706786403197,
+      "heuristicProb": 0.0397628003490496,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by below-average quality of contact, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -6955,7 +7179,7 @@
         "pitcherVuln": 1.0067114093959733,
         "powerQuality": 0.7793323236604645,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 0.776255707762557
       },
       "savant": {
@@ -7015,7 +7239,7 @@
       "hitsMatchupFactor": 1.009,
       "tbParkFactor": 1.006,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -7042,9 +7266,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -7056,7 +7286,7 @@
       "team": "NYY",
       "opp": "BOS",
       "order": null,
-      "heuristicProb": 0.03588823393336537,
+      "heuristicProb": 0.035588841061663136,
       "confidence": "Medium",
       "calibrationApplied": 0.8775,
       "factorCalibrationApplied": null,
@@ -7067,7 +7297,7 @@
         "pitcherVuln": 0.7100591715976332,
         "powerQuality": 1.0,
         "park": 1.11,
-        "weather": 1.0211968,
+        "weather": 1.0126776,
         "handedness": 0.7
       },
       "savant": {
@@ -7132,7 +7362,14 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
-      "recentNews": null
+      "recentNews": [
+        {
+          "title": "Phillies need a Game 2 stopper -- and rock-solid S\u00e1nchez is just the guy for the job",
+          "link": "https://www.mlb.com/news/cristopher-sanchez-phillies-starter-2026-nl-wild-card-series",
+          "pubDate": "Wed, 30 Sep 2026 00:45:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
     },
     {
       "gamePk": 849841,
@@ -7141,7 +7378,7 @@
       "team": "ATL",
       "opp": "PHI",
       "order": null,
-      "heuristicProb": 0.03475037974478024,
+      "heuristicProb": 0.03453024275697981,
       "confidence": "Medium",
       "calibrationApplied": 0.8775,
       "factorCalibrationApplied": {
@@ -7154,7 +7391,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 1.02,
-        "weather": 1.0528679808,
+        "weather": 1.0478239487999998,
         "handedness": 1.1827956989247312
       },
       "savant": {
@@ -7183,13 +7420,13 @@
         "swing_length": ""
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
+        "atBats": 12,
+        "hits": 2,
         "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
+        "avg": ".167",
+        "obp": ".333",
+        "slg": ".167",
+        "ops": ".500"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -7227,10 +7464,6 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431675",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432660",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
           "title": "4 big takeaways from the Phillies-Braves back-and-forth WC opener",
@@ -7239,12 +7472,20 @@
           "source": "MLB.com"
         },
         {
-          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (2 ET, NBC/Peacock)",
+          "title": "Phillies-Braves NL Wild Card Series Game 2 FAQ (Wed., 2 ET, NBC/Peacock)",
           "link": "https://www.mlb.com/news/phillies-vs-braves-nl-wild-card-series-game-2-starting-lineups-and-pitching-matchup",
           "pubDate": "Wed, 30 Sep 2026 00:38:25 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431675",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432660"
     },
     {
       "gamePk": 849842,
@@ -7253,9 +7494,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.028634075882604356,
+      "heuristicProb": 0.02865570112785154,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -7264,7 +7505,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.8114478114478115
       },
       "savant": {
@@ -7286,7 +7527,7 @@
         "whiff_percent": "",
         "chase_percent": "",
         "arm_strength": "23",
-        "sprint_speed": "78",
+        "sprint_speed": "77",
         "oaa": "81",
         "bat_speed": "",
         "squared_up_rate": "",
@@ -7316,7 +7557,7 @@
       "hitsMatchupFactor": 0.954,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -7338,9 +7579,9 @@
       "team": "CHC",
       "opp": "SD",
       "order": null,
-      "heuristicProb": 0.024159621984304207,
+      "heuristicProb": 0.02417786799834118,
       "confidence": "High",
-      "calibrationApplied": 0.9709,
+      "calibrationApplied": 0.9705,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, a tough platoon matchup, a 19-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -7349,7 +7590,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.8505753484169561,
         "park": 0.92,
-        "weather": 1.01067264,
+        "weather": 1.0118528,
         "handedness": 0.7
       },
       "savant": {
@@ -7409,7 +7650,7 @@
       "hitsMatchupFactor": 0.964,
       "tbParkFactor": 0.976,
       "hitsCalibrationApplied": -0.0129,
-      "tbCalibrationApplied": -0.0233,
+      "tbCalibrationApplied": -0.0231,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5450161482782604,
@@ -7422,19 +7663,23 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-09-30T06:10:18.431739",
+      "recentNews": null,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
       "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-09-30T06:10:18.432724",
+      "hitsCallFrozenAt": "2026-09-30T06:10:18.431739",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
       "prizePicksTBLine": 0.5,
-      "recentNews": null
+      "tbCallFrozenAt": "2026-09-30T06:10:18.432724"
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-09-30T11:11:25.793471",
+  "oddsRefreshedAt": "2026-09-30T11:13:02.084947",
   "statcastSpotlight": {
     "name": "Munetaka Murakami",
     "team": "CWS",
-    "heuristicProb": 0.25628642697968884,
+    "heuristicProb": 0.2561762255472119,
     "exitVelo": 114.1,
     "launchAngle": 35.0,
     "distance": 425.0,
@@ -7442,17 +7687,20 @@
     "seasonHRCount": 35
   },
   "topMatchup": {
-    "pitcherName": "Cristopher S\u00e1nchez",
-    "pitcherTeam": "PHI",
-    "opp": "ATL",
-    "projectedK": 7.517008054569744,
-    "edge": null,
-    "usedFallback": true,
+    "pitcherName": "Sean Burke",
+    "pitcherTeam": "CWS",
+    "opp": "HOU",
+    "projectedK": 6.753625016948448,
+    "edge": 0.23672641599186822,
+    "usedFallback": false,
     "batter": {
-      "name": "Matt Olson",
-      "heuristicProb": 0.13292678001167754
+      "name": "Jeremy Pe\u00f1a",
+      "atBats": 8,
+      "hits": 3,
+      "homeRuns": 0,
+      "ops": ".944"
     },
-    "batterKind": "hrThreat"
+    "batterKind": "history"
   },
   "lockedBest5": {
     "hrProb": [
