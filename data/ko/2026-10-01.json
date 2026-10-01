@@ -1,6 +1,6 @@
 {
   "date": "2026-10-01",
-  "generatedAt": "2026-10-01T20:19:35.150681",
+  "generatedAt": "2026-10-01T17:22:34.840970",
   "entries": [
     {
       "gamePk": 849844,
@@ -270,9 +270,9 @@
       "workloadStreak": 0,
       "mostRecentPitchCount": 21.0,
       "marketThreshold": 4,
-      "marketProb": 0.515,
+      "marketProb": 0.51,
       "modelProb": 0.651960444826485,
-      "edge": 0.13696044482648495,
+      "edge": 0.14196044482648495,
       "predictionLine": 3.5,
       "predictionOutsLine": 11.5,
       "graded": false,
@@ -286,7 +286,7 @@
       "kBBPct": 15.860215053763444,
       "rollingKBBPct": 14.814814814814815,
       "parkFactor": 1.02,
-      "weatherFactor": 0.9928,
+      "weatherFactor": 0.9919,
       "outsCalibrationApplied": -0.4794,
       "bullpenFatigue": {
         "factor": 1.119,
@@ -300,14 +300,12 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.52,
-      "prizePicksOpeningLine": 3.5,
-      "prizePicksOutsOpeningLine": 11.5,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-01T17:30:26.554424",
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-01T17:30:26.554601",
-      "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 11.5,
+      "openingThreshold": 4,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.5,
+      "marketAsk": 0.52,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-01T17:30:26.554095",
       "recentNews": [
         {
           "title": "Nola to start for Phils in 'all hands on deck' Game 3 (source)",
@@ -332,6 +330,50 @@
           "link": "https://www.mlb.com/news/key-takeaways-from-phillies-extra-innings-win-over-braves-in-game-2-of-nl-wild-card-series",
           "pubDate": "Thu, 01 Oct 2026 01:10:04 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-01T17:30:26.554424",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 28,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 28,
+          "total": 32
+        },
+        {
+          "minPitches": "80",
+          "hits": 27,
+          "total": 31
+        }
+      ],
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-01T17:30:26.554601",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 31,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 31,
+          "total": 32
+        },
+        {
+          "minPitches": "80",
+          "hits": 30,
+          "total": 31
         }
       ]
     },
@@ -414,7 +456,7 @@
       "kBBPct": 13.636363636363633,
       "rollingKBBPct": 16.66666666666667,
       "parkFactor": 1.02,
-      "weatherFactor": 0.9928,
+      "weatherFactor": 0.9919,
       "outsCalibrationApplied": -0.4794,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -457,9 +499,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-01T11:07:37.172957",
-  "oddsRefreshedAt": "2026-10-01T20:19:51.280582",
-  "_kalshiMatched": 1,
-  "_kalshiTotal": 2,
+  "oddsRefreshedAt": "2026-10-01T20:20:51.507825",
   "lockedBest5": {
     "kEdge": [
       {
