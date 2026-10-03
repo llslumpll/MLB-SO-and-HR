@@ -232,12 +232,12 @@
       "babipAgainst": 0.23768115942028986,
       "workloadStreak": 1,
       "mostRecentPitchCount": 68.0,
-      "marketThreshold": 8,
-      "marketProb": 0.575,
-      "modelProb": 0.623495746509269,
-      "edge": 0.04849574650926902,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "marketThreshold": 9,
+      "marketProb": 0.405,
+      "modelProb": 0.49248046949626434,
+      "edge": 0.08748046949626431,
+      "predictionLine": 8.0,
+      "predictionOutsLine": 17.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -256,19 +256,19 @@
         "avgRecentReliefIP": 4.2,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 18,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.3890644350567467,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.575,
-      "openingThreshold": 8,
+      "openingProb": 0.405,
+      "openingThreshold": 9,
       "priceDelta": 0.0,
-      "marketBid": 0.57,
-      "marketAsk": 0.58,
+      "marketBid": 0.4,
+      "marketAsk": 0.41,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "Padres-Brewers NLDS Game 1 FAQ (8:30 p.m. ET, FS1)",
@@ -287,6 +287,50 @@
           "link": "https://www.mlb.com/news/why-2026-season-feels-different-for-the-brewers",
           "pubDate": "Fri, 02 Oct 2026 21:12:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 8.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 8.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427337",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 14,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 14,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 14,
+          "total": 25
+        }
+      ],
+      "prizePicksOutsOpeningLine": 17.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 17.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.427825",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 18,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 18,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 17,
+          "total": 25
         }
       ]
     },
@@ -519,11 +563,11 @@
       "babipAgainst": 0.2931937172774869,
       "workloadStreak": 26,
       "mostRecentPitchCount": 75.0,
-      "marketThreshold": 7,
-      "marketProb": 0.54,
-      "modelProb": 0.6634729150422195,
-      "edge": 0.12347291504221947,
-      "predictionLine": null,
+      "marketThreshold": 8,
+      "marketProb": 0.37,
+      "modelProb": 0.5117179308528073,
+      "edge": 0.14171793085280726,
+      "predictionLine": 7.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -549,13 +593,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.54,
-      "openingThreshold": 7,
+      "openingProb": 0.37,
+      "openingThreshold": 8,
       "priceDelta": 0.0,
-      "marketBid": 0.53,
-      "marketAsk": 0.55,
+      "marketBid": 0.36,
+      "marketAsk": 0.38,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "Skubal gets the nod over Yamamoto for LA in NLDS Game 1",
@@ -574,6 +618,28 @@
           "link": "https://www.mlb.com/news/braves-dodgers-nlds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 04:44:45 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 7.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 7.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427417",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 26
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 26
+        },
+        {
+          "minPitches": "80",
+          "hits": 9,
+          "total": 24
         }
       ]
     },
@@ -675,7 +741,7 @@
       "marketBid": 0.6,
       "marketAsk": 0.61,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "White Sox-Guardians ALDS Game 1 FAQ (1 p.m. ET, TBS/HBO Max)",
@@ -954,10 +1020,10 @@
       "mostRecentPitchCount": 64.0,
       "marketThreshold": 7,
       "marketProb": 0.46499999999999997,
-      "modelProb": 0.42645058230235167,
-      "edge": -0.0385494176976483,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.4587387766716193,
+      "edge": -0.006261223328380694,
+      "predictionLine": 6.5,
+      "predictionOutsLine": 16.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -976,9 +1042,9 @@
         "avgRecentReliefIP": 4.6,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 17,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.4712351214422932,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -988,7 +1054,7 @@
       "marketBid": 0.46,
       "marketAsk": 0.47,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "White Sox-Guardians ALDS Game 1 FAQ (1 p.m. ET, TBS/HBO Max)",
@@ -1001,6 +1067,50 @@
           "link": "https://www.mlb.com/news/white-sox-guardians-alds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 06:07:23 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427511",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 10,
+          "total": 29
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.427889",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 22,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 22,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 21,
+          "total": 29
         }
       ]
     },
@@ -1245,10 +1355,10 @@
       "mostRecentPitchCount": 114.0,
       "marketThreshold": 7,
       "marketProb": 0.44,
-      "modelProb": 0.38681624626296696,
-      "edge": -0.053183753737033046,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.43650391415352446,
+      "edge": -0.0034960858464755384,
+      "predictionLine": 6.0,
+      "predictionOutsLine": 16.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1267,9 +1377,9 @@
         "avgRecentReliefIP": 5.0,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 17,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.6739381279106511,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -1279,7 +1389,7 @@
       "marketBid": 0.42,
       "marketAsk": 0.46,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "Yankees-Rays ALDS Game 1 FAQ (6:30 p.m. ET, TBS/HBO Max)",
@@ -1292,6 +1402,50 @@
           "link": "https://www.mlb.com/news/yankees-rays-alds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 12:53:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427578",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 30
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 9,
+          "total": 23
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.427951",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 18,
+          "total": 30
+        },
+        {
+          "minPitches": "70",
+          "hits": 18,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 17,
+          "total": 23
         }
       ]
     },
@@ -1498,10 +1652,10 @@
       "mostRecentPitchCount": 105.0,
       "marketThreshold": 6,
       "marketProb": 0.41500000000000004,
-      "modelProb": 0.5044674390175333,
-      "edge": 0.08946743901753329,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.5025062332888361,
+      "edge": 0.08750623328883611,
+      "predictionLine": 5.0,
+      "predictionOutsLine": 16.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1520,9 +1674,9 @@
         "avgRecentReliefIP": 3.6,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 17,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.44032176872409395,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -1532,7 +1686,7 @@
       "marketBid": 0.4,
       "marketAsk": 0.43,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "After Schlittler's dominant ALWC G1 start, it's Cole's turn in ALDS",
@@ -1563,6 +1717,50 @@
           "link": "https://www.mlb.com/news/how-ben-rice-matches-up-vs-rays-in-alds",
           "pubDate": "Fri, 02 Oct 2026 23:54:35 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 5.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427644",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 11,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 11,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 10,
+          "total": 18
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.428012",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 12,
+          "total": 18
         }
       ]
     },
@@ -1825,12 +2023,12 @@
       "babipAgainst": 0.2616407982261641,
       "workloadStreak": 31,
       "mostRecentPitchCount": 84.0,
-      "marketThreshold": 4,
-      "marketProb": 0.5700000000000001,
-      "modelProb": 0.640269550298916,
-      "edge": 0.0702695502989159,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "marketThreshold": 5,
+      "marketProb": 0.365,
+      "modelProb": 0.4711114756256737,
+      "edge": 0.10611147562567369,
+      "predictionLine": 4.0,
+      "predictionOutsLine": 11.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -1849,19 +2047,19 @@
         "avgRecentReliefIP": 4.4,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 12,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.7386020476692536,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.5700000000000001,
-      "openingThreshold": 4,
+      "openingProb": 0.365,
+      "openingThreshold": 5,
       "priceDelta": 0.0,
-      "marketBid": 0.55,
-      "marketAsk": 0.59,
+      "marketBid": 0.36,
+      "marketAsk": 0.37,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-03T11:10:43.136256",
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "Padres-Brewers NLDS Game 1 FAQ (8:30 p.m. ET, FS1)",
@@ -1875,14 +2073,56 @@
           "pubDate": "Fri, 02 Oct 2026 03:56:38 GMT",
           "source": "MLB.com"
         }
+      ],
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427702",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 31
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 30
+        },
+        {
+          "minPitches": "80",
+          "hits": 15,
+          "total": 30
+        }
+      ],
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.428067",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 29,
+          "total": 31
+        },
+        {
+          "minPitches": "70",
+          "hits": 29,
+          "total": 30
+        },
+        {
+          "minPitches": "80",
+          "hits": 29,
+          "total": 30
+        }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-03T11:09:48.881669",
-  "oddsRefreshedAt": "2026-10-03T11:10:43.136256",
-  "_kalshiMatched": 7,
-  "_kalshiTotal": 7,
+  "oddsRefreshedAt": "2026-10-03T11:20:21.426976",
   "lockedBest5": {
     "kEdge": [
       {
