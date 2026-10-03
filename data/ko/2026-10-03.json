@@ -1,6 +1,6 @@
 {
   "date": "2026-10-03",
-  "generatedAt": "2026-10-03T18:40:39.215247",
+  "generatedAt": "2026-10-03T11:09:48.881669",
   "entries": [
     {
       "gamePk": 849830,
@@ -233,9 +233,9 @@
       "workloadStreak": 1,
       "mostRecentPitchCount": 68.0,
       "marketThreshold": 9,
-      "marketProb": 0.42,
+      "marketProb": 0.43,
       "modelProb": 0.49248046949626434,
-      "edge": 0.07248046949626435,
+      "edge": 0.062480469496264346,
       "predictionLine": 8.0,
       "predictionOutsLine": 17.5,
       "graded": false,
@@ -263,19 +263,17 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.405,
-      "prizePicksOpeningLine": 8.0,
-      "prizePicksOutsOpeningLine": 17.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427337",
-      "outsCall": "UNDER",
-      "outsCallFrozenAt": "2026-10-03T11:20:21.427825",
-      "prizePicksKLine": 8.0,
-      "prizePicksOutsLine": 17.5,
+      "openingThreshold": 9,
+      "priceDelta": 0.024999999999999967,
+      "marketBid": 0.42,
+      "marketAsk": 0.44,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
-          "title": "Padres-Brewers NLDS Game 1 FAQ (8:30 p.m. ET, FS1/FOX One)",
+          "title": "Padres-Brewers NLDS Game 1 FAQ (8:30 p.m. ET, FS1)",
           "link": "https://www.mlb.com/news/padres-brewers-nl-division-series-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Sat, 03 Oct 2026 15:24:00 GMT",
+          "pubDate": "Sat, 03 Oct 2026 00:05:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -283,6 +281,56 @@
           "link": "https://www.mlb.com/news/brewers-padres-nlds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 03:56:38 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Having shed underdog label, why is this the year for the Brewers?",
+          "link": "https://www.mlb.com/news/why-2026-season-feels-different-for-the-brewers",
+          "pubDate": "Fri, 02 Oct 2026 21:12:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 8.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 8.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427337",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 14,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 14,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 14,
+          "total": 25
+        }
+      ],
+      "prizePicksOutsOpeningLine": 17.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 17.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.427825",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 18,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 18,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 17,
+          "total": 25
         }
       ]
     },
@@ -532,7 +580,7 @@
       "kBBPct": 25.64516129032258,
       "rollingKBBPct": 26.388888888888893,
       "parkFactor": 1.04,
-      "weatherFactor": 0.97405,
+      "weatherFactor": 0.97045,
       "outsCalibrationApplied": -0.5061,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -546,10 +594,12 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.37,
-      "prizePicksOpeningLine": 7.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427417",
-      "prizePicksKLine": 6.5,
+      "openingThreshold": 8,
+      "priceDelta": 0.015000000000000013,
+      "marketBid": 0.38,
+      "marketAsk": 0.39,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "Skubal gets the nod over Yamamoto for LA in NLDS Game 1",
@@ -558,15 +608,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Braves-Dodgers NLDS Game 1 FAQ, lineups (4 p.m. ET, FOX/FOX One)",
+          "title": "Braves-Dodgers NLDS Game 1 FAQ (4 p.m. ET, FOX/FOX One)",
           "link": "https://www.mlb.com/news/braves-vs-dodgers-nlds-game-1-starting-lineups-pitching-matchup",
-          "pubDate": "Sat, 03 Oct 2026 18:08:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Dodgers top prospect De Paula, reliever Henriquez make NL Division Series roster",
-          "link": "https://www.mlb.com/news/dodgers-2026-nl-division-series-roster",
-          "pubDate": "Sat, 03 Oct 2026 17:57:13 GMT",
+          "pubDate": "Sat, 03 Oct 2026 00:47:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -574,6 +618,28 @@
           "link": "https://www.mlb.com/news/braves-dodgers-nlds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 04:44:45 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 7.0,
+      "prizePicksLineDelta": -0.5,
+      "prizePicksKLine": 6.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427417",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 26
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 26
+        },
+        {
+          "minPitches": "80",
+          "hits": 9,
+          "total": 24
         }
       ]
     },
@@ -656,7 +722,7 @@
       "kBBPct": 22.727272727272727,
       "rollingKBBPct": 6.666666666666668,
       "parkFactor": 0.98,
-      "weatherFactor": 1.00075,
+      "weatherFactor": 1.00135,
       "outsCalibrationApplied": -0.5061,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -670,22 +736,17 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.375,
+      "openingThreshold": 5,
       "priceDelta": -0.365,
       "marketBid": 0.0,
       "marketAsk": 0.01,
       "edgeEligible": false,
-      "oddsUpdatedAt": "2026-10-03T18:41:19.398707",
+      "oddsUpdatedAt": "2026-10-03T18:42:10.228440",
       "recentNews": [
         {
-          "title": "Thomas returns, Ritchie and Smith-Shawver active for NL Division Series",
-          "link": "https://www.mlb.com/news/braves-2026-nl-division-series-roster",
-          "pubDate": "Sat, 03 Oct 2026 17:27:45 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "White Sox finalize 2026 AL Division Series roster",
-          "link": "https://www.mlb.com/news/white-sox-2026-al-division-series-roster",
-          "pubDate": "Sat, 03 Oct 2026 15:01:00 GMT",
+          "title": "White Sox-Guardians ALDS Game 1 FAQ (1 p.m. ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/white-sox-vs-guardians-alds-game-1-starting-lineups-pitching-matchup-2026",
+          "pubDate": "Sat, 03 Oct 2026 04:20:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -958,9 +1019,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 64.0,
       "marketThreshold": 7,
-      "marketProb": 0.6799999999999999,
+      "marketProb": 0.01,
       "modelProb": 0.4587387766716193,
-      "edge": -0.22126122332838066,
+      "edge": 0.44873877667161927,
       "predictionLine": 6.5,
       "predictionOutsLine": 16.5,
       "graded": false,
@@ -974,7 +1035,7 @@
       "kBBPct": 19.277108433734938,
       "rollingKBBPct": 20.967741935483872,
       "parkFactor": 0.98,
-      "weatherFactor": 1.00075,
+      "weatherFactor": 1.00135,
       "outsCalibrationApplied": -0.5061,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -988,19 +1049,17 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.46499999999999997,
-      "prizePicksOpeningLine": 6.5,
-      "prizePicksOutsOpeningLine": 16.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427511",
-      "outsCall": "UNDER",
-      "outsCallFrozenAt": "2026-10-03T11:20:21.427889",
-      "prizePicksKLine": 6.5,
-      "prizePicksOutsLine": 16.5,
+      "openingThreshold": 7,
+      "priceDelta": -0.45499999999999996,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
-          "title": "Guardians announce ALDS roster; Hoskins, Cecconi odd men out",
-          "link": "https://www.mlb.com/news/guardians-2026-al-division-series-roster",
-          "pubDate": "Sat, 03 Oct 2026 16:20:00 GMT",
+          "title": "White Sox-Guardians ALDS Game 1 FAQ (1 p.m. ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/white-sox-vs-guardians-alds-game-1-starting-lineups-pitching-matchup-2026",
+          "pubDate": "Sat, 03 Oct 2026 04:20:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1008,6 +1067,50 @@
           "link": "https://www.mlb.com/news/white-sox-guardians-alds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 06:07:23 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427511",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 10,
+          "total": 29
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.427889",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 22,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 22,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 21,
+          "total": 29
         }
       ]
     },
@@ -1281,19 +1384,17 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.44,
-      "prizePicksOpeningLine": 6.0,
-      "prizePicksOutsOpeningLine": 16.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427578",
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-03T11:20:21.427951",
-      "prizePicksKLine": 6.0,
-      "prizePicksOutsLine": 16.5,
+      "openingThreshold": 7,
+      "priceDelta": -0.015000000000000013,
+      "marketBid": 0.42,
+      "marketAsk": 0.43,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
           "title": "Yankees-Rays ALDS Game 1 FAQ (6:30 p.m. ET, TBS/HBO Max)",
           "link": "https://www.mlb.com/news/yankees-vs-rays-alds-game-1-starting-lineups-pitching-matchup",
-          "pubDate": "Sat, 03 Oct 2026 14:51:00 GMT",
+          "pubDate": "Fri, 02 Oct 2026 21:14:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1301,12 +1402,50 @@
           "link": "https://www.mlb.com/news/yankees-rays-alds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 12:53:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427578",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 30
         },
         {
-          "title": "Rays finalize 2026 AL Division Series roster",
-          "link": "https://www.mlb.com/news/rays-2026-al-division-series-roster",
-          "pubDate": "Sat, 03 Oct 2026 15:42:38 GMT",
-          "source": "MLB.com"
+          "minPitches": "70",
+          "hits": 10,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 9,
+          "total": 23
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.427951",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 18,
+          "total": 30
+        },
+        {
+          "minPitches": "70",
+          "hits": 18,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 17,
+          "total": 23
         }
       ]
     },
@@ -1542,25 +1681,29 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.41500000000000004,
-      "prizePicksOpeningLine": 5.0,
-      "prizePicksOutsOpeningLine": 16.5,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427644",
-      "outsCall": "UNDER",
-      "outsCallFrozenAt": "2026-10-03T11:20:21.428012",
-      "prizePicksKLine": 5.0,
-      "prizePicksOutsLine": 16.5,
+      "openingThreshold": 6,
+      "priceDelta": -0.050000000000000044,
+      "marketBid": 0.36,
+      "marketAsk": 0.37,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
-          "title": "Yankees-Rays ALDS Game 1 FAQ (6:30 p.m. ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/yankees-vs-rays-alds-game-1-starting-lineups-pitching-matchup",
-          "pubDate": "Sat, 03 Oct 2026 14:51:00 GMT",
+          "title": "After Schlittler's dominant ALWC G1 start, it's Cole's turn in ALDS",
+          "link": "https://www.mlb.com/news/yankees-counting-on-gerrit-cole-to-be-dominant-in-alds-game-1",
+          "pubDate": "Fri, 02 Oct 2026 18:59:39 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Stanton, Weathers on Yankees' ALDS roster; Rosario off",
-          "link": "https://www.mlb.com/news/yankees-2026-al-division-series-roster",
-          "pubDate": "Sat, 03 Oct 2026 15:06:00 GMT",
+          "title": "Yankees-Rays ALDS Game 1 FAQ (6:30 p.m. ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/yankees-vs-rays-alds-game-1-starting-lineups-pitching-matchup",
+          "pubDate": "Fri, 02 Oct 2026 21:14:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Will Aaron Judge be on the Yankees' ALDS roster? Here's the latest",
+          "link": "https://www.mlb.com/news/yankees-aaron-judge-injury-update-ahead-of-alds",
+          "pubDate": "Fri, 02 Oct 2026 20:57:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1568,6 +1711,56 @@
           "link": "https://www.mlb.com/news/yankees-rays-alds-position-by-position-breakdown",
           "pubDate": "Fri, 02 Oct 2026 12:53:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "How Yankees' best hitter matches up with AL's best team",
+          "link": "https://www.mlb.com/news/how-ben-rice-matches-up-vs-rays-in-alds",
+          "pubDate": "Fri, 02 Oct 2026 23:54:35 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 5.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427644",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 11,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 11,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 10,
+          "total": 18
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.428012",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 22
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 22
+        },
+        {
+          "minPitches": "80",
+          "hits": 12,
+          "total": 18
         }
       ]
     },
@@ -1861,19 +2054,17 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.365,
-      "prizePicksOpeningLine": 4.0,
-      "prizePicksOutsOpeningLine": 11.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427702",
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-03T11:20:21.428067",
-      "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 11.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.02999999999999997,
+      "marketBid": 0.33,
+      "marketAsk": 0.34,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-03T11:20:21.426976",
       "recentNews": [
         {
-          "title": "Padres-Brewers NLDS Game 1 FAQ (8:30 p.m. ET, FS1/FOX One)",
+          "title": "Padres-Brewers NLDS Game 1 FAQ (8:30 p.m. ET, FS1)",
           "link": "https://www.mlb.com/news/padres-brewers-nl-division-series-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Sat, 03 Oct 2026 15:24:00 GMT",
+          "pubDate": "Sat, 03 Oct 2026 00:05:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1882,121 +2073,56 @@
           "pubDate": "Fri, 02 Oct 2026 03:56:38 GMT",
           "source": "MLB.com"
         }
-      ]
-    },
-    {
-      "gamePk": 849828,
-      "playerId": 689266,
-      "name": "Dylan Dodd",
-      "team": "ATL",
-      "opp": "LAD",
-      "oppTeamId": 119,
-      "vsTeamTrend": null,
-      "vsBatterTrend": null,
-      "firstMeetingThisSeason": false,
-      "hand": "L",
-      "seasonRecord": "4-1",
-      "era": "2.54",
-      "seasonK9": 9.188284518828452,
-      "recentK9": 10.91297071129707,
-      "oppK": 20.389443192790473,
-      "matchupFactor": 0.9340513320093593,
-      "stuffFactor": 1.0,
-      "recentMatchupApplied": {
-        "factor": 0.941,
-        "gamesFound": 30,
-        "vsHand": "L"
-      },
-      "expectedIP": 3.5,
-      "projectedK": 3.5197505662847908,
-      "confidence": "High",
-      "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts and locked-in command over their last starts (K-BB% of 37.5%); tempered by a short-outing workload expectation and warm weather that can favor the hitter. His .207 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1371,
-      "recentStartsLog": [
+      ],
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-03T11:20:21.427702",
+      "conditionalHitRateBreakdown": [
         {
-          "k": 3,
-          "ip": 1,
-          "bb": 0,
-          "battersFaced": 3.0
+          "minPitches": "60",
+          "hits": 15,
+          "total": 31
         },
         {
-          "k": 3,
-          "ip": 2,
-          "bb": 0,
-          "battersFaced": 6.0
+          "minPitches": "70",
+          "hits": 15,
+          "total": 30
         },
         {
-          "k": 0,
-          "ip": 1,
-          "bb": 0,
-          "battersFaced": 7.0
+          "minPitches": "80",
+          "hits": 15,
+          "total": 30
         }
       ],
-      "veloTrend": null,
-      "qualifyingStartsKByThreshold": {
-        "60": [],
-        "70": [],
-        "80": []
-      },
-      "qualifyingStartsOutsByThreshold": {
-        "60": [],
-        "70": [],
-        "80": []
-      },
-      "babipAgainst": 0.20689655172413793,
-      "workloadStreak": 0,
-      "mostRecentPitchCount": 25.0,
-      "marketThreshold": null,
-      "marketProb": null,
-      "modelProb": null,
-      "edge": null,
-      "predictionLine": null,
-      "predictionOutsLine": null,
-      "graded": false,
-      "actualK": null,
-      "hit": null,
-      "projectedOuts": 8.5,
-      "outsReason": "Projected for 8.5 outs (3.5 innings), supported by elite command (K-BB% of 20.1%) and a bullpen that's been leaned on hard lately (4.4 relief innings/game over their last 3), giving the manager real reason to stretch him out; tempered by a shorter historical leash (16 pitches/game this season) and a short-outing workload pattern (3.5 IP/start).",
-      "npPerGame": 16.229166666666668,
-      "pitchesPerIP": 15.684563758389263,
-      "bbPct": 7.216494845360824,
-      "kBBPct": 20.103092783505154,
-      "rollingKBBPct": 37.5,
-      "parkFactor": 1.04,
-      "weatherFactor": 0.97405,
-      "outsCalibrationApplied": -0.5061,
-      "bullpenFatigue": {
-        "factor": 1.125,
-        "avgRecentReliefIP": 4.4,
-        "gamesCounted": 3
-      },
-      "outsMarketThreshold": null,
-      "outsMarketProb": null,
-      "outsModelProb": null,
-      "outsEdge": null,
-      "actualOuts": null,
-      "outsHit": null,
-      "recentNews": [
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-03T11:20:21.428067",
+      "conditionalOutsHitRateBreakdown": [
         {
-          "title": "Braves-Dodgers NLDS Game 1 FAQ, lineups (4 p.m. ET, FOX/FOX One)",
-          "link": "https://www.mlb.com/news/braves-vs-dodgers-nlds-game-1-starting-lineups-pitching-matchup",
-          "pubDate": "Sat, 03 Oct 2026 18:08:00 GMT",
-          "source": "MLB.com"
+          "minPitches": "60",
+          "hits": 29,
+          "total": 31
         },
         {
-          "title": "Braves-Dodgers position-by-position breakdown",
-          "link": "https://www.mlb.com/news/braves-dodgers-nlds-position-by-position-breakdown",
-          "pubDate": "Fri, 02 Oct 2026 04:44:45 GMT",
-          "source": "MLB.com"
+          "minPitches": "70",
+          "hits": 29,
+          "total": 30
+        },
+        {
+          "minPitches": "80",
+          "hits": 29,
+          "total": 30
         }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-03T11:09:48.881669",
-  "oddsRefreshedAt": "2026-10-03T18:41:19.398707",
-  "_kalshiMatched": 7,
-  "_kalshiTotal": 8,
+  "oddsRefreshedAt": "2026-10-03T18:42:10.228440",
   "lockedBest5": {
     "kEdge": [
       {
