@@ -1,6 +1,6 @@
 {
   "date": "2026-10-04",
-  "generatedAt": "2026-10-04T18:07:56.628284",
+  "generatedAt": "2026-10-04T18:37:40.490163",
   "entries": [
     {
       "gamePk": 849825,
@@ -216,14 +216,7 @@
           "pubDate": "Sun, 04 Oct 2026 06:33:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": -0.0050000000000000044,
-      "marketBid": 0.38,
-      "marketAsk": 0.4,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849823,
@@ -389,17 +382,117 @@
         {
           "title": "Braves-Dodgers NLDS Game 2 FAQ (8 p.m. ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/braves-vs-dodgers-nlds-game-2-starting-lineups-pitching-matchup",
-          "pubDate": "Sun, 04 Oct 2026 01:48:49 GMT",
+          "pubDate": "Sun, 04 Oct 2026 18:28:00 GMT",
           "source": "MLB.com"
         }
+      ]
+    },
+    {
+      "gamePk": 849823,
+      "playerId": 678061,
+      "name": "Ray Kerr",
+      "team": "ATL",
+      "opp": "LAD",
+      "oppTeamId": 119,
+      "vsTeamTrend": null,
+      "vsBatterTrend": null,
+      "firstMeetingThisSeason": false,
+      "hand": "L",
+      "seasonRecord": "0-0",
+      "era": "1.47",
+      "seasonK9": 7.324137931034483,
+      "recentK9": 6.841909814323607,
+      "oppK": 20.389443192790473,
+      "matchupFactor": 0.9340513320093593,
+      "stuffFactor": 1.0,
+      "recentMatchupApplied": {
+        "factor": 0.941,
+        "gamesFound": 30,
+        "vsHand": "L"
+      },
+      "expectedIP": 6.7,
+      "projectedK": 4.950830020384891,
+      "confidence": "High",
+      "reason": "Average strikeout stuff this season, boosted by a long-innings workload expectation. His .146 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
+      "calibrationApplied": -0.1377,
+      "recentStartsLog": [
+        {
+          "k": 4,
+          "ip": 3,
+          "bb": 0,
+          "battersFaced": 9.0
+        },
+        {
+          "k": 1,
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 4.0
+        },
+        {
+          "k": 0,
+          "ip": 3,
+          "bb": 1,
+          "battersFaced": 11.0
+        }
       ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.49,
-      "marketAsk": 0.51,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      "veloTrend": null,
+      "qualifyingStartsKByThreshold": {
+        "60": [],
+        "70": [],
+        "80": []
+      },
+      "qualifyingStartsOutsByThreshold": {
+        "60": [],
+        "70": [],
+        "80": []
+      },
+      "babipAgainst": 0.14583333333333334,
+      "workloadStreak": 0,
+      "mostRecentPitchCount": 32.0,
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "predictionLine": null,
+      "predictionOutsLine": null,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "projectedOuts": 20.5,
+      "outsReason": "Projected for 20.5 outs (6.7 innings), supported by a track record of a long leash (212 pitches/game this season), getting deep into games (6.7 IP/start), efficient innings (11.6 pitches/inning), and a bullpen that's been leaned on hard lately (4.4 relief innings/game over their last 3), giving the manager real reason to stretch him out.",
+      "npPerGame": 212.0,
+      "pitchesPerIP": 11.563636363636364,
+      "bbPct": 3.0303030303030303,
+      "kBBPct": 13.636363636363633,
+      "rollingKBBPct": 16.66666666666667,
+      "parkFactor": 1.04,
+      "weatherFactor": 0.98755,
+      "outsCalibrationApplied": -0.5114,
+      "bullpenFatigue": {
+        "factor": 1.125,
+        "avgRecentReliefIP": 4.4,
+        "gamesCounted": 3
+      },
+      "outsMarketThreshold": null,
+      "outsMarketProb": null,
+      "outsModelProb": null,
+      "outsEdge": null,
+      "actualOuts": null,
+      "outsHit": null,
+      "recentNews": [
+        {
+          "title": "Braves-Dodgers NLDS Game 2 FAQ (8 p.m. ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/braves-vs-dodgers-nlds-game-2-starting-lineups-pitching-matchup",
+          "pubDate": "Sun, 04 Oct 2026 18:28:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Game 1 exposes Braves' thin starter depth -- and it's officially all hands on deck",
+          "link": "https://www.mlb.com/news/braves-lose-bullpen-game-to-dodgers-in-nlds-game-1",
+          "pubDate": "Sun, 04 Oct 2026 01:19:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
     },
     {
       "gamePk": 849825,
@@ -714,18 +807,14 @@
           "pubDate": "Sun, 04 Oct 2026 16:51:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 6,
-      "priceDelta": 0.0,
-      "marketBid": 0.38,
-      "marketAsk": 0.39,
-      "edgeEligible": false
+      ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-04T11:07:53.229773",
-  "oddsRefreshedAt": "2026-10-04T18:30:18.447349",
+  "oddsRefreshedAt": "2026-10-04T18:37:54.131342",
+  "_kalshiMatched": 3,
+  "_kalshiTotal": 4,
   "lockedBest5": {
     "kEdge": [],
     "kProb": [
