@@ -166,10 +166,10 @@
       "mostRecentPitchCount": 87.0,
       "marketThreshold": 7,
       "marketProb": 0.44,
-      "modelProb": 0.41949278007894497,
-      "edge": -0.02050721992105503,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.4548676525122566,
+      "edge": 0.01486765251225658,
+      "predictionLine": 6.0,
+      "predictionOutsLine": 15.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -188,9 +188,9 @@
         "avgRecentReliefIP": 4.2,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 16,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.49575473161646477,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -200,7 +200,7 @@
       "marketBid": 0.43,
       "marketAsk": 0.45,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-04T12:30:21.603544",
+      "oddsUpdatedAt": "2026-10-04T12:40:17.413295",
       "recentNews": [
         {
           "title": "At just 22, Chourio takes place as Brewers' postseason HR leader",
@@ -219,6 +219,50 @@
           "link": "https://www.mlb.com/news/padres-brewers-nlds-game-1-takeaways",
           "pubDate": "Sun, 04 Oct 2026 06:50:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-04T12:40:17.413601",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 17
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 17
+        },
+        {
+          "minPitches": "80",
+          "hits": 9,
+          "total": 13
+        }
+      ],
+      "prizePicksOutsOpeningLine": 15.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 15.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-04T12:40:17.413728",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 9,
+          "total": 17
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 17
+        },
+        {
+          "minPitches": "80",
+          "hits": 7,
+          "total": 13
         }
       ]
     },
@@ -348,7 +392,7 @@
       "modelProb": 0.3821203974921934,
       "edge": -0.1278796025078066,
       "predictionLine": 6.5,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 16.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -367,9 +411,9 @@
         "avgRecentReliefIP": 5.0,
         "gamesCounted": 3
       },
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 17,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.3581965145727049,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -407,6 +451,28 @@
         {
           "minPitches": "80",
           "hits": 4,
+          "total": 6
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-04T12:40:17.413799",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 5,
+          "total": 8
+        },
+        {
+          "minPitches": "70",
+          "hits": 5,
+          "total": 8
+        },
+        {
+          "minPitches": "80",
+          "hits": 5,
           "total": 6
         }
       ]
@@ -747,7 +813,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-04T11:07:53.229773",
-  "oddsRefreshedAt": "2026-10-04T12:30:21.603544",
+  "oddsRefreshedAt": "2026-10-04T12:40:17.413295",
   "lockedBest5": {
     "kEdge": [],
     "kProb": [
