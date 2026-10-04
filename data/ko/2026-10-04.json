@@ -165,9 +165,9 @@
       "workloadStreak": 17,
       "mostRecentPitchCount": 87.0,
       "marketThreshold": 7,
-      "marketProb": 0.31,
+      "marketProb": 0.2,
       "modelProb": 0.4548676525122566,
-      "edge": 0.14486765251225658,
+      "edge": 0.25486765251225657,
       "predictionLine": 6.0,
       "predictionOutsLine": 15.5,
       "graded": false,
@@ -194,7 +194,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.39,
+      "openingProb": 0.2,
       "prizePicksOpeningLine": 6.0,
       "prizePicksOutsOpeningLine": 15.5,
       "prizePicksCall": "UNDER",
@@ -210,7 +210,12 @@
           "pubDate": "Sun, 04 Oct 2026 06:33:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.16,
+      "marketAsk": 0.24,
+      "edgeEligible": false
     },
     {
       "gamePk": 849823,
@@ -334,9 +339,9 @@
       "workloadStreak": 1,
       "mostRecentPitchCount": 77.0,
       "marketThreshold": 7,
-      "marketProb": 0.515,
+      "marketProb": 0.525,
       "modelProb": 0.3821203974921934,
-      "edge": -0.13287960250780662,
+      "edge": -0.14287960250780662,
       "predictionLine": 6.5,
       "predictionOutsLine": 16.5,
       "graded": false,
@@ -363,7 +368,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.495,
+      "openingProb": 0.525,
       "prizePicksOpeningLine": 6.5,
       "prizePicksOutsOpeningLine": 16.5,
       "prizePicksCall": "UNDER",
@@ -379,7 +384,13 @@
           "pubDate": "Sun, 04 Oct 2026 21:07:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.52,
+      "marketAsk": 0.53,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 849823,
@@ -754,9 +765,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 81.0,
       "marketThreshold": 6,
-      "marketProb": 0.735,
+      "marketProb": 0.845,
       "modelProb": 0.40020830390621,
-      "edge": -0.33479169609379,
+      "edge": -0.44479169609379,
       "predictionLine": 5.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -783,7 +794,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.385,
+      "openingProb": 0.845,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-10-04T11:10:17.619414",
@@ -801,14 +812,17 @@
           "pubDate": "Sun, 04 Oct 2026 06:54:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.84,
+      "marketAsk": 0.85,
+      "edgeEligible": false
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-04T11:07:53.229773",
-  "oddsRefreshedAt": "2026-10-04T21:13:25.630026",
-  "_kalshiMatched": 3,
-  "_kalshiTotal": 4,
+  "oddsRefreshedAt": "2026-10-04T21:20:16.910128",
   "lockedBest5": {
     "kEdge": [],
     "kProb": [
