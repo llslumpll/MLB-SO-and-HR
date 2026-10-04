@@ -194,7 +194,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.2,
+      "openingProb": 0.01,
       "prizePicksOpeningLine": 6.0,
       "prizePicksOutsOpeningLine": 15.5,
       "prizePicksCall": "UNDER",
@@ -210,7 +210,12 @@
           "pubDate": "Sun, 04 Oct 2026 06:33:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false
     },
     {
       "gamePk": 849823,
@@ -363,7 +368,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.525,
+      "openingProb": 0.53,
       "prizePicksOpeningLine": 6.5,
       "prizePicksOutsOpeningLine": 16.5,
       "prizePicksCall": "UNDER",
@@ -379,7 +384,13 @@
           "pubDate": "Sun, 04 Oct 2026 21:07:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.52,
+      "marketAsk": 0.54,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 849823,
@@ -783,7 +794,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.845,
+      "openingProb": 0.995,
       "prizePicksOpeningLine": 5.0,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-10-04T11:10:17.619414",
@@ -801,14 +812,17 @@
           "pubDate": "Sun, 04 Oct 2026 21:49:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.99,
+      "marketAsk": 1.0,
+      "edgeEligible": false
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-04T11:07:53.229773",
-  "oddsRefreshedAt": "2026-10-04T22:08:25.758149",
-  "_kalshiMatched": 3,
-  "_kalshiTotal": 4,
+  "oddsRefreshedAt": "2026-10-04T22:10:21.905866",
   "lockedBest5": {
     "kEdge": [],
     "kProb": [
