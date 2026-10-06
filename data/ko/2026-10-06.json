@@ -1,6 +1,6 @@
 {
   "date": "2026-10-06",
-  "generatedAt": "2026-10-06T20:13:31.976397",
+  "generatedAt": "2026-10-06T11:08:11.851019",
   "entries": [
     {
       "gamePk": 849819,
@@ -38,7 +38,7 @@
       "projectedK": 7.7695815398587325,
       "confidence": "High",
       "reason": "Elite strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%), a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 27.8%).",
-      "calibrationApplied": -0.1426,
+      "calibrationApplied": -0.1379,
       "recentStartsLog": [
         {
           "k": 7,
@@ -232,9 +232,9 @@
       "workloadStreak": 10,
       "mostRecentPitchCount": 97.0,
       "marketThreshold": 8,
-      "marketProb": 0.405,
+      "marketProb": 0.415,
       "modelProb": 0.5080303375589728,
-      "edge": 0.10303033755897273,
+      "edge": 0.09303033755897278,
       "predictionLine": 7.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -248,8 +248,8 @@
       "kBBPct": 26.080246913580247,
       "rollingKBBPct": 27.77777777777778,
       "parkFactor": 1.02,
-      "weatherFactor": 1.00375,
-      "outsCalibrationApplied": -0.5305,
+      "weatherFactor": 1.00675,
+      "outsCalibrationApplied": -0.5281,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.4,
@@ -262,28 +262,46 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.445,
-      "prizePicksOpeningLine": 7.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516613",
-      "prizePicksKLine": 7.0,
+      "openingThreshold": 8,
+      "priceDelta": -0.030000000000000027,
+      "marketBid": 0.41,
+      "marketAsk": 0.42,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-06T11:10:18.516188",
       "recentNews": [
         {
-          "title": "Yamamoto-Sale duel 1st of its kind in 88 years",
-          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-chris-sale-nlds-game-3",
-          "pubDate": "Tue, 06 Oct 2026 14:42:00 GMT",
+          "title": "All according to plan: Sale slated for Game 3 duel vs. Dodgers with extra rest",
+          "link": "https://www.mlb.com/news/chris-sale-to-face-dodgers-with-extra-days-in-game-3-of-nlds",
+          "pubDate": "Mon, 05 Oct 2026 21:59:38 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Facing Sale in key Game 3, Dodgers drop Ohtani to 5th in lineup",
-          "link": "https://www.mlb.com/news/shohei-ohtani-drops-to-fifth-in-lineup-for-nlds-game-3",
-          "pubDate": "Tue, 06 Oct 2026 19:17:16 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Dodgers-Braves NLDS Game 3 FAQ, lineups (6 ET, FS1/FOX One)",
+          "title": "Dodgers-Braves NLDS Game 3 FAQ (Tues., 6 p.m. ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/dodgers-vs-braves-nlds-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Tue, 06 Oct 2026 19:00:00 GMT",
+          "pubDate": "Mon, 05 Oct 2026 05:56:38 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 7.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 7.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516613",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 12,
+          "total": 26
+        },
+        {
+          "minPitches": "70",
+          "hits": 12,
+          "total": 26
+        },
+        {
+          "minPitches": "80",
+          "hits": 12,
+          "total": 24
         }
       ]
     },
@@ -314,7 +332,7 @@
       "projectedK": 7.083199511937734,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by elite swing-and-miss stuff (K%/whiff%), an opponent that's been genuinely weak vs RHP lately, not just weak on paper (their last 30 games specifically vs this handedness), a long-innings workload expectation, and locked-in command over their last starts (K-BB% of 23.0%). His .217 BABIP-against is well below the league norm, which can mean a real soft-contact profile -- or a stretch of good luck that's due to normalize.",
-      "calibrationApplied": -0.1426,
+      "calibrationApplied": -0.1379,
       "recentStartsLog": [
         {
           "k": 10,
@@ -540,8 +558,8 @@
       "kBBPct": 19.77401129943503,
       "rollingKBBPct": 22.972972972972975,
       "parkFactor": 1.02,
-      "weatherFactor": 1.00375,
-      "outsCalibrationApplied": -0.5305,
+      "weatherFactor": 1.00675,
+      "outsCalibrationApplied": -0.5281,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 5.0,
@@ -554,17 +572,13 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.445,
-      "prizePicksOpeningLine": 6.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516806",
-      "prizePicksKLine": 6.0,
+      "openingThreshold": 7,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.43,
+      "marketAsk": 0.44,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-06T11:10:18.516188",
       "recentNews": [
-        {
-          "title": "Yamamoto-Sale duel 1st of its kind in 88 years",
-          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-chris-sale-nlds-game-3",
-          "pubDate": "Tue, 06 Oct 2026 14:42:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "With historic World Series performance in mind, Yamamoto begins 2026 postseason campaign",
           "link": "https://www.mlb.com/news/yoshinobu-yamamoto-starts-game-3-of-2026-nlds-vs-braves",
@@ -572,16 +586,44 @@
           "source": "MLB.com"
         },
         {
-          "title": "Dodgers-Braves NLDS Game 3 FAQ, lineups (6 ET, FS1/FOX One)",
+          "title": "Dodgers-Braves NLDS Game 3 FAQ (Tues., 6 p.m. ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/dodgers-vs-braves-nlds-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Tue, 06 Oct 2026 19:00:00 GMT",
+          "pubDate": "Mon, 05 Oct 2026 05:56:38 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Facing Sale in key Game 3, Dodgers drop Ohtani to 5th in lineup",
-          "link": "https://www.mlb.com/news/shohei-ohtani-drops-to-fifth-in-lineup-for-nlds-game-3",
-          "pubDate": "Tue, 06 Oct 2026 19:17:16 GMT",
+          "title": "All according to plan: Sale slated for Game 3 duel vs. Dodgers with extra rest",
+          "link": "https://www.mlb.com/news/chris-sale-to-face-dodgers-with-extra-days-in-game-3-of-nlds",
+          "pubDate": "Mon, 05 Oct 2026 21:59:38 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers rookie phenom is related to ... Stephon Marbury?",
+          "link": "https://www.mlb.com/news/dodgers-josue-de-paula-stephon-marbury-cousins",
+          "pubDate": "Mon, 05 Oct 2026 17:55:10 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516806",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 28
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 15,
+          "total": 28
         }
       ]
     },
@@ -621,7 +663,7 @@
       "projectedK": 4.804046088311321,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by trending up in recent starts. His .320 BABIP-against is well above the league norm, which often reflects bad luck on balls in play more than actually getting hit hard.",
-      "calibrationApplied": -0.1426,
+      "calibrationApplied": -0.1379,
       "recentStartsLog": [
         {
           "k": 4,
@@ -813,8 +855,8 @@
       "kBBPct": 15.136876006441224,
       "rollingKBBPct": 18.91891891891892,
       "parkFactor": 0.92,
-      "weatherFactor": 0.98845,
-      "outsCalibrationApplied": -0.5305,
+      "weatherFactor": 0.9871,
+      "outsCalibrationApplied": -0.5281,
       "bullpenFatigue": {
         "factor": 1.103,
         "avgRecentReliefIP": 4.2,
@@ -827,22 +869,46 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.37,
-      "prizePicksOpeningLine": 3.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516945",
-      "prizePicksKLine": 3.0,
+      "openingThreshold": 4,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.35,
+      "marketAsk": 0.37,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-06T11:10:18.516188",
       "recentNews": [
-        {
-          "title": "Brewers-Padres NLDS Game 3 FAQ (9:30 ET, FS1 /FOX One)",
-          "link": "https://www.mlb.com/news/brewers-padres-nl-division-series-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Tue, 06 Oct 2026 17:20:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "Was Miller tipping pitches? Closer -- and Brewers' skipper -- both say no",
           "link": "https://www.mlb.com/news/mason-miller-says-blown-save-was-lack-of-command-not-tipping",
           "pubDate": "Tue, 06 Oct 2026 01:03:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Brewers-Padres NLDS Game 3 FAQ (Tues., 9:30 p.m. ET, FS1 /FOX One)",
+          "link": "https://www.mlb.com/news/brewers-padres-nl-division-series-game-3-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 05 Oct 2026 22:43:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 3.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516945",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 19,
+          "total": 25
+        },
+        {
+          "minPitches": "70",
+          "hits": 19,
+          "total": 23
+        },
+        {
+          "minPitches": "80",
+          "hits": 16,
+          "total": 19
         }
       ]
     },
@@ -882,7 +948,7 @@
       "projectedK": 4.51091215147906,
       "confidence": "High",
       "reason": "Strong strikeout stuff this season, boosted by locked-in command over their last starts (K-BB% of 24.6%); tempered by an opponent that's actually been hitting RHP well lately (their last 30 games specifically vs this handedness) and a short-outing workload expectation.",
-      "calibrationApplied": -0.1426,
+      "calibrationApplied": -0.1379,
       "recentStartsLog": [
         {
           "k": 5,
@@ -968,8 +1034,8 @@
       "kBBPct": 24.285714285714285,
       "rollingKBBPct": 24.561403508771928,
       "parkFactor": 0.92,
-      "weatherFactor": 0.98845,
-      "outsCalibrationApplied": -0.5305,
+      "weatherFactor": 0.9871,
+      "outsCalibrationApplied": -0.5281,
       "bullpenFatigue": {
         "factor": 1.125,
         "avgRecentReliefIP": 4.4,
@@ -982,35 +1048,49 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.385,
-      "prizePicksOpeningLine": 4.0,
-      "prizePicksOutsOpeningLine": 10.5,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.517068",
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-06T12:10:22.500365",
-      "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 10.5,
+      "openingThreshold": 5,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.37,
+      "marketAsk": 0.38,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-06T11:10:18.516188",
       "recentNews": [
         {
-          "title": "Brewers-Padres NLDS Game 3 FAQ (9:30 ET, FS1 /FOX One)",
+          "title": "Brewers-Padres NLDS Game 3 FAQ (Tues., 9:30 p.m. ET, FS1 /FOX One)",
           "link": "https://www.mlb.com/news/brewers-padres-nl-division-series-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Tue, 06 Oct 2026 17:20:00 GMT",
+          "pubDate": "Mon, 05 Oct 2026 22:43:00 GMT",
           "source": "MLB.com"
-        },
+        }
+      ],
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-06T11:10:18.517068",
+      "conditionalHitRateBreakdown": [
         {
-          "title": "Down 0-2 in NLDS, Padres confident they have what it takes to come back",
-          "link": "https://www.mlb.com/news/padres-confident-in-ability-to-come-back-in-nlds",
-          "pubDate": "Tue, 06 Oct 2026 19:15:00 GMT",
-          "source": "MLB.com"
+          "minPitches": "60",
+          "hits": 4,
+          "total": 7
+        }
+      ],
+      "prizePicksOutsOpeningLine": 10.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 10.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-06T12:10:22.500365",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 6,
+          "total": 7
         }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-06T11:08:11.851019",
-  "oddsRefreshedAt": "2026-10-06T20:14:18.137767",
-  "_kalshiMatched": 4,
-  "_kalshiTotal": 4,
+  "oddsRefreshedAt": "2026-10-06T20:16:12.215876",
   "lockedBest5": {
     "kEdge": [
       {
