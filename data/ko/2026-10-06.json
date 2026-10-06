@@ -232,9 +232,9 @@
       "workloadStreak": 10,
       "mostRecentPitchCount": 97.0,
       "marketThreshold": 8,
-      "marketProb": 0.635,
+      "marketProb": 0.895,
       "modelProb": 0.5080303375589728,
-      "edge": -0.12696966244102725,
+      "edge": -0.38696966244102726,
       "predictionLine": 7.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -261,7 +261,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.445,
+      "openingProb": 0.895,
       "prizePicksOpeningLine": 7.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516613",
@@ -279,7 +279,12 @@
           "pubDate": "Tue, 06 Oct 2026 21:59:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 8,
+      "priceDelta": 0.0,
+      "marketBid": 0.87,
+      "marketAsk": 0.92,
+      "edgeEligible": false
     },
     {
       "gamePk": 849819,
@@ -518,9 +523,9 @@
       "workloadStreak": 28,
       "mostRecentPitchCount": 88.0,
       "marketThreshold": 7,
-      "marketProb": 0.65,
+      "marketProb": 0.675,
       "modelProb": 0.5348178633693736,
-      "edge": -0.11518213663062637,
+      "edge": -0.1401821366306264,
       "predictionLine": 6.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -547,7 +552,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.445,
+      "openingProb": 0.675,
       "prizePicksOpeningLine": 6.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516806",
@@ -565,7 +570,12 @@
           "pubDate": "Tue, 06 Oct 2026 21:32:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.66,
+      "marketAsk": 0.69,
+      "edgeEligible": false
     },
     {
       "gamePk": 849826,
@@ -808,7 +818,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.37,
+      "openingProb": 0.355,
       "prizePicksOpeningLine": 3.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-10-06T11:10:18.516945",
@@ -826,7 +836,13 @@
           "pubDate": "Tue, 06 Oct 2026 01:03:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.35,
+      "marketAsk": 0.36,
+      "edgeEligible": false
     },
     {
       "gamePk": 849826,
@@ -963,7 +979,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.385,
+      "openingProb": 0.375,
       "prizePicksOpeningLine": 4.0,
       "prizePicksOutsOpeningLine": 10.5,
       "prizePicksCall": "UNDER",
@@ -971,7 +987,7 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-10-06T12:10:22.500365",
       "prizePicksKLine": 4.0,
-      "prizePicksOutsLine": 10.5,
+      "prizePicksOutsLine": 10.0,
       "recentNews": [
         {
           "title": "Backs against the wall, Padres turn to Pivetta in must-win NLDS Game 3",
@@ -991,14 +1007,19 @@
           "pubDate": "Tue, 06 Oct 2026 19:15:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.37,
+      "marketAsk": 0.38,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": -0.5
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-06T11:08:11.851019",
-  "oddsRefreshedAt": "2026-10-06T22:37:15.870283",
-  "_kalshiMatched": 4,
-  "_kalshiTotal": 4,
+  "oddsRefreshedAt": "2026-10-06T22:40:20.040379",
   "lockedBest5": {
     "kEdge": [
       {
