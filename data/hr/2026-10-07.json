@@ -83,16 +83,16 @@
       "tbParkFactor": 0.997,
       "hitsCalibrationApplied": -0.0151,
       "tbCalibrationApplied": -0.0267,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5202404531131971,
+      "hitsCall": "OVER",
       "actualHits": 0,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.7300113149717327,
+      "tbCall": "OVER",
       "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.185,
@@ -120,7 +120,15 @@
           "pubDate": "Wed, 07 Oct 2026 07:11:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-07T23:40:17.966616",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-07T23:40:17.967090"
     },
     {
       "gamePk": 849838,
@@ -234,7 +242,7 @@
       "marketBid": 0.21,
       "marketAsk": 0.22,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "5 reasons to believe Yankees can pull off ALDS comeback",
@@ -373,7 +381,7 @@
       "marketBid": 0.14,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.14500000000000002,
       "priceDelta": 0.0
     },
@@ -453,8 +461,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.781,
-      "marketProb": 0.07,
-      "edge": 0.10170934597254103,
+      "marketProb": 0.07500000000000001,
+      "edge": 0.09670934597254102,
       "graded": false,
       "hr": null,
       "projectedHits": 0.98,
@@ -503,12 +511,12 @@
           "source": "MLB.com"
         }
       ],
-      "marketBid": 0.06,
+      "marketBid": 0.07,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.14500000000000002,
-      "priceDelta": -0.07500000000000001
+      "priceDelta": -0.07
     },
     {
       "gamePk": 849838,
@@ -682,8 +690,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.796,
-      "marketProb": 0.07500000000000001,
-      "edge": 0.08212251836611084,
+      "marketProb": 0.045,
+      "edge": 0.11212251836611085,
       "graded": false,
       "hr": null,
       "projectedHits": 0.83,
@@ -707,11 +715,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.135,
-      "priceDelta": -0.06,
-      "marketBid": 0.07,
-      "marketAsk": 0.08,
+      "priceDelta": -0.09000000000000001,
+      "marketBid": 0.04,
+      "marketAsk": 0.05,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "After heavy Wild Card workload, Sale showing 'he's human' lands Braves on the brink",
@@ -796,8 +804,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.5,
       "seasonOPS": 0.838,
-      "marketProb": 0.155,
-      "edge": -0.0004965261715461078,
+      "marketProb": 0.15000000000000002,
+      "edge": 0.004503473828453869,
       "graded": false,
       "hr": null,
       "projectedHits": 0.95,
@@ -821,11 +829,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.14500000000000002,
-      "priceDelta": 0.009999999999999981,
-      "marketBid": 0.15,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.14,
       "marketAsk": 0.16,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "Unable to sweep, '40 of us versus 50,000' mentality driving Brewers into Game 4",
@@ -909,16 +917,16 @@
       "tbParkFactor": 0.997,
       "hitsCalibrationApplied": -0.0594,
       "tbCalibrationApplied": -0.1121,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.4896449338055819,
+      "hitsCall": "UNDER",
       "actualHits": 1,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6107159287057896,
+      "tbCall": "OVER",
       "actualTotalBases": 2,
       "tbHit": null,
       "recentNews": [
@@ -946,7 +954,15 @@
       "edgeEligible": false,
       "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
       "openingProb": 0.11,
-      "priceDelta": -0.1
+      "priceDelta": -0.1,
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-07T23:40:17.966705",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-07T23:40:17.967169"
     },
     {
       "gamePk": 849833,
@@ -1027,10 +1043,10 @@
       "hitsCall": "UNDER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6208394709431722,
+      "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
       "recentNews": [
@@ -1056,7 +1072,11 @@
       "prizePicksHitsOpeningLine": 0.5,
       "prizePicksHitsLineDelta": 0.0,
       "prizePicksHitsLine": 0.5,
-      "hitsCallFrozenAt": "2026-10-07T23:30:20.459375"
+      "hitsCallFrozenAt": "2026-10-07T23:30:20.459375",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-07T23:40:17.967266"
     },
     {
       "gamePk": 849827,
@@ -1117,8 +1137,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.0,
       "seasonOPS": 0.71,
-      "marketProb": 0.14500000000000002,
-      "edge": -0.002672354609501326,
+      "marketProb": 0.15000000000000002,
+      "edge": -0.007672354609501331,
       "graded": false,
       "hr": null,
       "projectedHits": 0.68,
@@ -1142,11 +1162,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.14500000000000002,
-      "priceDelta": 0.0,
+      "priceDelta": 0.0050000000000000044,
       "marketBid": 0.14,
-      "marketAsk": 0.15,
+      "marketAsk": 0.16,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "Led by King's all-in relief effort, Padres fight and force Game 4",
@@ -1577,8 +1597,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.0,
       "seasonOPS": 0.823,
-      "marketProb": 0.10500000000000001,
-      "edge": 0.03143833366155721,
+      "marketProb": 0.135,
+      "edge": 0.0014383336615572118,
       "graded": false,
       "hr": null,
       "projectedHits": 0.85,
@@ -1602,11 +1622,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.2,
-      "priceDelta": -0.095,
-      "marketBid": 0.1,
-      "marketAsk": 0.11,
+      "priceDelta": -0.065,
+      "marketBid": 0.09,
+      "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "After heavy Wild Card workload, Sale showing 'he's human' lands Braves on the brink",
@@ -1903,8 +1923,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.817,
-      "marketProb": 0.065,
-      "edge": 0.06226038288615987,
+      "marketProb": 0.07500000000000001,
+      "edge": 0.05226038288615986,
       "graded": false,
       "hr": null,
       "projectedHits": 1.04,
@@ -1928,11 +1948,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.13,
-      "priceDelta": -0.065,
-      "marketBid": 0.06,
-      "marketAsk": 0.07,
+      "priceDelta": -0.05499999999999999,
+      "marketBid": 0.07,
+      "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "After heavy Wild Card workload, Sale showing 'he's human' lands Braves on the brink",
@@ -2239,8 +2259,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.4,
       "seasonOPS": 0.715,
-      "marketProb": 0.055,
-      "edge": 0.0709861345587009,
+      "marketProb": 0.045,
+      "edge": 0.08098613455870089,
       "graded": false,
       "hr": null,
       "projectedHits": 0.86,
@@ -2289,12 +2309,12 @@
           "source": "MLB.com"
         }
       ],
-      "marketBid": 0.05,
-      "marketAsk": 0.06,
+      "marketBid": 0.04,
+      "marketAsk": 0.05,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.11499999999999999,
-      "priceDelta": -0.05999999999999999
+      "priceDelta": -0.06999999999999999
     },
     {
       "gamePk": 849822,
@@ -2370,8 +2390,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.6666666666666666,
       "seasonOPS": 0.889,
-      "marketProb": 0.095,
-      "edge": 0.027162832244631147,
+      "marketProb": 0.10500000000000001,
+      "edge": 0.017162832244631138,
       "graded": false,
       "hr": null,
       "projectedHits": 0.78,
@@ -2395,11 +2415,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.225,
-      "priceDelta": -0.13,
-      "marketBid": 0.09,
-      "marketAsk": 0.1,
+      "priceDelta": -0.12,
+      "marketBid": 0.1,
+      "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "Yamamoto (10 K's) dazzles, putting Dodgers 1 win from return to NLCS",
@@ -2515,7 +2535,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "Led by King's all-in relief effort, Padres fight and force Game 4",
@@ -2649,7 +2669,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.135,
       "priceDelta": 0.0
     },
@@ -2971,7 +2991,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849822,
@@ -3042,8 +3062,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.0,
       "seasonOPS": 0.671,
-      "marketProb": 0.04,
-      "edge": 0.06831668976020022,
+      "marketProb": 0.045,
+      "edge": 0.06331668976020023,
       "graded": false,
       "hr": null,
       "projectedHits": 0.9,
@@ -3092,12 +3112,12 @@
           "source": "MLB.com"
         }
       ],
-      "marketBid": 0.03,
+      "marketBid": 0.04,
       "marketAsk": 0.05,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.09,
-      "priceDelta": -0.049999999999999996
+      "priceDelta": -0.045
     },
     {
       "gamePk": 849827,
@@ -3169,8 +3189,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.5,
       "seasonOPS": 0.693,
-      "marketProb": 0.085,
-      "edge": 0.017414244405917198,
+      "marketProb": 0.095,
+      "edge": 0.007414244405917203,
       "graded": false,
       "hr": null,
       "projectedHits": 0.74,
@@ -3208,11 +3228,11 @@
         }
       ],
       "openingProb": 0.085,
-      "priceDelta": 0.0,
-      "marketBid": 0.07,
+      "priceDelta": 0.009999999999999995,
+      "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849827,
@@ -3852,7 +3872,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.065,
       "priceDelta": 0.0050000000000000044
     },
@@ -3915,8 +3935,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.3333333333333333,
       "seasonOPS": 0.796,
-      "marketProb": 0.09,
-      "edge": -0.004538367380001865,
+      "marketProb": 0.095,
+      "edge": -0.00953836738000187,
       "graded": false,
       "hr": null,
       "projectedHits": 0.78,
@@ -3968,11 +3988,11 @@
       "prizePicksHitsLine": 0.5,
       "hitsCallFrozenAt": "2026-10-07T18:50:17.624683",
       "openingProb": 0.09,
-      "priceDelta": 0.0,
-      "marketBid": 0.08,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849827,
@@ -4036,8 +4056,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.73,
-      "marketProb": 0.05500000000000001,
-      "edge": 0.028342275495814653,
+      "marketProb": 0.060000000000000005,
+      "edge": 0.023342275495814656,
       "graded": false,
       "hr": null,
       "projectedHits": 0.97,
@@ -4069,11 +4089,11 @@
         }
       ],
       "openingProb": 0.05500000000000001,
-      "priceDelta": 0.0,
-      "marketBid": 0.04,
+      "priceDelta": 0.0049999999999999975,
+      "marketBid": 0.05,
       "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849822,
@@ -4358,10 +4378,10 @@
       "hitsCall": null,
       "actualHits": 0,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6958340414443961,
+      "tbCall": "OVER",
       "actualTotalBases": 0,
       "tbHit": null,
       "recentNews": [
@@ -4389,7 +4409,11 @@
       "edgeEligible": false,
       "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
       "openingProb": 0.07,
-      "priceDelta": -0.060000000000000005
+      "priceDelta": -0.060000000000000005,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-07T23:40:17.967342"
     },
     {
       "gamePk": 849833,
@@ -4565,8 +4589,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.8333333333333333,
       "seasonOPS": 0.77,
-      "marketProb": 0.07,
-      "edge": 0.00350610034578705,
+      "marketProb": 0.07500000000000001,
+      "edge": -0.0014938996542129546,
       "graded": false,
       "hr": null,
       "projectedHits": 0.78,
@@ -4602,11 +4626,11 @@
       "prizePicksHitsLine": 0.5,
       "hitsCallFrozenAt": "2026-10-07T23:05:32.262661",
       "openingProb": 0.07,
-      "priceDelta": 0.0,
-      "marketBid": 0.06,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.07,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849833,
@@ -5093,8 +5117,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.5,
       "seasonOPS": 0.792,
-      "marketProb": 0.1,
-      "edge": -0.03641971254575689,
+      "marketProb": 0.095,
+      "edge": -0.03141971254575689,
       "graded": false,
       "hr": null,
       "projectedHits": 0.79,
@@ -5118,11 +5142,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.09,
-      "priceDelta": 0.010000000000000009,
+      "priceDelta": 0.0050000000000000044,
       "marketBid": 0.09,
-      "marketAsk": 0.11,
+      "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": null
     },
     {
@@ -5518,8 +5542,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.0,
       "seasonOPS": 0.792,
-      "marketProb": 0.07,
-      "edge": -0.012001071271681762,
+      "marketProb": 0.07500000000000001,
+      "edge": -0.017001071271681767,
       "graded": false,
       "hr": null,
       "projectedHits": 0.89,
@@ -5543,11 +5567,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.125,
-      "priceDelta": -0.05499999999999999,
-      "marketBid": 0.06,
+      "priceDelta": -0.04999999999999999,
+      "marketBid": 0.07,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "Denied by Dub\u00f3n! LF robs ex-Brave Freeman (before Freddie gets his revenge)",
@@ -5684,7 +5708,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.09,
       "priceDelta": -0.014999999999999986
     },
@@ -5785,7 +5809,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849833,
@@ -6088,7 +6112,7 @@
       "marketBid": 0.02,
       "marketAsk": 0.03,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.045,
       "priceDelta": -0.019999999999999997
     },
@@ -6524,7 +6548,7 @@
       "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.095,
       "priceDelta": 0.0
     },
@@ -6589,8 +6613,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.5,
       "seasonOPS": 0.718,
-      "marketProb": 0.05,
-      "edge": -0.0034157695478159236,
+      "marketProb": 0.055,
+      "edge": -0.008415769547815921,
       "graded": false,
       "hr": null,
       "projectedHits": 0.97,
@@ -6622,11 +6646,11 @@
         }
       ],
       "openingProb": 0.05,
-      "priceDelta": 0.0,
-      "marketBid": 0.04,
+      "priceDelta": 0.0049999999999999975,
+      "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849838,
@@ -7107,8 +7131,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.0,
       "seasonOPS": 0.614,
-      "marketProb": 0.045,
-      "edge": -0.004797175930695244,
+      "marketProb": 0.05,
+      "edge": -0.009797175930695248,
       "graded": false,
       "hr": null,
       "projectedHits": 0.72,
@@ -7140,11 +7164,11 @@
         }
       ],
       "openingProb": 0.045,
-      "priceDelta": 0.0,
-      "marketBid": 0.03,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.04,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849833,
@@ -7325,8 +7349,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.0,
       "seasonOPS": 0.685,
-      "marketProb": 0.055,
-      "edge": -0.01684561291623316,
+      "marketProb": 0.065,
+      "edge": -0.026845612916233164,
       "graded": false,
       "hr": null,
       "projectedHits": 0.66,
@@ -7350,11 +7374,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.11499999999999999,
-      "priceDelta": -0.05999999999999999,
-      "marketBid": 0.05,
-      "marketAsk": 0.06,
+      "priceDelta": -0.04999999999999999,
+      "marketBid": 0.06,
+      "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "recentNews": [
         {
           "title": "After heavy Wild Card workload, Sale showing 'he's human' lands Braves on the brink",
@@ -7474,7 +7498,7 @@
       "marketBid": 0.03,
       "marketAsk": 0.04,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.035,
       "priceDelta": 0.0
     },
@@ -7545,8 +7569,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.0,
       "seasonOPS": 0.556,
-      "marketProb": 0.065,
-      "edge": -0.031196247096518713,
+      "marketProb": 0.045,
+      "edge": -0.01119624709651871,
       "graded": false,
       "hr": null,
       "projectedHits": 0.67,
@@ -7583,12 +7607,12 @@
           "source": "MLB.com"
         }
       ],
-      "marketBid": 0.06,
-      "marketAsk": 0.07,
+      "marketBid": 0.04,
+      "marketAsk": 0.05,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.09,
-      "priceDelta": -0.024999999999999994
+      "priceDelta": -0.045
     },
     {
       "gamePk": 849838,
@@ -7687,7 +7711,7 @@
       "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584"
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883"
     },
     {
       "gamePk": 849838,
@@ -7791,7 +7815,7 @@
       "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T23:30:20.458584",
+      "oddsUpdatedAt": "2026-10-07T23:40:17.965883",
       "openingProb": 0.05,
       "priceDelta": 0.0049999999999999975
     },
@@ -7890,7 +7914,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-07T23:30:20.458584",
+  "oddsRefreshedAt": "2026-10-07T23:40:17.965883",
   "statcastSpotlight": {
     "name": "Munetaka Murakami",
     "team": "CWS",
