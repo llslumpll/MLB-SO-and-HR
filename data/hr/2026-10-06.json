@@ -393,10 +393,10 @@
       "hitsCall": "UNDER",
       "actualHits": 0,
       "hitsHit": false,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6328474352148391,
+      "tbCall": "OVER",
       "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.11,
@@ -416,7 +416,11 @@
       "prizePicksHitsOpeningLine": 0.5,
       "prizePicksHitsLineDelta": 0.0,
       "prizePicksHitsLine": 0.5,
-      "hitsCallFrozenAt": "2026-10-07T01:10:19.764502"
+      "hitsCallFrozenAt": "2026-10-07T01:10:19.764502",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-07T01:20:21.067193"
     },
     {
       "gamePk": 849819,
@@ -633,7 +637,7 @@
       "marketBid": 0.18,
       "marketAsk": 0.19,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "recentNews": [
         {
           "title": "Brewers-Padres NLDS Game 3 FAQ, lineups (9:30 ET, FS1 /FOX One)",
@@ -716,8 +720,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.2857142857142856,
       "seasonOPS": 0.71,
-      "marketProb": 0.155,
-      "edge": -0.033420022396468935,
+      "marketProb": 0.16,
+      "edge": -0.03842002239646894,
       "graded": false,
       "hr": null,
       "projectedHits": 0.74,
@@ -741,11 +745,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.155,
-      "priceDelta": 0.0,
+      "priceDelta": 0.0050000000000000044,
       "marketBid": 0.15,
-      "marketAsk": 0.16,
+      "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "recentNews": [
         {
           "title": "Brewers-Padres NLDS Game 3 FAQ, lineups (9:30 ET, FS1 /FOX One)",
@@ -828,8 +832,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.0,
       "seasonOPS": 0.737,
-      "marketProb": 0.07500000000000001,
-      "edge": 0.04019412571247116,
+      "marketProb": 0.07,
+      "edge": 0.04519412571247117,
       "graded": false,
       "hr": null,
       "projectedHits": 1.09,
@@ -880,12 +884,12 @@
       "prizePicksHitsLineDelta": 0.0,
       "prizePicksTBOpeningLine": 0.5,
       "prizePicksTBLineDelta": 0.0,
-      "marketBid": 0.07,
+      "marketBid": 0.06,
       "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.07500000000000001,
-      "priceDelta": 0.0
+      "priceDelta": -0.0050000000000000044
     },
     {
       "gamePk": 849819,
@@ -1097,7 +1101,7 @@
       "marketBid": 0.17,
       "marketAsk": 0.18,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "recentNews": [
         {
           "title": "Brewers-Padres NLDS Game 3 FAQ, lineups (9:30 ET, FS1 /FOX One)",
@@ -1422,7 +1426,7 @@
       "marketBid": 0.09,
       "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "recentNews": [
         {
           "title": "Brewers-Padres NLDS Game 3 FAQ, lineups (9:30 ET, FS1 /FOX One)",
@@ -1760,7 +1764,7 @@
       "marketBid": 0.15,
       "marketAsk": 0.16,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "recentNews": [
         {
           "title": "Brewers-Padres NLDS Game 3 FAQ, lineups (9:30 ET, FS1 /FOX One)",
@@ -2104,7 +2108,7 @@
       "marketBid": 0.15,
       "marketAsk": 0.17,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.15000000000000002,
       "priceDelta": 0.009999999999999981
     },
@@ -2224,7 +2228,7 @@
       "marketBid": 0.07,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.07500000000000001,
       "priceDelta": 0.0049999999999999906
     },
@@ -2341,7 +2345,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.1,
       "priceDelta": 0.014999999999999986
     },
@@ -2545,7 +2549,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.15,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "recentNews": [
         {
           "title": "Brewers-Padres NLDS Game 3 FAQ, lineups (9:30 ET, FS1 /FOX One)",
@@ -2637,8 +2641,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.3333333333333333,
       "seasonOPS": 0.693,
-      "marketProb": 0.1,
-      "edge": -0.025298428437367862,
+      "marketProb": 0.10500000000000001,
+      "edge": -0.030298428437367866,
       "graded": false,
       "hr": null,
       "projectedHits": 0.82,
@@ -2675,12 +2679,12 @@
           "source": "MLB.com"
         }
       ],
-      "marketBid": 0.09,
+      "marketBid": 0.1,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.09,
-      "priceDelta": 0.010000000000000009
+      "priceDelta": 0.015000000000000013
     },
     {
       "gamePk": 849819,
@@ -2959,8 +2963,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 1.0555555555555556,
       "seasonOPS": 0.629,
-      "marketProb": 0.065,
-      "edge": -0.008983759669517963,
+      "marketProb": 0.07,
+      "edge": -0.013983759669517967,
       "graded": false,
       "hr": null,
       "projectedHits": 0.78,
@@ -3012,11 +3016,11 @@
       "prizePicksTBLine": 0.5,
       "tbCallFrozenAt": "2026-10-06T22:40:20.036103",
       "marketBid": 0.06,
-      "marketAsk": 0.07,
+      "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.060000000000000005,
-      "priceDelta": 0.0049999999999999975
+      "priceDelta": 0.010000000000000002
     },
     {
       "gamePk": 849819,
@@ -3185,8 +3189,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.73,
-      "marketProb": 0.065,
-      "edge": -0.013644745809821557,
+      "marketProb": 0.07,
+      "edge": -0.01864474580982156,
       "graded": false,
       "hr": null,
       "projectedHits": 0.92,
@@ -3228,11 +3232,11 @@
         }
       ],
       "marketBid": 0.06,
-      "marketAsk": 0.07,
+      "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.060000000000000005,
-      "priceDelta": 0.0049999999999999975
+      "priceDelta": 0.010000000000000002
     },
     {
       "gamePk": 849826,
@@ -3295,8 +3299,8 @@
       "trendL7OPS": null,
       "trendL10OPS": 0.75,
       "seasonOPS": 0.77,
-      "marketProb": 0.08499999999999999,
-      "edge": -0.03520010706912624,
+      "marketProb": 0.09,
+      "edge": -0.040200107069126245,
       "graded": false,
       "hr": null,
       "projectedHits": 0.8,
@@ -3334,11 +3338,11 @@
         }
       ],
       "marketBid": 0.08,
-      "marketAsk": 0.09,
+      "marketAsk": 0.1,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.08499999999999999,
-      "priceDelta": 0.0
+      "priceDelta": 0.0050000000000000044
     },
     {
       "gamePk": 849819,
@@ -3761,7 +3765,7 @@
       "marketBid": 0.06,
       "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.060000000000000005,
       "priceDelta": 0.0049999999999999975
     },
@@ -3973,13 +3977,13 @@
       "marketBid": 0.04,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-07T01:10:19.764177",
+      "oddsUpdatedAt": "2026-10-07T01:20:21.066533",
       "openingProb": 0.045,
       "priceDelta": 0.0050000000000000044
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-07T01:10:19.764177",
+  "oddsRefreshedAt": "2026-10-07T01:20:21.066533",
   "statcastSpotlight": {
     "name": "Ronald Acu\u00f1a Jr.",
     "team": "ATL",
