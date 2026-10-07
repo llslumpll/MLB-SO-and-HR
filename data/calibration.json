@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-10-07T01:29:50.624445",
-  "totalHRGraded": 6412,
-  "totalKGraded": 425,
-  "totalOutsGraded": 206,
-  "totalHitsGraded": 8515,
-  "totalTotalBasesGraded": 8504,
+  "generatedAt": "2026-10-07T11:10:51.528556",
+  "totalHRGraded": 6430,
+  "totalKGraded": 427,
+  "totalOutsGraded": 207,
+  "totalHitsGraded": 8533,
+  "totalTotalBasesGraded": 8522,
   "minSampleRequired": 100,
   "dampenFactor": 0.3,
   "stuffFactorFixCutoff": "2026-09-10T14:24:22",
   "powerQualityFixCutoff": "2026-09-10T15:43:50",
   "hr": {
     "High": {
-      "multiplier": 0.9715,
-      "sampleSize": 5908,
-      "avgPredicted": 0.1141,
-      "actualRate": 0.1032,
-      "rawRatio": 0.905,
+      "multiplier": 0.9719,
+      "sampleSize": 5925,
+      "avgPredicted": 0.114,
+      "actualRate": 0.1033,
+      "rawRatio": 0.9062,
       "status": "active"
     },
     "Medium": {
-      "multiplier": 0.875,
-      "sampleSize": 482,
-      "avgPredicted": 0.0924,
-      "actualRate": 0.0539,
-      "rawRatio": 0.5835,
+      "multiplier": 0.8746,
+      "sampleSize": 483,
+      "avgPredicted": 0.0925,
+      "actualRate": 0.0538,
+      "rawRatio": 0.582,
       "status": "active"
     },
     "Low": {
@@ -34,86 +34,86 @@
   },
   "hrFactors": {
     "form": {
-      "p33": 0.7988878591288231,
+      "p33": 0.7990314769975787,
       "p67": 1.103344298245614,
       "low": {
-        "sampleSize": 2137,
-        "avgPredicted": 0.0888,
-        "actualRate": 0.0884,
-        "rawBias": -0.0004,
-        "dampenedBias": -0.0001,
+        "sampleSize": 2143,
+        "avgPredicted": 0.0889,
+        "actualRate": 0.0882,
+        "rawBias": -0.0007,
+        "dampenedBias": -0.0002,
         "status": "active"
       },
       "mid": {
-        "sampleSize": 2137,
-        "avgPredicted": 0.1075,
-        "actualRate": 0.0814,
-        "rawBias": -0.0261,
-        "dampenedBias": -0.0078,
+        "sampleSize": 2143,
+        "avgPredicted": 0.1074,
+        "actualRate": 0.0817,
+        "rawBias": -0.0257,
+        "dampenedBias": -0.0077,
         "status": "active"
       },
       "high": {
-        "sampleSize": 2138,
-        "avgPredicted": 0.1408,
-        "actualRate": 0.1277,
-        "rawBias": -0.0131,
-        "dampenedBias": -0.0039,
+        "sampleSize": 2144,
+        "avgPredicted": 0.1406,
+        "actualRate": 0.1278,
+        "rawBias": -0.0128,
+        "dampenedBias": -0.0038,
         "status": "active"
       }
     },
     "pitcherVuln": {
       "p33": 0.7870370370370371,
-      "p67": 1.0604508196721314,
+      "p67": 1.0602094240837698,
       "low": {
-        "sampleSize": 2116,
+        "sampleSize": 2134,
         "avgPredicted": 0.0826,
-        "actualRate": 0.0832,
-        "rawBias": 0.0006,
+        "actualRate": 0.0834,
+        "rawBias": 0.0008,
         "dampenedBias": 0.0002,
         "status": "active"
       },
       "mid": {
-        "sampleSize": 2157,
-        "avgPredicted": 0.1068,
-        "actualRate": 0.0913,
-        "rawBias": -0.0154,
-        "dampenedBias": -0.0046,
+        "sampleSize": 2147,
+        "avgPredicted": 0.1065,
+        "actualRate": 0.0904,
+        "rawBias": -0.0161,
+        "dampenedBias": -0.0048,
         "status": "active"
       },
       "high": {
-        "sampleSize": 2139,
+        "sampleSize": 2149,
         "avgPredicted": 0.1475,
-        "actualRate": 0.123,
-        "rawBias": -0.0245,
-        "dampenedBias": -0.0073,
+        "actualRate": 0.1238,
+        "rawBias": -0.0238,
+        "dampenedBias": -0.0071,
         "status": "active"
       }
     },
     "powerQuality": {
       "p33": 1.0,
-      "p67": 1.025284698390138,
+      "p67": 1.0253465764359473,
       "low": {
-        "sampleSize": 1777,
+        "sampleSize": 1781,
         "avgPredicted": 0.0795,
-        "actualRate": 0.0822,
-        "rawBias": 0.0026,
-        "dampenedBias": 0.0008,
+        "actualRate": 0.0825,
+        "rawBias": 0.0031,
+        "dampenedBias": 0.0009,
         "status": "active"
       },
       "mid": {
-        "sampleSize": 2497,
+        "sampleSize": 2504,
         "avgPredicted": 0.0979,
-        "actualRate": 0.0777,
-        "rawBias": -0.0202,
+        "actualRate": 0.0775,
+        "rawBias": -0.0204,
         "dampenedBias": -0.0061,
         "status": "active"
       },
       "high": {
-        "sampleSize": 2138,
-        "avgPredicted": 0.1565,
-        "actualRate": 0.1384,
-        "rawBias": -0.0181,
-        "dampenedBias": -0.0054,
+        "sampleSize": 2145,
+        "avgPredicted": 0.1563,
+        "actualRate": 0.1385,
+        "rawBias": -0.0178,
+        "dampenedBias": -0.0053,
         "status": "active"
       }
     },
@@ -121,11 +121,11 @@
       "p33": 0.98,
       "p67": 1.06,
       "low": {
-        "sampleSize": 1970,
-        "avgPredicted": 0.0982,
-        "actualRate": 0.1015,
-        "rawBias": 0.0033,
-        "dampenedBias": 0.001,
+        "sampleSize": 1988,
+        "avgPredicted": 0.098,
+        "actualRate": 0.1016,
+        "rawBias": 0.0036,
+        "dampenedBias": 0.0011,
         "status": "active"
       },
       "mid": {
@@ -149,11 +149,11 @@
       "p33": 1.0,
       "p67": 1.017839616,
       "low": {
-        "sampleSize": 1304,
-        "avgPredicted": 0.1132,
-        "actualRate": 0.1058,
-        "rawBias": -0.0074,
-        "dampenedBias": -0.0022,
+        "sampleSize": 1322,
+        "avgPredicted": 0.1127,
+        "actualRate": 0.1059,
+        "rawBias": -0.0068,
+        "dampenedBias": -0.002,
         "status": "active"
       },
       "mid": {
@@ -174,39 +174,39 @@
       }
     },
     "handedness": {
-      "p33": 0.9479623824451411,
-      "p67": 1.1083509513742071,
+      "p33": 0.9486940298507462,
+      "p67": 1.108433734939759,
       "low": {
-        "sampleSize": 2137,
+        "sampleSize": 2143,
         "avgPredicted": 0.0887,
-        "actualRate": 0.1006,
-        "rawBias": 0.0119,
-        "dampenedBias": 0.0036,
+        "actualRate": 0.1003,
+        "rawBias": 0.0117,
+        "dampenedBias": 0.0035,
         "status": "active"
       },
       "mid": {
-        "sampleSize": 2136,
+        "sampleSize": 2143,
         "avgPredicted": 0.1179,
-        "actualRate": 0.103,
-        "rawBias": -0.0149,
-        "dampenedBias": -0.0045,
+        "actualRate": 0.1036,
+        "rawBias": -0.0143,
+        "dampenedBias": -0.0043,
         "status": "active"
       },
       "high": {
-        "sampleSize": 2139,
-        "avgPredicted": 0.1305,
-        "actualRate": 0.094,
-        "rawBias": -0.0365,
-        "dampenedBias": -0.0109,
+        "sampleSize": 2144,
+        "avgPredicted": 0.1303,
+        "actualRate": 0.0938,
+        "rawBias": -0.0366,
+        "dampenedBias": -0.011,
         "status": "active"
       }
     }
   },
   "ko": {
     "High": {
-      "bias": -0.1404,
-      "sampleSize": 418,
-      "avgRawBias": -0.468,
+      "bias": -0.1414,
+      "sampleSize": 420,
+      "avgRawBias": -0.4713,
       "status": "active"
     },
     "Medium": {
@@ -319,7 +319,7 @@
     },
     "SD": {
       "status": "insufficient data",
-      "sampleSize": 8
+      "sampleSize": 9
     },
     "AZ": {
       "status": "insufficient data",
@@ -344,9 +344,9 @@
   },
   "outs": {
     "High": {
-      "bias": -0.5305,
-      "sampleSize": 203,
-      "avgRawBias": -1.7685,
+      "bias": -0.5299,
+      "sampleSize": 204,
+      "avgRawBias": -1.7662,
       "status": "active"
     },
     "Medium": {
@@ -362,15 +362,15 @@
   },
   "hits": {
     "High": {
-      "bias": -0.0151,
-      "sampleSize": 7902,
-      "avgRawBias": -0.0502,
+      "bias": -0.015,
+      "sampleSize": 7919,
+      "avgRawBias": -0.0501,
       "status": "active"
     },
     "Medium": {
-      "bias": -0.0594,
-      "sampleSize": 544,
-      "avgRawBias": -0.1979,
+      "bias": -0.0599,
+      "sampleSize": 545,
+      "avgRawBias": -0.1996,
       "status": "active"
     },
     "Low": {
@@ -381,15 +381,15 @@
   },
   "totalBases": {
     "High": {
-      "bias": -0.0267,
-      "sampleSize": 7892,
-      "avgRawBias": -0.0891,
+      "bias": -0.0268,
+      "sampleSize": 7909,
+      "avgRawBias": -0.0892,
       "status": "active"
     },
     "Medium": {
-      "bias": -0.1121,
-      "sampleSize": 543,
-      "avgRawBias": -0.3736,
+      "bias": -0.1129,
+      "sampleSize": 544,
+      "avgRawBias": -0.3763,
       "status": "active"
     },
     "Low": {
@@ -400,27 +400,27 @@
   },
   "probShrink": {
     "ko": {
-      "shrinkFactor": 0.5566,
-      "sampleSize": 425,
-      "rawShrinkFactor": -0.4779,
+      "shrinkFactor": 0.5542,
+      "sampleSize": 427,
+      "rawShrinkFactor": -0.4859,
       "status": "active"
     },
     "outs": {
-      "shrinkFactor": 0.6202,
-      "sampleSize": 206,
-      "rawShrinkFactor": -0.266,
+      "shrinkFactor": 0.6261,
+      "sampleSize": 207,
+      "rawShrinkFactor": -0.2462,
       "status": "active"
     },
     "hits": {
-      "shrinkFactor": 0.8849,
-      "sampleSize": 1777,
-      "rawShrinkFactor": 0.6162,
+      "shrinkFactor": 0.8844,
+      "sampleSize": 1782,
+      "rawShrinkFactor": 0.6146,
       "status": "active"
     },
     "totalBases": {
-      "shrinkFactor": 0.7372,
-      "sampleSize": 2255,
-      "rawShrinkFactor": 0.1241,
+      "shrinkFactor": 0.7378,
+      "sampleSize": 2262,
+      "rawShrinkFactor": 0.1258,
       "status": "active"
     }
   }
