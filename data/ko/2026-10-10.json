@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "generatedAt": "2026-10-10T11:08:16.139197",
+  "generatedAt": "2026-10-10T15:07:58.409558",
   "entries": [
     {
       "gamePk": 849831,
@@ -280,7 +280,7 @@
       "kBBPct": 25.067024128686324,
       "rollingKBBPct": 18.46153846153846,
       "parkFactor": 0.98,
-      "weatherFactor": 1.00165,
+      "weatherFactor": 1.00045,
       "outsCalibrationApplied": -0.53,
       "bullpenFatigue": {
         "factor": 1.071,
@@ -294,12 +294,14 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.375,
-      "openingThreshold": 8,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.38,
-      "marketAsk": 0.39,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-10T11:40:16.887271",
+      "prizePicksOpeningLine": 7.0,
+      "prizePicksOutsOpeningLine": 14.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-10T11:40:16.887593",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-10T12:40:20.031090",
+      "prizePicksKLine": 7.0,
+      "prizePicksOutsLine": 14.5,
       "recentNews": [
         {
           "title": "Williams gets start for Guards in Game 5 -- two days after closing out Game 4",
@@ -324,50 +326,6 @@
           "link": "https://www.mlb.com/news/guardians-ending-longest-world-series-drought-won-t-come-easy",
           "pubDate": "Fri, 09 Oct 2026 18:10:58 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "prizePicksOpeningLine": 7.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 7.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-10T11:40:16.887593",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 15,
-          "total": 32
-        },
-        {
-          "minPitches": "70",
-          "hits": 15,
-          "total": 31
-        },
-        {
-          "minPitches": "80",
-          "hits": 15,
-          "total": 29
-        }
-      ],
-      "prizePicksOutsOpeningLine": 14.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 14.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-10T12:40:20.031090",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 28,
-          "total": 32
-        },
-        {
-          "minPitches": "70",
-          "hits": 28,
-          "total": 31
-        },
-        {
-          "minPitches": "80",
-          "hits": 28,
-          "total": 29
         }
       ]
     },
@@ -645,7 +603,7 @@
       "kBBPct": 17.178770949720672,
       "rollingKBBPct": 14.925373134328357,
       "parkFactor": 0.98,
-      "weatherFactor": 1.00165,
+      "weatherFactor": 1.00045,
       "outsCalibrationApplied": -0.53,
       "bullpenFatigue": {
         "factor": 1.125,
@@ -659,12 +617,10 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.375,
-      "openingThreshold": 5,
-      "priceDelta": 0.0,
-      "marketBid": 0.37,
-      "marketAsk": 0.38,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-10T11:20:17.513400",
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-10T11:20:17.513690",
+      "prizePicksKLine": 4.0,
       "recentNews": [
         {
           "title": "Burke gets ball first for White Sox in Game 5, with rest of plan in flux",
@@ -690,34 +646,14 @@
           "pubDate": "Fri, 09 Oct 2026 21:55:57 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksOpeningLine": 4.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-10T11:20:17.513690",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 21,
-          "total": 31
-        },
-        {
-          "minPitches": "70",
-          "hits": 21,
-          "total": 31
-        },
-        {
-          "minPitches": "80",
-          "hits": 21,
-          "total": 28
-        }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-10T11:08:16.139197",
-  "oddsRefreshedAt": "2026-10-10T15:00:21.113010",
+  "oddsRefreshedAt": "2026-10-10T15:08:22.955456",
+  "_kalshiMatched": 2,
+  "_kalshiTotal": 2,
   "lockedBest5": {
     "kEdge": [
       {
