@@ -263,11 +263,11 @@
       "babipAgainst": 0.2907268170426065,
       "workloadStreak": 32,
       "mostRecentPitchCount": 74.0,
-      "marketThreshold": 7,
-      "marketProb": 0.555,
-      "modelProb": 0.7363033456567842,
-      "edge": 0.1813033456567842,
-      "predictionLine": null,
+      "marketThreshold": 8,
+      "marketProb": 0.375,
+      "modelProb": 0.5590897574336817,
+      "edge": 0.18408975743368172,
+      "predictionLine": 7.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -293,13 +293,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.545,
-      "openingThreshold": 7,
-      "priceDelta": 0.010000000000000009,
-      "marketBid": 0.55,
-      "marketAsk": 0.56,
+      "openingProb": 0.375,
+      "openingThreshold": 8,
+      "priceDelta": 0.0,
+      "marketBid": 0.37,
+      "marketAsk": 0.38,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-10T11:30:21.572858",
+      "oddsUpdatedAt": "2026-10-10T11:40:16.887271",
       "recentNews": [
         {
           "title": "Williams gets start for Guards in Game 5 -- two days after closing out Game 4",
@@ -324,6 +324,28 @@
           "link": "https://www.mlb.com/news/guardians-ending-longest-world-series-drought-won-t-come-easy",
           "pubDate": "Fri, 09 Oct 2026 18:10:58 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 7.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 7.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-10T11:40:16.887593",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 15,
+          "total": 29
         }
       ]
     },
@@ -673,7 +695,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-10T11:08:16.139197",
-  "oddsRefreshedAt": "2026-10-10T11:30:21.572858",
+  "oddsRefreshedAt": "2026-10-10T11:40:16.887271",
   "lockedBest5": {
     "kEdge": [
       {
