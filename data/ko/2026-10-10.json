@@ -264,9 +264,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 74.0,
       "marketThreshold": 8,
-      "marketProb": 0.84,
+      "marketProb": 0.995,
       "modelProb": 0.5590897574336817,
-      "edge": -0.28091024256631825,
+      "edge": -0.4359102425663183,
       "predictionLine": 7.0,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -293,7 +293,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.375,
+      "openingProb": 0.995,
       "prizePicksOpeningLine": 7.0,
       "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "OVER",
@@ -327,7 +327,12 @@
           "pubDate": "Fri, 09 Oct 2026 18:10:58 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 8,
+      "priceDelta": 0.0,
+      "marketBid": 0.99,
+      "marketAsk": 1.0,
+      "edgeEligible": false
     },
     {
       "gamePk": 849831,
@@ -587,9 +592,9 @@
       "workloadStreak": 3,
       "mostRecentPitchCount": 89.0,
       "marketThreshold": 5,
-      "marketProb": 0.325,
+      "marketProb": 0.28,
       "modelProb": 0.6549130240461835,
-      "edge": 0.32991302404618345,
+      "edge": 0.37491302404618343,
       "predictionLine": 4.0,
       "predictionOutsLine": null,
       "graded": false,
@@ -616,7 +621,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.365,
+      "openingProb": 0.28,
       "prizePicksOpeningLine": 4.0,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-10-10T11:20:17.513690",
@@ -646,14 +651,17 @@
           "pubDate": "Fri, 09 Oct 2026 21:55:57 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 5,
+      "priceDelta": 0.0,
+      "marketBid": 0.27,
+      "marketAsk": 0.29,
+      "edgeEligible": false
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-10T11:08:16.139197",
-  "oddsRefreshedAt": "2026-10-11T00:56:00.505081",
-  "_kalshiMatched": 2,
-  "_kalshiTotal": 2,
+  "oddsRefreshedAt": "2026-10-11T01:00:19.419419",
   "lockedBest5": {
     "kEdge": [
       {
