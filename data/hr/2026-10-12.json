@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "generatedAt": "2026-10-12T18:07:58.183536",
+  "generatedAt": "2026-10-12T11:07:47.782176",
   "entries": [
     {
       "gamePk": 849812,
@@ -8,17 +8,17 @@
       "name": "Will Smith",
       "team": "LAD",
       "opp": "MIL",
-      "order": 5,
-      "heuristicProb": 0.20760280920408664,
+      "order": null,
+      "heuristicProb": 0.1874490552867914,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "handedness": -0.0111,
         "pitcherVuln": -0.0074
       },
       "reason": "Strong power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.13060102987677424,
+        "base": 0.11893535073971728,
         "form": 1.4,
         "pitcherVuln": 1.0677966101694916,
         "powerQuality": 1.0,
@@ -68,14 +68,14 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 1.09,
-      "projectedTotalBases": 1.89,
-      "hitsReason": "Projected for 1.1 hits.",
-      "tbReason": "Projected for 1.9 total bases, supported by strong contact this season.",
+      "projectedHits": 0.98,
+      "projectedTotalBases": 1.71,
+      "hitsReason": "Projected for 1.0 hits.",
+      "tbReason": "Projected for 1.7 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 1.065,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -90,129 +90,15 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
-          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
-          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 605141,
-      "name": "Mookie Betts",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": 1,
-      "heuristicProb": 0.19792685358381734,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": {
-        "pitcherVuln": -0.0074
-      },
-      "reason": "Strong power profile this season, boosted by hot recent form.",
-      "factors": {
-        "base": 0.1650237570169567,
-        "form": 1.1789473684210527,
-        "pitcherVuln": 1.0677966101694916,
-        "powerQuality": 1.004711103979098,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.9562550013336889
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Betts, Mookie",
-        "player_id": "605141",
-        "year": "2026",
-        "xwoba": "73",
-        "xba": "89",
-        "xslg": "68",
-        "xiso": "51",
-        "xobp": "72",
-        "brl": "62",
-        "brl_percent": "50",
-        "exit_velocity": "70",
-        "max_ev": "34",
-        "hard_hit_percent": "37",
-        "k_percent": "96",
-        "bb_percent": "46",
-        "whiff_percent": "96",
-        "chase_percent": "97",
-        "arm_strength": "27",
-        "sprint_speed": "32",
-        "oaa": "93",
-        "bat_speed": "17",
-        "squared_up_rate": "99",
-        "swing_length": "17"
-      },
-      "vsPitcher": {
-        "atBats": 5,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".200",
-        "obp": ".200",
-        "slg": ".200",
-        "ops": ".400"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Logan Henderson",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 1
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.78,
-      "marketProb": 0.135,
-      "edge": 0.06292685358381733,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 1.15,
-      "projectedTotalBases": 2.12,
-      "hitsReason": "Projected for 1.1 hits, supported by a well-above-average hit rate this season.",
-      "tbReason": "Projected for 2.1 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.007,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.135,
-      "priceDelta": 0.0,
-      "marketBid": 0.13,
-      "marketAsk": 0.14,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
-      "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
           "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -235,14 +121,14 @@
       "name": "Jackson Chourio",
       "team": "MIL",
       "opp": "LAD",
-      "order": 1,
-      "heuristicProb": 0.1614334952649731,
+      "order": null,
+      "heuristicProb": 0.13823636936067218,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.1661976557546636,
+        "base": 0.1422866232518416,
         "form": 0.9650436953807742,
         "pitcherVuln": 0.8108108108108109,
         "powerQuality": 1.3328360534464816,
@@ -297,17 +183,17 @@
       "trendL10OPS": null,
       "seasonOPS": 0.838,
       "marketProb": 0.125,
-      "edge": 0.03643349526497311,
+      "edge": 0.013236369360672184,
       "graded": false,
       "hr": null,
-      "projectedHits": 1.12,
-      "projectedTotalBases": 1.86,
-      "hitsReason": "Projected for 1.1 hits, supported by a well-above-average hit rate this season.",
-      "tbReason": "Projected for 1.9 total bases, supported by strong contact this season.",
+      "projectedHits": 0.95,
+      "projectedTotalBases": 1.57,
+      "hitsReason": "Projected for 0.9 hits, supported by a well-above-average hit rate this season.",
+      "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 0.97,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -325,14 +211,8 @@
       "marketBid": 0.12,
       "marketAsk": 0.13,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
+      "oddsUpdatedAt": "2026-10-12T18:10:48.677324",
       "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "Brewers take Game 1 in NLCS rematch against defending champs",
           "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
@@ -346,139 +226,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
-          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
-          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 668930,
-      "name": "Brice Turang",
-      "team": "MIL",
-      "opp": "LAD",
-      "order": 2,
-      "heuristicProb": 0.16105414319047542,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": {
-        "handedness": -0.0111
-      },
-      "reason": "An average power profile this season, boosted by hot recent form and a favorable platoon matchup; tempered by a stingy opposing pitcher.",
-      "factors": {
-        "base": 0.12900663098743037,
-        "form": 1.2497911445279868,
-        "pitcherVuln": 0.8108108108108109,
-        "powerQuality": 1.0418301109576282,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.2287121745249825
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Turang, Brice",
-        "player_id": "668930",
-        "year": "2026",
-        "xwoba": "80",
-        "xba": "61",
-        "xslg": "65",
-        "xiso": "61",
-        "xobp": "86",
-        "brl": "60",
-        "brl_percent": "48",
-        "exit_velocity": "71",
-        "max_ev": "56",
-        "hard_hit_percent": "54",
-        "k_percent": "25",
-        "bb_percent": "93",
-        "whiff_percent": "55",
-        "chase_percent": "80",
-        "arm_strength": "22",
-        "sprint_speed": "81",
-        "oaa": "98",
-        "bat_speed": "22",
-        "squared_up_rate": "51",
-        "swing_length": "8"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Yoshinobu Yamamoto",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 1
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.816,
-      "marketProb": 0.065,
-      "edge": 0.09605414319047542,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 1.14,
-      "projectedTotalBases": 1.97,
-      "hitsReason": "Projected for 1.1 hits.",
-      "tbReason": "Projected for 2.0 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.042,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.065,
-      "priceDelta": 0.0,
-      "marketBid": 0.06,
-      "marketAsk": 0.07,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
-      "recentNews": [
-        {
-          "title": "Turang's Game 1 HR not just clutch, it was the type of blast only Ohtani hits",
-          "link": "https://www.mlb.com/news/brice-turang-nlcs-game-1-home-run",
-          "pubDate": "Mon, 12 Oct 2026 15:35:18 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Late-night work pays off for 'baseball rat' Turang in Game 1 star turn",
-          "link": "https://www.mlb.com/news/brice-turang-homers-off-tarik-skubal-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 05:51:35 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
           "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Brewers take Game 1 in NLCS rematch against defending champs",
-          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
-          "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
-          "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
-          "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -491,132 +241,6 @@
           "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
           "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
           "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 660271,
-      "name": "Shohei Ohtani",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": 4,
-      "heuristicProb": 0.14353911373717354,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": {
-        "pitcherVuln": -0.0074
-      },
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.17046013804464166,
-        "form": 0.6,
-        "pitcherVuln": 1.0677966101694916,
-        "powerQuality": 1.4727982855930906,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.9122093023255815
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Ohtani, Shohei",
-        "player_id": "660271",
-        "year": "2026",
-        "xwoba": "98",
-        "xba": "95",
-        "xslg": "99",
-        "xiso": "98",
-        "xobp": "95",
-        "brl": "97",
-        "brl_percent": "99",
-        "exit_velocity": "97",
-        "max_ev": "94",
-        "hard_hit_percent": "95",
-        "k_percent": "27",
-        "bb_percent": "92",
-        "whiff_percent": "11",
-        "chase_percent": "47",
-        "arm_strength": "",
-        "sprint_speed": "56",
-        "oaa": "",
-        "bat_speed": "80",
-        "squared_up_rate": "55",
-        "swing_length": "92"
-      },
-      "vsPitcher": {
-        "atBats": 5,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".400",
-        "obp": ".500",
-        "slg": ".400",
-        "ops": ".900"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Logan Henderson",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 18
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.889,
-      "marketProb": 0.235,
-      "edge": -0.09146088626282645,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.86,
-      "projectedTotalBases": 1.47,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.5 total bases.",
-      "hitsMatchupFactor": 1.002,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.20500000000000002,
-      "priceDelta": 0.02999999999999997,
-      "marketBid": 0.23,
-      "marketAsk": 0.24,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
-      "recentNews": [
-        {
-          "title": "Turang's Game 1 HR not just clutch, it was the type of blast only Ohtani hits",
-          "link": "https://www.mlb.com/news/brice-turang-nlcs-game-1-home-run",
-          "pubDate": "Mon, 12 Oct 2026 15:35:18 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
-          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
-          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -627,16 +251,16 @@
       "name": "Max Muncy",
       "team": "LAD",
       "opp": "MIL",
-      "order": 6,
-      "heuristicProb": 0.13855248215081784,
+      "order": null,
+      "heuristicProb": 0.13516084201576875,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "pitcherVuln": -0.0074
       },
       "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a track record vs this pitcher (1 HR in 5 AB); tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.1659624629983294,
+        "base": 0.16207243164826146,
         "form": 0.6137921763677915,
         "pitcherVuln": 1.0677966101694916,
         "powerQuality": 1.3000863059071774,
@@ -694,14 +318,14 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.87,
-      "projectedTotalBases": 1.62,
-      "hitsReason": "Projected for 0.9 hits.",
+      "projectedHits": 0.84,
+      "projectedTotalBases": 1.58,
+      "hitsReason": "Projected for 0.8 hits.",
       "tbReason": "Projected for 1.6 total bases.",
       "hitsMatchupFactor": 0.995,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5600947393824098,
@@ -714,150 +338,40 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.844758",
+      "recentNews": [
+        {
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
+          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
+          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
       "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.845651",
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.844758",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
       "prizePicksTBLine": 0.5,
-      "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
-          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
-          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 681624,
-      "name": "Andy Pages",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": 7,
-      "heuristicProb": 0.1354149194328418,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": {
-        "pitcherVuln": -0.0074
-      },
-      "reason": "Strong power profile this season.",
-      "factors": {
-        "base": 0.13656655267204265,
-        "form": 1.011142703450396,
-        "pitcherVuln": 1.0677966101694916,
-        "powerQuality": 1.0283569745434726,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.9155518394648829
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Pages, Andy",
-        "player_id": "681624",
-        "year": "2026",
-        "xwoba": "78",
-        "xba": "87",
-        "xslg": "75",
-        "xiso": "58",
-        "xobp": "75",
-        "brl": "60",
-        "brl_percent": "51",
-        "exit_velocity": "44",
-        "max_ev": "55",
-        "hard_hit_percent": "59",
-        "k_percent": "60",
-        "bb_percent": "42",
-        "whiff_percent": "62",
-        "chase_percent": "36",
-        "arm_strength": "96",
-        "sprint_speed": "75",
-        "oaa": "94",
-        "bat_speed": "60",
-        "squared_up_rate": "45",
-        "swing_length": "80"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".400",
-        "slg": ".000",
-        "ops": ".400"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Logan Henderson",
-      "veloTrend": null,
-      "streak": {
-        "type": "hot",
-        "games": 1
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.811,
-      "marketProb": 0.10500000000000001,
-      "edge": 0.030414919432841803,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.93,
-      "projectedTotalBases": 1.61,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 0.986,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.10500000000000001,
-      "priceDelta": 0.0,
-      "marketBid": 0.1,
-      "marketAsk": 0.11,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
-      "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
-          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
-          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
+      "tbCallFrozenAt": "2026-10-12T11:10:16.845651"
     },
     {
       "gamePk": 849812,
@@ -865,16 +379,16 @@
       "name": "Kyle Tucker",
       "team": "LAD",
       "opp": "MIL",
-      "order": 8,
-      "heuristicProb": 0.12754964796410742,
+      "order": null,
+      "heuristicProb": 0.13468870446039843,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "pitcherVuln": -0.0074
       },
       "reason": "An average power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.09493537921649498,
+        "base": 0.09993702067267063,
         "form": 1.3979317888038185,
         "pitcherVuln": 1.0677966101694916,
         "powerQuality": 0.908266425469426,
@@ -932,14 +446,14 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.81,
-      "projectedTotalBases": 1.36,
-      "hitsReason": "Projected for 0.8 hits.",
+      "projectedHits": 0.86,
+      "projectedTotalBases": 1.44,
+      "hitsReason": "Projected for 0.9 hits.",
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 0.987,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -952,13 +466,147 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.845730",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
           "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
+          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
+          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.845730"
+    },
+    {
+      "gamePk": 849812,
+      "playerId": 660271,
+      "name": "Shohei Ohtani",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.1303767373183833,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "pitcherVuln": -0.0074
+      },
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.15556340708597516,
+        "form": 0.6,
+        "pitcherVuln": 1.0677966101694916,
+        "powerQuality": 1.4727982855930906,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 0.9122093023255815
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Ohtani, Shohei",
+        "player_id": "660271",
+        "year": "2026",
+        "xwoba": "98",
+        "xba": "95",
+        "xslg": "99",
+        "xiso": "98",
+        "xobp": "95",
+        "brl": "97",
+        "brl_percent": "99",
+        "exit_velocity": "97",
+        "max_ev": "94",
+        "hard_hit_percent": "95",
+        "k_percent": "27",
+        "bb_percent": "92",
+        "whiff_percent": "11",
+        "chase_percent": "47",
+        "arm_strength": "",
+        "sprint_speed": "56",
+        "oaa": "",
+        "bat_speed": "80",
+        "squared_up_rate": "55",
+        "swing_length": "92"
+      },
+      "vsPitcher": {
+        "atBats": 5,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".400",
+        "obp": ".500",
+        "slg": ".400",
+        "ops": ".900"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Logan Henderson",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 18
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.889,
+      "marketProb": 0.235,
+      "edge": -0.10462326268161667,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.78,
+      "projectedTotalBases": 1.33,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.3 total bases.",
+      "hitsMatchupFactor": 1.002,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.20500000000000002,
+      "priceDelta": 0.02999999999999997,
+      "marketBid": 0.23,
+      "marketAsk": 0.24,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-10-12T18:10:48.677324",
+      "recentNews": [
+        {
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -977,335 +625,78 @@
     },
     {
       "gamePk": 849812,
-      "playerId": 641343,
-      "name": "Jake Bauers",
-      "team": "MIL",
-      "opp": "LAD",
-      "order": 4,
-      "heuristicProb": 0.1101591279653946,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.15983121559187874,
-        "form": 0.6,
-        "pitcherVuln": 0.8108108108108109,
-        "powerQuality": 1.426248729977518,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 0.9655870445344129
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Bauers, Jake",
-        "player_id": "641343",
-        "year": "2026",
-        "xwoba": "93",
-        "xba": "58",
-        "xslg": "83",
-        "xiso": "86",
-        "xobp": "97",
-        "brl": "82",
-        "brl_percent": "92",
-        "exit_velocity": "91",
-        "max_ev": "95",
-        "hard_hit_percent": "94",
-        "k_percent": "16",
-        "bb_percent": "98",
-        "whiff_percent": "18",
-        "chase_percent": "93",
-        "arm_strength": "61",
-        "sprint_speed": "34",
-        "oaa": "7",
-        "bat_speed": "93",
-        "squared_up_rate": "34",
-        "swing_length": "80"
-      },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 2,
-        "homeRuns": 0,
-        "avg": ".500",
-        "obp": ".667",
-        "slg": ".500",
-        "ops": "1.167"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Yoshinobu Yamamoto",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 10
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.873,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.87,
-      "projectedTotalBases": 1.49,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.5 total bases.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": 0.5,
-      "hitsMarketThreshold": 1,
-      "hitsModelProb": 0.5406165801515268,
-      "hitsCall": "OVER",
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": 0.5,
-      "tbMarketThreshold": 1,
-      "tbModelProb": 0.6753768496574479,
-      "tbCall": "OVER",
-      "actualTotalBases": null,
-      "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.844962",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.845924",
-      "prizePicksTBLine": 0.5,
-      "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Brewers take Game 1 in NLCS rematch against defending champs",
-          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
-          "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
-          "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
-          "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
-          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
-          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 661388,
-      "name": "William Contreras",
-      "team": "MIL",
-      "opp": "LAD",
-      "order": 3,
-      "heuristicProb": 0.10591858189706091,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by a stingy opposing pitcher.",
-      "factors": {
-        "base": 0.1128039860396095,
-        "form": 0.9185347184253692,
-        "pitcherVuln": 0.8108108108108109,
-        "powerQuality": 1.1358458636669846,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.078976034858388
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Contreras, William",
-        "player_id": "661388",
-        "year": "2026",
-        "xwoba": "67",
-        "xba": "71",
-        "xslg": "74",
-        "xiso": "67",
-        "xobp": "58",
-        "brl": "76",
-        "brl_percent": "56",
-        "exit_velocity": "71",
-        "max_ev": "87",
-        "hard_hit_percent": "71",
-        "k_percent": "84",
-        "bb_percent": "55",
-        "whiff_percent": "73",
-        "chase_percent": "60",
-        "arm_strength": "",
-        "sprint_speed": "17",
-        "oaa": "",
-        "bat_speed": "65",
-        "squared_up_rate": "89",
-        "swing_length": "31"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Yoshinobu Yamamoto",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 5
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.758,
-      "marketProb": 0.095,
-      "edge": 0.010918581897060908,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.94,
-      "projectedTotalBases": 1.49,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.5 total bases.",
-      "hitsMatchupFactor": 0.999,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.095,
-      "priceDelta": 0.0,
-      "marketBid": 0.09,
-      "marketAsk": 0.1,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
-      "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Brewers take Game 1 in NLCS rematch against defending champs",
-          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
-          "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
-          "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
-          "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
-          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
-          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 606192,
-      "name": "Teoscar Hern\u00e1ndez",
+      "playerId": 571771,
+      "name": "Enrique Hern\u00e1ndez",
       "team": "LAD",
       "opp": "MIL",
-      "order": 3,
-      "heuristicProb": 0.10583639527848887,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "order": null,
+      "heuristicProb": 0.11583416912995058,
+      "confidence": "Medium",
+      "calibrationApplied": 0.8735,
       "factorCalibrationApplied": {
+        "handedness": -0.0111,
         "pitcherVuln": -0.0074
       },
-      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a tough platoon matchup, and the lineup isn't confirmed yet.",
+      "reason": "Strong power profile this season, boosted by a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.12487080050578525,
-        "form": 0.8437118437118438,
+        "base": 0.11775551993513955,
+        "form": 1.0,
         "pitcherVuln": 1.0677966101694916,
-        "powerQuality": 1.2199947146595358,
+        "powerQuality": 1.0,
         "park": 1.06,
         "weather": 1.0,
-        "handedness": 0.802016129032258
+        "handedness": 1.1538461538461537
       },
       "savant": {
-        "\ufeff\"player_name\"": "Hern\u00e1ndez, Teoscar",
-        "player_id": "606192",
+        "\ufeff\"player_name\"": "Hern\u00e1ndez, Enrique",
+        "player_id": "571771",
         "year": "2026",
-        "xwoba": "65",
-        "xba": "64",
-        "xslg": "69",
-        "xiso": "66",
-        "xobp": "49",
-        "brl": "62",
-        "brl_percent": "71",
-        "exit_velocity": "71",
-        "max_ev": "85",
-        "hard_hit_percent": "73",
-        "k_percent": "12",
-        "bb_percent": "44",
-        "whiff_percent": "8",
-        "chase_percent": "39",
-        "arm_strength": "74",
-        "sprint_speed": "78",
-        "oaa": "9",
-        "bat_speed": "53",
-        "squared_up_rate": "36",
-        "swing_length": "88"
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "29",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "",
+        "sprint_speed": "29",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
       },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".250",
-        "slg": ".250",
-        "ops": ".500"
-      },
+      "vsPitcher": null,
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Logan Henderson",
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 2
+        "games": 1
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.759,
+      "seasonOPS": 0.671,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 1.0,
-      "projectedTotalBases": 1.55,
-      "hitsReason": "Projected for 1.0 hits.",
-      "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 0.971,
+      "projectedHits": 0.9,
+      "projectedTotalBases": 1.54,
+      "hitsReason": "Projected for 0.9 hits, supported by a favorable platoon matchup.",
+      "tbReason": "Projected for 1.5 total bases.",
+      "hitsMatchupFactor": 1.135,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0608,
+      "tbCalibrationApplied": -0.1143,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1320,9 +711,15 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
           "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -1346,9 +743,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.10484980521579433,
+      "heuristicProb": 0.10487141259450959,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -1408,8 +805,8 @@
       "tbReason": "Projected for 1.2 total bases.",
       "hitsMatchupFactor": 1.034,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5201397543414897,
@@ -1422,10 +819,6 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.844868",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.845806",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
           "title": "Our expert picks for the Guardians-Rays ALCS",
@@ -1434,15 +827,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -1452,9 +839,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1476,75 +863,81 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.844868",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.845806"
     },
     {
       "gamePk": 849812,
-      "playerId": 592885,
-      "name": "Christian Yelich",
+      "playerId": 641343,
+      "name": "Jake Bauers",
       "team": "MIL",
       "opp": "LAD",
-      "order": 5,
-      "heuristicProb": 0.10220133293565974,
+      "order": null,
+      "heuristicProb": 0.1004954420083304,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": {
-        "handedness": -0.0111
-      },
-      "reason": "An average power profile this season, tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": null,
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.10142960019698744,
-        "form": 1.0606060606060608,
+        "base": 0.14578001411474772,
+        "form": 0.6,
         "pitcherVuln": 0.8108108108108109,
-        "powerQuality": 1.1107063437056588,
+        "powerQuality": 1.426248729977518,
         "park": 1.06,
         "weather": 1.0,
-        "handedness": 1.1368312757201646
+        "handedness": 0.9655870445344129
       },
       "savant": {
-        "\ufeff\"player_name\"": "Yelich, Christian",
-        "player_id": "592885",
+        "\ufeff\"player_name\"": "Bauers, Jake",
+        "player_id": "641343",
         "year": "2026",
-        "xwoba": "33",
-        "xba": "20",
-        "xslg": "38",
-        "xiso": "49",
-        "xobp": "27",
-        "brl": "56",
-        "brl_percent": "64",
-        "exit_velocity": "44",
-        "max_ev": "72",
-        "hard_hit_percent": "64",
+        "xwoba": "93",
+        "xba": "58",
+        "xslg": "83",
+        "xiso": "86",
+        "xobp": "97",
+        "brl": "82",
+        "brl_percent": "92",
+        "exit_velocity": "91",
+        "max_ev": "95",
+        "hard_hit_percent": "94",
         "k_percent": "16",
-        "bb_percent": "60",
-        "whiff_percent": "20",
-        "chase_percent": "84",
-        "arm_strength": "",
-        "sprint_speed": "49",
-        "oaa": "",
-        "bat_speed": "63",
-        "squared_up_rate": "21",
-        "swing_length": "69"
+        "bb_percent": "98",
+        "whiff_percent": "18",
+        "chase_percent": "93",
+        "arm_strength": "61",
+        "sprint_speed": "34",
+        "oaa": "7",
+        "bat_speed": "93",
+        "squared_up_rate": "34",
+        "swing_length": "80"
       },
       "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
+        "atBats": 4,
+        "hits": 2,
         "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".250",
-        "slg": ".000",
-        "ops": ".250"
+        "avg": ".500",
+        "obp": ".667",
+        "slg": ".500",
+        "ops": "1.167"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -1552,49 +945,37 @@
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 3
+        "games": 10
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.693,
+      "seasonOPS": 0.873,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.82,
-      "projectedTotalBases": 1.32,
+      "projectedHits": 0.79,
+      "projectedTotalBases": 1.34,
       "hitsReason": "Projected for 0.8 hits.",
       "tbReason": "Projected for 1.3 total bases.",
-      "hitsMatchupFactor": 1.018,
+      "hitsMatchupFactor": 1.0,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5406165801515268,
+      "hitsCall": "OVER",
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6753768496574479,
+      "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
       "recentNews": [
-        {
-          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
-          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
-          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "Brewers take Game 1 in NLCS rematch against defending champs",
           "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
@@ -1608,12 +989,152 @@
           "source": "MLB.com"
         },
         {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
           "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
           "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
           "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
+          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
+          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.844962",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.845924"
+    },
+    {
+      "gamePk": 849812,
+      "playerId": 669242,
+      "name": "Tommy Edman",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.09926466925894116,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "pitcherVuln": -0.0074
+      },
+      "reason": "An average power profile this season, boosted by hot recent form; tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09388935499123363,
+        "form": 1.4,
+        "pitcherVuln": 1.0677966101694916,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 0.7385786802030456
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Edman, Tommy",
+        "player_id": "669242",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "40",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "58",
+        "sprint_speed": "65",
+        "oaa": "89",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Logan Henderson",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 4
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.714,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.78,
+      "projectedTotalBases": 1.32,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.3 total bases.",
+      "hitsMatchupFactor": 1.013,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5366027100514033,
+      "hitsCall": "OVER",
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6714815636323478,
+      "tbCall": "OVER",
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
+          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
+          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.845046",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.846012"
     },
     {
       "gamePk": 849820,
@@ -1622,9 +1143,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.0980669778808033,
+      "heuristicProb": 0.0980894749396144,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "handedness": -0.0111
       },
@@ -1701,8 +1222,8 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 0.969,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1723,15 +1244,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -1741,9 +1256,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1765,113 +1280,123 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
     },
     {
       "gamePk": 849812,
-      "playerId": 669242,
-      "name": "Tommy Edman",
+      "playerId": 606192,
+      "name": "Teoscar Hern\u00e1ndez",
       "team": "LAD",
       "opp": "MIL",
-      "order": 9,
-      "heuristicProb": 0.093888184981719,
+      "order": null,
+      "heuristicProb": 0.09571216678133125,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "pitcherVuln": -0.0074
       },
-      "reason": "An average power profile this season, boosted by hot recent form; tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
+      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.0891751899906037,
-        "form": 1.4,
+        "base": 0.11368293654521144,
+        "form": 0.8437118437118438,
         "pitcherVuln": 1.0677966101694916,
-        "powerQuality": 1.0,
+        "powerQuality": 1.2199947146595358,
         "park": 1.06,
         "weather": 1.0,
-        "handedness": 0.7385786802030456
+        "handedness": 0.802016129032258
       },
       "savant": {
-        "\ufeff\"player_name\"": "Edman, Tommy",
-        "player_id": "669242",
+        "\ufeff\"player_name\"": "Hern\u00e1ndez, Teoscar",
+        "player_id": "606192",
         "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "40",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "58",
-        "sprint_speed": "65",
-        "oaa": "89",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
+        "xwoba": "65",
+        "xba": "64",
+        "xslg": "69",
+        "xiso": "66",
+        "xobp": "49",
+        "brl": "62",
+        "brl_percent": "71",
+        "exit_velocity": "71",
+        "max_ev": "85",
+        "hard_hit_percent": "73",
+        "k_percent": "12",
+        "bb_percent": "44",
+        "whiff_percent": "8",
+        "chase_percent": "39",
+        "arm_strength": "74",
+        "sprint_speed": "78",
+        "oaa": "9",
+        "bat_speed": "53",
+        "squared_up_rate": "36",
+        "swing_length": "88"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Logan Henderson",
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 4
+        "games": 2
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.714,
+      "seasonOPS": 0.759,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.73,
-      "projectedTotalBases": 1.25,
-      "hitsReason": "Projected for 0.7 hits.",
-      "tbReason": "Projected for 1.2 total bases.",
-      "hitsMatchupFactor": 1.013,
+      "projectedHits": 0.91,
+      "projectedTotalBases": 1.4,
+      "hitsReason": "Projected for 0.9 hits.",
+      "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 0.971,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": 0.5,
-      "hitsMarketThreshold": 1,
-      "hitsModelProb": 0.5366027100514033,
-      "hitsCall": "OVER",
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": 0.5,
-      "tbMarketThreshold": 1,
-      "tbModelProb": 0.6714815636323478,
-      "tbCall": "OVER",
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.845046",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.846012",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
           "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -1889,15 +1414,141 @@
       ]
     },
     {
+      "gamePk": 849812,
+      "playerId": 592885,
+      "name": "Christian Yelich",
+      "team": "MIL",
+      "opp": "LAD",
+      "order": null,
+      "heuristicProb": 0.09194646028509854,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
+      "reason": "An average power profile this season, tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09223022808452297,
+        "form": 1.0606060606060608,
+        "pitcherVuln": 0.8108108108108109,
+        "powerQuality": 1.1107063437056588,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.1368312757201646
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Yelich, Christian",
+        "player_id": "592885",
+        "year": "2026",
+        "xwoba": "33",
+        "xba": "20",
+        "xslg": "38",
+        "xiso": "49",
+        "xobp": "27",
+        "brl": "56",
+        "brl_percent": "64",
+        "exit_velocity": "44",
+        "max_ev": "72",
+        "hard_hit_percent": "64",
+        "k_percent": "16",
+        "bb_percent": "60",
+        "whiff_percent": "20",
+        "chase_percent": "84",
+        "arm_strength": "",
+        "sprint_speed": "49",
+        "oaa": "",
+        "bat_speed": "63",
+        "squared_up_rate": "21",
+        "swing_length": "69"
+      },
+      "vsPitcher": {
+        "atBats": 3,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".250",
+        "slg": ".000",
+        "ops": ".250"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Yoshinobu Yamamoto",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 3
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.693,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.74,
+      "projectedTotalBases": 1.19,
+      "hitsReason": "Projected for 0.7 hits.",
+      "tbReason": "Projected for 1.2 total bases.",
+      "hitsMatchupFactor": 1.018,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
+          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
+          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers take Game 1 in NLCS rematch against defending champs",
+          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
+          "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
+          "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
+          "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
       "gamePk": 849820,
       "playerId": 690984,
       "name": "Petey Halpin",
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.07807238922870954,
+      "heuristicProb": 0.07808847833519665,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -1957,8 +1608,8 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 1.077,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1979,15 +1630,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -1997,9 +1642,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2021,15 +1666,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2041,9 +1686,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.07783856956121274,
+      "heuristicProb": 0.07785461048229697,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
       "factors": {
@@ -2094,7 +1739,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.792,
       "marketProb": 0.10500000000000001,
-      "edge": -0.02716143043878727,
+      "edge": -0.02714538951770304,
       "graded": false,
       "hr": null,
       "projectedHits": 0.79,
@@ -2103,8 +1748,8 @@
       "tbReason": "Projected for 1.3 total bases.",
       "hitsMatchupFactor": 0.956,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2122,7 +1767,7 @@
       "marketBid": 0.1,
       "marketAsk": 0.11,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
+      "oddsUpdatedAt": "2026-10-12T18:10:48.677324",
       "recentNews": [
         {
           "title": "Our expert picks for the Guardians-Rays ALCS",
@@ -2131,15 +1776,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -2149,9 +1788,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2161,18 +1800,152 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
+          "source": "MLB.com"
         }
       ]
+    },
+    {
+      "gamePk": 849812,
+      "playerId": 687401,
+      "name": "Joey Ortiz",
+      "team": "MIL",
+      "opp": "LAD",
+      "order": null,
+      "heuristicProb": 0.0756523741551099,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
+      "reason": "An average power profile this season, boosted by a favorable platoon matchup; tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.08725564089897475,
+        "form": 1.1232876712328768,
+        "pitcherVuln": 0.8108108108108109,
+        "powerQuality": 0.8640221187753088,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.2278959810874706
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Ortiz, Joey",
+        "player_id": "687401",
+        "year": "2026",
+        "xwoba": "20",
+        "xba": "40",
+        "xslg": "13",
+        "xiso": "15",
+        "xobp": "29",
+        "brl": "11",
+        "brl_percent": "15",
+        "exit_velocity": "47",
+        "max_ev": "81",
+        "hard_hit_percent": "34",
+        "k_percent": "59",
+        "bb_percent": "42",
+        "whiff_percent": "77",
+        "chase_percent": "30",
+        "arm_strength": "45",
+        "sprint_speed": "91",
+        "oaa": "98",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".500",
+        "obp": ".400",
+        "slg": ".750",
+        "ops": "1.150"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Yoshinobu Yamamoto",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 9
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.73,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.97,
+      "projectedTotalBases": 1.5,
+      "hitsReason": "Projected for 1.0 hits.",
+      "tbReason": "Projected for 1.5 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 1.029,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.6064069264690091,
+      "hitsCall": "OVER",
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.7038869500666963,
+      "tbCall": "OVER",
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Brewers take Game 1 in NLCS rematch against defending champs",
+          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
+          "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
+          "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
+          "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
+          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
+          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
+          "source": "MLB.com"
+        }
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.845133",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.846088"
     },
     {
       "gamePk": 849820,
@@ -2181,9 +1954,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.07219548648549731,
+      "heuristicProb": 0.07221036448374266,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a tough platoon matchup and the lineup isn't confirmed yet.",
       "factors": {
@@ -2243,8 +2016,8 @@
       "tbReason": "Projected for 1.3 total bases.",
       "hitsMatchupFactor": 0.987,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2265,15 +2038,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -2283,9 +2050,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2295,15 +2062,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2315,9 +2082,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.07020725129977409,
+      "heuristicProb": 0.0702217195638235,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "Strong power profile this season, tempered by cold recent form, a 25-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -2384,8 +2151,8 @@
       "tbReason": "Projected for 1.2 total bases.",
       "hitsMatchupFactor": 1.054,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2406,15 +2173,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -2424,9 +2185,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2436,135 +2197,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849812,
-      "playerId": 518692,
-      "name": "Freddie Freeman",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": 2,
-      "heuristicProb": 0.06936875141810314,
-      "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": {
-        "pitcherVuln": -0.0074
-      },
-      "reason": "An average power profile this season, tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.10852037743093335,
-        "form": 0.6,
-        "pitcherVuln": 1.0677966101694916,
-        "powerQuality": 1.027319893130071,
-        "park": 1.06,
-        "weather": 1.0,
-        "handedness": 1.0447834645669292
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Freeman, Freddie",
-        "player_id": "518692",
-        "year": "2026",
-        "xwoba": "91",
-        "xba": "98",
-        "xslg": "82",
-        "xiso": "61",
-        "xobp": "91",
-        "brl": "71",
-        "brl_percent": "52",
-        "exit_velocity": "54",
-        "max_ev": "64",
-        "hard_hit_percent": "53",
-        "k_percent": "73",
-        "bb_percent": "62",
-        "whiff_percent": "53",
-        "chase_percent": "53",
-        "arm_strength": "14",
-        "sprint_speed": "8",
-        "oaa": "39",
-        "bat_speed": "22",
-        "squared_up_rate": "59",
-        "swing_length": "5"
-      },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".200",
-        "slg": ".000",
-        "ops": ".200"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Logan Henderson",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 18
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.792,
-      "marketProb": 0.15000000000000002,
-      "edge": -0.08063124858189688,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 1.05,
-      "projectedTotalBases": 1.5,
-      "hitsReason": "Projected for 1.1 hits.",
-      "tbReason": "Projected for 1.5 total bases.",
-      "hitsMatchupFactor": 1.032,
-      "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.14500000000000002,
-      "priceDelta": 0.0050000000000000044,
-      "marketBid": 0.14,
-      "marketAsk": 0.16,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
-      "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
         },
         {
-          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
-          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
-          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
-          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
-          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2576,9 +2217,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.06924393385758747,
+      "heuristicProb": 0.06925820360181366,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by below-average quality of contact, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -2638,8 +2279,8 @@
       "tbReason": "Projected for 1.5 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 0.996,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2660,15 +2301,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -2678,9 +2313,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2690,15 +2325,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2709,16 +2344,16 @@
       "name": "Garrett Mitchell",
       "team": "MIL",
       "opp": "LAD",
-      "order": 6,
-      "heuristicProb": 0.069203186471803,
+      "order": null,
+      "heuristicProb": 0.06724886396485855,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "handedness": -0.0111
       },
       "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a favorable platoon matchup; tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.08568915992129433,
+        "base": 0.0835865346032465,
         "form": 0.6927033978611074,
         "pitcherVuln": 0.8108108108108109,
         "powerQuality": 1.3700413080055456,
@@ -2776,14 +2411,14 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.8,
-      "projectedTotalBases": 1.24,
+      "projectedHits": 0.78,
+      "projectedTotalBases": 1.2,
       "hitsReason": "Projected for 0.8 hits.",
       "tbReason": "Projected for 1.2 total bases.",
       "hitsMatchupFactor": 1.017,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5366027100514033,
@@ -2796,17 +2431,7 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.845212",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:50:17.538083",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "Brewers take Game 1 in NLCS rematch against defending champs",
           "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
@@ -2817,6 +2442,12 @@
           "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
           "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
           "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -2831,7 +2462,15 @@
           "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.845212",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:50:17.538083"
     },
     {
       "gamePk": 849820,
@@ -2840,9 +2479,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.06570836882829965,
+      "heuristicProb": 0.06572190996561615,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher, below-average quality of contact, a history of struggling vs this pitcher, and the lineup isn't confirmed yet.",
       "factors": {
@@ -2901,7 +2540,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.704,
       "marketProb": 0.055,
-      "edge": 0.010708368828299654,
+      "edge": 0.010721909965616151,
       "graded": false,
       "hr": null,
       "projectedHits": 0.97,
@@ -2910,8 +2549,8 @@
       "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 1.038,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.6064069264690091,
@@ -2925,15 +2564,11 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.055,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.845290",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.846161",
-      "prizePicksTBLine": 0.5,
       "priceDelta": 0.0,
       "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-12T18:09:13.449493",
+      "oddsUpdatedAt": "2026-10-12T18:10:48.677324",
       "recentNews": [
         {
           "title": "Our expert picks for the Guardians-Rays ALCS",
@@ -2942,15 +2577,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -2960,9 +2589,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2984,18 +2613,26 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.845290",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.846161"
     },
     {
       "gamePk": 849820,
@@ -3004,9 +2641,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.06566871426799009,
+      "heuristicProb": 0.06568224723332095,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
       "factors": {
@@ -3043,7 +2680,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 7,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Drew Rasmussen",
@@ -3066,8 +2711,8 @@
       "tbReason": "Projected for 1.2 total bases.",
       "hitsMatchupFactor": 0.993,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3088,15 +2733,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -3106,9 +2745,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3130,15 +2769,128 @@
           "source": "MLB.com"
         },
         {
+          "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
+          "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
+          "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
           "title": "Mirror images meet: Here's how Guardians can topple Rays",
           "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
           "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849812,
+      "playerId": 676439,
+      "name": "Hunter Feduccia",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.06503009923027242,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111,
+        "pitcherVuln": -0.0074
+      },
+      "reason": "A modest power profile this season, boosted by a favorable platoon matchup; tempered by a 24-game HR drought and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.0705488044386976,
+        "form": 0.874031007751938,
+        "pitcherVuln": 1.0677966101694916,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.2329545454545452
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Feduccia, Hunter",
+        "player_id": "676439",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "36",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "",
+        "sprint_speed": "35",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Logan Henderson",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 24
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.625,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.65,
+      "projectedTotalBases": 0.98,
+      "hitsReason": "Projected for 0.7 hits, tempered by a below-average hit rate this season.",
+      "tbReason": "Projected for 1.0 total bases.",
+      "hitsMatchupFactor": 1.052,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
         },
         {
-          "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
-          "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
-          "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
+          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
+          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -3150,9 +2902,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.06197067358260714,
+      "heuristicProb": 0.06198344445815224,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -3189,7 +2941,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 5,
+        "hits": 2,
+        "homeRuns": 0,
+        "avg": ".400",
+        "obp": ".400",
+        "slg": ".400",
+        "ops": ".800"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Drew Rasmussen",
@@ -3212,8 +2972,8 @@
       "tbReason": "Projected for 1.2 total bases.",
       "hitsMatchupFactor": 0.981,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3228,33 +2988,27 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Our expert picks for the Guardians-Rays ALCS",
           "link": "https://www.mlb.com/news/2026-mlb-alcs-picks-guardians-rays",
           "pubDate": "Mon, 12 Oct 2026 03:40:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Ram\u00edrez relishing another chance to carry Guardians to World Series berth",
           "link": "https://www.mlb.com/news/jose-ramirez-has-chance-to-reach-world-series-for-second-time",
           "pubDate": "Sun, 11 Oct 2026 23:04:21 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3276,15 +3030,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -3296,9 +3050,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.061789227004823415,
+      "heuristicProb": 0.06180196048797742,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form, a 25-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -3358,8 +3112,8 @@
       "tbReason": "Projected for 1.1 total bases.",
       "hitsMatchupFactor": 0.993,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3380,15 +3134,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -3398,9 +3146,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3410,15 +3158,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -3430,9 +3178,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.058662500507890555,
+      "heuristicProb": 0.05867687711799008,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "handedness": -0.0111
       },
@@ -3502,8 +3250,8 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 1.059,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5406165801515268,
@@ -3516,8 +3264,6 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T11:10:16.845369",
-      "prizePicksHitsLine": 0.5,
       "recentNews": [
         {
           "title": "Our expert picks for the Guardians-Rays ALCS",
@@ -3526,15 +3272,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -3544,9 +3284,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3568,43 +3308,175 @@
           "source": "MLB.com"
         },
         {
+          "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
+          "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
+          "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
           "title": "Mirror images meet: Here's how Guardians can topple Rays",
           "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
           "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T11:10:16.845369"
+    },
+    {
+      "gamePk": 849812,
+      "playerId": 518692,
+      "name": "Freddie Freeman",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.058011901650637465,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "pitcherVuln": -0.0074
+      },
+      "reason": "An average power profile this season, tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09244727270807462,
+        "form": 0.6,
+        "pitcherVuln": 1.0677966101694916,
+        "powerQuality": 1.027319893130071,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 1.0447834645669292
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Freeman, Freddie",
+        "player_id": "518692",
+        "year": "2026",
+        "xwoba": "91",
+        "xba": "98",
+        "xslg": "82",
+        "xiso": "61",
+        "xobp": "91",
+        "brl": "71",
+        "brl_percent": "52",
+        "exit_velocity": "54",
+        "max_ev": "64",
+        "hard_hit_percent": "53",
+        "k_percent": "73",
+        "bb_percent": "62",
+        "whiff_percent": "53",
+        "chase_percent": "53",
+        "arm_strength": "14",
+        "sprint_speed": "8",
+        "oaa": "39",
+        "bat_speed": "22",
+        "squared_up_rate": "59",
+        "swing_length": "5"
+      },
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".200",
+        "slg": ".000",
+        "ops": ".200"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Logan Henderson",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 18
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.792,
+      "marketProb": 0.15000000000000002,
+      "edge": -0.09198809834936256,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.89,
+      "projectedTotalBases": 1.26,
+      "hitsReason": "Projected for 0.9 hits.",
+      "tbReason": "Projected for 1.3 total bases.",
+      "hitsMatchupFactor": 1.032,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.14500000000000002,
+      "priceDelta": 0.0050000000000000044,
+      "marketBid": 0.14,
+      "marketAsk": 0.16,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-10-12T18:10:48.677324",
+      "recentNews": [
+        {
+          "title": "Dodgers feel good with postseason ace Yamamoto set for Game 2",
+          "link": "https://www.mlb.com/news/yoshinobu-yamamoto-to-start-nlcs-game-2-2026-vs-brewers",
+          "pubDate": "Mon, 12 Oct 2026 05:19:53 GMT",
+          "source": "MLB.com"
         },
         {
-          "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
-          "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
-          "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rojas makes Dodgers' NLCS roster, despite back flare-up in DS",
+          "link": "https://www.mlb.com/news/miguel-rojas-expected-to-make-dodgers-nlcs-roster",
+          "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
           "source": "MLB.com"
         }
       ]
     },
     {
       "gamePk": 849812,
-      "playerId": 806198,
-      "name": "Cooper Pratt",
+      "playerId": 683734,
+      "name": "Andrew Vaughn",
       "team": "MIL",
       "opp": "LAD",
-      "order": 7,
-      "heuristicProb": 0.04719413487274513,
+      "order": null,
+      "heuristicProb": 0.04972145237005095,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
-      "factorCalibrationApplied": null,
-      "reason": "A modest power profile this season, tempered by a stingy opposing pitcher, a 21-game HR drought, and the lineup isn't confirmed yet.",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
+      "reason": "A modest power profile this season, tempered by cold recent form, a stingy opposing pitcher, and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.07007066063067136,
-        "form": 0.9031007751937985,
+        "base": 0.08050745593113895,
+        "form": 0.8112178088171104,
         "pitcherVuln": 0.8108108108108109,
         "powerQuality": 1.0,
         "park": 1.06,
         "weather": 1.0,
-        "handedness": 0.8941176470588236
+        "handedness": 1.1162790697674418
       },
       "savant": {
-        "\ufeff\"player_name\"": "Pratt, Cooper",
-        "player_id": "806198",
+        "\ufeff\"player_name\"": "Vaughn, Andrew",
+        "player_id": "683734",
         "year": "2026",
         "xwoba": "",
         "xba": "",
@@ -3614,15 +3486,15 @@
         "brl": "",
         "brl_percent": "",
         "exit_velocity": "",
-        "max_ev": "20",
+        "max_ev": "77",
         "hard_hit_percent": "",
         "k_percent": "",
         "bb_percent": "",
         "whiff_percent": "",
         "chase_percent": "",
-        "arm_strength": "77",
-        "sprint_speed": "89",
-        "oaa": "74",
+        "arm_strength": "3",
+        "sprint_speed": "14",
+        "oaa": "",
         "bat_speed": "",
         "squared_up_rate": "",
         "swing_length": ""
@@ -3634,24 +3506,24 @@
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 21
+        "games": 10
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.718,
+      "seasonOPS": 0.834,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.99,
-      "projectedTotalBases": 1.35,
-      "hitsReason": "Projected for 1.0 hits.",
-      "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.045,
+      "projectedHits": 0.86,
+      "projectedTotalBases": 1.26,
+      "hitsReason": "Projected for 0.9 hits.",
+      "tbReason": "Projected for 1.3 total bases.",
+      "hitsMatchupFactor": 0.966,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3666,12 +3538,6 @@
       "tbHit": null,
       "recentNews": [
         {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Brewers take Game 1 in NLCS rematch against defending champs",
           "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
           "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
@@ -3681,6 +3547,12 @@
           "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
           "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
           "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -3704,9 +3576,9 @@
       "team": "CLE",
       "opp": "TB",
       "order": null,
-      "heuristicProb": 0.046999327383620025,
+      "heuristicProb": 0.04701130045469341,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "handedness": -0.0111
       },
@@ -3763,13 +3635,13 @@
       "graded": false,
       "hr": null,
       "projectedHits": 0.83,
-      "projectedTotalBases": 1.27,
+      "projectedTotalBases": 1.28,
       "hitsReason": "Projected for 0.8 hits.",
       "tbReason": "Projected for 1.3 total bases.",
       "hitsMatchupFactor": 1.037,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3790,15 +3662,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -3808,9 +3674,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3832,15 +3698,131 @@
           "source": "MLB.com"
         },
         {
+          "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
+          "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
+          "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
           "title": "Mirror images meet: Here's how Guardians can topple Rays",
           "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
           "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849812,
+      "playerId": 806198,
+      "name": "Cooper Pratt",
+      "team": "MIL",
+      "opp": "LAD",
+      "order": null,
+      "heuristicProb": 0.046035849585040235,
+      "confidence": "High",
+      "calibrationApplied": 0.9707,
+      "factorCalibrationApplied": null,
+      "reason": "A modest power profile this season, tempered by a stingy opposing pitcher, a 21-game HR drought, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.0683368341382492,
+        "form": 0.9031007751937985,
+        "pitcherVuln": 0.8108108108108109,
+        "powerQuality": 1.0,
+        "park": 1.06,
+        "weather": 1.0,
+        "handedness": 0.8941176470588236
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Pratt, Cooper",
+        "player_id": "806198",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "20",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "77",
+        "sprint_speed": "89",
+        "oaa": "74",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Yoshinobu Yamamoto",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 21
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.718,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.97,
+      "projectedTotalBases": 1.31,
+      "hitsReason": "Projected for 1.0 hits.",
+      "tbReason": "Projected for 1.3 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 1.045,
+      "tbParkFactor": 1.018,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Brewers take Game 1 in NLCS rematch against defending champs",
+          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
+          "pubDate": "Mon, 12 Oct 2026 06:04:00 GMT",
+          "source": "MLB.com"
         },
         {
-          "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
-          "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
-          "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
+          "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
+          "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Miz is mortal, but 'Brewers ball' bests Dodgers ... and other key takeaways from Game 1",
+          "link": "https://www.mlb.com/news/takeaways-from-brewers-win-over-dodgers-in-nlcs-game-1",
+          "pubDate": "Mon, 12 Oct 2026 04:18:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Why wasn't Yelich in Brewers' starting lineup for NLCS opener?",
+          "link": "https://www.mlb.com/news/christian-yelich-out-of-starting-lineup-for-game-1-of-nlcs",
+          "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -3852,9 +3834,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.045107235944219594,
+      "heuristicProb": 0.0451188190943369,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": {
         "handedness": -0.0111
       },
@@ -3916,8 +3898,8 @@
       "tbReason": "Projected for 1.0 total bases.",
       "hitsMatchupFactor": 0.957,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -3930,8 +3912,6 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.846235",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
         {
           "title": "Our expert picks for the Guardians-Rays ALCS",
@@ -3940,15 +3920,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -3958,9 +3932,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3970,18 +3944,22 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
+          "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.846235"
     },
     {
       "gamePk": 849812,
@@ -3989,14 +3967,14 @@
       "name": "David Hamilton",
       "team": "MIL",
       "opp": "LAD",
-      "order": 9,
-      "heuristicProb": 0.03885903805945851,
+      "order": null,
+      "heuristicProb": 0.04095941835098882,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, a 24-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.0576347958496376,
+        "base": 0.060737512916170244,
         "form": 1.1117424242424243,
         "pitcherVuln": 0.8108108108108109,
         "powerQuality": 0.7664008972521287,
@@ -4054,14 +4032,14 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.81,
-      "projectedTotalBases": 1.16,
+      "projectedHits": 0.85,
+      "projectedTotalBases": 1.23,
       "hitsReason": "Projected for 0.8 hits.",
       "tbReason": "Projected for 1.2 total bases.",
       "hitsMatchupFactor": 1.011,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5638748598851205,
@@ -4074,17 +4052,7 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T17:20:20.862576",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T17:20:20.862855",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "Brewers take Game 1 in NLCS rematch against defending champs",
           "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
@@ -4095,6 +4063,12 @@
           "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
           "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
           "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -4109,7 +4083,15 @@
           "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T17:20:20.862576",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T17:20:20.862855"
     },
     {
       "gamePk": 849812,
@@ -4117,14 +4099,14 @@
       "name": "Sal Frelick",
       "team": "MIL",
       "opp": "LAD",
-      "order": 8,
-      "heuristicProb": 0.038503109606269924,
+      "order": null,
+      "heuristicProb": 0.040583911941726614,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, a 23-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.057924514452964315,
+        "base": 0.061042317507920774,
         "form": 1.0645833333333332,
         "pitcherVuln": 0.8108108108108109,
         "powerQuality": 0.7390019171525793,
@@ -4157,7 +4139,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".500",
+        "ops": ".750"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Yoshinobu Yamamoto",
@@ -4174,14 +4164,14 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.68,
-      "projectedTotalBases": 1.0,
+      "projectedHits": 0.72,
+      "projectedTotalBases": 1.05,
       "hitsReason": "Projected for 0.7 hits.",
-      "tbReason": "Projected for 1.0 total bases.",
+      "tbReason": "Projected for 1.1 total bases.",
       "hitsMatchupFactor": 1.019,
       "tbParkFactor": 1.018,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5116580147552249,
@@ -4194,17 +4184,7 @@
       "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
-      "hitsCallFrozenAt": "2026-10-12T17:30:20.352211",
-      "prizePicksHitsLine": 0.5,
-      "tbCallFrozenAt": "2026-10-12T11:10:16.846307",
-      "prizePicksTBLine": 0.5,
       "recentNews": [
-        {
-          "title": "Dodgers-Brewers NLCS Game 2 FAQ, lineups (5 ET, FOX/FS1)",
-          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 17:36:00 GMT",
-          "source": "MLB.com"
-        },
         {
           "title": "Brewers take Game 1 in NLCS rematch against defending champs",
           "link": "https://www.mlb.com/news/brewers-win-nlcs-game-1-2026",
@@ -4215,6 +4195,12 @@
           "title": "With minimal support, Skubal loses steam 2nd time through in NLCS loss to Brewers",
           "link": "https://www.mlb.com/news/tarik-skubal-start-vs-brewers-in-nlcs-game-1-2026",
           "pubDate": "Mon, 12 Oct 2026 05:38:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Dodgers-Brewers NLCS Game 2 FAQ (Mon., 5 ET, FOX/FS1)",
+          "link": "https://www.mlb.com/news/dodgers-brewers-nl-championship-series-game-2-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 06:03:12 GMT",
           "source": "MLB.com"
         },
         {
@@ -4229,7 +4215,15 @@
           "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-12T11:10:16.846307",
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-12T17:30:20.352211"
     },
     {
       "gamePk": 849820,
@@ -4238,9 +4232,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.03282262274176158,
+      "heuristicProb": 0.0328293868062112,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form, below-average quality of contact, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4300,8 +4294,8 @@
       "tbReason": "Projected for 1.1 total bases.",
       "hitsMatchupFactor": 0.85,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4322,15 +4316,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -4340,9 +4328,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -4352,15 +4340,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -4372,9 +4360,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.03151481647365567,
+      "heuristicProb": 0.03152131102625199,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "An average power profile this season, tempered by cold recent form, below-average quality of contact, a tough platoon matchup, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4434,8 +4422,8 @@
       "tbReason": "Projected for 1.0 total bases.",
       "hitsMatchupFactor": 0.85,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4456,15 +4444,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -4474,9 +4456,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -4486,15 +4468,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -4590,15 +4572,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -4608,9 +4584,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians swap in Cecconi for Schneemann, bolstering staff for ALCS",
-          "link": "https://www.mlb.com/news/guardians-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:38:11 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -4632,15 +4608,15 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
@@ -4652,9 +4628,9 @@
       "team": "TB",
       "opp": "CLE",
       "order": null,
-      "heuristicProb": 0.023440079662116024,
+      "heuristicProb": 0.02344491017827514,
       "confidence": "High",
-      "calibrationApplied": 0.9705,
+      "calibrationApplied": 0.9707,
       "factorCalibrationApplied": null,
       "reason": "A modest power profile this season, boosted by hot recent form; tempered by below-average quality of contact, a 148-game HR drought, and the lineup isn't confirmed yet.",
       "factors": {
@@ -4714,8 +4690,8 @@
       "tbReason": "Projected for 1.2 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 0.965,
       "tbParkFactor": 0.979,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0284,
+      "hitsCalibrationApplied": -0.0157,
+      "tbCalibrationApplied": -0.0281,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -4736,15 +4712,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Guardians-Rays ALCS Game 1 FAQ (8 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
-          "pubDate": "Mon, 12 Oct 2026 16:15:00 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "Guardians-Rays ALCS position-by-position breakdown",
           "link": "https://www.mlb.com/news/guardians-rays-alcs-position-by-position-breakdown",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "pubDate": "Sun, 11 Oct 2026 23:52:47 GMT",
           "source": "MLB.com"
         },
         {
@@ -4754,9 +4724,9 @@
           "source": "MLB.com"
         },
         {
-          "title": "Hopkins in, Cleavinger out on Rays' ALCS roster",
-          "link": "https://www.mlb.com/news/rays-2026-alcs-roster",
-          "pubDate": "Mon, 12 Oct 2026 14:55:00 GMT",
+          "title": "Guardians-Rays ALCS Game 1 FAQ (Mon., 8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-1-starting-lineups-and-pitching-matchup",
+          "pubDate": "Mon, 12 Oct 2026 00:27:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -4766,26 +4736,26 @@
           "source": "MLB.com"
         },
         {
-          "title": "Mirror images meet: Here's how Guardians can topple Rays",
-          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
-          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
-          "source": "MLB.com"
-        },
-        {
           "title": "The Tampa Bay ... Guardians? Several Rays have ties to Cleveland ahead of ALCS battle",
           "link": "https://www.mlb.com/news/rays-with-cleveland-ties-entering-alcs",
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Mirror images meet: Here's how Guardians can topple Rays",
+          "link": "https://www.mlb.com/news/guardians-keys-to-beating-rays-2026-alcs",
+          "pubDate": "Sun, 11 Oct 2026 22:39:05 GMT",
           "source": "MLB.com"
         }
       ]
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-12T18:09:13.449493",
+  "oddsRefreshedAt": "2026-10-12T18:10:48.677324",
   "statcastSpotlight": {
     "name": "Will Smith",
     "team": "LAD",
-    "heuristicProb": 0.20760280920408664,
+    "heuristicProb": 0.1874490552867914,
     "exitVelo": 106.9,
     "launchAngle": 23.0,
     "distance": 399.0,
@@ -4793,15 +4763,15 @@
     "seasonHRCount": 10
   },
   "topMatchup": {
-    "pitcherName": "Yoshinobu Yamamoto",
-    "pitcherTeam": "LAD",
-    "opp": "MIL",
-    "projectedK": 6.6765789992002915,
-    "edge": null,
-    "usedFallback": true,
+    "pitcherName": "Foster Griffin",
+    "pitcherTeam": "CLE",
+    "opp": "TB",
+    "projectedK": 5.2644053409361105,
+    "edge": 0.2501477125650009,
+    "usedFallback": false,
     "batter": {
-      "name": "Jackson Chourio",
-      "heuristicProb": 0.1614334952649731
+      "name": "Jonathan Aranda",
+      "heuristicProb": 0.07785461048229697
     },
     "batterKind": "hrThreat"
   },
