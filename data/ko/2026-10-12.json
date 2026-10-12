@@ -264,7 +264,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.525,
+      "openingProb": 0.565,
       "prizePicksOpeningLine": 6.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-10-12T11:10:16.851869",
@@ -288,7 +288,12 @@
           "pubDate": "Sun, 11 Oct 2026 16:16:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.56,
+      "marketAsk": 0.57,
+      "edgeEligible": false
     },
     {
       "gamePk": 849812,
@@ -478,7 +483,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.495,
+      "openingProb": 0.455,
       "prizePicksOpeningLine": 5.5,
       "prizePicksCall": "OVER",
       "prizePicksCallFrozenAt": "2026-10-12T11:10:16.851995",
@@ -514,7 +519,13 @@
           "pubDate": "Mon, 12 Oct 2026 03:21:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.45,
+      "marketAsk": 0.46,
+      "edgeEligible": false
     },
     {
       "gamePk": 849820,
@@ -781,7 +792,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.365,
+      "openingProb": 0.325,
       "prizePicksOpeningLine": 6.0,
       "prizePicksOutsOpeningLine": 17.5,
       "prizePicksCall": "UNDER",
@@ -845,7 +856,14 @@
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 7,
+      "priceDelta": 0.0,
+      "marketBid": 0.32,
+      "marketAsk": 0.33,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 849820,
@@ -1117,7 +1135,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.52,
+      "openingProb": 0.485,
       "prizePicksOpeningLine": 3.5,
       "prizePicksOutsOpeningLine": 13.5,
       "prizePicksCall": "OVER",
@@ -1125,7 +1143,7 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-10-12T11:10:16.852488",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 13.5,
+      "prizePicksOutsLine": 12.5,
       "recentNews": [
         {
           "title": "Guardians tab well-traveled Griffin to open ALCS: 'It was a no-brainer'",
@@ -1187,14 +1205,19 @@
           "pubDate": "Sun, 11 Oct 2026 15:09:03 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": 0.0,
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.48,
+      "marketAsk": 0.49,
+      "edgeEligible": false,
+      "prizePicksOutsLineDelta": -1.0
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-12T11:08:03.898127",
-  "oddsRefreshedAt": "2026-10-12T20:17:06.309882",
-  "_kalshiMatched": 4,
-  "_kalshiTotal": 4,
+  "oddsRefreshedAt": "2026-10-12T20:20:21.407047",
   "lockedBest5": {
     "kEdge": [
       {
