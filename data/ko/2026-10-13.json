@@ -263,12 +263,12 @@
       "babipAgainst": 0.27442827442827444,
       "workloadStreak": 32,
       "mostRecentPitchCount": 64.0,
-      "marketThreshold": 5,
-      "marketProb": 0.5549999999999999,
-      "modelProb": 0.713764418441464,
-      "edge": 0.15876441844146405,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "marketThreshold": 6,
+      "marketProb": 0.365,
+      "modelProb": 0.5294900824088934,
+      "edge": 0.1644900824088934,
+      "predictionLine": 5.0,
+      "predictionOutsLine": 14.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -283,19 +283,19 @@
       "weatherFactor": 1.0,
       "outsCalibrationApplied": -0.5269,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 15,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.4561249715798312,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.5549999999999999,
-      "openingThreshold": 5,
+      "openingProb": 0.365,
+      "openingThreshold": 6,
       "priceDelta": 0.0,
-      "marketBid": 0.54,
-      "marketAsk": 0.57,
+      "marketBid": 0.36,
+      "marketAsk": 0.37,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-13T11:08:26.344431",
+      "oddsUpdatedAt": "2026-10-13T11:10:19.689478",
       "recentNews": [
         {
           "title": "Messick, once a fan at The Trop, will take the hill there as Guardians' ALCS Game 2 starter",
@@ -332,6 +332,50 @@
           "link": "https://www.mlb.com/news/austin-hedges-leads-guardians-knight-of-the-day-celebration",
           "pubDate": "Mon, 12 Oct 2026 03:36:15 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 5.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 5.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-13T11:10:19.689751",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 18,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 18,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 17,
+          "total": 29
+        }
+      ],
+      "prizePicksOutsOpeningLine": 14.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 14.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-13T11:10:19.690071",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 30,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 30,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 28,
+          "total": 29
         }
       ]
     },
@@ -600,10 +644,10 @@
       "mostRecentPitchCount": 93.0,
       "marketThreshold": 4,
       "marketProb": 0.535,
-      "modelProb": 0.6611003076606979,
-      "edge": 0.1261003076606979,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.589797311490073,
+      "edge": 0.05479731149007294,
+      "predictionLine": 3.5,
+      "predictionOutsLine": 13.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -618,9 +662,9 @@
       "weatherFactor": 1.0,
       "outsCalibrationApplied": -0.5269,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 14,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.5669895334752735,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -630,7 +674,7 @@
       "marketBid": 0.53,
       "marketAsk": 0.54,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-13T11:08:26.344431",
+      "oddsUpdatedAt": "2026-10-13T11:10:19.689478",
       "recentNews": [
         {
           "title": "Peralta again looks to harness Trop energy, even ALCS with Game 2 start",
@@ -668,14 +712,56 @@
           "pubDate": "Mon, 12 Oct 2026 22:41:00 GMT",
           "source": "MLB.com"
         }
+      ],
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-13T11:10:19.689885",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 24,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 24,
+          "total": 32
+        },
+        {
+          "minPitches": "80",
+          "hits": 23,
+          "total": 29
+        }
+      ],
+      "prizePicksOutsOpeningLine": 13.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 13.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-13T11:10:19.690197",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 27,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 27,
+          "total": 32
+        },
+        {
+          "minPitches": "80",
+          "hits": 25,
+          "total": 29
+        }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-13T11:08:01.265505",
-  "oddsRefreshedAt": "2026-10-13T11:08:26.344431",
-  "_kalshiMatched": 2,
-  "_kalshiTotal": 2,
+  "oddsRefreshedAt": "2026-10-13T11:10:19.689478",
   "lockedBest5": {
     "kEdge": [
       {
