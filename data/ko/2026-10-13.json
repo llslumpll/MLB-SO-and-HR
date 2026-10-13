@@ -264,9 +264,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 64.0,
       "marketThreshold": 6,
-      "marketProb": 0.325,
+      "marketProb": 0.315,
       "modelProb": 0.5294900824088934,
-      "edge": 0.20449008240889338,
+      "edge": 0.2144900824088934,
       "predictionLine": 5.0,
       "predictionOutsLine": 14.5,
       "graded": false,
@@ -289,7 +289,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.325,
+      "openingProb": 0.315,
       "prizePicksOpeningLine": 5.0,
       "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "OVER",
@@ -329,7 +329,13 @@
           "pubDate": "Mon, 12 Oct 2026 16:02:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.31,
+      "marketAsk": 0.32,
+      "edgeEligible": false
     },
     {
       "gamePk": 849813,
@@ -620,7 +626,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.525,
+      "openingProb": 0.545,
       "prizePicksOpeningLine": 3.5,
       "prizePicksOutsOpeningLine": 13.5,
       "prizePicksCall": "OVER",
@@ -666,14 +672,17 @@
           "pubDate": "Mon, 12 Oct 2026 22:41:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.54,
+      "marketAsk": 0.55,
+      "edgeEligible": false
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-13T11:08:01.265505",
-  "oddsRefreshedAt": "2026-10-13T18:08:31.258569",
-  "_kalshiMatched": 2,
-  "_kalshiTotal": 2,
+  "oddsRefreshedAt": "2026-10-13T18:10:18.820218",
   "lockedBest5": {
     "kEdge": [
       {
