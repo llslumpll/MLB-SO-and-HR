@@ -289,7 +289,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.365,
+      "openingProb": 0.325,
       "prizePicksOpeningLine": 5.0,
       "prizePicksOutsOpeningLine": 14.5,
       "prizePicksCall": "OVER",
@@ -329,7 +329,14 @@
           "pubDate": "Mon, 12 Oct 2026 16:02:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksLineDelta": -0.5,
+      "openingThreshold": 6,
+      "priceDelta": 0.0,
+      "marketBid": 0.32,
+      "marketAsk": 0.33,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 0.0
     },
     {
       "gamePk": 849813,
@@ -620,7 +627,7 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.535,
+      "openingProb": 0.525,
       "prizePicksOpeningLine": 3.5,
       "prizePicksOutsOpeningLine": 13.5,
       "prizePicksCall": "OVER",
@@ -628,7 +635,7 @@
       "outsCall": "OVER",
       "outsCallFrozenAt": "2026-10-13T11:11:49.977392",
       "prizePicksKLine": 3.5,
-      "prizePicksOutsLine": 13.5,
+      "prizePicksOutsLine": 14.5,
       "recentNews": [
         {
           "title": "Peralta again looks to harness Trop energy, even ALCS with Game 2 start",
@@ -666,14 +673,18 @@
           "pubDate": "Mon, 12 Oct 2026 22:41:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": 4,
+      "priceDelta": 0.0,
+      "marketBid": 0.52,
+      "marketAsk": 0.53,
+      "edgeEligible": true,
+      "prizePicksOutsLineDelta": 1.0
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-13T11:08:01.265505",
-  "oddsRefreshedAt": "2026-10-13T15:08:35.112989",
-  "_kalshiMatched": 2,
-  "_kalshiTotal": 2,
+  "oddsRefreshedAt": "2026-10-13T15:10:20.271897",
   "lockedBest5": {
     "kEdge": [
       {
