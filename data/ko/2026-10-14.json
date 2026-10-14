@@ -1,6 +1,6 @@
 {
   "date": "2026-10-14",
-  "generatedAt": "2026-10-14T11:08:14.371377",
+  "generatedAt": "2026-10-14T15:07:58.463720",
   "entries": [
     {
       "gamePk": 849811,
@@ -38,7 +38,7 @@
       "projectedK": 5.104857234547992,
       "confidence": "High",
       "reason": "Elite strikeout stuff this season, boosted by locked-in command over their last starts (K-BB% of 24.4%); tempered by an opponent that's actually been hitting LHP well lately (their last 30 games specifically vs this handedness).",
-      "calibrationApplied": -0.1543,
+      "calibrationApplied": -0.1547,
       "recentStartsLog": [
         {
           "k": 8,
@@ -140,8 +140,8 @@
       "kBBPct": 22.543352601156073,
       "rollingKBBPct": 24.39024390243902,
       "parkFactor": 1.04,
-      "weatherFactor": 1.00705,
-      "outsCalibrationApplied": -0.5233,
+      "weatherFactor": 1.0075,
+      "outsCalibrationApplied": -0.5124,
       "bullpenFatigue": null,
       "outsMarketThreshold": null,
       "outsMarketProb": null,
@@ -150,12 +150,10 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.415,
-      "openingThreshold": 7,
-      "priceDelta": 0.04999999999999999,
-      "marketBid": 0.46,
-      "marketAsk": 0.47,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-14T11:20:19.552965",
+      "prizePicksOpeningLine": 6.0,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-14T11:20:19.553206",
+      "prizePicksKLine": 6.0,
       "recentNews": [
         {
           "title": "Dodgers need Snell to step up on big stage, just as he's done in the past",
@@ -174,28 +172,6 @@
           "link": "https://www.mlb.com/news/how-dodgers-can-get-back-on-track-in-nlcs",
           "pubDate": "Tue, 13 Oct 2026 18:04:41 GMT",
           "source": "MLB.com"
-        }
-      ],
-      "prizePicksOpeningLine": 6.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 6.0,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-14T11:20:19.553206",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 4,
-          "total": 8
-        },
-        {
-          "minPitches": "70",
-          "hits": 4,
-          "total": 8
-        },
-        {
-          "minPitches": "80",
-          "hits": 4,
-          "total": 6
         }
       ]
     },
@@ -226,7 +202,7 @@
       "projectedK": 4.601244599036663,
       "confidence": "High",
       "reason": "Average strikeout stuff this season.",
-      "calibrationApplied": -0.1543,
+      "calibrationApplied": -0.1547,
       "recentStartsLog": [
         {
           "k": 5,
@@ -394,8 +370,8 @@
       "kBBPct": 14.686825053995682,
       "rollingKBBPct": 15.15151515151515,
       "parkFactor": 1.04,
-      "weatherFactor": 1.00705,
-      "outsCalibrationApplied": -0.5233,
+      "weatherFactor": 1.0075,
+      "outsCalibrationApplied": -0.5124,
       "bullpenFatigue": null,
       "outsMarketThreshold": 12,
       "outsMarketProb": null,
@@ -404,12 +380,14 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.485,
-      "openingThreshold": 4,
-      "priceDelta": -0.020000000000000018,
-      "marketBid": 0.46,
-      "marketAsk": 0.47,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-14T11:20:19.552965",
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-14T11:20:19.553303",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-14T11:20:19.553416",
+      "prizePicksKLine": 3.5,
+      "prizePicksOutsLine": 11.5,
       "recentNews": [
         {
           "title": "Brewers' Game 3 battery is all thanks to ... J.J. Hardy?",
@@ -434,63 +412,15 @@
           "link": "https://www.mlb.com/news/brewers-venezuelan-players-world-baseball-classic-nlcs-2026",
           "pubDate": "Tue, 13 Oct 2026 18:28:55 GMT",
           "source": "MLB.com"
-        },
-        {
-          "title": "'Wild Bill' takes charge for Brewers with 3 hits, 3 RBIs -- and 0 worries about next contract",
-          "link": "https://www.mlb.com/news/william-contreras-3-hits-3-rbis-brewers-nlcs-game-2-win",
-          "pubDate": "Tue, 13 Oct 2026 04:23:00 GMT",
-          "source": "MLB.com"
-        }
-      ],
-      "prizePicksOpeningLine": 3.5,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 3.5,
-      "prizePicksCall": "OVER",
-      "prizePicksCallFrozenAt": "2026-10-14T11:20:19.553303",
-      "conditionalHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 17,
-          "total": 20
-        },
-        {
-          "minPitches": "70",
-          "hits": 17,
-          "total": 20
-        },
-        {
-          "minPitches": "80",
-          "hits": 13,
-          "total": 15
-        }
-      ],
-      "prizePicksOutsOpeningLine": 11.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 11.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-14T11:20:19.553416",
-      "conditionalOutsHitRateBreakdown": [
-        {
-          "minPitches": "60",
-          "hits": 19,
-          "total": 20
-        },
-        {
-          "minPitches": "70",
-          "hits": 19,
-          "total": 20
-        },
-        {
-          "minPitches": "80",
-          "hits": 15,
-          "total": 15
         }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-14T11:08:14.371377",
-  "oddsRefreshedAt": "2026-10-14T15:00:36.583120",
+  "oddsRefreshedAt": "2026-10-14T15:08:27.329820",
+  "_kalshiMatched": 2,
+  "_kalshiTotal": 2,
   "lockedBest5": {
     "kEdge": [
       {
