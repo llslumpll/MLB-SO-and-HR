@@ -151,11 +151,11 @@
       "babipAgainst": 0.24358974358974358,
       "workloadStreak": 6,
       "mostRecentPitchCount": 91.0,
-      "marketThreshold": 6,
-      "marketProb": 0.58,
-      "modelProb": 0.8411766955706677,
-      "edge": 0.2611766955706677,
-      "predictionLine": null,
+      "marketThreshold": 7,
+      "marketProb": 0.415,
+      "modelProb": 0.6292961293658795,
+      "edge": 0.21429612936587955,
+      "predictionLine": 6.0,
       "predictionOutsLine": null,
       "graded": false,
       "actualK": null,
@@ -177,13 +177,13 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.58,
-      "openingThreshold": 6,
+      "openingProb": 0.415,
+      "openingThreshold": 7,
       "priceDelta": 0.0,
-      "marketBid": 0.57,
-      "marketAsk": 0.59,
+      "marketBid": 0.41,
+      "marketAsk": 0.42,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T11:09:19.165330",
+      "oddsUpdatedAt": "2026-10-15T11:20:21.853816",
       "recentNews": [
         {
           "title": "Can Brewers' 'pen hold up? Can Glasnow get L.A. on track? Key takeaways after Game 3",
@@ -208,6 +208,28 @@
           "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
           "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-15T11:20:21.854119",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 10,
+          "total": 12
+        },
+        {
+          "minPitches": "70",
+          "hits": 10,
+          "total": 12
+        },
+        {
+          "minPitches": "80",
+          "hits": 10,
+          "total": 12
         }
       ]
     },
@@ -474,10 +496,10 @@
       "mostRecentPitchCount": 74.0,
       "marketThreshold": 7,
       "marketProb": 0.475,
-      "modelProb": 0.7095962457262908,
-      "edge": 0.2345962457262908,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.6173948572312955,
+      "edge": 0.14239485723129552,
+      "predictionLine": 6.5,
+      "predictionOutsLine": 16.0,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -492,9 +514,9 @@
       "weatherFactor": 1.0045,
       "outsCalibrationApplied": -0.5124,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 17,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.4459303447391161,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -504,7 +526,7 @@
       "marketBid": 0.47,
       "marketAsk": 0.48,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T11:09:19.165330",
+      "oddsUpdatedAt": "2026-10-15T11:20:21.853816",
       "recentNews": [
         {
           "title": "Examining Gavin Williams' breakout season ahead of ALCS start",
@@ -523,6 +545,50 @@
           "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
           "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOpeningLine": 6.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 6.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-15T11:20:21.854241",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 20,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 20,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 20,
+          "total": 29
+        }
+      ],
+      "prizePicksOutsOpeningLine": 16.0,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 16.0,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-15T11:20:21.854501",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 20,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 20,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 20,
+          "total": 29
         }
       ]
     },
@@ -669,12 +735,12 @@
       "babipAgainst": 0.2857142857142857,
       "workloadStreak": 0,
       "mostRecentPitchCount": 52.0,
-      "marketThreshold": 4,
-      "marketProb": 0.545,
-      "modelProb": 0.740978689414819,
-      "edge": 0.195978689414819,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "marketThreshold": 5,
+      "marketProb": 0.345,
+      "modelProb": 0.5375517715272029,
+      "edge": 0.19255177152720293,
+      "predictionLine": 4.0,
+      "predictionOutsLine": 11.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -689,19 +755,19 @@
       "weatherFactor": 1.0045,
       "outsCalibrationApplied": -0.5124,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 12,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.531377970857879,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.545,
-      "openingThreshold": 4,
+      "openingProb": 0.345,
+      "openingThreshold": 5,
       "priceDelta": 0.0,
-      "marketBid": 0.54,
-      "marketAsk": 0.55,
+      "marketBid": 0.34,
+      "marketAsk": 0.35,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T11:09:19.165330",
+      "oddsUpdatedAt": "2026-10-15T11:20:21.853816",
       "recentNews": [
         {
           "title": "Rays-Guardians ALCS Game 3 FAQ (1 ET, TBS/HBO Max)",
@@ -715,14 +781,56 @@
           "pubDate": "Wed, 14 Oct 2026 15:00:22 GMT",
           "source": "MLB.com"
         }
+      ],
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.0,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-15T11:20:21.854343",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 13,
+          "total": 18
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 9
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 6
+        }
+      ],
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-15T11:20:21.854598",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 17,
+          "total": 18
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 9
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 6
+        }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-15T11:08:46.510876",
-  "oddsRefreshedAt": "2026-10-15T11:09:19.165330",
-  "_kalshiMatched": 3,
-  "_kalshiTotal": 3,
+  "oddsRefreshedAt": "2026-10-15T11:20:21.853816",
   "lockedBest5": {
     "kEdge": [
       {
