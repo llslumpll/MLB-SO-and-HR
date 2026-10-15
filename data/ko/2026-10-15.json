@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "generatedAt": "2026-10-15T15:35:55.301731",
+  "generatedAt": "2026-10-15T18:08:04.917427",
   "entries": [
     {
       "gamePk": 849810,
@@ -168,7 +168,7 @@
       "kBBPct": 25.34722222222222,
       "rollingKBBPct": 28.985507246376812,
       "parkFactor": 1.04,
-      "weatherFactor": 0.991,
+      "weatherFactor": 0.9904,
       "outsCalibrationApplied": -0.5092,
       "bullpenFatigue": null,
       "outsMarketThreshold": null,
@@ -192,7 +192,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
           "source": "MLB.com"
         },
         {
@@ -207,13 +213,7 @@
           "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": 0.0,
-      "marketBid": 0.42,
-      "marketAsk": 0.43,
-      "edgeEligible": false
+      ]
     },
     {
       "gamePk": 849818,
@@ -493,7 +493,7 @@
       "kBBPct": 25.067024128686324,
       "rollingKBBPct": 18.46153846153846,
       "parkFactor": 0.98,
-      "weatherFactor": 1.0021,
+      "weatherFactor": 1.00315,
       "outsCalibrationApplied": -0.5092,
       "bullpenFatigue": null,
       "outsMarketThreshold": 17,
@@ -519,25 +519,235 @@
           "source": "MLB.com"
         },
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 675660,
+      "name": "Shane Drohan",
+      "team": "MIL",
+      "opp": "LAD",
+      "oppTeamId": 119,
+      "vsTeamTrend": null,
+      "vsBatterTrend": null,
+      "firstMeetingThisSeason": false,
+      "hand": "L",
+      "seasonRecord": "7-5",
+      "era": "4.19",
+      "seasonK9": 8.922413793103448,
+      "recentK9": 8.961206896551724,
+      "oppK": 20.389443192790473,
+      "matchupFactor": 0.9340513320093593,
+      "stuffFactor": 1.090797873118572,
+      "recentMatchupApplied": {
+        "factor": 0.941,
+        "gamesFound": 30,
+        "vsHand": "L"
+      },
+      "expectedIP": 6.56140350877193,
+      "projectedK": 6.380164924908495,
+      "confidence": "High",
+      "reason": "Strong strikeout stuff this season, boosted by a long-innings workload expectation.",
+      "calibrationApplied": -0.1524,
+      "recentStartsLog": [
+        {
+          "k": 2,
+          "ip": 1.6666666666666665,
+          "bb": 1,
+          "battersFaced": 6.0
+        },
+        {
+          "k": 2,
+          "ip": 2.6666666666666665,
+          "bb": 2,
+          "battersFaced": 13.0
+        },
+        {
+          "k": 2,
+          "ip": 1.6666666666666665,
+          "bb": 0,
+          "battersFaced": 5.0
+        }
+      ],
+      "veloTrend": null,
+      "qualifyingStartsKByThreshold": {
+        "60": [
+          2,
+          2,
+          4,
+          5,
+          4,
+          7,
+          3,
+          5,
+          7,
+          2,
+          6,
+          9,
+          6,
+          7,
+          4,
+          5,
+          5,
+          6,
+          5,
+          4
+        ],
+        "70": [
+          2,
+          4,
+          7,
+          3,
+          5,
+          7,
+          2,
+          6,
+          9,
+          6,
+          7,
+          4,
+          5,
+          5,
+          6,
+          5
+        ],
+        "80": [
+          4,
+          3,
+          5,
+          2,
+          6,
+          9,
+          6,
+          7,
+          4,
+          5,
+          5,
+          6
+        ]
+      },
+      "qualifyingStartsOutsByThreshold": {
+        "60": [
+          8,
+          12,
+          12,
+          12,
+          19,
+          15,
+          15,
+          13,
+          17,
+          18,
+          19,
+          18,
+          18,
+          18,
+          15,
+          16,
+          15,
+          15,
+          12,
+          11
+        ],
+        "70": [
+          12,
+          19,
+          15,
+          15,
+          13,
+          17,
+          18,
+          19,
+          18,
+          18,
+          18,
+          15,
+          16,
+          15,
+          15,
+          12
+        ],
+        "80": [
+          19,
+          15,
+          13,
+          18,
+          19,
+          18,
+          18,
+          18,
+          15,
+          16,
+          15,
+          15
+        ]
+      },
+      "babipAgainst": 0.31563421828908556,
+      "workloadStreak": 0,
+      "mostRecentPitchCount": 21.0,
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "predictionLine": null,
+      "predictionOutsLine": null,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "projectedOuts": 13.4,
+      "outsReason": "Projected for 13.4 outs (6.6 innings), supported by a track record of a long leash (105 pitches/game this season) and getting deep into games (6.6 IP/start).",
+      "npPerGame": 105.3157894736842,
+      "pitchesPerIP": 16.050802139037433,
+      "bbPct": 8.333333333333332,
+      "kBBPct": 15.340909090909093,
+      "rollingKBBPct": 12.5,
+      "parkFactor": 1.04,
+      "weatherFactor": 0.9904,
+      "outsCalibrationApplied": -0.5092,
+      "bullpenFatigue": null,
+      "outsMarketThreshold": null,
+      "outsMarketProb": null,
+      "outsModelProb": null,
+      "outsEdge": null,
+      "actualOuts": null,
+      "outsHit": null,
+      "recentNews": [
+        {
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers keep October magic rolling, on cusp of 1st World Series in 44 years",
+          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+          "pubDate": "Thu, 15 Oct 2026 06:23:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "The one thing that bugs Brewers star is a praying mantis on his shoulder",
+          "link": "https://www.mlb.com/news/jackson-chourio-notices-praying-mantis-on-his-shoulder",
+          "pubDate": "Thu, 15 Oct 2026 01:46:37 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Can Brewers' 'pen hold up? Can Glasnow get L.A. on track? Key takeaways after Game 3",
+          "link": "https://www.mlb.com/news/key-takeaways-from-brewers-win-over-dodgers-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": 0.0,
-      "openingThreshold": 7,
-      "priceDelta": 0.38,
-      "marketBid": 0.81,
-      "marketAsk": 0.92,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849818,
@@ -699,7 +909,7 @@
       "kBBPct": 17.647058823529413,
       "rollingKBBPct": 23.913043478260867,
       "parkFactor": 0.98,
-      "weatherFactor": 1.0021,
+      "weatherFactor": 1.00315,
       "outsCalibrationApplied": -0.5092,
       "bullpenFatigue": null,
       "outsMarketThreshold": 12,
@@ -719,9 +929,9 @@
       "prizePicksOutsLine": 11.5,
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -730,19 +940,14 @@
           "pubDate": "Wed, 14 Oct 2026 15:00:22 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksLineDelta": -0.5,
-      "openingThreshold": 5,
-      "priceDelta": -0.22,
-      "marketBid": 0.05,
-      "marketAsk": 0.12,
-      "edgeEligible": false,
-      "prizePicksOutsLineDelta": 0.0
+      ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-15T11:08:46.510876",
-  "oddsRefreshedAt": "2026-10-15T18:00:22.926343",
+  "oddsRefreshedAt": "2026-10-15T18:08:33.569751",
+  "_kalshiMatched": 3,
+  "_kalshiTotal": 4,
   "lockedBest5": {
     "kEdge": [
       {

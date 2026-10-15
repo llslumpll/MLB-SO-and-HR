@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "generatedAt": "2026-10-15T15:35:21.939470",
+  "generatedAt": "2026-10-15T18:07:48.223055",
   "entries": [
     {
       "gamePk": 849818,
@@ -9,7 +9,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 3,
-      "heuristicProb": 0.19681083575327168,
+      "heuristicProb": 0.20141170781825202,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -22,7 +22,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 1.410307261643091,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.0864197530864197
       },
       "savant": {
@@ -78,8 +78,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.884,
-      "marketProb": 0.125,
-      "edge": 0.07181083575327168,
+      "marketProb": 0.08499999999999999,
+      "edge": 0.11641170781825202,
       "graded": false,
       "hr": null,
       "projectedHits": 0.97,
@@ -103,16 +103,123 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.175,
-      "priceDelta": -0.04999999999999999,
-      "marketBid": 0.12,
-      "marketAsk": 0.13,
+      "priceDelta": -0.09,
+      "marketBid": 0.08,
+      "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays left 'no stone unturned' building roster en route to ALCS",
+          "link": "https://www.mlb.com/news/rays-roster-construction-in-focus-during-alcs-2026",
+          "pubDate": "Wed, 14 Oct 2026 15:00:22 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849818,
+      "playerId": 666018,
+      "name": "Jonathan Aranda",
+      "team": "TB",
+      "opp": "CLE",
+      "order": 2,
+      "heuristicProb": 0.17546028148095516,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111,
+        "pitcherVuln": -0.0077
+      },
+      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.13533389781255,
+        "form": 0.857707509881423,
+        "pitcherVuln": 1.139240506329114,
+        "powerQuality": 1.2442819362152187,
+        "park": 0.98,
+        "weather": 1.0307944,
+        "handedness": 1.2041083916083914
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Aranda, Jonathan",
+        "player_id": "666018",
+        "year": "2026",
+        "xwoba": "78",
+        "xba": "60",
+        "xslg": "71",
+        "xiso": "71",
+        "xobp": "72",
+        "brl": "78",
+        "brl_percent": "67",
+        "exit_velocity": "83",
+        "max_ev": "75",
+        "hard_hit_percent": "80",
+        "k_percent": "29",
+        "bb_percent": "65",
+        "whiff_percent": "59",
+        "chase_percent": "54",
+        "arm_strength": "20",
+        "sprint_speed": "13",
+        "oaa": "80",
+        "bat_speed": "26",
+        "squared_up_rate": "73",
+        "swing_length": "25"
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Gavin Williams",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 6
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.792,
+      "marketProb": 0.060000000000000005,
+      "edge": 0.11546028148095516,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 1.0,
+      "projectedTotalBases": 1.63,
+      "hitsReason": "Projected for 1.0 hits.",
+      "tbReason": "Projected for 1.6 total bases.",
+      "hitsMatchupFactor": 1.017,
+      "tbParkFactor": 0.994,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.11,
+      "priceDelta": -0.049999999999999996,
+      "marketBid": 0.05,
+      "marketAsk": 0.07,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
+      "recentNews": [
+        {
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -130,7 +237,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 3,
-      "heuristicProb": 0.17126489693120195,
+      "heuristicProb": 0.17536755269921236,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -143,7 +250,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 1.099700193776998,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.2150679758308156
       },
       "savant": {
@@ -191,8 +298,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.82,
-      "marketProb": 0.060000000000000005,
-      "edge": 0.11126489693120195,
+      "marketProb": 0.055,
+      "edge": 0.12036755269921237,
       "graded": false,
       "hr": null,
       "projectedHits": 0.93,
@@ -216,247 +323,16 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.11,
-      "priceDelta": -0.049999999999999996,
+      "priceDelta": -0.055,
       "marketBid": 0.05,
-      "marketAsk": 0.07,
+      "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849818,
-      "playerId": 666018,
-      "name": "Jonathan Aranda",
-      "team": "TB",
-      "opp": "CLE",
-      "order": 2,
-      "heuristicProb": 0.17118617023330684,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": {
-        "handedness": -0.0111,
-        "pitcherVuln": -0.0077
-      },
-      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo) and a favorable platoon matchup; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.13533389781255,
-        "form": 0.857707509881423,
-        "pitcherVuln": 1.139240506329114,
-        "powerQuality": 1.2442819362152187,
-        "park": 0.98,
-        "weather": 1.0081148800000002,
-        "handedness": 1.2041083916083914
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Aranda, Jonathan",
-        "player_id": "666018",
-        "year": "2026",
-        "xwoba": "78",
-        "xba": "60",
-        "xslg": "71",
-        "xiso": "71",
-        "xobp": "72",
-        "brl": "78",
-        "brl_percent": "67",
-        "exit_velocity": "83",
-        "max_ev": "75",
-        "hard_hit_percent": "80",
-        "k_percent": "29",
-        "bb_percent": "65",
-        "whiff_percent": "59",
-        "chase_percent": "54",
-        "arm_strength": "20",
-        "sprint_speed": "13",
-        "oaa": "80",
-        "bat_speed": "26",
-        "squared_up_rate": "73",
-        "swing_length": "25"
-      },
-      "vsPitcher": {
-        "atBats": 4,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".250",
-        "obp": ".200",
-        "slg": ".250",
-        "ops": ".450"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Gavin Williams",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 6
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.792,
-      "marketProb": 0.07500000000000001,
-      "edge": 0.09618617023330683,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 1.0,
-      "projectedTotalBases": 1.63,
-      "hitsReason": "Projected for 1.0 hits.",
-      "tbReason": "Projected for 1.6 total bases.",
-      "hitsMatchupFactor": 1.017,
-      "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.11,
-      "priceDelta": -0.03499999999999999,
-      "marketBid": 0.07,
-      "marketAsk": 0.08,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
-      "recentNews": [
-        {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
-          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Rays left 'no stone unturned' building roster en route to ALCS",
-          "link": "https://www.mlb.com/news/rays-roster-construction-in-focus-during-alcs-2026",
-          "pubDate": "Wed, 14 Oct 2026 15:00:22 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849810,
-      "playerId": 669257,
-      "name": "Will Smith",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": null,
-      "heuristicProb": 0.16640703319433298,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.11893535073971728,
-        "form": 1.4,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.0,
-        "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Smith, Will",
-        "player_id": "669257",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "69",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "",
-        "sprint_speed": "43",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 3
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.781,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.92,
-      "projectedTotalBases": 1.59,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
-          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
-          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
-          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
-          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -468,7 +344,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 7,
-      "heuristicProb": 0.16333283308498836,
+      "heuristicProb": 0.16700732527640175,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -479,7 +355,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 1.0694375009512769,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.0608365019011408
       },
       "savant": {
@@ -521,7 +397,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.607,
       "marketProb": 0.055,
-      "edge": 0.10833283308498837,
+      "edge": 0.11200732527640175,
       "graded": false,
       "hr": null,
       "projectedHits": 0.76,
@@ -551,23 +427,15 @@
       "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849818,
@@ -576,7 +444,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 7,
-      "heuristicProb": 0.15314749202903782,
+      "heuristicProb": 0.1570157878570117,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -590,7 +458,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 0.7783991097054905,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.4
       },
       "savant": {
@@ -640,7 +508,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.729,
       "marketProb": 0.05,
-      "edge": 0.10314749202903782,
+      "edge": 0.1070157878570117,
       "graded": false,
       "hr": null,
       "projectedHits": 0.95,
@@ -670,130 +538,18 @@
       "marketBid": 0.04,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
           "title": "Rays left 'no stone unturned' building roster en route to ALCS",
           "link": "https://www.mlb.com/news/rays-roster-construction-in-focus-during-alcs-2026",
           "pubDate": "Wed, 14 Oct 2026 15:00:22 GMT",
-          "source": "MLB.com"
-        }
-      ],
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
-    },
-    {
-      "gamePk": 849810,
-      "playerId": 660271,
-      "name": "Shohei Ohtani",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": null,
-      "heuristicProb": 0.13738352366769882,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.15556340708597516,
-        "form": 0.6,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.4727982855930906,
-        "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Ohtani, Shohei",
-        "player_id": "660271",
-        "year": "2026",
-        "xwoba": "98",
-        "xba": "95",
-        "xslg": "99",
-        "xiso": "98",
-        "xobp": "95",
-        "brl": "97",
-        "brl_percent": "99",
-        "exit_velocity": "97",
-        "max_ev": "94",
-        "hard_hit_percent": "95",
-        "k_percent": "27",
-        "bb_percent": "92",
-        "whiff_percent": "11",
-        "chase_percent": "47",
-        "arm_strength": "",
-        "sprint_speed": "57",
-        "oaa": "",
-        "bat_speed": "80",
-        "squared_up_rate": "53",
-        "swing_length": "92"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 18
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.889,
-      "marketProb": 0.135,
-      "edge": 0.0023835236676988114,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.78,
-      "projectedTotalBases": 1.32,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.3 total bases.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.14500000000000002,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.13,
-      "marketAsk": 0.14,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
-      "recentNews": [
-        {
-          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
-          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
-          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
-          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
-          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
           "source": "MLB.com"
         }
       ]
@@ -805,19 +561,21 @@
       "team": "LAD",
       "opp": "MIL",
       "order": null,
-      "heuristicProb": 0.13136421522657765,
+      "heuristicProb": 0.1432476621126418,
       "confidence": "High",
       "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
       "reason": "An average power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
       "factors": {
         "base": 0.09388935499123363,
         "form": 1.4,
-        "pitcherVuln": 1.0,
+        "pitcherVuln": 0.8422459893048128,
         "powerQuality": 1.0,
         "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
+        "weather": 0.9865407999999999,
+        "handedness": 1.4
       },
       "savant": {
         "\ufeff\"player_name\"": "Edman, Tommy",
@@ -847,7 +605,7 @@
       "vsPitcher": null,
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
-      "oppPitcherName": null,
+      "oppPitcherName": "Shane Drohan",
       "veloTrend": null,
       "streak": {
         "type": "cold",
@@ -861,11 +619,11 @@
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.77,
-      "projectedTotalBases": 1.3,
-      "hitsReason": "Projected for 0.8 hits.",
+      "projectedHits": 0.74,
+      "projectedTotalBases": 1.26,
+      "hitsReason": "Projected for 0.7 hits.",
       "tbReason": "Projected for 1.3 total bases.",
-      "hitsMatchupFactor": 1.0,
+      "hitsMatchupFactor": 0.973,
       "tbParkFactor": 1.012,
       "hitsCalibrationApplied": -0.0158,
       "tbCalibrationApplied": -0.0288,
@@ -885,7 +643,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
           "source": "MLB.com"
         },
         {
@@ -904,180 +668,82 @@
     },
     {
       "gamePk": 849810,
-      "playerId": 571970,
-      "name": "Max Muncy",
+      "playerId": 606192,
+      "name": "Teoscar Hern\u00e1ndez",
       "team": "LAD",
       "opp": "MIL",
       "order": null,
-      "heuristicProb": 0.12925143241536857,
+      "heuristicProb": 0.12630516013836618,
       "confidence": "High",
       "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
+      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.16207243164826146,
-        "form": 0.6137921763677915,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.3000863059071774,
+        "base": 0.11368293654521144,
+        "form": 0.8437118437118438,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.2199947146595358,
         "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
+        "weather": 0.9865407999999999,
+        "handedness": 1.4
       },
       "savant": {
-        "\ufeff\"player_name\"": "Muncy, Max",
-        "player_id": "571970",
+        "\ufeff\"player_name\"": "Hern\u00e1ndez, Teoscar",
+        "player_id": "606192",
         "year": "2026",
-        "xwoba": "85",
-        "xba": "38",
-        "xslg": "85",
-        "xiso": "91",
-        "xobp": "66",
-        "brl": "82",
-        "brl_percent": "87",
-        "exit_velocity": "64",
-        "max_ev": "62",
-        "hard_hit_percent": "79",
-        "k_percent": "26",
-        "bb_percent": "82",
-        "whiff_percent": "23",
-        "chase_percent": "76",
-        "arm_strength": "31",
-        "sprint_speed": "44",
-        "oaa": "44",
-        "bat_speed": "34",
-        "squared_up_rate": "48",
-        "swing_length": "16"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 7
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.838,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.85,
-      "projectedTotalBases": 1.58,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.6 total bases.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": 0.5,
-      "tbMarketThreshold": 1,
-      "tbModelProb": 0.716813962583719,
-      "tbCall": "OVER",
-      "actualTotalBases": null,
-      "tbHit": null,
-      "tbCallFrozenAt": "2026-10-15T11:20:21.849167",
-      "prizePicksTBLine": 0.5,
-      "recentNews": [
-        {
-          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
-          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
-          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
-          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
-          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
-          "source": "MLB.com"
-        }
-      ],
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
-    },
-    {
-      "gamePk": 849810,
-      "playerId": 663656,
-      "name": "Kyle Tucker",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": null,
-      "heuristicProb": 0.1268114078111923,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.09993702067267063,
-        "form": 1.3979317888038185,
-        "pitcherVuln": 1.0,
-        "powerQuality": 0.908266425469426,
-        "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Tucker, Kyle",
-        "player_id": "663656",
-        "year": "2026",
-        "xwoba": "63",
+        "xwoba": "65",
         "xba": "64",
-        "xslg": "45",
-        "xiso": "36",
-        "xobp": "84",
-        "brl": "52",
-        "brl_percent": "35",
-        "exit_velocity": "37",
-        "max_ev": "41",
-        "hard_hit_percent": "31",
-        "k_percent": "77",
-        "bb_percent": "87",
-        "whiff_percent": "71",
-        "chase_percent": "85",
-        "arm_strength": "59",
-        "sprint_speed": "29",
-        "oaa": "6",
-        "bat_speed": "36",
-        "squared_up_rate": "70",
-        "swing_length": "40"
+        "xslg": "69",
+        "xiso": "66",
+        "xobp": "49",
+        "brl": "62",
+        "brl_percent": "71",
+        "exit_velocity": "71",
+        "max_ev": "85",
+        "hard_hit_percent": "73",
+        "k_percent": "12",
+        "bb_percent": "44",
+        "whiff_percent": "8",
+        "chase_percent": "39",
+        "arm_strength": "74",
+        "sprint_speed": "78",
+        "oaa": "9",
+        "bat_speed": "53",
+        "squared_up_rate": "37",
+        "swing_length": "87"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".250",
+        "ops": ".500"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
-      "oppPitcherName": null,
+      "oppPitcherName": "Shane Drohan",
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 8
+        "games": 2
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.715,
+      "seasonOPS": 0.759,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.87,
-      "projectedTotalBases": 1.45,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.4 total bases.",
-      "hitsMatchupFactor": 1.0,
+      "projectedHits": 1.0,
+      "projectedTotalBases": 1.53,
+      "hitsReason": "Projected for 1.0 hits.",
+      "tbReason": "Projected for 1.5 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 1.068,
       "tbParkFactor": 1.012,
       "hitsCalibrationApplied": -0.0158,
       "tbCalibrationApplied": -0.0288,
@@ -1097,7 +763,139 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
+          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
+          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
+          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 660271,
+      "name": "Shohei Ohtani",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.12365293856823523,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
+      "reason": "Strong power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.15556340708597516,
+        "form": 0.6,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.4727982855930906,
+        "park": 1.04,
+        "weather": 0.9865407999999999,
+        "handedness": 1.1687150837988827
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Ohtani, Shohei",
+        "player_id": "660271",
+        "year": "2026",
+        "xwoba": "98",
+        "xba": "95",
+        "xslg": "99",
+        "xiso": "98",
+        "xobp": "95",
+        "brl": "97",
+        "brl_percent": "99",
+        "exit_velocity": "97",
+        "max_ev": "94",
+        "hard_hit_percent": "95",
+        "k_percent": "27",
+        "bb_percent": "92",
+        "whiff_percent": "11",
+        "chase_percent": "47",
+        "arm_strength": "",
+        "sprint_speed": "57",
+        "oaa": "",
+        "bat_speed": "80",
+        "squared_up_rate": "53",
+        "swing_length": "92"
+      },
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".250",
+        "slg": ".500",
+        "ops": ".750"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Shane Drohan",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 18
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.889,
+      "marketProb": 0.135,
+      "edge": -0.011347061431764782,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.78,
+      "projectedTotalBases": 1.31,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.3 total bases.",
+      "hitsMatchupFactor": 0.997,
+      "tbParkFactor": 1.012,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.14500000000000002,
+      "priceDelta": -0.010000000000000009,
+      "marketBid": 0.13,
+      "marketAsk": 0.14,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
+      "recentNews": [
+        {
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
           "source": "MLB.com"
         },
         {
@@ -1121,7 +919,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 4,
-      "heuristicProb": 0.11888278424308475,
+      "heuristicProb": 0.12198022831503093,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -1135,7 +933,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 1.0,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.1510204081632653
       },
       "savant": {
@@ -1176,8 +974,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.825,
-      "marketProb": 0.08499999999999999,
-      "edge": 0.03388278424308476,
+      "marketProb": 0.060000000000000005,
+      "edge": 0.06198022831503092,
       "graded": false,
       "hr": null,
       "projectedHits": 0.92,
@@ -1201,16 +999,16 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.11499999999999999,
-      "priceDelta": -0.03,
-      "marketBid": 0.08,
-      "marketAsk": 0.09,
+      "priceDelta": -0.054999999999999986,
+      "marketBid": 0.05,
+      "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1228,7 +1026,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.1174822246064373,
+      "heuristicProb": 0.1170652924213198,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -1239,7 +1037,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 1.3328360534464816,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 0.9053658536585365
       },
       "savant": {
@@ -1267,7 +1065,15 @@
         "squared_up_rate": "63",
         "swing_length": "50"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 7,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".143",
+        "obp": ".143",
+        "slg": ".143",
+        "ops": ".286"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Tyler Glasnow",
@@ -1281,7 +1087,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.838,
       "marketProb": 0.135,
-      "edge": -0.01751777539356271,
+      "edge": -0.01793470757868021,
       "graded": false,
       "hr": null,
       "projectedHits": 0.95,
@@ -1309,7 +1115,7 @@
       "marketBid": 0.13,
       "marketAsk": 0.14,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
           "title": "Chourio's history-making 1st-pitch HR comes 1 year to the day after he did the same thing!",
@@ -1320,7 +1126,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -1344,117 +1156,13 @@
       ]
     },
     {
-      "gamePk": 849810,
-      "playerId": 606192,
-      "name": "Teoscar Hern\u00e1ndez",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": null,
-      "heuristicProb": 0.11694457034591077,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.11368293654521144,
-        "form": 0.8437118437118438,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.2199947146595358,
-        "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Hern\u00e1ndez, Teoscar",
-        "player_id": "606192",
-        "year": "2026",
-        "xwoba": "65",
-        "xba": "64",
-        "xslg": "69",
-        "xiso": "66",
-        "xobp": "49",
-        "brl": "62",
-        "brl_percent": "71",
-        "exit_velocity": "71",
-        "max_ev": "85",
-        "hard_hit_percent": "73",
-        "k_percent": "12",
-        "bb_percent": "44",
-        "whiff_percent": "8",
-        "chase_percent": "39",
-        "arm_strength": "74",
-        "sprint_speed": "78",
-        "oaa": "9",
-        "bat_speed": "53",
-        "squared_up_rate": "37",
-        "swing_length": "87"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 2
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.759,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.93,
-      "projectedTotalBases": 1.43,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
-          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
-          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
-          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
-          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
       "gamePk": 849818,
       "playerId": 690984,
       "name": "Petey Halpin",
       "team": "CLE",
       "opp": "TB",
       "order": 8,
-      "heuristicProb": 0.1126970215919112,
+      "heuristicProb": 0.11523236196416535,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -1465,7 +1173,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 1.0,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 0.9888888888888889
       },
       "savant": {
@@ -1506,8 +1214,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.594,
-      "marketProb": 0.04,
-      "edge": 0.07269702159191119,
+      "marketProb": 0.045,
+      "edge": 0.07023236196416535,
       "graded": false,
       "hr": null,
       "projectedHits": 0.9,
@@ -1535,101 +1243,211 @@
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-10-15T11:20:21.849244",
       "prizePicksTBLine": 0.5,
-      "priceDelta": -0.025,
-      "marketBid": 0.03,
+      "priceDelta": -0.020000000000000004,
+      "marketBid": 0.04,
       "marketAsk": 0.05,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849810,
-      "playerId": 571771,
-      "name": "Enrique Hern\u00e1ndez",
+      "playerId": 571970,
+      "name": "Max Muncy",
       "team": "LAD",
       "opp": "MIL",
       "order": null,
-      "heuristicProb": 0.10590990566063382,
-      "confidence": "Medium",
-      "calibrationApplied": 0.8735,
+      "heuristicProb": 0.10737500865364179,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, tempered by the lineup isn't confirmed yet.",
+      "reason": "Elite home run power this season, boosted by elite quality of contact (barrel/hard-hit/exit velo); tempered by cold recent form and the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.11775551993513955,
-        "form": 1.0,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.0,
+        "base": 0.16207243164826146,
+        "form": 0.6137921763677915,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.3000863059071774,
         "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
+        "weather": 0.9865407999999999,
+        "handedness": 0.9898580121703855
       },
       "savant": {
-        "\ufeff\"player_name\"": "Hern\u00e1ndez, Enrique",
-        "player_id": "571771",
+        "\ufeff\"player_name\"": "Muncy, Max",
+        "player_id": "571970",
         "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "29",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "",
-        "sprint_speed": "29",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
+        "xwoba": "85",
+        "xba": "38",
+        "xslg": "85",
+        "xiso": "91",
+        "xobp": "66",
+        "brl": "82",
+        "brl_percent": "87",
+        "exit_velocity": "64",
+        "max_ev": "62",
+        "hard_hit_percent": "79",
+        "k_percent": "26",
+        "bb_percent": "82",
+        "whiff_percent": "23",
+        "chase_percent": "76",
+        "arm_strength": "31",
+        "sprint_speed": "44",
+        "oaa": "44",
+        "bat_speed": "34",
+        "squared_up_rate": "48",
+        "swing_length": "16"
       },
       "vsPitcher": null,
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
-      "oppPitcherName": null,
+      "oppPitcherName": "Shane Drohan",
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 1
+        "games": 7
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.671,
+      "seasonOPS": 0.838,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.79,
-      "projectedTotalBases": 1.33,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.3 total bases.",
-      "hitsMatchupFactor": 1.0,
+      "projectedHits": 0.86,
+      "projectedTotalBases": 1.61,
+      "hitsReason": "Projected for 0.9 hits.",
+      "tbReason": "Projected for 1.6 total bases.",
+      "hitsMatchupFactor": 1.017,
       "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0608,
-      "tbCalibrationApplied": -0.1143,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.716813962583719,
+      "tbCall": "OVER",
+      "actualTotalBases": null,
+      "tbHit": null,
+      "tbCallFrozenAt": "2026-10-15T11:20:21.849167",
+      "prizePicksTBLine": 0.5,
+      "recentNews": [
+        {
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
+          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
+          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
+          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 663656,
+      "name": "Kyle Tucker",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.10182631397955356,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": null,
+      "reason": "An average power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09993702067267063,
+        "form": 1.3979317888038185,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 0.908266425469426,
+        "park": 1.04,
+        "weather": 0.9865407999999999,
+        "handedness": 0.9567682494684622
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Tucker, Kyle",
+        "player_id": "663656",
+        "year": "2026",
+        "xwoba": "63",
+        "xba": "64",
+        "xslg": "45",
+        "xiso": "36",
+        "xobp": "84",
+        "brl": "52",
+        "brl_percent": "35",
+        "exit_velocity": "37",
+        "max_ev": "41",
+        "hard_hit_percent": "31",
+        "k_percent": "77",
+        "bb_percent": "87",
+        "whiff_percent": "71",
+        "chase_percent": "85",
+        "arm_strength": "59",
+        "sprint_speed": "29",
+        "oaa": "6",
+        "bat_speed": "36",
+        "squared_up_rate": "70",
+        "swing_length": "40"
+      },
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".250",
+        "obp": ".400",
+        "slg": ".750",
+        "ops": "1.150"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Shane Drohan",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 8
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.715,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.89,
+      "projectedTotalBases": 1.49,
+      "hitsReason": "Projected for 0.9 hits.",
+      "tbReason": "Projected for 1.5 total bases.",
+      "hitsMatchupFactor": 1.029,
+      "tbParkFactor": 1.012,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1646,7 +1464,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
           "source": "MLB.com"
         },
         {
@@ -1670,7 +1494,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 6,
-      "heuristicProb": 0.0975739877771249,
+      "heuristicProb": 0.10001882211909101,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -1683,7 +1507,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 0.8637646606975273,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.284268426842684
       },
       "savant": {
@@ -1725,7 +1549,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.743,
       "marketProb": 0.04,
-      "edge": 0.05757398777712489,
+      "edge": 0.06001882211909101,
       "graded": false,
       "hr": null,
       "projectedHits": 0.81,
@@ -1750,21 +1574,125 @@
       "tbHit": null,
       "openingProb": 0.09,
       "priceDelta": -0.049999999999999996,
-      "marketBid": 0.01,
-      "marketAsk": 0.07,
+      "marketBid": 0.02,
+      "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 669257,
+      "name": "Will Smith",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.09776078092631717,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": null,
+      "reason": "Strong power profile this season, boosted by hot recent form; tempered by the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.11893535073971728,
+        "form": 1.4,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.0,
+        "park": 1.04,
+        "weather": 0.9865407999999999,
+        "handedness": 0.7
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Smith, Will",
+        "player_id": "669257",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "69",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "",
+        "sprint_speed": "43",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Shane Drohan",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 3
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.781,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.78,
+      "projectedTotalBases": 1.35,
+      "hitsReason": "Projected for 0.8 hits, tempered by a tough platoon matchup.",
+      "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
+      "hitsMatchupFactor": 0.85,
+      "tbParkFactor": 1.012,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
+          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
+          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
+          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1776,7 +1704,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 9,
-      "heuristicProb": 0.09486571463227356,
+      "heuristicProb": 0.09699990480742196,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -1787,7 +1715,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 0.7729832032396433,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.0084985835694051
       },
       "savant": {
@@ -1829,7 +1757,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.704,
       "marketProb": 0.035,
-      "edge": 0.05986571463227355,
+      "edge": 0.06199990480742196,
       "graded": false,
       "hr": null,
       "projectedHits": 0.92,
@@ -1858,28 +1786,18 @@
       "tbCallFrozenAt": "2026-10-15T11:20:21.849318",
       "prizePicksTBLine": 0.5,
       "priceDelta": -0.03,
-      "marketBid": 0.02,
-      "marketAsk": 0.05,
+      "marketBid": 0.03,
+      "marketAsk": 0.04,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849818,
@@ -1888,7 +1806,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 5,
-      "heuristicProb": 0.08581248905524562,
+      "heuristicProb": 0.08799272543245118,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -1901,7 +1819,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 1.0412108677509888,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.1339285714285714
       },
       "savant": {
@@ -1950,8 +1868,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.761,
-      "marketProb": 0.055,
-      "edge": 0.03081248905524562,
+      "marketProb": 0.060000000000000005,
+      "edge": 0.027992725432451175,
       "graded": false,
       "hr": null,
       "projectedHits": 0.92,
@@ -1975,22 +1893,16 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.095,
-      "priceDelta": -0.04,
+      "priceDelta": -0.034999999999999996,
       "marketBid": 0.05,
-      "marketAsk": 0.06,
+      "marketAsk": 0.07,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2002,7 +1914,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.08540753887380927,
+      "heuristicProb": 0.08510443640935172,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -2013,7 +1925,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 1.426248729977518,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 0.9655870445344129
       },
       "savant": {
@@ -2100,7 +2012,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2121,11 +2039,7 @@
           "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849818,
@@ -2134,7 +2048,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 1,
-      "heuristicProb": 0.08108491846313232,
+      "heuristicProb": 0.08308230921088418,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -2147,7 +2061,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 1.138739141533636,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 0.896163469557965
       },
       "savant": {
@@ -2175,15 +2089,7 @@
         "squared_up_rate": "85",
         "swing_length": "69"
       },
-      "vsPitcher": {
-        "atBats": 15,
-        "hits": 7,
-        "homeRuns": 0,
-        "avg": ".467",
-        "obp": ".500",
-        "slg": ".667",
-        "ops": "1.167"
-      },
+      "vsPitcher": null,
       "vsTeamTrend": null,
       "vsPitcherTrend": {
         "atBats": 15,
@@ -2203,8 +2109,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.805,
-      "marketProb": 0.05,
-      "edge": 0.031084918463132313,
+      "marketProb": 0.055,
+      "edge": 0.028082309210884178,
       "graded": false,
       "hr": null,
       "projectedHits": 1.03,
@@ -2228,16 +2134,16 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.08499999999999999,
-      "priceDelta": -0.03499999999999999,
-      "marketBid": 0.04,
+      "priceDelta": -0.029999999999999992,
+      "marketBid": 0.05,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2255,7 +2161,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 4,
-      "heuristicProb": 0.07967927462554758,
+      "heuristicProb": 0.08147181606929214,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -2266,7 +2172,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 1.165873696069288,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 0.7
       },
       "savant": {
@@ -2307,8 +2213,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.699,
-      "marketProb": 0.11499999999999999,
-      "edge": -0.03532072537445241,
+      "marketProb": 0.11,
+      "edge": -0.028528183930707857,
       "graded": false,
       "hr": null,
       "projectedHits": 0.85,
@@ -2332,107 +2238,91 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.14500000000000002,
-      "priceDelta": -0.030000000000000027,
-      "marketBid": 0.11,
+      "priceDelta": -0.03500000000000002,
+      "marketBid": 0.1,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
       ]
     },
     {
       "gamePk": 849810,
-      "playerId": 592885,
-      "name": "Christian Yelich",
-      "team": "MIL",
-      "opp": "LAD",
+      "playerId": 571771,
+      "name": "Enrique Hern\u00e1ndez",
+      "team": "LAD",
+      "opp": "MIL",
       "order": null,
-      "heuristicProb": 0.0764755595152112,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": {
-        "handedness": -0.0111
-      },
-      "reason": "An average power profile this season, tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "heuristicProb": 0.07842849174038495,
+      "confidence": "Medium",
+      "calibrationApplied": 0.8735,
+      "factorCalibrationApplied": null,
+      "reason": "Strong power profile this season, tempered by the lineup isn't confirmed yet.",
       "factors": {
-        "base": 0.09223022808452297,
-        "form": 1.0606060606060608,
-        "pitcherVuln": 0.7094594594594595,
-        "powerQuality": 1.1107063437056588,
+        "base": 0.11775551993513955,
+        "form": 1.0,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.0,
         "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.1368312757201646
+        "weather": 0.9865407999999999,
+        "handedness": 0.8823529411764706
       },
       "savant": {
-        "\ufeff\"player_name\"": "Yelich, Christian",
-        "player_id": "592885",
+        "\ufeff\"player_name\"": "Hern\u00e1ndez, Enrique",
+        "player_id": "571771",
         "year": "2026",
-        "xwoba": "33",
-        "xba": "20",
-        "xslg": "38",
-        "xiso": "49",
-        "xobp": "27",
-        "brl": "56",
-        "brl_percent": "64",
-        "exit_velocity": "44",
-        "max_ev": "72",
-        "hard_hit_percent": "64",
-        "k_percent": "16",
-        "bb_percent": "60",
-        "whiff_percent": "20",
-        "chase_percent": "84",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "29",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
         "arm_strength": "",
-        "sprint_speed": "49",
+        "sprint_speed": "29",
         "oaa": "",
-        "bat_speed": "62",
-        "squared_up_rate": "22",
-        "swing_length": "69"
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
       },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
+      "vsPitcher": null,
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
-      "oppPitcherName": "Tyler Glasnow",
+      "oppPitcherName": "Shane Drohan",
       "veloTrend": null,
       "streak": {
         "type": "cold",
-        "games": 3
+        "games": 1
       },
       "trendL5OPS": null,
       "trendL7OPS": null,
       "trendL10OPS": null,
-      "seasonOPS": 0.693,
+      "seasonOPS": 0.671,
       "marketProb": null,
       "edge": null,
       "graded": false,
       "hr": null,
-      "projectedHits": 0.74,
-      "projectedTotalBases": 1.19,
-      "hitsReason": "Projected for 0.7 hits.",
+      "projectedHits": 0.7,
+      "projectedTotalBases": 1.18,
+      "hitsReason": "Projected for 0.7 hits, tempered by a tough platoon matchup.",
       "tbReason": "Projected for 1.2 total bases.",
-      "hitsMatchupFactor": 1.018,
+      "hitsMatchupFactor": 0.897,
       "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
+      "hitsCalibrationApplied": -0.0608,
+      "tbCalibrationApplied": -0.1143,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2449,25 +2339,25 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Brewers keep October magic rolling, on cusp of 1st World Series in 44 years",
-          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
-          "pubDate": "Thu, 15 Oct 2026 06:23:00 GMT",
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "The one thing that bugs Brewers star is a praying mantis on his shoulder",
-          "link": "https://www.mlb.com/news/jackson-chourio-notices-praying-mantis-on-his-shoulder",
-          "pubDate": "Thu, 15 Oct 2026 01:46:37 GMT",
+          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
+          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "Can Brewers' 'pen hold up? Can Glasnow get L.A. on track? Key takeaways after Game 3",
-          "link": "https://www.mlb.com/news/key-takeaways-from-brewers-win-over-dodgers-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
+          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
+          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
+          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2479,7 +2369,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 2,
-      "heuristicProb": 0.07544322362300888,
+      "heuristicProb": 0.07714046679734085,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -2490,7 +2380,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 0.8705200044494256,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 0.8361111111111111
       },
       "savant": {
@@ -2540,7 +2430,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.688,
       "marketProb": 0.08499999999999999,
-      "edge": -0.009556776376991108,
+      "edge": -0.007859533202659141,
       "graded": false,
       "hr": null,
       "projectedHits": 0.94,
@@ -2568,18 +2458,138 @@
       "marketBid": 0.08,
       "marketAsk": 0.09,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
+          "source": "MLB.com"
+        }
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 592885,
+      "name": "Christian Yelich",
+      "team": "MIL",
+      "opp": "LAD",
+      "order": null,
+      "heuristicProb": 0.07616476297119032,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": {
+        "handedness": -0.0111
+      },
+      "reason": "An average power profile this season, tempered by a stingy opposing pitcher and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09223022808452297,
+        "form": 1.0606060606060608,
+        "pitcherVuln": 0.7094594594594595,
+        "powerQuality": 1.1107063437056588,
+        "park": 1.04,
+        "weather": 0.9865407999999999,
+        "handedness": 1.1368312757201646
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Yelich, Christian",
+        "player_id": "592885",
+        "year": "2026",
+        "xwoba": "33",
+        "xba": "20",
+        "xslg": "38",
+        "xiso": "49",
+        "xobp": "27",
+        "brl": "56",
+        "brl_percent": "64",
+        "exit_velocity": "44",
+        "max_ev": "72",
+        "hard_hit_percent": "64",
+        "k_percent": "16",
+        "bb_percent": "60",
+        "whiff_percent": "20",
+        "chase_percent": "84",
+        "arm_strength": "",
+        "sprint_speed": "49",
+        "oaa": "",
+        "bat_speed": "62",
+        "squared_up_rate": "22",
+        "swing_length": "69"
+      },
+      "vsPitcher": {
+        "atBats": 14,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".071",
+        "obp": ".071",
+        "slg": ".071",
+        "ops": ".142"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Tyler Glasnow",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 3
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.693,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.74,
+      "projectedTotalBases": 1.19,
+      "hitsReason": "Projected for 0.7 hits.",
+      "tbReason": "Projected for 1.2 total bases.",
+      "hitsMatchupFactor": 1.018,
+      "tbParkFactor": 1.012,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
           "source": "MLB.com"
         },
         {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers keep October magic rolling, on cusp of 1st World Series in 44 years",
+          "link": "https://www.mlb.com/news/brewers-win-nlcs-game-3-2026",
+          "pubDate": "Thu, 15 Oct 2026 06:23:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "The one thing that bugs Brewers star is a praying mantis on his shoulder",
+          "link": "https://www.mlb.com/news/jackson-chourio-notices-praying-mantis-on-his-shoulder",
+          "pubDate": "Thu, 15 Oct 2026 01:46:37 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Can Brewers' 'pen hold up? Can Glasnow get L.A. on track? Key takeaways after Game 3",
+          "link": "https://www.mlb.com/news/key-takeaways-from-brewers-win-over-dodgers-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2591,7 +2601,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.06262778924076591,
+      "heuristicProb": 0.06236613699188305,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -2604,7 +2614,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 0.8640221187753088,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 1.2278959810874706
       },
       "savant": {
@@ -2685,7 +2695,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -2706,224 +2722,6 @@
           "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
-    },
-    {
-      "gamePk": 849810,
-      "playerId": 676439,
-      "name": "Hunter Feduccia",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": null,
-      "heuristicProb": 0.06162390042198387,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "A modest power profile this season, tempered by a 24-game HR drought and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.0705488044386976,
-        "form": 0.874031007751938,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.0,
-        "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Feduccia, Hunter",
-        "player_id": "676439",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "36",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "",
-        "sprint_speed": "35",
-        "oaa": "",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 24
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.625,
-      "marketProb": null,
-      "edge": null,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.62,
-      "projectedTotalBases": 0.92,
-      "hitsReason": "Projected for 0.6 hits, tempered by a below-average hit rate this season.",
-      "tbReason": "Projected for 0.9 total bases.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
-          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
-          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
-          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
-          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849810,
-      "playerId": 518692,
-      "name": "Freddie Freeman",
-      "team": "LAD",
-      "opp": "MIL",
-      "order": null,
-      "heuristicProb": 0.05694868973009716,
-      "confidence": "High",
-      "calibrationApplied": 0.9706,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
-      "factors": {
-        "base": 0.09244727270807462,
-        "form": 0.6,
-        "pitcherVuln": 1.0,
-        "powerQuality": 1.027319893130071,
-        "park": 1.04,
-        "weather": 0.9900544,
-        "handedness": 1.0
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Freeman, Freddie",
-        "player_id": "518692",
-        "year": "2026",
-        "xwoba": "91",
-        "xba": "98",
-        "xslg": "82",
-        "xiso": "61",
-        "xobp": "91",
-        "brl": "71",
-        "brl_percent": "52",
-        "exit_velocity": "54",
-        "max_ev": "64",
-        "hard_hit_percent": "53",
-        "k_percent": "73",
-        "bb_percent": "62",
-        "whiff_percent": "53",
-        "chase_percent": "53",
-        "arm_strength": "14",
-        "sprint_speed": "8",
-        "oaa": "43",
-        "bat_speed": "22",
-        "squared_up_rate": "58",
-        "swing_length": "5"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": null,
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 18
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.792,
-      "marketProb": 0.095,
-      "edge": -0.03805131026990284,
-      "graded": false,
-      "hr": null,
-      "projectedHits": 0.86,
-      "projectedTotalBases": 1.21,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.2 total bases.",
-      "hitsMatchupFactor": 1.0,
-      "tbParkFactor": 1.012,
-      "hitsCalibrationApplied": -0.0158,
-      "tbCalibrationApplied": -0.0288,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": null,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": null,
-      "tbHit": null,
-      "openingProb": 0.11,
-      "priceDelta": -0.015,
-      "marketBid": 0.09,
-      "marketAsk": 0.1,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
-      "recentNews": [
-        {
-          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
-          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
-          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
-          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
-          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
-          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
-          "source": "MLB.com"
-        }
       ]
     },
     {
@@ -2933,7 +2731,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.05548594172104605,
+      "heuristicProb": 0.0552496351455376,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -2946,7 +2744,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 1.3700413080055456,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 1.1838726245505906
       },
       "savant": {
@@ -3019,7 +2817,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3040,11 +2844,7 @@
           "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
     },
     {
       "gamePk": 849818,
@@ -3053,7 +2853,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 6,
-      "heuristicProb": 0.05142523389134522,
+      "heuristicProb": 0.05300508816008037,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -3067,7 +2867,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 0.7614292587377126,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.2063703703703705
       },
       "savant": {
@@ -3109,7 +2909,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.801,
       "marketProb": 0.045,
-      "edge": 0.006425233891345222,
+      "edge": 0.008005088160080373,
       "graded": false,
       "hr": null,
       "projectedHits": 0.94,
@@ -3134,15 +2934,15 @@
       "tbHit": null,
       "openingProb": 0.075,
       "priceDelta": -0.03,
-      "marketBid": 0.04,
-      "marketAsk": 0.05,
+      "marketBid": 0.03,
+      "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3160,7 +2960,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 1,
-      "heuristicProb": 0.05012239090293474,
+      "heuristicProb": 0.05149970857424113,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -3173,7 +2973,7 @@
         "pitcherVuln": 1.0014836795252227,
         "powerQuality": 0.7162434801287145,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.4
       },
       "savant": {
@@ -3202,13 +3002,13 @@
         "swing_length": "1"
       },
       "vsPitcher": {
-        "atBats": 10,
+        "atBats": 4,
         "hits": 0,
         "homeRuns": 0,
         "avg": ".000",
-        "obp": ".091",
+        "obp": ".000",
         "slg": ".000",
-        "ops": ".091"
+        "ops": ".000"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -3223,7 +3023,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.731,
       "marketProb": 0.015,
-      "edge": 0.03512239090293474,
+      "edge": 0.03649970857424113,
       "graded": false,
       "hr": null,
       "projectedHits": 1.12,
@@ -3251,18 +3051,12 @@
       "marketBid": 0.01,
       "marketAsk": 0.02,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
-          "source": "MLB.com"
-        },
-        {
-          "title": "'Whenever you need me': Smith a busy man at back end of Guardians' bullpen",
-          "link": "https://www.mlb.com/news/cade-smith-busy-at-back-end-of-bullpen-for-guardians",
-          "pubDate": "Wed, 14 Oct 2026 21:55:25 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -3274,7 +3068,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 8,
-      "heuristicProb": 0.04326151461148607,
+      "heuristicProb": 0.044657710015189936,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -3288,7 +3082,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 0.7787736151864911,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.1979166666666667
       },
       "savant": {
@@ -3338,7 +3132,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.704,
       "marketProb": 0.045,
-      "edge": -0.0017384853885139273,
+      "edge": -0.00034228998481006245,
       "graded": false,
       "hr": null,
       "projectedHits": 0.75,
@@ -3370,12 +3164,12 @@
       "marketBid": 0.04,
       "marketAsk": 0.05,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3384,11 +3178,131 @@
           "pubDate": "Wed, 14 Oct 2026 15:00:22 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 518692,
+      "name": "Freddie Freeman",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.04367592140154787,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": null,
+      "reason": "An average power profile this season, tempered by cold recent form, a 18-game HR drought, and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.09244727270807462,
+        "form": 0.6,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.027319893130071,
+        "park": 1.04,
+        "weather": 0.9865407999999999,
+        "handedness": 0.9138257575757576
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Freeman, Freddie",
+        "player_id": "518692",
+        "year": "2026",
+        "xwoba": "91",
+        "xba": "98",
+        "xslg": "82",
+        "xiso": "61",
+        "xobp": "91",
+        "brl": "71",
+        "brl_percent": "52",
+        "exit_velocity": "54",
+        "max_ev": "64",
+        "hard_hit_percent": "53",
+        "k_percent": "73",
+        "bb_percent": "62",
+        "whiff_percent": "53",
+        "chase_percent": "53",
+        "arm_strength": "14",
+        "sprint_speed": "8",
+        "oaa": "43",
+        "bat_speed": "22",
+        "squared_up_rate": "58",
+        "swing_length": "5"
+      },
+      "vsPitcher": {
+        "atBats": 4,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".200",
+        "slg": ".000",
+        "ops": ".200"
+      },
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Shane Drohan",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 18
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.792,
+      "marketProb": 0.095,
+      "edge": -0.05132407859845213,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.8,
+      "projectedTotalBases": 1.14,
+      "hitsReason": "Projected for 0.8 hits.",
+      "tbReason": "Projected for 1.1 total bases.",
+      "hitsMatchupFactor": 0.938,
+      "tbParkFactor": 1.012,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "openingProb": 0.11,
+      "priceDelta": -0.015,
+      "marketBid": 0.09,
+      "marketAsk": 0.1,
+      "edgeEligible": true,
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
+      "recentNews": [
+        {
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
+          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
+          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
+          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
+          "source": "MLB.com"
+        }
+      ]
     },
     {
       "gamePk": 849810,
@@ -3397,7 +3311,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.0405900115452606,
+      "heuristicProb": 0.040406569075265596,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -3410,7 +3324,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 1.0,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 1.1162790697674418
       },
       "savant": {
@@ -3479,7 +3393,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3509,7 +3429,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.039124248169357174,
+      "heuristicProb": 0.038985400285475376,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -3520,7 +3440,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 1.0,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 0.8941176470588236
       },
       "savant": {
@@ -3591,7 +3511,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3612,9 +3538,117 @@
           "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksTBOpeningLine": 0.5,
-      "prizePicksTBLineDelta": 0.0
+      ]
+    },
+    {
+      "gamePk": 849810,
+      "playerId": 676439,
+      "name": "Hunter Feduccia",
+      "team": "LAD",
+      "opp": "MIL",
+      "order": null,
+      "heuristicProb": 0.03620280052672623,
+      "confidence": "High",
+      "calibrationApplied": 0.9706,
+      "factorCalibrationApplied": null,
+      "reason": "A modest power profile this season, tempered by a 24-game HR drought and the lineup isn't confirmed yet.",
+      "factors": {
+        "base": 0.0705488044386976,
+        "form": 0.874031007751938,
+        "pitcherVuln": 0.8422459893048128,
+        "powerQuality": 1.0,
+        "park": 1.04,
+        "weather": 0.9865407999999999,
+        "handedness": 0.7
+      },
+      "savant": {
+        "\ufeff\"player_name\"": "Feduccia, Hunter",
+        "player_id": "676439",
+        "year": "2026",
+        "xwoba": "",
+        "xba": "",
+        "xslg": "",
+        "xiso": "",
+        "xobp": "",
+        "brl": "",
+        "brl_percent": "",
+        "exit_velocity": "",
+        "max_ev": "36",
+        "hard_hit_percent": "",
+        "k_percent": "",
+        "bb_percent": "",
+        "whiff_percent": "",
+        "chase_percent": "",
+        "arm_strength": "",
+        "sprint_speed": "35",
+        "oaa": "",
+        "bat_speed": "",
+        "squared_up_rate": "",
+        "swing_length": ""
+      },
+      "vsPitcher": null,
+      "vsTeamTrend": null,
+      "vsPitcherTrend": null,
+      "oppPitcherName": "Shane Drohan",
+      "veloTrend": null,
+      "streak": {
+        "type": "cold",
+        "games": 24
+      },
+      "trendL5OPS": null,
+      "trendL7OPS": null,
+      "trendL10OPS": null,
+      "seasonOPS": 0.625,
+      "marketProb": null,
+      "edge": null,
+      "graded": false,
+      "hr": null,
+      "projectedHits": 0.53,
+      "projectedTotalBases": 0.78,
+      "hitsReason": "Projected for 0.5 hits, tempered by a below-average hit rate this season and a tough platoon matchup.",
+      "tbReason": "Projected for 0.8 total bases.",
+      "hitsMatchupFactor": 0.85,
+      "tbParkFactor": 1.012,
+      "hitsCalibrationApplied": -0.0158,
+      "tbCalibrationApplied": -0.0288,
+      "predictionHitsLine": null,
+      "hitsMarketThreshold": null,
+      "hitsModelProb": null,
+      "hitsCall": null,
+      "actualHits": null,
+      "hitsHit": null,
+      "predictionTBLine": null,
+      "tbMarketThreshold": null,
+      "tbModelProb": null,
+      "tbCall": null,
+      "actualTotalBases": null,
+      "tbHit": null,
+      "recentNews": [
+        {
+          "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
+          "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "How Dodgers pitching would line up to make historic 3-0 comeback",
+          "link": "https://www.mlb.com/news/how-dodgers-pitching-would-line-up-to-make-3-0-comeback",
+          "pubDate": "Thu, 15 Oct 2026 15:34:10 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Bauers refuses to give up \u2013 not on his career, not against a pair of Dodgers aces",
+          "link": "https://www.mlb.com/news/jake-bauers-hits-go-ahead-hr-off-blake-snell-in-11-pitch-at-bat-in-nlcs-game-3",
+          "pubDate": "Thu, 15 Oct 2026 06:26:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Slumping Smith, Shohei give Dodgers big ABs from bottom of order",
+          "link": "https://www.mlb.com/news/will-smith-shohei-ohtani-provide-spark-after-being-moved-down-in-lineup",
+          "pubDate": "Thu, 15 Oct 2026 06:14:18 GMT",
+          "source": "MLB.com"
+        }
+      ]
     },
     {
       "gamePk": 849810,
@@ -3623,7 +3657,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.03480996794631456,
+      "heuristicProb": 0.034686430993823694,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -3634,7 +3668,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 0.7664008972521287,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 0.9486940298507462
       },
       "savant": {
@@ -3699,11 +3733,19 @@
       "tbCall": null,
       "actualTotalBases": null,
       "tbHit": null,
+      "hitsCallFrozenAt": "2026-10-15T17:40:19.649480",
+      "prizePicksHitsLine": 0.5,
       "recentNews": [
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3724,11 +3766,7 @@
           "pubDate": "Thu, 15 Oct 2026 04:20:11 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksHitsOpeningLine": 0.5,
-      "prizePicksHitsLineDelta": 0.0,
-      "prizePicksHitsLine": 0.5,
-      "hitsCallFrozenAt": "2026-10-15T17:40:19.649480"
+      ]
     },
     {
       "gamePk": 849810,
@@ -3737,7 +3775,7 @@
       "team": "MIL",
       "opp": "LAD",
       "order": null,
-      "heuristicProb": 0.03449083826634591,
+      "heuristicProb": 0.034368433871867554,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": null,
@@ -3748,7 +3786,7 @@
         "pitcherVuln": 0.7094594594594595,
         "powerQuality": 0.7390019171525793,
         "park": 1.04,
-        "weather": 0.9900544,
+        "weather": 0.9865407999999999,
         "handedness": 1.0129482071713147
       },
       "savant": {
@@ -3776,7 +3814,15 @@
         "squared_up_rate": "",
         "swing_length": ""
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 5,
+        "hits": 0,
+        "homeRuns": 0,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Tyler Glasnow",
@@ -3819,7 +3865,13 @@
         {
           "title": "Brewers-Dodgers NLCS Game 4 FAQ (8 ET, FS1/FOX One)",
           "link": "https://www.mlb.com/news/brewers-dodgers-nl-championship-series-game-4-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 07:07:21 GMT",
+          "pubDate": "Thu, 15 Oct 2026 18:02:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Brewers are winning with the opposite of small ball",
+          "link": "https://www.mlb.com/news/brewers-not-playing-small-ball-in-2026-postseason",
+          "pubDate": "Thu, 15 Oct 2026 15:48:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3849,7 +3901,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 9,
-      "heuristicProb": 0.028700233556380114,
+      "heuristicProb": 0.0295191281499671,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -3862,7 +3914,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 0.7301370606473478,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 0.7817796610169492
       },
       "savant": {
@@ -3912,7 +3964,7 @@
       "trendL10OPS": null,
       "seasonOPS": 0.607,
       "marketProb": 0.03,
-      "edge": -0.0012997664436198847,
+      "edge": -0.000480871850032899,
       "graded": false,
       "hr": null,
       "projectedHits": 0.72,
@@ -3940,12 +3992,12 @@
       "marketBid": 0.02,
       "marketAsk": 0.04,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -3963,7 +4015,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 5,
-      "heuristicProb": 0.02364434302760341,
+      "heuristicProb": 0.02434949545485593,
       "confidence": "High",
       "calibrationApplied": 0.9706,
       "factorCalibrationApplied": {
@@ -3976,7 +4028,7 @@
         "pitcherVuln": 1.139240506329114,
         "powerQuality": 0.7154057676916402,
         "park": 0.98,
-        "weather": 1.0081148800000002,
+        "weather": 1.0307944,
         "handedness": 1.0
       },
       "savant": {
@@ -4025,8 +4077,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.689,
-      "marketProb": 0.015,
-      "edge": 0.008644343027603411,
+      "marketProb": 0.05,
+      "edge": -0.025650504545144073,
       "graded": false,
       "hr": null,
       "projectedHits": 1.21,
@@ -4050,16 +4102,16 @@
       "actualTotalBases": null,
       "tbHit": null,
       "openingProb": 0.02,
-      "priceDelta": -0.005000000000000001,
-      "marketBid": 0.01,
-      "marketAsk": 0.02,
+      "priceDelta": 0.030000000000000002,
+      "marketBid": 0.02,
+      "marketAsk": 0.08,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-15T18:00:22.921984",
+      "oddsUpdatedAt": "2026-10-15T18:08:33.565818",
       "recentNews": [
         {
-          "title": "Rays-Guardians ALCS Game 3 FAQ, lineups (1 ET, TBS/HBO Max)",
+          "title": "Rays-Guardians ALCS Game 3 (LIVE on TBS/HBO Max)",
           "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-3-starting-lineups-and-pitching-matchup",
-          "pubDate": "Thu, 15 Oct 2026 14:12:00 GMT",
+          "pubDate": "Thu, 15 Oct 2026 16:32:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -4072,11 +4124,11 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-15T18:00:22.921984",
+  "oddsRefreshedAt": "2026-10-15T18:08:33.565818",
   "statcastSpotlight": {
     "name": "Junior Caminero",
     "team": "TB",
-    "heuristicProb": 0.19681083575327168,
+    "heuristicProb": 0.20141170781825202,
     "exitVelo": 114.3,
     "launchAngle": 19.0,
     "distance": 449.0,
@@ -4092,7 +4144,7 @@
     "usedFallback": true,
     "batter": {
       "name": "Jackson Chourio",
-      "heuristicProb": 0.1174822246064373
+      "heuristicProb": 0.1170652924213198
     },
     "batterKind": "hrThreat"
   },
