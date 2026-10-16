@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "generatedAt": "2026-10-16T11:07:49.047027",
+  "generatedAt": "2026-10-16T15:08:10.645767",
   "entries": [
     {
       "gamePk": 849817,
@@ -38,7 +38,7 @@
       "projectedK": 3.3063965109035744,
       "confidence": "High",
       "reason": "Below-average strikeout stuff this season, boosted by trending up in recent starts and cold weather likely suppressing hard contact; tempered by below-average swing-and-miss stuff.",
-      "calibrationApplied": -0.1532,
+      "calibrationApplied": -0.1578,
       "recentStartsLog": [
         {
           "k": 3,
@@ -250,7 +250,7 @@
       "kBBPct": 11.495844875346261,
       "rollingKBBPct": 15.254237288135593,
       "parkFactor": 0.98,
-      "weatherFactor": 1.02445,
+      "weatherFactor": 1.02355,
       "outsCalibrationApplied": -0.5057,
       "bullpenFatigue": null,
       "outsMarketThreshold": 12,
@@ -259,13 +259,17 @@
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
-      "openingProb": 0.445,
+      "openingProb": 0.45999999999999996,
+      "prizePicksOutsOpeningLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-16T14:30:19.499619",
+      "prizePicksOutsLine": 11.5,
       "openingThreshold": 3,
-      "priceDelta": 0.014999999999999958,
+      "priceDelta": 0.0,
       "marketBid": 0.45,
       "marketAsk": 0.47,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-16T15:00:22.787440",
+      "oddsUpdatedAt": "2026-10-16T15:08:39.674052",
       "recentNews": [
         {
           "title": "ALCS Game 4 storylines as Rays, Guards bid to face Brewers in Fall Classic",
@@ -276,7 +280,7 @@
         {
           "title": "Rays-Guardians ALCS Game 4 lineups, FAQ (8 ET, TBS/HBO Max)",
           "link": "https://www.mlb.com/news/when-is-rays-vs-guardians-alcs-game-4-date-time-and-lineups",
-          "pubDate": "Fri, 16 Oct 2026 06:55:00 GMT",
+          "pubDate": "Fri, 16 Oct 2026 14:38:00 GMT",
           "source": "MLB.com"
         },
         {
@@ -285,34 +289,126 @@
           "pubDate": "Thu, 15 Oct 2026 22:42:03 GMT",
           "source": "MLB.com"
         }
+      ]
+    },
+    {
+      "gamePk": 849817,
+      "playerId": 542888,
+      "name": "Shawn Armstrong",
+      "team": "CLE",
+      "opp": "TB",
+      "oppTeamId": 139,
+      "vsTeamTrend": null,
+      "vsBatterTrend": {
+        "atBats": 8,
+        "hits": 5,
+        "homeRuns": 1,
+        "avg": ".625",
+        "ops": "1.750",
+        "direction": "batter",
+        "timeframe": "career",
+        "batterName": "Cedric Mullins"
+      },
+      "firstMeetingThisSeason": false,
+      "hand": "R",
+      "seasonRecord": "2-1",
+      "era": "4.58",
+      "seasonK9": 8.586734693877549,
+      "recentK9": 7.262448979591836,
+      "oppK": 18.75204716672126,
+      "matchupFactor": 0.945611304326261,
+      "stuffFactor": 1.0,
+      "recentMatchupApplied": {
+        "factor": 1.049,
+        "gamesFound": 30,
+        "vsHand": "R"
+      },
+      "expectedIP": 3.5,
+      "projectedK": 2.927836181725303,
+      "confidence": "High",
+      "reason": "Strong strikeout stuff this season, boosted by cold weather likely suppressing hard contact; tempered by trending down in recent starts and a short-outing workload expectation.",
+      "calibrationApplied": -0.1578,
+      "recentStartsLog": [
+        {
+          "k": 0,
+          "ip": 0.3333333333333333,
+          "bb": 0,
+          "battersFaced": 1.0
+        },
+        {
+          "k": 0,
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 4.0
+        },
+        {
+          "k": 1,
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 3.0
+        }
       ],
-      "prizePicksOutsOpeningLine": 11.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 11.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-16T14:30:19.499619",
-      "conditionalOutsHitRateBreakdown": [
+      "veloTrend": null,
+      "qualifyingStartsKByThreshold": {
+        "60": [],
+        "70": [],
+        "80": []
+      },
+      "qualifyingStartsOutsByThreshold": {
+        "60": [],
+        "70": [],
+        "80": []
+      },
+      "babipAgainst": 0.2765957446808511,
+      "workloadStreak": 0,
+      "mostRecentPitchCount": 11.0,
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "predictionLine": null,
+      "predictionOutsLine": null,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "projectedOuts": 8.5,
+      "outsReason": "Projected for 8.5 outs (3.5 innings), tempered by a shorter historical leash (15 pitches/game this season), a short-outing workload pattern (3.5 IP/start), and a walk rate that tends to spike pitch counts (12.3% BB).",
+      "npPerGame": 15.317073170731707,
+      "pitchesPerIP": 17.773584905660375,
+      "bbPct": 12.337662337662337,
+      "kBBPct": 9.740259740259742,
+      "rollingKBBPct": 12.5,
+      "parkFactor": 0.98,
+      "weatherFactor": 1.02355,
+      "outsCalibrationApplied": -0.5057,
+      "bullpenFatigue": null,
+      "outsMarketThreshold": null,
+      "outsMarketProb": null,
+      "outsModelProb": null,
+      "outsEdge": null,
+      "actualOuts": null,
+      "outsHit": null,
+      "recentNews": [
         {
-          "minPitches": "60",
-          "hits": 28,
-          "total": 29
+          "title": "Go-ahead HR from unlikely source flips ALCS back in Guardians\u2019 favor",
+          "link": "https://www.mlb.com/news/guardians-win-alcs-game-3-2026",
+          "pubDate": "Thu, 15 Oct 2026 21:14:00 GMT",
+          "source": "MLB.com"
         },
         {
-          "minPitches": "70",
-          "hits": 27,
-          "total": 28
-        },
-        {
-          "minPitches": "80",
-          "hits": 19,
-          "total": 20
+          "title": "Rays-Guardians ALCS Game 4 lineups, FAQ (8 ET, TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/when-is-rays-vs-guardians-alcs-game-4-date-time-and-lineups",
+          "pubDate": "Fri, 16 Oct 2026 14:38:00 GMT",
+          "source": "MLB.com"
         }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-16T11:07:49.047027",
-  "oddsRefreshedAt": "2026-10-16T15:00:22.787440",
+  "oddsRefreshedAt": "2026-10-16T15:08:39.674052",
+  "_kalshiMatched": 1,
+  "_kalshiTotal": 2,
   "lockedBest5": {
     "kEdge": [
       {
