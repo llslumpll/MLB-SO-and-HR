@@ -238,7 +238,7 @@
       "modelProb": 0.644972551110216,
       "edge": 0.22497255111021602,
       "predictionLine": null,
-      "predictionOutsLine": null,
+      "predictionOutsLine": 11.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -253,9 +253,9 @@
       "weatherFactor": 1.0366,
       "outsCalibrationApplied": -0.5057,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 12,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.702630413230837,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -265,7 +265,7 @@
       "marketBid": 0.36,
       "marketAsk": 0.48,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-17T17:20:18.488897",
+      "oddsUpdatedAt": "2026-10-17T17:30:23.023803",
       "recentNews": [
         {
           "title": "Postponement gives Rays options, but they're sticking with Martinez for G4",
@@ -278,6 +278,28 @@
           "link": "https://www.mlb.com/news/when-is-rays-vs-guardians-alcs-game-4-date-time-and-lineups",
           "pubDate": "Sat, 17 Oct 2026 14:25:00 GMT",
           "source": "MLB.com"
+        }
+      ],
+      "prizePicksOutsOpeningLine": 11.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.5,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-17T17:30:23.023971",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 28,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 27,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 19,
+          "total": 20
         }
       ]
     },
@@ -396,7 +418,7 @@
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-17T11:07:56.590534",
-  "oddsRefreshedAt": "2026-10-17T17:20:18.488897",
+  "oddsRefreshedAt": "2026-10-17T17:30:23.023803",
   "lockedBest5": {
     "kEdge": [
       {
