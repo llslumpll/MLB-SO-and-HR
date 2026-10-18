@@ -263,11 +263,11 @@
       "babipAgainst": 0.27442827442827444,
       "workloadStreak": 32,
       "mostRecentPitchCount": 64.0,
-      "marketThreshold": null,
+      "marketThreshold": 5,
       "marketProb": null,
-      "modelProb": null,
+      "modelProb": 0.6202281254601896,
       "edge": null,
-      "predictionLine": null,
+      "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": true,
       "actualK": null,
@@ -308,7 +308,35 @@
           "pubDate": "Sun, 18 Oct 2026 06:30:12 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksOpeningLine": 4.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 4.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-18T11:10:19.967792",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 24,
+          "total": 32
+        },
+        {
+          "minPitches": "70",
+          "hits": 24,
+          "total": 31
+        },
+        {
+          "minPitches": "80",
+          "hits": 22,
+          "total": 29
+        }
+      ],
+      "openingProb": null,
+      "openingThreshold": null,
+      "priceDelta": null,
+      "marketBid": null,
+      "marketAsk": null,
+      "edgeEligible": false
     },
     {
       "gamePk": 849817,
@@ -549,11 +577,11 @@
       "babipAgainst": 0.251131221719457,
       "workloadStreak": 30,
       "mostRecentPitchCount": 114.0,
-      "marketThreshold": null,
+      "marketThreshold": 6,
       "marketProb": null,
-      "modelProb": null,
+      "modelProb": 0.49612527648696964,
       "edge": null,
-      "predictionLine": null,
+      "predictionLine": 5.5,
       "predictionOutsLine": null,
       "graded": true,
       "actualK": null,
@@ -612,14 +640,40 @@
           "pubDate": "Sun, 18 Oct 2026 06:30:12 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksOpeningLine": 5.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 5.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-18T11:10:19.967942",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 15,
+          "total": 30
+        },
+        {
+          "minPitches": "70",
+          "hits": 15,
+          "total": 28
+        },
+        {
+          "minPitches": "80",
+          "hits": 14,
+          "total": 23
+        }
+      ],
+      "openingProb": null,
+      "openingThreshold": null,
+      "priceDelta": null,
+      "marketBid": null,
+      "marketAsk": null,
+      "edgeEligible": false
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-18T11:08:07.329395",
-  "oddsRefreshedAt": "2026-10-18T11:08:45.394706",
-  "_kalshiMatched": 0,
-  "_kalshiTotal": 2,
+  "oddsRefreshedAt": "2026-10-18T11:10:19.967547",
   "lockedBest5": {
     "kEdge": [],
     "kProb": [
