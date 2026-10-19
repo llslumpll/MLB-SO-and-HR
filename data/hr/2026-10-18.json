@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "generatedAt": "2026-10-19T00:09:40.067221",
+  "generatedAt": "2026-10-18T22:07:39.416075",
   "entries": [
     {
       "gamePk": 849817,
@@ -9,7 +9,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 3,
-      "heuristicProb": 0.11034322035947189,
+      "heuristicProb": 0.11173092843161475,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": {
@@ -22,7 +22,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.099700193776998,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.2150679758308156
       },
       "savant": {
@@ -78,8 +78,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.82,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.06,
+      "edge": 0.05173092843161475,
       "graded": true,
       "hr": false,
       "projectedHits": 0.92,
@@ -88,8 +88,8 @@
       "tbReason": "Projected for 1.5 total bases.",
       "hitsMatchupFactor": 0.969,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -103,7 +103,18 @@
       "actualTotalBases": 1,
       "tbHit": null,
       "openingProb": 0.09,
+      "priceDelta": -0.03,
+      "marketBid": 0.0,
+      "marketAsk": 0.06,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
@@ -119,7 +130,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 7,
-      "heuristicProb": 0.108679533673882,
+      "heuristicProb": 0.10992241700687073,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -130,7 +141,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0694375009512769,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.0608365019011408
       },
       "savant": {
@@ -171,8 +182,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.607,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.15,
+      "edge": -0.04007758299312926,
       "graded": true,
       "hr": false,
       "projectedHits": 0.76,
@@ -181,8 +192,8 @@
       "tbReason": "Projected for 1.3 total bases.",
       "hitsMatchupFactor": 1.034,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5203205544088735,
@@ -200,114 +211,29 @@
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-10-18T11:10:19.964657",
       "prizePicksTBLine": 0.5,
+      "priceDelta": 0.065,
+      "marketBid": 0.0,
+      "marketAsk": 0.15,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
           "pubDate": "Sun, 18 Oct 2026 05:35:12 GMT",
           "source": "MLB.com"
         }
-      ]
-    },
-    {
-      "gamePk": 849817,
-      "playerId": 682657,
-      "name": "Angel Mart\u00ednez",
-      "team": "CLE",
-      "opp": "TB",
-      "order": 8,
-      "heuristicProb": 0.09554473143594462,
-      "confidence": "High",
-      "calibrationApplied": 0.9701,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, boosted by hot recent form; tempered by a stingy opposing pitcher.",
-      "factors": {
-        "base": 0.13119239127786764,
-        "form": 1.2904208722148165,
-        "pitcherVuln": 0.7,
-        "powerQuality": 0.9065509694736653,
-        "park": 0.98,
-        "weather": 0.960182784,
-        "handedness": 0.9742714025500911
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Mart\u00ednez, Angel",
-        "player_id": "682657",
-        "year": "2026",
-        "xwoba": "21",
-        "xba": "56",
-        "xslg": "52",
-        "xiso": "44",
-        "xobp": "8",
-        "brl": "36",
-        "brl_percent": "43",
-        "exit_velocity": "24",
-        "max_ev": "60",
-        "hard_hit_percent": "26",
-        "k_percent": "47",
-        "bb_percent": "1",
-        "whiff_percent": "73",
-        "chase_percent": "3",
-        "arm_strength": "89",
-        "sprint_speed": "55",
-        "oaa": "31",
-        "bat_speed": "38",
-        "squared_up_rate": "40",
-        "swing_length": "50"
-      },
-      "vsPitcher": {
-        "atBats": 8,
-        "hits": 0,
-        "homeRuns": 0,
-        "avg": ".000",
-        "obp": ".000",
-        "slg": ".000",
-        "ops": ".000"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Drew Rasmussen",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 3
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.755,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": false,
-      "projectedHits": 0.85,
-      "projectedTotalBases": 1.6,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
-      "hitsMatchupFactor": 0.951,
-      "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 0,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 0,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Guardians just one part of huge weekend for Ohio sports",
-          "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
-          "pubDate": "Sun, 18 Oct 2026 05:35:12 GMT",
-          "source": "MLB.com"
-        }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 849817,
@@ -316,7 +242,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 4,
-      "heuristicProb": 0.08228925980040354,
+      "heuristicProb": 0.08323033808839843,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -327,7 +253,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.410307261643091,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.7473460721868366
       },
       "savant": {
@@ -376,8 +302,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.884,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.07323033808839843,
       "graded": true,
       "hr": false,
       "projectedHits": 1.0,
@@ -386,26 +312,67 @@
       "tbReason": "Projected for 1.8 total bases.",
       "hitsMatchupFactor": 1.019,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
       "hitsCall": null,
-      "actualHits": 1,
+      "actualHits": 0,
       "hitsHit": null,
       "predictionTBLine": null,
       "tbMarketThreshold": null,
       "tbModelProb": null,
       "tbCall": null,
-      "actualTotalBases": 1,
+      "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.155,
+      "priceDelta": -0.145,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "Halpin's latest playoff moment? Tracking Caminero's 'funky' blast with wild circus catch",
+          "link": "https://www.mlb.com/news/petey-halpin-crazy-catch-guardians-alcs-game-4-loss-rays",
+          "pubDate": "Sun, 18 Oct 2026 05:20:32 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -417,7 +384,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 8,
-      "heuristicProb": 0.07498712611365338,
+      "heuristicProb": 0.0758446955757662,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -428,7 +395,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.9888888888888889
       },
       "savant": {
@@ -469,8 +436,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.594,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.06584469557576621,
       "graded": true,
       "hr": false,
       "projectedHits": 0.9,
@@ -479,8 +446,8 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 1.077,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.6005626452747483,
@@ -498,7 +465,24 @@
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-10-18T11:10:19.964762",
       "prizePicksTBLine": 0.5,
+      "priceDelta": -0.05,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "Halpin's latest playoff moment? Tracking Caminero's 'funky' blast with wild circus catch",
+          "link": "https://www.mlb.com/news/petey-halpin-crazy-catch-guardians-alcs-game-4-loss-rays",
+          "pubDate": "Sun, 18 Oct 2026 05:20:32 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
@@ -514,7 +498,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 2,
-      "heuristicProb": 0.06460366767814156,
+      "heuristicProb": 0.06534248959881751,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -525,7 +509,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.2442819362152187,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.7
       },
       "savant": {
@@ -574,8 +558,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.792,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.25,
+      "edge": -0.1846575104011825,
       "graded": true,
       "hr": false,
       "projectedHits": 0.93,
@@ -584,26 +568,61 @@
       "tbReason": "Projected for 1.5 total bases.",
       "hitsMatchupFactor": 0.956,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
       "hitsCall": null,
-      "actualHits": 2,
+      "actualHits": 1,
       "hitsHit": null,
       "predictionTBLine": null,
       "tbMarketThreshold": null,
       "tbModelProb": null,
       "tbCall": null,
-      "actualTotalBases": 2,
+      "actualTotalBases": 1,
       "tbHit": null,
       "openingProb": 0.08,
+      "priceDelta": 0.16999999999999998,
+      "marketBid": 0.0,
+      "marketAsk": 0.25,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -615,7 +634,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 9,
-      "heuristicProb": 0.06312240737605024,
+      "heuristicProb": 0.06384428927426704,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -626,7 +645,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7729832032396433,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.0084985835694051
       },
       "savant": {
@@ -675,8 +694,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.704,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.14,
+      "edge": -0.07615571072573298,
       "graded": true,
       "hr": false,
       "projectedHits": 0.92,
@@ -685,8 +704,8 @@
       "tbReason": "Projected for 1.5 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 1.038,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.6073621704679921,
@@ -704,14 +723,29 @@
       "prizePicksHitsLine": 0.5,
       "tbCallFrozenAt": "2026-10-18T11:10:19.964863",
       "prizePicksTBLine": 0.5,
+      "priceDelta": 0.07500000000000001,
+      "marketBid": 0.0,
+      "marketAsk": 0.14,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
           "pubDate": "Sun, 18 Oct 2026 05:35:12 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 849817,
@@ -720,7 +754,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 1,
-      "heuristicProb": 0.061689280097296184,
+      "heuristicProb": 0.06252057088099588,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": {
@@ -733,7 +767,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.138739141533636,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.2543411644535238
       },
       "savant": {
@@ -762,13 +796,13 @@
         "swing_length": "69"
       },
       "vsPitcher": {
-        "atBats": 11,
+        "atBats": 6,
         "hits": 3,
         "homeRuns": 0,
-        "avg": ".273",
-        "obp": ".385",
-        "slg": ".364",
-        "ops": ".749"
+        "avg": ".500",
+        "obp": ".500",
+        "slg": ".667",
+        "ops": "1.167"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -782,8 +816,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.805,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.05252057088099588,
       "graded": true,
       "hr": false,
       "projectedHits": 0.95,
@@ -792,26 +826,61 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 0.95,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
       "hitsCall": null,
-      "actualHits": 3,
+      "actualHits": 2,
       "hitsHit": null,
       "predictionTBLine": null,
       "tbMarketThreshold": null,
       "tbModelProb": null,
       "tbCall": null,
-      "actualTotalBases": 4,
+      "actualTotalBases": 3,
       "tbHit": null,
       "openingProb": 0.12,
+      "priceDelta": -0.11,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -823,7 +892,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 6,
-      "heuristicProb": 0.06131025196234463,
+      "heuristicProb": 0.062137208095942864,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": {
@@ -836,7 +905,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.8637646606975273,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.284268426842684
       },
       "savant": {
@@ -885,8 +954,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.743,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.05213720809594286,
       "graded": true,
       "hr": false,
       "projectedHits": 0.81,
@@ -895,8 +964,8 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 1.059,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -910,7 +979,18 @@
       "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.085,
+      "priceDelta": -0.07500000000000001,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
@@ -926,7 +1006,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 3,
-      "heuristicProb": 0.05461165936450484,
+      "heuristicProb": 0.05523621045445227,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -937,7 +1017,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.032510535821794
       },
       "savant": {
@@ -993,8 +1073,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.75,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.045236210454452266,
       "graded": true,
       "hr": false,
       "projectedHits": 0.83,
@@ -1003,8 +1083,8 @@
       "tbReason": "Projected for 1.3 total bases.",
       "hitsMatchupFactor": 1.054,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1020,11 +1100,46 @@
       "openingProb": 0.075,
       "tbCallFrozenAt": "2026-10-18T11:10:19.964964",
       "prizePicksTBLine": 0.5,
+      "priceDelta": -0.065,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1036,7 +1151,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 5,
-      "heuristicProb": 0.05348430434203558,
+      "heuristicProb": 0.05422176119703631,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": {
@@ -1049,7 +1164,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0412108677509888,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.1339285714285714
       },
       "savant": {
@@ -1090,8 +1205,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.761,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.04422176119703631,
       "graded": true,
       "hr": false,
       "projectedHits": 0.92,
@@ -1100,29 +1215,48 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 1.037,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 1,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.5895366500511332,
+      "hitsCall": "OVER",
+      "actualHits": 0,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 1,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6921293243063529,
+      "tbCall": "OVER",
+      "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.095,
+      "priceDelta": -0.085,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
           "pubDate": "Sun, 18 Oct 2026 05:35:12 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-19T00:11:02.814257",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-19T00:11:02.814479"
     },
     {
       "gamePk": 849817,
@@ -1131,7 +1265,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 4,
-      "heuristicProb": 0.05301754856154252,
+      "heuristicProb": 0.053623869045588704,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -1142,7 +1276,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.165873696069288,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.7
       },
       "savant": {
@@ -1191,8 +1325,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.699,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.05,
+      "edge": 0.0036238690455887013,
       "graded": true,
       "hr": false,
       "projectedHits": 0.85,
@@ -1201,8 +1335,8 @@
       "tbReason": "Projected for 1.3 total bases.",
       "hitsMatchupFactor": 0.934,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1216,7 +1350,18 @@
       "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.095,
+      "priceDelta": -0.045,
+      "marketBid": 0.0,
+      "marketAsk": 0.05,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
@@ -1232,7 +1377,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 6,
-      "heuristicProb": 0.0502884881394924,
+      "heuristicProb": 0.0508635984812181,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -1243,7 +1388,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7783991097054905,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.7
       },
       "savant": {
@@ -1292,8 +1437,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.729,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.15,
+      "edge": -0.09913640151878189,
       "graded": true,
       "hr": false,
       "projectedHits": 0.94,
@@ -1302,8 +1447,8 @@
       "tbReason": "Projected for 1.6 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 0.996,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1317,11 +1462,46 @@
       "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.060000000000000005,
+      "priceDelta": 0.09,
+      "marketBid": 0.0,
+      "marketAsk": 0.15,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1333,7 +1513,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 2,
-      "heuristicProb": 0.05019893555594348,
+      "heuristicProb": 0.0507730217543944,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -1344,7 +1524,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.8705200044494256,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.8361111111111111
       },
       "savant": {
@@ -1372,7 +1552,15 @@
         "squared_up_rate": "79",
         "swing_length": "30"
       },
-      "vsPitcher": null,
+      "vsPitcher": {
+        "atBats": 11,
+        "hits": 1,
+        "homeRuns": 0,
+        "avg": ".091",
+        "obp": ".091",
+        "slg": ".091",
+        "ops": ".182"
+      },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
       "oppPitcherName": "Drew Rasmussen",
@@ -1385,8 +1573,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.688,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.0407730217543944,
       "graded": true,
       "hr": false,
       "projectedHits": 0.94,
@@ -1395,310 +1583,37 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 0.952,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
       "hitsCall": null,
-      "actualHits": 1,
+      "actualHits": 0,
       "hitsHit": null,
       "predictionTBLine": null,
       "tbMarketThreshold": null,
       "tbModelProb": null,
       "tbCall": null,
-      "actualTotalBases": 1,
+      "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.11499999999999999,
+      "priceDelta": -0.105,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
           "pubDate": "Sun, 18 Oct 2026 05:35:12 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849817,
-      "playerId": 656775,
-      "name": "Cedric Mullins",
-      "team": "TB",
-      "opp": "CLE",
-      "order": 1,
-      "heuristicProb": 0.04967175104352186,
-      "confidence": "High",
-      "calibrationApplied": 0.9701,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by a stingy opposing pitcher, below-average quality of contact, and a tough platoon matchup.",
-      "factors": {
-        "base": 0.1254340252942322,
-        "form": 1.0621611398310429,
-        "pitcherVuln": 0.7,
-        "powerQuality": 0.8335106000846805,
-        "park": 0.98,
-        "weather": 0.960182784,
-        "handedness": 0.7
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Mullins, Cedric",
-        "player_id": "656775",
-        "year": "2026",
-        "xwoba": "2",
-        "xba": "1",
-        "xslg": "3",
-        "xiso": "23",
-        "xobp": "2",
-        "brl": "17",
-        "brl_percent": "19",
-        "exit_velocity": "32",
-        "max_ev": "65",
-        "hard_hit_percent": "19",
-        "k_percent": "63",
-        "bb_percent": "44",
-        "whiff_percent": "62",
-        "chase_percent": "39",
-        "arm_strength": "40",
-        "sprint_speed": "62",
-        "oaa": "96",
-        "bat_speed": "32",
-        "squared_up_rate": "53",
-        "swing_length": "50"
-      },
-      "vsPitcher": {
-        "atBats": 3,
-        "hits": 1,
-        "homeRuns": 0,
-        "avg": ".333",
-        "obp": ".333",
-        "slg": ".333",
-        "ops": ".666"
-      },
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Parker Messick",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 3
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.628,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": false,
-      "projectedHits": 0.87,
-      "projectedTotalBases": 1.4,
-      "hitsReason": "Projected for 0.9 hits.",
-      "tbReason": "Projected for 1.4 total bases.",
-      "hitsMatchupFactor": 0.997,
-      "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 0,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 0,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849817,
-      "playerId": 683748,
-      "name": "Victor Mesa Jr.",
-      "team": "TB",
-      "opp": "CLE",
-      "order": 3,
-      "heuristicProb": 0.0489775870377444,
-      "confidence": "High",
-      "calibrationApplied": 0.9701,
-      "factorCalibrationApplied": null,
-      "reason": "Strong power profile this season, tempered by cold recent form, a stingy opposing pitcher, and a tough platoon matchup.",
-      "factors": {
-        "base": 0.16645855308025315,
-        "form": 0.6578073089700996,
-        "pitcherVuln": 0.7,
-        "powerQuality": 1.0,
-        "park": 0.98,
-        "weather": 0.960182784,
-        "handedness": 0.7
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Mesa Jr., Victor",
-        "player_id": "683748",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "65",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "94",
-        "sprint_speed": "65",
-        "oaa": "93",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Parker Messick",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 5
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.825,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": false,
-      "projectedHits": 1.1,
-      "projectedTotalBases": 1.9,
-      "hitsReason": "Projected for 1.1 hits, supported by a favorable platoon matchup.",
-      "tbReason": "Projected for 1.9 total bases.",
-      "hitsMatchupFactor": 1.142,
-      "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 0,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 0,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
-          "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849817,
-      "playerId": 622761,
-      "name": "Jorge Mateo",
-      "team": "TB",
-      "opp": "CLE",
-      "order": 4,
-      "heuristicProb": 0.04815447008369492,
-      "confidence": "High",
-      "calibrationApplied": 0.9701,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, and a 25-game HR drought.",
-      "factors": {
-        "base": 0.10156621207740646,
-        "form": 0.7616955285603515,
-        "pitcherVuln": 0.7,
-        "powerQuality": 1.0,
-        "park": 0.98,
-        "weather": 0.960182784,
-        "handedness": 0.9741176470588235
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Mateo, Jorge",
-        "player_id": "622761",
-        "year": "2026",
-        "xwoba": "",
-        "xba": "",
-        "xslg": "",
-        "xiso": "",
-        "xobp": "",
-        "brl": "",
-        "brl_percent": "",
-        "exit_velocity": "",
-        "max_ev": "81",
-        "hard_hit_percent": "",
-        "k_percent": "",
-        "bb_percent": "",
-        "whiff_percent": "",
-        "chase_percent": "",
-        "arm_strength": "67",
-        "sprint_speed": "99",
-        "oaa": "33",
-        "bat_speed": "",
-        "squared_up_rate": "",
-        "swing_length": ""
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Parker Messick",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 25
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.559,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": false,
-      "projectedHits": 0.81,
-      "projectedTotalBases": 1.22,
-      "hitsReason": "Projected for 0.8 hits.",
-      "tbReason": "Projected for 1.2 total bases.",
-      "hitsMatchupFactor": 0.993,
-      "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 0,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 0,
-      "tbHit": null,
-      "recentNews": [
-        {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1710,7 +1625,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 8,
-      "heuristicProb": 0.03898291111121449,
+      "heuristicProb": 0.039428728358065206,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -1721,7 +1636,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 1.0,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.7
       },
       "savant": {
@@ -1770,8 +1685,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.62,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.02,
+      "edge": 0.019428728358065205,
       "graded": true,
       "hr": false,
       "projectedHits": 0.67,
@@ -1780,8 +1695,8 @@
       "tbReason": "Projected for 1.0 total bases.",
       "hitsMatchupFactor": 0.971,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -1795,11 +1710,46 @@
       "actualTotalBases": 1,
       "tbHit": null,
       "openingProb": 0.05,
+      "priceDelta": -0.030000000000000002,
+      "marketBid": 0.0,
+      "marketAsk": 0.02,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -1811,7 +1761,7 @@
       "team": "CLE",
       "opp": "TB",
       "order": 1,
-      "heuristicProb": 0.029736579217167717,
+      "heuristicProb": 0.03020245180274508,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": {
@@ -1824,7 +1774,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7162434801287145,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.4
       },
       "savant": {
@@ -1853,13 +1803,13 @@
         "swing_length": "1"
       },
       "vsPitcher": {
-        "atBats": 11,
-        "hits": 4,
+        "atBats": 5,
+        "hits": 2,
         "homeRuns": 0,
-        "avg": ".364",
-        "obp": ".417",
-        "slg": ".545",
-        "ops": ".962"
+        "avg": ".400",
+        "obp": ".500",
+        "slg": ".400",
+        "ops": ".900"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": {
@@ -1880,8 +1830,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.731,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.01,
+      "edge": 0.020202451802745082,
       "graded": true,
       "hr": false,
       "projectedHits": 1.12,
@@ -1890,22 +1840,33 @@
       "tbReason": "Projected for 1.4 total bases.",
       "hitsMatchupFactor": 1.043,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
       "hitsCall": null,
-      "actualHits": 2,
+      "actualHits": 0,
       "hitsHit": null,
       "predictionTBLine": null,
       "tbMarketThreshold": null,
       "tbModelProb": null,
       "tbCall": null,
-      "actualTotalBases": 2,
+      "actualTotalBases": 0,
       "tbHit": null,
       "openingProb": 0.04,
+      "priceDelta": -0.03,
+      "marketBid": 0.0,
+      "marketAsk": 0.01,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
+        {
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Guardians just one part of huge weekend for Ohio sports",
           "link": "https://www.mlb.com/news/guardians-browns-and-buckeyes-all-play-in-big-ohio-sports-weekend",
@@ -1921,7 +1882,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 9,
-      "heuristicProb": 0.02678046174535462,
+      "heuristicProb": 0.027212527513660403,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": {
@@ -1934,7 +1895,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7301370606473478,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.3872180451127818
       },
       "savant": {
@@ -1983,8 +1944,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.607,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.13,
+      "edge": -0.1027874724863396,
       "graded": true,
       "hr": false,
       "projectedHits": 0.67,
@@ -1993,8 +1954,8 @@
       "tbReason": "Projected for 0.9 total bases.",
       "hitsMatchupFactor": 0.957,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": 0.5,
       "hitsMarketThreshold": 1,
       "hitsModelProb": 0.5074191170744091,
@@ -2010,103 +1971,46 @@
       "openingProb": 0.04,
       "hitsCallFrozenAt": "2026-10-18T11:10:19.964427",
       "prizePicksHitsLine": 0.5,
+      "priceDelta": 0.09,
+      "marketBid": 0.0,
+      "marketAsk": 0.13,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
           "source": "MLB.com"
-        }
-      ]
-    },
-    {
-      "gamePk": 849817,
-      "playerId": 680700,
-      "name": "Richie Palacios",
-      "team": "TB",
-      "opp": "CLE",
-      "order": 4,
-      "heuristicProb": 0.024556369787174202,
-      "confidence": "High",
-      "calibrationApplied": 0.9701,
-      "factorCalibrationApplied": null,
-      "reason": "An average power profile this season, tempered by cold recent form, a stingy opposing pitcher, below-average quality of contact, and a tough platoon matchup.",
-      "factors": {
-        "base": 0.10491077314254349,
-        "form": 0.6719551282051283,
-        "pitcherVuln": 0.7,
-        "powerQuality": 0.7787736151864911,
-        "park": 0.98,
-        "weather": 0.960182784,
-        "handedness": 0.7
-      },
-      "savant": {
-        "\ufeff\"player_name\"": "Palacios, Richie",
-        "player_id": "680700",
-        "year": "2026",
-        "xwoba": "29",
-        "xba": "40",
-        "xslg": "10",
-        "xiso": "9",
-        "xobp": "70",
-        "brl": "8",
-        "brl_percent": "15",
-        "exit_velocity": "9",
-        "max_ev": "25",
-        "hard_hit_percent": "8",
-        "k_percent": "76",
-        "bb_percent": "82",
-        "whiff_percent": "73",
-        "chase_percent": "31",
-        "arm_strength": "3",
-        "sprint_speed": "30",
-        "oaa": "8",
-        "bat_speed": "14",
-        "squared_up_rate": "69",
-        "swing_length": "40"
-      },
-      "vsPitcher": null,
-      "vsTeamTrend": null,
-      "vsPitcherTrend": null,
-      "oppPitcherName": "Parker Messick",
-      "veloTrend": null,
-      "streak": {
-        "type": "cold",
-        "games": 9
-      },
-      "trendL5OPS": null,
-      "trendL7OPS": null,
-      "trendL10OPS": null,
-      "seasonOPS": 0.704,
-      "marketProb": null,
-      "edge": null,
-      "graded": true,
-      "hr": false,
-      "projectedHits": 0.72,
-      "projectedTotalBases": 1.1,
-      "hitsReason": "Projected for 0.7 hits, tempered by a tough platoon matchup.",
-      "tbReason": "Projected for 1.1 total bases.",
-      "hitsMatchupFactor": 0.85,
-      "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
-      "actualHits": 0,
-      "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
-      "actualTotalBases": 0,
-      "tbHit": null,
-      "recentNews": [
+        },
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2118,7 +2022,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 7,
-      "heuristicProb": 0.023834898213540366,
+      "heuristicProb": 0.02410747941380559,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -2129,7 +2033,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7614292587377126,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 0.7
       },
       "savant": {
@@ -2170,8 +2074,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.801,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.02,
+      "edge": 0.004107479413805591,
       "graded": true,
       "hr": false,
       "projectedHits": 0.76,
@@ -2180,26 +2084,61 @@
       "tbReason": "Projected for 1.1 total bases.",
       "hitsMatchupFactor": 0.85,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
       "hitsCall": null,
-      "actualHits": 2,
+      "actualHits": 1,
       "hitsHit": null,
       "predictionTBLine": null,
       "tbMarketThreshold": null,
       "tbModelProb": null,
       "tbCall": null,
-      "actualTotalBases": 2,
+      "actualTotalBases": 1,
       "tbHit": null,
       "openingProb": 0.04,
+      "priceDelta": -0.02,
+      "marketBid": 0.0,
+      "marketAsk": 0.02,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
@@ -2211,7 +2150,7 @@
       "team": "TB",
       "opp": "CLE",
       "order": 5,
-      "heuristicProb": 0.01833419730620581,
+      "heuristicProb": 0.018543871266751027,
       "confidence": "High",
       "calibrationApplied": 0.9701,
       "factorCalibrationApplied": null,
@@ -2222,7 +2161,7 @@
         "pitcherVuln": 0.7,
         "powerQuality": 0.7154057676916402,
         "park": 0.98,
-        "weather": 0.960182784,
+        "weather": 0.971163648,
         "handedness": 1.0
       },
       "savant": {
@@ -2251,13 +2190,13 @@
         "swing_length": "3"
       },
       "vsPitcher": {
-        "atBats": 11,
-        "hits": 3,
+        "atBats": 6,
+        "hits": 1,
         "homeRuns": 0,
-        "avg": ".273",
-        "obp": ".273",
-        "slg": ".273",
-        "ops": ".546"
+        "avg": ".167",
+        "obp": ".167",
+        "slg": ".167",
+        "ops": ".334"
       },
       "vsTeamTrend": null,
       "vsPitcherTrend": null,
@@ -2271,8 +2210,8 @@
       "trendL7OPS": null,
       "trendL10OPS": null,
       "seasonOPS": 0.689,
-      "marketProb": null,
-      "edge": null,
+      "marketProb": 0.08,
+      "edge": -0.061456128733248974,
       "graded": true,
       "hr": false,
       "projectedHits": 1.14,
@@ -2281,8 +2220,8 @@
       "tbReason": "Projected for 1.4 total bases, supported by strong contact this season.",
       "hitsMatchupFactor": 0.965,
       "tbParkFactor": 0.994,
-      "hitsCalibrationApplied": -0.0164,
-      "tbCalibrationApplied": -0.0294,
+      "hitsCalibrationApplied": -0.0167,
+      "tbCalibrationApplied": -0.0298,
       "predictionHitsLine": null,
       "hitsMarketThreshold": null,
       "hitsModelProb": null,
@@ -2296,6 +2235,11 @@
       "actualTotalBases": 3,
       "tbHit": null,
       "openingProb": 0.02,
+      "priceDelta": 0.06,
+      "marketBid": 0.0,
+      "marketAsk": 0.08,
+      "edgeEligible": false,
+      "oddsUpdatedAt": "2026-10-19T00:00:19.293841",
       "recentNews": [
         {
           "title": "Gold Glove finalist nod rewards Simpson's 180 on 'D.' Here's how he did it",
@@ -2304,20 +2248,50 @@
           "source": "MLB.com"
         },
         {
-          "title": "Behind Rasmussen gem, rejuvenated Rays return home 1 win from World Series",
-          "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
-          "pubDate": "Mon, 19 Oct 2026 00:00:32 GMT",
+          "title": "LIVE on TBS/HBO Max: Rays-Guardians ALCS Game 5",
+          "link": "https://www.mlb.com/news/rays-vs-guardians-alcs-game-5-starting-lineups-and-pitching-matchup",
+          "pubDate": "Sun, 18 Oct 2026 21:00:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Here's where Rays, Guards stand as ALCS resets after Game 4",
+          "link": "https://www.mlb.com/news/takeaways-after-rays-tie-alcs-at-2-with-guardians",
+          "pubDate": "Sun, 18 Oct 2026 06:49:15 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Rays slip past Guards in Game 4 to knot up ALCS",
+          "link": "https://www.mlb.com/news/rays-win-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:55:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Three Little Ones' come up big for Rays on this night",
+          "link": "https://www.mlb.com/news/junior-caminero-yandy-diaz-jonathan-aranda-lead-rays-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:36:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "Martinez does 'a lot of Nick things' in rewarding Rays' confidence",
+          "link": "https://www.mlb.com/news/nick-martinez-allows-1-run-in-2026-alcs-game-4",
+          "pubDate": "Sun, 18 Oct 2026 05:16:00 GMT",
+          "source": "MLB.com"
+        },
+        {
+          "title": "'Just a reliever'? Peralta's two huge outs help Rays even ALCS",
+          "link": "https://www.mlb.com/news/freddy-peralta-relief-appearance-rays-alcs-game-4-2026",
+          "pubDate": "Sun, 18 Oct 2026 06:30:00 GMT",
           "source": "MLB.com"
         }
       ]
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-19T00:10:08.223833",
+  "oddsRefreshedAt": "2026-10-19T00:11:02.813793",
   "statcastSpotlight": {
     "name": "Chase DeLauter",
     "team": "CLE",
-    "heuristicProb": 0.11034322035947189,
+    "heuristicProb": 0.11173092843161475,
     "exitVelo": 111.1,
     "launchAngle": 24.0,
     "distance": 422.0,
@@ -2333,7 +2307,7 @@
     "usedFallback": true,
     "batter": {
       "name": "Junior Caminero",
-      "heuristicProb": 0.08228925980040354
+      "heuristicProb": 0.08323033808839843
     },
     "batterKind": "hrThreat"
   },
