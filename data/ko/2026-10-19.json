@@ -1,6 +1,6 @@
 {
   "date": "2026-10-19",
-  "generatedAt": "2026-10-19T11:07:43.715088",
+  "generatedAt": "2026-10-19T15:07:41.278902",
   "entries": [
     {
       "gamePk": 849815,
@@ -292,13 +292,21 @@
       "actualOuts": null,
       "outsHit": null,
       "openingProb": 0.425,
-      "openingThreshold": 5,
-      "priceDelta": -0.010000000000000009,
-      "marketBid": 0.41,
-      "marketAsk": 0.42,
-      "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-19T11:10:16.834087",
+      "prizePicksOpeningLine": 4.0,
+      "prizePicksOutsOpeningLine": 13.5,
+      "prizePicksCall": "UNDER",
+      "prizePicksCallFrozenAt": "2026-10-19T11:10:16.834306",
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-19T13:20:23.044309",
+      "prizePicksKLine": 4.0,
+      "prizePicksOutsLine": 13.5,
       "recentNews": [
+        {
+          "title": "What Mets learned from Peralta's disappointing tenure -- and his rebound with Rays",
+          "link": "https://www.mlb.com/news/what-went-wrong-during-freddy-peralta-s-mets-tenure",
+          "pubDate": "Mon, 19 Oct 2026 13:58:00 GMT",
+          "source": "MLB.com"
+        },
         {
           "title": "Confident Rays quiet Cleveland, return home one win from World Series",
           "link": "https://www.mlb.com/news/rays-win-alcs-game-5-2026",
@@ -335,56 +343,126 @@
           "pubDate": "Mon, 19 Oct 2026 02:01:40 GMT",
           "source": "MLB.com"
         }
-      ],
-      "prizePicksOpeningLine": 4.0,
-      "prizePicksLineDelta": 0.0,
-      "prizePicksKLine": 4.0,
-      "prizePicksCall": "UNDER",
-      "prizePicksCallFrozenAt": "2026-10-19T11:10:16.834306",
-      "conditionalHitRateBreakdown": [
+      ]
+    },
+    {
+      "gamePk": 849815,
+      "playerId": 542888,
+      "name": "Shawn Armstrong",
+      "team": "CLE",
+      "opp": "TB",
+      "oppTeamId": 139,
+      "vsTeamTrend": null,
+      "vsBatterTrend": {
+        "atBats": 8,
+        "hits": 5,
+        "homeRuns": 1,
+        "avg": ".625",
+        "ops": "1.750",
+        "direction": "batter",
+        "timeframe": "career",
+        "batterName": "Cedric Mullins"
+      },
+      "firstMeetingThisSeason": false,
+      "hand": "R",
+      "seasonRecord": "2-1",
+      "era": "4.58",
+      "seasonK9": 8.586734693877549,
+      "recentK9": 7.262448979591836,
+      "oppK": 18.75204716672126,
+      "matchupFactor": 0.945611304326261,
+      "stuffFactor": 1.0,
+      "recentMatchupApplied": {
+        "factor": 1.049,
+        "gamesFound": 30,
+        "vsHand": "R"
+      },
+      "expectedIP": 3.5,
+      "projectedK": 2.897332355681843,
+      "confidence": "High",
+      "reason": "Strong strikeout stuff this season, tempered by trending down in recent starts and a short-outing workload expectation.",
+      "calibrationApplied": -0.1602,
+      "recentStartsLog": [
         {
-          "minPitches": "60",
-          "hits": 19,
-          "total": 32
+          "k": 0,
+          "ip": 0.3333333333333333,
+          "bb": 0,
+          "battersFaced": 1.0
         },
         {
-          "minPitches": "70",
-          "hits": 19,
-          "total": 32
+          "k": 0,
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 4.0
         },
         {
-          "minPitches": "80",
-          "hits": 18,
-          "total": 29
+          "k": 1,
+          "ip": 1,
+          "bb": 0,
+          "battersFaced": 3.0
         }
       ],
-      "prizePicksOutsOpeningLine": 13.5,
-      "prizePicksOutsLineDelta": 0.0,
-      "prizePicksOutsLine": 13.5,
-      "outsCall": "OVER",
-      "outsCallFrozenAt": "2026-10-19T13:20:23.044309",
-      "conditionalOutsHitRateBreakdown": [
+      "veloTrend": null,
+      "qualifyingStartsKByThreshold": {
+        "60": [],
+        "70": [],
+        "80": []
+      },
+      "qualifyingStartsOutsByThreshold": {
+        "60": [],
+        "70": [],
+        "80": []
+      },
+      "babipAgainst": 0.2765957446808511,
+      "workloadStreak": 0,
+      "mostRecentPitchCount": 11.0,
+      "marketThreshold": null,
+      "marketProb": null,
+      "modelProb": null,
+      "edge": null,
+      "predictionLine": null,
+      "predictionOutsLine": null,
+      "graded": false,
+      "actualK": null,
+      "hit": null,
+      "projectedOuts": 8.5,
+      "outsReason": "Projected for 8.5 outs (3.5 innings), tempered by a shorter historical leash (15 pitches/game this season), a short-outing workload pattern (3.5 IP/start), and a walk rate that tends to spike pitch counts (12.3% BB).",
+      "npPerGame": 15.317073170731707,
+      "pitchesPerIP": 17.773584905660375,
+      "bbPct": 12.337662337662337,
+      "kBBPct": 9.740259740259742,
+      "rollingKBBPct": 12.5,
+      "parkFactor": 0.93,
+      "weatherFactor": 1.0,
+      "outsCalibrationApplied": -0.5022,
+      "bullpenFatigue": null,
+      "outsMarketThreshold": null,
+      "outsMarketProb": null,
+      "outsModelProb": null,
+      "outsEdge": null,
+      "actualOuts": null,
+      "outsHit": null,
+      "recentNews": [
         {
-          "minPitches": "60",
-          "hits": 27,
-          "total": 32
+          "title": "Guardians facing elimination, and they'll need a revised pitching plan to avoid it",
+          "link": "https://www.mlb.com/news/parker-messick-two-innings-guardians-game-5-alcs",
+          "pubDate": "Mon, 19 Oct 2026 02:24:00 GMT",
+          "source": "MLB.com"
         },
         {
-          "minPitches": "70",
-          "hits": 27,
-          "total": 32
-        },
-        {
-          "minPitches": "80",
-          "hits": 25,
-          "total": 29
+          "title": "Guardians-Rays ALCS Game 6 FAQ (8 ET on TBS/HBO Max)",
+          "link": "https://www.mlb.com/news/guardians-vs-rays-alcs-game-6-starting-lineups-pitching-matchup",
+          "pubDate": "Mon, 19 Oct 2026 02:01:40 GMT",
+          "source": "MLB.com"
         }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-19T11:07:43.715088",
-  "oddsRefreshedAt": "2026-10-19T15:00:21.181681",
+  "oddsRefreshedAt": "2026-10-19T15:07:57.870706",
+  "_kalshiMatched": 1,
+  "_kalshiTotal": 2,
   "lockedBest5": {
     "kEdge": [
       {
