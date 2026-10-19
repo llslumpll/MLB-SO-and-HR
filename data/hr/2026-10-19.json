@@ -292,10 +292,10 @@
       "hitsCall": null,
       "actualHits": null,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.6903567695468842,
+      "tbCall": "OVER",
       "actualTotalBases": null,
       "tbHit": null,
       "recentNews": [
@@ -311,7 +311,11 @@
           "pubDate": "Mon, 19 Oct 2026 02:01:40 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-19T12:40:16.608681"
     },
     {
       "gamePk": 849815,
@@ -401,7 +405,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-19T12:30:17.808762",
+      "oddsUpdatedAt": "2026-10-19T12:40:16.608411",
       "recentNews": [
         {
           "title": "Confident Rays quiet Cleveland, return home one win from World Series",
@@ -773,7 +777,7 @@
       "marketBid": 0.04,
       "marketAsk": 0.06,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-19T12:30:17.808762",
+      "oddsUpdatedAt": "2026-10-19T12:40:16.608411",
       "recentNews": [
         {
           "title": "Guardians facing elimination, and they'll need a revised pitching plan to avoid it",
@@ -1207,7 +1211,7 @@
       "marketBid": 0.11,
       "marketAsk": 0.12,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-19T12:30:17.808762",
+      "oddsUpdatedAt": "2026-10-19T12:40:16.608411",
       "recentNews": [
         {
           "title": "Guardians facing elimination, and they'll need a revised pitching plan to avoid it",
@@ -2080,7 +2084,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-19T12:30:17.808762",
+  "oddsRefreshedAt": "2026-10-19T12:40:16.608411",
   "statcastSpotlight": {
     "name": "Patrick Bailey",
     "team": "CLE",
