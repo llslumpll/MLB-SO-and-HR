@@ -1425,10 +1425,10 @@
       "tbParkFactor": 0.979,
       "hitsCalibrationApplied": -0.0164,
       "tbCalibrationApplied": -0.0296,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.6226206906237602,
+      "hitsCall": "OVER",
       "actualHits": 0,
       "hitsHit": null,
       "predictionTBLine": 0.5,
@@ -1470,7 +1470,13 @@
           "pubDate": "Sun, 25 Oct 2026 05:42:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-27T03:20:19.449036",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 849804,
@@ -1970,7 +1976,11 @@
           "pubDate": "Sat, 24 Oct 2026 21:52:48 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0
     },
     {
       "gamePk": 849804,
@@ -2043,16 +2053,16 @@
       "tbParkFactor": 0.979,
       "hitsCalibrationApplied": -0.0164,
       "tbCalibrationApplied": -0.0296,
-      "predictionHitsLine": null,
-      "hitsMarketThreshold": null,
-      "hitsModelProb": null,
-      "hitsCall": null,
+      "predictionHitsLine": 0.5,
+      "hitsMarketThreshold": 1,
+      "hitsModelProb": 0.49417969351522745,
+      "hitsCall": "UNDER",
       "actualHits": 1,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 0.5,
+      "tbMarketThreshold": 1,
+      "tbModelProb": 0.5863430751705498,
+      "tbCall": "OVER",
       "actualTotalBases": 2,
       "tbHit": null,
       "openingProb": 0.034999999999999996,
@@ -2092,7 +2102,15 @@
           "pubDate": "Sat, 24 Oct 2026 21:52:48 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksHitsOpeningLine": 0.5,
+      "prizePicksHitsLineDelta": 0.0,
+      "prizePicksHitsLine": 0.5,
+      "hitsCallFrozenAt": "2026-10-27T03:20:19.449150",
+      "prizePicksTBOpeningLine": 0.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 0.5,
+      "tbCallFrozenAt": "2026-10-27T03:20:19.449371"
     },
     {
       "gamePk": 849804,
@@ -2231,7 +2249,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-27T03:10:19.241417",
+  "oddsRefreshedAt": "2026-10-27T03:20:19.448500",
   "statcastSpotlight": {
     "name": "Jackson Chourio",
     "team": "MIL",
