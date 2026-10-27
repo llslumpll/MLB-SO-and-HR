@@ -181,9 +181,9 @@
       "workloadStreak": 12,
       "mostRecentPitchCount": 87.0,
       "marketThreshold": 4,
-      "marketProb": 0.42,
+      "marketProb": null,
       "modelProb": 0.5969195674075386,
-      "edge": 0.1769195674075386,
+      "edge": null,
       "predictionLine": 3.5,
       "predictionOutsLine": 12.5,
       "graded": true,
@@ -206,7 +206,7 @@
       "outsEdge": null,
       "actualOuts": 18,
       "outsHit": true,
-      "openingProb": 0.415,
+      "openingProb": null,
       "prizePicksOpeningLine": 3.5,
       "prizePicksOutsOpeningLine": 12.5,
       "prizePicksCall": "OVER",
@@ -252,7 +252,12 @@
           "pubDate": "Sat, 24 Oct 2026 21:52:48 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": null,
+      "priceDelta": null,
+      "marketBid": null,
+      "marketAsk": null,
+      "edgeEligible": false
     },
     {
       "gamePk": 849804,
@@ -518,9 +523,9 @@
       "workloadStreak": 32,
       "mostRecentPitchCount": 93.0,
       "marketThreshold": 5,
-      "marketProb": 0.48,
+      "marketProb": null,
       "modelProb": 0.48387252712127177,
-      "edge": 0.003872527121271785,
+      "edge": null,
       "predictionLine": 4.5,
       "predictionOutsLine": null,
       "graded": true,
@@ -543,7 +548,7 @@
       "outsEdge": null,
       "actualOuts": 14,
       "outsHit": null,
-      "openingProb": 0.525,
+      "openingProb": null,
       "prizePicksOpeningLine": 4.5,
       "prizePicksCall": "UNDER",
       "prizePicksCallFrozenAt": "2026-10-26T11:10:18.052924",
@@ -573,12 +578,17 @@
           "pubDate": "Sun, 25 Oct 2026 05:42:00 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "openingThreshold": null,
+      "priceDelta": null,
+      "marketBid": null,
+      "marketAsk": null,
+      "edgeEligible": false
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-26T11:08:09.380976",
-  "oddsRefreshedAt": "2026-10-27T03:30:17.835374",
+  "oddsRefreshedAt": "2026-10-27T03:40:17.419780",
   "lockedBest5": {
     "kEdge": [
       {
