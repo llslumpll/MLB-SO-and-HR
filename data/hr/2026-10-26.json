@@ -79,10 +79,10 @@
       "hitsCall": null,
       "actualHits": 4,
       "hitsHit": null,
-      "predictionTBLine": null,
-      "tbMarketThreshold": null,
-      "tbModelProb": null,
-      "tbCall": null,
+      "predictionTBLine": 1.5,
+      "tbMarketThreshold": 2,
+      "tbModelProb": 0.5252017446635295,
+      "tbCall": "OVER",
       "actualTotalBases": 5,
       "tbHit": null,
       "openingProb": 0.15000000000000002,
@@ -122,7 +122,11 @@
           "pubDate": "Sat, 24 Oct 2026 21:52:48 GMT",
           "source": "MLB.com"
         }
-      ]
+      ],
+      "prizePicksTBOpeningLine": 1.5,
+      "prizePicksTBLineDelta": 0.0,
+      "prizePicksTBLine": 1.5,
+      "tbCallFrozenAt": "2026-10-27T03:30:17.833187"
     },
     {
       "gamePk": 849804,
@@ -2249,7 +2253,7 @@
     }
   ],
   "gamesScheduled": true,
-  "oddsRefreshedAt": "2026-10-27T03:20:19.448500",
+  "oddsRefreshedAt": "2026-10-27T03:30:17.832629",
   "statcastSpotlight": {
     "name": "Jackson Chourio",
     "team": "MIL",
