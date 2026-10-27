@@ -147,10 +147,10 @@
       "mostRecentPitchCount": 52.0,
       "marketThreshold": 4,
       "marketProb": 0.505,
-      "modelProb": 0.7413973427251549,
-      "edge": 0.2363973427251549,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.6322374643448399,
+      "edge": 0.12723746434483985,
+      "predictionLine": 3.5,
+      "predictionOutsLine": 11.0,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -165,9 +165,9 @@
       "weatherFactor": 1.0,
       "outsCalibrationApplied": -0.4986,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 12,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.5317513995811955,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -177,7 +177,7 @@
       "marketBid": 0.5,
       "marketAsk": 0.51,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-27T11:08:20.653370",
+      "oddsUpdatedAt": "2026-10-27T11:10:17.166920",
       "recentNews": [
         {
           "title": "After two 1-run losses, blowout at Trop puts Rays' season on brink",
@@ -203,14 +203,56 @@
           "pubDate": "Tue, 27 Oct 2026 05:24:24 GMT",
           "source": "MLB.com"
         }
+      ],
+      "prizePicksOpeningLine": 3.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 3.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-27T11:10:17.167032",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 14,
+          "total": 18
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 9
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 6
+        }
+      ],
+      "prizePicksOutsOpeningLine": 11.0,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 11.0,
+      "outsCall": "OVER",
+      "outsCallFrozenAt": "2026-10-27T11:10:17.167148",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 17,
+          "total": 18
+        },
+        {
+          "minPitches": "70",
+          "hits": 9,
+          "total": 9
+        },
+        {
+          "minPitches": "80",
+          "hits": 6,
+          "total": 6
+        }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-27T11:07:53.995944",
-  "oddsRefreshedAt": "2026-10-27T11:08:20.653370",
-  "_kalshiMatched": 1,
-  "_kalshiTotal": 1,
+  "oddsRefreshedAt": "2026-10-27T11:10:17.166920",
   "lockedBest5": {
     "kEdge": [
       {
