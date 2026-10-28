@@ -234,10 +234,10 @@
       "mostRecentPitchCount": 68.0,
       "marketThreshold": 6,
       "marketProb": 0.505,
-      "modelProb": 0.854597093364934,
-      "edge": 0.34959709336493394,
-      "predictionLine": null,
-      "predictionOutsLine": null,
+      "modelProb": 0.6952766193160691,
+      "edge": 0.1902766193160691,
+      "predictionLine": 5.5,
+      "predictionOutsLine": 15.5,
       "graded": false,
       "actualK": null,
       "hit": null,
@@ -252,9 +252,9 @@
       "weatherFactor": 1.0,
       "outsCalibrationApplied": -0.4916,
       "bullpenFatigue": null,
-      "outsMarketThreshold": null,
+      "outsMarketThreshold": 16,
       "outsMarketProb": null,
-      "outsModelProb": null,
+      "outsModelProb": 0.41099506410202713,
       "outsEdge": null,
       "actualOuts": null,
       "outsHit": null,
@@ -264,7 +264,7 @@
       "marketBid": 0.49,
       "marketAsk": 0.52,
       "edgeEligible": true,
-      "oddsUpdatedAt": "2026-10-28T11:08:03.730892",
+      "oddsUpdatedAt": "2026-10-28T11:10:18.695587",
       "recentNews": [
         {
           "title": "Costly errors sink Brewers, but they hope Miz can provide title-winning bounceback",
@@ -284,14 +284,56 @@
           "pubDate": "Wed, 28 Oct 2026 04:59:00 GMT",
           "source": "MLB.com"
         }
+      ],
+      "prizePicksOpeningLine": 5.5,
+      "prizePicksLineDelta": 0.0,
+      "prizePicksKLine": 5.5,
+      "prizePicksCall": "OVER",
+      "prizePicksCallFrozenAt": "2026-10-28T11:10:18.695779",
+      "conditionalHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 26,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 25,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 24,
+          "total": 25
+        }
+      ],
+      "prizePicksOutsOpeningLine": 15.5,
+      "prizePicksOutsLineDelta": 0.0,
+      "prizePicksOutsLine": 15.5,
+      "outsCall": "UNDER",
+      "outsCallFrozenAt": "2026-10-28T11:10:18.695938",
+      "conditionalOutsHitRateBreakdown": [
+        {
+          "minPitches": "60",
+          "hits": 22,
+          "total": 29
+        },
+        {
+          "minPitches": "70",
+          "hits": 21,
+          "total": 27
+        },
+        {
+          "minPitches": "80",
+          "hits": 19,
+          "total": 25
+        }
       ]
     }
   ],
   "gamesScheduled": true,
   "projectionsFrozenAt": "2026-10-28T11:07:43.601389",
-  "oddsRefreshedAt": "2026-10-28T11:08:03.730892",
-  "_kalshiMatched": 1,
-  "_kalshiTotal": 1,
+  "oddsRefreshedAt": "2026-10-28T11:10:18.695587",
   "lockedBest5": {
     "kEdge": [
       {
